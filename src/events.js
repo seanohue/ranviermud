@@ -480,7 +480,7 @@ var Events = {
 						var selection = attributes[attr];
 						var done = false;
 						console.log('selection::', selection);
-						while(!done){
+						//while(!done){   // needs to go in socket
 						arg.say(selection.name.toUpperCase() + ": " + selection.help + "\n Maximum value: 10\n Current value: " + selection.value + "\nPlease input the number of points you would like to assign to " + selection.name + " or type 'done' to head back to the attributes menu.");
 
 						//user inputs points or types done...
@@ -529,7 +529,7 @@ var Events = {
 							}
 
 						});
-					}
+					//}
 					//cache the results here somehow -- have an empty attr object made before the switch statement
 					return repeat();
 				});
