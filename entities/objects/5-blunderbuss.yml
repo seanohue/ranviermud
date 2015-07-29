@@ -1,0 +1,17 @@
+- &blunderbuss
+    vnum: 5
+    short_description:
+        en: "a blunderbuss"
+        es: "a main gauche"
+    keywords:
+        en: [ "blunderbuss", "blunder", "shotgun"]
+        es: [ "gauche", "main", "dagger" ]
+    description:
+        en: "A short firearm with a fat barrel that flares out towards the end. "
+        es: "ES-A short firearm with a fat barrel that flares out towards the end.."
+    room: 14
+    behaviors: "wieldable"
+    attributes:
+        speed: 4.5
+        damage: 2-40
+    load_max: 2
