@@ -8,7 +8,6 @@
         es: [ "gauche", "main", "dagger" ]
     description:
         en: "A thick glass wine bottle. The bottom has been broken off, and jagged spikes of glass are all that is left."
-        es: "ES-A thick glass wine bottle. The bottom has been broken off, and jagged spikes of glass are all that is left."
     room: 1
     behaviors: "wieldable"
     attributes:

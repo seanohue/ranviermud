@@ -7,10 +7,8 @@
     es: ['guardia', 'defensor']
   short_description:
     en: 'a shambling revenant'
-    es: 'ES - revenant'
   description:
     en: 'The mindless shell of a former human, its mind erased by the psionic apocalypse.'
-    es: 'ES - revenant'
   behaviors: "rtcombat"
   attributes:
     max_health: 60
@@ -31,10 +29,8 @@
     es: ['guardia', 'defensor']
   short_description:
     en: 'a hulking revenant'
-    es: 'ES - revenant'
   description:
     en: 'The mindless shell of a former human warrior, its mind erased by the psionic apocalypse.'
-    es: 'ES - revenant'
   behaviors: "rtcombat"
   attributes:
     max_health: 70

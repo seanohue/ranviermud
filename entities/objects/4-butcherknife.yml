@@ -8,7 +8,6 @@
         es: [ "gauche", "main", "dagger" ]
     description:
         en: "A lengthy cleaver. Though its blade has been dulled and chipped, it is still sharp enough to hack through flesh and sinew."
-        es: "ES-A lengthy cleaver. Though its blade has been dulled and chipped, it is still sharp enough to hack through flesh and sinew."
     room: 11
     behaviors: "wieldable"
     attributes:
