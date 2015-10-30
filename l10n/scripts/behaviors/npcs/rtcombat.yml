@@ -3,7 +3,7 @@ WIN:
   fr: "<bold><green>$[1] est mort!</green></bold>"
 LOSE:
   en: "<bold><red>You were killed by $[1]</red></bold>"
-  fr: "ES-<bold><red>Tu as été tué par $[1]</red></bold>"
+  fr: "<bold><red>Tu as été tué par $[1]</red></bold>"
 DAMAGE_DONE:
   en: "<green>You deal $[2] damage to $[1]</green>"
   fr: "<green>Tu infliges $[2] de dégat sur $[1]</green>"

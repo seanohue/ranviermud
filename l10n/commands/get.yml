@@ -9,4 +9,4 @@ ITEM_NOT_FOUND:
     fr: "Tu ne vois pas ca là"
 ITEM_PICKUP:
     en: "You pick up $[1]."
-    fr: "Tu porte [$1]."
+    fr: "Tu porte $[1]."

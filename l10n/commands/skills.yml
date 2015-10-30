@@ -3,5 +3,5 @@ SKILL_DESC:
     fr: "Description: $[1]"
 SKILL_COOLDOWN:
     en: "Cooldown: <magenta>$[1]</magenta>"
-    fr: "Cooldown: FR<magenta>$[1]</magenta>"
+    fr: "Cooldown: <magenta>$[1]</magenta>"
 
