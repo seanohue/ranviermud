@@ -250,7 +250,7 @@ var Npc = function (config)
 	{
 		return typeof self.description === 'string' ?
 			self.description :
-			(locale in self.description ? self.description[locale] : 'UNTRANSLATED - Contact an admin');
+			(locale in self.description ? self.description[locale] : self.description['en']);
 	};
 
 	/**
@@ -262,7 +262,7 @@ var Npc = function (config)
 	{
 		return typeof self.short_description === 'string' ?
 			self.short_description :
-			(locale in self.short_description ? self.short_description[locale] : 'UNTRANSLATED - Contact an admin');
+			(locale in self.short_description ? self.short_description[locale] : self.description['en']);
 	}
 
 	/**
@@ -274,7 +274,7 @@ var Npc = function (config)
 	{
 		return Array.isArray(self.keywords) ?
 			self.keywords :
-			(locale in self.keywords ? self.keywords[locale] : 'UNTRANSLATED - Contact an admin');
+			(locale in self.keywords ? self.keywords[locale] : self.keywords['en']);
 	}
 
 	/**

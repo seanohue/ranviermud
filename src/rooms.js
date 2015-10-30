@@ -187,7 +187,7 @@ var Room = function (config)
 	{
 		return typeof self.description === 'string' ?
 			self.description :
-			(locale in self.description ? self.description[locale] : 'UNTRANSLATED - Contact an admin');
+			(locale in self.description ? self.description[locale] : self.description['en']);
 	};
 
 	/**
@@ -199,7 +199,7 @@ var Room = function (config)
 	{
 		return typeof self.title === 'string' ?
 			self.title :
-			(locale in self.title ? self.title[locale] : 'UNTRANSLATED - Contact an admin');
+			(locale in self.title ? self.title[locale] : self.title['en']);
 	}
 
 	/**
@@ -212,7 +212,7 @@ var Room = function (config)
 	{
 		return typeof exit.leave_message === 'string' ?
 			self.leave_message :
-			(locale in self.leave_message ? self.leave_message[locale] : 'UNTRANSLATED - Contact an admin');
+			(locale in self.leave_message ? self.leave_message[locale] : self.title['en']);
 	};
 
 	/**
