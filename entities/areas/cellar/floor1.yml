@@ -7,8 +7,8 @@
       location: 2
       direction: 'northeast'
       leave_message:
-        en: ' sidles through the narrow passageway.'
-        es: ' sidles through the narrow passageway.'
+        en: ' slides through the narrow passageway.'
+        es: ' slides through the narrow passageway.'
 -
  title: 'A dim passageway between the goods.'
  location: 2
