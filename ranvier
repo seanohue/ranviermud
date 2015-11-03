@@ -109,8 +109,19 @@ var init = function (restart_server)
 		});
 
 		// start the server
-		server.listen(commander.port);
-
+		server.listen(commander.port).on('error', function(err) {
+			if (err.code === 'EADDRINUSE') {
+				util.log("Cannot start server on port " + commander.port + ", address is already in use.");
+				util.log("Do you have a MUD server already running?");
+			} else if (err.code === 'EACCES') {
+				util.log("Cannot start server on port " + commander.port + ": permission denied.");
+				util.log("Are you trying to start it on a priviledged port without being root?");
+			} else {
+				util.log("Failed to start MUD server:");
+				util.log(err);
+			}
+			process.exit(1);
+		});
 
 		// save every 10 minutes
 		util.log("Setting autosave to " + commander.save + " minutes.");
@@ -177,6 +188,7 @@ function load(callback)
 			items.each(function (item) {
 				if (item.getRoom()) {
 					var room = rooms.getAt(item.getRoom());
+					util.log(room);
 					if (!room.hasItem(item.getUuid())) {
 						room.addItem(item.getUuid());
 					}
@@ -192,7 +204,10 @@ function load(callback)
 				npcs.each(function (npc) {
 					if (npc.getRoom()) {
 						var room =rooms.getAt(npc.getRoom());
-						if (!room.hasNpc(npc.getUuid())) {
+						util.log(room);
+						util.log(npc);
+						if (!(room.hasNpc(npc.getUuid()))) {
+							console.log ("Success");
 							room.addNpc(npc.getUuid());
 						}
 					}
