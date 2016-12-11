@@ -19,7 +19,7 @@ const Broadcast   = require('./broadcast').Broadcast;
 
 let dualWieldCancel = null;
 
-function _initCombat(l10n, target, player, room, npcs, players, rooms, callback) {
+function _initCombat(l10n, target, player, room, npcs, players, rooms, items, callback) {
   const locale = Type.isPlayer(player) ? 'en' : 'en';
   player.setInCombat(target);
   target.setInCombat(player);
@@ -152,7 +152,7 @@ function _initCombat(l10n, target, player, room, npcs, players, rooms, callback)
     util.log('Attack energy cost for ' + attacker.getShortDesc('en') + ' is ' + energyCost);
 
     // Handle attacker fatigue
-    const slowAttacker = Type.isPlayer(attacker) && !attacker.hasEnergy(energyCost);
+    const slowAttacker = Type.isPlayer(attacker) && !attacker.hasEnergy(energyCost, items);
     if (slowAttacker) {
       attacker.addEffect('fatigued', Effects.fatigued, { attacker });
     }
@@ -379,7 +379,7 @@ function _initCombat(l10n, target, player, room, npcs, players, rooms, callback)
       );
     }
     player.prompt();
-    callback(success);
+    if (callback) { callback(success); }
   }
 
   //TODO: Extract this to combat utils.

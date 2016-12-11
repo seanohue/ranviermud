@@ -17,6 +17,7 @@ const Account     = require(src + 'accounts').Account;
 const Type        = require(src + 'type').Type;
 const Commands    = require(src + 'commands').Commands;
 const Item        = require(src + 'items').Item;
+const _           = require(src + 'helpers');
 
 const passwordAttempts = {};
 
@@ -75,7 +76,7 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => {
             return repeat();
           }
 
-          name = EventUtil.capitalize(name);
+          name = _.capitalize(name);
 
           let accountExists = Data.loadAccount(name);
 
@@ -140,6 +141,7 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => {
         break;
 
       case 'chooseChar':
+
       /*
       Player selection menu:
         * Can select existing player
@@ -213,7 +215,7 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => {
 
         options.forEach((opt, i) => {
           const num = i + 1;
-          say('<cyan>[' + num + ']</cyan> <bold>' + opt.display + '</bold>\r\n');
+          say('<cyan>[' + num + ']</cyan> <bold>' + opt.display + '</bold>\r');
         });
 
         socket.once('data', choice => {
@@ -245,6 +247,7 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => {
 
         player = new Player(socket);
         player.load(Data.loadPlayer(name));
+
         players.addPlayer(player);
 
         player.getSocket()
@@ -261,7 +264,6 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => {
             players.removePlayer(player);
           });
 
-        //TODO: Have load in player file?
         // Load the player's inventory (There's probably a better place to do this)
         let inv = [];
         player.getInventory()
@@ -276,7 +278,8 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => {
         player.checkTraining();
 
         // All that shit done, let them play!
-        player.getSocket().emit("commands", player);
+        player.getSocket()
+              .emit("commands", player);
 
         break;
     }
