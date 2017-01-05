@@ -33,7 +33,7 @@ function seeDisturbance(player, players) {
     player.emit('experience', 100, 'the violent nature of humanity.');
   }
 
-  const sanity = player.getAttribute('sanity') - 5;
+  const sanity = Math.max(0, player.getRawAttribute('sanity') - 5);
   player.setAttribute('sanity', sanity);
 
   player.sayL10n(l10n, 'DISCOMFORT');

@@ -14,12 +14,13 @@ exports.command = (rooms, items, players, npcs, Commands) => {
       if (points) {
         player.say("You may boost: ");
         attrs.forEach(a => player.say('\t' + a));
-      } else { noPoints(); }
+      } else { 
+        noPoints(); 
+      }
     };
 
     if (!args) {
-      displayBoostables();
-      return;
+      return displayBoostables();
     }
 
     if (_.has(attrs, args)) {
@@ -27,13 +28,14 @@ exports.command = (rooms, items, players, npcs, Commands) => {
         player.setAttribute('attrPoints', points - 1);
         player.setAttribute(args, player.getRawAttribute(args) + 1);
         player.say("<yellow>You boost your " + args + '.</yellow>');
-      } else { noPoints(); }
+      } else { 
+        noPoints(); 
+      }
       return;
     }
 
     player.say("You cannot boost " + args + ".");
     displayBoostables();
-    return;
 
 	};
 };
