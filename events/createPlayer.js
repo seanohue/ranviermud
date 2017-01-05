@@ -96,13 +96,11 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) =>
             say(`Let's try again...`);
             return socket.emit('createPlayer', socket, 'name');
           }
-          say('...');
           return next(socket, 'create', account, name);
         });
         break;
 
       case 'create':
-        util.log('in create step...');
         say('Creating character...');
         socket = new Player(socket);
 
@@ -116,7 +114,6 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) =>
 
         account.addCharacter(name);
         account.save();
-        util.log('out of create step...');
         next(socket, 'gender');
         break;
 

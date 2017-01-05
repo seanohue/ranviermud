@@ -18,7 +18,8 @@ exports.listeners = {
   playerDropItem: (l10n) => {
     let callback = success => { /* Do stuff here*/ };
     return function (room, rooms, player, players, npc, npcs, items) {
-      if (!player.isInCombat() && !npc.isInCombat() && !player.getEffects('charm')) {
+      const isCharming = player ? player.getEffects('charm') : false;
+      if (!player.isInCombat() && !npc.isInCombat() && !isCharming) {
         util.log(npc.getShortDesc('en') + ' is on the offensive.');
         initCombat(l10n, this, player, room, npcs, players, rooms, items, callback);
       }
@@ -28,10 +29,11 @@ exports.listeners = {
   tick: (l10n) => {
     let callback = success => { /* Do stuff here*/ };
     return function (room, rooms, player, players, npc, npcs, items) {
+
       players.eachIf(
         p => p.getLocation() === npc.getLocation(),
         p => {
-          if (!p.isInCombat() && !npc.isInCombat() && !player.getEffects('charm')) {
+          if (!p.isInCombat() && !npc.isInCombat() && !p.getEffects('charm')) {
             util.log(npc.getShortDesc('en') + ' is on the offensive.');
             initCombat(l10n, this, p, room, npcs, players, rooms, items, callback);
           }
