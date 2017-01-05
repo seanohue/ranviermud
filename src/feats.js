@@ -103,12 +103,12 @@ const Feats = {
     id: 'assense',
     description: 'You are sensitive to the auras of others.',
     activate: player => {
-      player.setAttribute('willpower',  player.getAttribute('willpower')  + 1);
-      player.setAttribute('cleverness', player.getAttribute('cleverness') + 1);
+      player.setAttribute('willpower',  player.getRawAttribute('willpower')  + 1);
+      player.setAttribute('cleverness', player.getRawAttribute('cleverness') + 1);
     },
     deactivate: player => {
-      player.setAttribute('willpower',  player.getAttribute('willpower')  - 1);
-      player.setAttribute('cleverness', player.getAttribute('cleverness') - 1);
+      player.setAttribute('willpower',  player.getRawAttribute('willpower')  - 1);
+      player.setAttribute('cleverness', player.getRawAttribute('cleverness') - 1);
     },
   },
 
