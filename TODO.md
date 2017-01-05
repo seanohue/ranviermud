@@ -7,14 +7,14 @@
 | /Users/seanohue/myProjects/ranviermud/src/combat_util.js | 259 | General combat skills?
 | /Users/seanohue/myProjects/ranviermud/src/command_util.js | 34 | Make APIs consistent and not awful.
 | /Users/seanohue/myProjects/ranviermud/src/commands.js | 36 | Extract into individual files.
-| /Users/seanohue/myProjects/ranviermud/src/commands.js | 222 | invis
-| /Users/seanohue/myProjects/ranviermud/src/commands.js | 275 | Do the same way as above once you extract the admin commands.
+| /Users/seanohue/myProjects/ranviermud/src/commands.js | 219 | invis
+| /Users/seanohue/myProjects/ranviermud/src/commands.js | 272 | Do the same way as above once you extract the admin commands.
 | /Users/seanohue/myProjects/ranviermud/src/dialogue.js | 145 | Consider extracting these enums/consts from the main dialogue script file.
 | /Users/seanohue/myProjects/ranviermud/src/doors.js | 44 | Refactor to use the bound functions in external code.
 | /Users/seanohue/myProjects/ranviermud/src/events.js | 24 | Deprecate this if possible.
 | /Users/seanohue/myProjects/ranviermud/src/events.js | 82 | Extract stuff like this into Data module as util funcs.
 | /Users/seanohue/myProjects/ranviermud/src/examine.js | 18 | Change command so that it can work on any item, npc, or room by emitting.
-| /Users/seanohue/myProjects/ranviermud/src/feats.js | 457 | Use an event emitter instead.
+| /Users/seanohue/myProjects/ranviermud/src/feats.js | 459 | Use an event emitter instead.
 | /Users/seanohue/myProjects/ranviermud/src/help_files.js | 52 | Dynamically pull in list of admins
 | /Users/seanohue/myProjects/ranviermud/src/item_util.js | 114 | Use EventEmitters to emit a critical hit event for the item, so each item can have special crit effects.
 | /Users/seanohue/myProjects/ranviermud/src/item_util.js | 125 | Improve... if the damage is over the weapon's normal max damage it should be considered a crit...
@@ -54,8 +54,6 @@
 | /Users/seanohue/myProjects/ranviermud/scripts/npcs/5-feline.js | 60 | Extract to dialogue or level utils?
 | /Users/seanohue/myProjects/ranviermud/scripts/npcs/5-feline.js | 217 | Lower reputation with cat. Use emitter to handle this. Use a behavior file.
 | /Users/seanohue/myProjects/ranviermud/scripts/npcs/5-feline.js | 258 | Extract this to some kind of combat messaging helper?
-| /Users/seanohue/myProjects/ranviermud/scripts/objects/1-shiv.js | 9 | Update to account for prereqs
-| /Users/seanohue/myProjects/ranviermud/scripts/objects/10-chain_whip.js | 68 | Refactor by extracting to functions...
 | /Users/seanohue/myProjects/ranviermud/scripts/player/player.js | 3 | Refactor into individual files.
 | /Users/seanohue/myProjects/ranviermud/scripts/player/player.js | 19 | Use this for all sanity loss incidents.
 | /Users/seanohue/myProjects/ranviermud/scripts/player/player.js | 26 | Different messages for different relative amounts of sanity loss.
@@ -64,6 +62,8 @@
 | /Users/seanohue/myProjects/ranviermud/scripts/player/player.js | 147 | Permadeath, add it.
 | /Users/seanohue/myProjects/ranviermud/scripts/rooms/1.js | 11 | Now, this would be a good case for an ES6 map.
 | /Users/seanohue/myProjects/ranviermud/scripts/rooms/8.js | 6 | Redo/refactor all examine listeners.
+| /Users/seanohue/myProjects/ranviermud/scripts/objects/1-shiv.js | 9 | Update to account for prereqs
+| /Users/seanohue/myProjects/ranviermud/scripts/objects/10-chain_whip.js | 68 | Refactor by extracting to functions...
 | /Users/seanohue/myProjects/ranviermud/commands/drop.js | 11 | Does this handle dropping a container with items in it?
 | /Users/seanohue/myProjects/ranviermud/commands/help.js | 41 | Extract this (its also used in commands)
 | /Users/seanohue/myProjects/ranviermud/commands/look.js | 19 | Test and refactor.

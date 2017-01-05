@@ -266,11 +266,13 @@ const Feats = {
         }
 
         const targetHealth = target.getAttribute('health');
+        const rawHealth    = target.getRawAttribute('health');
         const siphoned     = Math.min(targetHealth / 10, player.getAttribute('level') * 5);
-        target.setAttribute('health', targetHealth - siphoned);
+        target.setAttribute('health', rawHealth - siphoned);
 
         const healed = Math.min(player.getAttribute('max_health'),
-                                player.getAttribute('health') + siphoned);
+                                player.getRawAttribute('max_health'),
+                                player.getRawAttribute('health') + siphoned);
 
         player.setAttribute('health', healed);
         deductSanity(player, siphoned);
