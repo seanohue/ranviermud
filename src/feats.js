@@ -32,7 +32,7 @@ const Feats = {
     name: "Leatherskin",
     id: "leatherskin",
     description: "Your skin has become tougher, and you are better able to take physical damage.",
-    activate: player => {
+    activate(player) {
 
       const level = player.getAttribute('level');
       const bonus = Math.min(Math.ceil(level / 4), 5);
@@ -67,7 +67,7 @@ const Feats = {
     name: 'Ironskin',
     id: 'ironskin',
     description: 'Your skin hardens further, into a layer of heavy metallic chitin.',
-    activate: player => {
+    activate(player) {
 
       const level = player.getAttribute('level');
       const bonus = Math.min(Math.ceil(level / 2), 15);
@@ -102,11 +102,11 @@ const Feats = {
     name: 'Assense Auras',
     id: 'assense',
     description: 'You are sensitive to the auras of others.',
-    activate: player => {
+    activate(player) {
       player.setAttribute('willpower',  player.getRawAttribute('willpower')  + 1);
       player.setAttribute('cleverness', player.getRawAttribute('cleverness') + 1);
     },
-    deactivate: player => {
+    deactivate(player) {
       player.setAttribute('willpower',  player.getRawAttribute('willpower')  - 1);
       player.setAttribute('cleverness', player.getRawAttribute('cleverness') - 1);
     },
@@ -125,7 +125,7 @@ const Feats = {
     name: 'Charm',
     id: 'charm',
     description: 'You are able to calm violent creatures and stop them from attacking you.',
-    activate: (player, args, rooms, npcs, players) => {
+    activate(player, args, rooms, npcs, players) {
 
       const charming    = player.getEffects('charm');
       const coolingDown = target.getEffects('charm cooldown');
@@ -144,8 +144,8 @@ const Feats = {
         
         duration, bonus,
         
-        deactivate: () => player.warn('You are no longer radiating calm and peace.'),
-        activate:   () => {
+        deactivate() { player.warn('You are no longer radiating calm and peace.'); },
+        activate() {
           const cost = Math.max(Math.ceil(player.getAttribute('cleverness') / 2), 2);
           player.say('<magenta>You radiate a calming, peaceful aura.</magenta>');
           player.addEffect('charm cooldown', {
@@ -168,7 +168,7 @@ const Feats = {
     id: 'stun',
     name: 'Stun',
     description: 'Use your will to temporarily daze an opponent, slowing their reaction time.',
-    activate: (player, args, rooms, npcs, players) => {
+    activate(player, args, rooms, npcs, players) {
       const combatants = player.getInCombat();
       const potentialTargets = combatants.length === 1 ?
         combatants :
@@ -202,7 +202,7 @@ const Feats = {
         factor,
         type: 'stun',
         
-        activate: () => {
+        activate() {
           player.say(`<magenta>You concentrate on stifling ${target.getShortDesc()}.</magenta>`);
           
           const sanityCost = 11 + Math.round(factor / 2);
@@ -215,7 +215,7 @@ const Feats = {
           });
         },
 
-        deactivate: () => player.warn(`Your opponent, ${target.getShortDesc()} is free of your power.`),
+        deactivate() { player.warn(`Your opponent, ${target.getShortDesc()} is free of your power.`); },
       });
     }
   },
@@ -459,7 +459,8 @@ function meetsFeatPrerequisites(player, featList) {
 //TODO: Use an event emitter instead.
 function deductSanity(player, cost) {
   cost = Math.max(cost - player.getSkills('concentration'), 0);
-  const sanityCost = Math.max(player.getAttribute('sanity') - cost, 0);
+  
+  const sanityCost = Math.max(player.getRawAttribute('sanity') - cost, 0);
   player.setAttribute('sanity', sanityCost);
   return sanityCost;
 }

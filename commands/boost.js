@@ -2,8 +2,8 @@
 
 const _ = require('../src/helpers');
 
-exports.command = (rooms, items, players, npcs, Commands) => {
-	return (args, player) => {
+exports.command = (rooms, items, players, npcs, Commands) => 
+  (args, player) => {
     args = args.trim().toLowerCase();
     const attrs = ['stamina', 'quickness', 'cleverness', 'willpower'];
     const points = player.getAttribute('attrPoints');
@@ -38,4 +38,3 @@ exports.command = (rooms, items, players, npcs, Commands) => {
     displayBoostables();
 
 	};
-};

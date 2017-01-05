@@ -34,10 +34,12 @@ exports.command = (rooms, items, players, npcs, Commands) => {
 
 function purchaseFeat(player, feat, items) {
   if (!player.hasEnergy(5, items)) { return player.noEnergy(); }
+  
   const originalMutagens = player.getRawAttribute('mutagens');
   if (!originalMutagens || originalMutagens < feat.cost) {
     return player.say('You are not able to manifest that feat yet.');
   }
+  
   player.setAttribute('mutagens', originalMutagens - feat.cost);
 
   player.gainFeat(feat);
