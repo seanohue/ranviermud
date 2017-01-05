@@ -4,7 +4,7 @@ const initCombat = require("../../../src/rtcombat").initCombat;
 const util = require('util');
 
 exports.listeners = {
-  playerEnter: (l10n) => {
+  playerEnter(l10n) {
     let callback = success => { /* Do stuff here*/ };
     return function (room, rooms, player, players, npc, npcs, items) {
 
@@ -15,7 +15,7 @@ exports.listeners = {
     }
   },
 
-  playerDropItem: (l10n) => {
+  playerDropItem(l10n) {
     let callback = success => { /* Do stuff here*/ };
     return function (room, rooms, player, players, npc, npcs, items) {
       const isCharming = player ? player.getEffects('charm') : false;
@@ -26,7 +26,7 @@ exports.listeners = {
     }
   },
 
-  tick: (l10n) => {
+  tick(l10n) {
     let callback = success => { /* Do stuff here*/ };
     return function (room, rooms, player, players, npc, npcs, items) {
 

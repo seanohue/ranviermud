@@ -25,7 +25,7 @@ exports.command = (rooms, items, players, npcs, Commands) => {
     if (_.has(attrs, args)) {
       if (points) {
         player.setAttribute('attrPoints', points - 1);
-        player.setAttribute(args, player.getAttribute(args) + 1);
+        player.setAttribute(args, player.getRawAttribute(args) + 1);
         player.say("<yellow>You boost your " + args + '.</yellow>');
       } else { noPoints(); }
       return;
