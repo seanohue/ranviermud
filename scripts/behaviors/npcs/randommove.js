@@ -1,5 +1,5 @@
 'use strict';
-const src = '../../src/';
+const src = '../../../src/';
 const { Random }           = require(src + 'random.js');
 const { chooseRandomExit } = require(src + 'pathfinding.js');
 
