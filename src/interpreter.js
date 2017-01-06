@@ -118,6 +118,14 @@ class CommandParser {
       };
     }
 
+    if (command in player.getFeats()) {
+      return {
+        type: CommandTypes.FEAT,
+        skill: command,
+        args
+      };
+    }
+
     // finally check channels
     if (command in Channels) {
       return {

@@ -26,13 +26,13 @@ let L = null;
 const commands_dir = __dirname + '/../commands/';
 
 // constants for command type
-const CommandTypes = {
-  ADMIN: 1,
-  PLAYER: 2,
-  SKILL: 3,
-  CHANNEL: 4,
-};
+const ADMIN   = Symbol();
+const PLAYER  = Symbol();
+const SKILL   = Symbol();
+const CHANNEL = Symbol();
+const FEAT    = Symbol();
 
+const CommandTypes = { ADMIN, PLAYER, SKILL, CHANNEL, FEAT };
 
 class Command {
   /**
@@ -417,11 +417,8 @@ function moveCharacter(exit, player) {
   const hasExplored = player.hasExplored(room.getLocation());
 
   // Force a re-look of the room
-<<<<<<< HEAD
-  Commands.player_commands.look(null, player, hasExplored);
-=======
+
   Commands.player_commands.look.execute(null, player);
->>>>>>> 057af1c... Fix command interpreter not... working
 
   // Trigger the playerEnter event
   // See example in scripts/npcs/1.js
