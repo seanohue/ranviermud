@@ -27,10 +27,10 @@ const commands_dir = __dirname + '/../commands/';
 
 // constants for command type
 const CommandTypes = {
-  ADMIN: 0,
-  PLAYER: 1,
-  SKILL: 2,
-  CHANNEL: 3,
+  ADMIN: 1,
+  PLAYER: 2,
+  SKILL: 3,
+  CHANNEL: 4,
 };
 
 
@@ -334,7 +334,7 @@ const Commands = {
         var cmdImport = require(commandFile) ;
 
         Commands.player_commands[commandName] = new Command(
-          typeof cmdImport.type !== undefined ? cmdImport.type : CommandTypes.PLAYER,
+          cmdImport.type || CommandTypes.PLAYER,
           commandName,
           cmdImport.command(rooms, items, players, npcs, Commands)
         );
@@ -417,7 +417,11 @@ function moveCharacter(exit, player) {
   const hasExplored = player.hasExplored(room.getLocation());
 
   // Force a re-look of the room
+<<<<<<< HEAD
   Commands.player_commands.look(null, player, hasExplored);
+=======
+  Commands.player_commands.look.execute(null, player);
+>>>>>>> 057af1c... Fix command interpreter not... working
 
   // Trigger the playerEnter event
   // See example in scripts/npcs/1.js

@@ -8,16 +8,16 @@
 const util   = require('util');
 const crypto = require('crypto');
 
-const src       = '../src/';
-const EventUtil   = require('./event_util').EventUtil;
-const Data        = require(src + 'data').Data;
-const CommandUtil = require(src + 'command_util').CommandUtil;
-const Player      = require(src + 'player').Player;
-const Account     = require(src + 'accounts').Account;
-const Type        = require(src + 'type').Type;
-const Commands    = require(src + 'commands').Commands;
-const Item        = require(src + 'items').Item;
-const _           = require(src + 'helpers');
+const src             = '../src/';
+const { EventUtil }   = require('./event_util');
+const { Data }        = require(src + 'data');
+const { CommandUtil } = require(src + 'command_util');
+const { Player }      = require(src + 'player');
+const { Account }     = require(src + 'accounts');
+const { Type }        = require(src + 'type');
+const { Commands }    = require(src + 'commands');
+const { Item }        = require(src + 'items');
+const _               = require(src + 'helpers');
 
 const passwordAttempts = {};
 
@@ -266,8 +266,11 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => {
           });
         player.setInventory(inv);
 
-        Commands.player_commands.look(null, player);
+        Commands.player_commands.look.execute(null, player);
         player.checkTraining();
+        //TODO: Code for future MOTD goes here
+
+        Commands.player_commands.look.execute(null, player);
 
         // All that shit done, let them play!
         player.getSocket()

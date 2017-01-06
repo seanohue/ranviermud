@@ -1,16 +1,7 @@
 'use strict';
 
 const src      = '../src/';
-const EventUtil   = require('./event_util').EventUtil;
-const Data        = require(src + 'data').Data;
-const CommandUtil = require(src + 'command_util').CommandUtil;
-const Player      = require(src + 'player').Player;
-const Commands    = require(src + 'commands').Commands;
-const Channels    = require(src + 'channels').Channels;
-const Skills      = require(src + 'skills').Skills;
-const Feats       = require(src + 'feats').Feats;
-
-const { Parser, InvalidCommandError } = require(src + 'interpreter');
+const { CommandParser, InvalidCommandError } = require(src + 'interpreter');
 const CommandTypes = require(src + 'commands').CommandTypes;
 
 exports.event = (players, items, rooms, npcs, accounts, l10n) => player => {
@@ -26,28 +17,32 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) => player => {
     }
 
     try {
-      const result = Parser.parse(data);
-      
+      const result = CommandParser.parse(data, player);
       if (!result) {
-        throw 'Parsing error.';
+        throw 'What?';
       }
 
       switch (result.type) {
         case CommandTypes.ADMIN:
         case CommandTypes.PLAYER:
-          return result.command.execute(result.args);
+          result.command.execute(result.args, player);
+          break;
         case CommandTypes.SKILL:
-          return player.useSkill(result.skill, player, result.args, rooms, npcs, players, items);
+          player.useSkill(result.skill, player, result.args, rooms, npcs, players, items);
+          break;
         case CommandTypes.FEAT: 
-          return player.useFeat(result.feat,  player, result.args, rooms, npcs, players, items);
+          player.useFeat(result.feat,  player, result.args, rooms, npcs, players, items);
+          break;
         case CommandTypes.CHANNEL:
-          return result.channel.use(result.args, player, players, rooms, npcs);
-      }
+          result.channel.use(result.args, player, players, rooms, npcs);
+          break;
+     }
 
     } catch (e) {
       if (e instanceof InvalidCommandError) {
         player.say('That is not a valid command');
       }
+      util.log(`Error parsing command: ${data}`);
     }
 
     player.prompt();
