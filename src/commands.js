@@ -20,8 +20,8 @@ let npcs    = null;
 let l10n       = null;
 const l10nFile = __dirname + '/../l10n/commands.yml';
 
-
-const commands_dir = __dirname + '/../commands/';
+const commandsDir      = __dirname + '/../commands/';
+const adminCommandsDir = __dirname + '/../admin_commands/'
 
 // constants for command type
 const ADMIN   = Symbol();
@@ -97,9 +97,9 @@ const Commands = {
     }),
   },
 
-  /* Admin commands.    
+  admin_commands: {
     addSkill: (rooms, items, players, npcs, Commands) =>
-      (player, args) => {
+      (args, player) => {
         const Skills = require('./skills').Skills;
         args = _.splitArgs(args);
 
@@ -114,7 +114,7 @@ const Commands = {
       },
 
     addFeat: (rooms, items, players, npcs, Commands) =>
-      (player, args) => {
+      (args, player) => {
         const Feats = require('./feats').Feats;
         args = _.splitArgs(args);
 
@@ -132,7 +132,7 @@ const Commands = {
       },
 
     debugChar: (rooms, items, players, npcs, Commands) =>
-      (player, args) => {
+      (args, player) => {
         const attrs = player.getAttributes();
         player.say("<red>ADMIN: Debug Character</red>");
 
@@ -162,7 +162,7 @@ const Commands = {
       },
 
       debugInv: (rooms, items, players, npcs, Commands) =>
-        (player, args) => {
+        (args, player) => {
           const inv = player.getInventory();
           player.warn("ITEMS:\n");
           for (let i in inv) {
@@ -208,7 +208,7 @@ const Commands = {
         },
 
     debugItems: (rooms, items, players, npcs, Commands) =>
-      (player, args) => {
+      (args, player) => {
         const allItems = items.objects;
         player.warn(`UUIDs: ${Object.keys(allItems)}`);
         player.warn(`========`);
@@ -240,7 +240,7 @@ const Commands = {
       },
 
     setAttribute: (rooms, items, players, npcs, Commands) =>
-      (player, args) => {
+      (args, player) => {
         args = _.splitArgs(args);
 
         const attributes = player.getAttributes();
@@ -261,7 +261,7 @@ const Commands = {
       },
 
     teleport: (rooms, items, players, npcs, Commands) =>
-      (player, args) => {
+      (args, player) => {
         if (!player || !player.say || !args) { return; }
         const vnum = parseInt(args, 10);
         if (isNaN(vnum)) {
@@ -276,13 +276,7 @@ const Commands = {
 
         player.say("<red>ADMIN: 404: Room not found.</red>");
 
-      },
-
-    //TODO: invis
-*/     
-
-
-  admin_commands: {
+      }
   },
 
   /**
@@ -308,10 +302,10 @@ const Commands = {
     util.log("Done");
 
     // Load external commands
-    fs.readdir(commands_dir, (err, files) => {
+    fs.readdir(commandsDir, (err, files) => {
       for (const name in files) {
         const filename = files[name];
-        const commandFile = commands_dir + filename;
+        const commandFile = commandsDir + filename;
         if (!fs.statSync(commandFile).isFile()) { continue; }
         if (!commandFile.match(/js$/)) { continue; }
 
