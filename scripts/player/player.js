@@ -28,7 +28,7 @@ exports.listeners = {
     }
   },
 
-  action: function(l10n) {
+  action() {
     let previousEncumbranceState = '';
     return function(cost, items) {
       // If there is a cost to the emitted action,
@@ -145,7 +145,7 @@ exports.listeners = {
   },
 
   //TODO: Permadeath, add it.
-  die: function(l10n) {
+  die() {
     return function() {
       const startLocation = 1;
       const playerExp = this.getAttribute('experience');
@@ -161,7 +161,7 @@ exports.listeners = {
     }
   },
 
-  deathblow: function(l10n) {
+  deathblow() {
     return function (room, attacker, defender, players, hitLocation) {
       players.eachIf(
         p => p.getLocation() === defender.getLocation() && p !== attacker,
@@ -170,7 +170,7 @@ exports.listeners = {
     }
   },
 
-  damaged: function(l10n) {
+  damaged() {
     return function(room, npc, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, npc, players);
       const messageMap = {
@@ -211,7 +211,7 @@ exports.listeners = {
     }
   },
 
-  dodge: function(l10n) {
+  dodge() {
     return function(room, npc, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, npc, players);
 
@@ -231,7 +231,7 @@ exports.listeners = {
     }
   },
 
-  hit: function(l10n) {
+  hit() {
     return function (room, defender, players, hitLocation, damageDealt) {
 			const toRoom = Broadcast.toRoom(room, this, null, players);
 
@@ -247,7 +247,7 @@ exports.listeners = {
 		}
   },
 
-  missedAttack: function(l10n) {
+  missedAttack() {
     return function(room, npc, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, npc, players);
       const firstPartyMessage = [
@@ -262,7 +262,7 @@ exports.listeners = {
     }
   },
 
-  changeTime: function(l10n) {
+  changeTime() {
     return function (wasDaytime, rooms) {
       const playerIsOutside = rooms.getAt(this.getLocation()).biome === 'outdoors';
 

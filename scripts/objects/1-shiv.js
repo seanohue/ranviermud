@@ -7,7 +7,7 @@ const util = require('util');
 exports.listeners = {
 
 	//TODO: Update to account for prereqs
-	wield: function (l10n) {
+	wield() {
 		return function (location, room, player, players) {
 			const toRoom = Broadcast.toRoom(room, player, null, players);
 
@@ -30,7 +30,7 @@ exports.listeners = {
 		}
 	},
 
-	remove: function (l10n) {
+	remove() {
 		return function (location, room, player, players) {
 			const toRoom = Broadcast.toRoom(room, player, null, players);
 
@@ -43,7 +43,7 @@ exports.listeners = {
 		}
 	},
 
-	hit: function (l10n) {
+	hit() {
 		return function (room, attacker, defender, players, hitLocation, damage) {
 			const toRoom = Broadcast.toRoom(room, attacker, null, players);
 
@@ -63,7 +63,7 @@ exports.listeners = {
 		}
 	},
 
-	parry: function(l10n) {
+	parry() {
 		return function(room, player, attacker, players) {
 			const toRoom = Broadcast.toRoom(room, player, null, players);
 

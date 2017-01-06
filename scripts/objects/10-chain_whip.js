@@ -9,7 +9,7 @@ const util = require('util');
 
 exports.listeners = {
 
-  wield: function (l10n) {
+  wield(l10n) {
     return function (location, room, player, players) {
       const toRoom = Broadcast.toRoom(room, player, null, players);
 
@@ -45,7 +45,7 @@ exports.listeners = {
     }
   },
 
-  remove: function (l10n) {
+  remove() {
     return function (location, room, player, players) {
       const toRoom = Broadcast.toRoom(room, player, null, players);
       const firstPartyMessage = [
@@ -62,7 +62,7 @@ exports.listeners = {
     }
   },
 
-  hit: function (l10n) {
+  hit() {
 		return function (room, attacker, defender, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, attacker, null, players);
       // TODO: Refactor by extracting to functions...
