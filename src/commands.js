@@ -20,8 +20,6 @@ let npcs    = null;
 let l10n       = null;
 const l10nFile = __dirname + '/../l10n/commands.yml';
 
-// shortcut for l10n.translate
-let L = null;
 
 const commands_dir = __dirname + '/../commands/';
 
@@ -311,16 +309,6 @@ const Commands = {
     l10n.setLocale("en");
     util.log("Done");
 
-    /**
-     * Hijack translate to also do coloring
-     * @param string text
-     * @param ...
-     * @return string
-     */
-    L = text => {
-      return ansi(l10n.translate.apply(null, [].slice.call(arguments)));
-    };
-
     // Load external commands
     fs.readdir(commands_dir, (err, files) => {
       for (const name in files) {
@@ -381,7 +369,7 @@ function moveCharacter(exit, player) {
 
   const room = rooms.getAt(exit.location);
   if (!room) {
-    player.sayL10n(l10n, 'LIMBO');
+    player.say(`You are in limbo. How did this happen? Please contact an administrator.`);
     return true;
   }
 
@@ -400,11 +388,11 @@ function moveCharacter(exit, player) {
       try {
         const exitLeaveMessage = exit.leave_message[p.getLocale()];
         const leaveMessage = exitLeaveMessage ?
-          player.getName() + exitLeaveMessage :
-          player.getName() + ' leaves.';
+          `${player.getName() + exitLeaveMessage}` :
+          `${player.getName()} leaves.`;
         p.say(leaveMessage);
       } catch (e) {
-        p.sayL10n(l10n, 'LEAVE', player.getName());
+        p.say(`${player.getName()} leaves.`);
         util.log(e);
       }
       p.prompt();
