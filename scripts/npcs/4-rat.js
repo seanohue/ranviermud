@@ -6,7 +6,7 @@ const util = require('util');
 
 exports.listeners = {
 
-  spawn: l10n => {
+  spawn() {
     return function (room, rooms, players) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const msg = this.getShortDesc('en') + ' crawls out from its filthy nest.';
@@ -14,7 +14,7 @@ exports.listeners = {
     }
   },
 
-  playerEnter: l10n => {
+  playerEnter() {
     return (room, rooms, player, players, npc) => {
       const rand = Random.inRange(1, 15);
       if (rand === 3) {
@@ -28,7 +28,7 @@ exports.listeners = {
     }
   },
 
-  playerDropItem: l10n  => {
+  playerDropItem() {
     return (room, rooms, player, players, npc, npcs, item) => {
       const rand = Random.inRange(1, 15);
       if (rand === 3) {
@@ -43,7 +43,7 @@ exports.listeners = {
     }
   },
 
-  hit: l10n => {
+  hit() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -62,7 +62,7 @@ exports.listeners = {
     }
   },
 
-  damaged: function(l10n) {
+  damaged() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -93,7 +93,7 @@ exports.listeners = {
     }
   },
 
-  dodge: function(l10n) {
+  dodge() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -112,7 +112,7 @@ exports.listeners = {
     }
   },
 
-  missedAttack: function(l10n) {
+  missedAttack() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -131,7 +131,7 @@ exports.listeners = {
     }
   },
 
-  npcLeave: l10n => {
+  npcLeave() {
     return function(room, rooms, players, npcs, dest) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const thirdPartyMessage = Random.fromArray([
@@ -144,7 +144,7 @@ exports.listeners = {
     }
   },
 
-  npcEnter: l10n => {
+  npcEnter() {
     return function(room, rooms, players, npcs, src) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const thirdPartyMessage = Random.fromArray([
