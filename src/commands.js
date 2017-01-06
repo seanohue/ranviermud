@@ -85,12 +85,10 @@ const Commands = {
 
       if (exits.length > 1) {
         throw 'Be more specific. Which way would you like to go?';
-        return true;
       }
 
       if (player.isInCombat()) {
         throw 'You are in the middle of a fight!';
-        return true;
       }
 
       moveCharacter(exits.pop(), player);

@@ -5,6 +5,8 @@ const Random = require('./random.js').Random;
 const Doors  = require('./doors.js').Doors;
 const util   = require('util');
 
+
+//TODO: Refactor
 module.exports = {
   chooseRandomExit,
 };
