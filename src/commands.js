@@ -98,68 +98,6 @@ const Commands = {
   },
 
   admin_commands: {
-    addSkill: (rooms, items, players, npcs, Commands) =>
-      (args, player) => {
-        const Skills = require('./skills').Skills;
-        args = _.splitArgs(args);
-
-        if (!player || !args || !args.length) { return; }
-        const skill = Skills[args[0]] ? Skills[args[0]].id : null;
-        const number = args[1] || 1;
-        if (skill) {
-          player.setSkill(skill, number);
-          player.say("<red>ADMIN: Added " + args + ".</red>");
-        } else { player.say("<red>ADMIN: No such skill.</red>"); }
-        util.log("@@Admin: " + player.getName() + " added skill:", skill);
-      },
-
-    addFeat: (rooms, items, players, npcs, Commands) =>
-      (args, player) => {
-        const Feats = require('./feats').Feats;
-        args = _.splitArgs(args);
-
-        if (!player || !args) { return; }
-
-        const feat = Feats[args[0]] ? Feats[args[0]] : null;
-
-        if (feat) {
-          player.gainFeat(feat);
-          player.say("<red>ADMIN: Added " + feat.id + ".</red>");
-        } else {
-          return player.say("<red>ADMIN: No such feat.</red>");
-        }
-        util.log("@@Admin: " + player.getName() + " added feat:", feat.name);
-      },
-
-    debugChar: (rooms, items, players, npcs, Commands) =>
-      (args, player) => {
-        const attrs = player.getAttributes();
-        player.say("<red>ADMIN: Debug Character</red>");
-
-        player.warn('ATTRIBUTES: ');
-        for (let attr in attrs) {
-          player.say(attr + ': ' + attrs[attr]);
-        }
-
-        player.warn('EFFECTS: ');
-        const effects = player.getEffects();
-        for (let [id, effect] of effects) {
-          player.say(`${id}: `);
-          player.say(`duration: ${effect.getDuration()}`);
-          player.say(`elapsed:  ${effect.getElapsed()}`);
-          player.say(`aura:     ${effect.getAura()}`);
-
-        }
-
-        player.warn('MODIFIERS: ');
-        ['speedMods', 'dodgeMods', 'damageMods', 'toHitMods'].forEach(mod => {
-          if (!Object.keys(mod).length) { return; };
-          player.warn(mod);
-          for (let modId in player[mod]) {
-            player.say(modId + ': ' + player[mod][modId]);
-          }
-        });
-      },
 
       debugInv: (rooms, items, players, npcs, Commands) =>
         (args, player) => {
