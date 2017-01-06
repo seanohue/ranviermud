@@ -2,8 +2,8 @@
 
 const _ = require('../src/helpers');
 
-exports.command = (rooms, items, players, npcs, Commands) => {
-	return (args, player) => {
+exports.command = (rooms, items, players, npcs, Commands) => 
+  (args, player) => {
     args = args.trim().toLowerCase();
     const attrs = ['stamina', 'quickness', 'cleverness', 'willpower'];
     const points = player.getAttribute('attrPoints');
@@ -14,26 +14,27 @@ exports.command = (rooms, items, players, npcs, Commands) => {
       if (points) {
         player.say("You may boost: ");
         attrs.forEach(a => player.say('\t' + a));
-      } else { noPoints(); }
+      } else { 
+        noPoints(); 
+      }
     };
 
     if (!args) {
-      displayBoostables();
-      return;
+      return displayBoostables();
     }
 
     if (_.has(attrs, args)) {
       if (points) {
         player.setAttribute('attrPoints', points - 1);
-        player.setAttribute(args, player.getAttribute(args) + 1);
+        player.setAttribute(args, player.getRawAttribute(args) + 1);
         player.say("<yellow>You boost your " + args + '.</yellow>');
-      } else { noPoints(); }
+      } else { 
+        noPoints(); 
+      }
       return;
     }
 
     player.say("You cannot boost " + args + ".");
     displayBoostables();
-    return;
 
 	};
-};

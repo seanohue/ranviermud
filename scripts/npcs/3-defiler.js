@@ -7,7 +7,7 @@ const util = require('util');
 
 exports.listeners = {
 
-  spawn: l10n => {
+  spawn() {
     return function (room, rooms, players) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const msg = this.getShortDesc('en') + ' appears from the shadows, a pulsating purple light throbbing dully from whence it came.';
@@ -25,11 +25,11 @@ exports.listeners = {
     }
   },
 
-  playerEnter: l10n => {
+  playerEnter() {
     return (room, rooms, player, players, npc) => {
       const rand = Random.inRange(1, 5);
       if (rand === 3) {
-        const msg = 'The defiler\'s maw glistens with spittle as it eyes fresh prey.';
+        const msg = `The defiler's maw glistens with spittle as it eyes fresh prey.`;
         const toRoom = Broadcast.toRoom(room, this, player, players);
         toRoom({
           secondPartyMessage: msg,
@@ -39,7 +39,7 @@ exports.listeners = {
     }
   },
 
-  playerDropItem: l10n  => {
+  playerDropItem() {
     return function(room, rooms, player, players, npc, npcs, item) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const msg = 'The defiler croaks, its tongue lolling obscenely.';
@@ -50,7 +50,7 @@ exports.listeners = {
     }
   },
 
-  hit: function(l10n) {
+  hit() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const secondPartyMessage = [
@@ -67,7 +67,7 @@ exports.listeners = {
     }
   },
 
-  damaged: function(l10n) {
+  damaged() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const spilledGuts = hitLocation === 'torso' && damage > this.getAttribute('health') - 5
@@ -92,7 +92,7 @@ exports.listeners = {
     }
   },
 
-  parry: function(l10n) {
+  parry() {
     return function(room, player, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -108,7 +108,7 @@ exports.listeners = {
     }
   },
 
-  dodge: function(l10n) {
+  dodge() {
     return function(room, player, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -126,7 +126,7 @@ exports.listeners = {
     }
   },
 
-  missedAttack: function(l10n) {
+  missedAttack() {
     return function(room, player, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -144,7 +144,7 @@ exports.listeners = {
     }
   },
 
-  npcLeave: l10n => {
+  npcLeave() {
     return function(room, rooms, players, npcs, dest) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const thirdPartyMessage = Random.fromArray([
@@ -156,7 +156,7 @@ exports.listeners = {
     }
   },
 
-  npcEnter: l10n => {
+  npcEnter() {
     return function(room, rooms, players, npcs, src) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const thirdPartyMessage = Random.fromArray([

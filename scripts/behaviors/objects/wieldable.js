@@ -6,13 +6,13 @@ const ItemUtil  = require('../../../src/item_util').ItemUtil;
 const Broadcast = require('../../../src/broadcast').Broadcast;
 
 exports.listeners = {
-  hit: function (l10n) {
+  hit(l10n) {
     return function (room, attacker, defender, players, hitLocation, damageDealt) {
       ItemUtil.checkForCrit(attacker, defender, damageDealt);
     }
   },
 
-  wield: function (l10n) {
+  wield(l10n) {
     return function (location, room, player, players) {
 			const missedPrerequisites = this.checkPrerequisites(player);
 
@@ -30,7 +30,7 @@ exports.listeners = {
     }
   },
 
-  remove: function (l10n) {
+  remove(l10n) {
     return function (location, room, player, players) {
       const toRoom = Broadcast.toRoom(room, player, null, players);
       const desc = this.getShortDesc('en');

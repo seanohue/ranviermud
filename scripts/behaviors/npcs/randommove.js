@@ -1,6 +1,7 @@
 'use strict';
-const Random = require('../../../src/random.js').Random;
-const chooseRandomExit = require('../../../src/pathfinding.js').chooseRandomExit;
+const src = '../../src/';
+const { Random }           = require(src + 'random.js');
+const { chooseRandomExit } = require(src + 'pathfinding.js');
 
 const failureRoll = 5;
 

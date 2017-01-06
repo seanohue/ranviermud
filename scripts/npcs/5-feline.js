@@ -7,7 +7,7 @@ const util = require('util');
 
 exports.listeners = {
 
-  spawn: l10n => {
+  spawn() {
     return function (room, rooms, players) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const msg = this.getShortDesc('en') + ' yawns and stretches, pulling itself up from behind the bar.';
@@ -15,7 +15,7 @@ exports.listeners = {
     }
   },
 
-  playerEnter: l10n => {
+  playerEnter() {
     return (room, rooms, player, players, npc) => {
       const rand = Random.inRange(1, 15);
       if (rand === 3) {
@@ -29,7 +29,7 @@ exports.listeners = {
     }
   },
 
-  playerDropItem: l10n  => {
+  playerDropItem() {
     return (room, rooms, player, players, npc, npcs, item) => {
       const rand = Random.inRange(1, 15);
       if (rand === 3) {
@@ -44,7 +44,7 @@ exports.listeners = {
     }
   },
 
-  playerSay: l10n => {
+  playerSay() {
     return function _talk(player, players, rooms, npcs, args) {
       const npc = this;
       const serpentsHissKeywords = [
@@ -208,7 +208,7 @@ exports.listeners = {
   },
 
 
-  playerYell: l10n => {
+  playerYell() {
     return function _respond(player, players, rooms, npcs, args) {
       const npcRoom = this.getLocation();
 
@@ -224,7 +224,7 @@ exports.listeners = {
   },
 
 
-  hit: l10n => {
+  hit() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const playerName = player.getShortDesc('en');
@@ -285,7 +285,7 @@ exports.listeners = {
     }
   },
 
-  damaged: function(l10n) {
+  damaged() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -337,7 +337,7 @@ exports.listeners = {
     }
   },
 
-  dodge: function(l10n) {
+  dodge() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -375,7 +375,7 @@ exports.listeners = {
     }
   },
 
-  introduction: function(l10n) {
+  introduction() {
     return function(player, players, room) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const playerName = player.getName();

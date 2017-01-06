@@ -8,7 +8,7 @@ exports.listeners = {
 
   //TODO: Consider modifying this to use dep injection that is more like the commands.
   // So that "globals" are injected instead of l10n at startup, then specific vars are sent via emitters.
-  spawn: l10n => {
+  spawn() {
     return function (room, rooms, players) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const msg = this.getShortDesc('en') + ' skitters out from a dark corner.';
@@ -16,7 +16,7 @@ exports.listeners = {
     }
   },
 
-  playerEnter: l10n => {
+  playerEnter() {
     return (room, rooms, player, players, npc) => {
       const rand = Random.inRange(1, 10);
       if (rand === 3) {
@@ -30,7 +30,7 @@ exports.listeners = {
     }
   },
 
-  playerDropItem: l10n => {
+  playerDropItem() {
     return function(room, rooms, player, players, npc, npcs, item) {
       const rand = Random.inRange(1, 5);
       if (rand === 3) {
@@ -45,7 +45,7 @@ exports.listeners = {
     }
   },
 
-  hit: function(l10n) {
+  hit() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
 
@@ -62,7 +62,7 @@ exports.listeners = {
 
   },
 
-  damaged: function(l10n) {
+  damaged() {
     return function(room, player, players, hitLocation, damage) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const hitInHead = hitLocation === 'head';
@@ -87,7 +87,7 @@ exports.listeners = {
     }
   },
 
-  missedAttack: function(l10n) {
+  missedAttack() {
     return function(room, player, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const secondPartyMessage = [
@@ -102,7 +102,7 @@ exports.listeners = {
     }
   },
 
-  parry: function(l10n) {
+  parry() {
     return function (room, plaer, players, hitLocation) {
       const toRoom = Broadcast.toRoom(room, this, player, players);
       const secondPartyMessage = [
@@ -115,7 +115,7 @@ exports.listeners = {
     }
   },
 
-  npcLeave: l10n => {
+  npcLeave() {
     return function(room, rooms, players, npcs, dest) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const thirdPartyMessage = Random.fromArray([
@@ -127,7 +127,7 @@ exports.listeners = {
     }
   },
 
-  npcEnter: l10n => {
+  npcEnter() {
     return function(room, rooms, players, npcs, src) {
       const toRoom = Broadcast.toRoom(room, this, null, players);
       const thirdPartyMessage = Random.fromArray([

@@ -1,11 +1,9 @@
-RANVIER v0.3.4 alpha server
-===========================
 RANVIER Alpha v0.4.1
 
 Currently testing:
 - Inventory system may still have kinks.
 - Effects system is entirely reworked so that effects persist and are more robust.
-
+- New telnet server implementation.
 
 * Please send me bug reports via Mudcoders Slack  *
 * www.mudcoders.com *

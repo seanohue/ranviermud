@@ -4,7 +4,7 @@ const ItemUtil  = require('../../../src/item_util').ItemUtil;
 
 exports.listeners = {
 
-  wear: function (l10n) {
+  wear(l10n) {
     return function (location, room, player, players) {
       const missedPrerequisites = this.checkPrerequisites(player);
 
@@ -22,7 +22,7 @@ exports.listeners = {
     };
   },
 
-  remove: function (l10n) {
+  remove(l10n) {
     return function (location, room, player, players) {
       const toRoom = Broadcast.toRoom(room, player, null, players);
       const desc = this.getShortDesc('en');
