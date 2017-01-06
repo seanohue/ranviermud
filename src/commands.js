@@ -25,17 +25,83 @@ let L = null;
 
 const commands_dir = __dirname + '/../commands/';
 
+// constants for command type
+const CommandTypes = {
+  ADMIN: 0,
+  PLAYER: 1,
+  SKILL: 2,
+  CHANNEL: 3,
+};
+
+
+class Command {
+  /**
+   * @param {number} type One of the CommandTypes constants
+   * @param {String} name Name of the command
+   * @param {Function} func Actual function to run when command is executed
+   */
+  constructor(type, name, func) {
+    this.type = type;
+    this.name = name;
+    this.func = func;
+  }
+
+  /**
+   * @param {String} args A string representing anything after the command
+   *  itself from what the user typed
+   * @param {Player} player Player that executed the command
+   * @return {*}
+   */
+  execute(args, player) {
+    return this.func(args, player);
+  }
+}
+
 /**
  * Commands a player can execute go here
  * Each command takes two arguments: a _string_ which is everything the user
  * typed after the command itself, and then the player that typed it.
  */
 const Commands = {
-  player_commands: {},
+  // Built-in player commands
+  player_commands: {
 
-  //TODO: Extract into individual files.
-  admin_commands: {
+    /**
+     * Move player in a given direction from their current room
+     * @param string exit direction they tried to go
+     * @param Player player
+     * @return boolean False if the exit is inaccessible.
+     */
+    _move: new Command(CommandTypes.PLAYER, '_move', (exit, player) => {
 
+      const room = rooms.getAt(player.getLocation());
+      if (!room) {
+        return false;
+      }
+
+      const exits = room.getExits().filter( e => e.direction.indexOf(exit) === 0);
+
+      if (!exits.length) {
+        return false;
+      }
+
+      if (exits.length > 1) {
+        throw 'Be more specific. Which way would you like to go?';
+        return true;
+      }
+
+      if (player.isInCombat()) {
+        throw 'You are in the middle of a fight!';
+        return true;
+      }
+
+      moveCharacter(exits.pop(), player);
+
+      return true;
+    }),
+  },
+
+  /* Admin commands.    
     addSkill: (rooms, items, players, npcs, Commands) =>
       (player, args) => {
         const Skills = require('./skills').Skills;
@@ -217,8 +283,11 @@ const Commands = {
       },
 
     //TODO: invis
-  },
+*/     
 
+
+  admin_commands: {
+  },
 
   /**
    * Configure the commands by using a joint players/rooms array
@@ -230,7 +299,7 @@ const Commands = {
    * }
    * @param object config
    */
-  configure: function(config) {
+  configure(config) {
 
     rooms   = config.rooms;
     players = config.players;
@@ -252,119 +321,63 @@ const Commands = {
       return ansi(l10n.translate.apply(null, [].slice.call(arguments)));
     };
 
-
     // Load external commands
-    fs.readdir(commands_dir,
-      (err, files) => {
-        for (const name in files) {
-          const filename = files[name];
-          const commandFile = commands_dir + filename;
-          if (!fs.statSync(commandFile).isFile()) { continue; }
-          if (!commandFile.match(/js$/)) { continue; }
+    fs.readdir(commands_dir, (err, files) => {
+      for (const name in files) {
+        const filename = files[name];
+        const commandFile = commands_dir + filename;
+        if (!fs.statSync(commandFile).isFile()) { continue; }
+        if (!commandFile.match(/js$/)) { continue; }
 
-          const commandName = filename.split('.')[0];
+        const commandName = filename.split('.')[0];
 
-          Commands.player_commands[commandName] = require(commandFile)
-            .command(rooms, items, players, npcs, Commands);
-        }
-      });
+        var cmdImport = require(commandFile) ;
 
-      //TODO: Do the same way as above once you extract the admin commands.
-      for (const command in Commands.admin_commands) {
-        try {
-          const needsDepsInjected = Commands.admin_commands[command].length > 2;
-          if (needsDepsInjected) {
-            const commandFunc = Commands.admin_commands[command](rooms, items, players, npcs, Commands);
-            Commands.admin_commands[command] = commandFunc;
-          }
-        } catch (e) {
-          console.log('Admin_command config error -> ', e);
-        }
+        Commands.player_commands[commandName] = new Command(
+          typeof cmdImport.type !== undefined ? cmdImport.type : CommandTypes.PLAYER,
+          commandName,
+          cmdImport.command(rooms, items, players, npcs, Commands)
+        );
       }
+    });
   },
 
-  /**
-   * Command wasn't an actual command so scan for exits in the room
-   * that have the same name as the command typed. Skills will likely
-   * follow the same structure
-   * @param string exit direction they tried to go
-   * @param Player player
-   * @return boolean False if the exit is inaccessible.
-   */
-  room_exits: (exit, player) => {
+  setLocale(locale) { l10n.setLocale(locale); },
 
-    const room = rooms.getAt(player.getLocation());
-    if (!room) {
-      return false;
-    }
+  canPlayerMove(exit, player) {
+      const room = rooms.getAt(player.getLocation());
+      if (!room) {
+        return false;
+      }
 
-    const exits = room.getExits()
-      .filter( e => {
-        let regex;
-        try {
-          regex = new RegExp("^" + exit);
-        } catch (err) {
-          util.log(player.getName() + ' entered bogus command: ', exit);
-          return false;
-        }
-        return e.direction.match(regex);
-      });
+      const exits = room.getExits().filter( e => e.direction.indexOf(exit) === 0);
 
-    if (!exits.length) {
-      return false;
-    }
+      if (!exits.length) {
+        return false;
+      }
 
-    if (exits.length > 1) {
-      player.warn(`Be more specific. Which way would you like to go?`);
+      if (exits.length > 1) {
+        return false;
+      }
+
+      if (player.isInCombat()) {
+        return false;
+      }
+
       return true;
-    }
-
-    if (player.isInCombat()) {
-      player.say(`You are in the middle of a fight! Try fleeing.`);
-      return true;
-    }
-
-    move(exits.pop(), player);
-
-    return true;
-  },
-
-  move: move,
-
-  setLocale: locale => l10n.setLocale(locale),
+  }
 };
-
-/*
- * Best be settin' aliases here, yo.
- */
-
-alias('exp', 'tnl');
-alias('take', 'get');
-alias('consider', 'appraise');
-alias('me', 'emote');
-
-
-exports.Commands = Commands;
 
 /**
  * Move helper method
- * @param object exit See the Room class for details
- * @param Player player
- * @returns bool Moved (false if the move fails)
+ * TODO: Refactor this to move any character, not just players
+ *
+ * @param {object} exit   Room.exits object
+ * @param {Player} player
+ * @return bool Moved (false if the move fails)
  */
-function move(exit, player) {
-
-  rooms
-    .getAt(player.getLocation())
-    .emit('playerLeave', player, players);
-
-  const closedDoor = !Doors.isOpen(exit);
-  const lockedDoor = Doors.isLocked(exit);
-
-  if (closedDoor && lockedDoor) {
-    Doors.useKeyToUnlock(exit.direction, player, players, rooms, items);
-    if (Doors.isLocked(exit)) { return; }
-  }
+function moveCharacter(exit, player) {
+  rooms.getAt(player.getLocation()).emit('playerLeave', player, players);
 
   const room = rooms.getAt(exit.location);
   if (!room) {
@@ -373,31 +386,30 @@ function move(exit, player) {
   }
 
   const moveCost = exit.cost ? exit.cost : 1;
-  if (!player.hasEnergy(moveCost, items)) { return player.noEnergy(); }
+  if (!player.hasEnergy(moveCost, items)) { 
+    return player.noEnergy(); 
+  }
 
   if (closedDoor) {
     Commands.player_commands.open(exit.direction, player);
   }
 
-  // Send the room leave message
-  players.eachExcept(
-    player,
-    p => {
-      if (CommandUtil.inSameRoom(p, player)) {
-        try {
-          const exitLeaveMessage = exit.leave_message[p.getLocale()];
-          const leaveMessage = exitLeaveMessage ?
-            player.getName() + exitLeaveMessage :
-            player.getName() + ' leaves.';
-          p.say(leaveMessage);
-        } catch (e) {
-          p.sayL10n(l10n, 'LEAVE', player.getName());
-          util.log(e);
-        }
-        p.prompt();
+  //TODO: Use broadcast module.
+  players.eachExcept(player, p => {
+    if (CommandUtil.inSameRoom(p, player)) {
+      try {
+        const exitLeaveMessage = exit.leave_message[p.getLocale()];
+        const leaveMessage = exitLeaveMessage ?
+          player.getName() + exitLeaveMessage :
+          player.getName() + ' leaves.';
+        p.say(leaveMessage);
+      } catch (e) {
+        p.sayL10n(l10n, 'LEAVE', player.getName());
+        util.log(e);
       }
-    });
-
+      p.prompt();
+    }
+  });
 
   player.setLocation(exit.location);
 
@@ -419,6 +431,7 @@ function move(exit, player) {
   room.emit('playerEnter', player, players, rooms);
 
   // Broadcast player entrance to new room.
+  //TODO: Use broadcast module.
   players.eachExcept(
     player,
     p => {
@@ -426,18 +439,11 @@ function move(exit, player) {
         p.say(player.getName() + ' enters.');
       }
   });
-
+  
   return true;
 
 }
 
-/**
- * Alias commands
- * @param string name   Name of the alias E.g., l for look
- * @param string target name of the command
- */
-function alias(name, target) {
-  Commands.player_commands[name] = function() {
-    Commands.player_commands[target].apply(null, [].slice.call(arguments))
-  }
-}
+exports.Command = Command,
+exports.Commands = Commands,
+exports.CommandTypes = CommandTypes
