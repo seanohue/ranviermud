@@ -2,7 +2,9 @@
 
 const _          = require('../src/helpers.js');
 const util       = require('util');
-const { Skills } = require('./skills');
+
+const { CommandTypes } = require('../src/commands.js');
+const { Skills }       = require('./skills');
 
 exports.command = (rooms, items, players, npcs, Commands) =>
   (args, player) => {
@@ -26,3 +28,5 @@ exports.command = (rooms, items, players, npcs, Commands) =>
 
     util.log("@@Admin: " + player.getName() + " added skill:", skill);
   };
+
+exports.type = CommandTypes.ADMIN;

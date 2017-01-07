@@ -3,6 +3,8 @@
 const _    = require('../src/helpers');
 const util = require('util');
 
+const { CommandTypes } = require('../src/commands.js');
+
 exports.command = (rooms, items, players, npcs, Commands) =>
   (args, player) => {
     args = _.splitArgs(args);
@@ -23,3 +25,5 @@ exports.command = (rooms, items, players, npcs, Commands) =>
 
     player.say('<red>ADMIN: No such attribute.</red>');
   };
+
+exports.type = CommandTypes.ADMIN;

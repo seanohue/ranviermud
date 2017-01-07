@@ -2,6 +2,8 @@
 
 const util = require('util');
 
+const { CommandTypes } = require('../src/commands.js');
+
 exports.command = (rooms, items, players, npcs, Commands) =>
   (args, player) => {
     const allItems = items.objects;
@@ -34,3 +36,5 @@ exports.command = (rooms, items, players, npcs, Commands) =>
     }
 
   }
+
+exports.type = CommandTypes.ADMIN;

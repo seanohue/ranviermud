@@ -1,5 +1,7 @@
 'use strict';
 
+const { CommandTypes } = require('../src/commands.js');
+
 exports.command = (rooms, items, players, npcs, Commands) =>
   (args, player) => {
     
@@ -14,9 +16,11 @@ exports.command = (rooms, items, players, npcs, Commands) =>
     if (rooms.getAt(vnum)) {
       player.setLocation(vnum);
       player.say("<red>ADMIN: You have teleported.");
-      return Commands.player_commands.look(null, player);
+      return Commands[CommandTypes.PLAYER].look(null, player);
     }
 
     player.say("<red>ADMIN: 404: Room not found.</red>");
 
   };
+
+exports.type = CommandTypes.ADMIN;

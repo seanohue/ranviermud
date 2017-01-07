@@ -2,6 +2,8 @@
 
 const util = require('util');
 
+const { CommandTypes } = require('../src/commands.js');
+
 exports.command = (rooms, items, players, npcs, Commands) =>
   (args, player) => {
     const attrs = player.getAttributes();
@@ -30,3 +32,5 @@ exports.command = (rooms, items, players, npcs, Commands) =>
       }
     });
   };
+
+exports.type = CommandTypes.ADMIN;

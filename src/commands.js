@@ -61,8 +61,8 @@ class Command {
  * typed after the command itself, and then the player that typed it.
  */
 const Commands = {
-  // Built-in player commands
-  player_commands: {
+
+  [CommandTypes.PLAYER]: {
 
     /**
      * Move player in a given direction from their current room
@@ -97,7 +97,7 @@ const Commands = {
     }),
   },
 
-  admin_commands: {},
+  [CommandTypes.ADMIN]: {},
 
   /**
    * Configure the commands by using a joint players/rooms array
@@ -122,21 +122,27 @@ const Commands = {
     util.log("Done");
 
     // Load external commands
-    fs.readdir(commandsDir, (err, files) => {
+    Commands.load(commandsDir);
+    Commands.load()
+  },
+
+  load(dir) {
+    fs.readdir(commandDir, (err, files) => {
       for (const name in files) {
         const filename = files[name];
-        const commandFile = commandsDir + filename;
+        const commandFile = commandDir + filename;
         if (!fs.statSync(commandFile).isFile()) { continue; }
         if (!commandFile.match(/js$/)) { continue; }
 
         const commandName = filename.split('.')[0];
-
-        var cmdImport = require(commandFile) ;
-
-        Commands.player_commands[commandName] = new Command(
-          cmdImport.type || CommandTypes.PLAYER,
+        const cmdImport   = require(commandFile);
+        const commandType = cmdImport.type || defaultType;
+        const commandFunc = cmdImport.command(rooms, items, players, npcs, Commands);
+ 
+        Commands[commandType][commandName] = new Command(
+          commandType,
           commandName,
-          cmdImport.command(rooms, items, players, npcs, Commands)
+          commandFunc
         );
       }
     });
