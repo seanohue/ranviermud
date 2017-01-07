@@ -1,6 +1,7 @@
 'use strict';
 
 const _          = require('../src/helpers.js');
+const util       = require('util');
 const { Skills } = require('./skills');
 
 exports.command = (rooms, items, players, npcs, Commands) =>
