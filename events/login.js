@@ -15,9 +15,10 @@ const { CommandUtil } = require(src + 'command_util');
 const { Player }      = require(src + 'player');
 const { Account }     = require(src + 'accounts');
 const { Type }        = require(src + 'type');
-const { Commands }    = require(src + 'commands');
 const { Item }        = require(src + 'items');
 const _               = require(src + 'helpers');
+const { Commands, CommandTypes } = require(src + 'commands');
+
 
 const passwordAttempts = {};
 
