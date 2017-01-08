@@ -124,20 +124,22 @@ const Commands = {
 
     // Load external commands
     Commands.load(commandsDir);
-    Commands.load()
+    Commands.load(adminCommandsDir);
+
+    util.log("Commands loaded");
   },
 
   load(dir) {
-    fs.readdir(commandDir, (err, files) => {
+    fs.readdir(dir, (err, files) => {
       for (const name in files) {
         const filename = files[name];
-        const commandFile = commandDir + filename;
+        const commandFile = dir + filename;
         if (!fs.statSync(commandFile).isFile()) { continue; }
         if (!commandFile.match(/js$/)) { continue; }
 
         const commandName = filename.split('.')[0];
         const cmdImport   = require(commandFile);
-        const commandType = cmdImport.type || defaultType;
+        const commandType = cmdImport.type || CommandTypes.PLAYER;
         const commandFunc = cmdImport.command(rooms, items, players, npcs, Commands);
  
         Commands[commandType][commandName] = new Command(
