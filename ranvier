@@ -250,7 +250,7 @@ const restart = args => serverOperation('RESTART_WARN', restartServer, args);
 /**
  * Commands that the server executable itself accepts
  */
-const server_commands = {
+const serverCommands = {
 	save,
 	/**
 	 * Hotboot, AKA do everything involved with a restart but keep players connected
@@ -336,13 +336,13 @@ process.stdin.on('data', data => {
 	data = data.trim();
 	const command = data.split(' ')[0];
 
-	if (!(command in server_commands)) {
+	if (!(command in serverCommands)) {
 		console.log("That's not a real command...");
 		return;
 	}
 
 	const args = data.split(' ').slice(1).join(' ');
 
-	server_commands[command](args);
+	serverCommands[command](args);
 });
 // vim: set syn=javascript :
