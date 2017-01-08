@@ -16,7 +16,7 @@ const { Effects }     = require('./effects');
 const { Broadcast }   = require('./broadcast');
 const statusUtils     = require('./status');
 
-const { Commands, CommandTypes } = require('./commands').Commands;
+const { Commands, CommandTypes } = require('./commands');
 
 let dualWieldCancel = null; //FIXME: Could this be a problem with multiple players in combat all at once?
 
