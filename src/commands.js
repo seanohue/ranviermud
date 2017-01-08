@@ -198,7 +198,7 @@ function moveCharacter(exit, player) {
   }
 
   if (closedDoor) {
-    Commands.player_commands.open(exit.direction, player);
+    Commands[CommandTypes.PLAYER].open(exit.direction, player);
   }
 
   //TODO: Use broadcast module.
@@ -224,8 +224,7 @@ function moveCharacter(exit, player) {
   const hasExplored = player.hasExplored(room.getLocation());
 
   // Force a re-look of the room
-
-  Commands.player_commands.look.execute(null, player);
+  Commands[CommandTypes.PLAYER].look.execute(null, player);
 
   // Trigger the playerEnter event
   // See example in scripts/npcs/1.js

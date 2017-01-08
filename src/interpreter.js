@@ -1,8 +1,10 @@
 'use strict';
 
 const { Command, Commands, CommandTypes } = require('./commands');
-const Channels = require('./channels').Channels;
-const Skills   = require('./skills').Skills;
+const { Channels } = require('./channels');
+const { Skills }   = require('./skills');
+
+const _ = require('./helpers');
 
 /**
  * Interpreter.. you guessed it, interprets command input
@@ -32,7 +34,7 @@ class CommandParser {
     if (command === 'l') {
       return {
         type: CommandTypes.PLAYER,
-        command: Commands.player_commands.look,
+        command: Commands[CommandTypes.PLAYER].look,
         args: args
       };
     }
@@ -40,28 +42,28 @@ class CommandParser {
     // Same with 'i' and inventory.
     if (command === 'i') {
       return {
-        type: CommandTypes.PLAYER,
-        command: Commands.player_commands.inventory,
-        args: args
+        type:    CommandTypes.PLAYER,
+        command: Commands[CommandTypes.PLAYER].inventory,
+        args
       };
     }
 
     if (command[0] === '@') {
       const adminCommand = command.slice(1);
-      if (adminCommand in Commands.admin_commands) {
+      if (adminCommand in Commands[CommandTypes.ADMIN]) {
         return {
-          type: CommandTypes.PLAYER,
-          command: Commands.admin_commands[adminCommand],
-          args: args
+          type:    CommandTypes.PLAYER,
+          command: Commands[CommandTypes.ADMIN][adminCommand],
+          args
         };
       }
     }
 
-    if (command in Commands.player_commands) {
+    if (command in Commands[CommandTypes.PLAYER]) {
       return {
         type: CommandTypes.PLAYER,
-        command: Commands.player_commands[command],
-        args: args
+        command: Commands[CommandTypes.PLAYER][command],
+        args
       };
     }
 
@@ -84,17 +86,17 @@ class CommandParser {
       const direction = directions[command.toLowerCase()];
       return {
         type: CommandTypes.PLAYER,
-        command: Commands.player_commands._move,
+        command: Commands[CommandTypes.PLAYER]._move,
         args: direction
       };
     }
 
     // see if they typed at least the beginning of a command and try to match
-    for (let cmd in Commands.player_commands) {
-      if (Commands.player_commands[cmd].name.indexOf(command) === 0) {
+    for (let cmd in Commands[CommandTypes.PLAYER]) {
+      if (_.has(Commands[CommandTypes.PLAYER][cmd].name), command) {
         return {
           type: CommandTypes.PLAYER,
-          command: Commands.player_commands[cmd],
+          command: Commands[CommandTypes.PLAYER][cmd],
           args
         };
       }
@@ -104,7 +106,7 @@ class CommandParser {
     if (Commands.canPlayerMove(command, player) === true) {
       return {
         type: CommandTypes.PLAYER,
-        command: Commands.player_commands._move,
+        command: Commands[CommandTypes.PLAYER]._move,
         args: command
       };
     }
@@ -138,6 +140,7 @@ class CommandParser {
     return null;
   }
 }
+
 exports.CommandParser = CommandParser;
 
 class InvalidCommandError extends Error {}
