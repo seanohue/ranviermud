@@ -1,7 +1,7 @@
 'use strict';
 
-const _    = require('../src/helpers');
 const util = require('util');
+const _    = require('../src/helpers');
 
 const { CommandTypes } = require('../src/commands.js');
 

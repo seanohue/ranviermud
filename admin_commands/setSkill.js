@@ -1,10 +1,10 @@
 'use strict';
 
-const _          = require('../src/helpers.js');
 const util       = require('util');
+const _          = require('../src/helpers.js');
 
 const { CommandTypes } = require('../src/commands.js');
-const { Skills }       = require('./skills');
+const { Skills }       = require('../src/skills');
 
 exports.command = (rooms, items, players, npcs, Commands) =>
   (args, player) => {

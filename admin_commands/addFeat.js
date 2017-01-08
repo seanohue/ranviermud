@@ -3,7 +3,7 @@
 const _         = require('../src/helpers.js');
 const util      = require('util');
 
-const { Feats }        = require('./feats');
+const { Feats }        = require('../src/feats');
 const { CommandTypes } = require('../src/commands.js');
 
 
