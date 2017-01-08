@@ -1,8 +1,10 @@
 'use strict';
 
-const src      = '../src/';
+const util = require('util');
+
+const src = '../src/';
 const { CommandParser, InvalidCommandError } = require(src + 'interpreter');
-const CommandTypes = require(src + 'commands').CommandTypes;
+const { CommandTypes } = require(src + 'commands');
 
 exports.event = (players, items, rooms, npcs, accounts, l10n) => player => {
   player.getSocket().once('data', data => {
