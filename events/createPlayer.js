@@ -16,10 +16,11 @@
 const util = require('util');
 
 const src       = '../src/';
-const EventUtil = require('./event_util').EventUtil;
-const Player    = require(src + 'player').Player;
-const Data      = require(src + 'data').Data;
-const Commands  = require(src + 'commands').Commands;
+const { EventUtil } = require('./event_util');
+const { Player }    = require(src + 'player');
+const { Data }      = require(src + 'data');
+const { Commands}  = require(src + 'commands');
+const { CommandTypes } = require('../src/commands.js');
 
 const _ = require(src + 'helpers');
 
@@ -152,7 +153,7 @@ exports.event = (players, items, rooms, npcs, accounts, l10n) =>
         // create the pfile then send them on their way
         socket.save(() => {
           players.addPlayer(socket);
-          Commands.player_commands.look.execute('', socket);
+          Commands[CommandTypes.PLAYER].look.execute('', socket);
           socket.prompt();
           socket.getSocket()
             .emit('commands', socket);

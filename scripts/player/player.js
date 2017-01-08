@@ -2,14 +2,16 @@
 
 //TODO: Refactor into individual files.
 
-const LevelUtil = require('../../src/levels').LevelUtil,
-  Skills = require('../../src/skills').Skills,
-  CommandUtil = require('../../src/command_util').CommandUtil,
-  CombatUtil = require('../../src/combat_util').CombatUtil,
-  util = require('util'),
-  Commands = require('../../src/commands').Commands,
-  Effects = require('../../src/effects').Effects,
-  Broadcast = require('../../src/broadcast').Broadcast;
+const util = require('util');
+
+const { LevelUtil }   = require('../../src/levels');
+const { Skills }      = require('../../src/skills');
+const { CommandUtil } = require('../../src/command_util');
+const { CombatUtil }  = require('../../src/combat_util');
+const { Effects }     = require('../../src/effects');
+const { Broadcast }   = require('../../src/broadcast');
+
+const { Commands, CommandTypes } = require('../../src/commands');
 
 exports.listeners = {
 
@@ -152,8 +154,8 @@ exports.listeners = {
       const experiencePenalty = playerExp - Math.ceil((playerExp * 0.10));
 
       util.log(this.getName() + ' died.');
-      Commands.player_commands.remove('all', this, true);
-      Commands.player_commands.drop('all', this, true);
+      Commands[CommandTypes.PLAYER].remove('all', this, true);
+      Commands[CommandTypes.PLAYER].drop('all', this, true);
 
       this.setLocation(startLocation);
       this.emit('regen');

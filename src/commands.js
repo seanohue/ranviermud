@@ -1,12 +1,13 @@
 'use strict';
-const util    = require('util'),
-  ansi        = require('sty').parse,
-  fs          = require('fs'),
-  CommandUtil = require('./command_util').CommandUtil,
-  l10nHelper  = require('./l10n');
+const util     = require('util');
+const { ansi } = require('sty');
+const fs       = require('fs');
+  
+const { CommandUtil } = require('./command_util');
+const { Doors }       = require('./doors');
 
-const Doors = require('./doors').Doors;
-const _     = require('./helpers');
+const l10nHelper  = require('./l10n');
+const _           = require('./helpers');
 
 // "Globals" to be specified later during config.
 let rooms   = null;
