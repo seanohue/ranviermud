@@ -19,7 +19,6 @@ const { Item }        = require(src + 'items');
 const _               = require(src + 'helpers');
 const { Commands, CommandTypes } = require(src + 'commands');
 
-
 const passwordAttempts = {};
 
 exports.event = (players, items, rooms, npcs, accounts, l10n) => {

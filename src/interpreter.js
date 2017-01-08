@@ -20,7 +20,8 @@ class CommandParser {
 
     const parts = data.split(' ');
 
-    const command = parts.shift().replace(/[^a-z]/i, '');
+    const command = parts.shift().replace(/\W+/g, '');
+    console.log(`cmd: ${command}`);
     console.log({parts});
     if (!command.length) {
       throw new InvalidCommandError();
@@ -52,7 +53,7 @@ class CommandParser {
       const adminCommand = command.slice(1);
       if (adminCommand in Commands[CommandTypes.ADMIN]) {
         return {
-          type:    CommandTypes.PLAYER,
+          type:    CommandTypes.ADMIN,
           command: Commands[CommandTypes.ADMIN][adminCommand],
           args
         };
@@ -93,7 +94,7 @@ class CommandParser {
 
     // see if they typed at least the beginning of a command and try to match
     for (let cmd in Commands[CommandTypes.PLAYER]) {
-      if (_.has(Commands[CommandTypes.PLAYER][cmd].name), command) {
+      if (_.has(Commands[CommandTypes.PLAYER][cmd].name, command)) {
         return {
           type: CommandTypes.PLAYER,
           command: Commands[CommandTypes.PLAYER][cmd],
