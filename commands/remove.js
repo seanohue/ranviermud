@@ -1,9 +1,9 @@
 'use strict';
 const util = require('util');
 
-const CommandUtil = require('../src/command_util').CommandUtil;
-const l10nFile = __dirname + '/../l10n/commands/remove.yml';
-const l10n = require('../src/l10n')(l10nFile);
+const { CommandUtil }  = require('../src/command_util');
+const { CommandTypes } = require('../src/commands.js');
+
 const _ = require('../src/helpers');
 
 exports.command = (rooms, items, players, npcs, Commands) => {
@@ -11,7 +11,9 @@ exports.command = (rooms, items, players, npcs, Commands) => {
 
     const target = _.firstWord(args);
 
-    if (target === 'all') { return Commands.player_commands.drop('all', player); }
+    if (target === 'all') { 
+      return Commands[CommandTypes.PLAYER].drop.execute('all', player); 
+      }
 
     const thing = CommandUtil.findItemInEquipment(items, target, player, true);
     

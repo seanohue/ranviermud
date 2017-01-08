@@ -1,10 +1,14 @@
 'use strict';
-const sprintf = require('sprintf').sprintf;
+
+const { sprintf }			 = require('sprintf');
+const { CommandTypes } = require('../src/commands.js');
+
+
 exports.command = (rooms, items, players, npcs, Commands) => {
 	return (args, player) => {
 		let commands = [];
 		let maxlength = 0;
-		for (let command in Commands.player_commands) {
+		for (let command in Commands[CommandTypes.PLAYER]) {
 			if (command.length > maxlength) maxlength = command.length;
 			commands.push(command);
 		}

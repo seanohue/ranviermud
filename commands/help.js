@@ -1,13 +1,14 @@
 'use strict';
-const l10nFile  = __dirname + '/../l10n/commands/help.yml';
-const l10n      = require('../src/l10n')(l10nFile);
-const util      = require('util');
-const HelpFiles = require('../src/help_files').HelpFiles;
-const wrap      = require('wrap-ansi');
-const _         = require('../src/helpers');
-const sprintf = require('sprintf').sprintf;
 
-/*
+const util              = require('util');
+const wrap              = require('wrap-ansi');
+const { sprintf }       = require('sprintf');
+
+const { HelpFiles }     = require('../src/help_files');
+const { CommandTypes }  = require('../src/commands');
+const _                 = require('../src/helpers');
+
+/*  Example Helpfile:
   NEW: {
     title: 'Welcome to Ranvier',
     body: 'Important topics include:',
@@ -55,9 +56,9 @@ exports.command = (rooms, items, players, npcs, Commands) => {
     function displayHelpFile(topic) {
       const file = HelpFiles[topic];
       if ( !file) {
-        return args in Commands.player_commands  ?
-          player.writeL10n(l10n, 'NO_HELP_FILE') :
-          player.writeL10n(l10n, 'NOT_FOUND');
+        return args in Commands[CommandTypes.PLAYER]  ?
+          player.say(`No help file for that command.`) :
+          player.say(`No such command or topic.`);
       }
 
       // --- Helpers for printing out the help files. Help helpers.

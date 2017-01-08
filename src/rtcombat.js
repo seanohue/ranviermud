@@ -7,15 +7,16 @@ module.exports.initCombat = _initCombat;
 const util = require('util');
 const _    = require('./helpers');
 
-const Random      = require('./random.js').Random;
-const LevelUtil   = require('./levels').LevelUtil;
-const CommandUtil = require('./command_util').CommandUtil;
-const statusUtils = require('./status');
-const Commands    = require('./commands').Commands;
-const CombatUtil  = require('./combat_util').CombatUtil;
-const Type        = require('./type').Type;
-const Effects     = require('./effects').Effects;
-const Broadcast   = require('./broadcast').Broadcast;
+const { Random }      = require('./random.js');
+const { LevelUtil }   = require('./levels');
+const { CommandUtil } = require('./command_util');
+const { CombatUtil }  = require('./combat_util');
+const { Type }        = require('./type');
+const { Effects }     = require('./effects');
+const { Broadcast }   = require('./broadcast');
+const statusUtils     = require('./status');
+
+const { Commands, CommandTypes } = require('./commands');
 
 let dualWieldCancel = null; //FIXME: Could this be a problem with multiple players in combat all at once?
 
@@ -27,7 +28,6 @@ function _initCombat(l10n, target, player, room, npcs, players, rooms, items, ca
   const broadcastToArea = Broadcast.toArea(player, players, rooms);
 
   player.sayL10n(l10n, 'ATTACK', target.getShortDesc('en'));
-
 
   /*
     Ideas:
@@ -417,7 +417,7 @@ function _initCombat(l10n, target, player, room, npcs, players, rooms, items, ca
       util.log("Player's wimpiness kicks in...");
       util.log("Health: " + percentage + "% || Wimpiness: " + wimpiness + "%");
       player.say('You panic and try to flee.');
-      Commands.player_commands.flee(null, player);
+      Commands[CommandTypes.PLAYER].flee.execute(null, player);
     }
   }
 

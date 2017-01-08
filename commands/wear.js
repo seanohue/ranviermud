@@ -1,9 +1,10 @@
 'use strict';
 const util = require('util');
-const CommandUtil = require('../src/command_util').CommandUtil;
+
+const { CommandUtil }  = require('../src/command_util').CommandUtil;
+const { CommandTypes } = require('../src/commands.js');
+
 const Commands    = require('../src/commands.js');
-const l10nFile = __dirname + '/../l10n/commands/wear.yml';
-const l10n = require('../src/l10n')(l10nFile);
 
 exports.command = (rooms, items, players, npcs, Commands) => {
   return (args, player) => {
@@ -43,7 +44,7 @@ exports.command = (rooms, items, players, npcs, Commands) => {
       }
       if (isWeapon(item)) {
         const keyword = item.getKeywords('en')[0];
-        return Commands.player_commands.wield(keyword, player);
+        return Commands[CommandTypes.PLAYER].wield.execute(keyword, player);
       }
       if (isWearable(item) && hasOpenSpot(item)) {
         return putOn(item);
@@ -58,7 +59,7 @@ exports.command = (rooms, items, players, npcs, Commands) => {
     function isWearable(item) {
       if (!item.getAttribute('wearLocation')) {
         util.log("No wear location:" , item.getShortDesc('en'), item.wearLocation);
-        player.sayL10n(l10n, 'NO_WEAR_LOCATION', item.getShortDesc('en'));
+        player.say(`You cannot figure out how to wear ${item.getShortDesc('en')}`);
         return false;
       }
       return true;

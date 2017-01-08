@@ -21,9 +21,11 @@
 
 const util        = require('util');
 const _           = require('../src/helpers');
-const CommandUtil = require('../src/command_util').CommandUtil;
-const ItemUtil    = require('../src/item_util').ItemUtil;
-const Broadcast   = require('../src/broadcast').Broadcast;
+
+const { CommandUtil }  = require('../src/command_util');
+const { ItemUtil }     = require('../src/item_util');
+const { Broadcast }    = require('../src/broadcast');
+const { CommandTypes } = require('../src/commands.js');
 
 exports.command = (rooms, items, players, npcs, Commands) =>
   (args, player) => {
@@ -96,7 +98,7 @@ exports.command = (rooms, items, players, npcs, Commands) =>
           player.emit('action', 1, items);
 
           if (item.getAttribute('damage')) {
-            return Commands.player_commands.wield(itemName, player);
+            return Commands[CommandTypes.PLAYER].wield.execute(itemName, player);
           }
         });
     }

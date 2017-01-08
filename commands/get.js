@@ -1,8 +1,8 @@
 'use strict';
-const l10nFile = __dirname + '/../l10n/commands/get.yml';
-const l10n = require('../src/l10n')(l10nFile);
-const CommandUtil = require('../src/command_util').CommandUtil;
-const ItemUtil    = require('../src/item_util').ItemUtil;
+
+const { CommandUtil }  = require('../src/command_util');
+const { ItemUtil }     = require('../src/item_util');
+const { CommandTypes } = require('../src/commands');
 const util = require('util');
 
 exports.command = (rooms, items, players, npcs, Commands) => 
@@ -68,7 +68,7 @@ exports.command = (rooms, items, players, npcs, Commands) =>
         location => {
           const itemName = item.getShortDesc();
           if (item.getAttribute('damage')) {
-            return Commands.player_commands.wield(item.getKeywords()[0], player);
+            return Commands[CommandTypes.PLAYER].wield.execute(item.getKeywords()[0], player);
           }
           item.emit('hold', location, room, player, players);
 
