@@ -120,6 +120,9 @@ class Broadcast {
   static progress(width, percent, color, barChar = "#", fillChar = " ", delimiters = "()") {
     percent = Math.max(0, percent);
     width -= 3; // account for delimiters and tip of bar
+    if (percent === 100) {
+        width++; // 100% bar doesn't have a second right delimiter
+    }
     barChar = barChar[0];
     fillChar = fillChar[0];
     const [ leftDelim, rightDelim ] = delimiters;
@@ -127,7 +130,7 @@ class Broadcast {
     const closeColor = `</${color}>`;
     let buf = openColor + leftDelim + "<bold>";
     const widthPercent = Math.round((percent / 100) * width);
-    buf += Broadcast.line(widthPercent, barChar) + (percent === 100 ? '' : ')');
+    buf += Broadcast.line(widthPercent, barChar) + (percent === 100 ? '' : rightDelim);
     buf += Broadcast.line(width - widthPercent, fillChar);
     buf += "</bold>" + rightDelim + closeColor;
     return buf;
@@ -183,7 +186,7 @@ class Broadcast {
    * @return {string}
    */
   static wrap(message, width = 80) {
-    return wrap(ansi.parse(Broadcast._fixNewlines(message)), width);
+    return Broadcast._fixNewlines(wrap(ansi.parse(message), width));
   }
 
   /**
@@ -206,7 +209,9 @@ class Broadcast {
   static _fixNewlines(message) {
     // Fix \n not in a \r\n pair to prevent bad rendering on windows
     message = message.replace(/\r\n/g, '<NEWLINE>').split('\n');
-    return message.join('\r\n').replace(/<NEWLINE>/g, '\r\n');
+    message = message.join('\r\n').replace(/<NEWLINE>/g, '\r\n');
+    // fix sty's incredibly stupid default of always appending ^[[0m
+    return message.replace(/\x1B\[0m$/, '');
   }
 }
 
