@@ -15,21 +15,14 @@ module.exports = (srcPath) => {
       const at = str => Broadcast.at(player, str);
 
       /*
-      Player selection menu:
-      * Can select existing player
-      * Can create new (if less than 3 living chars)
+        Myelin does not have classes,
+        however, players can choose a
+        background. This determines
+        starting skills, attributes, and
+        inventory.
       */
-      say('  Pick your class');
+      say('  Choose your background:');
       say(' --------------------------');
-      const classes = [...state.ClassManager].map(([id, instance]) => {
-        return [id, instance.config];
-      });
-      for (const [ id, config ] of classes) {
-        say(`  [<bold>${id}</bold>] - <bold>${config.name}</bold>`);
-        Broadcast.sayAt(player, `      ${config.description}\r\n`, 80);
-      }
-      at('> ');
-
       socket.once('data', choice => {
         choice = choice.toString().trim();
         choice = classes.find(([id, config]) => {
@@ -40,7 +33,7 @@ module.exports = (srcPath) => {
           return socket.emit('choose-class', socket, args);
         }
 
-        player.setMeta('class', choice[0]);
+        player.setMeta('class', 'base');
         socket.emit('done', socket, { player });
       });
     }

@@ -9,7 +9,7 @@
  */
 module.exports = srcPath => {
   return {
-    name: 'None',
+    name: 'base',
     description: 'There are no classes.',
     //TODO: Have ability gains be based on attribute prerequisites.
     abilityTable: {
