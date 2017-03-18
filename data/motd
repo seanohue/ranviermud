@@ -1,15 +1,15 @@
-<white>RanvierMUD Codebase - Version 0.4.1
-Shawn Biddle - Sean O'Donohue
-
-                         _
-                        (_)
-    _ __ __ _ _ ____   ___  ___ _ __
-   | '__/ _` | '_ \ \ / / |/ _ \ '__|<bold><green>    . ' .</green></bold>
-   | |   (_| | | | \ V /| |  __/ |   <bold><green>. '       ' .</green></bold>
-   |_|  \__,_|_| |_|\_/ |_|\___|_| <bold><green> |    </green><white> _ __ </white><green>   |</green></bold>
-                                   <bold><green> |    </green><white>| '__|</white><green>   |</green></bold>
-   Barebones Node.js-based codebase<bold><green> |    </green><white>| |   </white><green>   |</green></bold>
-   github.com/shawncplus/ranviermud<bold><green> |    </green><white>|_|   </white><green>   |</green></bold>
-                                   <bold><green>  ' .       . '</green></bold>
-                                   <bold><green>      ' . '</green></bold>
-
+<red>Myelin: Fated Metropolis</red>
+<red>v0.0.1</red>
+                         _ _
+                        | (_)
+    _ __ ___  _   _  ___| |_ _ __
+   | '_ ` _ \| | | |/ _ \ | | '_ \
+   | | | | | | |_| |  __/ | | | | |     <white> ____________</white>
+   |_| |_| |_|\__, |\___|_|_|_| |_|     <white>||  _____   || </white>
+              __/ /                     <white>|| /     \  ||</white>
+              |__/                      <white>|| |  Y Y \ ||</white>
+   Built with:                          <white>|| |__|_| / ||</white>
+   Barebones Node.js-based codebase     <white>||      \/  ||</white>
+   github.com/shawncplus/ranviermud     <white>||__________||</white>
+   <red>RanvierMUD Codebase - Version 1.0</red>
+   <green>Shawn Biddle - Sean O'Donohue</green>
