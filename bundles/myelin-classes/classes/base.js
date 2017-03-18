@@ -13,10 +13,26 @@ module.exports = srcPath => {
     description: 'There are no classes.',
     //TODO: Have ability gains be based on attribute prerequisites.
     abilityTable: {
-      3: { skills: ['rend'] },
-      5: { skills: ['lunge'] },
-      7: { skills: ['shieldblock'] },
-     10: { skills: ['secondwind'] },
+      skills: {
+
+        /* Physicalist: */
+        rend: {
+          level: 3,
+          strength: 12,
+        },
+        lunge: {
+          level: 4,
+          agility: 12,
+          strength: 12
+        },
+        secondwind: {
+          level: 6,
+          stamina: 16
+        },
+
+        /* Mentalist: */
+
+      }
     }
   };
 };
