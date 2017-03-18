@@ -44,20 +44,35 @@ class PlayerClass {
    */
   getAbilitiesForPlayer(player) {
     let totalAbilities = [];
-    Object.entries(this.abilityTable).forEach(([level, abilities]) => {
-      if (level > player.level) {
-        return;
+    const abilities = Object.entries(this.abilityTable.skills);
+    for (const [ ability, prerequisites ] in abilities) {
+      const isEligible = this.determineEligibility(prerequisites, player);
+      if (isEligible) {
+        totalAbilities.push(ability);
       }
-      totalAbilities = totalAbilities.concat(abilities.skills || []).concat(abilities.spells || []);
-    });
+    }
     return totalAbilities;
   }
 
+  /** Given a hash of prerequisites, determine if the player meets all of them or not.
+   * @param {Object<string,number>} prerequisites
+   * @param {Player}
+   * @return {Boolean}
+  */
+  determineEligibility(prerequisites, player) {
+    const prereqList = Object.entries(prerequisites);
+    return prereqList.every(([ attribute, level ]) => player.getBaseAttribute(attribute) >= level);
+  }
+
+  /** Does the ability even exist?
+   * @param {String} id
+   * @return {Boolean} exists
+  */
   hasAbility(id) {
     return this.abilityList.includes(id);
   }
 
-  /**
+  /** //TODO: Should make sure player has "purchased" ability.
    * Check if a player can use a given ability
    * @param {Player} player
    * @param {string} abilityId
