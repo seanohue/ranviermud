@@ -1,17 +1,18 @@
 'use strict';
 
-/**
- * This is an _example_ implementation of a base player class. This, along with
- * CommandParser is one of the few core classes Ranvier encourages you to
- * modify if you want more functionality. Almost all other features can be
- * overridden in bundles.
- */
+/** A Classless Society:
+ * The player in Myelin does not really have a class.
+ * Instead, they can develop their character to suit an
+ * archetype by boosting attributes and purchasing skills
+ * once they reach the skills' prerequisites.
+ * Player characters do have a "background" which determines
+ * only their starting attributes, skills, and equipment.
+*/
 class PlayerClass {
   /**
    * @param {string} id  id corresponding to classes/<id>.js file
-   * @param {object} config Definition, this object is completely arbitrary. In
-   *     this example implementation it has a name, description, and ability
-   *     table. You are free to change this class as you wish
+   * @param {object} config The Myelin "base class" consists of a
+   * config object describing the prerequisites for each ability.
    */
   constructor(id, config) {
     this.id = id;
@@ -19,23 +20,21 @@ class PlayerClass {
   }
 
   /**
-   * Table of level: abilities learned.
+   * Table of abilityName: prerequisites.
    * Example:
-   *     {
-   *       1: { skills: ['kick'] },
-   *       2: { skills: ['bash'], spells: ['fireball']},
-   *       5: { skills: ['rend', 'secondwind'] },
-   *     }
-   * @return {Object<number, Array<string>>}
+   *   lunge: {
+   *      level:     4,
+   *      agility:  12,
+   *      strength: 12
+   *    },
+   * @return {Object<string, Object<string, number>>}
    */
   get abilityTable() {
     return this.config.abilityTable;
   }
 
   get abilityList() {
-    return Object.entries(this.abilityTable).reduce((acc, [ , abilities ]) => {
-      return acc.concat(abilities.skills || []).concat(abilities.spells || []);
-    }, []);
+    return Object.keys(this.abilityTable.skills);
   }
 
   /**
