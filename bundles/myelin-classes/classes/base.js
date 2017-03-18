@@ -10,7 +10,7 @@
 module.exports = srcPath => {
   return {
     name: 'base',
-    description: 'There are no classes.',
+    description: 'There are no classes.', // Player should not see this :P
     //TODO: Have ability gains be based on attribute prerequisites.
     abilityTable: {
       skills: {
