@@ -16,6 +16,7 @@ module.exports = srcPath => {
       skills: {
 
         /* Physicalist: */
+
         rend: {
           level: 3,
           strength: 12,
@@ -31,6 +32,16 @@ module.exports = srcPath => {
         },
 
         /* Mentalist: */
+
+        heal: {
+          level: 5,
+          intellect: 12,
+          stamina: 11
+        },
+        fireball: {
+          level: 8,
+          intellect: 15
+        }
 
       }
     }
