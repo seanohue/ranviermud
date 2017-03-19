@@ -223,9 +223,9 @@ class Player extends Character {
       this.account = state.AccountManager.getAccount(this.account);
     }
 
-    if (this.getMeta('class')) {
-      this.playerClass = state.ClassManager.get(this.getMeta('class'));
-    }
+    // Myelin is classless but still uses the class
+    // system to manage abilities.
+    this.playerClass = state.ClassManager.get('base');
 
     // Hydrate inventory
     this.inventory.hydrate(state, this);

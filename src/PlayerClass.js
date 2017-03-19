@@ -61,7 +61,13 @@ class PlayerClass {
   */
   determineEligibility(prerequisites, player) {
     const prereqList = Object.entries(prerequisites);
-    return prereqList.every(([ attribute, level ]) => player.getBaseAttribute(attribute) >= level);
+    return prereqList.every(([ attribute, level ]) => {
+      if (attribute === 'cost') {
+        const abilityPoints = parseInt(player.getMeta('abilityPoints'), 10)
+        return abilityPoints >= cost;
+      }
+      return player.getBaseAttribute(attribute) >= level;
+    });
   }
 
   /** Does the ability even exist?
@@ -72,14 +78,26 @@ class PlayerClass {
     return this.abilityList.includes(id);
   }
 
-  /** //TODO: Should make sure player has "purchased" ability.
+  /**
+   * Check if a player can buy a given ability
+   * @param {Player} player
+   * @param {string} abilityId
+   * @return {boolean}
+   */
+  canPurchaseAbility(player, abilityId) {
+    return this.getAbilitiesForPlayer(player)
+               .includes(abilityId);
+  }
+
+  /**
    * Check if a player can use a given ability
    * @param {Player} player
    * @param {string} abilityId
    * @return {boolean}
    */
   canUseAbility(player, abilityId) {
-    return this.getAbilitiesForPlayer(player).includes(abilityId);
+    return player.getMeta('purchasedAbilities')
+                 .includes(abilityId);
   }
 }
 
