@@ -25,14 +25,18 @@ module.exports = srcPath => {
         const abilityPoints = parseInt(this.getMeta('abilityPoints') || 0, 10);
         this.setMeta('abilityPoints', abilityPoints + 1);
         Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on new abilities.</blue>`);
+
+        // Show them now-available feats (make this a command too eventually)
         const availableAbilities = this.playerClass.getAbilitiesForPlayer(this);
         if (availableAbilities.length > 0) {
+          Broadcast.line(12);
           Broadcast.sayAt(this, `<blue>These abilities are now available:</blue>`);
           for (const ability of availableAbilities) {
             Broadcast.sayAt(this, `<white>${ability}</white>`);
           }
-          Broadcast.line();
+          Broadcast.line(12);
         }
+
         // Award attribute points for boosting attributes.
         const attributePoints = parseInt(this.getMeta('attributePoints') || 0, 10);
         this.setMeta('attributePoints', attributePoints + 1);
