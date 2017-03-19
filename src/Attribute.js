@@ -2,8 +2,8 @@
 
 class Attribute {
   constructor(name, base, delta = 0) {
-    if (isNaN(base)) { 
-      throw new TypeError(`Base attribute must be a number, got ${base}.`); 
+    if (isNaN(base)) {
+      throw new TypeError(`Base attribute must be a number, got ${base}.`);
     }
     if (isNaN(delta)) {
       throw new TypeError(`Attribute delta must be a number, got ${delta}.`);
