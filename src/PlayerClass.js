@@ -54,6 +54,18 @@ class PlayerClass {
     return totalAbilities;
   }
 
+  getOwnAbilitiesForPlayer(player) {
+    let totalAbilities = [];
+    const abilities = Object.entries(this.abilityTable.skills);
+    for (const [ ability, prerequisites ] in abilities) {
+      const owns = this.canUseAbility(player, ability);
+      if (owns) {
+        totalAbilities.push(ability);
+      }
+    }
+    return totalAbilities;
+  }
+
   /** Given a hash of prerequisites, determine if the player meets all of them or not.
    * @param {Object<string,number>} prerequisites
    * @param {Player}

@@ -21,26 +21,19 @@ module.exports = srcPath => {
        * Handle player leveling up
        */
       level: state => function () {
+        // Award attribute points for boosting attributes.
+        const attributePoints = parseInt(this.getMeta('attributePoints') || 0, 10);
+        this.setMeta('attributePoints', attributePoints + 1);
+        Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on boosting attributes.</blue>`);
+
         // Award ability points for buying skills/feats.
         const abilityPoints = parseInt(this.getMeta('abilityPoints') || 0, 10);
         this.setMeta('abilityPoints', abilityPoints + 1);
         Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on new abilities.</blue>`);
 
-        // Show them now-available feats (make this a command too eventually)
-        const availableAbilities = this.playerClass.getAbilitiesForPlayer(this);
-        if (availableAbilities.length > 0) {
-          Broadcast.line(12);
-          Broadcast.sayAt(this, `<blue>These abilities are now available:</blue>`);
-          for (const ability of availableAbilities) {
-            Broadcast.sayAt(this, `<white>${ability}</white>`);
-          }
-          Broadcast.line(12);
-        }
+        // Show them their current skills and newly available ones.
+        return state.CommandManager.get('skills').execute('', this);
 
-        // Award attribute points for boosting attributes.
-        const attributePoints = parseInt(this.getMeta('attributePoints') || 0, 10);
-        this.setMeta('attributePoints', attributePoints + 1);
-        Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on boosting attributes.</blue>`);
       }
     }
   };
