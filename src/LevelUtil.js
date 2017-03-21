@@ -10,21 +10,16 @@
  * @param {number} level
  */
 const reduction = level => {
-  let val;
   switch (true) {
     case (level <= 10):
-      val = 1;
-      break;
+      return 1;
     case (level >= 11 && level <= 27):
-      val = 1 - (level - 10) / 100;
-      break;
+      return 1 - (level - 10) / 100;
     case (level >= 28 && level <= 59):
-      val = 0.82;
-      break;
+      return 0.82;
     default:
-      val = 1;
+      return 1;
   }
-  return val;
 };
 
 /**

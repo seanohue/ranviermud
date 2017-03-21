@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Maining list of classes in the game
+ * Maintaining list of classes in the game
  * @see PlayerClass
  */
 class ClassManager extends Map {

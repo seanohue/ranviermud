@@ -74,19 +74,26 @@ class Character extends EventEmitter
     // health and attackpower are calculated based off other stats
     // NOTE: This is an _example_ implementation based off WoW formulas
     switch (attribute.name) {
-      case 'health':
+      case 'physical':
         attribute.setBase(
-          this.getMaxAttribute('stamina') * AttributeUtil.healthPerStamina(this.level)
+          this.getMaxAttribute('stamina') * AttributeUtil.deriveByLevel(this.level)
+        );
+        break;
+      case 'mental':
+        attribute.setBase(
+          this.getMaxAttribute('mental') * AttributeUtil.deriveByLevel(this.level)
         );
         break;
       case 'attackpower':
         attribute.setBase(this.getMaxAttribute('strength'));
         break;
       case 'energy':
+        attribute.setBase(
+          this.getMaxAttribute('stamina') * 10
+        );
       case 'armor':
         break;
       default:
-        attribute.setBase(AttributeUtil.baseAttributeByLevel(attribute.name, this.level));
         break;
     }
 
