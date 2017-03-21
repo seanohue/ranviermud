@@ -8,6 +8,9 @@ class Attribute {
     if (isNaN(delta)) {
       throw new TypeError(`Attribute delta must be a number, got ${delta}.`);
     }
+    if (typeof name !== 'string') {
+      throw new TypeError(`Attribute name must be a string, got ${name}.`);
+    }
     this.name = name;
     this.base = base;
     this.delta = delta;
@@ -33,6 +36,14 @@ class Attribute {
   serialize() {
     const { delta, base } = this;
     return { delta, base };
+  }
+
+  get isDerived() {
+    return [ 'health', 'energy', 'armor'].includes(this.name);
+  }
+
+  get [Symbol.toStringTag]() {
+    return `Attribute(${this.name})`;
   }
 }
 
