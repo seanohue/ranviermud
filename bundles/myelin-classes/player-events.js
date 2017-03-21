@@ -7,7 +7,7 @@ module.exports = srcPath => {
     listeners: {
       useAbility: state => function (ability, args) {
         if (!this.playerClass.hasAbility(ability.id)) {
-          return Broadcast.sayAt(this, 'Your class cannot use that ability.');
+          return Broadcast.sayAt(this, 'That ability does not exist.');
         }
 
         if (!this.playerClass.canUseAbility(this, ability.id)) {
