@@ -22,10 +22,17 @@ module.exports = srcPath => {
       }
 
       if (player.attributes.has(targetAttr)) {
-        player.setMeta('attributePoints', attributePoints - 1);
         const attr = player.attributes.get(targetAttr)
+
+        if (attr.isDerived) {
+          say('<b>That specific attribute cannot be boosted directly...</b>');
+          return displayAttrs();
+        }
+
+        player.setMeta('attributePoints', attributePoints - 1);
         attr.setBase(attr.base + 1);
-        say(`<b>Boosted ${targetAttr.toLowercase()} to ${attr.base + 1}!`);
+        say(`<b>Boosted ${attr.name} to ${attr.base}!`);
+        say(`<b>You have ${player.getMeta('attributePoints')} attribute points remaining.</b>`);
       } else {
         say('<b>You do not have that attribute.</b>');
         return displayAttrs();
@@ -33,8 +40,11 @@ module.exports = srcPath => {
 
       function displayAttrs() {
         say("<green>Attributes you can boost:</green>");
-        for (const attr of player.attributes) {
-          say(`<white>${attr}</white>`);
+        for (const [name, attr] of player.attributes) {
+          if (attr.isDerived) {
+            continue;
+          }
+          say(`<white>${name}</white>`);
         }
       }
 
