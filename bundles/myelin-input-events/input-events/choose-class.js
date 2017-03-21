@@ -21,21 +21,13 @@ module.exports = (srcPath) => {
         starting skills, attributes, and
         inventory.
       */
-      say('  Choose your background:');
-      say(' --------------------------');
-      socket.once('data', choice => {
-        choice = choice.toString().trim();
-        choice = classes.find(([id, config]) => {
-          return id.includes(choice) || config.name.toLowerCase().includes(choice);
-        });
 
-        if (!choice) {
-          return socket.emit('choose-class', socket, args);
-        }
+      //TODO: Choose a "background".
 
-        player.setMeta('class', 'base');
-        socket.emit('done', socket, { player });
-      });
+      player.setMeta('class', 'base');
+      player.setMeta('attributePoints', 2);
+      player.setMeta('abilityPoints', 1);
+      socket.emit('done', socket, { player });
     }
   };
 };
