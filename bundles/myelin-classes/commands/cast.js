@@ -1,5 +1,6 @@
 'use strict';
 
+//TODO: Deprecate?
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
 

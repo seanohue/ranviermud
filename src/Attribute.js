@@ -2,11 +2,14 @@
 
 class Attribute {
   constructor(name, base, delta = 0) {
-    if (isNaN(base)) { 
-      throw new TypeError(`Base attribute must be a number, got ${base}.`); 
+    if (isNaN(base)) {
+      throw new TypeError(`Base attribute must be a number, got ${base}.`);
     }
     if (isNaN(delta)) {
       throw new TypeError(`Attribute delta must be a number, got ${delta}.`);
+    }
+    if (typeof name !== 'string') {
+      throw new TypeError(`Attribute name must be a string, got ${name}.`);
     }
     this.name = name;
     this.base = base;
@@ -33,6 +36,14 @@ class Attribute {
   serialize() {
     const { delta, base } = this;
     return { delta, base };
+  }
+
+  get isDerived() {
+    return [ 'health', 'energy', 'armor' ].includes(this.name);
+  }
+
+  get [Symbol.toStringTag]() {
+    return `Attribute(${this.name})`;
   }
 }
 

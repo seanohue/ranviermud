@@ -9,15 +9,15 @@
   "bundles": [
     "ranvier-areas",
     "ranvier-channels",
-    "ranvier-commands",
+    "myelin-commands",
     "ranvier-effects",
     "ranvier-groups",
-    "ranvier-input-events",
+    "myelin-input-events",
     "ranvier-player-events",
     "ranvier-skills",
     "ranvier-combat",
-    "ranvier-classes",
     "ranvier-crafting",
+    "myelin-classes",
     "ranvier-quests",
     "ranvier-vendors",
     "debug-commands"

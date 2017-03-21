@@ -4,12 +4,12 @@ module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
 
   return {
-    aliases: [ "spell" ],
+    aliases: [ "ability", "feat" ],
     command : state => (args, player) => {
       const say = (message, wrapWidth) => B.sayAt(player, message, wrapWidth);
 
       if (!args.length) {
-        return say("What skill or spell do you want to look up? Use 'skills' to view all skills/spells.");
+        return say("What ability do you want to look up? Use 'skills' to view all skills/abilities.");
       }
 
       let skill = state.SkillManager.find(args, true);
