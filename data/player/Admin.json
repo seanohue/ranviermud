@@ -33,7 +33,7 @@
   "name": "Admin",
   "room": "limbo:1",
   "effects": [],
-  "playerClass": "warrior",
+  "playerClass": "base",
   "experience": 0,
   "inventory": {
     "items": [],
@@ -44,7 +44,9 @@
     "active": []
   },
   "metadata": {
-    "class": "warrior"
+    "class": "base",
+    "abilityPoints": 1,
+    "attributePoints": 1
   },
   "role": 2,
   "equipment": {}
