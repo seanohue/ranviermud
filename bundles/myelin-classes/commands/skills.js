@@ -15,7 +15,7 @@ module.exports = srcPath => {
       const ownAbilities = player.playerClass.getOwnAbilitiesForPlayer(player);
       if (ownAbilities.length > 0) {
         for (const ability of ownAbilities) {
-          say(`<white>${ability}</white>`);
+          B.center(80, `<white>${ability}</white>`);
         }
       } else {
         say("<white>None.</white>");
@@ -26,7 +26,7 @@ module.exports = srcPath => {
         say("<b>" + B.center(80, 'Available Abilities', 'green'));
         say("<b>" + B.line(80, '=', 'green'));
         for (const ability of availableAbilities) {
-          say(`<white>${ability}</white>`);
+          B.center(80, `<white>${ability}</white>`);
         }
       }
     }

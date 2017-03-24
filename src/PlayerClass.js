@@ -45,7 +45,7 @@ class PlayerClass {
   getAbilitiesForPlayer(player) {
     let totalAbilities = [];
     const abilities = Object.entries(this.abilityTable.skills);
-    for (const [ ability, prerequisites ] in abilities) {
+    for (const [ ability, prerequisites ] of abilities) {
       const isEligible = this.determineEligibility(prerequisites, player);
       if (isEligible) {
         totalAbilities.push(ability);
@@ -69,16 +69,23 @@ class PlayerClass {
   /** Given a hash of prerequisites, determine if the player meets all of them or not.
    * @param {Object<string,number>} prerequisites
    * @param {Player}
-   * @return {Boolean}
+   * @return {Boolean} isEligible
   */
   determineEligibility(prerequisites, player) {
+    if (!prerequisites) {
+      return true;
+    }
     const prereqList = Object.entries(prerequisites);
     return prereqList.every(([ attribute, level ]) => {
-      if (attribute === 'cost') {
-        const abilityPoints = parseInt(player.getMeta('abilityPoints'), 10)
-        return abilityPoints >= cost;
+      switch(attribute) {
+        case 'cost':
+          const abilityPoints = parseInt(player.getMeta('abilityPoints'), 10) || 0;
+          return abilityPoints >= level;
+        case 'level':
+          return player.level >= level;
+        default:
+          return player.getBaseAttribute(attribute) >= level;
       }
-      return player.getBaseAttribute(attribute) >= level;
     });
   }
 
@@ -108,8 +115,8 @@ class PlayerClass {
    * @return {boolean}
    */
   canUseAbility(player, abilityId) {
-    return player.getMeta('purchasedAbilities')
-                 .includes(abilityId);
+    return player.getMeta('purchasedAbilities') &&
+           player.getMeta('purchasedAbilities').includes(abilityId);
   }
 }
 
