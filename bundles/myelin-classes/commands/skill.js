@@ -12,6 +12,10 @@ module.exports = (srcPath) => {
         return say("What ability do you want to look up? Use 'skills' to view all skills/abilities.");
       }
 
+      if (args.split(' ')[0] === 'buy') {
+        // return manifest command
+      }
+
       let skill = state.SkillManager.find(args, true);
       if (!skill) {
         skill = state.SpellManager.find(args, true);
