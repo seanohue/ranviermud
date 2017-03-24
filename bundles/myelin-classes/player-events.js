@@ -24,7 +24,7 @@ module.exports = srcPath => {
         // Award attribute points for boosting attributes.
         const attributePoints = parseInt(this.getMeta('attributePoints') || 0, 10);
         this.setMeta('attributePoints', attributePoints + 1);
-        Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on boosting attributes.</blue>`);
+        Broadcast.sayAt(this, `<blue>You now have ${attributePoints + 1} points to spend on boosting attributes.</blue>`);
 
         // Award ability points for buying skills/feats.
         const abilityPoints = parseInt(this.getMeta('abilityPoints') || 0, 10);
