@@ -34,8 +34,10 @@ module.exports = (srcPath) => {
       player.setMeta('abilityPoints', abilityPoints - 1);
 
       //TODO: Remember to set purchasedAbilities to '' or empty array on char create.
-      const newAbilities = this.getMeta('purchasedAbilities').concat(skill);
-      player.setMeta('purchasedAbilities', newAbiltiies);
+      const newAbilities = player.getMeta('purchasedAbilities') ?
+        player.getMeta('purchasedAbilities').concat(skill) :
+        [ skill ];
+      player.setMeta('purchasedAbilities', newAbilities);
 
       say(`You now have ${skill} as an ability.`);
     }
