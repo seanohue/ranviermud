@@ -9,7 +9,7 @@ class Attributes extends Map
     const baseStats = {
       might: { base: 20 },
       quickness: { base: 20 },
-      cleverness: { base: 20 },
+      intellect: { base: 20 },
       willpower: { base: 20 },
       physical: { base: 100 },
       mental: { base: 100 },

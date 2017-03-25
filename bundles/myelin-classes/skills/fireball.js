@@ -12,7 +12,7 @@ module.exports = (srcPath) => {
   const manaCost = 20;
 
   function getDamage(player) {
-    return player.getAttribute('cleverness') * (damagePercent / 100);
+    return player.getAttribute('intellect') * (damagePercent / 100);
   }
 
   return {

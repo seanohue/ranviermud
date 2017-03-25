@@ -17,7 +17,7 @@ module.exports = (srcPath) => {
       let stats = {
         might: 0,
         quickness: 0,
-        cleverness: 0,
+        intellect: 0,
         willpower: 0,
         armor: 0,
         physical: 0,
@@ -32,27 +32,12 @@ module.exports = (srcPath) => {
           max: p.getMaxAttribute(stat),
         };
       }
+      say(`Health -- Physical : ${stats.physical.current}/${stats.physical.max} Energy : ${stats.energy.current}/${stats.energy.max}\n` +
+          `            Mental : ${stats.mental.current}/${stats.mental.max}`);
 
-      B.at(p, sprintf(' %-9s: %12s', 'Phys. Health', `${stats.physical.current}/${stats.physical.max}`));
-      say('<b><green>' + sprintf(
-        '%36s',
-        'Weapon '
-      ));
 
-      const energy = {
-        current: p.getAttribute('energy'),
-        max: p.getMaxAttribute('energy')
-      };
-      B.at(p, sprintf(' %-9s: %12s', 'Energy', `${energy.current}/${energy.max}`));
-
-      const mental = {
-        current: p.getAttribute('mental'),
-        max: p.getMaxAttribute('mental')
-      };
-      B.at(p, sprintf(' %-9s: %12s', 'Mental Health', `${mental.current}/${mental.max}`));
-
-      say(sprintf('%35s', '.' + B.line(22)) + '.');
-
+      say(sprintf('%61s', '<b><green>Weapon'));
+      say(sprintf('%59s', '.' + B.line(22)) + '.');
       B.at(p, sprintf('%37s', '|'));
       const weaponDamage = p.getWeaponDamage();
       const min = p.normalizeWeaponDamage(weaponDamage.min);
@@ -90,7 +75,7 @@ module.exports = (srcPath) => {
       say('<b><green>' + sprintf('%36s', 'Gold ')); // right
       printStat('quickness', false); // left
       say(sprintf('%36s', '.' + B.line(12) + '.')); // right
-      printStat('cleverness', false); // left
+      printStat('intellect', false); // left
       say(sprintf('%22s| <b>%10s</b> |', '', p.getMeta('currencies.gold') || 0)); // right
       printStat('willpower', false); // left
       say(sprintf('%36s', "'" + B.line(12) + "'")); // right

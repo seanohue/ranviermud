@@ -12,7 +12,7 @@ module.exports = (srcPath) => {
   const energyCost = 40;
 
   function getHeal(player) {
-    return player.getAttribute('cleverness') * (healPercent / 100);
+    return player.getAttribute('intellect') * (healPercent / 100);
   }
 
   return {

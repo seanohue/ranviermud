@@ -82,7 +82,7 @@ class Character extends EventEmitter
         break;
       case 'mental':
         attribute.setBase(
-          (this.getMaxAttribute('cleverness') * AttributeUtil.deriveByLevel(this.level) +
+          (this.getMaxAttribute('intellect') * AttributeUtil.deriveByLevel(this.level) +
           this.getMaxAttribute('willpower') * AttributeUtil.deriveByLevel(this.level)) / 2
         );
         break;
@@ -98,9 +98,8 @@ class Character extends EventEmitter
 
       case 'might':
       case 'quickness':
-      case 'cleverness':
+      case 'intellect':
       case 'willpower':
-        attribute.setBase(AttributeUtil.baseAttributeByLevel(attribute.name, this.level));
         break;
       default:
         // Don't modify any other attributes

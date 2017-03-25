@@ -38,12 +38,12 @@ module.exports = srcPath => {
 
         heal: {
           level: 5,
-          cleverness: 12,
+          intellect: 12,
           willpower: 11
         },
         fireball: {
           level: 8,
-          cleverness: 15
+          intellect: 15
         }
 
       }

@@ -8,7 +8,7 @@
       "delta": 0,
       "base": 10
     },
-    "cleverness": {
+    "intellect": {
       "delta": 0,
       "base": 10
     },
@@ -27,27 +27,60 @@
     "armor": {
       "delta": 0,
       "base": 0
+    },
+    "mental": {
+      "delta": 0,
+      "base": 100
     }
   },
   "level": 1,
   "name": "Admin",
   "room": "limbo:1",
   "effects": [],
-  "playerClass": "base",
   "experience": 0,
   "inventory": {
     "items": [],
     "max": 16
-  },
-  "quests": {
-    "completed": [],
-    "active": []
   },
   "metadata": {
     "class": "base",
     "abilityPoints": 3,
     "attributePoints": 3,
     "abilities": []
+  },
+  "playerClass": "base",
+  "prompt": "health: [ %physical.current%/%physical.max% <b>physical</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]",
+  "quests": {
+    "completed": [],
+    "active": [
+      [
+        "limbo:1",
+        {
+          "state": [
+            {
+              "state": {
+                "count": 0
+              }
+            },
+            {
+              "state": {
+                "count": 0
+              }
+            },
+            {
+              "state": {
+                "equipped": false
+              }
+            },
+            {
+              "state": {
+                "equipped": false
+              }
+            }
+          ]
+        }
+      ]
+    ]
   },
   "role": 2,
   "equipment": {}
