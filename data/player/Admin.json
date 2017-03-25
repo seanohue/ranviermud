@@ -32,73 +32,22 @@
   "level": 3,
   "name": "Admin",
   "room": "limbo:1",
-  "effects": [
-    {
-      "id": "regen",
-      "elapsed": 43291,
-      "state": {
-        "magnitude": 15,
-        "lastTick": 901,
-        "ticks": 15
-      },
-      "config": {
-        "autoActivate": true,
-        "description": "You are regenerating over time.",
-        "duration": "inf",
-        "hidden": true,
-        "name": "Regenerate",
-        "maxStacks": 0,
-        "unique": true,
-        "type": "regen",
-        "tickInterval": 3
-      }
-    }
-  ],
+  "effects": [],
   "playerClass": "base",
-  "experience": 840,
+  "experience": 0,
   "inventory": {
     "items": [],
     "max": 16
   },
   "quests": {
     "completed": [],
-    "active": [
-      [
-        "limbo:1",
-        {
-          "state": [
-            {
-              "state": {
-                "count": 0
-              }
-            },
-            {
-              "state": {
-                "count": 0
-              }
-            },
-            {
-              "state": {
-                "equipped": false
-              }
-            },
-            {
-              "state": {
-                "equipped": false
-              }
-            }
-          ]
-        }
-      ]
-    ]
+    "active": []
   },
   "metadata": {
     "class": "base",
     "abilityPoints": 1,
     "attributePoints": 3,
-    "abilities": [
-      "rend"
-    ]
+    "abilities": []
   },
   "role": 2,
   "equipment": {}
