@@ -1,8 +1,6 @@
 'use strict';
 
-/**
- * Basic cleric spell
- */
+// Minor targeted healing.
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Heal = require(srcPath + 'Heal');
@@ -16,7 +14,7 @@ module.exports = (srcPath) => {
   }
 
   return {
-    name: 'Heal',
+    name: 'Mend',
     type: SkillType.FEAT,
     requiresTarget: true,
     initiatesCombat: false,
@@ -36,12 +34,12 @@ module.exports = (srcPath) => {
       });
 
       if (target !== player) {
-        Broadcast.sayAt(player, `bold>You call upon to the light to heal ${target.name}'s wounds.</bold>`);
-        Broadcast.sayAtExcept(player.room, `bold>${player.name} calls upon to the light to heal ${target.name}'s wounds.</bold>`, [target, player]);
-        Broadcast.sayAt(target, `bold>${player.name} calls upon to the light to heal your wounds.</bold>`);
+        Broadcast.sayAt(player, `bold>You concentrate on mending ${target.name}'s wounds.</bold>`);
+        Broadcast.sayAtExcept(player.room, `bold>${player.name} closes their eyes, concentrating on ${target.name}'s wounds.</bold>`, [target, player]);
+        Broadcast.sayAt(target, `bold>${player.name} closes their eyes,and you can feel your wounds mending themselves.</bold>`);
       } else {
-        Broadcast.sayAt(player, "<bold>You call upon to the light to heal your wounds.</bold>");
-        Broadcast.sayAtExcept(player.room, `bold>${player.name} calls upon to the light to heal their wounds.</bold>`, [player, target]);
+        Broadcast.sayAt(player, "<bold>You concentrate on soothing your own wounds.</bold>");
+        Broadcast.sayAtExcept(player.room, `bold>${player.name} concentrates, and their wounds mend themselves before your eyes.</bold>`, [player, target]);
       }
 
       heal.commit(target);
