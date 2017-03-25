@@ -78,16 +78,18 @@ class Character extends EventEmitter
         attribute.setBase(
           (this.getMaxAttribute('might') * AttributeUtil.deriveByLevel(this.level) +
           this.getMaxAttribute('willpower') * AttributeUtil.deriveByLevel(this.level)) / 2
-        );
+        ) * 10;
         break;
       case 'mental':
         attribute.setBase(
           (this.getMaxAttribute('intellect') * AttributeUtil.deriveByLevel(this.level) +
           this.getMaxAttribute('willpower') * AttributeUtil.deriveByLevel(this.level)) / 2
-        );
+        ) * 10;
         break;
       case 'attackpower':
-        attribute.setBase(this.getMaxAttribute('might'));
+        attribute.setBase(
+          this.getMaxAttribute('might') * 7.5 + this.getMaxAttribute('agility') + 2.5
+        );
         break;
       case 'energy':
         attribute.setBase(
