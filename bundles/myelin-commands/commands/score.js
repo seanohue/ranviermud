@@ -32,7 +32,7 @@ module.exports = (srcPath) => {
           max: p.getMaxAttribute(stat),
         };
       }
-      say(`Health -- Physical : ${stats.physical.current}/${stats.physical.max} Energy : ${stats.energy.current}/${stats.energy.max}\n` +
+      say(`Health -- Physical : ${stats.physical.current}/${stats.physical.max}     Energy : ${stats.energy.current}/${stats.energy.max}\n` +
           `            Mental : ${stats.mental.current}/${stats.mental.max}`);
 
 
