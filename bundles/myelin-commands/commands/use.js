@@ -34,7 +34,7 @@ module.exports = srcPath => {
       }
 
       if (usable.spell) {
-        const useSpell = state.SpellManager.get(usable.spell);
+        const useSpell = state.SkillManager.get(usable.spell);
 
         if (!useSpell) {
           Logger.error(`Item: ${item.entityReference} has invalid usable configuration.`);

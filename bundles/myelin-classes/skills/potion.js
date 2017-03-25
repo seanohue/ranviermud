@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Potion',
-    type: SkillType.SPELL,
+    type: SkillType.FEAT,
     requiresTarget: true,
     targetSelf: true,
 

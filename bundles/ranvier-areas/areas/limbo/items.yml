@@ -88,7 +88,7 @@
   behaviors:
     # usable has two variants: spell, and effect
     usable:
-      # this is the spell variant, you specify a skill of type SPELL
+      # this is the spell variant, you specify a skill of type FEAT
       spell: "potion"
       # charges/destroyOnDepleted lets you create consumable items
       # without specifying charges the item can be used forever
