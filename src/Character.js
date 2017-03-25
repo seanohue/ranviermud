@@ -76,28 +76,28 @@ class Character extends EventEmitter
     switch (attribute.name) {
       case 'physical':
         attribute.setBase(
-          (this.getMaxAttribute('might') * AttributeUtil.deriveByLevel(this.level) +
-          this.getMaxAttribute('willpower') * AttributeUtil.deriveByLevel(this.level)) / 2
-        ) * 10;
+          this.getMaxAttribute('might')     * 7.5 +
+          this.getMaxAttribute('willpower') * 2.5
+        );
         break;
       case 'mental':
         attribute.setBase(
-          (this.getMaxAttribute('intellect') * AttributeUtil.deriveByLevel(this.level) +
-          this.getMaxAttribute('willpower') * AttributeUtil.deriveByLevel(this.level)) / 2
-        ) * 10;
+          this.getMaxAttribute('intellect') * 2.5 +
+          this.getMaxAttribute('willpower') * 7.5
+        );
         break;
       case 'attackpower':
         attribute.setBase(
-          this.getMaxAttribute('might') * 7.5 + this.getMaxAttribute('agility') + 2.5
+          this.getMaxAttribute('might')   * 7.5 +
+          this.getMaxAttribute('agility') * 2.5
         );
         break;
       case 'energy':
         attribute.setBase(
-          this.getMaxAttribute('willpower') * 5 + this.getMaxAttribute('might') * 5
+          this.getMaxAttribute('willpower') * 5 +
+          this.getMaxAttribute('might')     * 5
         );
       case 'armor':
-        break;
-
       case 'might':
       case 'quickness':
       case 'intellect':
