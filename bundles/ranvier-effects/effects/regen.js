@@ -18,8 +18,10 @@ module.exports = srcPath => {
     },
     listeners: {
       updateTick: function () {
-        var regens = [
+        const regens = [
           { pool: 'physical', modifier: this.target.isInCombat() ? 0 : 1 },
+          // mental health recovers at 75% rate of physical health
+          { pool: 'mental', modifier: this.target.isInCombat() ? 0 : .75 },
           // energy recovers 50% faster than health
           { pool: 'energy', modifier: this.target.isInCombat() ? 0.25 : 1.5 },
         ];

@@ -71,7 +71,7 @@ class Character extends EventEmitter
   getMaxAttribute(attr) {
     const attribute = this.attributes.get(attr);
 
-    // health and attackpower are calculated based off other stats
+    // phys/mental health and attackpower are calculated based off other stats
     // NOTE: This is an _example_ implementation based off WoW formulas
     switch (attribute.name) {
       case 'physical':
@@ -81,7 +81,7 @@ class Character extends EventEmitter
         break;
       case 'mental':
         attribute.setBase(
-          this.getMaxAttribute('mental') * AttributeUtil.deriveByLevel(this.level)
+          this.getMaxAttribute('intellect') * AttributeUtil.deriveByLevel(this.level)
         );
         break;
       case 'attackpower':
