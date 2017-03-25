@@ -20,7 +20,7 @@ module.exports = srcPath => {
     modifiers: {
       outgoingDamage: damage => damage.finalAmount,
       incomingDamage: function (damage, currentAmount) {
-        if (damage instanceof Heal || damage.attribute !== 'health') {
+        if (damage instanceof Heal || damage.attribute !== 'physical') {
           return currentAmount;
         }
 

@@ -9,7 +9,7 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
 
   const damagePercent = 100;
-  const energyCost = 20;
+  const manaCost = 20;
 
   function getDamage(player) {
     return player.getAttribute('intellect') * (damagePercent / 100);
@@ -21,14 +21,14 @@ module.exports = (srcPath) => {
     requiresTarget: true,
     initiatesCombat: true,
     resource: {
-      attribute: 'energy',
-      cost: energyCost,
+      attribute: 'mana',
+      cost: manaCost,
     },
     cooldown: 10,
 
     run: state => function (args, player, target) {
       const damage = new Damage({
-        attribute: 'health',
+        attribute: 'physical',
         amount: getDamage(player),
         attacker: player,
         type: 'physical',

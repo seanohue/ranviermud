@@ -20,7 +20,7 @@ module.exports = (srcPath) => {
         // could potentially wind up in a situation where the player performed
         // a mid-round attack that killed the target, then the next round the
         // target kills the player. So let's not let that happen.
-        if (this.getAttribute('health') <= 0) {
+        if (this.getAttribute('physical') <= 0) {
           return handleDeath(state, this);
         }
 
@@ -35,7 +35,7 @@ module.exports = (srcPath) => {
           target.combatData.speed = target.getWeaponSpeed();
 
           // player actions
-          if (target.getAttribute('health') <= 0) {
+          if (target.getAttribute('physical') <= 0) {
 
             B.sayAt(this, `<b>${target.name} is <red>Dead</red>!</b>`);
 
@@ -58,7 +58,7 @@ module.exports = (srcPath) => {
 
           // target actions
           if (target.combatData.lag <= 0) {
-            if (this.getAttribute('health') <= 0) {
+            if (this.getAttribute('physical') <= 0) {
               this.combatData.killedBy = target;
               break;
             }
@@ -93,10 +93,10 @@ module.exports = (srcPath) => {
               const progWidth = 60 - (nameWidth + ':  ').length;
 
               // Set up helper functions for health-bar-building.
-              const getHealthPercentage = entity => Math.floor((entity.getAttribute('health') / entity.getMaxAttribute('health')) * 100);
+              const getHealthPercentage = entity => Math.floor((entity.getAttribute('physical') / entity.getMaxAttribute('physical')) * 100);
               const formatProgressBar = (name, progress, entity) => {
                 const pad = B.line(nameWidth - name.length, ' ');
-                return `<b>${name}${pad}</b>: ${progress} <b>${entity.getAttribute('health')}/${entity.getMaxAttribute('health')}</b>`;
+                return `<b>${name}${pad}</b>: ${progress} <b>${entity.getAttribute('physical')}/${entity.getMaxAttribute('physical')}</b>`;
               }
 
               // Build player health bar.
@@ -106,7 +106,7 @@ module.exports = (srcPath) => {
 
               // Build and add target health bars.
               for (const target of promptee.combatants) {
-                let currentPerc = Math.floor((target.getAttribute('health') / target.getMaxAttribute('health')) * 100);
+                let currentPerc = Math.floor((target.getAttribute('physical') / target.getMaxAttribute('physical')) * 100);
                 let progress = B.progress(progWidth, currentPerc, "red");
                 buf += `\r\n${formatProgressBar(target.name, progress, target)}`;
               }
@@ -223,7 +223,7 @@ module.exports = (srcPath) => {
       },
 
       damaged: state => function (damage) {
-        if (damage.hidden || damage.attribute !== 'health') {
+        if (damage.hidden || damage.attribute !== 'physical') {
           return;
         }
 
@@ -276,7 +276,7 @@ module.exports = (srcPath) => {
           B.sayAt(this.party, `<b><green>${this.name} was killed!</green></b>`);
         }
 
-        this.setAttributeToMax('health');
+        this.setAttributeToMax('physical');
 
         let home = state.RoomManager.getRoom(this.getMeta('waypoint.home'));
         if (!home) {
@@ -330,12 +330,12 @@ module.exports = (srcPath) => {
     const amount = attacker.calculateWeaponDamage();
 
     const damage = new Damage({
-      attribute: "health",
+      attribute: 'physical',
       amount,
       attacker
     });
     damage.commit(defender);
-    if (defender.getAttribute('health') <= 0) {
+    if (defender.getAttribute('physical') <= 0) {
       defender.combatData.killedBy = attacker;
     }
 

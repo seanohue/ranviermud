@@ -22,7 +22,7 @@ module.exports = (srcPath) => {
 
         if (Random.probability(50)) {
           const heal = new Heal({
-            attribute: 'health',
+            attribute: 'physical',
             amount: Math.floor(damage.finalAmount / 4),
             source: this,
             attacker: damage.attacker

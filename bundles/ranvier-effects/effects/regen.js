@@ -18,13 +18,19 @@ module.exports = srcPath => {
     },
     listeners: {
       updateTick: function () {
-        var regens = [
-          { pool: 'health', modifier: this.target.isInCombat() ? 0 : 1 },
+        const regens = [
+          { pool: 'physical', modifier: this.target.isInCombat() ? 0 : 1 },
+          // mental health recovers at 75% rate of physical health
+          { pool: 'mental', modifier: this.target.isInCombat() ? 0 : .75 },
           // energy recovers 50% faster than health
           { pool: 'energy', modifier: this.target.isInCombat() ? 0.25 : 1.5 },
         ];
 
         for (const regen of regens) {
+          if (!this.target.hasAttribute(regen.pool)) {
+            return;
+          }
+
           let heal = new Heal({
             attribute: regen.pool,
             amount: Math.round(this.state.magnitude * regen.modifier),

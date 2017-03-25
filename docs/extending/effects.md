@@ -230,8 +230,8 @@ module.exports = srcPath => {
       this function every `ticketInterval` seconds.
       */
       updateTick: function () {
-        const start = this.target.getAttribute('health');
-        const max = this.target.getMaxAttribute('health');
+        const start = this.target.getAttribute('physical');
+        const max = this.target.getMaxAttribute('physical');
         if (start >= max) {
           // once the character has reached max health remove the effect
           return this.remove();
@@ -239,7 +239,7 @@ module.exports = srcPath => {
 
         // heal them for this effect's magnitude amount
         const heal = new Heal({
-          attribute: "health",
+          attribute: 'physical',
           amount: this.state.magnitude,
           attacker: this.target,
           source: this,
@@ -293,7 +293,7 @@ module.exports = srcPath => {
       incomingDamage: function (damage, currentAmount) {
         // In our shield effect we don't want to absorb heals and we don't want to absorb
         // damage to stats other than health
-        if (damage instanceof Heal || damage.attribute !== 'health') {
+        if (damage instanceof Heal || damage.attribute !== 'physical') {
           return currentAmount;
         }
 

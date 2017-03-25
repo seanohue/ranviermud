@@ -111,7 +111,7 @@ module.exports = (srcPath) => {
       // This is a simple damage skill so we'll create a new damage instance
       const damage = new Damage({
         // we'll damage the health of the target
-        attribute: 'health',
+        attribute: 'physical',
         // for 250% of the player's weapon damage
         amount: player.calculateWeaponDamage() * (damagePercent / 100),
         attacker: player,

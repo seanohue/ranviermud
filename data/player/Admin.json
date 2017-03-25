@@ -16,7 +16,7 @@
       "delta": 0,
       "base": 11
     },
-    "health": {
+    'physical': {
       "delta": 0,
       "base": 154
     },

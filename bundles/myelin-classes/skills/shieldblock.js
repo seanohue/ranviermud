@@ -42,7 +42,7 @@ module.exports = (srcPath) => {
           description: this.info(player),
         },
         {
-          magnitude: Math.round(player.getMaxAttribute('health') * (healthPercent / 100))
+          magnitude: Math.round(player.getMaxAttribute('physical') * (healthPercent / 100))
         }
       );
       effect.skill = this;
@@ -53,7 +53,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Raise your shield block damage up to <bold>${healthPercent}%</bold> of your maximum health for <bold>${duration / 1000}</bold> seconds. Requires a shield.`;
+      return `Raise your shield block damage up to <bold>${healthPercent}%</bold> of your maximum physical health for <bold>${duration / 1000}</bold> seconds. Requires a shield.`;
     }
   };
 };
