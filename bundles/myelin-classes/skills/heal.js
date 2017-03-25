@@ -17,7 +17,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Heal',
-    type: SkillType.SPELL,
+    type: SkillType.FEAT,
     requiresTarget: true,
     initiatesCombat: false,
     targetSelf: true,
