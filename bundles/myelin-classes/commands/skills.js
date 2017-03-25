@@ -15,10 +15,10 @@ module.exports = srcPath => {
       const ownAbilities = player.playerClass.getOwnAbilitiesForPlayer(player);
       if (ownAbilities.length > 0) {
         for (const ability of ownAbilities) {
-          B.center(80, `<white>${ability}</white>`);
+          say(B.center(80, `${B.capitalize(ability.trim())}`, "white"));
         }
       } else {
-        say("<white>None.</white>");
+        say(B.center(80, "None", "white"));
       }
 
       const availableAbilities = player.playerClass.getAbilitiesForPlayer(player);
@@ -26,7 +26,8 @@ module.exports = srcPath => {
         say("<b>" + B.center(80, 'Available Abilities', 'green'));
         say("<b>" + B.line(80, '=', 'green'));
         for (const ability of availableAbilities) {
-          B.center(80, `<white>${ability}</white>`);
+          console.log("==", ability);
+          say(B.center(80, `${B.capitalize(ability.trim())}`, 'white'));
         }
       }
     }

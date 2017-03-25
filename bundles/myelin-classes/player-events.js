@@ -31,9 +31,6 @@ module.exports = srcPath => {
         this.setMeta('abilityPoints', abilityPoints + 1);
         Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on new abilities.</blue>`);
 
-        // Show them their current skills and newly available ones.
-        return state.CommandManager.get('skills').execute('', this);
-
       }
     }
   };

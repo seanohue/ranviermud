@@ -190,6 +190,16 @@ class Broadcast {
   }
 
   /**
+   * Capitalize the first letter of a string.
+   * @param {string} message
+   * @return {string}
+  */
+  static capitalize(message) {
+    const [first, ...rest] = message;
+    return first.toUpperCase() + rest.join("");
+  }
+
+  /**
    * Indent all lines of a given string by a given amount
    * @param {string} message
    * @param {number} indent
