@@ -76,28 +76,30 @@ class Character extends EventEmitter
     switch (attribute.name) {
       case 'physical':
         attribute.setBase(
-          this.getMaxAttribute('stamina') * AttributeUtil.deriveByLevel(this.level)
+          (this.getMaxAttribute('might') * AttributeUtil.deriveByLevel(this.level) +
+          this.getMaxAttribute('willpower') * AttributeUtil.deriveByLevel(this.level)) / 2
         );
         break;
       case 'mental':
         attribute.setBase(
-          this.getMaxAttribute('intellect') * AttributeUtil.deriveByLevel(this.level)
+          (this.getMaxAttribute('cleverness') * AttributeUtil.deriveByLevel(this.level) +
+          this.getMaxAttribute('willpower') * AttributeUtil.deriveByLevel(this.level)) / 2
         );
         break;
       case 'attackpower':
-        attribute.setBase(this.getMaxAttribute('strength'));
+        attribute.setBase(this.getMaxAttribute('might'));
         break;
       case 'energy':
         attribute.setBase(
-          this.getMaxAttribute('stamina') * 10
+          this.getMaxAttribute('willpower') * 5 + this.getMaxAttribute('might') * 5
         );
       case 'armor':
         break;
 
-      case 'strength':
-      case 'agility':
-      case 'intellect':
-      case 'stamina':
+      case 'might':
+      case 'quickness':
+      case 'cleverness':
+      case 'willpower':
         attribute.setBase(AttributeUtil.baseAttributeByLevel(attribute.name, this.level));
         break;
       default:
@@ -392,7 +394,7 @@ class Character extends EventEmitter
    */
   normalizeWeaponDamage(amount) {
     let speed = this.getWeaponSpeed();
-    return Math.round(amount + this.getAttribute('strength') / 3.5 * speed);
+    return Math.round(amount + this.getAttribute('might') / 3.5 * speed);
   }
 
   follow(target) {

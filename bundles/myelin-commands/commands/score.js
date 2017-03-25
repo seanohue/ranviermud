@@ -15,10 +15,10 @@ module.exports = (srcPath) => {
       say('<b>' + B.line(60, '-', 'green'));
 
       let stats = {
-        strength: 0,
-        agility: 0,
-        intellect: 0,
-        stamina: 0,
+        might: 0,
+        quickness: 0,
+        cleverness: 0,
+        willpower: 0,
         armor: 0,
         physical: 0,
         mental: 0,
@@ -86,13 +86,13 @@ module.exports = (srcPath) => {
         }
       };
 
-      printStat('strength', false); // left
+      printStat('might', false); // left
       say('<b><green>' + sprintf('%36s', 'Gold ')); // right
-      printStat('agility', false); // left
+      printStat('quickness', false); // left
       say(sprintf('%36s', '.' + B.line(12) + '.')); // right
-      printStat('intellect', false); // left
+      printStat('cleverness', false); // left
       say(sprintf('%22s| <b>%10s</b> |', '', p.getMeta('currencies.gold') || 0)); // right
-      printStat('stamina', false); // left
+      printStat('willpower', false); // left
       say(sprintf('%36s', "'" + B.line(12) + "'")); // right
 
       say(':' + B.line(22) + ':');

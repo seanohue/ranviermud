@@ -56,8 +56,8 @@
     maxDamage: 20
     speed: 2.8
     stats:
-      strength: 2
-      stamina: 2
+      might: 2
+      willpower: 2
   behaviors: 
     sellable:
       value: 30
@@ -103,7 +103,7 @@
 - id: 8
   name: "Potion of Strength I"
   roomDesc: "Potion of Strength I"
-  keywords: [ "potion", "strength" ]
+  keywords: [ "potion", "might" ]
   type: POTION
   level: 1
   behaviors:
@@ -114,12 +114,12 @@
       destroyOnDepleted: true
       # effect config, see Effect docs. `name` is auto-populated with the item name
       config:
-        description: "Increases strength by <b>10</b> for <b>15</b> seconds"
+        description: "Increases might by <b>10</b> for <b>15</b> seconds"
         duration: 15000
       # effect state, see Effect docs
       state:
         magnitude: 10
-        stat: "strength"
+        stat: "might"
 - id: 9
   name: "Blade of Ranvier"
   type: WEAPON
@@ -138,8 +138,8 @@
     specialEffects:
       - "Chance on hit: Blade of Ranvier thirsts for blood and heals the wielder for 25% of damage done."
     stats:
-      strength: 2
-      stamina: 2
+      might: 2
+      willpower: 2
 - id: 10
   name: "Wooden Shield"
   type: ARMOR

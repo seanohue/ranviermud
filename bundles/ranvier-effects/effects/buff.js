@@ -9,7 +9,7 @@ module.exports = srcPath => {
       name: 'Buff Strength',
       description: "You feel stronger!",
       duration: 30 * 1000,
-      type: 'buff.strength',
+      type: 'buff.might',
     },
     flags: [Flag.BUFF],
     state: {
@@ -17,7 +17,7 @@ module.exports = srcPath => {
     },
     modifiers: {
       attributes: {
-        strength: function (current) {
+        might: function (current) {
           return current + this.state.magnitude;
         }
       }

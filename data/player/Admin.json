@@ -1,18 +1,18 @@
 {
   "attributes": {
-    "strength": {
+    "might": {
       "delta": 0,
       "base": 17
     },
-    "agility": {
+    "quickness": {
       "delta": 0,
       "base": 10
     },
-    "intellect": {
+    "cleverness": {
       "delta": 0,
       "base": 8
     },
-    "stamina": {
+    "willpower": {
       "delta": 0,
       "base": 11
     },

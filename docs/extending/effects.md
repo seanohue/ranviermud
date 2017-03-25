@@ -7,7 +7,7 @@ characters.
 ## What Can Effects Do?
 
 The most simple example of effects would be attribute changes like healing health over time, or increasing their
-strength. However, effects in Ranvier are not simple buffs and debuffs; they receive all of the events the target
+might. However, effects in Ranvier are not simple buffs and debuffs; they receive all of the events the target
 receives in addition to a special event called `updateTick` which we'll go into detail with later.
 
 Some examples of how effects can be combined with other aspects of the Ranvier engine with interesting results:
@@ -78,7 +78,7 @@ over `src/Effect.js` to take full advantage.
 
 ### buff
 
-This example buff will demonstrate a simple temporary attribute buff which increases the target's strength by an amount
+This example buff will demonstrate a simple temporary attribute buff which increases the target's might by an amount
 configurable by whatever is instantiating this effect.
 
 ```javascript hl_lines="1 1"
@@ -105,7 +105,7 @@ module.exports = srcPath => {
       `unique` config option (defaults to true). If an effect is unique only one
       effect of that type may be active at once.
       */
-      type: 'buff.strength',
+      type: 'buff.might',
     },
 
     /*
@@ -138,9 +138,9 @@ module.exports = srcPath => {
       by this effect.
       */
       attributes: {
-        // For `buff` we just want to take the character's current strength and
+        // For `buff` we just want to take the character's current might and
         // increase it by this effect's `magnitude`
-        strength: function (current) {
+        might: function (current) {
           return current + this.state.magnitude;
         }
       }
@@ -151,7 +151,7 @@ module.exports = srcPath => {
     to multiple attributes.  See the `equip.js` effect for an example
 
     state: {
-      stat: 'strength',
+      stat: 'might',
       bonus: 5
     },
 
@@ -383,11 +383,11 @@ module.exports = (srcPath) => {
           duration: 15 * 1000
         },
         /*
-        and a state override. In this example we'll override the default 5 strength
-        increase to instead increase the player's strength by 10%
+        and a state override. In this example we'll override the default 5 might
+        increase to instead increase the player's might by 10%
         */
         {
-          magnitude: Math.floor(player.getAttribute('strength') / 10)
+          magnitude: Math.floor(player.getAttribute('might') / 10)
         }
       );
       // these are special properties of the effect used during combat
@@ -402,7 +402,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return 'Temporarily increase your strength.';
+      return 'Temporarily increase your might.';
     }
   };
 };

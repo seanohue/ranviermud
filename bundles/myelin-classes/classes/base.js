@@ -22,28 +22,28 @@ module.exports = srcPath => {
 
         rend: {
           level: 3,
-          strength: 12,
+          might: 12,
         },
         lunge: {
           level: 4,
-          agility: 12,
-          strength: 12
+          quickness: 12,
+          might: 12
         },
         secondwind: {
           level: 6,
-          stamina: 16
+          willpower: 16
         },
 
         /* Mentalist: */
 
         heal: {
           level: 5,
-          intellect: 12,
-          stamina: 11
+          cleverness: 12,
+          willpower: 11
         },
         fireball: {
           level: 8,
-          intellect: 15
+          cleverness: 15
         }
 
       }
