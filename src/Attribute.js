@@ -39,7 +39,7 @@ class Attribute {
   }
 
   get isDerived() {
-    return [ 'physical', 'energy', 'armor' ].includes(this.name);
+    return [ 'physical', 'mental', 'attackpower', 'energy', 'armor' ].includes(this.name);
   }
 
   get [Symbol.toStringTag]() {
