@@ -11,7 +11,6 @@ module.exports = (srcPath) => {
   const attribute = 'might';
   const cooldown = 20;
   const cost = 50;
-  const duration = player.getAttribute(attribute) * 1000;
   const tickInterval = 3;
   const damagePercent = 200;
 
@@ -20,6 +19,7 @@ module.exports = (srcPath) => {
   };
 
   return {
+    //TODO: Make it so mutations add to the 'look' description of a player or NPC.
     name: 'Claw',
     type: SkillType.MUTATION,
     requiresTarget: true,
@@ -32,6 +32,7 @@ module.exports = (srcPath) => {
 
     //TODO: Use damage types or something to make this less effective vs. armor.
     run: state => function (args, player, target) {
+      const duration = player.getAttribute(attribute) * 1000;
       const effect = state.EffectFactory.create(
         'skill.claw',
         target,

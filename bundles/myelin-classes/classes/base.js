@@ -21,8 +21,8 @@ module.exports = srcPath => {
         /* Physicalist: */
 
         rend: {
-          level: 3,
-          might: 12,
+          level: 5,
+          might: 15,
         },
         lunge: {
           level: 4,
