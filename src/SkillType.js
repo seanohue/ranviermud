@@ -5,7 +5,9 @@
   skills and spells.
 */
 module.exports = {
-  SKILL: Symbol("SKILL"),
-  SPELL: Symbol("SPELL"),
+  SKILL:    Symbol("SKILL"),
+  SPELL:    Symbol("SPELL"),
+  FEAT:     Symbol("FEAT"),
+  MUTATION: Symbol("MUTATION")
 };
 

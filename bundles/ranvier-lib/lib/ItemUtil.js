@@ -74,7 +74,7 @@ exports.renderItem = function renderItem(state, item, player) {
   const usable = item.getBehavior('usable');
   if (usable) {
     if (usable.spell) {
-      const useSpell = state.SpellManager.get(usable.spell);
+      const useSpell = state.SkillManager.get(usable.spell);
       if (useSpell) {
         useSpell.options = usable.options;
         buf += B.wrap('<b>On Use</b>: ' + useSpell.info(player), 80) + '\r\n';

@@ -201,7 +201,7 @@ module.exports = (srcPath, bundlePath) => {
     const usable = entity.getBehavior('usable');
     if (usable) {
       if (usable.spell) {
-        const useSpell = state.SpellManager.get(usable.spell);
+        const useSpell = state.SkillManager.get(usable.spell);
         if (useSpell) {
           useSpell.options = usable.options;
           B.sayAt(player, useSpell.info(player));
