@@ -2,7 +2,7 @@
   "attributes": {
     "might": {
       "delta": 0,
-      "base": 17
+      "base": 10
     },
     "quickness": {
       "delta": 0,
@@ -10,26 +10,26 @@
     },
     "cleverness": {
       "delta": 0,
-      "base": 8
+      "base": 10
     },
     "willpower": {
       "delta": 0,
-      "base": 11
+      "base": 10
     },
-    'physical': {
+    "physical": {
       "delta": 0,
-      "base": 154
+      "base": 100
     },
     "energy": {
       "delta": 0,
-      "base": 110
+      "base": 100
     },
     "armor": {
       "delta": 0,
       "base": 0
     }
   },
-  "level": 3,
+  "level": 1,
   "name": "Admin",
   "room": "limbo:1",
   "effects": [],
@@ -45,7 +45,7 @@
   },
   "metadata": {
     "class": "base",
-    "abilityPoints": 1,
+    "abilityPoints": 3,
     "attributePoints": 3,
     "abilities": []
   },
