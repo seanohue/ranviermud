@@ -21,6 +21,8 @@ module.exports = srcPath => {
         say(B.center(80, "None", "white"));
       }
 
+      say(""); // Divide with newline
+
       const availableAbilities = player.playerClass
         .getAbilitiesForPlayer(player)
         .filter(ability => player.playerClass.canPurchaseAbility(player, ability));
