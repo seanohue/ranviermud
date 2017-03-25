@@ -16,10 +16,10 @@ module.exports = (srcPath) => {
 
     run: state => function (args, player, target) {
       const restorePercent = this.options.restore || 0;
-      const stat = this.options.stat || 'health';
+      const stat = this.options.stat || 'physical';
       const heal = new Heal({
         attribute: stat,
-        amount: Math.round(player.getMaxAttribute('health') * (this.options.restores / 100)),
+        amount: Math.round(player.getMaxAttribute('physical') * (this.options.restores / 100)),
         attacker: player,
         source: this
       });

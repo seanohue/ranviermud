@@ -11,7 +11,8 @@ class Attributes extends Map
       agility: { base: 20 },
       intellect: { base: 20 },
       stamina: { base: 20 },
-      health: { base: 100 },
+      physical: { base: 100 },
+      mental: { base: 100 },
       armor: { base: 0 },
     };
 

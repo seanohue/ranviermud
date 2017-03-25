@@ -18,7 +18,7 @@ module.exports = (srcPath) => {
         return Broadcast.sayAt(player, 'Amount must be > 0');
       }
 
-      player.lowerAttribute('health', amount);
+      player.lowerAttribute('physical', amount);
     }
   };
 };

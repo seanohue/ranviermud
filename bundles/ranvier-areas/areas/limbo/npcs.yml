@@ -13,7 +13,7 @@
   pacifist: true
   description: "A wise looking old man sits on the ground with legs crossed."
   attributes:
-    health: 100
+    physical: 100
 - id: 3
   keywords: ["puppy", "dog", "loyal", "wide", "eyed", "wide-eyed"]
   name: A Puppy

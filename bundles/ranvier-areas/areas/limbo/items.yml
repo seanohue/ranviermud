@@ -82,7 +82,7 @@
 - id: 7
   name: "Potion of Health I"
   roomDesc: "Potion of Health I"
-  keywords: [ "potion", "health" ]
+  keywords: [ "potion", 'physical' ]
   type: POTION
   level: 1
   behaviors:
@@ -99,7 +99,7 @@
       # spell configuration, spell can access it via this.options
       options:
         restores: 30
-        stat: "health"
+        stat: 'physical'
 - id: 8
   name: "Potion of Strength I"
   roomDesc: "Potion of Strength I"

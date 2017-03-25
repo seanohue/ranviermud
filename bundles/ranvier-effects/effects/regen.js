@@ -19,7 +19,7 @@ module.exports = srcPath => {
     listeners: {
       updateTick: function () {
         var regens = [
-          { pool: 'health', modifier: this.target.isInCombat() ? 0 : 1 },
+          { pool: 'physical', modifier: this.target.isInCombat() ? 0 : 1 },
           // energy recovers 50% faster than health
           { pool: 'energy', modifier: this.target.isInCombat() ? 0.25 : 1.5 },
         ];
