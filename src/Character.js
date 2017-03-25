@@ -17,14 +17,14 @@ const RandomUtil = require('./RandomUtil');
  * stats a player has and how they are calculated it should be changed here and in
  * `Attributes.js`
  *
- * @property {string}    name       Name shown on look/who/login
- * @property {Map}       inventory
- * @property {Set}       combatants Enemies this character is currently in combat with
- * @property {number}    level
- * @property {object}    attributes
+ * @property {string}     name       Name shown on look/who/login
+ * @property {Map}        inventory
+ * @property {Set}        combatants Enemies this character is currently in combat with
+ * @property {number}     level
+ * @property {object}     attributes
  * @property {EffectList} effects    List of current effects applied to the character
- * @property {Map}       skills     List of all character's skills
- * @property {Room}      room       Room the character is currently in
+ * @property {Map}        skills     List of all character's skills
+ * @property {Room}       room       Room the character is currently in
  */
 class Character extends EventEmitter
 {
