@@ -45,40 +45,39 @@ class PlayerClass {
   getAbilitiesForPlayer(player) {
     let totalAbilities = [];
     const abilities = Object.entries(this.abilityTable.skills);
-    for (const [ ability, prerequisites ] in abilities) {
+    for (const [ ability, prerequisites ] of abilities) {
       const isEligible = this.determineEligibility(prerequisites, player);
       if (isEligible) {
-        totalAbilities.push(ability);
+        totalAbilities = totalAbilities.concat(ability);
       }
     }
     return totalAbilities;
   }
 
   getOwnAbilitiesForPlayer(player) {
-    let totalAbilities = [];
-    const abilities = Object.entries(this.abilityTable.skills);
-    for (const [ ability, prerequisites ] in abilities) {
-      const owns = this.canUseAbility(player, ability);
-      if (owns) {
-        totalAbilities.push(ability);
-      }
-    }
-    return totalAbilities;
+    return player.getMeta('abilities') || [];
   }
 
   /** Given a hash of prerequisites, determine if the player meets all of them or not.
    * @param {Object<string,number>} prerequisites
    * @param {Player}
-   * @return {Boolean}
+   * @return {Boolean} isEligible
   */
   determineEligibility(prerequisites, player) {
+    if (!prerequisites) {
+      return true;
+    }
     const prereqList = Object.entries(prerequisites);
     return prereqList.every(([ attribute, level ]) => {
-      if (attribute === 'cost') {
-        const abilityPoints = parseInt(player.getMeta('abilityPoints'), 10)
-        return abilityPoints >= cost;
+      switch(attribute) {
+        case 'cost':
+          const abilityPoints = parseInt(player.getMeta('abilityPoints'), 10) || 0;
+          return abilityPoints >= level;
+        case 'level':
+          return player.level >= level;
+        default:
+          return player.getBaseAttribute(attribute) >= level;
       }
-      return player.getBaseAttribute(attribute) >= level;
     });
   }
 
@@ -97,8 +96,10 @@ class PlayerClass {
    * @return {boolean}
    */
   canPurchaseAbility(player, abilityId) {
+    const ownAbilities = this.getOwnAbilitiesForPlayer(player);
     return this.getAbilitiesForPlayer(player)
-               .includes(abilityId);
+               .includes(abilityId) &&
+               !ownAbilities.includes(abilityId);
   }
 
   /**
@@ -108,8 +109,8 @@ class PlayerClass {
    * @return {boolean}
    */
   canUseAbility(player, abilityId) {
-    return player.getMeta('purchasedAbilities')
-                 .includes(abilityId);
+    return player.getMeta('abilities') &&
+           player.getMeta('abilities').includes(abilityId);
   }
 }
 
