@@ -9,6 +9,10 @@
  */
 module.exports = srcPath => {
   return {
+
+    // Set up player prompt and other business:
+    setupPlayer: 
+
     abilityTable: {
       skills: {
 

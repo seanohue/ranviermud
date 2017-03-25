@@ -93,11 +93,23 @@ class Character extends EventEmitter
         );
       case 'armor':
         break;
+
+      case 'strength':
+      case 'agility':
+      case 'intellect':
+      case 'stamina':
+        attribute.setBase(AttributeUtil.baseAttributeByLevel(attribute.name, this.level));
+        break;
       default:
+        // Don't modify any other attributes
         break;
     }
 
     return this.effects.evaluateAttribute(attribute);
+  }
+
+  addAttribute(name, base) {
+    this.attributes.add(name, base);
   }
 
   /* Get value of attribute including changes to the attribute.
