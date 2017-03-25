@@ -12,13 +12,13 @@ module.exports = (srcPath) => {
         return say("What ability do you want to add to your repertoire? Use 'skills' to view all skills/abilities.");
       }
 
-      let purchaseable = player.playerClass.getAbilitiesForPlayer(player);
+      let available = player.playerClass.getAbilitiesForPlayer(player)
+      let purchaseable = available.filter(ability => player.playerClass.canPurchaseAbility(player, ability));
 
-      //TODO: Get rid of spells.
       let skill = purchaseable.filter(name => args === name);
 
       if (skill.length !== 1) {
-        return say("You'll have to be more specific than that...");
+        return say("You cannot gain that ability.");
       }
 
       if (!skill) {
@@ -33,11 +33,11 @@ module.exports = (srcPath) => {
 
       player.setMeta('abilityPoints', abilityPoints - 1);
 
-      //TODO: Remember to set purchasedAbilities to '' or empty array on char create.
-      const newAbilities = player.getMeta('purchasedAbilities') ?
-        player.getMeta('purchasedAbilities').concat(skill) :
-        [ skill ];
-      player.setMeta('purchasedAbilities', newAbilities);
+      //TODO: Remember to set abilities to empty array on char create.
+      const newAbilities = player.getMeta('abilities') ?
+        player.getMeta('abilities').concat(skill) :
+        [].concat(skill);
+      player.setMeta('abilities', newAbilities);
 
       say(`You now have ${skill} as an ability.`);
     }

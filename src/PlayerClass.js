@@ -48,22 +48,14 @@ class PlayerClass {
     for (const [ ability, prerequisites ] of abilities) {
       const isEligible = this.determineEligibility(prerequisites, player);
       if (isEligible) {
-        totalAbilities.push(ability);
+        totalAbilities = totalAbilities.concat(ability);
       }
     }
     return totalAbilities;
   }
 
   getOwnAbilitiesForPlayer(player) {
-    let totalAbilities = [];
-    const abilities = Object.entries(this.abilityTable.skills);
-    for (const [ ability, prerequisites ] in abilities) {
-      const owns = this.canUseAbility(player, ability);
-      if (owns) {
-        totalAbilities.push(ability);
-      }
-    }
-    return totalAbilities;
+    return player.getMeta('abilities') || [];
   }
 
   /** Given a hash of prerequisites, determine if the player meets all of them or not.
@@ -104,8 +96,10 @@ class PlayerClass {
    * @return {boolean}
    */
   canPurchaseAbility(player, abilityId) {
+    const ownAbilities = this.getOwnAbilitiesForPlayer(player);
     return this.getAbilitiesForPlayer(player)
-               .includes(abilityId);
+               .includes(abilityId) &&
+               !ownAbilities.includes(abilityId);
   }
 
   /**
@@ -115,8 +109,8 @@ class PlayerClass {
    * @return {boolean}
    */
   canUseAbility(player, abilityId) {
-    return player.getMeta('purchasedAbilities') &&
-           player.getMeta('purchasedAbilities').includes(abilityId);
+    return player.getMeta('abilities') &&
+           player.getMeta('abilities').includes(abilityId);
   }
 }
 

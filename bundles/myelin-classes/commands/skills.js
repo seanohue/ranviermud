@@ -21,12 +21,14 @@ module.exports = srcPath => {
         say(B.center(80, "None", "white"));
       }
 
-      const availableAbilities = player.playerClass.getAbilitiesForPlayer(player);
+      const availableAbilities = player.playerClass
+        .getAbilitiesForPlayer(player)
+        .filter(ability => player.playerClass.canPurchaseAbility(player, ability));
+
       if (availableAbilities.length > 0) {
         say("<b>" + B.center(80, 'Available Abilities', 'green'));
         say("<b>" + B.line(80, '=', 'green'));
         for (const ability of availableAbilities) {
-          console.log("==", ability);
           say(B.center(80, `${B.capitalize(ability.trim())}`, 'white'));
         }
       }
