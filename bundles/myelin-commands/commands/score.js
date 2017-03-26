@@ -51,6 +51,7 @@ module.exports = (srcPath) => {
       };
       B.at(p, sprintf(' %-9s: %12s', 'Mental Health', `${mental.current}/${mental.max}`));
 
+
       say(sprintf('%35s', '.' + B.line(22)) + '.');
 
       B.at(p, sprintf('%37s', '|'));
