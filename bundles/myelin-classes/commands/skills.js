@@ -31,7 +31,8 @@ module.exports = srcPath => {
         say("<b>" + B.center(80, 'Available Abilities', 'green'));
         say("<b>" + B.line(80, '=', 'green'));
         for (const ability of availableAbilities) {
-          say(B.center(80, `${B.capitalize(ability.trim())}`, 'white'));
+          const cost = player.playerClass.abilityTable.skills[ability].cost || 1;
+          say(B.center(80, `${B.capitalize(ability.trim())} (cost: ${cost})`, 'white'));
         }
       }
     }
