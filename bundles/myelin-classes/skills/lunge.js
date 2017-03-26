@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Basic active attack skill
+ * Quickness-based active attack skill
  */
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
@@ -12,7 +12,7 @@ module.exports = (srcPath) => {
   const energyCost = 20;
 
   function getDamage(player) {
-    return player.calculateWeaponDamage() * (damagePercent / 100);
+    return player.calculateWeaponDamage() * (damagePercent / 100) + player.getMaxAttribute('quickness');
   }
 
   return {
@@ -44,7 +44,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage.`;
+      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness.`;
     }
   };
 };

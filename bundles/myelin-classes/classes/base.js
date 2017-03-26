@@ -20,31 +20,38 @@ module.exports = srcPath => {
 
         /* Physicalist: */
 
-        rend: {
-          level: 5,
+        claw: {
+          level: 1,
           might: 15,
+          quickness: 10,
+          cost: 2
         },
         lunge: {
-          level: 4,
-          quickness: 12,
-          might: 12
+          level: 1,
+          quickness: 15,
         },
         secondwind: {
-          level: 6,
-          willpower: 16
+          level: 1,
+          might: 15
         },
+
+        // bash, like lunge but damage based on might
 
         /* Mentalist: */
 
-        heal: {
-          level: 5,
-          intellect: 12,
-          willpower: 11
+        mend: {
+          level: 1,
+          intellect: 13,
+          willpower: 12,
+          cost: 2
         },
-        fireball: {
-          level: 8,
-          intellect: 15
+        combust: {
+          level: 1,
+          intellect: 15,
+          willpower: 15,
+          cost: 2
         }
+        // concentrate: like secondwind but with mental health
 
       }
     }

@@ -31,7 +31,8 @@ module.exports = (srcPath) => {
         return say("You are not ready to earn new abilities yet...");
       }
 
-      player.setMeta('abilityPoints', abilityPoints - 1);
+      const cost = player.playerClass.abilityTable.skills[skill].cost || 1;
+      player.setMeta('abilityPoints', abilityPoints - cost);
 
       //TODO: Remember to set abilities to empty array on char create.
       const newAbilities = player.getMeta('abilities') ?

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * DoT (Damage over time) skill
+ * DoT (Damage over time) mutation using claws + Might bonus
  */
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
