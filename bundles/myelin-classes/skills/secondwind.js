@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Basic warrior passive
+ * Passive energy regen if below a certain amount.
  */
 module.exports = (srcPath) => {
 
@@ -10,11 +10,11 @@ module.exports = (srcPath) => {
 
   const interval = 2 * 60;
   const threshold = 30;
-  const restorePercent = 50;
+  const attrMultiplier = 'willpower';
 
   return {
     name: 'Second Wind',
-    type: SkillType.SKILL,
+    type: SkillType.FEAT,
     flags: [SkillFlag.PASSIVE],
     effect: "skill.secondwind",
     cooldown: interval,
@@ -22,14 +22,14 @@ module.exports = (srcPath) => {
     configureEffect: effect => {
       effect.state = Object.assign(effect.state, {
         threshold: threshold,
-        restorePercent: restorePercent,
+        attrMultiplier: attrMultiplier,
       });
 
       return effect;
     },
 
     info: function (player) {
-      return `Once every ${interval / 60} minutes, when dropping below ${threshold} energy, restore ${restorePercent}% of your max energy.`;
+      return `Once every ${interval / 60} minutes, when dropping below ${threshold} energy, restore ${player.getMaxAttribute(attrMultiplier) * 2}% of your max energy.`;
     }
   };
 };

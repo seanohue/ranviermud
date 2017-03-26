@@ -39,8 +39,8 @@ class PlayerClass {
    * Example:
    *   lunge: {
    *      level:     4,
-   *      agility:  12,
-   *      strength: 12
+   *      quickness:  12,
+   *      might: 12
    *    },
    * @return {Object<string, Object<string, number>>}
    */

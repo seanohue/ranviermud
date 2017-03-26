@@ -1,53 +1,86 @@
 {
   "attributes": {
-    "strength": {
+    "might": {
       "delta": 0,
-      "base": 17
+      "base": 10
     },
-    "agility": {
+    "quickness": {
       "delta": 0,
       "base": 10
     },
     "intellect": {
       "delta": 0,
-      "base": 8
+      "base": 10
     },
-    "stamina": {
+    "willpower": {
       "delta": 0,
-      "base": 11
+      "base": 10
     },
-    'physical': {
+    "physical": {
       "delta": 0,
-      "base": 154
+      "base": 100
     },
     "energy": {
       "delta": 0,
-      "base": 110
+      "base": 100
     },
     "armor": {
       "delta": 0,
       "base": 0
+    },
+    "mental": {
+      "delta": 0,
+      "base": 100
     }
   },
-  "level": 3,
+  "level": 1,
   "name": "Admin",
   "room": "limbo:1",
   "effects": [],
-  "playerClass": "base",
   "experience": 0,
   "inventory": {
     "items": [],
     "max": 16
   },
-  "quests": {
-    "completed": [],
-    "active": []
-  },
   "metadata": {
     "class": "base",
-    "abilityPoints": 1,
+    "abilityPoints": 3,
     "attributePoints": 3,
     "abilities": []
+  },
+  "playerClass": "base",
+  "prompt": "health: [ %physical.current%/%physical.max% <b>physical</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]",
+  "quests": {
+    "completed": [],
+    "active": [
+      [
+        "limbo:1",
+        {
+          "state": [
+            {
+              "state": {
+                "count": 0
+              }
+            },
+            {
+              "state": {
+                "count": 0
+              }
+            },
+            {
+              "state": {
+                "equipped": false
+              }
+            },
+            {
+              "state": {
+                "equipped": false
+              }
+            }
+          ]
+        }
+      ]
+    ]
   },
   "role": 2,
   "equipment": {}

@@ -1,14 +1,14 @@
 'use strict';
 
 /**
- * Basic warrior attack
+ * Basic active attack skill
  */
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Damage = require(srcPath + 'Damage');
   const SkillType = require(srcPath + 'SkillType');
 
-  const damagePercent = 250;
+  const damagePercent = 150;
   const energyCost = 20;
 
   function getDamage(player) {

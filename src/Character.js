@@ -17,14 +17,14 @@ const RandomUtil = require('./RandomUtil');
  * stats a player has and how they are calculated it should be changed here and in
  * `Attributes.js`
  *
- * @property {string}    name       Name shown on look/who/login
- * @property {Map}       inventory
- * @property {Set}       combatants Enemies this character is currently in combat with
- * @property {number}    level
- * @property {object}    attributes
+ * @property {string}     name       Name shown on look/who/login
+ * @property {Map}        inventory
+ * @property {Set}        combatants Enemies this character is currently in combat with
+ * @property {number}     level
+ * @property {object}     attributes
  * @property {EffectList} effects    List of current effects applied to the character
- * @property {Map}       skills     List of all character's skills
- * @property {Room}      room       Room the character is currently in
+ * @property {Map}        skills     List of all character's skills
+ * @property {Room}       room       Room the character is currently in
  */
 class Character extends EventEmitter
 {
@@ -76,29 +76,32 @@ class Character extends EventEmitter
     switch (attribute.name) {
       case 'physical':
         attribute.setBase(
-          this.getMaxAttribute('stamina') * AttributeUtil.deriveByLevel(this.level)
+          this.getMaxAttribute('might')     * 7.5 +
+          this.getMaxAttribute('willpower') * 2.5
         );
         break;
       case 'mental':
         attribute.setBase(
-          this.getMaxAttribute('intellect') * AttributeUtil.deriveByLevel(this.level)
+          this.getMaxAttribute('intellect') * 2.5 +
+          this.getMaxAttribute('willpower') * 7.5
         );
         break;
       case 'attackpower':
-        attribute.setBase(this.getMaxAttribute('strength'));
+        attribute.setBase(
+          this.getMaxAttribute('might')   * 7.5 +
+          this.getMaxAttribute('agility') * 2.5
+        );
         break;
       case 'energy':
         attribute.setBase(
-          this.getMaxAttribute('stamina') * 10
+          this.getMaxAttribute('willpower') * 5 +
+          this.getMaxAttribute('might')     * 5
         );
       case 'armor':
-        break;
-
-      case 'strength':
-      case 'agility':
+      case 'might':
+      case 'quickness':
       case 'intellect':
-      case 'stamina':
-        attribute.setBase(AttributeUtil.baseAttributeByLevel(attribute.name, this.level));
+      case 'willpower':
         break;
       default:
         // Don't modify any other attributes
@@ -393,7 +396,7 @@ class Character extends EventEmitter
    */
   normalizeWeaponDamage(amount) {
     let speed = this.getWeaponSpeed();
-    return Math.round(amount + this.getAttribute('strength') / 3.5 * speed);
+    return Math.round(amount + this.getAttribute('might') / 3.5 * speed);
   }
 
   follow(target) {

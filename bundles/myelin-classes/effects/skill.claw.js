@@ -10,13 +10,13 @@ module.exports = srcPath => {
 
   return {
     config: {
-      name: 'Rend',
-      type: 'skill:rend',
+      name: 'Claw',
+      type: 'skill:claw',
     },
     flags: [Flag.DEBUFF],
     listeners: {
       effectActivated: function () {
-        Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely</red></bold>");
+        Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely.</red></bold>");
       },
 
       effectDeactivated: function () {

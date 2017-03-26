@@ -7,10 +7,10 @@ class Attributes extends Map
     super();
 
     const baseStats = {
-      strength: { base: 20 },
-      agility: { base: 20 },
-      intellect: { base: 20 },
-      stamina: { base: 20 },
+      might: { base: 10 },
+      quickness: { base: 10 },
+      intellect: { base: 10 },
+      willpower: { base: 10 },
       physical: { base: 100 },
       mental: { base: 100 },
       armor: { base: 0 },

@@ -21,17 +21,17 @@ module.exports = srcPath => {
         /* Physicalist: */
 
         rend: {
-          level: 3,
-          strength: 12,
+          level: 5,
+          might: 15,
         },
         lunge: {
           level: 4,
-          agility: 12,
-          strength: 12
+          quickness: 12,
+          might: 12
         },
         secondwind: {
           level: 6,
-          stamina: 16
+          willpower: 16
         },
 
         /* Mentalist: */
@@ -39,7 +39,7 @@ module.exports = srcPath => {
         heal: {
           level: 5,
           intellect: 12,
-          stamina: 11
+          willpower: 11
         },
         fireball: {
           level: 8,

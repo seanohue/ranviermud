@@ -29,8 +29,9 @@ module.exports = srcPath => {
         }
 
         Broadcast.sayAt(this.target, "<bold><yellow>You catch a second wind!</bold></yellow>");
+        const attrMultiplier = this.target.getMaxAttribute(this.state.attrMultiplier) * 2
         const heal = new Heal({
-          amount: Math.floor(this.target.getMaxAttribute('energy') * (this.state.restorePercent / 100)),
+          amount: Math.floor(this.target.getMaxAttribute('energy') * attrMultiplier / 100),
           attacker: this.target,
           attribute: 'energy',
           source: this.skill

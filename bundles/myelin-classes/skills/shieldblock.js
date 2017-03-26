@@ -8,7 +8,7 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
 
   // config placed here just for easy configuration of this skill later on
-  const attribute = 'strength';
+  const attribute = 'might';
   const cooldown = 45;
   const cost = 50;
   const healthPercent = 15;
