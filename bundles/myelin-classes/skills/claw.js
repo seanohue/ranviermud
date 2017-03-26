@@ -14,6 +14,10 @@ module.exports = (srcPath) => {
   const tickInterval = 3;
   const damagePercent = 200;
 
+  const totalDuration = player => {
+    return player.getMaxAttribute(attribute) * 1000;
+  }
+
   const totalDamage = player => {
     return player.getMaxAttribute(attribute) * (damagePercent / 100);
   };
@@ -32,7 +36,7 @@ module.exports = (srcPath) => {
 
     //TODO: Use damage types or something to make this less effective vs. armor.
     run: state => function (args, player, target) {
-      const duration = player.getAttribute(attribute) * 1000;
+      const duration = totalDuration(player);
       const effect = state.EffectFactory.create(
         'skill.claw',
         target,
@@ -55,7 +59,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `You grow lengthy, chitinous claws where your fingernails used to be. Use them to tear a deep wound in your target's flesh, dealing <bold>${damagePercent}%</bold> might damage over <bold>${duration / 1000}</bold> seconds.`;
+      return `You grow lengthy, chitinous claws where your fingernails used to be. Use them to tear a deep wound in your target's flesh, dealing <bold>${damagePercent}%</bold> might damage over <bold>${totalDuration(player) / 1000}</bold> seconds.`;
     }
   };
 };

@@ -12,7 +12,7 @@ module.exports = (srcPath) => {
       },
 
       /**
-       * Rat tries to use Rend every time it's available
+       * Rat tries to use claw every time it's available
        */
       updateTick: state => function () {
         if (!this.isInCombat()) {
@@ -21,12 +21,12 @@ module.exports = (srcPath) => {
 
         const target = [...this.combatants][0];
 
-        const rend = state.SkillManager.get('rend');
+        const claw = state.SkillManager.get('claw');
         // skills do both of these checks internally but I only want to send
         // this message when execute would definitely succeed
-        if (!rend.onCooldown(this) && rend.hasEnoughResource(this)) {
+        if (!claw.onCooldown(this) && claw.hasEnoughResource(this)) {
           Broadcast.sayAt(target, "The rat bears its fangs and leaps at your throat!");
-          rend.execute(null, this, target);
+          claw.execute(null, this, target);
         }
       },
 

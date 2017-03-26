@@ -2,27 +2,27 @@
   "attributes": {
     "might": {
       "delta": 0,
-      "base": 10
+      "base": 16
     },
     "quickness": {
       "delta": 0,
-      "base": 10
+      "base": 12
     },
     "intellect": {
       "delta": 0,
-      "base": 10
+      "base": 12
     },
     "willpower": {
       "delta": 0,
-      "base": 10
+      "base": 12
     },
     "physical": {
       "delta": 0,
-      "base": 100
+      "base": 150
     },
     "energy": {
       "delta": 0,
-      "base": 100
+      "base": 140
     },
     "armor": {
       "delta": 0,
@@ -30,22 +30,43 @@
     },
     "mental": {
       "delta": 0,
-      "base": 100
+      "base": 120
     }
   },
-  "level": 1,
+  "level": 22,
   "name": "Admin",
   "room": "limbo:1",
-  "effects": [],
-  "experience": 0,
+  "effects": [
+    {
+      "id": "regen",
+      "elapsed": 121782,
+      "state": {
+        "magnitude": 15,
+        "lastTick": 393,
+        "ticks": 41
+      },
+      "config": {
+        "autoActivate": true,
+        "description": "You are regenerating over time.",
+        "duration": "inf",
+        "hidden": true,
+        "name": "Regenerate",
+        "maxStacks": 0,
+        "unique": true,
+        "type": "regen",
+        "tickInterval": 3
+      }
+    }
+  ],
+  "experience": 6713,
   "inventory": {
     "items": [],
     "max": 16
   },
   "metadata": {
     "class": "base",
-    "abilityPoints": 3,
-    "attributePoints": 3,
+    "abilityPoints": 24,
+    "attributePoints": 12,
     "abilities": []
   },
   "playerClass": "base",
