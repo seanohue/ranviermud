@@ -46,7 +46,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Call upon the light to heal your target's wounds for ${healPercent}% of your Intellect.`;
+      return `Psionically heal your target's wounds for ${healPercent}% of your Intellect.`;
     }
   };
 };

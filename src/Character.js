@@ -270,8 +270,8 @@ class Character extends EventEmitter
    * @param {Damage} damage
    * @return {number}
    */
-  evaluateIncomingDamage(damage) {
-    let amount = this.effects.evaluateIncomingDamage(damage);
+  evaluateIncomingDamage(damage, currentAmount) {
+    let amount = this.effects.evaluateIncomingDamage(damage, currentAmount);
 
     // let armor reduce incoming physical damage
     const attackerLevel = (damage.attacker && damage.attacker.level) || 1;
@@ -286,10 +286,11 @@ class Character extends EventEmitter
   /**
    * @see EffectList.evaluateOutgoingDamage
    * @param {Damage} damage
+   * @param {number} currentAmount
    * @return {number}
    */
-  evaluateOutgoingDamage(damage) {
-    return this.effects.evaluateOutgoingDamage(damage);
+  evaluateOutgoingDamage(damage, currentAmount) {
+    return this.effects.evaluateOutgoingDamage(damage, currentAmount);
   }
 
   equip(item) {
