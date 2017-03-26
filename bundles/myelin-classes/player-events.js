@@ -27,10 +27,11 @@ module.exports = srcPath => {
         Broadcast.sayAt(this, `<blue>You now have ${attributePoints + 1} points to spend on boosting attributes.</blue>`);
 
         // Award ability points for buying skills/feats.
-        const abilityPoints = parseInt(this.getMeta('abilityPoints') || 0, 10);
-        this.setMeta('abilityPoints', abilityPoints + 1);
-        Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on new abilities.</blue>`);
-
+        if (this.level % 2 === 0) {
+          const abilityPoints = parseInt(this.getMeta('abilityPoints') || 0, 10);
+          this.setMeta('abilityPoints', abilityPoints + 1);
+          Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on new abilities.</blue>`);
+        }
       }
     }
   };
