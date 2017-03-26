@@ -6,44 +6,44 @@
     },
     "quickness": {
       "delta": 0,
-      "base": 12
+      "base": 16
     },
     "intellect": {
       "delta": 0,
-      "base": 12
+      "base": 16
     },
     "willpower": {
       "delta": 0,
-      "base": 12
+      "base": 16
     },
     "physical": {
-      "delta": 0,
-      "base": 150
+      "delta": -48,
+      "base": 160
     },
     "energy": {
       "delta": 0,
-      "base": 140
+      "base": 160
     },
     "armor": {
       "delta": 0,
       "base": 0
     },
     "mental": {
-      "delta": 0,
-      "base": 120
+      "delta": -20,
+      "base": 160
     }
   },
   "level": 22,
   "name": "Admin",
-  "room": "limbo:1",
+  "room": "limbo:3",
   "effects": [
     {
       "id": "regen",
-      "elapsed": 121782,
+      "elapsed": 1862130,
       "state": {
         "magnitude": 15,
-        "lastTick": 393,
-        "ticks": 41
+        "lastTick": 2826,
+        "ticks": 457
       },
       "config": {
         "autoActivate": true,
@@ -58,16 +58,25 @@
       }
     }
   ],
-  "experience": 6713,
+  "experience": 6933,
   "inventory": {
     "items": [],
     "max": 16
   },
   "metadata": {
     "class": "base",
-    "abilityPoints": 24,
-    "attributePoints": 12,
-    "abilities": []
+    "abilityPoints": 16,
+    "attributePoints": 0,
+    "abilities": [
+      "claw",
+      "lunge",
+      "secondwind",
+      "mend",
+      "combust"
+    ],
+    "currencies": {
+      "gold": 14
+    }
   },
   "playerClass": "base",
   "prompt": "health: [ %physical.current%/%physical.max% <b>physical</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]",
