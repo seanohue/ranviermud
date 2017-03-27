@@ -17,17 +17,13 @@ module.exports = (srcPath) => {
       /*
         Myelin does not have classes,
         however, players can choose a
-        background. This determines
-        starting skills, attributes, and
-        inventory.
+        background.
       */
-
-      //TODO: Choose a "background".
 
       player.setMeta('class', 'base');
       player.setMeta('attributePoints', 2);
       player.setMeta('abilityPoints', 1);
-      socket.emit('done', socket, { player });
+      socket.emit('choose-background', socket, { player });
     }
   };
 };
