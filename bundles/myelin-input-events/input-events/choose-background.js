@@ -17,7 +17,7 @@ module.exports = (srcPath, bundlePath) => {
   const bgPath = bundlePath + 'backgrounds/';
 
   /* Yaml files
-    id: 1
+    id: mendicant
     name: 'Acrid Mendicant'
     description: 'blah blah'
     karmaLevel: 0
