@@ -57,10 +57,10 @@ module.exports = (srcPath) => {
           options.push({
             display: char,
             onSelect: () => {
-              handleMultiplaying(char); 
+              handleMultiplaying(char);
               const player = state.PlayerManager.loadPlayer(state, account, char);
               player.socket = socket;
-              socket.emit('done', socket, { player });
+              socket.emit('done', socket, { player, account });
             },
           });
         });

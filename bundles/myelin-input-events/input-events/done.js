@@ -19,14 +19,14 @@ module.exports = (srcPath) => {
           const stat = attributes[attr];
           player.attributes.get(attr).setBase(stat);
         }
+        // Save player to account.
+        account.addCharacter(player.name);
+        account.save();
       }
 
       // Allow the player class to modify the player (adding attributes, changing default prompt, etc)
       player.playerClass.setupPlayer(player);
 
-      // Save player to account.
-      args.account.addCharacter(player.name);
-      args.account.save();
 
       player.save();
 
