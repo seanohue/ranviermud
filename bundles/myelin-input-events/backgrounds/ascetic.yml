@@ -1,0 +1,11 @@
+id: ascetic
+name: 'Penitent Ascetic'
+description: 'After years of meditation and solitude, your dedication has absolved you of past sins.'
+karmaLevel: 0
+attributes:
+  quickness: 8
+  might: 7
+  intellect: 11
+  willpower: 14
+# equipment: # slot: id
+# skills: array<stringId>

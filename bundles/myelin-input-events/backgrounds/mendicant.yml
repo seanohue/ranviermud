@@ -1,0 +1,11 @@
+id: mendicant
+name: 'Acrid Mendicant'
+description: "You're a wiley sort, surviving on the streets through your own wits, charming alms from strangers."
+karmaLevel: 0
+attributes:
+  quickness: 8
+  intellect: 12
+  willpower: 8
+  might:     12
+# equipment: # slot: id
+# skills: array<stringId>

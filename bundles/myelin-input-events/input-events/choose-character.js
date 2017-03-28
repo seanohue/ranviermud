@@ -6,7 +6,7 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
-  const Config     = require(srcPath + 'Config');
+  const Config    = require(srcPath + 'Config');
   const Logger    = require(srcPath + 'Logger');
 
   return {
@@ -66,7 +66,7 @@ module.exports = (srcPath) => {
         });
       }
 
-      /* 
+      /*
       If multiplaying is not allowed:
       * Check all PCs on this person's account
       * Kick any that are currently logged-in.

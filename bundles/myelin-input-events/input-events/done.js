@@ -10,11 +10,23 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      let player = args.player;
+      let { player, attributes, account } = args;
       player.hydrate(state);
+
+      // Coming from chargen, set starting attributes.
+      if (attributes) {
+        for (const attr in attributes) {
+          const stat = attributes[attr];
+          player.attributes.get(attr).setBase(stat);
+        }
+      }
 
       // Allow the player class to modify the player (adding attributes, changing default prompt, etc)
       player.playerClass.setupPlayer(player);
+
+      // Save player to account.
+      args.account.addCharacter(player.name);
+      args.account.save();
 
       player.save();
 

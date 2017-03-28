@@ -15,9 +15,6 @@ module.exports = (srcPath) => {
         account: args.account
       });
 
-      args.account.addCharacter(args.name);
-      args.account.save();
-
       const room = state.RoomManager.startingRoom;
       player.room = room;
       player.save();
@@ -31,7 +28,7 @@ module.exports = (srcPath) => {
       player = state.PlayerManager.loadPlayer(state, player.account, player.name);
       player.socket = socket;
 
-      socket.emit('choose-class', socket, { player });
+      socket.emit('choose-class', socket, { player, account: args.account });
     }
   };
 };

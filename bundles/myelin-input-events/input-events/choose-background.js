@@ -7,26 +7,14 @@
 //TODO: Have account.karma effect which "tiers" of backgrounds are available.
 //      For now it is just starting tier.
 
-module.exports = (srcPath, bundlePath) => {
+module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
   const Config    = require(srcPath + 'Config');
   const Data      = require(srcPath + 'Data');
   const fs        = require('fs');
 
-  const bgPath = bundlePath + 'backgrounds/';
-
-  /* Yaml files
-    id: mendicant
-    name: 'Acrid Mendicant'
-    description: 'blah blah'
-    karmaLevel: 0
-    attributes: # attr: number
-    equipment: # slot: id
-    skills: array<stringId>
-
-    At end of this script, emit 'bg-${id}-choice' for flashback stuff.
-  */
+  const bgPath = __dirname + '/../backgrounds/';
 
   const choices = fs
     .readdirSync(bgPath)
@@ -36,9 +24,10 @@ module.exports = (srcPath, bundlePath) => {
 
   return {
     event: state => (socket, args) => {
-      const player = args.player;
+      const { player, account } = args;
       const say = str => Broadcast.sayAt(player, str);
       const at = str => Broadcast.at(player, str);
+      const wrapDesc = str => Broadcast.sayAt(player, str, 40);
 
       /*
         Myelin does not have classes,
@@ -51,34 +40,34 @@ module.exports = (srcPath, bundlePath) => {
       //TODO: Present menu with more than 1 tier if that is available.
 
       // List possible backgrounds.
-      say(`,.${Broadcast.line(40)}/`);
+      say("Choose Your Origin:");
+      say(`${Broadcast.line(40)}/`);
       choices.forEach((choice, index) => {
-        at(`[${index}] `);
-        say(`${choice.name}: `);
-        say(choice.description);
+        at(`[${index + 1}] `);
+        say(`<bold>${choice.name}:</bold> `);
+        wrapDesc(`<blue>${choice.description}</blue>`);
+        say(""); // Newline to separate.
       });
 
       //TODO: Allow choosing of background.
       //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
       socket.once('data', data => {
-        data = data.trim().toLowerCase();
+        data = parseInt(data.toString().trim().toLowerCase(), 10) - 1;
 
-        let found;
-        for (const choice of choices) {
-          if (data === choice.name) {
-            found = choice;
-            break;
-          }
+        if (isNaN(data)) {
+          return socket.emit('choose-background', socket, { player, account });
         }
 
-        if (found) {
-          player.setMeta('background', choices[choice]);
-          //TODO: Do the other backgroundy stuff here.
-          socket.emit('done', socket, { player });
+        const foundBackground = choices[data];
+
+        if (foundBackground) {
+          const { id, name, description, attributes } = foundBackground;
+          const serialized = { id, name, description };
+          player.setMeta('background', serialized);
+          socket.emit('done', socket, { player, attributes, account });
         } else {
-          return socket.emit('choose-background', socket, { player });
+          return socket.emit('choose-background', socket, { player, account });
         }
-
       });
 
     }
