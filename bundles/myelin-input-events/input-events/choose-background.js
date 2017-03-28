@@ -48,15 +48,36 @@ module.exports = (srcPath, bundlePath) => {
         inventory.
       */
 
-      //TODO: Choose a "background".
-      
-
-
       //TODO: Present menu with more than 1 tier if that is available.
+
+      // List possible backgrounds.
+      say(`,.${Broadcast.line(40)}/`);
+      choices.forEach((choice, index) => {
+        at(`[${index}] `);
+        say(`${choice.name}: `);
+        say(choice.description);
+      });
+
       //TODO: Allow choosing of background.
       //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
-      socket.once('data', choice => {
-        socket.emit('done', socket, { player });
+      socket.once('data', data => {
+        data = data.trim().toLowerCase();
+
+        let found;
+        for (const choice of choices) {
+          if (data === choice.name) {
+            found = choice;
+            break;
+          }
+        }
+
+        if (found) {
+          player.setMeta('background', choices[choice]);
+          //TODO: Do the other backgroundy stuff here.
+          socket.emit('done', socket, { player });
+        } else {
+          return socket.emit('choose-background', socket, { player });
+        }
 
       });
 
