@@ -27,7 +27,6 @@ module.exports = (srcPath) => {
       // Allow the player class to modify the player (adding attributes, changing default prompt, etc)
       player.playerClass.setupPlayer(player);
 
-
       player.save();
 
       player.socket.on('close', () => {

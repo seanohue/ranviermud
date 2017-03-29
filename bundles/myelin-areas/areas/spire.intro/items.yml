@@ -1,0 +1,83 @@
+#Types: Armor, Container, Object, Potion, Weapon, Resource
+
+# Starting gear for Penitent Ascetic:
+- id: 1
+  name: "Canvas Robe"
+  type: ARMOR
+  roomDesc: "Canvas Robe"
+  keywords: [ "robe", "canvas" ]
+  description: "A rough canvas robe, made to fit loosely. Standard wear for monks, ascetics, agrarians and hermits. Pouches have been crudely sewn onto this garment."
+  #script: "1-robe"
+  slot: 'body'
+  level: 1
+  itemLevel: 1
+  quality: common
+  properties:
+    stats:
+      armor: 5
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
+- id: 2
+  name: "Red Toque"
+  type: ARMOR
+  roomDesc: "Red Toque"
+  keywords: [ "red", "toque", "hat" ]
+  description: "A pleated, round hat with no brim. This one appears to be made of dyed, tightly knit fabric. Indicative of one who has spent their time in penitent meditation and proved wanting."
+  #script: "2-toque"
+  slot: 'head'
+  level: 1
+  itemLevel: 1
+  quality: common
+  properties:
+    stats:
+      armor: 1
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
+- id: 3
+  name: "Gnarled Walking Stick"
+  type: WEAPON
+  roomDesc: "Red Toque"
+  keywords: [ "robe", "canvas" ]
+  description: "A pleated, round hat with no brim. This one appears to be made of dyed, tightly knit fabric. Indicative of one who has spent their time in penitent meditation and proved wanting."
+  #script: "3-walking-stick"
+  slot: 'wield'
+  level: 1
+  itemLevel: 1
+  quality: common
+  properties:
+    minDamage: 2
+    maxDamage: 11
+    speed: 3
+    stats:
+      willpower: 1
+  behaviors:
+    sellable:
+      value: 4
+      currency: gold
+
+# Both the Acrid Mendicant and the Penitent Ascetic have this.
+- id: 4
+  name: "Cloth Loincloth"
+  type: ARMOR
+  roomDesc: "Cloth Loincloth"
+  keywords: [ "loincloth", "cloth" ]
+  description: "A brown piece of cloth used for girding one's loins."
+  #script: "4-loincloth"
+  slot: 'legs'
+  level: 1
+  itemLevel: 1
+  quality: common
+  properties:
+    stats:
+      armor: 1
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
