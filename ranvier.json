@@ -8,6 +8,7 @@
   ],
   "bundles": [
     "ranvier-areas",
+    "myelin-areas",
     "ranvier-channels",
     "myelin-commands",
     "ranvier-effects",

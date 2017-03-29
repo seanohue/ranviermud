@@ -34,6 +34,7 @@
   properties:
     stats:
       armor: 1
+      intellect: 1
   behaviors:
     sellable:
       value: 1
@@ -42,16 +43,16 @@
 - id: 3
   name: "Gnarled Walking Stick"
   type: WEAPON
-  roomDesc: "Red Toque"
-  keywords: [ "robe", "canvas" ]
-  description: "A pleated, round hat with no brim. This one appears to be made of dyed, tightly knit fabric. Indicative of one who has spent their time in penitent meditation and proved wanting."
+  roomDesc: "Gnarled Walking Stick"
+  keywords: [ "gnarled", "gnarl", "stick", "walking" ]
+  description: "This walking stick appears to have been crafted from the bough of a sturdy tree. Baroque designs have been carved along its length."
   #script: "3-walking-stick"
   slot: 'wield'
   level: 1
   itemLevel: 1
   quality: common
   properties:
-    minDamage: 2
+    minDamage: 1
     maxDamage: 11
     speed: 3
     stats:

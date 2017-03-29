@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      let { player, attributes, account } = args;
+      let { player, attributes, account, equipment } = args;
       player.hydrate(state);
 
       // Coming from chargen, set starting attributes.
@@ -19,6 +19,15 @@ module.exports = (srcPath) => {
           const stat = attributes[attr];
           player.attributes.get(attr).setBase(stat);
         }
+
+        if (equipment) {
+          equipment.forEach(itemRef => {
+            const item = state.ItemFactory.create(player.area, itemRef);
+            item.hydrate(state);
+            player.equip(item);
+          });
+        }
+
         // Save player to account.
         account.addCharacter(player.name);
         account.save();

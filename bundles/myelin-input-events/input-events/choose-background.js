@@ -51,20 +51,20 @@ module.exports = (srcPath) => {
 
       //TODO: Allow choosing of background.
       //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
-      socket.once('data', data => {
-        data = parseInt(data.toString().trim().toLowerCase(), 10) - 1;
+      socket.once('data', choice => {
+        choice = parseInt(choice.toString().trim().toLowerCase(), 10) - 1;
 
-        if (isNaN(data)) {
+        if (isNaN(choice)) {
           return socket.emit('choose-background', socket, { player, account });
         }
 
-        const foundBackground = choices[data];
+        const foundBackground = choices[choice];
 
         if (foundBackground) {
-          const { id, name, description, attributes } = foundBackground;
+          const { id, name, description, attributes, equipment } = foundBackground;
           const serialized = { id, name, description };
           player.setMeta('background', serialized);
-          socket.emit('done', socket, { player, attributes, account });
+          socket.emit('done', socket, { player, attributes, account, equipment });
         } else {
           return socket.emit('choose-background', socket, { player, account });
         }

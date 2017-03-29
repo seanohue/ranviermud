@@ -7,5 +7,7 @@ attributes:
   might: 7
   intellect: 11
   willpower: 14
-# equipment: # slot: id
+equipment: ['spire.intro:1', 'spire.intro:2', 'spire.intro:3', 'spire.intro:4']
+
+
 # skills: array<stringId>
