@@ -2,12 +2,12 @@
 
 # Starting gear for Penitent Ascetic:
 - id: 1
-  name: "Canvas Robe"
+  name: "Canvas Frock"
   type: ARMOR
-  roomDesc: "Canvas Robe"
-  keywords: [ "robe", "canvas" ]
+  roomDesc: "Canvas Frock"
+  keywords: [ "frock", "canvas" ]
   description: "A rough canvas robe, made to fit loosely. Standard wear for monks, ascetics, agrarians and hermits. Pouches have been crudely sewn onto this garment."
-  #script: "1-robe"
+  #script: "1-frock"
   slot: 'body'
   level: 1
   itemLevel: 1
@@ -64,9 +64,9 @@
 
 # Both the Acrid Mendicant and the Penitent Ascetic have this.
 - id: 4
-  name: "Cloth Loincloth"
+  name: "Loincloth"
   type: ARMOR
-  roomDesc: "Cloth Loincloth"
+  roomDesc: "Loincloth"
   keywords: [ "loincloth", "cloth" ]
   description: "A brown piece of cloth used for girding one's loins."
   #script: "4-loincloth"
@@ -82,3 +82,69 @@
       value: 1
       currency: gold
 
+# Acrid Mendicant Starters
+- id: 5
+  name: "Ragged Robe"
+  type: ARMOR
+  roomDesc: "Ragged Robe"
+  keywords: ["robe", "ragged"]
+  description: "A simple robe, torn by years of use and little maintenance. The splotches of color may be from fading fabric, caked-in dirt, or something more sinister."
+  slot: 'body'
+  level: 1
+  quality: common
+  properties:
+    stats:
+      armor: 1
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
+- id: 6
+  name: "Alms Pouch"
+  type: CONTAINER
+  roomDesc: "Alms Pouch"
+  description: "A small burlap sack attached to a corded belt."
+  items: [ ] # maybe have some kind of special trinket in here
+  maxItems: 2
+  slot: 'waist'
+  quality: common
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
+- id: 7
+  name: "Worn Sandals"
+  type: ARMOR
+  roomDesc: "Worn Sandals"
+  description: "A beaten pair of sandals. At one point they may have been mostly leather, now they are mostly patches."
+  quality: common
+    properties:
+      stats:
+        armor: 1
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
+- id: 8
+  name: "Knuckle Dusters"
+  type: WEAPON
+  roomDesc: "Knuckle Dusters"
+  keywords: [ "knuckle", "duster", "knucks", "dust" ]
+  description: "These dusters are composed of wrings wrought from cheap, dense metal and welded together. Studs protrude from where the user's knuckles would be. Ideal for those who don't mind getting their hands dirty."
+  slot: 'wield'
+  level: 1
+  itemLevel: 1
+  quality: common
+  properties:
+    minDamage: 3
+    maxDamage: 8
+    speed: 2
+    stats:
+      might: 1
+  behaviors:
+    sellable:
+      value: 4
+      currency: gold
