@@ -22,9 +22,14 @@ module.exports = (srcPath) => {
 
         if (equipment) {
           equipment.forEach(itemRef => {
-            const item = state.ItemFactory.create(player.area, itemRef);
+            const area = state.AreaManager.getAreaByReference(itemRef);
+            const item = state.ItemFactory.create(area, itemRef);
             item.hydrate(state);
-            player.equip(item);
+            if (item.slot) {
+              player.equip(item);
+            } else {
+              player.addItem(item);
+            }
           });
         }
 

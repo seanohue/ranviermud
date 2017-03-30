@@ -49,8 +49,7 @@ module.exports = (srcPath) => {
         say(""); // Newline to separate.
       });
 
-      //TODO: Allow choosing of background.
-      //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
+
       socket.once('data', choice => {
         choice = parseInt(choice.toString().trim().toLowerCase(), 10) - 1;
 
@@ -64,6 +63,8 @@ module.exports = (srcPath) => {
           const { id, name, description, attributes, equipment } = foundBackground;
           const serialized = { id, name, description };
           player.setMeta('background', serialized);
+
+          //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
           socket.emit('done', socket, { player, attributes, account, equipment });
         } else {
           return socket.emit('choose-background', socket, { player, account });

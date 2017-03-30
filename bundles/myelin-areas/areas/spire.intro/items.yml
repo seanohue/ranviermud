@@ -109,7 +109,7 @@
   maxItems: 2
   slot: 'waist'
   quality: common
-  behaviors:
+  behaviors: #TODO: Effect that increases resource gain.
     sellable:
       value: 1
       currency: gold
@@ -132,7 +132,7 @@
   name: "Knuckle Dusters"
   type: WEAPON
   roomDesc: "Knuckle Dusters"
-  keywords: [ "knuckle", "duster", "knucks", "dust" ]
+  keywords: [ "knuckle", "duster", "knuck", "dust" ]
   description: "These dusters are composed of wrings wrought from cheap, dense metal and welded together. Studs protrude from where the user's knuckles would be. Ideal for those who don't mind getting their hands dirty."
   slot: 'wield'
   level: 1
