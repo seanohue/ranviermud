@@ -2,6 +2,7 @@
 
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
+  const Damage = require(srcPath + 'Damage');
   const Heal = require(srcPath + 'Heal');
   const Flag = require(srcPath + 'EffectFlag');
 
@@ -28,17 +29,34 @@ module.exports = srcPath => {
 
         for (const regen of regens) {
           if (!this.target.hasAttribute(regen.pool)) {
-            return;
+            continue;
           }
 
-          let heal = new Heal({
+          const poolMax = this.target.getMaxAttribute(regen.pool);
+          const heal = new Heal({
             attribute: regen.pool,
-            amount: Math.round(this.state.magnitude * regen.modifier),
-            attacker: this.target,
+            amount: Math.round((poolMax / 40) * regen.modifier),
             source: this,
             hidden: true,
           });
           heal.commit(this.target);
+        }
+
+        //TODO: Keeping for now despite no Paladin class. Remove/change eventually.
+        // Could be useful for using for other stats.
+        // favor is treated specially in that it drains over time
+        if (this.target.hasAttribute('favor')) {
+          if (this.target.getAttribute('favor') < 1 || this.target.isInCombat()) {
+            return;
+          }
+
+          const drain = new Damage({
+            attribute: 'favor',
+            amount: Math.ceil(this.target.getMaxAttribute('favor') / 10),
+            source: this,
+            hidden: true
+          });
+          drain.commit(this.target);
         }
       },
     }
