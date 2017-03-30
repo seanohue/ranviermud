@@ -104,6 +104,7 @@
   name: "Alms Pouch"
   type: CONTAINER
   roomDesc: "Alms Pouch"
+  keywords: [ "alms", "pouch", "coin pouch" ]
   description: "A small burlap sack attached to a corded belt."
   items: [ ] # maybe have some kind of special trinket in here
   maxItems: 2
@@ -118,11 +119,12 @@
   name: "Worn Sandals"
   type: ARMOR
   roomDesc: "Worn Sandals"
+  keywords: [ "sandals", "worn" ]
   description: "A beaten pair of sandals. At one point they may have been mostly leather, now they are mostly patches."
   quality: common
-    properties:
-      stats:
-        armor: 1
+  properties:
+    stats:
+      armor: 1
   behaviors:
     sellable:
       value: 1
@@ -142,9 +144,9 @@
     minDamage: 3
     maxDamage: 8
     speed: 2
-    stats:
-      might: 1
   behaviors:
     sellable:
       value: 4
       currency: gold
+
+# - id: 9
