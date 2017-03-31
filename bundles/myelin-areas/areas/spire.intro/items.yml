@@ -1,5 +1,3 @@
-#Types: Armor, Container, Object, Potion, Weapon, Resource
-
 # Starting gear for Penitent Ascetic:
 - id: 1
   name: "Canvas Frock"
@@ -14,10 +12,11 @@
   quality: common
   properties:
     stats:
-      armor: 5
+      armor: 3
+      quickness: -1
   behaviors:
     sellable:
-      value: 1
+      value: 2
       currency: gold
 
 - id: 2
@@ -54,7 +53,7 @@
   properties:
     minDamage: 1
     maxDamage: 11
-    speed: 3
+    speed: 4.1
     stats:
       willpower: 1
   behaviors:
@@ -94,7 +93,8 @@
   quality: common
   properties:
     stats:
-      armor: 1
+      armor: 2
+      quickness: -1
   behaviors:
     sellable:
       value: 1
@@ -112,7 +112,7 @@
   quality: common
   behaviors: #TODO: Effect that increases resource gain.
     sellable:
-      value: 1
+      value: 2
       currency: gold
 
 - id: 7
@@ -122,6 +122,7 @@
   keywords: [ "sandals", "worn" ]
   description: "A beaten pair of sandals. At one point they may have been mostly leather, now they are mostly patches."
   quality: common
+  slot: "feet"
   properties:
     stats:
       armor: 1
@@ -149,4 +150,123 @@
       value: 4
       currency: gold
 
-# - id: 9
+# Furtive Urchin starting gear
+- id: 9
+  name: "Rusty Shank"
+  type: WEAPON
+  roomDesc: "Rusty Shank"
+  keywords: [ "rusty", "shank", "shiv", "stabby" ]
+  description: "This jagged, rusted piece of metal has some cloth wrapped around it as an improvised handle. Seems as likely to hurt the attacker as the victim, but a nasty piece nonetheless."
+  slot: 'wield'
+  level: 1
+  itemLevel: 1
+  quality: common
+  properties:
+    minDamage: 2
+    maxDamage: 12
+    speed: 2.3
+  behaviors: #TODO: DoT effect on hit, sometimes, plus potential to damage wielder.
+    sellable:
+      value: 2
+      currency: gold
+
+- id: 10
+  name: "Ragged Vest"
+  type: ARMOR
+  roomDesc: "Ragged Vest"
+  keywords: ["ragged", "vest"]
+  description: "A vest made of sewn-together burlap, barely held together at the seams. The permanently soiled cloth appears to have never been washed, and has a mottled appearance."
+  slot: 'chest'
+  level: 1
+  quality: common
+  properties:
+    stats:
+      armor: 1
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
+- id: 11
+  name: "Ragged Trousers"
+  type: ARMOR
+  roomDesc: "Ragged Trousers"
+  keywords: ["ragged", "trousers"]
+  description: "A former pair of trousers that have now become shorts, with strips of town cloth hanging from where the knees used to be. "
+  level: 1
+  quality: common
+  properties:
+    stats:
+      armor: 1
+  behaviors:
+    sellable:
+      value: 1
+      currency: gold
+
+# Rugged Tough starting equipment
+- id: 12
+  name: "Leather Jerkin"
+  type: ARMOR
+  roomDesc: "Leather Jerkin"
+  keywords: ["leather", "jerkin"]
+  description: "A sleeveless jacket made mostly of leather strips. For those who want to look tough and stop smaller blades from puncturing them, all at the same time."
+  level: 1
+  quality: common
+  properties:
+    stats:
+      armor: 9
+  behaviors:
+    sellable:
+      value: 9
+      currency: gold
+
+- id: 12
+  name: "Plain Slacks"
+  type: ARMOR
+  roomDesc: "Plain Slacks"
+  keywords: ["plain", "slacks"]
+  description: "A pair of slacks made of low-quality cloth. The basest money can afford without resorting to wearing rags."
+  level: 1
+  quality: common
+  properties:
+    stats:
+      armor: 2
+  behaviors:
+    sellable:
+      value: 2
+      currency: gold
+
+- id: 13
+  name: "Worn Leather Blackjack"
+  type: WEAPON
+  roomDesc: "Worn Leather Blackjack"
+  keywords: ['worn', 'leather', 'blackjack']
+  description: "A stitched leather blackjack in the shape of a paddle, filled with lead balls. A good whack upside the head with this will do anyone good. The leather is marked by heavy use and some of the stitches are coming undone."
+  level: 1
+  quality: common
+  properties:
+    minDamage: 5
+    maxDamage: 11 #TODO: Stun effect chance
+    speed: 3.5
+  behaviors:
+    sellable:
+      value: 5
+      currency: gold
+
+- id: 14
+  name: "Ragged Canvas Knapsack"
+  type: CONTAINER
+  roomDesc: "Ragged Canvas Knapsack"
+  keywords: [ "rag", "ragged", "knap", "knapsack", "canvas" ]
+  description: "A small canvas knapsack attached to a shoulder strap. The strap appears frayed."
+  items: [ ]
+  maxItems: 3
+  slot: 'back'
+  quality: common
+  properties:
+    stats:
+      armor: 1
+  behaviors:
+    sellable:
+      value: 2
+      currency: gold
