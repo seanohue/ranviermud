@@ -195,6 +195,7 @@
   description: "A former pair of trousers that have now become shorts, with strips of town cloth hanging from where the knees used to be. "
   level: 1
   quality: common
+  slot: "legs"
   properties:
     stats:
       armor: 1
@@ -211,6 +212,7 @@
   keywords: ["leather", "jerkin"]
   description: "A sleeveless jacket made mostly of leather strips. For those who want to look tough and stop smaller blades from puncturing them, all at the same time."
   level: 1
+  slot: "chest"
   quality: common
   properties:
     stats:
@@ -226,6 +228,7 @@
   roomDesc: "Plain Slacks"
   keywords: ["plain", "slacks"]
   description: "A pair of slacks made of low-quality cloth. The basest money can afford without resorting to wearing rags."
+  slot: "legs"
   level: 1
   quality: common
   properties:
@@ -240,6 +243,7 @@
   name: "Low Leather Boots"
   type: ARMOR
   roomDesc: "Low Leather Boots"
+  slot: "feet"
   keywords: ["low", "leather", "boots"]
   description: "A pair of boots made from thick leather. These are broken in and only reach a few inches above the ankle."
   level: 1
@@ -259,6 +263,7 @@
   keywords: ['worn', 'leather', 'blackjack']
   description: "A stitched leather blackjack in the shape of a paddle, filled with lead balls. A good whack upside the head with this will do anyone good. The leather is marked by heavy use and some of the stitches are coming undone."
   level: 1
+  slot: "wield"
   quality: common
   properties:
     minDamage: 5
