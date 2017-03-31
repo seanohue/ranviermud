@@ -179,6 +179,9 @@ class Item extends EventEmitter {
 
     // if the item was saved with a custom inventory hydrate it
     if (this.inventory) {
+      if (!(this.inventory instanceof Inventory)) {
+        this.inventory = new Inventory(this.inventory)
+      }
       this.inventory.hydrate(state);
     } else {
     // otherwise load its default inv

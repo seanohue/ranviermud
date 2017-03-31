@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      let { player, attributes, account, equipment } = args;
+      let { player, attributes, account, equipment, skills } = args;
       player.hydrate(state);
 
       // Coming from chargen, set starting attributes.
@@ -20,6 +20,7 @@ module.exports = (srcPath) => {
           player.attributes.get(attr).setBase(stat);
         }
 
+        // Set up starting equipment.
         if (equipment) {
           equipment.forEach(itemRef => {
             const area = state.AreaManager.getAreaByReference(itemRef);
@@ -31,6 +32,14 @@ module.exports = (srcPath) => {
               player.addItem(item);
             }
           });
+        }
+
+        // Set up starting skills.
+        if (skills) {
+          const newAbilities = player.getMeta('abilities') ?
+            player.getMeta('abilities').concat(skills) :
+            [].concat(skills);
+          player.setMeta('abilities', newAbilities);
         }
 
         // Save player to account.

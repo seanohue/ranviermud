@@ -8,4 +8,4 @@ attributes:
   might: 7
   willpower: 14
 equipment: ['spire.intro:9', 'spire.intro:10', 'spire.intro:11']
-# skills: array<stringId>
+skills: [ 'lunge' ]

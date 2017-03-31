@@ -60,12 +60,12 @@ module.exports = (srcPath) => {
         const foundBackground = choices[choice];
 
         if (foundBackground) {
-          const { id, name, description, attributes, equipment } = foundBackground;
+          const { id, name, description, attributes, equipment, skills } = foundBackground;
           const serialized = { id, name, description };
           player.setMeta('background', serialized);
 
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
-          socket.emit('done', socket, { player, attributes, account, equipment });
+          socket.emit('done', socket, { player, attributes, account, equipment, skills });
         } else {
           return socket.emit('choose-background', socket, { player, account });
         }
