@@ -32,7 +32,9 @@ module.exports = srcPath => {
         },
         secondwind: {
           level: 1,
-          might: 15
+          might: 8,
+          willpower: 8,
+          cost: 2
         },
         bash: {
           level: 1,
