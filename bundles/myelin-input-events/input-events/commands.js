@@ -34,6 +34,9 @@ module.exports = (src) => {
               if (requiredRole > player.role) {
                 throw new RestrictedCommandError();
               }
+              if (result.originalCommand === 'move') {
+                return Broadcast.sayAt(player, 'You are stunned and cannot move.');
+              }
               // commands have no lag and are not queued, just immediately execute them
               result.command.execute(result.args, player, result.originalCommand);
               break;
@@ -44,6 +47,9 @@ module.exports = (src) => {
               break;
             }
             case CommandTypes.SKILL: {
+              if (player.effects.has('stun')) {
+                return Broadcast.sayAt(player, 'You are stunned and cannot use that ability.');
+              }
               // See bundles/ranvier-player-events/player-events.js commandQueued and updateTick for when these
               // actually get executed
               player.queueCommand({

@@ -1,8 +1,7 @@
 {
   "username": "Admin",
   "characters": [
-    "Admin",
-    "Tester"
+    "Admin"
   ],
   "password": "$2a$10$kE4d5oRcQOCksbKHur7nbezcGD6gUil/cqkwhGagfM1u4WfhDjR8.",
   "meta": {
