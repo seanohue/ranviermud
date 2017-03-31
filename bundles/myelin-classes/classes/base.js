@@ -34,6 +34,10 @@ module.exports = srcPath => {
           level: 1,
           might: 15
         },
+        bash: {
+          level: 1,
+          might: 15
+        },
 
         // bash, like lunge but damage based on might
 
