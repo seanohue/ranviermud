@@ -220,7 +220,7 @@
       value: 9
       currency: gold
 
-- id: 12
+- id: 13
   name: "Plain Slacks"
   type: ARMOR
   roomDesc: "Plain Slacks"
@@ -236,7 +236,23 @@
       value: 2
       currency: gold
 
-- id: 13
+- id: 14
+  name: "Low Leather Boots"
+  type: ARMOR
+  roomDesc: "Low Leather Boots"
+  keywords: ["low", "leather", "boots"]
+  description: "A pair of boots made from thick leather. These are broken in and only reach a few inches above the ankle."
+  level: 1
+  quality: common
+  properties:
+    stats:
+      armor: 2
+  behaviors:
+    sellable:
+      value: 3
+      currency: gold
+
+- id: 15
   name: "Worn Leather Blackjack"
   type: WEAPON
   roomDesc: "Worn Leather Blackjack"
@@ -253,7 +269,7 @@
       value: 5
       currency: gold
 
-- id: 14
+- id: 16
   name: "Ragged Canvas Knapsack"
   type: CONTAINER
   roomDesc: "Ragged Canvas Knapsack"
