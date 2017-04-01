@@ -5,7 +5,6 @@
   roomDesc: "Canvas Frock"
   keywords: [ "frock", "canvas" ]
   description: "A rough canvas robe, made to fit loosely. Standard wear for monks, ascetics, agrarians and hermits. Pouches have been crudely sewn onto this garment."
-  #script: "1-frock"
   slot: 'body'
   level: 1
   itemLevel: 1
@@ -25,7 +24,6 @@
   roomDesc: "Red Toque"
   keywords: [ "red", "toque", "hat" ]
   description: "A pleated, round hat with no brim. This one appears to be made of dyed, tightly knit fabric. Indicative of one who has spent their time in penitent meditation and proved wanting."
-  #script: "2-toque"
   slot: 'head'
   level: 1
   itemLevel: 1
@@ -68,7 +66,6 @@
   roomDesc: "Loincloth"
   keywords: [ "loincloth", "cloth" ]
   description: "A brown piece of cloth used for girding one's loins."
-  #script: "4-loincloth"
   slot: 'legs'
   level: 1
   itemLevel: 1
@@ -108,6 +105,7 @@
   description: "A small burlap sack attached to a corded belt."
   items: [ ] # maybe have some kind of special trinket in here
   maxItems: 2
+  script: "4-alms-pouch"
   slot: 'waist'
   quality: common
   behaviors: #TODO: Effect that increases resource gain.
@@ -265,9 +263,10 @@
   level: 1
   slot: "wield"
   quality: common
+  #script: "14-blackjack"
   properties:
     minDamage: 5
-    maxDamage: 11 #TODO: Stun effect chance
+    maxDamage: 11
     speed: 3.5
   behaviors:
     sellable:

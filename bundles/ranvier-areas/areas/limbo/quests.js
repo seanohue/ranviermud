@@ -19,7 +19,7 @@ module.exports = (srcPath) => {
  - Use '<white>get sword chest</white>' and '<white>get vest chest</white>' to get some gear.
  - Equip it using '<white>wield sword</white>' and '<white>wear vest</white>'`,
         autoComplete: true,
-        reward: (quest, player) => {
+         (quest, player) => {
           player.emit('experience', LevelUtil.mobExp(quest.config.level) * 5);
           say(player, `<b><cyan>Hint: You can use the '<white>tnl</white>' or '<white>level</white>' commands to see how much experience you need to level.</cyan>`, 80);
 
