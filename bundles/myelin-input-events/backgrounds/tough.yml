@@ -8,4 +8,4 @@ attributes:
   might: 15
   willpower: 7
 equipment: ['spire.intro:12', 'spire.intro:13', 'spire.intro:14', 'spire.intro:15', 'spire.intro:16']
-skills: [ 'secondwind' ]
+skills: [ 'bash' ]
