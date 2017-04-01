@@ -56,9 +56,9 @@ module.exports = srcPath => {
           cost: 2
         },
         concentration: {
-          level: 1
-          intellect: 11
-          willpower: 14
+          level: 1,
+          intellect: 11,
+          willpower: 12,
           cost: 2
         }
       }

@@ -8,4 +8,4 @@ attributes:
   intellect: 11
   willpower: 14
 equipment: ['spire.intro:1', 'spire.intro:2', 'spire.intro:3', 'spire.intro:4']
-skills: [ 'mend' ]
+skills: [ 'mend', 'concentration' ]
