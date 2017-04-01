@@ -20,8 +20,9 @@ module.exports = srcPath => {
       },
 
       gather(resource, amount=0, name='resources') {
+        const currentResource = player.getMeta(resource) || 0;
         Broadcast.sayAt(player, `You are able to gather ${amount || 0} extra ${name}...`);
-        player.setMeta(resource, (player.getMeta(resource) || 0) + amount);
+        player.setMeta(resource, currentResource + amount);
       }
     }
   };

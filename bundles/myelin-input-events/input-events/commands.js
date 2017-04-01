@@ -47,7 +47,7 @@ module.exports = (src) => {
               break;
             }
             case CommandTypes.SKILL: {
-              if (player.effects.has('stun')) {
+              if (player.hasEffectType('stun')) {
                 return Broadcast.sayAt(player, 'You are stunned and cannot use that ability.');
               }
               // See bundles/ranvier-player-events/player-events.js commandQueued and updateTick for when these

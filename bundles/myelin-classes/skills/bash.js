@@ -10,10 +10,11 @@ module.exports = (srcPath) => {
   const Random = require(srcPath + 'RandomUtil');
 
   const damagePercent = 150;
-  const energyCost = 50;
+  const energyCost = 75;
   const stunPercent = 20;
+  const tickInterval = 1;
 
-  function getDamage(player) {
+  function totalDamage(player) {
     return player.calculateWeaponDamage() * (damagePercent / 100) + player.getMaxAttribute('might');
   }
 
@@ -35,7 +36,7 @@ module.exports = (srcPath) => {
     run: state => function (args, player, target) {
       const damage = new Damage({
         attribute: 'physical',
-        amount: getDamage(player),
+        amount: totalDamage(player),
         attacker: player,
         type: 'physical',
         source: this
