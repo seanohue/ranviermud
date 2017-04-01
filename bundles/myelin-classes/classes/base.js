@@ -41,8 +41,6 @@ module.exports = srcPath => {
           might: 15
         },
 
-        // bash, like lunge but damage based on might
-
         /* Mentalist: */
 
         mend: {
@@ -56,9 +54,13 @@ module.exports = srcPath => {
           intellect: 15,
           willpower: 15,
           cost: 2
+        },
+        concentration: {
+          level: 1
+          intellect: 11
+          willpower: 14
+          cost: 2
         }
-        // concentrate: like secondwind but with mental health
-
       }
     }
   };
