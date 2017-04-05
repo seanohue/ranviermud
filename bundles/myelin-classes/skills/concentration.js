@@ -8,7 +8,7 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
   const SkillFlag = require(srcPath + 'SkillFlag');
 
-  const interval = 2 * 45;
+  const interval = 90;
   const threshold = 40;
   const attrMultiplier = 'willpower';
 
