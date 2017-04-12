@@ -21,8 +21,7 @@ module.exports = (srcPath) => {
       */
 
       player.setMeta('class', 'base');
-      player.setMeta('attributePoints', 2);
-      player.setMeta('abilityPoints', 1);
+
       socket.emit('choose-background', socket, { player, account: args.account });
     }
   };

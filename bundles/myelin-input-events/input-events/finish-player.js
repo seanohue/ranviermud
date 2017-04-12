@@ -9,10 +9,10 @@ module.exports = (srcPath) => {
   const Player = require(srcPath + 'Player');
 
   return {
-    event: state => (socket, args) => {
+    event: state => (socket, { player: playerDef, attributes, account, equipment, skills }) => {
       let player = new Player({
-        name: args.name,
-        account: args.account
+        name: playerDef.name,
+        account: playerDef.account
       });
 
       const room = state.RoomManager.startingRoom;
@@ -21,14 +21,16 @@ module.exports = (srcPath) => {
 
       // Myelin meta-stats.
       player.setMeta('abilities', []);
-      player.setMeta('abilityPoints', 0);
-      player.setMeta('attributePoints', 0);
+
+      //TODO: Set with background.
+      player.setMeta('attributePoints', 2);
+      player.setMeta('abilityPoints', 1);
 
       // Reload from manager so events are set
       player = state.PlayerManager.loadPlayer(state, player.account, player.name);
       player.socket = socket;
 
-      socket.emit('choose-class', socket, { player, account: args.account });
+      socket.emit('done', socket, { player, attributes, account, equipment, skills });
     }
   };
 };

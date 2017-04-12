@@ -65,7 +65,7 @@ module.exports = (srcPath) => {
           player.setMeta('background', serialized);
 
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
-          socket.emit('done', socket, { player, attributes, account, equipment, skills });
+          socket.emit('finish-player', socket, { player, attributes, account, equipment, skills });
         } else {
           return socket.emit('choose-background', socket, { player, account });
         }

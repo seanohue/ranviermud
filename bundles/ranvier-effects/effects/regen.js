@@ -35,13 +35,15 @@ module.exports = srcPath => {
           const poolMax = this.target.getMaxAttribute(regen.pool);
           const heal = new Heal({
             attribute: regen.pool,
-            amount: Math.round((poolMax / 10) * regen.modifier),
+            amount: Math.round((poolMax / 40) * regen.modifier),
             source: this,
             hidden: true,
           });
           heal.commit(this.target);
         }
 
+        //TODO: Keeping for now despite no Paladin class. Remove/change eventually.
+        // Could be useful for using for other stats.
         // favor is treated specially in that it drains over time
         if (this.target.hasAttribute('favor')) {
           if (this.target.getAttribute('favor') < 1 || this.target.isInCombat()) {
