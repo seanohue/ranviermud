@@ -8,7 +8,7 @@ module.exports = (srcPath) => {
   return {
     event: state => (socket, args) => {
       const say = EventUtil.genSay(socket);
-      const write  = EventUtil.genWrite(socket);
+      const write = EventUtil.genWrite(socket);
 
       write(`<bold>${args.name} doesn't exist, would you like to create it?</bold> <cyan>[y/n]</cyan> `);
       socket.once('data', confirmation => {
@@ -24,7 +24,7 @@ module.exports = (srcPath) => {
           return socket.emit('create-player', socket, args);
         }
 
-        socket.emit('choose-background', socket, { playerName, account });
+        socket.emit('choose-background', socket, { playerName: args.name, account: args.account });
       });
     }
   };

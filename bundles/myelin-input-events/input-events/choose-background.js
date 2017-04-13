@@ -13,6 +13,7 @@ module.exports = (srcPath) => {
   const Config    = require(srcPath + 'Config');
   const Data      = require(srcPath + 'Data');
   const fs        = require('fs');
+  const wrap      = require('wrap-ansi');
 
   const bgPath = __dirname + '/../backgrounds/';
 
@@ -24,10 +25,10 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      const { playerName, account, socket } = args;
-      const say = str => Broadcast.sayAt(socket, str);
-      const at = str => Broadcast.at(socket, str);
-      const wrapDesc = str => Broadcast.sayAt(socket, str, 40);
+      const { playerName, account } = args;
+      const say      = EventUtil.genSay(socket);
+      const at       = EventUtil.genWrite(socket);
+      const wrapDesc = str => say(wrap(str, 40));
 
       /*
         Myelin does not have classes,
