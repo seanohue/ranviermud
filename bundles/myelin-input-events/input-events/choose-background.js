@@ -24,10 +24,10 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      const { player, account } = args;
-      const say = str => Broadcast.sayAt(player, str);
-      const at = str => Broadcast.at(player, str);
-      const wrapDesc = str => Broadcast.sayAt(player, str, 40);
+      const { playerName, account, socket } = args;
+      const say = str => Broadcast.sayAt(socket, str);
+      const at = str => Broadcast.at(socket, str);
+      const wrapDesc = str => Broadcast.sayAt(socket, str, 40);
 
       /*
         Myelin does not have classes,
@@ -49,25 +49,23 @@ module.exports = (srcPath) => {
         say(""); // Newline to separate.
       });
 
-
       socket.once('data', choice => {
         choice = parseInt(choice.toString().trim().toLowerCase(), 10) - 1;
 
         if (isNaN(choice)) {
-          return socket.emit('choose-background', socket, { player, account });
+          return socket.emit('choose-background', socket, { playerName, account });
         }
 
         const foundBackground = choices[choice];
 
         if (foundBackground) {
-          const { id, name, description, attributes, equipment, skills } = foundBackground;
-          const serialized = { id, name, description };
-          player.setMeta('background', serialized);
+          const { id, name, description, attributes, equipment, skills, attributePoints, abilityPoints } = foundBackground;
+          const background = { id, name, description };
 
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
-          socket.emit('finish-player', socket, { player, attributes, account, equipment, skills });
+          socket.emit('finish-player', socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints });
         } else {
-          return socket.emit('choose-background', socket, { player, account });
+          return socket.emit('choose-background', socket, { playerName, account });
         }
       });
 

@@ -9,3 +9,5 @@ attributes:
   willpower: 14
 equipment: ['spire.intro:1', 'spire.intro:2', 'spire.intro:3', 'spire.intro:4']
 skills: [ 'mend', 'concentration' ]
+attributePoints: 1
+abilityPoints: 3
