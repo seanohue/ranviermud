@@ -12,7 +12,7 @@ module.exports = (srcPath) => {
     event: state => (socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints }) => {
       let player = new Player({
         name: playerName,
-        account: account.name
+        account
       });
 
       const room = state.RoomManager.startingRoom;
