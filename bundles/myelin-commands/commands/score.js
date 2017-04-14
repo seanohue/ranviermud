@@ -11,6 +11,7 @@ module.exports = (srcPath) => {
       const say = message => B.sayAt(p, message);
 
       //TODO: Instead of class name, have it make up a title for them.
+      console.log(p.getMeta('background'));
       say('<b>' + B.center(60, `${p.name}, level ${p.level} ${p.getMeta('background').name.toLowerCase()}`, 'green'));
       say('<b>' + B.line(60, '-', 'green'));
 

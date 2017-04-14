@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      let { player, attributes, account, equipment, skills } = args;
+      let { player, attributes, account, equipment, skills, background } = args;
       player.hydrate(state);
 
       // Coming from chargen, set starting attributes.

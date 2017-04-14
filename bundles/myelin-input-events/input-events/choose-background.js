@@ -62,7 +62,6 @@ module.exports = (srcPath) => {
         if (foundBackground) {
           const { id, name, description, attributes, equipment, skills, attributePoints, abilityPoints } = foundBackground;
           const background = { id, name, description };
-
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
           socket.emit('finish-player', socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints });
         } else {

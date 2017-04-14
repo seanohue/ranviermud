@@ -17,16 +17,17 @@ module.exports = (srcPath) => {
 
       const room = state.RoomManager.startingRoom;
       player.room = room;
-      player.save();
 
-      // Myelin meta-stats.
-      player.setMeta('class', 'base');
-      player.setMeta('background', background);
-      player.setMeta('abilities', []);
+     // Myelin meta-stats.
+      console.log("SETTING BACKGROUND TO: ", background);
 
-      //TODO: Set with background.
+      player.setMeta('class',            'base');
+      player.setMeta('background',       background);
+      player.setMeta('abilities',        []);
       player.setMeta('attributePoints',  attributePoints || 2);
       player.setMeta('abilityPoints',    abilityPoints   || 1);
+
+      player.save();
 
       // Reload from manager so events are set
       player = state.PlayerManager.loadPlayer(state, player.account, player.name);
