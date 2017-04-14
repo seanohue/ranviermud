@@ -6,8 +6,8 @@ module.exports = (srcPath) => {
   const Heal = require(srcPath + 'Heal');
   const SkillType = require(srcPath + 'SkillType');
 
-  const healPercent = 300;
-  const energyCost = 40;
+  const healPercent = 120;
+  const mentalCost = 40;
 
   function getHeal(player) {
     return player.getAttribute('intellect') * (healPercent / 100);
@@ -20,8 +20,8 @@ module.exports = (srcPath) => {
     initiatesCombat: false,
     targetSelf: true,
     resource: {
-      attribute: 'energy',
-      cost: energyCost,
+      attribute: 'mental',
+      cost: mentalCost,
     },
     cooldown: 10,
 

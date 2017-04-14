@@ -37,6 +37,7 @@ module.exports = (srcPath, bundlePath) => {
           const metaKey = `resources.${material}`;
           player.setMeta(metaKey, (player.getMeta(metaKey) || 0) + amount);
           B.sayAt(player, `<green>You gather: ${resItem.display} x${amount}.`);
+          player.emit('gather', metaKey, amount, resItem.display);
         }
       }
 

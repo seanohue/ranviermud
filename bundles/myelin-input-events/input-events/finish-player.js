@@ -9,31 +9,29 @@ module.exports = (srcPath) => {
   const Player = require(srcPath + 'Player');
 
   return {
-    event: state => (socket, args) => {
+    event: state => (socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints }) => {
       let player = new Player({
-        name: args.name,
-        account: args.account
+        name: playerName,
+        account
       });
-
-      args.account.addCharacter(args.name);
-      args.account.save();
-
-      player.setMeta('class', args.playerClass);
 
       const room = state.RoomManager.startingRoom;
       player.room = room;
-      player.save();
 
-      // Myelin meta-stats.
-      player.setMeta('abilities', []);
-      player.setMeta('abilityPoints', 0);
-      player.setMeta('attributePoints', 0);
+     // Myelin meta-stats.
+      player.setMeta('class',            'base');
+      player.setMeta('background',       background);
+      player.setMeta('abilities',        []);
+      player.setMeta('attributePoints',  attributePoints || 2);
+      player.setMeta('abilityPoints',    abilityPoints   || 1);
+
+      player.save();
 
       // Reload from manager so events are set
       player = state.PlayerManager.loadPlayer(state, player.account, player.name);
       player.socket = socket;
 
-      socket.emit('done', socket, { player });
+      socket.emit('done', socket, { player, attributes, account, equipment, skills });
     }
   };
 };

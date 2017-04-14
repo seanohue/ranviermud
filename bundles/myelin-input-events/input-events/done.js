@@ -10,8 +10,42 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      let player = args.player;
+      let { player, attributes, account, equipment, skills, background } = args;
       player.hydrate(state);
+
+      // Coming from chargen, set starting attributes.
+      if (attributes) {
+        for (const attr in attributes) {
+          const stat = attributes[attr];
+          player.attributes.get(attr).setBase(stat);
+        }
+
+        // Set up starting equipment.
+        if (equipment) {
+          equipment.forEach(itemRef => {
+            const area = state.AreaManager.getAreaByReference(itemRef);
+            const item = state.ItemFactory.create(area, itemRef);
+            item.hydrate(state);
+            if (item.slot) {
+              player.equip(item);
+            } else {
+              player.addItem(item);
+            }
+          });
+        }
+
+        // Set up starting skills.
+        if (skills) {
+          const newAbilities = player.getMeta('abilities') ?
+            player.getMeta('abilities').concat(skills) :
+            [].concat(skills);
+          player.setMeta('abilities', newAbilities);
+        }
+
+        // Save player to account.
+        account.addCharacter(player.name);
+        account.save();
+      }
 
       // Allow the player class to modify the player (adding attributes, changing default prompt, etc)
       player.playerClass.setupPlayer(player);

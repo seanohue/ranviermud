@@ -45,6 +45,7 @@ module.exports = (srcPath) => {
           magnitude: Math.round(player.getMaxAttribute('physical') * (healthPercent / 100))
         }
       );
+
       effect.skill = this;
 
       Broadcast.sayAt(player, `<b>You raise your shield, bracing for incoming attacks!</b>`);

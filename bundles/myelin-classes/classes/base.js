@@ -12,7 +12,7 @@ module.exports = srcPath => {
 
     // Set up player prompt and other business:
     setupPlayer(player) {
-      player.prompt = 'health: [ %physical.current%/%physical.max% <b>physical</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]';
+      player.prompt = '[ %physical.current%/%physical.max% <b>physical</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]';
     },
 
     abilityTable: {
@@ -32,10 +32,14 @@ module.exports = srcPath => {
         },
         secondwind: {
           level: 1,
+          might: 8,
+          willpower: 8,
+          cost: 2
+        },
+        bash: {
+          level: 1,
           might: 15
         },
-
-        // bash, like lunge but damage based on might
 
         /* Mentalist: */
 
@@ -50,9 +54,13 @@ module.exports = srcPath => {
           intellect: 15,
           willpower: 15,
           cost: 2
+        },
+        concentration: {
+          level: 1,
+          intellect: 11,
+          willpower: 12,
+          cost: 2
         }
-        // concentrate: like secondwind but with mental health
-
       }
     }
   };

@@ -9,6 +9,7 @@ class Account {
     this.username   = data.username;
     this.characters = data.characters || [];
     this.password   = data.password;
+    this.meta       = data.meta || { karma: 0 };
     this.banned = data.banned || false;
   }
 
@@ -44,6 +45,14 @@ class Account {
     // There is no unban because this can just be done by manually editing the account file
   }
 
+  setMeta(key, value) {
+    this.data[key] = value;
+  }
+
+  getMeta(key) {
+    return this.data[key];
+  }
+
   _hashPassword(pass) {
     const salt = bcrypt.genSaltSync(10);
     return bcrypt.hashSync(pass, salt);
@@ -73,12 +82,14 @@ class Account {
       username,
       characters,
       password,
+      meta
     } = this;
 
     return {
       username,
       characters,
-      password
+      password,
+      meta
     };
   }
 

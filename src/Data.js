@@ -7,7 +7,7 @@ const yaml = require('js-yaml');
 const dataPath = __dirname + '/../data/';
 
 module.exports = {
-  parseFile: function (filepath) {
+  parseFile(filepath) {
     if (!fs.existsSync(filepath)) {
       throw new Error(`File [${filepath}] does not exist!`);
     }
@@ -27,7 +27,7 @@ module.exports = {
     return parsers[ext](contents);
   },
 
-  saveFile: function(filepath, data, callback) {
+  saveFile(filepath, data, callback) {
     if (!fs.existsSync(filepath)) {
       throw new Error(`File [${filepath}] does not exist!`);
     }
@@ -46,7 +46,7 @@ module.exports = {
       throw new Error(`File [${filepath}] does not have a valid serializer!`);
     }
 
-    var dataToWrite = serializers[ext](data);
+    let dataToWrite = serializers[ext](data);
 
     fs.writeFileSync(filepath, dataToWrite, 'utf8');
 
@@ -56,22 +56,22 @@ module.exports = {
 
   },
 
-  load: function (type, id) {
+  load(type, id) {
     return this.parseFile(this.getDataFilePath(type, id));
   },
 
-  save: function (type, id, data, callback) {
+  save(type, id, data, callback) {
     fs.writeFileSync(this.getDataFilePath(type, id), JSON.stringify(data, null, 2), 'utf8');
     if (callback) {
       callback();
     }
   },
 
-  exists: function (type, id) {
+  exists(type, id) {
     return fs.existsSync(this.getDataFilePath(type, id));
   },
 
-  getDataFilePath: function (type, id) {
+  getDataFilePath(type, id) {
     switch (type) {
       case 'player': {
         return dataPath + `/player/${id}.json`;
@@ -86,8 +86,8 @@ module.exports = {
    * load the MOTD for the intro screen
    * @return string
    */
-  loadMotd: () => {
-    var motd = fs.readFileSync(dataPath + 'motd').toString('utf8');
+  loadMotd() {
+    const motd = fs.readFileSync(dataPath + 'motd').toString('utf8');
     return motd;
   }
 };

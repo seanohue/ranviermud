@@ -1,0 +1,12 @@
+id: urchin
+name: 'Furtive Urchin'
+description: "Having to fight and steal to survive will toughen one's body and spirit. For you, slipping unseen through back alleys to find treasure is preferable to begging for scraps."
+karmaLevel: 0
+attributes:
+  quickness: 16
+  intellect: 9
+  might: 7
+  willpower: 14
+equipment: ['spire.intro:9', 'spire.intro:10', 'spire.intro:11']
+skills: [ 'lunge' ]
+attributePoints: 1

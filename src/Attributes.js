@@ -13,6 +13,7 @@ class Attributes extends Map
       willpower: { base: 10 },
       physical: { base: 100 },
       mental: { base: 100 },
+      energy: { base: 100 },
       armor: { base: 0 },
     };
 
