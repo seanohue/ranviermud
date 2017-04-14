@@ -19,8 +19,6 @@ module.exports = (srcPath) => {
       player.room = room;
 
      // Myelin meta-stats.
-      console.log("SETTING BACKGROUND TO: ", background);
-
       player.setMeta('class',            'base');
       player.setMeta('background',       background);
       player.setMeta('abilities',        []);

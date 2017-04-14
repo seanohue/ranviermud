@@ -10,7 +10,6 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      console.log(args);
       const player = args.player;
       const say = str => Broadcast.sayAt(player, str);
       const at = str => Broadcast.at(player, str);
