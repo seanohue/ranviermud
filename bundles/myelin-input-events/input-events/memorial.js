@@ -12,6 +12,7 @@ module.exports = (srcPath) => {
     event: state => (socket, args) => {
       let { name } = args;
       const say = EventUtil.genSay(socket);
+      const write = EventUtil.genWrite(socket);
 
       // Get pfile of deceased to show stats.
       const deceased = Data.load('player', name);
@@ -20,6 +21,7 @@ module.exports = (srcPath) => {
       const timeSinceDeath = killedOn ?
         humanizeDuration(Date.now() - killedOn, { largest: 2, round: true }) :
         'a long time';
+      const effects = deceased.effects;
 
       const killerName = killedBy === name ? 'a lethal condition' : killedBy;
 
@@ -35,6 +37,11 @@ module.exports = (srcPath) => {
       say("------------------------------");
       say(`Killed by ${killerName || "something unknown"}.`);
       say(`Died ${timeSinceDeath} ago.`);
+      say("------------------------------");
+      if (effects.length) {
+        say("Died under the effects of: ");
+        effects.forEach(effect => write(`${effect.config.name} | `));
+      }
       say("Press enter to pay respects.");
 
       socket.once('data', _ => {
