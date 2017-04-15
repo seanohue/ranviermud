@@ -26,11 +26,11 @@ module.exports = (srcPath) => {
 
       // This just gets their names.
       const characters = account.characters;
+      const deceased = account.getMeta('deceased') || [];
 
       const maxCharacters   = Config.get("maxCharacters");
       const canAddCharacter = characters.length < maxCharacters;
       const canMultiplay    = Config.get("allowMultiplay");
-
 
       let options = [];
 
@@ -64,6 +64,20 @@ module.exports = (srcPath) => {
             },
           });
         });
+      }
+
+      //TODO: Should maybe be a submenu since they gon die a lot maybe.
+      if (deceased.length) {
+        options.push({ display: "View Memorials:" });
+        deceased.forEach(dec => {
+          options.push({
+            display: dec,
+            onSelect: () => {
+              args.name = dec;
+              socket.emit('memorial', socket, args);
+            }
+          })
+        })
       }
 
       /*

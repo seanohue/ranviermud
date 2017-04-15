@@ -36,7 +36,9 @@ module.exports = srcPath => {
       },
 
       killed: function () {
-        this.remove();
+        if (this.target.isNpc) {
+          this.remove();
+        }
       }
     }
   };

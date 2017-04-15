@@ -9,6 +9,7 @@ module.exports = (srcPath) => {
   const LevelUtil = require(srcPath + 'LevelUtil');
   const Damage = require(srcPath + 'Damage');
   const Logger = require(srcPath + 'Logger');
+  const Item = require(srcPath + 'Item');
 
   return  {
     listeners: {
@@ -316,28 +317,71 @@ module.exports = (srcPath) => {
           B.sayAt(this.party, `<b><green>${this.name} was killed!</green></b>`);
         }
 
-        this.setAttributeToMax('physical');
+        B.sayAt(this, '<b><red>You have died. You feel the last of your essence slipping from this mortal husk.</red></b>');
 
-        let home = state.RoomManager.getRoom(this.getMeta('waypoint.home'));
-        if (!home) {
-          home = state.RoomManager.startingRoom;
+        const items = [];
+
+        if (this.inventory) {
+          items.push(...this.inventory.values());
         }
 
-        this.moveTo(home, _ => {
-          state.CommandManager.get('look').execute(null, this);
+        if (this.equipment) {
+          items.push(...this.equipment.values());
+        }
 
-          B.sayAt(this, '<b><red>Whoops, that sucked!</red></b>');
+        // Make and drop a corpse w/ player inventory/equipment.
+        const corpse = new Item(this.area, {
+          id: 'corpse',
+          name: `Corpse of ${this.name}`,
+          roomDesc: `Corpse of ${this.name}`,
+          description: `The rotting corpse of ${this.name}`,
+          keywords: ['corpse', this.name],
+          type: 'CONTAINER',
+          properties: {
+            noPickup: true,
+          },
+          maxItems: items.length + 1,
+          behaviors: {
+            decay: {
+              // To prevent killing yourself to harvest own items.
+              duration: this.level < 4 ? 30 : 600
+            }
+          },
+        });
+        corpse.hydrate(state);
+
+        Logger.log(`Generated corpse: ${corpse.uuid}`);
+
+        items.forEach(item => {
+          item.hydrate(state);
+          corpse.addItem(item)
+        });
+        this.room.addItem(corpse);
+        state.ItemManager.add(corpse);
+
+        this.setMeta('killedBy', killer ? killer.name : 'something unknown');
+        this.setMeta('killedOn', Date.now());
+
+        // Disconnect player.
+        this.save(() => {
           if (killer !== this) {
             B.sayAt(this, `You were killed by ${killer.name}.`);
           }
-          // player loses 20% exp gained this level on death
-          const lostExp = Math.floor(this.experience * 0.2);
-          this.experience -= lostExp;
-          this.save();
-          B.sayAt(this, `<red>You lose <b>${lostExp}</b> experience!</red>`);
-
-          B.prompt(this);
+          this.socket.emit('close');
         });
+
+        // Calculate karma and add to account.
+        const newKarma = Math.floor(this.level / 3);
+        const currentKarma = this.account.getMeta('karma') || 0;
+        this.account.setMeta('karma', newKarma + currentKarma);
+
+        // Add deceased char's name to account list of deceased, and remove from characters.
+        const alreadyDeceased = this.account.getMeta('deceased') || [];
+        this.account.setMeta('deceased', alreadyDeceased.concat(this.name));
+        this.account.characters = this.account.characters.filter(name => name !== this.name);
+
+        this.account.save();
+
       },
 
       /**
@@ -413,7 +457,7 @@ module.exports = (srcPath) => {
 
     deadEntity.emit('killed', killer || deadEntity);
 
-    if (!killer.isNpc) {
+    if (killer && !killer.isNpc) {
       if (killer.party) {
         for (const member of killer.party) {
           B.prompt(member);

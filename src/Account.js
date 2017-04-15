@@ -10,7 +10,7 @@ class Account {
     this.characters = data.characters || [];
     this.password   = data.password;
     this.meta       = data.meta || { karma: 0 };
-    this.banned = data.banned || false;
+    this.banned     = data.banned || false;
   }
 
   getUsername() {
@@ -46,11 +46,11 @@ class Account {
   }
 
   setMeta(key, value) {
-    this.data[key] = value;
+    this.meta[key] = value;
   }
 
   getMeta(key) {
-    return this.data[key];
+    return this.meta[key];
   }
 
   _hashPassword(pass) {
