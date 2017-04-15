@@ -35,13 +35,16 @@ module.exports = (srcPath) => {
       say(`| Quickness: ${attrs.quickness.base}`);
       say(`| Might: ${attrs.might.base}`);
       say("------------------------------");
-      say(`Killed by ${killerName || "something unknown"}.`);
-      say(`Died ${timeSinceDeath} ago.`);
+      say(`| Killed by ${killerName || "something unknown"}.`);
+      say(`| Died ${timeSinceDeath} ago.`);
       say("------------------------------");
       if (effects.length) {
-        say("Died under the effects of: ");
-        effects.forEach(effect => write(`${effect.config.name} | `));
-        say("")
+        say("| Died under the effects of: ");
+        effects.forEach((effect, i) => {
+          const put = i % 3 ? say : write;
+          put(`| ${effect.config.name} `);
+        });
+        say("------------------------------");
       }
       say("Press enter to pay respects.");
 
