@@ -458,7 +458,7 @@ module.exports = (srcPath) => {
 
     deadEntity.emit('killed', killer || deadEntity);
 
-    if (!killer.isNpc) {
+    if (killer && !killer.isNpc) {
       if (killer.party) {
         for (const member of killer.party) {
           B.prompt(member);
