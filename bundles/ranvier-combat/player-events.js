@@ -344,7 +344,7 @@ module.exports = (srcPath) => {
           behaviors: {
             decay: {
               // To prevent killing yourself to harvest own items.
-              duration: this.level < 4 ? 30 : 600
+              duration: this.level < 9 ? 30 : 600
             }
           },
         });

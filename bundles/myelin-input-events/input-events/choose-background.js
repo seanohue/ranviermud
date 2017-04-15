@@ -25,7 +25,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      const { playerName, account } = args;
+      const { playerName, account, tier } = args;
       const say      = EventUtil.genSay(socket);
       const at       = EventUtil.genWrite(socket);
       const wrapDesc = str => say(wrap(str, 40));
@@ -38,12 +38,14 @@ module.exports = (srcPath) => {
         inventory.
       */
 
+      const tierBackgrounds = choices.filter(choice => choice.tier === tier);
+
       //TODO: Present menu with more than 1 tier if that is available.
 
       // List possible backgrounds.
       say("Choose Your Origin:");
       say(`${Broadcast.line(40)}/`);
-      choices.forEach((choice, index) => {
+      tierBackgrounds.forEach((choice, index) => {
         at(`[${index + 1}] `);
         say(`<bold>${choice.name}:</bold> `);
         wrapDesc(`<blue>${choice.description}</blue>`);
@@ -57,7 +59,7 @@ module.exports = (srcPath) => {
           return socket.emit('choose-background', socket, { playerName, account });
         }
 
-        const foundBackground = choices[choice];
+        const foundBackground = tierBackgrounds[choice];
 
         if (foundBackground) {
           const { id, name, description, attributes, equipment, skills, attributePoints, abilityPoints } = foundBackground;
