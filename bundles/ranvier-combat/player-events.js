@@ -351,14 +351,15 @@ module.exports = (srcPath) => {
 
         Logger.log(`Generated corpse: ${corpse.uuid}`);
 
-
-
         items.forEach(item => {
           item.hydrate(state);
           corpse.addItem(item)
         });
         this.room.addItem(corpse);
         state.ItemManager.add(corpse);
+
+        this.setMeta('killedBy', killer ? killer.name : 'something unknown');
+        this.setMeta('killedOn', Date.now());
 
         // Disconnect player.
         this.save(() => {
