@@ -74,7 +74,9 @@ module.exports = (srcPath) => {
             display: dec,
             onSelect: () => {
               //TODO: Make an input event for this ayyy
+              args.name = dec;
               console.log('they ded lol');
+              socket.emit('memorial', socket, args);
             }
           })
         })

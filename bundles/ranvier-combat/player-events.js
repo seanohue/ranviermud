@@ -375,13 +375,10 @@ module.exports = (srcPath) => {
 
         // Add deceased char's name to account list of deceased, and remove from characters.
         const alreadyDeceased = this.account.getMeta('deceased') || [];
-        this.account.setMeta('deceased', alreadyDeceased.push(this.name));
+        this.account.setMeta('deceased', alreadyDeceased.concat(this.name));
         this.account.characters = this.account.characters.filter(name => name !== this.name);
 
-        // Save account.
         this.account.save();
-
-        // Serialize some of player's info into deceased dir.
 
       },
 
