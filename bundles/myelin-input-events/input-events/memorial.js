@@ -44,7 +44,11 @@ module.exports = (srcPath) => {
           const put = i % 3 ? say : write;
           put(`| ${effect.config.name} `);
         });
-        say("------------------------------");
+        if (effects.length % 2 === 0) {
+          say("------------------------------");
+        } else {
+          say("\r\n------------------------------");
+        }
       }
       say("Press enter to pay respects.");
 
