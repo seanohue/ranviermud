@@ -10,7 +10,7 @@ class Account {
     this.characters = data.characters || [];
     this.password   = data.password;
     this.meta       = data.meta || { karma: 0 };
-    this.banned = data.banned || false;
+    this.banned     = data.banned || false;
   }
 
   getUsername() {
