@@ -41,6 +41,7 @@ module.exports = (srcPath) => {
       if (effects.length) {
         say("Died under the effects of: ");
         effects.forEach(effect => write(`${effect.config.name} | `));
+        say("")
       }
       say("Press enter to pay respects.");
 
