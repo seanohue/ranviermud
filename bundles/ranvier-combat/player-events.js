@@ -343,7 +343,8 @@ module.exports = (srcPath) => {
           maxItems: items.length + 1,
           behaviors: {
             decay: {
-              duration: 600
+              // To prevent killing yourself to harvest own items.
+              duration: this.level < 4 ? 30 : 600
             }
           },
         });
