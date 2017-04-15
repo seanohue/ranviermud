@@ -26,11 +26,11 @@ module.exports = (srcPath) => {
 
       // This just gets their names.
       const characters = account.characters;
+      const deceased = account.getMeta('deceased') || [];
 
       const maxCharacters   = Config.get("maxCharacters");
       const canAddCharacter = characters.length < maxCharacters;
       const canMultiplay    = Config.get("allowMultiplay");
-
 
       let options = [];
 
@@ -64,6 +64,19 @@ module.exports = (srcPath) => {
             },
           });
         });
+      }
+
+      if (deceased.length) {
+        options.push({ display: "View Memorials:" });
+        deceased.forEach(dec => {
+          options.push({
+            display: dec,
+            onSelect: () => {
+              //TODO: Make an input event for this ayyy
+              console.log('they ded lol');
+            }
+          })
+        })
       }
 
       /*
