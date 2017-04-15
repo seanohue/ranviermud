@@ -319,6 +319,16 @@ module.exports = (srcPath) => {
 
         B.sayAt(this, '<b><red>You have died. You feel the last of your essence slipping from this mortal husk.</red></b>');
 
+        const items = [];
+
+        if (this.inventory) {
+          items.push(...this.inventory.values());
+        }
+
+        if (this.equipment) {
+          items.push(...this.equipment.values());
+        }
+
         // Make and drop a corpse w/ player inventory/equipment.
         const corpse = new Item(this.area, {
           id: 'corpse',
@@ -330,7 +340,7 @@ module.exports = (srcPath) => {
           properties: {
             noPickup: true,
           },
-          maxItems: this.inventory.size + this.equipment.size + 1,
+          maxItems: items.length + 1,
           behaviors: {
             decay: {
               duration: 600
@@ -341,10 +351,7 @@ module.exports = (srcPath) => {
 
         Logger.log(`Generated corpse: ${corpse.uuid}`);
 
-        const items = [
-          ...this.inventory.values(),
-          ...this.equipment.values()
-        ];
+
 
         items.forEach(item => {
           item.hydrate(state);

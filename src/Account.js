@@ -46,11 +46,11 @@ class Account {
   }
 
   setMeta(key, value) {
-    this.data[key] = value;
+    this.meta[key] = value;
   }
 
   getMeta(key) {
-    return this.data[key];
+    return this.meta[key];
   }
 
   _hashPassword(pass) {

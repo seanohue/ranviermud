@@ -66,6 +66,7 @@ module.exports = (srcPath) => {
         });
       }
 
+      //TODO: Should maybe be a submenu since they gon die a lot maybe.
       if (deceased.length) {
         options.push({ display: "View Memorials:" });
         deceased.forEach(dec => {
