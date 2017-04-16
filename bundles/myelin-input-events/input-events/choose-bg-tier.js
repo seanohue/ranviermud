@@ -38,10 +38,10 @@ module.exports = (srcPath) => {
       const karma = account.getMeta('karma');
       say("Choose A Lineage:");
       say(`${Broadcast.line(40)}/`);
-      tiers.filter(tier => tier.cost >= karma)
+      tiers.filter(tier => tier.cost <= karma)
         .forEach((tier, index) => {
           at(`[${index + 1}] `);
-          at(`<bold>${tier.label}:</bold> `);
+          at(`<bold>${tier.label}</bold> `);
           at(`<blue>(${tier.cost ? tier.cost + " karma" : "Free"})</blue>`);
           say(""); // Newline to separate.
       });
@@ -53,7 +53,7 @@ module.exports = (srcPath) => {
           return socket.emit('choose-bg-tier', socket, { playerName, account });
         }
 
-        return socket.emit('choose-background', socket, { playerName, account, choice });
+        return socket.emit('choose-background', socket, { playerName, account, tier: choice });
       });
 
     }
