@@ -8,5 +8,5 @@ attributes:
   willpower: 9
 equipment: ['spire.intro:9', 'spire.intro:10', 'spire.intro:11']
 skills: [ 'lunge' ]
-attributePoints: 1
+abilityPoints: 1
 tier: 0

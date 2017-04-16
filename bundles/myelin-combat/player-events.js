@@ -371,7 +371,7 @@ module.exports = (srcPath) => {
         });
 
         // Calculate karma and add to account.
-        const calculateKarma = require(__dirName + '/lib/calculateKarma');
+        const calculateKarma = require('./lib/calculateKarma');
         const newKarma = calculateKarma(this);
         const currentKarma = this.account.getMeta('karma') || 0;
         this.account.setMeta('karma', newKarma + currentKarma);
@@ -407,7 +407,7 @@ module.exports = (srcPath) => {
 
           // Record some metadata for karma scoring purposes and memorial screen.
           const kills = this.getMeta('kills');
-          this.setMeta('kills', kill + 1);
+          this.setMeta('kills', kills + 1);
           const strongestDefeated = this.getMeta('strongestDefeated');
           if (!strongestDefeated || (target.level > strongestDefeated.level)) {
             this.setMeta('strongestDefeated', { level: target.level, name: target.name });

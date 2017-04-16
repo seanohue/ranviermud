@@ -27,6 +27,7 @@ module.exports = (srcPath) => {
 
       // List tiers they can afford.
       const karma = account.getMeta('karma');
+
       say("Choose A Lineage:");
       say(`${Broadcast.line(40)}/`);
       tiers.filter(tier => tier.cost <= karma)
@@ -36,6 +37,7 @@ module.exports = (srcPath) => {
           at(`<blue>(${tier.cost ? tier.cost + " karma" : "Free"})</blue>`);
           say(""); // Newline to separate.
       });
+      say(`Your Karma: ${karma}`);
 
       socket.once('data', choice => {
         choice = parseInt(choice.toString().trim().toLowerCase(), 10) - 1;
@@ -44,7 +46,7 @@ module.exports = (srcPath) => {
           return socket.emit('choose-bg-tier', socket, { playerName, account });
         }
 
-        return socket.emit('choose-background', socket, { playerName, account, tier: choice });
+        return socket.emit('choose-background', socket, { playerName, account, tier: choice, cost: tiers[choice].cost });
       });
 
     }
