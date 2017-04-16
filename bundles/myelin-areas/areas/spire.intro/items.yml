@@ -48,6 +48,8 @@
   level: 1
   itemLevel: 1
   quality: common
+  specialEffects:
+    - "Chance on hit: Stun your opponent for a short time."
   properties:
     minDamage: 1
     maxDamage: 11
@@ -91,7 +93,6 @@
   properties:
     stats:
       armor: 2
-      quickness: -1
   behaviors:
     sellable:
       value: 1
@@ -105,10 +106,12 @@
   description: "A small burlap sack attached to a corded belt."
   items: [ ] # maybe have some kind of special trinket in here
   maxItems: 2
-  script: "4-alms-pouch"
+  script: "6-alms-pouch" #resource.buff
+  specialEffects:
+    - "When this is in your possession, you have more luck when gaining resources and rewards."
   slot: 'waist'
   quality: common
-  behaviors: #TODO: Effect that increases resource gain.
+  behaviors:
     sellable:
       value: 2
       currency: gold
@@ -263,7 +266,9 @@
   level: 1
   slot: "wield"
   quality: common
-  #script: "14-blackjack"
+  script: "14-blackjack"
+  specialEffects:
+    - "Chance on hit: Stun your opponent for a short time."
   properties:
     minDamage: 5
     maxDamage: 11
