@@ -1,0 +1,13 @@
+id: subject
+name: 'Research Subject'
+description: 'Most of your life was spent in captivity, subject of countless eldritch experiments. They have left you withered, but full of ill potential.'
+attributes:
+  quickness: 6
+  might: 6
+  intellect: 6
+  willpower: 6
+equipment: [] #aethersilk robe
+skills: []
+attributePoints: 6
+abilityPoints: 10
+tier: 1
