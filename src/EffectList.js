@@ -82,7 +82,6 @@ class EffectList {
         }
       }
     }
-
     this.effects.add(effect);
     effect.emit('effectAdded');
     effect.on('remove', () => this.remove(effect));

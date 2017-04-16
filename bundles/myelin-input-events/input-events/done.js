@@ -26,12 +26,13 @@ module.exports = (srcPath) => {
             const area = state.AreaManager.getAreaByReference(itemRef);
             const item = state.ItemFactory.create(area, itemRef);
             item.hydrate(state);
+            item.emit('get', player);
             if (item.slot) {
               player.equip(item);
+              item.emit('equip', player);
             } else {
               player.addItem(item);
             }
-            item.emit('get', player);
           });
         }
 

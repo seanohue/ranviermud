@@ -6,10 +6,14 @@ module.exports = (srcPath) => {
   return  {
     listeners: {
       get: state => function (player) {
-      	player.addEffect('resource.buff');
+        const effect = state.EffectFactory.create('resource.buff', player, { source: this.uuid });
+      	player.addEffect(effect);
       },
       drop: state => function (player) {
-        player.removeEffect('resource.buff');
+        const effect = player.effects.getByType('resource.buff');
+        if (effect.config.source === this.uuid) {
+          player.removeEffect(effect);
+        }
       }
     }
   };
