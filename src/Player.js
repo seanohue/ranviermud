@@ -252,7 +252,7 @@ class Player extends Character {
     super.hydrate(state);
 
     // Activate passive skills...
-    for (const ability of this.getMeta('abilities')) {
+    for (const ability of this.getMeta('abilities') || []) {
       const skill = state.SkillManager.get(ability);
       if (!skill) {
         throw new ReferenceError(`Skill ${ability} does not exist, but was stored on a pfile.`);
