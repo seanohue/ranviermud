@@ -237,7 +237,9 @@ module.exports = (srcPath) => {
           buf += "Something";
         }
 
-        buf += ` hit <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage`;
+        const verb = (damage.source && damage.source.verb) || 'hit';
+
+        buf += ` ${verb} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage`;
         B.sayAt(this, buf);
 
         // show damage to party members

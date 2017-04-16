@@ -25,7 +25,7 @@ module.exports = srcPath => {
 
       updateTick: function () {
         const amount = Math.round(this.state.totalDamage / Math.round((this.config.duration / 1000) / this.config.tickInterval));
-
+        this.verb = 'bled';
         const damage = new Damage({
           attribute: 'physical',
           amount,
