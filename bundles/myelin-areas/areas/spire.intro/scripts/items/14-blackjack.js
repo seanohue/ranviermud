@@ -24,14 +24,14 @@ module.exports = (srcPath) => {
         const might = player.getMaxAttribute('might') || 0;
 
         if (Random.probability(might)) {
-          const duration = Math.min(Math.ceil(player.getMaxAttribute('might') / 3), 10);
+          const duration = Math.min(Math.ceil(might / 3), 10),
           const effect = state.EffectFactory.create(
             'stun',
             target,
             {
               duration,
               description: "You've been bashed senseless.",
-            },
+            }
           );
           effect.skill = this;
           effect.attacker = player;
