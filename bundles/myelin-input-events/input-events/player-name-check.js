@@ -26,7 +26,7 @@ module.exports = (srcPath) => {
 
         // If they don't have enough karma, just send them right to the choosebackground menu.
         const karma = args.account.getMeta('karma');
-        if (karma < 3) { //TODO: Maybe don't hardcode this?
+        if (karma >= 3) { //TODO: Maybe don't hardcode this?
           socket.emit('choose-bg-tier', socket, { playerName: args.name, account: args.account });
         } else {
           socket.emit('choose-background', socket, { playerName: args.name, account: args.account, tier: 0 });
