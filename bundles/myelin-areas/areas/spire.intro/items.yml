@@ -43,7 +43,7 @@
   roomDesc: "Gnarled Walking Stick"
   keywords: [ "gnarled", "gnarl", "stick", "walking" ]
   description: "This walking stick appears to have been crafted from the bough of a sturdy tree. Baroque designs have been carved along its length."
-  #script: "3-walking-stick"
+  script: "3-walking-stick"
   slot: 'wield'
   level: 1
   itemLevel: 1

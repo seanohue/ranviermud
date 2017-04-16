@@ -12,7 +12,6 @@ module.exports = (srcPath) => {
   const damagePercent = 150;
   const energyCost = 75;
   const stunPercent = 20;
-  const tickInterval = 1;
 
   function totalDamage(player) {
     return player.calculateWeaponDamage() * (damagePercent / 100) + player.getMaxAttribute('might');
@@ -50,11 +49,7 @@ module.exports = (srcPath) => {
         target,
         {
           duration,
-          description: this.info(player),
-          tickInterval,
-        },
-        {
-          totalDamage: totalDamage(player),
+          description: "You've been bashed senseless."
         }
       );
       effect.skill = this;
