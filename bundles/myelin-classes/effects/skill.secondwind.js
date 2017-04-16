@@ -11,7 +11,7 @@ module.exports = srcPath => {
   return {
     config: {
       name: 'Second Wind',
-      type: 'skill:secondwind'
+      type: 'skill:secondwind',
     },
     flags: [Flag.BUFF],
     listeners: {

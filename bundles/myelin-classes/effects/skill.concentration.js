@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Implementation effect for second wind skill
+ * Implementation effect for concentrate skill
  */
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
@@ -11,7 +11,7 @@ module.exports = srcPath => {
   return {
     config: {
       name: 'Concentration',
-      type: 'skill:concentration'
+      type: 'skill:concentration',
     },
     flags: [Flag.BUFF],
     listeners: {
