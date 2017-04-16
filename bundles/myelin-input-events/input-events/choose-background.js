@@ -25,7 +25,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      const { playerName, account, tier } = args;
+      const { playerName, account, tier, cost = 0 } = args;
       const say      = EventUtil.genSay(socket);
       const at       = EventUtil.genWrite(socket);
       const wrapDesc = str => say(wrap(str, 40));
@@ -62,7 +62,10 @@ module.exports = (srcPath) => {
         if (foundBackground) {
           const { id, name, description, attributes, equipment, skills, attributePoints, abilityPoints } = foundBackground;
           const background = { id, name, description };
+
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
+          const karma = account.getMeta('karma');
+          account.setMeta('karma', karma - cost);
           socket.emit('finish-player', socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints });
         } else {
           return socket.emit('choose-background', socket, { playerName, account });

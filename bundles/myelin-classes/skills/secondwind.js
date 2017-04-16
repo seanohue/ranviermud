@@ -21,8 +21,8 @@ module.exports = (srcPath) => {
 
     configureEffect: effect => {
       effect.state = Object.assign(effect.state, {
-        threshold: threshold,
-        attrMultiplier: attrMultiplier,
+        threshold,
+        attrMultiplier,
       });
 
       return effect;

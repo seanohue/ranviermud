@@ -17,7 +17,7 @@ module.exports = (srcPath) => {
       // Get pfile of deceased to show stats.
       const deceased = Data.load('player', name);
       const attrs = deceased.attributes;
-      const { killedOn, killedBy } = deceased.metadata;
+      const { killedOn, killedBy, kills, strongestDefeated } = deceased.metadata;
       const timeSinceDeath = killedOn ?
         humanizeDuration(Date.now() - killedOn, { largest: 2, round: true }) :
         'a long time';
@@ -37,6 +37,12 @@ module.exports = (srcPath) => {
       say("------------------------------");
       say(`| Killed by ${killerName || "something unknown"}.`);
       say(`| Died ${timeSinceDeath} ago.`);
+      say("------------------------------");
+      say(`| Kills: ${kills || 0}`);
+      if (strongestDefeated) {
+        say(`| Strongest Enemy Defeated:`);
+        say(`| ${strongestDefeated.name} (level ${strongestDefeated.level})`);
+      }
       say("------------------------------");
       if (effects.length) {
         say("| Died under the effects of: ");
