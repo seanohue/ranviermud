@@ -40,8 +40,6 @@ module.exports = (srcPath) => {
 
       const tierBackgrounds = choices.filter(choice => choice.tier === tier);
 
-      //TODO: Present menu with more than 1 tier if that is available.
-
       // List possible backgrounds.
       say("Choose Your Origin:");
       say(`${Broadcast.line(40)}/`);

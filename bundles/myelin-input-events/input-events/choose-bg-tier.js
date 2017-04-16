@@ -12,21 +12,12 @@ module.exports = (srcPath) => {
   const EventUtil = require(srcPath + 'EventUtil');
   const Config    = require(srcPath + 'Config');
   const Data      = require(srcPath + 'Data');
+
   const fs        = require('fs');
   const wrap      = require('wrap-ansi');
 
+  const tiers  = require(__dirname + '/../tiers');
   const bgPath = __dirname + '/../backgrounds/';
-
-  const tiers = [
-    {
-      cost: 0,
-      label: "The Deprived"
-    },
-    {
-      cost: 3,
-      label: "The Abandoned"
-    },
-  ];
 
   return {
     event: state => (socket, args) => {
