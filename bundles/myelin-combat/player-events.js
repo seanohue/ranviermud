@@ -406,7 +406,7 @@ module.exports = (srcPath) => {
           B.sayAt(this, `<b><red>You killed ${target.name}!`);
 
           // Record some metadata for karma scoring purposes and memorial screen.
-          const kills = this.getMeta('kills');
+          const kills = this.getMeta('kills') || 0;
           this.setMeta('kills', kills + 1);
           const strongestDefeated = this.getMeta('strongestDefeated');
           if (!strongestDefeated || (target.level > strongestDefeated.level)) {
