@@ -31,6 +31,7 @@ module.exports = (srcPath) => {
             } else {
               player.addItem(item);
             }
+            item.emit('get', player);
           });
         }
 
