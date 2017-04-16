@@ -4,9 +4,6 @@
  * Player background selection event
  */
 
-//TODO: Have account.karma effect which "tiers" of backgrounds are available.
-//      For now it is just starting tier.
-
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');

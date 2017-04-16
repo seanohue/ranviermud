@@ -40,6 +40,10 @@ module.exports = (srcPath) => {
         [].concat(skill);
       player.setMeta('abilities', newAbilities);
 
+      // Activate passive skills on purchase
+      const skillObj = state.SkillManager.get(skill);
+      skill.activate(player);
+
       say(`You now have ${skill} as an ability.`);
     }
   };
