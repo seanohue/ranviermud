@@ -302,6 +302,7 @@
   type: ARMOR
   roomDesc: "Aethersilk Robe"
   keywords: [ "aether", "silk", "aeth", "robe" ]
+  script: "17-aethersilk-robe"
   description: "A no-frills robe made of a smooth material with an uncanny silver sheen."
   slot: "body"
   level: 1
