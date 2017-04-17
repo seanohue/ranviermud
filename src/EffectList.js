@@ -40,6 +40,12 @@ class EffectList {
     });
   }
 
+  filterByType(type) {
+    return [...this.effects].filter(effect => {
+      return effect.config.type === type;
+    });
+  }
+
   /**
    * Proxy an event to all effects
    * @param {string} event
