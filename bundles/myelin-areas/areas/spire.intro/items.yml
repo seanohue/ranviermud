@@ -298,10 +298,10 @@
 
 # Test Subject starter
 - id: 17
-  name: "Aethersilk Robe"
+  name: "Simple Aethersilk Robe"
   type: ARMOR
-  roomDesc: "Aethersilk Robe"
-  keywords: [ "aether", "silk", "aeth", "robe" ]
+  roomDesc: "Simple Aethersilk Robe"
+  keywords: [ "aether", "silk", "aeth", "robe", "simple", "aethersilk" ]
   script: "17-aethersilk-robe"
   description: "A no-frills robe made of a smooth material with an uncanny silver sheen."
   slot: "body"
