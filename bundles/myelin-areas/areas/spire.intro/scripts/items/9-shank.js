@@ -20,22 +20,52 @@ module.exports = (srcPath) => {
         // it listens for the 'hit' event you will have to check to make sure that `damage.source
         // !== this` otherwise you could create an infinite loop the weapon's own damage triggering
         // its script
-        const might = player.getMaxAttribute('might') || 0;
-
-        if (Random.probability(might)) {
-          const duration = Math.min(Math.ceil(might / 3), 10);
+        const quickness = player.getMaxAttribute('quickness') || 0;
+        const chanceOfBleedOther = Math.min(quickness, 5) // 5 - quickness%
+        const chanceOfBleedSelf = Math.min(Math.max(20 - quickness, 15), 1) // 1 - 15%
+        if (Random.probability(chanceOfBleedOther)) {
+          const duration = Math.min(Math.ceil(quickness / 2), 10);
           const effect = state.EffectFactory.create(
-            'stun',
+            'skill.claw',
             target,
             {
+              name: 'Shanked',
+              type: 'shank:bleed',
+              tickInterval: Math.min(15 - quickness, 2),
               duration,
-              description: "You've been bashed senseless.",
+              description: "You've been stabbed... and it's a deep one.",
+            },
+            {
+              totalDamage: quickness
             }
           );
           effect.skill = this;
           effect.attacker = player;
+          if (!target.isNpc) {
+            Broadcast.sayAt(target, `<b><red>You have been stabbed by ${player.name}!</red></b>`);
+          }
+          Broadcast.sayAt(player, `<b><red>You stab <blue>${target.name}</blue> with the <blue>${this.name}</blue>, knocking them silly.</red></b>`, 80);
+        }
 
-          Broadcast.sayAt(player, `<b><yellow>You bash <blue>${target.name}</blue> with the <blue>${this.name}</blue>, knocking them silly.</yellow></b>`, 80);
+        if (Random.probability(chanceOfBleedSelf)) {
+          const duration = Math.min(Math.ceil(quickness / 2), 10);
+          const effect = state.EffectFactory.create(
+            'skill.claw',
+            target,
+            {
+              name: 'Shanked',
+              type: 'shank:bleed:self',
+              duration,
+              tickInterval: 3,
+              description: "You've accidentally slit yourself... and it's a deep one.",
+            },
+            {
+              totalDamage: Math.ceil(quickness / 2)
+            }
+          );
+          effect.skill = this;
+          effect.attacker = player;
+          Broadcast.sayAt(player, `<b><red>Your shank's ragged cloth guard slips and you slice yourself!.</red></b>`, 80);
         }
       }
     }
