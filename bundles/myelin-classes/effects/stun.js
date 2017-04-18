@@ -5,7 +5,6 @@
  */
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
-  const Damage = require(srcPath + 'Damage');
   const Flag = require(srcPath + 'EffectFlag');
 
   return {

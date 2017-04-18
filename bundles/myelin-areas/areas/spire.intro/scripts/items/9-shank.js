@@ -44,7 +44,7 @@ module.exports = (srcPath) => {
           if (!target.isNpc) {
             Broadcast.sayAt(target, `<b><red>You have been stabbed by ${player.name}!</red></b>`);
           }
-          Broadcast.sayAt(player, `<b><red>You stab <blue>${target.name}</blue> with the <blue>${this.name}</blue>, knocking them silly.</red></b>`, 80);
+          Broadcast.sayAt(player, `<b><red>You stab <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and blood pulses from the wound.</red></b>`, 80);
         }
 
         if (Random.probability(chanceOfBleedSelf)) {
