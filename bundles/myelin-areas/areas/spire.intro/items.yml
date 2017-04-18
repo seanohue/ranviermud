@@ -159,6 +159,7 @@
   keywords: [ "rusty", "shank", "shiv", "stabby" ]
   description: "This jagged, rusted piece of metal has some cloth wrapped around it as an improvised handle. Seems as likely to hurt the attacker as the victim, but a nasty piece nonetheless."
   slot: 'wield'
+  script: '9-shank'
   level: 1
   itemLevel: 1
   quality: common
@@ -166,6 +167,9 @@
     minDamage: 2
     maxDamage: 12
     speed: 2.3
+  specialEffects:
+    - "Chance on hit: Bleed your opponent."
+    - "Chance on hit: Bleed yourself."
   behaviors: #TODO: DoT effect on hit, sometimes, plus potential to damage wielder.
     sellable:
       value: 2

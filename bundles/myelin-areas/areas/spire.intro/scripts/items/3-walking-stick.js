@@ -6,7 +6,6 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Random = require(srcPath + 'RandomUtil');
-  const Heal = require(srcPath + 'Heal');
 
   return  {
     listeners: {

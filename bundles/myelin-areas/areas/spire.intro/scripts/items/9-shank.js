@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Small chance of stun on hit.
+ * Small chance of bleed self or opponent on hit.
  */
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
