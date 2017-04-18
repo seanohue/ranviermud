@@ -26,11 +26,10 @@ module.exports = (srcPath) => {
         if (Random.probability(chanceOfBleedOther)) {
           const duration = Math.min(Math.ceil(quickness / 2), 10);
           const effect = state.EffectFactory.create(
-            'skill.claw',
+            'skill:claw',
             target,
             {
               name: 'Shanked',
-              type: 'shank:bleed',
               tickInterval: Math.min(15 - quickness, 2),
               duration,
               description: "You've been stabbed... and it's a deep one.",
@@ -47,14 +46,13 @@ module.exports = (srcPath) => {
           Broadcast.sayAt(player, `<b><red>You stab <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and blood pulses from the wound.</red></b>`, 80);
         }
 
-        if (Random.probability(chanceOfBleedSelf)) {
+        if (Random.probability(chanceOfBleedSelf) || true) {
           const duration = Math.min(Math.ceil(quickness / 2), 10);
           const effect = state.EffectFactory.create(
-            'skill.claw',
+            'skill:claw',
             target,
             {
               name: 'Shanked',
-              type: 'shank:bleed:self',
               duration,
               tickInterval: 3,
               description: "You've accidentally slit yourself... and it's a deep one.",
