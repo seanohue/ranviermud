@@ -234,7 +234,7 @@ module.exports = (srcPath) => {
         }
 
         if (damage.source) {
-          buf += (damage.attacker ? "'s " : " ") + `<b>${damage.source.name}</b>`;
+          buf += (damage.attacker && damage.attacker !== this ? "'s " : " ") + `<b>${damage.source.name}</b>`;
         } else if (!damage.attacker) {
           buf += "Something";
         }
