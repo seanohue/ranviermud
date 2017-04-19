@@ -141,6 +141,10 @@ module.exports = (srcPath) => {
           return;
         }
 
+        if (target === this) {
+          return;
+        }
+
         let buf = '';
         if (damage.source) {
           buf = `Your <b>${damage.source.name}</b> hit`;

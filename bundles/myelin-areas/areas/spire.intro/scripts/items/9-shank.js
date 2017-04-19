@@ -21,7 +21,7 @@ module.exports = (srcPath) => {
         // !== this` otherwise you could create an infinite loop the weapon's own damage triggering
         // its script
         const quickness = player.getMaxAttribute('quickness') || 0;
-        const chanceOfBleedOther = Math.min(quickness, 5); // 5 - quickness%
+        const chanceOfBleedOther = Math.min(quickness + 5, 10); // 10 - quickness+5%
         const chanceOfBleedSelf = Math.min(Math.max(20 - quickness, 15), 1); // 1 - 15%
         if (Random.probability(chanceOfBleedOther)) {
           const duration = Math.min(Math.ceil(quickness / 2), 10) * 1000;
