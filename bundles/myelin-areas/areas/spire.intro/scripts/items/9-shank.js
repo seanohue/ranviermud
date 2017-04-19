@@ -21,21 +21,22 @@ module.exports = (srcPath) => {
         // !== this` otherwise you could create an infinite loop the weapon's own damage triggering
         // its script
         const quickness = player.getMaxAttribute('quickness') || 0;
-        const chanceOfBleedOther = Math.min(quickness, 5) // 5 - quickness%
-        const chanceOfBleedSelf = Math.min(Math.max(20 - quickness, 15), 1) // 1 - 15%
+        const chanceOfBleedOther = Math.min(quickness, 5); // 5 - quickness%
+        const chanceOfBleedSelf = Math.min(Math.max(20 - quickness, 15), 1); // 1 - 15%
         if (Random.probability(chanceOfBleedOther)) {
-          const duration = Math.min(Math.ceil(quickness / 2), 10);
+          const duration = Math.min(Math.ceil(quickness / 2), 10) * 1000;
           const effect = state.EffectFactory.create(
-            'skill:claw',
+            'skill.claw',
             target,
             {
-              name: 'Shanked',
-              tickInterval: Math.min(15 - quickness, 2),
+              name: 'Shank',
+              type: 'shank.other',
+              tickInterval: Math.max(15 - quickness, 2),
               duration,
               description: "You've been stabbed... and it's a deep one.",
             },
             {
-              totalDamage: quickness
+              totalDamage: Math.min(quickness, 30)
             }
           );
           effect.skill = this;
@@ -43,27 +44,30 @@ module.exports = (srcPath) => {
           if (!target.isNpc) {
             Broadcast.sayAt(target, `<b><red>You have been stabbed by ${player.name}!</red></b>`);
           }
+          target.addEffect(effect);
           Broadcast.sayAt(player, `<b><red>You stab <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and blood pulses from the wound.</red></b>`, 80);
         }
 
-        if (Random.probability(chanceOfBleedSelf) || true) {
-          const duration = Math.min(Math.ceil(quickness / 2), 10);
+        if (Random.probability(chanceOfBleedSelf)) {
+          const duration = Math.min(Math.ceil(quickness / 2), 10) * 1000;
           const effect = state.EffectFactory.create(
-            'skill:claw',
-            target,
+            'skill.claw',
+            player,
             {
-              name: 'Shanked',
+              name: 'Shank',
               duration,
+              type: 'shank.self',
               tickInterval: 3,
               description: "You've accidentally slit yourself... and it's a deep one.",
             },
             {
-              totalDamage: Math.ceil(quickness / 2)
+              totalDamage: Math.min(Math.ceil(quickness / 2), 30)
             }
           );
           effect.skill = this;
           effect.attacker = player;
-          Broadcast.sayAt(player, `<b><red>Your shank's ragged cloth guard slips and you slice yourself!.</red></b>`, 80);
+          player.addEffect(effect);
+          Broadcast.sayAt(player, `<b><red>Your shank's ragged cloth guard slips and you slice yourself!</red></b>`, 80);
         }
       }
     }

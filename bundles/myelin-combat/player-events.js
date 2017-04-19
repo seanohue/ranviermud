@@ -227,7 +227,9 @@ module.exports = (srcPath) => {
         }
 
         let buf = '';
-        if (damage.attacker) {
+        if (damage.attacker === this) {
+          buf = `<b>Your</b>`;
+        } else if (damage.attacker) {
           buf = `<b>${damage.attacker.name}</b>`;
         }
 

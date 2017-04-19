@@ -16,6 +16,8 @@ module.exports = srcPath => {
     flags: [Flag.DEBUFF],
     listeners: {
       effectActivated: function () {
+        console.log("state -- ", this.state);
+        console.log("config -- ", this.config);
         Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely.</red></bold>");
       },
 
