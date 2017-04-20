@@ -64,26 +64,25 @@ module.exports = (srcPath) => {
           say(`${Broadcast.line(40)}/`);
           featureAdjectives.forEach((choice, index) => {
             at(`[${index + 1}] `);
-            say(`<bold>${choice}:</bold> `);
+            say(`<bold>${choice}</bold> `);
             say(""); // Newline to separate.
           });
           say("[B] to go back.");
 
           socket.once('data', adjChoice => {
-            if (isNaN(choice)) {
+            if (isNaN(adjChoice)) {
               return socket.emit('choose-facial-appearance', socket, args);
             }
 
             const adjective = featureAdjectives[adjChoice];
             if (adjective) {
               desc.face = { feature, adjective };
+              args.desc = desc;
+              socket.emit('finish-player', socket, args);
             } else {
               return socket.emit('choose-facial-appearance', socket, args);
             }
           });
-
-          args.desc = desc;
-          socket.emit('finish-player', socket, args);
         } else {
           return socket.emit('choose-background', socket, { playerName, account });
         }
