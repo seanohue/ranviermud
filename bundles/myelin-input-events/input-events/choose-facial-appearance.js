@@ -35,15 +35,15 @@ module.exports = (srcPath) => {
         'cheekbones': ['gaunt', 'hairy', 'harsh', 'delicate', 'dimpled'],
         'brow': ['furrowed', 'wrinkled', 'smooth', 'tall', 'peaked', 'sloped']
       };
+      const desc = {};
 
-      // List possible backgrounds.
+      // List possible features.
       say("Appearance:");
-      say(`What stands out about ${playerName}'s face?`)
+      say(`What stands out about ${playerName}'s face?`);
       say(`${Broadcast.line(40)}/`);
       Object.keys(choices).forEach((choice, index) => {
         at(`[${index + 1}] `);
-        say(`<bold>${choice.name}:</bold> `);
-        wrapDesc(`<blue>${choice.description}</blue>`);
+        say(`<bold>${choice}</bold> `);
         say(""); // Newline to separate.
       });
 
@@ -51,19 +51,39 @@ module.exports = (srcPath) => {
         choice = parseInt(choice.toString().trim().toLowerCase(), 10) - 1;
 
         if (isNaN(choice)) {
-          return socket.emit('choose-background', socket, { playerName, account });
+          return socket.emit('choose-facial-appearance', socket, args);
         }
 
-        const foundBackground = tierBackgrounds[choice];
+        const feature = Object.keys(choices)[choice];
+        const featureAdjectives = choices[feature];
 
-        if (foundBackground) {
-          const { id, name, description, attributes, equipment, skills, attributePoints, abilityPoints } = foundBackground;
-          const background = { id, name, description };
+        if (feature) {
+          // List possible adjectives for the chosen feature.
+          say("Appearance:");
+          say(`How would you describe ${playerName}'s ${feature}?`);
+          say(`${Broadcast.line(40)}/`);
+          featureAdjectives.forEach((choice, index) => {
+            at(`[${index + 1}] `);
+            say(`<bold>${choice}:</bold> `);
+            say(""); // Newline to separate.
+          });
+          say("[B] to go back.");
 
-          //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
-          const karma = account.getMeta('karma');
-          account.setMeta('karma', karma - cost);
-          socket.emit('finish-player', socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints });
+          socket.once('data', adjChoice => {
+            if (isNaN(choice)) {
+              return socket.emit('choose-facial-appearance', socket, args);
+            }
+
+            const adjective = featureAdjectives[adjChoice];
+            if (adjective) {
+              desc.face = { feature, adjective };
+            } else {
+              return socket.emit('choose-facial-appearance', socket, args);
+            }
+          });
+
+          args.desc = desc;
+          socket.emit('finish-player', socket, args);
         } else {
           return socket.emit('choose-background', socket, { playerName, account });
         }
