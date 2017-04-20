@@ -70,7 +70,7 @@ module.exports = (srcPath) => {
             if (adjective) {
               desc.face = { feature, adjective };
               args.desc = desc;
-              socket.emit('finish-player', socket, args);
+              socket.emit('choose-body-type', socket, args);
             } else {
               return socket.emit('choose-facial-appearance', socket, args);
             }
