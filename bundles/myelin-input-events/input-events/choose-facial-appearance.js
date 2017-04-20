@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Player background selection event
+ * Player facial feature (for description) event
  */
 
 module.exports = (srcPath) => {
@@ -18,14 +18,6 @@ module.exports = (srcPath) => {
       const say      = EventUtil.genSay(socket);
       const at       = EventUtil.genWrite(socket);
       const wrapDesc = str => say(wrap(str, 40));
-
-      /*
-        Myelin does not have classes,
-        however, players can choose a
-        background. This determines
-        starting skills, attributes, and
-        inventory.
-      */
 
       const choices = {
         'nose': ['crooked', 'bulbous', 'long', 'large-nostriled', 'button'],
