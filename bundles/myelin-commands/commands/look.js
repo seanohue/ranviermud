@@ -177,6 +177,7 @@ module.exports = (srcPath, bundlePath) => {
       search = args[0];
     }
 
+    //FIXME: Refactor
     let entity = CommandParser.parseDot(search, room.items);
     entity = entity || CommandParser.parseDot(search, room.players);
     entity = entity || CommandParser.parseDot(search, room.npcs);
@@ -189,6 +190,9 @@ module.exports = (srcPath, bundlePath) => {
     if (entity instanceof Player) {
       // TODO: Show player equipment?
       B.sayAt(player, `You see fellow player ${entity.name}.`);
+
+      // Event hook to use look to show dynamic appearance.
+      entity.emit('look', player);
       return;
     }
 
