@@ -43,11 +43,13 @@
   roomDesc: "Gnarled Walking Stick"
   keywords: [ "gnarled", "gnarl", "stick", "walking" ]
   description: "This walking stick appears to have been crafted from the bough of a sturdy tree. Baroque designs have been carved along its length."
-  #script: "3-walking-stick"
+  script: "3-walking-stick"
   slot: 'wield'
   level: 1
   itemLevel: 1
   quality: common
+  specialEffects:
+    - "Chance on hit: Stun your opponent for a short time."
   properties:
     minDamage: 1
     maxDamage: 11
@@ -91,7 +93,6 @@
   properties:
     stats:
       armor: 2
-      quickness: -1
   behaviors:
     sellable:
       value: 1
@@ -105,10 +106,12 @@
   description: "A small burlap sack attached to a corded belt."
   items: [ ] # maybe have some kind of special trinket in here
   maxItems: 2
-  script: "4-alms-pouch"
+  script: "6-alms-pouch" #resource.buff
+  specialEffects:
+    - "When this is in your possession, you have more luck when gaining resources and rewards."
   slot: 'waist'
   quality: common
-  behaviors: #TODO: Effect that increases resource gain.
+  behaviors:
     sellable:
       value: 2
       currency: gold
@@ -156,6 +159,7 @@
   keywords: [ "rusty", "shank", "shiv", "stabby" ]
   description: "This jagged, rusted piece of metal has some cloth wrapped around it as an improvised handle. Seems as likely to hurt the attacker as the victim, but a nasty piece nonetheless."
   slot: 'wield'
+  script: '9-shank'
   level: 1
   itemLevel: 1
   quality: common
@@ -163,6 +167,9 @@
     minDamage: 2
     maxDamage: 12
     speed: 2.3
+  specialEffects:
+    - "Chance on hit: Bleed your opponent."
+    - "Chance on hit: Bleed yourself."
   behaviors: #TODO: DoT effect on hit, sometimes, plus potential to damage wielder.
     sellable:
       value: 2
@@ -263,7 +270,9 @@
   level: 1
   slot: "wield"
   quality: common
-  #script: "14-blackjack"
+  script: "14-blackjack"
+  specialEffects:
+    - "Chance on hit: Stun your opponent for a short time."
   properties:
     minDamage: 5
     maxDamage: 11
@@ -289,4 +298,23 @@
   behaviors:
     sellable:
       value: 2
+      currency: gold
+
+# Test Subject starter
+- id: 17
+  name: "Simple Aethersilk Robe"
+  type: ARMOR
+  roomDesc: "Simple Aethersilk Robe"
+  keywords: [ "aether", "silk", "aeth", "robe", "simple", "aethersilk" ]
+  script: "17-aethersilk-robe"
+  description: "A no-frills robe made of a smooth material with an uncanny silver sheen."
+  slot: "body"
+  level: 1
+  quality: rare
+  properties:
+    stats:
+      armor: 2
+  behaviors:
+    sellable:
+      value: 60
       currency: gold

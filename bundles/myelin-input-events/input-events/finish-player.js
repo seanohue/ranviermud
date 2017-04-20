@@ -22,8 +22,8 @@ module.exports = (srcPath) => {
       player.setMeta('class',            'base');
       player.setMeta('background',       background);
       player.setMeta('abilities',        []);
-      player.setMeta('attributePoints',  attributePoints || 2);
-      player.setMeta('abilityPoints',    abilityPoints   || 1);
+      player.setMeta('attributePoints',  attributePoints || 0);
+      player.setMeta('abilityPoints',    abilityPoints   || 0);
 
       player.save();
 
