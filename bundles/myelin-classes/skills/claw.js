@@ -32,6 +32,7 @@ module.exports = (srcPath) => {
       attribute: 'energy',
       cost,
     },
+    effect: 'claw', // Just to add to the desc.
     cooldown,
 
     //TODO: Use damage types or something to make this less effective vs. armor.

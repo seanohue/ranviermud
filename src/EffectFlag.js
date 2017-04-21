@@ -2,7 +2,7 @@
 
 module.exports = {
   BUFF: Symbol("BUFF"),
-  DEBUFF: Symbol("DEBUFF"),
+  DEBUFF: Symbol("DEBUFF")
 };
 
 

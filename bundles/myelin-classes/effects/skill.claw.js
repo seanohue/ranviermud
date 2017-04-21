@@ -10,7 +10,7 @@ module.exports = srcPath => {
 
   return {
     config: {
-      name: 'Claw',
+      name: 'Clawed',
       type: 'skill:claw',
     },
     flags: [Flag.DEBUFF],
@@ -41,8 +41,7 @@ module.exports = srcPath => {
         if (observer.isNpc) {
           return;
         }
-        let where = this.target.isNpc ? '' : ' where their fingernails should be';
-        Broadcast.sayAt(observer, `${this.target.name} has jagged, sharp claws${where}.`);
+        Broadcast.sayAt(observer, `${this.target.name} is bleeding heavily.`);
       },
 
       killed() {
