@@ -32,7 +32,7 @@ module.exports = (srcPath) => {
       ];
 
       // In case players are lazy and tempted to pick from the first few choices.
-      choices = Random.coinflip() ? choices.reverse() : choices;
+      choices = Random.coinFlip() ? choices.reverse() : choices;
 
       // List possible features.
       say("Appearance:");
