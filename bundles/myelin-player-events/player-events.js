@@ -53,7 +53,7 @@ module.exports = (srcPath) => {
         this.save();
       },
 
-      look: state => function(observer) {
+      look: state => function (observer) {
         if (observer.isNpc) { return; }
         //TODO: if (observer.effects.hasType('blinded')) { return; }
 
@@ -63,7 +63,7 @@ module.exports = (srcPath) => {
         }
 
         const { hair, bodyType, face } = descriptionDef;
-        const description = `${this.name} has a ${bodyType} body. Their ${face.adjective} ${face.feature} stands out from the rest of their face. Their ${hair.style} is ${hair.color} in color.`;
+        const description = `${this.name} has a ${bodyType} body. Their ${face.adjective} ${face.feature} stands out from the rest of their face. Their ${hair.style} hair is ${hair.color} in color.`;
         Broadcast.sayAt(observer, description, 80);
       }
 

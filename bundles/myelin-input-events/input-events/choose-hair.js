@@ -66,7 +66,7 @@ module.exports = (srcPath) => {
             const color = colors[colorChoice];
             if (color) {
               args.desc.hair = { style, color };
-              socket.emit('finish-player', socket, args);
+              socket.emit('choose-distinguishing-feature', socket, args);
             } else {
               return socket.emit('choose-hair', socket, args);
             }
