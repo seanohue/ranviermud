@@ -63,6 +63,8 @@ module.exports = (srcPath) => {
           say("[B] to go back.");
 
           socket.once('data', adjChoice => {
+            adjChoice = parseInt(adjChoice.toString().trim().toLowerCase(), 10) - 1;
+
             if (isNaN(adjChoice)) {
               return socket.emit('choose-facial-appearance', socket, args);
             }

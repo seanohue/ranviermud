@@ -59,6 +59,8 @@ module.exports = (srcPath) => {
           say("[B] to go back.");
 
           socket.once('data', colorChoice => {
+            colorChoice = parseInt(colorChoice.toString().trim().toLowerCase(), 10) - 1;
+
             if (isNaN(colorChoice)) {
               return socket.emit('choose-hair', socket, args);
             }
