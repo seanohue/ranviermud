@@ -11,8 +11,8 @@ module.exports = (srcPath) => {
   return {
     event: state => (socket, args) => {
       const { playerName, background } = args;
-      const say      = EventUtil.genSay(socket);
-      const at       = EventUtil.genWrite(socket);
+      const say = EventUtil.genSay(socket);
+      const at  = EventUtil.genWrite(socket);
 
       const choices = [
         'slim',

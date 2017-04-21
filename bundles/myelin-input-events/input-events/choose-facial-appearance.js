@@ -12,8 +12,8 @@ module.exports = (srcPath) => {
   return {
     event: state => (socket, args) => {
       const { playerName } = args;
-      const say      = EventUtil.genSay(socket);
-      const at       = EventUtil.genWrite(socket);
+      const say = EventUtil.genSay(socket);
+      const at  = EventUtil.genWrite(socket);
 
       const choices = {
         'nose': ['crooked', 'bulbous', 'long', 'large-nostriled', 'button'],
