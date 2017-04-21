@@ -35,6 +35,7 @@ module.exports = (srcPath) => {
       choices = Random.coinFlip() ? choices.reverse() : choices;
 
       // List possible features.
+      say("");
       say("Appearance:");
       say(`Finally, choose a distinguishing feature for ${playerName}.`);
       say(`${Broadcast.line(40)}/`);

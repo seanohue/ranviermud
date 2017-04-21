@@ -6,8 +6,8 @@ attributes:
   might: 6
   intellect: 6
   willpower: 6
-equipment: [] #aethersilk robe
+equipment: ['spire.intro:17']
 skills: []
-attributePoints: 6
+attributePoints: 16
 abilityPoints: 10
 tier: 1

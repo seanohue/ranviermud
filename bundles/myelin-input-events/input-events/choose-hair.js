@@ -28,6 +28,7 @@ module.exports = (srcPath) => {
       ];
 
       // List possible features.
+      say("");
       say("Appearance:");
       say(`What style is ${playerName}'s hair?`);
       say(`${Broadcast.line(40)}/`);

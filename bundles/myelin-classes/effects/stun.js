@@ -1,11 +1,10 @@
 'use strict';
 
 /**
- * Implementation effect for a Stun skill to modify outgoing damage.
+ * Implementation effect for a Stun skill to modify the target's combat speed and prevent them from attacking for the duration.
  */
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
-  const Damage = require(srcPath + 'Damage');
   const Flag = require(srcPath + 'EffectFlag');
 
   return {
@@ -18,16 +17,18 @@ module.exports = srcPath => {
     listeners: {
       effectActivated() {
         Broadcast.sayAt(this.target, "<bold><yellow>You've been stunned.</yellow></bold>");
-        this.target.combatData.combatLag += this.duration;
+        this.target.combatData.speed += this.duration;
       },
 
       effectDeactivated() {
-        this.target.combatData.combatLag -= this.duration;
-        Broadcast.sayAt(this.target, "You regain your senses.");
+        this.target.combatData.speed -= this.duration;
+        Broadcast.sayAt(this.target, "<bold>You regain your senses.</bold>");
       },
 
       killed() {
-        this.remove();
+        if (this.target.isNpc) {
+          this.remove();
+        }
       }
     }
   };

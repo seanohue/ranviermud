@@ -141,6 +141,10 @@ module.exports = (srcPath) => {
           return;
         }
 
+        if (target === this) {
+          return;
+        }
+
         let buf = '';
         if (damage.source) {
           buf = `Your <b>${damage.source.name}</b> hit`;
@@ -227,17 +231,21 @@ module.exports = (srcPath) => {
         }
 
         let buf = '';
-        if (damage.attacker) {
+        if (damage.attacker === this) {
+          buf = `<b>Your</b>`;
+        } else if (damage.attacker) {
           buf = `<b>${damage.attacker.name}</b>`;
         }
 
         if (damage.source) {
-          buf += (damage.attacker ? "'s " : " ") + `<b>${damage.source.name}</b>`;
+          buf += (damage.attacker && damage.attacker !== this ? "'s " : " ") + `<b>${damage.source.name}</b>`;
         } else if (!damage.attacker) {
           buf += "Something";
         }
 
-        buf += ` hit <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage`;
+        const verb = (damage.source && damage.source.verb) || 'hit';
+
+        buf += ` ${verb} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage`;
         B.sayAt(this, buf);
 
         // show damage to party members

@@ -12,7 +12,6 @@ module.exports = (srcPath) => {
   const damagePercent = 150;
   const energyCost = 75;
   const stunPercent = 20;
-  const tickInterval = 1;
 
   function totalDamage(player) {
     return player.calculateWeaponDamage() * (damagePercent / 100) + player.getMaxAttribute('might');
@@ -34,6 +33,7 @@ module.exports = (srcPath) => {
     cooldown: 6,
 
     run: state => function (args, player, target) {
+      this.verb = 'crushed';
       const damage = new Damage({
         attribute: 'physical',
         amount: totalDamage(player),
@@ -49,17 +49,13 @@ module.exports = (srcPath) => {
         target,
         {
           duration,
-          description: this.info(player),
-          tickInterval,
-        },
-        {
-          totalDamage: totalDamage(player),
+          description: "You've been bashed senseless."
         }
       );
       effect.skill = this;
       effect.attacker = player;
 
-      const isStunned = Random.probability(20);
+      const isStunned = Random.probability(stunPercent + player.getMaxAttribute('might'));
 
       Broadcast.sayAt(player, `<red>You bash ${target.name} viciously, knocking them back!</red>`);
       Broadcast.sayAtExcept(player.room, `<red>${player.name} viciously bashes ${target.name}!</red>`, [player, target]);
@@ -80,7 +76,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Might, with a <bold>${stunPercent}</bold> chance to stun for <bold>${getDuration(player)}</bold> seconds.`;
+      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Might, with a <bold>${stunPercent + player.getMaxAttribute('might')}</bold> chance to stun for <bold>${getDuration(player)}</bold> seconds.`;
     }
   };
 };

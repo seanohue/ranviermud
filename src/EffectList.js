@@ -40,6 +40,12 @@ class EffectList {
     });
   }
 
+  filterByType(type) {
+    return [...this.effects].filter(effect => {
+      return effect.config.type === type;
+    });
+  }
+
   /**
    * Proxy an event to all effects
    * @param {string} event
@@ -82,7 +88,6 @@ class EffectList {
         }
       }
     }
-
     this.effects.add(effect);
     effect.emit('effectAdded');
     effect.on('remove', () => this.remove(effect));

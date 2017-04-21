@@ -8,14 +8,11 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
-  const Config    = require(srcPath + 'Config');
-  const Data      = require(srcPath + 'Data');
-  const fs        = require('fs');
   const wrap      = require('wrap-ansi');
 
   return {
     event: state => (socket, args) => {
-      const { playerName, background } = args;
+      const { playerName } = args;
       const say      = EventUtil.genSay(socket);
       const at       = EventUtil.genWrite(socket);
       const wrapDesc = str => say(wrap(str, 40));
@@ -31,6 +28,7 @@ module.exports = (srcPath) => {
       const desc = {};
 
       // List possible features.
+      say("");
       say("Appearance:");
       say(`What stands out about ${playerName}'s face?`);
       say(`${Broadcast.line(40)}/`);

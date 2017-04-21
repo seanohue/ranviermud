@@ -16,6 +16,8 @@ module.exports = srcPath => {
     flags: [Flag.DEBUFF],
     listeners: {
       effectActivated: function () {
+        console.log("state -- ", this.state);
+        console.log("config -- ", this.config);
         Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely.</red></bold>");
       },
 
@@ -25,7 +27,7 @@ module.exports = srcPath => {
 
       updateTick: function () {
         const amount = Math.round(this.state.totalDamage / Math.round((this.config.duration / 1000) / this.config.tickInterval));
-
+        this.verb = 'bled';
         const damage = new Damage({
           attribute: 'physical',
           amount,
