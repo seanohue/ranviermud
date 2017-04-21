@@ -51,7 +51,22 @@ module.exports = (srcPath) => {
         this.experience += amount;
 
         this.save();
+      },
+
+      look: state => function(observer) {
+        if (observer.isNpc) { return; }
+        //TODO: if (observer.effects.hasType('blinded')) { return; }
+
+        const descriptionDef = this.getMeta('description');
+        if (!descriptionDef) {
+          return Broadcast.sayAt(observer, 'They appear plain.');
+        }
+
+        const { hair, bodyType, face } = descriptionDef;
+        const description = `${this.name} has a ${bodyType} body. Their ${face.adjective} ${face.feature} stands out from the rest of their face. Their ${hair.style} is ${hair.color} in color.`;
+        Broadcast.sayAt(observer, description, 80);
       }
+
     }
   };
 };
