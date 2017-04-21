@@ -62,8 +62,8 @@ module.exports = (srcPath) => {
           return Broadcast.sayAt(observer, 'They appear plain.');
         }
 
-        const { hair, bodyType, face } = descriptionDef;
-        const description = `${this.name} has a ${bodyType} body. Their ${face.adjective} ${face.feature} stands out from the rest of their face. Their ${hair.style} hair is ${hair.color} in color.`;
+        const { hair, bodyType, face, feature } = descriptionDef;
+        const description = `${this.name} has a ${bodyType} body. Their ${face.adjective} ${face.feature} stands out from the rest of their face. Their ${hair.style} hair is ${hair.color} in color.${feature ? 'Also, they ' + feature : '' }`;
         Broadcast.sayAt(observer, description, 80);
       }
 
