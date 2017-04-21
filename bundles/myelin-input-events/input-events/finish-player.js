@@ -9,7 +9,7 @@ module.exports = (srcPath) => {
   const Player = require(srcPath + 'Player');
 
   return {
-    event: state => (socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints }) => {
+    event: state => (socket, { playerName, desc, attributes, account, equipment, skills, background, attributePoints, abilityPoints }) => {
       let player = new Player({
         name: playerName,
         account
@@ -24,7 +24,7 @@ module.exports = (srcPath) => {
       player.setMeta('abilities',        []);
       player.setMeta('attributePoints',  attributePoints || 0);
       player.setMeta('abilityPoints',    abilityPoints   || 0);
-
+      player.setMeta('description',      desc || {});
       player.save();
 
       // Reload from manager so events are set
