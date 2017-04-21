@@ -55,7 +55,7 @@ module.exports = (srcPath) => {
 
         if (bodyType) {
           args.desc.bodyType = bodyType;
-          socket.emit('finish-player', socket, args);
+          socket.emit('choose-hair', socket, args);
         } else {
           return socket.emit('choose-body-type', socket, args);
         }

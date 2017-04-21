@@ -76,7 +76,7 @@ module.exports = (srcPath) => {
             }
           });
         } else {
-          return socket.emit('choose-background', socket, { playerName, account });
+          return socket.emit('choose-facial-appearance', socket, { playerName, account });
         }
       });
 
