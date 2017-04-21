@@ -1,20 +1,19 @@
 'use strict';
 
 /**
- * Player body type (for description) selection event
+ * Player distinguishing feature, optional (for description) selection event
  */
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
-  const wrap      = require('wrap-ansi');
   const Random    = require(srcPath + 'RandomUtil');
+
   return {
     event: state => (socket, args) => {
       const { playerName } = args;
       const say      = EventUtil.genSay(socket);
       const at       = EventUtil.genWrite(socket);
-      const wrapDesc = str => say(wrap(str, 40));
 
       let choices = [
         'have esoteric tattoos running up and down their arms.',

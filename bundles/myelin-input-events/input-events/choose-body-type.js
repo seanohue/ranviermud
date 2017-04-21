@@ -7,17 +7,12 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
-  const Config    = require(srcPath + 'Config');
-  const Data      = require(srcPath + 'Data');
-  const fs        = require('fs');
-  const wrap      = require('wrap-ansi');
 
   return {
     event: state => (socket, args) => {
       const { playerName, background } = args;
       const say      = EventUtil.genSay(socket);
       const at       = EventUtil.genWrite(socket);
-      const wrapDesc = str => say(wrap(str, 40));
 
       const choices = [
         'slim',
@@ -33,7 +28,7 @@ module.exports = (srcPath) => {
         'rotund'
       ];
 
-      // List possible features.
+      // List possible types.
       say("Appearance:");
       say(`How would you describe ${playerName}'s body type?`);
       say(`${Broadcast.line(40)}/`);

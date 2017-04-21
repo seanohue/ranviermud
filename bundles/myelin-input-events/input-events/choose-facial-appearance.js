@@ -8,14 +8,12 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
-  const wrap      = require('wrap-ansi');
 
   return {
     event: state => (socket, args) => {
       const { playerName } = args;
       const say      = EventUtil.genSay(socket);
       const at       = EventUtil.genWrite(socket);
-      const wrapDesc = str => say(wrap(str, 40));
 
       const choices = {
         'nose': ['crooked', 'bulbous', 'long', 'large-nostriled', 'button'],

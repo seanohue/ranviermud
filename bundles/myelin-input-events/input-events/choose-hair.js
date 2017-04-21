@@ -27,7 +27,7 @@ module.exports = (srcPath) => {
         'grey', 'many-colored', 'white'
       ];
 
-      // List possible features.
+      // List possible hair styles.
       say("");
       say("Appearance:");
       say(`What style is ${playerName}'s hair?`);
