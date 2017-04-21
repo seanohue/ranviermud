@@ -32,7 +32,6 @@ module.exports = (srcPath) => {
         'spoon-shaped',
         'rotund'
       ];
-      const desc = {};
 
       // List possible features.
       say("Appearance:");

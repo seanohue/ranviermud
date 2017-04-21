@@ -2,6 +2,7 @@
 
 /**
  * Player facial feature (for description) event
+ * First description event, it creates desc as an empty obj then passes that along in args.
  */
 
 module.exports = (srcPath) => {
