@@ -20,9 +20,17 @@ module.exports = srcPath => {
       },
 
       gather(resource, amount=0, name='resources') {
+        const player = this.target;
         const currentResource = player.getMeta(resource) || 0;
         Broadcast.sayAt(player, `You are able to gather ${amount || 0} extra ${name}...`);
         player.setMeta(resource, currentResource + amount);
+      },
+
+      look(observer) {
+        const player = this.target;
+        if (observer.isNpc) { return; }
+        if (player.isNpc) { return; }
+        Broadcast.sayAt(observer, `Something about ${this.name} makes you want to give them a gift.`);
       }
     }
   };
