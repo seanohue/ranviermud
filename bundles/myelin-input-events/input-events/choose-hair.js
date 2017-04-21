@@ -50,7 +50,7 @@ module.exports = (srcPath) => {
         if (style) {
           // List possible colors for hair.
           say("Appearance:");
-          say(`Which color is  ${playerName}'s hair?`);
+          say(`Which color is ${playerName}'s hair?`);
           say(`${Broadcast.line(40)}/`);
           colors.forEach((choice, index) => {
             at(`[${index + 1}] `);

@@ -26,7 +26,7 @@ module.exports = (srcPath) => {
         'are quite short',
         'have heterochromic eyes',
         'are freckled',
-        'have an oddly-shaped mole ',
+        'have an oddly-shaped mole',
         'are all torso',
         'have obscenely long legs'
       ];
@@ -42,7 +42,7 @@ module.exports = (srcPath) => {
       say('They...');
       choices.forEach((choice, index) => {
         at(`[${index + 1}] `);
-        say(`...<bold>${choice}</bold> `);
+        say(`... <bold>${choice}</bold> `);
         say(""); // Newline to separate.
       });
       at("[0] None.");
