@@ -3,11 +3,13 @@
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Flag = require(srcPath + 'EffectFlag');
-  const Heal = require(srcPath + '')
+  const Heal = require(srcPath + 'Heal');
+
   return {
     config: {
       name: 'Cursed',
       type: 'skill.curse',
+      unique: false // STACK DEM CURSES
     },
     flags: [Flag.DEBUFF],
     state: {
