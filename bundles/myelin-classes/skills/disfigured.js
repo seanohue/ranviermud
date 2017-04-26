@@ -18,7 +18,6 @@ module.exports = (srcPath) => {
     type: SkillType.MUTATION,
     flags: [SkillFlag.PASSIVE],
     effect: "skill.curse",
-    cooldown: interval,
 
     configureEffect: effect => {
       effect.state = Object.assign(effect.state, {
