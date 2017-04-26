@@ -20,14 +20,16 @@ module.exports = (srcPath) => {
     effect: "skill.curse",
 
     configureEffect: effect => {
-      effect.state = Object.assign(effect.state, {
+      effect.state = Object.assign({}, effect.state, {
         damageToMultiply: 'physical',
         damageMultiplier: 2,
         description: 'They are horrifically disfigured, their limbs bending at unnatural angles, and their face eerily inhuman.',
         shouldBroadcast: false
       });
 
-      effect.config.name = 'Disfigured'
+      effect.config = Object.assign({}, effect.config, {
+        name: 'Disfigured'
+      });
 
       return effect;
     },
