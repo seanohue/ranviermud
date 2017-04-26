@@ -18,12 +18,14 @@ module.exports = (srcPath) => {
       let skill = purchaseable.filter(name => args === name);
 
       if (skill.length !== 1) {
-        return say("You cannot gain that ability.");
+        return say(`Please be more specific. Found: ${skill.join(', ')}.`);
       }
 
-      if (!skill) {
+      if (!skill.length) {
         return say("No such skill or ability.");
       }
+
+      skill = skill[0];
 
       let abilityPoints = player.getMeta('abilityPoints') || 0;
 
@@ -42,7 +44,7 @@ module.exports = (srcPath) => {
 
       // Activate passive skills on purchase
       const skillObj = state.SkillManager.get(skill);
-      skill.activate(player);
+      skillObj.activate(player);
 
       say(`You now have ${skill} as an ability.`);
     }

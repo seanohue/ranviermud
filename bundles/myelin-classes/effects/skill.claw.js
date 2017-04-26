@@ -10,22 +10,22 @@ module.exports = srcPath => {
 
   return {
     config: {
-      name: 'Claw',
+      name: 'Clawed',
       type: 'skill:claw',
     },
     flags: [Flag.DEBUFF],
     listeners: {
-      effectActivated: function () {
-        console.log("state -- ", this.state);
-        console.log("config -- ", this.config);
+      effectActivated() {
+        if (this.target.isNpc) { return; }
         Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely.</red></bold>");
       },
 
-      effectDeactivated: function () {
+      effectDeactivated() {
+        if (this.target.isNpc) { return; }
         Broadcast.sayAt(this.target, "Your wound has stopped bleeding.");
       },
 
-      updateTick: function () {
+      updateTick() {
         const amount = Math.round(this.state.totalDamage / Math.round((this.config.duration / 1000) / this.config.tickInterval));
         this.verb = 'bled';
         const damage = new Damage({
@@ -37,7 +37,14 @@ module.exports = srcPath => {
         damage.commit(this.target);
       },
 
-      killed: function () {
+      look(observer) {
+        if (observer.isNpc) {
+          return;
+        }
+        Broadcast.sayAt(observer, `${this.target.name} is bleeding heavily.`);
+      },
+
+      killed() {
         if (this.target.isNpc) {
           this.remove();
         }

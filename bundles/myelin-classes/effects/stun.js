@@ -25,6 +25,11 @@ module.exports = srcPath => {
         Broadcast.sayAt(this.target, "<bold>You regain your senses.</bold>");
       },
 
+      look(observer) {
+        if (observer.isNpc) { return; }
+        Broadcast.sayAt(observer, `${this.target.name} appears to be dazed.`);
+      },
+
       killed() {
         if (this.target.isNpc) {
           this.remove();

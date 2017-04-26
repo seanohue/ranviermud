@@ -6,6 +6,7 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const SkillType = require(srcPath + 'SkillType');
+  const SkillFlag = require(srcPath + 'SkillFlag');
 
   // config placed here just for easy copy/paste of this skill later on
   const attribute = 'might';
@@ -32,6 +33,8 @@ module.exports = (srcPath) => {
       attribute: 'energy',
       cost,
     },
+    flags: [SkillFlag.PASSIVE, SkillFlag.ACTIVE],
+    effect: 'claw', // Just to add to the desc.
     cooldown,
 
     //TODO: Use damage types or something to make this less effective vs. armor.
