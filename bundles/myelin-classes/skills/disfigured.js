@@ -22,15 +22,19 @@ module.exports = (srcPath) => {
 
     configureEffect: effect => {
       effect.state = Object.assign(effect.state, {
-        threshold,
-        attrMultiplier,
+        damageToMultiply: 'physical',
+        damageMultiplier: 2,
+        description: 'They are horrifically disfigured, their limbs bending at unnatural angles, and their face eerily inhuman.',
+        shouldBroadcast: false
       });
+
+      effect.config.name = 'Disfigured'
 
       return effect;
     },
 
     info: function (player) {
-      return `Once every ${interval / 60} minutes, when dropping below ${threshold} energy, restore ${player.getMaxAttribute(attrMultiplier) * 2}% of your max energy.`;
+      return `You are physically disfigured and thus prone to injury and debilitation. In addition, some beings will not want to interact with you, or will attack you on sight.`;
     }
   };
 };
