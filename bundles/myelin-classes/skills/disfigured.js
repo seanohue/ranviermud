@@ -28,7 +28,8 @@ module.exports = (srcPath) => {
       });
 
       effect.config = Object.assign({}, effect.config, {
-        name: 'Disfigured'
+        name: 'Disfigured',
+        persists: false // because it will be added again by the skill.
       });
 
       return effect;

@@ -64,7 +64,7 @@ class Skill {
    * @param {Player} player
    */
   execute(args, player, target) {
-    if (this.flags.includes(SkillFlag.PASSIVE)) {
+    if (this.flags.includes(SkillFlag.PASSIVE) && !this.flags.includes(Skillflag.ACTIVE)) {
       throw new Error('Trying to execute passive skill');
     }
 
@@ -171,7 +171,9 @@ class Skill {
     effect = this.configureEffect(effect);
     effect.skill = this;
     player.addEffect(effect);
-    this.run(player);
+    if (!this.flags.includes(SkillFlag.ACTIVE)) {
+      this.run(player);
+    }
   }
 
   /**
