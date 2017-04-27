@@ -6,5 +6,5 @@ module.exports = function calculateKarma(player) {
     Math.floor(strongestDefeated.level / 8) : 0;
 
   //TODO: Something about quests too.
-  return levelKarma + killsKarma + strongestDefeatedKarma;
+  return (levelKarma + killsKarma + strongestDefeatedKarma) || 0;
 }

@@ -10,7 +10,7 @@ module.exports = srcPath => {
 
   return {
     config: {
-      name: 'Clawed',
+      name: 'Claws',
       type: 'skill:claw',
     },
     flags: [Flag.DEBUFF],

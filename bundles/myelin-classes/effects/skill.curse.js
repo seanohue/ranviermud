@@ -20,13 +20,15 @@ module.exports = srcPath => {
     },
     modifiers: {
       incomingDamage(damage, current) {
+        const { damageMultiplier, damageToMultiply, affectsHeal } = this.state;
+
         if (damage instanceof Heal) {
-          return this.state.affectsHeal ?
+          return affectsHeal ?
             Math.floor(current / damageMultiplier) :
             current;
         }
 
-        const shouldNotAffect = damage.attribute !== this.state.damageToMultiply && damageToMultiply !== 'all'
+        const shouldNotAffect = damage.attribute !== damageToMultiply && damageToMultiply !== 'all'
         if (shouldNotAffect) {
           return current;
         }

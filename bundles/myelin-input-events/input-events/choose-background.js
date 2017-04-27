@@ -62,7 +62,7 @@ module.exports = (srcPath) => {
 
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
           const karma = account.getMeta('karma');
-          account.setMeta('karma', karma - cost);
+          account.setMeta('karma', (karma - cost) || 0);
           socket.emit('choose-facial-appearance', socket, { playerName, attributes, account, equipment, skills, background, attributePoints, abilityPoints });
         } else {
           return socket.emit('choose-background', socket, { playerName, account });

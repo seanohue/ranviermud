@@ -28,14 +28,15 @@ module.exports = (srcPath) => {
       });
 
       effect.config = Object.assign({}, effect.config, {
-        name: 'Disfigured'
+        name: 'Disfigured',
+        persists: false // because it will be added again by the skill.
       });
 
       return effect;
     },
 
-    info: function (player) {
-      return `You are physically disfigured and thus prone to injury and debilitation. In addition, some beings will not want to interact with you, or will attack you on sight.`;
+    info(player) {
+      return `You have disfiguring, painful mutations and thus are prone to injury and debilitation. In addition, some beings will not want to interact with you, or will attack you on sight.`;
     }
   };
 };
