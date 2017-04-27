@@ -35,8 +35,8 @@ module.exports = (srcPath) => {
       return effect;
     },
 
-    info: function (player) {
-      return `You are physically disfigured and thus prone to injury and debilitation. In addition, some beings will not want to interact with you, or will attack you on sight.`;
+    info(player) {
+      return `You have disfiguring, painful mutations and thus are prone to injury and debilitation. In addition, some beings will not want to interact with you, or will attack you on sight.`;
     }
   };
 };
