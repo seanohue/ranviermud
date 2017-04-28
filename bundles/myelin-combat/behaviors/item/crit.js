@@ -9,7 +9,8 @@ module.exports = (srcPath) => {
 
   return  {
     listeners: {
-      hit: state => function (config, damage, target) {
+      hit: state => function (config = {}, damage, target) {
+        const { chance = 1, multiplier = 1.5 } = config;
         /*
           1. check for crit
           2. config should have crit chance and multiplier (default 1.5x)
@@ -19,7 +20,6 @@ module.exports = (srcPath) => {
           5. could also allow for things like crits doing healing, or dealing a
              specific type of damage rather than plain phys damage.
         */
-        
       }
     }
   };
