@@ -57,6 +57,8 @@
     stats:
       willpower: 1
   behaviors:
+    crit:
+      chance: 3
     sellable:
       value: 4
       currency: gold
@@ -147,6 +149,9 @@
     maxDamage: 8
     speed: 2
   behaviors:
+    crit:
+      chance: 3
+      multiplier: 1.8
     sellable:
       value: 4
       currency: gold
@@ -170,7 +175,10 @@
   specialEffects:
     - "Chance on hit: Bleed your opponent."
     - "Chance on hit: Bleed yourself."
-  behaviors: #TODO: DoT effect on hit, sometimes, plus potential to damage wielder.
+  behaviors:
+    crit:
+      chance: 8.8
+      multiplier: 2
     sellable:
       value: 2
       currency: gold
@@ -278,6 +286,9 @@
     maxDamage: 11
     speed: 3.5
   behaviors:
+    crit:
+      chance: 3
+      multiplier: 1.7
     sellable:
       value: 5
       currency: gold
