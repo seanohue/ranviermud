@@ -16,7 +16,7 @@ module.exports = (srcPath) => {
       const at  = EventUtil.genWrite(socket);
 
       let choices = [
-        'have esoteric tattoos running up and down their arms.',
+        'have esoteric tattoos running up and down their arms',
         'have scars criss-crossing their face',
         'are covered with coarse body hair',
         'have a splotchy birthmark',
