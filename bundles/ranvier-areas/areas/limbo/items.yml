@@ -9,6 +9,9 @@
   level: 1
   itemLevel: 1
   quality: common
+  behaviors:
+    crit:
+      multiplier: 1.25
   properties:
     minDamage: 7
     maxDamage: 15
@@ -59,6 +62,7 @@
       might: 2
       willpower: 2
   behaviors:
+    crit: {}
     sellable:
       value: 30
       currency: gold
@@ -131,6 +135,10 @@
   script: "9-ranvier-blade"
   itemLevel: 15
   level: 10
+  behaviors:
+    crit:
+      chance: 5
+      multiplier: 2
   properties:
     minDamage: 13
     maxDamage: 26
