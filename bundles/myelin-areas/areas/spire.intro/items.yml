@@ -56,9 +56,8 @@
     speed: 4.1
     stats:
       willpower: 1
+      critical: 1
   behaviors:
-    crit:
-      chance: 3
     sellable:
       value: 4
       currency: gold
@@ -148,10 +147,9 @@
     minDamage: 3
     maxDamage: 8
     speed: 2
+    stats:
+      critical: 1
   behaviors:
-    crit:
-      chance: 3
-      multiplier: 1.8
     sellable:
       value: 4
       currency: gold
@@ -172,13 +170,12 @@
     minDamage: 2
     maxDamage: 12
     speed: 2.3
+    stats:
+      critical: 4
   specialEffects:
     - "Chance on hit: Bleed your opponent."
     - "Chance on hit: Bleed yourself."
   behaviors:
-    crit:
-      chance: 8.8
-      multiplier: 2
     sellable:
       value: 2
       currency: gold
