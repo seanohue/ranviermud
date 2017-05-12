@@ -22,8 +22,8 @@ module.exports = (srcPath) => {
         // its script
         const might = player.getMaxAttribute('might') || 0;
 
-        if (Random.probability(might)) {
-          const duration = Math.min(Math.ceil(might / 3), 10);
+        if (damage.critical || Random.probability(might)) {
+          const duration = Math.min(Math.ceil(might / 3), 10) + (damage.critical ? 5 : 0);
           const effect = state.EffectFactory.create(
             'stun',
             target,

@@ -21,10 +21,10 @@ module.exports = (srcPath) => {
         // !== this` otherwise you could create an infinite loop the weapon's own damage triggering
         // its script
         const quickness = player.getMaxAttribute('quickness') || 0;
-        const chanceOfBleedOther = Math.min(quickness + 5, 10); // 10 - quickness+5%
-        const chanceOfBleedSelf = Math.min(Math.max(20 - quickness, 15), 1); // 1 - 15%
+        const chanceOfBleedOther = damage.critical ? 100 : Math.min(quickness + 5, 10); // 10 - quickness+5%
+        const chanceOfBleedSelf = damage.critical ? 0 : Math.min(Math.max(20 - quickness, 15), 1); // 1 - 15%
         if (Random.probability(chanceOfBleedOther)) {
-          const duration = Math.min(Math.ceil(quickness / 2), 10) * 1000;
+          const duration = Math.min(Math.ceil(quickness / 2), 20) * 1000;
           const effect = state.EffectFactory.create(
             'skill.claw',
             target,
@@ -36,13 +36,13 @@ module.exports = (srcPath) => {
               description: "You've been stabbed... and it's a deep one.",
             },
             {
-              totalDamage: Math.min(quickness, 30)
+              totalDamage: Math.min(quickness, 30) + (damage.critical ? 5 : 0)
             }
           );
           effect.skill = this;
           effect.attacker = player;
           if (!target.isNpc) {
-            Broadcast.sayAt(target, `<b><red>You have been stabbed by ${player.name}!</red></b>`);
+            Broadcast.sayAt(target, `<b><red>You have been stabbed by ${player.name}! Blood gushes forth.</red></b>`);
           }
           target.addEffect(effect);
           Broadcast.sayAt(player, `<b><red>You stab <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and blood pulses from the wound.</red></b>`, 80);

@@ -50,6 +50,7 @@
   quality: common
   specialEffects:
     - "Chance on hit: Stun your opponent for a short time."
+    - "On critical: Stun your opponent for a short time."
   properties:
     minDamage: 1
     maxDamage: 11
@@ -175,6 +176,7 @@
   specialEffects:
     - "Chance on hit: Bleed your opponent."
     - "Chance on hit: Bleed yourself."
+    - "On critical: Bleed your opponent only."
   behaviors:
     sellable:
       value: 2
@@ -278,14 +280,14 @@
   script: "14-blackjack"
   specialEffects:
     - "Chance on hit: Stun your opponent for a short time."
+    - "On critical: Stun your opponent for an extended time."
   properties:
     minDamage: 5
     maxDamage: 11
     speed: 3.5
+    stats:
+      critical: 3
   behaviors:
-    crit:
-      chance: 80
-      multiplier: 1.7
     sellable:
       value: 5
       currency: gold
