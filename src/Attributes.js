@@ -15,6 +15,7 @@ class Attributes extends Map
       mental: { base: 100 },
       energy: { base: 100 },
       armor: { base: 0 },
+      critical: { base: 1 }
     };
 
     // use base stats or use loaded stats but make sure it still has base stats

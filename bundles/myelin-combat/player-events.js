@@ -145,7 +145,7 @@ module.exports = (srcPath) => {
           return;
         }
 
-        if (damage.critical) {
+        if (damage.critical && !damage.glancing) {
           B.sayAt(this, '<red>*** <bold>Critical Strike!</bold> ***</red>');
         }
 
@@ -157,6 +157,11 @@ module.exports = (srcPath) => {
         }
 
         buf += ` <b>${target.name}</b> for <b>${damage.finalAmount}</b> damage.`;
+
+        if (damage.critical) {
+          buf += ' <red><b>(Critical)</b></red>';
+        }
+
         B.sayAt(this, buf);
 
         if (this.equipment.has('wield')) {

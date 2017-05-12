@@ -104,6 +104,8 @@ class Character extends EventEmitter
       case 'intellect':
       case 'willpower':
         break;
+      case 'critical':
+        attribute.setBase(Math.ceil(this.level / 5));
       default:
         // Don't modify any other attributes
         break;
