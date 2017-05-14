@@ -278,15 +278,29 @@ class Character extends EventEmitter
    * @return {number}
    */
   evaluateIncomingDamage(damage, currentAmount) {
+    const isDamage = !(damage instanceof Heal);
+    const isPhysicalAttack = damage.attacker && damage.attribute === 'physical';
+
+    // Decide if blow is glancing or not before evaluating effects so that
+    // effects can check for damage.glancing in a meaningful way.
+    if (isDamage && damage.attacker) {
+      damage.glancing = damage.glancing || Random.probability(5 + (this.level - damage.attacker.level));
+    }
+
     let amount = this.effects.evaluateIncomingDamage(damage, currentAmount);
 
-    // let armor reduce incoming physical damage. There is probably a better place for this...
-    if (!(damage instanceof Heal) && damage.attacker && damage.attribute === 'health') {
+    // Let armor reduce incoming physical damage. There is probably a better place for this...
+    if (isDamage && isPhysicalAttack) {
       const attackerLevel = damage.attacker.level;
       const armor = this.getAttribute('armor');
       if (damage.type === 'physical' && armor > 0) {
         amount *= 1 - armor / (armor * AttributeUtil.getArmorReductionConstant(attackerLevel));
       }
+    }
+
+    // Glancing blows do 10% damage after all other effects are calculated, including armor.
+    if (damage.glancing) {
+      amount = amount / 10;
     }
 
     return Math.floor(amount);
