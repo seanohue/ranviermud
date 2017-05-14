@@ -58,8 +58,15 @@ class Npc extends Character {
   }
 
   getDamage() {
-    const range = this.damage.split('-');
-    return { min: range[0], max: range[1] };
+    const [min, max] = this.damage.split('-');
+    return { min, max };
+  }
+
+  getWeaponDamage() {
+    if (this.damage) {
+      return this.getDamage();
+    }
+    return super.getWeaponDamage();
   }
 
   hydrate(state) {

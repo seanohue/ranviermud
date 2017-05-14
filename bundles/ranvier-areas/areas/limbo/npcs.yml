@@ -12,6 +12,7 @@
   level: 99
   script: '2-old-man'
   description: "A wise looking old man sits on the ground with legs crossed."
+  damage: '1-100'
   attributes:
     physical: 200
     mental: 300
