@@ -12,7 +12,7 @@ module.exports = (srcPath) => {
   const Random = require(srcPath + 'RandomUtil');
 
   const damagePercent = 100;
-  const focusCost = 75;
+  const focusCost = 30;
   const stunPercent = 60;
   const critPercent = 80
 
