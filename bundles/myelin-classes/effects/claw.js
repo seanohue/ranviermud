@@ -15,6 +15,13 @@ module.exports = srcPath => {
       hidden: true
     },
     flags: ["MUTATION"], //TODO: ADD TO FLAGS?
+    modifiers: {
+      attributes: {
+        critical(current) {
+          return current + 1;
+        }
+      }
+    },
     listeners: {
       effectActivated() {
         if (this.target.isNpc) { return; }
