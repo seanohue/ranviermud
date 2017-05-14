@@ -145,10 +145,6 @@ module.exports = (srcPath) => {
           return;
         }
 
-        if (damage.critical && !damage.glancing) {
-          B.sayAt(this, '<red>*** <bold>Critical Strike!</bold> ***</red>');
-        }
-
         let buf = '';
         if (damage.source) {
           buf = `Your <b>${damage.source.name}</b> hit`;
@@ -258,7 +254,16 @@ module.exports = (srcPath) => {
 
         const verb = (damage.source && damage.source.verb) || 'hit';
 
-        buf += ` ${verb} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage`;
+        buf += ` ${verb} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage.`;
+
+        if (damage.critical) {
+          buf += ' <red><b>(Critical)</b></red>';
+        }
+
+        if (damage.glancing) {
+          buf += ' <blue><b>(Glancing)</b></blue>';
+        }
+
         B.sayAt(this, buf);
 
         // show damage to party members

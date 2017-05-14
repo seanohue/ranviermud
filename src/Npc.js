@@ -28,7 +28,7 @@ class Npc extends Character {
     this.defaultEquipment = data.equipment || [];
     this.defaultItems = data.items || [];
     this.description = data.description;
-    this.entityReference = data.entityReference; 
+    this.entityReference = data.entityReference;
     this.id = data.id;
     this.keywords = data.keywords;
     this.pacifist = data.pacifist || false;

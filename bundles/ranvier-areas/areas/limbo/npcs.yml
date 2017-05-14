@@ -13,7 +13,12 @@
   script: '2-old-man'
   description: "A wise looking old man sits on the ground with legs crossed."
   attributes:
-    physical: 100
+    physical: 200
+    mental: 300
+    quickness: 13
+    willpower: 35
+    might: 14
+    intellect: 25
 - id: 3
   keywords: ["puppy", "dog", "loyal", "wide", "eyed", "wide-eyed"]
   name: A Puppy

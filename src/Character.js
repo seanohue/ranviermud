@@ -90,7 +90,7 @@ class Character extends EventEmitter
       case 'attackpower':
         attribute.setBase(
           this.getMaxAttribute('might')   * 7.5 +
-          this.getMaxAttribute('agility') * 2.5
+          this.getMaxAttribute('quicknesss') * 2.5
         );
         break;
       case 'energy':
@@ -105,7 +105,10 @@ class Character extends EventEmitter
       case 'willpower':
         break;
       case 'critical':
+        console.log('critical is:');
         attribute.setBase(Math.ceil(this.level / 5));
+        console.log(attribute.base);
+        console.log('for ' + this.name);
       default:
         // Don't modify any other attributes
         break;

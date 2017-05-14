@@ -14,7 +14,7 @@ module.exports = (srcPath) => {
   const damagePercent = 100;
   const focusCost = 30;
   const stunPercent = 60;
-  const critPercent = 80
+  const critPercent = 80;
 
   function totalDamage(player) {
     return player.calculateWeaponDamage() * (damagePercent / 100) + player.getMaxAttribute('quickness');
@@ -80,7 +80,7 @@ module.exports = (srcPath) => {
     },
 
     info(player) {
-      return `Make a pinpoint attack against your target, dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness, with a <bold>${stunPercent + player.getMaxAttribute('quickness')}</bold> chance to stun for <bold>${getDuration(player)}</bold> seconds. A nerve strike has an extra ${critPercent} chance of a critical strike!`;
+      return `Make a pinpoint attack against your target, dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness, with a <bold>${stunPercent + player.getMaxAttribute('quickness')}%</bold> chance to stun for <bold>${getDuration(player)}</bold> seconds. A nerve strike has an extra <b>${critPercent}%</b> chance of a critical strike!`;
     }
   };
 };
