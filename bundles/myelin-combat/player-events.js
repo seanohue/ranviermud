@@ -162,6 +162,10 @@ module.exports = (srcPath) => {
           buf += ' <red><b>(Critical)</b></red>';
         }
 
+        if (damage.glancing) {
+          buf += ' <blue><b>(Glancing)</b></blue>';
+        }
+
         B.sayAt(this, buf);
 
         if (this.equipment.has('wield')) {

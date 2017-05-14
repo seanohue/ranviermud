@@ -284,6 +284,7 @@ class Character extends EventEmitter
     // Decide if blow is glancing or not before evaluating effects so that
     // effects can check for damage.glancing in a meaningful way.
     if (isDamage && damage.attacker) {
+      const Random = require('./RandomUtil');
       damage.glancing = damage.glancing || Random.probability(5 + (this.level - damage.attacker.level));
     }
 
