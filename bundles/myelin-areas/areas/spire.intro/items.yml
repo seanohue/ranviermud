@@ -48,9 +48,6 @@
   level: 1
   itemLevel: 1
   quality: common
-  specialEffects:
-    - "Chance on hit: Stun your opponent for a short time."
-    - "On critical: Stun your opponent for a short time."
   properties:
     minDamage: 1
     maxDamage: 11
@@ -58,6 +55,9 @@
     stats:
       willpower: 1
       critical: 1
+    specialEffects:
+      - "Chance on hit: Stun your opponent for a short time."
+      - "On critical: Stun your opponent for a short time."
   behaviors:
     sellable:
       value: 4
@@ -109,8 +109,9 @@
   items: [ ] # maybe have some kind of special trinket in here
   maxItems: 2
   script: "6-alms-pouch" #resource.buff
-  specialEffects:
-    - "When this is in your possession, you have more luck when gaining resources and rewards."
+  properties:
+    specialEffects:
+      - "When this is in your possession, you have more luck when finding resources and earning rewards."
   slot: 'waist'
   quality: common
   behaviors:
@@ -173,10 +174,10 @@
     speed: 2.3
     stats:
       critical: 4
-  specialEffects:
-    - "Chance on hit: Bleed your opponent."
-    - "Chance on hit: Bleed yourself."
-    - "On critical: Bleed your opponent only."
+    specialEffects:
+      - "Chance on hit: Bleed your opponent."
+      - "Chance on hit: Bleed yourself."
+      - "On critical: Bleed your opponent."
   behaviors:
     sellable:
       value: 2
@@ -278,10 +279,10 @@
   slot: "wield"
   quality: common
   script: "14-blackjack"
-  specialEffects:
-    - "Chance on hit: Stun your opponent for a short time."
-    - "On critical: Stun your opponent for an extended time."
   properties:
+    specialEffects:
+      - "Chance on hit: Stun your opponent for a short time."
+      - "On critical: Stun your opponent for an extended time."
     minDamage: 5
     maxDamage: 11
     speed: 3.5
@@ -324,6 +325,8 @@
   properties:
     stats:
       armor: 2
+    specialEffects:
+      - "When worn: Shields the wearer from psionic effects."
   behaviors:
     sellable:
       value: 60
