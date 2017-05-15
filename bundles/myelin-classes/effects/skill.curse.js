@@ -13,7 +13,7 @@ module.exports = srcPath => {
     },
     flags: [Flag.DEBUFF],
     state: {
-      damageToMultiply: 'physical',
+      damageToMultiply: 'health',
       damageMultiplier: 1.5,
       affectsHeal: true,
       shouldBroadcast: true

@@ -11,7 +11,7 @@ module.exports = srcPath => {
   return {
     // Set up player prompt and other business:
     setupPlayer(player) {
-      player.prompt = '[ %physical.current%/%physical.max% <b>physical</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]';
+      player.prompt = '[ %health.current%/%health.max% <b>health</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]';
     },
 
     abilityTable: {

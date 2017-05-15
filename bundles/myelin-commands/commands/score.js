@@ -20,8 +20,8 @@ module.exports = (srcPath) => {
         intellect: 0,
         willpower: 0,
         armor: 0,
-        physical: 0,
-        mental: 0,
+        health: 0,
+        focus: 0,
         energy: 0,
         critical: 0,
       };
@@ -33,8 +33,8 @@ module.exports = (srcPath) => {
           max: p.getMaxAttribute(stat),
         };
       }
-      say(`Health -- Physical : ${stats.physical.current}/${stats.physical.max}     Energy : ${stats.energy.current}/${stats.energy.max}\n` +
-          `            Mental : ${stats.mental.current}/${stats.mental.max}`);
+      say(`Health : ${stats.health.current}/${stats.health.max}     Energy : ${stats.energy.current}/${stats.energy.max}\n` +
+          `Focus : ${stats.focus.current}/${stats.focus.max}`);
 
 
       say(sprintf('%61s', '<b><green>Weapon'));

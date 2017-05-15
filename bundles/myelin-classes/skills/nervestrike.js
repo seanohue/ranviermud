@@ -38,10 +38,10 @@ module.exports = (srcPath) => {
     run: state => function (args, player, target) {
       this.verb = 'jabbed';
       const damage = new Damage({
-        attribute: 'physical',
+        attribute: 'health',
         amount: totalDamage(player),
         attacker: player,
-        type: 'physical',
+        type: 'piercing',
         source: this,
         critical: Random.probability(critPercent)
       });

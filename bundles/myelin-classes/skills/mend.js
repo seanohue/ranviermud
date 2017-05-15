@@ -27,7 +27,7 @@ module.exports = (srcPath) => {
 
     run: state => function (args, player, target) {
       const heal = new Heal({
-        attribute: 'physical',
+        attribute: 'health',
         amount: getHeal(player),
         attacker: player,
         source: this

@@ -28,10 +28,10 @@ module.exports = (srcPath) => {
 
     run: state => function (args, player, target) {
       const damage = new Damage({
-        attribute: 'physical',
+        attribute: 'health',
         amount: getDamage(player),
         attacker: player,
-        type: 'physical',
+        type: 'piercing',
         source: this
       });
 

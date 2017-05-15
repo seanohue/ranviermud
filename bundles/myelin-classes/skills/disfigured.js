@@ -21,7 +21,7 @@ module.exports = (srcPath) => {
 
     configureEffect: effect => {
       effect.state = Object.assign({}, effect.state, {
-        damageToMultiply: 'physical',
+        damageToMultiply: 'health',
         damageMultiplier: 2,
         description: 'They are horrifically disfigured, their limbs bending at unnatural angles, and their face eerily inhuman.',
         shouldBroadcast: false

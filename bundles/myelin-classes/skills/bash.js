@@ -35,10 +35,10 @@ module.exports = (srcPath) => {
     run: state => function (args, player, target) {
       this.verb = 'crushed';
       const damage = new Damage({
-        attribute: 'physical',
+        attribute: 'health',
         amount: totalDamage(player),
         attacker: player,
-        type: 'physical',
+        type: 'crushing',
         source: this
       });
 
