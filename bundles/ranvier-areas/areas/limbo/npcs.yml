@@ -14,8 +14,8 @@
   description: "A wise looking old man sits on the ground with legs crossed."
   damage: '1-100'
   attributes:
-    physical: 200
-    mental: 300
+    health: 200
+    focus: 300
     quickness: 13
     willpower: 35
     might: 14

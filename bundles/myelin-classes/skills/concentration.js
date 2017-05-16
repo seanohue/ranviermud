@@ -1,10 +1,9 @@
 'use strict';
 
 /**
- * Passive mental health regen if below a certain amount.
+ * Passive focus regen if below a certain amount.
  */
 module.exports = (srcPath) => {
-
   const SkillType = require(srcPath + 'SkillType');
   const SkillFlag = require(srcPath + 'SkillFlag');
 
@@ -29,7 +28,7 @@ module.exports = (srcPath) => {
     },
 
     info(player) {
-      return `Once every ${interval / 60} minutes, when dropping below ${threshold} mental health, restore ${player.getMaxAttribute(attrMultiplier) * 2}% of your max mental health.`;
+      return `Once every ${interval / 60} minutes, when dropping below ${threshold} focus, restore ${player.getMaxAttribute(attrMultiplier) * 2}% of your max focus.`;
     }
   };
 };

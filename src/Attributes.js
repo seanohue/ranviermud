@@ -11,8 +11,8 @@ class Attributes extends Map
       quickness: { base: 10 },
       intellect: { base: 10 },
       willpower: { base: 10 },
-      physical: { base: 100 },
-      mental: { base: 100 },
+      health: { base: 100 },
+      focus: { base: 100 },
       energy: { base: 100 },
       armor: { base: 0 },
       critical: { base: 1 }

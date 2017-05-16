@@ -16,7 +16,7 @@ module.exports = srcPath => {
     flags: [Flag.BUFF],
     listeners: {
       damaged(damage) {
-        if (damage.attribute !== 'mental') {
+        if (damage.attribute !== 'focus') {
           return;
         }
 
@@ -24,16 +24,16 @@ module.exports = srcPath => {
           return;
         }
 
-        if ((this.target.getAttribute('mental') / this.target.getMaxAttribute('mental')) * 100 > this.state.threshold) {
+        if ((this.target.getAttribute('focus') / this.target.getMaxAttribute('focus')) * 100 > this.state.threshold) {
           return;
         }
 
         Broadcast.sayAt(this.target, "<bold><yellow>You regain focus!</bold></yellow>");
         const attrMultiplier = this.target.getMaxAttribute(this.state.attrMultiplier) * 2
         const heal = new Heal({
-          amount: Math.floor(this.target.getMaxAttribute('mental') * attrMultiplier / 100),
+          amount: Math.floor(this.target.getMaxAttribute('focus') * attrMultiplier / 100),
           attacker: this.target,
-          attribute: 'mental',
+          attribute: 'focus',
           source: this.skill
         });
         heal.commit(this.target);

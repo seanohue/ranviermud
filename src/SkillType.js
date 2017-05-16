@@ -21,7 +21,6 @@ Mutations:
 module.exports = {
   SKILL:    Symbol("SKILL"),
   FEAT:     Symbol("FEAT"),
-  FEAT:     Symbol("FEAT"),
   MUTATION: Symbol("MUTATION")
 };
 

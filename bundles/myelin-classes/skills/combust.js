@@ -18,7 +18,7 @@ module.exports = (srcPath) => {
     requiresTarget: true,
     initiatesCombat: true,
     resource: {
-      attribute: 'mental',
+      attribute: 'focus',
       cost: cost,
     },
     cooldown: 10,

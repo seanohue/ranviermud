@@ -75,17 +75,17 @@ class Character extends EventEmitter
     // phys/mental health and attackpower are calculated based off other stats
     // NOTE: This is an _example_ implementation based off WoW formulas
     switch (attribute.name) {
-      case 'physical':
-        attribute.setBase(
+      case 'health':
+        attribute.setBase(Math.ceil(
           this.getMaxAttribute('might')     * 7.5 +
           this.getMaxAttribute('willpower') * 2.5
-        );
+        ));
         break;
-      case 'mental':
-        attribute.setBase(
+      case 'focus':
+        attribute.setBase(Math.ceil(
           this.getMaxAttribute('intellect') * 2.5 +
           this.getMaxAttribute('willpower') * 7.5
-        );
+        ));
         break;
       case 'attackpower':
         attribute.setBase(
@@ -94,10 +94,10 @@ class Character extends EventEmitter
         );
         break;
       case 'energy':
-        attribute.setBase(
+        attribute.setBase(Math.ceil(
           this.getMaxAttribute('willpower') * 5 +
           this.getMaxAttribute('might')     * 5
-        );
+        ));
       case 'armor':
       case 'might':
       case 'quickness':
@@ -282,7 +282,7 @@ class Character extends EventEmitter
    */
   evaluateIncomingDamage(damage, currentAmount) {
     const isDamage = !(damage instanceof Heal);
-    const isPhysicalAttack = damage.attacker && damage.attribute === 'physical';
+    const isPhysicalAttack = damage.attacker && damage.attribute === 'health';
 
     // Decide if blow is glancing or not before evaluating effects so that
     // effects can check for damage.glancing in a meaningful way.

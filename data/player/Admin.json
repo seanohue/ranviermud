@@ -16,7 +16,7 @@
       "delta": 0,
       "base": 16
     },
-    "physical": {
+    "health": {
       "delta": -48,
       "base": 160
     },
@@ -28,7 +28,7 @@
       "delta": 0,
       "base": 0
     },
-    "mental": {
+    "focus": {
       "delta": -20,
       "base": 160
     }
@@ -79,7 +79,7 @@
     }
   },
   "playerClass": "base",
-  "prompt": "health: [ %physical.current%/%physical.max% <b>physical</b> %mental.current%/%mental.max% <b>mental</b> %energy.current%/%energy.max% <b>energy</b> ]",
+  "prompt": "health: [ %health.current%/%health.max% <b>health</b> %focus.current%/%focus.max% <b>focus</b> %energy.current%/%energy.max% <b>energy</b> ]",
   "quests": {
     "completed": [],
     "active": [

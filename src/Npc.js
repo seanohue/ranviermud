@@ -72,7 +72,7 @@ class Npc extends Character {
   hydrate(state) {
     super.hydrate(state);
 
-    this.setAttributeToMax('physical');
+    this.setAttributeToMax('health');
 
     this.defaultItems.forEach(defaultItemId => {
       if (parseInt(defaultItemId, 10)) {
