@@ -1,0 +1,17 @@
+---
+command: willpower
+body: |
+  "Willpower is one of the four core attributes in Myelin.
+  Willpower describes your ability to sustain and resist both psionic
+  and physical attacks. A character with high willpower will
+  not crumble easily, and can survive otherwise devastating incidents.
+  Willpower also contributes to your endurance, charisma
+  (when dealing with certain NPCs), and survival skills.
+  "
+
+related:
+  - manifest
+  - skills
+  - attributes
+keywords:
+  - character

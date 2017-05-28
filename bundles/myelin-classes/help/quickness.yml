@@ -1,0 +1,17 @@
+---
+command: quickness
+body: |
+  "Quickness is one of the four core attributes in Myelin.
+  Being quick can mean being fleet-footed enough to get out of
+  harm's way, agile enough to safely leap from a roof, or dextrous
+  enough to pick a complex lock in seconds flat. Quickness also
+  aids in combat speed, movement speed, and one's ability to use
+  skill-based or ranged weaponry.
+  "
+
+related:
+  - manifest
+  - skills
+  - attributes
+keywords:
+  - character

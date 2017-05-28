@@ -1,0 +1,18 @@
+---
+command: might
+body: |
+  "Might is one of the four core attributes in Myelin.
+  Your might describes your physical strength and constitution.
+  It can determine the damage dealt in melee combat, as well as your
+  own ability to take damage and stand tall. It also plays a part in
+  resisting certain physical effects such as disease.
+  Mightier characters can carry more things, wear heavier armor, and
+  channel their strength into powerful feats.
+  "
+
+related:
+  - manifest
+  - skills
+  - attributes
+keywords:
+  - character
