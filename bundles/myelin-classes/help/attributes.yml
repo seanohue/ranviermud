@@ -1,7 +1,6 @@
 ---
-command: attributes
 body: |
-  "The four core attributes in Myelin are Might, Quickness, Intellect, and Willpower.
+  The four core attributes in Myelin are Might, Quickness, Intellect, and Willpower.
   Your attributes determine a few aspects of your character, including:
   - Your ability to effectively use certain pieces of equipment.
   - The abilities you can obtain.
@@ -9,9 +8,8 @@ body: |
   - Your chance of success in activities directly related to each attribute.
 
   For more on each individual attribute, see the attribute's specific help page.
-  Since Myelin is a classless system, it is possible to focus on any number of attributes
-  when building your character.
-  "
+  Since Myelin is a classless system, it is possible to focus on any number of attributes when building your character.
+
 
 related:
   - score

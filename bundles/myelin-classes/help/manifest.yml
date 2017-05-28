@@ -1,0 +1,27 @@
+---
+command: manifest
+body: |
+  Expend an ability point to learn a skill, manifest a mutation, or gain a feat. Skills, mutations, and feats are different sorts of abilities in Myelin. All abilities have prerequisites based on your level, attributes, and current abilities.
+
+  It is wise to choose abilities that match your attributes, and vice versa.
+
+  Mechanically, skills/mutations/feats are interchangeable, so commands dealing with skills will also work for mutations, feats, and so on. However, within the fiction of Myelin, they may be referred to as either abilities or as their specific subcategory.
+
+  Skills typically pertain to something anyone can do, such as crafting. However, a skilled character can do it better, producing higher quality items and using less resources.
+
+  Mutations involve a physical component, for example, growing sharp claws or chitinous armor. They are typically very visible, and can be passive or active. Some mutations can be temporarily disabled due to high damage to the appropriate limb.
+
+  Feats are intrinsic superhuman or psionic abilities, and can be passive or active. Some active examples include remote healing or pyrokinesis. Passive feats include the ability to sense danger, or to automatically recover one's energy or health after exertion. Feats usually have a high cost. You may be able to heal yourself in the middle of a tough battle, but your focus will be wiped out, potentially limiting your abilities for minutes afterwards.
+
+related:
+  - manifest
+  - skills
+  - skill
+  - attributes
+keywords:
+  - leveling
+  - experience
+  - attribute
+  - ability
+  - character
+  - progress
