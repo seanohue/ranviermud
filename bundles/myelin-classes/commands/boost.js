@@ -7,6 +7,7 @@ module.exports = srcPath => {
   const Logger = require(srcPath + 'Logger');
 
   return {
+    usage: 'boost [attribute]',
     command: state => (args, player) => {
       const say = message => B.sayAt(player, message);
       const attributePoints = player.getMeta('attributePoints');
@@ -18,6 +19,7 @@ module.exports = srcPath => {
 
       if (!targetAttr || !targetAttr.length) {
         say('<b>Which attributes would you like to boost?</b>');
+        say(`You have <b>${attributePoints} points</b> to spend on attributes.`);
         return displayAttrs();
       }
 

@@ -10,7 +10,8 @@ module.exports = (srcPath) => {
       const say = (message, wrapWidth) => B.sayAt(player, message, wrapWidth);
 
       if (!args.length) {
-        return say("What ability do you want to look up? Use 'skills' to view all skills/abilities.");
+        say("What ability do you want to look up? Use 'skills' to view all skills/abilities.");
+        return state.CommandManager.get('skills').execute(null, player);
       }
 
       const [first, ... rest] = args.split(' ');
