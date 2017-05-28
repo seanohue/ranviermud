@@ -18,6 +18,17 @@ class Helpfile {
     this.body = options.body;
   }
 
+  getCommand(state) {
+    return state.CommandManager.get(this.command);
+  }
+
+  getAliases(state) {
+    if (this.command) {
+      return this.getCommand(state).aliases || [];
+    }
+    return [];
+  }
+
   render(state) {
     let body = this.body;
     const name = this.name;
@@ -29,7 +40,7 @@ class Helpfile {
 
     const formatHeaderItem = (item, value) => `${item}: ${value}\r\n\r\n`;
     if (this.command) {
-      let actualCommand = state.CommandManager.get(this.command);
+      let actualCommand = this.getCommand(state);
 
       header += formatHeaderItem('Syntax', actualCommand.usage);
 
