@@ -5,6 +5,7 @@ module.exports = (srcPath) => {
   const SkillFlag = require(srcPath + 'SkillFlag');
 
   return {
+    usage: 'skill [skill name], skill <list>, skill <learn/buy> [skill name]',
     aliases: [ "ability", "feat" ],
     command : state => (args, player) => {
       const say = (message, wrapWidth) => B.sayAt(player, message, wrapWidth);
@@ -14,7 +15,7 @@ module.exports = (srcPath) => {
         return state.CommandManager.get('skills').execute(null, player);
       }
 
-      const [first, ... rest] = args.split(' ');
+      const [first, ...rest] = args.split(' ');
       if (first === 'buy' || first === 'learn') {
         return state.CommandManager.get('manifest').execute(rest.join(' '), player);
       }

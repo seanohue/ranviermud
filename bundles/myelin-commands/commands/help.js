@@ -18,7 +18,11 @@ module.exports = (srcPath) => {
         return searchHelpfiles(args, player, state);
       }
 
-      const hfile = state.HelpManager.get(args);
+      let hfile = state.HelpManager.get(args);
+
+      if (!hfile) {
+        hfile = state.HelpManager.findByAliases(args, state);
+      }
 
       if (!hfile) {
         Logger.error(`MISSING-HELP: [${args}]`);
@@ -36,7 +40,7 @@ module.exports = (srcPath) => {
       return state.CommandManager.get('help').execute('help', player);
     }
 
-    const results = state.HelpManager.find(args);
+    const results = state.HelpManager.find(args, state);
     if (!results.size) {
       return Broadcast.sayAt(player, "Sorry, no results were found for your search.");
     }
@@ -44,6 +48,7 @@ module.exports = (srcPath) => {
       const [ _, hfile ] = [...results][0];
       return Broadcast.sayAt(player, hfile.render(state));
     }
+
     Broadcast.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
     Broadcast.sayAt(player, "<white>Search Results:</white>");
     Broadcast.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
