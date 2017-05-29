@@ -1,0 +1,14 @@
+---
+command: skills
+body: |
+  This will list the abilities that you currently have.
+
+  It will also list any abilities that you have unlocked by meeting their prerequisites. If the ability costs more than one ability point, it will also show the cost of that ability.
+related:
+  - skills
+  - manifest
+  - attributes
+keywords:
+  - leveling
+  - experience
+  - attribute

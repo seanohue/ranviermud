@@ -35,6 +35,11 @@ module.exports = srcPath => {
           say(B.center(80, `${B.capitalize(ability.trim())} (cost: ${cost})`, 'white'));
         }
       }
+      let abilityPoints = player.getMeta('abilityPoints') || 0;
+
+      say("<b>" + B.line(80, '=', 'green') + "</b>");
+      say("");
+      say(`<b>You have <white>${abilityPoints} points</white> to spent on abilities.`);
     }
   };
 };
