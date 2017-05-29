@@ -1,0 +1,15 @@
+---
+command: boost
+body: |
+  Expend an attribute point to boost one of your core attributes (might, quickness, intellect, or willpower).
+  'Boost' by itself will tell you how many points you have to spend.
+  Attribute points are earned by leveling.
+related:
+  - tnl
+  - manifest
+  - skills
+  - attributes
+keywords:
+  - leveling
+  - experience
+  - attribute

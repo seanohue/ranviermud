@@ -1,0 +1,13 @@
+---
+command: skill
+body: |
+  Use to see details on a specific ability. Useful when leveling up,
+  to plan and determine which abilities to purchase next.
+related:
+  - skills
+  - manifest
+  - attributes
+keywords:
+  - leveling
+  - experience
+  - attribute

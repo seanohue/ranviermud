@@ -3,7 +3,7 @@
 const sprintf = require('sprintf-js').sprintf;
 
 module.exports = (srcPath) => {
-  
+
   const Broadcast = require(srcPath + 'Broadcast');
 
   return {
@@ -42,7 +42,7 @@ module.exports = (srcPath) => {
           Broadcast.sayAt(player, '');
         }
       }
-      
+
       // end with a line break
       Broadcast.sayAt(player, '');
     }

@@ -5,11 +5,16 @@ module.exports = (srcPath) => {
   const { sayAt, center, line } = Broadcast;
   return {
     aliases: [ "learn", "train" ],
+    usage: 'manifest/learn/train [ability]',
     command : state => (args, player) => {
       const say = (message, wrapWidth) => sayAt(player, message, wrapWidth);
 
+      let abilityPoints = player.getMeta('abilityPoints') || 0;
+
       if (!args.length) {
-        return say("What ability do you want to add to your repertoire? Use 'skills' to view all skills/abilities.");
+        say('<b>What ability do you want to add to your repertoire?<b>');
+        say(`You have <b>${abilityPoints} points</b> to spend on abilities.`);
+        return state.CommandManager.get('skills').execute(null, player);
       }
 
       let available = player.playerClass.getAbilitiesForPlayer(player)
@@ -26,8 +31,6 @@ module.exports = (srcPath) => {
       }
 
       skill = skill[0];
-
-      let abilityPoints = player.getMeta('abilityPoints') || 0;
 
       if (!abilityPoints) {
         return say("You are not ready to earn new abilities yet...");
