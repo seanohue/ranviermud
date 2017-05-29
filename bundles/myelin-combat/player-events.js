@@ -256,6 +256,7 @@ module.exports = (srcPath) => {
 
         buf += ` ${verb} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage.`;
 
+
         if (damage.critical) {
           buf += ' <red><b>(Critical)</b></red>';
         }
