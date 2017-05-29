@@ -24,7 +24,8 @@ class Helpfile {
 
   getAliases(state) {
     if (this.command) {
-      return this.getCommand(state).aliases || [];
+      const command = this.getCommand(state);
+      return command ? command.aliases || [] : [];
     }
     return [];
   }
