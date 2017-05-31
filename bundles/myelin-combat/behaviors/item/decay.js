@@ -20,7 +20,7 @@ module.exports = srcPath => {
         }
       },
 
-      decay: state => function (item) {
+      decay: state => function (config) {
         const { room, type, belongsTo } = this;
 
         if (belongsTo) {

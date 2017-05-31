@@ -2,7 +2,10 @@
   title: A Frosted Tomb
   description: "An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders. There is only one way out."
   behaviors:
-    commands: ['examine']
+    examine:
+      examinables:
+        cylinders: ['coffins', 'walls', 'caskets', 'tomb', 'pods']
+        tubes: ['ceiling', 'pipes']
   exits:
     - roomId: 'spire.intro:2'
       direction: south
