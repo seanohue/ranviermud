@@ -1,0 +1,19 @@
+- id: 1
+  title: A Frosted Tomb
+  description: "An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders. There is only one way out."
+  exits:
+    - roomId: 'spire.intro:2'
+      direction: south
+  # npcs: []
+  # script: "1-tomb"
+- id: 2
+  title: Pipe Chamber
+  description: "A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls. In one direction is a dark, cold alcove. In the opposite direction is a small door flooded with light."
+  # npcs: []
+  # script: "1-tomb"
+  exits:
+    - roomId: 'spire.intro:1'
+      direction: north
+  #   - roomId: "limbo:2"
+  #     direction: east
+  #     leaveMessage: " steps into the void and disappears."

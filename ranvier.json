@@ -29,7 +29,7 @@
   "minPlayerNameLength": 3,
   "maxCharacters": 3,
   "allowMultiplay": false,
-  "startingRoom": "limbo:1",
+  "startingRoom": "spire.intro:1",
   "moveCommand": "move",
   "skillLag": 2000,
   "defaultMaxPlayerInventory": 16
