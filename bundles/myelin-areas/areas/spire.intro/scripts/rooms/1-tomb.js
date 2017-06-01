@@ -7,7 +7,7 @@ module.exports = (srcPath) => {
     listeners: {
       updateTick: state => function () {
         if (Random.probability(this.players.size || 0)) {
-          Broadcast.sayAt(this, 'You hear a soft, high whistling coming from the pipes overhead.');
+          Broadcast.sayAt(this, '<white>You hear a soft, high whistling coming from the pipes overhead.</white>');
         }
       }
     }
