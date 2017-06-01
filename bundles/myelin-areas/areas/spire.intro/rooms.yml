@@ -9,6 +9,7 @@
   exits:
     - roomId: 'spire.intro:2'
       direction: south
+  items: ['spire.intro:18', 'spire.intro:19']
   # npcs: []
   script: "1-tomb"
 - id: 2
