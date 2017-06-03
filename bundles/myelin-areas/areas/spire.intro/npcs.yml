@@ -1,0 +1,7 @@
+- id: 1
+  keywords: ['tiny', 'auto', 'automaton', 'steam']
+  name: A Tiny Steam Automaton
+  level: 2
+  description: "This whirring contraption stands on eight spindly, brass legs. Its body consists of a thick silver disk with a glass dome on top, filled with tubes, wires, and blinking lights. A steady hiss of steam emanages from a vent in its body."
+  script: '1-tiny-auto'
+  damage: '1-14'
