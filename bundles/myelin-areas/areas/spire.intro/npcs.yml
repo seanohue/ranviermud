@@ -3,5 +3,15 @@
   name: A Tiny Steam Automaton
   level: 2
   description: "This whirring contraption stands on eight spindly, brass legs. Its body consists of a thick silver disk with a glass dome on top, filled with tubes, wires, and blinking lights. A steady hiss of steam emanages from a vent in its body."
-  script: '1-tiny-auto'
+ #script: '1-tiny-auto'
   damage: '1-14'
+  attributes:
+    health: 47
+    focus: 1000
+    quickness: 19
+    willpower: 10
+    might: 5
+    intellect: 5
+- id: 2
+  keywords: ['broken', 'malfunctioning', 'automaton', 'auto', 'steam']
+  level: 3

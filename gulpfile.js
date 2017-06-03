@@ -1,19 +1,22 @@
-var gulp = require('gulp');
-var todo = require('gulp-todo');
-var lint = require('gulp-eslint');
+const gulp = require('gulp');
+const todo = require('gulp-todo');
+const lint = require('gulp-eslint');
+const yaml = require('gulp-yaml-validate');
 
-var paths = {
+
+const paths = {
   src: './',
   spec: './spec/*.js',
   js: [
     './*.js',
     './src/*.js',
     './src/**/*.js',
-    './scripts/**/*.js',
-    './scripts/**/**/*.js',
-    './commands/*.js',
-    './src/!3rdparty/*.js'
+    './bundles/**/*.js'
   ],
+  yaml: [
+    './bundles/**/*.yaml',
+    './bundles/**/*.yml'
+  ]
 };
 
 const report = {
@@ -22,7 +25,7 @@ const report = {
   error: 2,
 };
 
-var options = {
+const options = {
   todo: {
     absolute: true,
     fileName: 'gulpTODO.md'
@@ -54,7 +57,10 @@ var options = {
 
 gulp.task('todo', toDoTask);
 
-gulp.task('lint', lintTask);
+gulp.task('lint', ['lintJS', 'lintYaml']);
+
+gulp.task('lintJS', lintTask);
+gulp.task('lintYaml', yamlTask);
 
 gulp.task('default', ['todo', 'lint']);
 
@@ -64,6 +70,12 @@ function lintTask() {
     .pipe(lint(options.lint))
     .pipe(lint.format())
     .pipe(lint.failAfterError());
+}
+
+function yamlTask() {
+  return gulp
+    .src(paths.yaml)
+    .pipe(yaml())
 }
 
 function toDoTask() {
