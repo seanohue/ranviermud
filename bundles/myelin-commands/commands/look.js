@@ -90,75 +90,102 @@ module.exports = (srcPath, bundlePath) => {
     B.sayAt(player, '');
 
     // show all players
-    room.players.forEach(otherPlayer => {
-      if (otherPlayer === player) {
-        return;
-      }
-      let combatantsDisplay = '';
-      if (otherPlayer.isInCombat()) {
-        combatantsDisplay = getCombatantsDisplay(otherPlayer);
-      }
-      B.sayAt(player, '[Player] ' + otherPlayer.name + combatantsDisplay);
-    });
+    if (room.players.size > 1) {
+      B.sayAt(player, '<bold>[Players]</bold>');
+      room.players.forEach(otherPlayer => {
+        if (otherPlayer === player) {
+          return;
+        }
+        let combatantsDisplay = '';
+        if (otherPlayer.isInCombat()) {
+          combatantsDisplay = getCombatantsDisplay(otherPlayer);
+        }
+        B.sayAt(player, otherPlayer.name + combatantsDisplay);
+      });
+      B.sayAt(player, '')
+    }
 
-    // show all the items in the rom
-    room.items.forEach(item => {
-      if (item.hasBehavior('resource')) {
-        B.sayAt(player, `[${item.qualityColorize('Resource')}] <magenta>${item.roomDesc}</magenta>`);
-      } else {
-        B.sayAt(player, `[${item.qualityColorize('Item')}] <magenta>${item.roomDesc}</magenta>`);
+
+    // show all the items in the room
+    if (room.items.size > 1) {
+      const itemArray = [...room.items.values()];
+
+      const resources = itemArray.filter(item => item.hasBehavior('resource'));
+      const normalItems = itemArray.filter(item => !item.hasBehavior('resource'));
+
+      if (resources.length) {
+        B.sayAt(player, '<green>[Resources]</green>');
+        resources.forEach(resource => {
+          B.sayAt(player, `${resource.qualityColorize(item.roomDesc)}`);
+        });
+        B.sayAt(player, '');
       }
-    });
+
+      if (normalItems.length) {
+        B.sayAt(player, '<magenta>[Items]</magenta>');
+        normalItems.forEach(item => {
+          B.sayAt(player, `${item.qualityColorize(item.roomDesc)}`);
+        });
+        B.sayAt(player, '');
+      }
+    }
+
 
     // show all npcs
-    room.npcs.forEach(npc => {
-      // show quest state as [!], [%], [?] for available, in progress, ready to complete respectively
-      let hasNewQuest, hasActiveQuest, hasReadyQuest;
-      if (npc.quests) {
-        const quests = npc.quests.map(qid => state.QuestFactory.create(state, qid, player));
-        hasNewQuest = quests.find(quest => player.questTracker.canStart(quest));
-        hasReadyQuest = quests.find(quest => {
-          return player.questTracker.isActive(quest.id) && player.questTracker.get(quest.id).getProgress().percent >= 100;
-        });
-        hasActiveQuest = quests.find(quest => {
-          return player.questTracker.isActive(quest.id) && player.questTracker.get(quest.id).getProgress().percent < 100;
-        });
+    if (room.npcs.size) {
+      B.sayAt(player, '<cyan>[NPCS]</cyan>');
+      room.npcs.forEach(npc => {
+        // show quest state as [!], [%], [?] for available, in progress, ready to complete respectively
+        if (npc.quests) {
+          const quests = npc.quests.map(qid => state.QuestFactory.create(state, qid, player));
+          const hasNewQuest = quests.find(quest => player.questTracker.canStart(quest));
+          const hasReadyQuest = quests.find(quest =>
+            player.questTracker.isActive(quest.id) &&
+            player.questTracker.get(quest.id)
+              .getProgress().percent >= 100
+          );
+          const hasActiveQuest = quests.find(quest =>
+            player.questTracker.isActive(quest.id) &&
+            player.questTracker.get(quest.id)
+              .getProgress().percent < 100
+          );
 
-        let questString = '';
-        if (hasNewQuest || hasActiveQuest || hasReadyQuest) {
-          questString += hasNewQuest ? '[<b><yellow>!</yellow></b>]' : '';
-          questString += hasActiveQuest ? '[<b><yellow>%</yellow></b>]' : '';
-          questString += hasReadyQuest ? '[<b><yellow>?</yellow></b>]' : '';
-          B.at(player, questString + ' ');
+          let questString = '';
+          if (hasNewQuest || hasActiveQuest || hasReadyQuest) {
+            questString += hasNewQuest ? '[<b><yellow>!</yellow></b>]' : '';
+            questString += hasActiveQuest ? '[<b><yellow>%</yellow></b>]' : '';
+            questString += hasReadyQuest ? '[<b><yellow>?</yellow></b>]' : '';
+            B.at(player, questString + ' ');
+          }
         }
-      }
 
-      let combatantsDisplay = '';
-      if (npc.isInCombat()) {
-        combatantsDisplay = getCombatantsDisplay(npc);
-      }
+        let combatantsDisplay = '';
+        if (npc.isInCombat()) {
+          combatantsDisplay = getCombatantsDisplay(npc);
+        }
 
-      // color NPC label by difficulty
-      let npcLabel = 'NPC';
-      switch (true) {
-        case (player.level  - npc.level > 4):
-          npcLabel = '<cyan>NPC</cyan>';
-          break;
-        case (npc.level - player.level > 9):
-          npcLabel = '<b><black>NPC</black></b>';
-          break;
-        case (npc.level - player.level > 5):
-          npcLabel = '<red>NPC</red>';
-          break;
-        case (npc.level - player.level > 3):
-          npcLabel = '<yellow>NPC</red>';
-          break;
-        default:
-          npcLabel = '<green>NPC</green>';
-          break;
-      }
-      B.sayAt(player, `[${npcLabel}] ` + npc.name + combatantsDisplay);
-    });
+        // color NPC label by difficulty
+        let npcColorize = ['', ''];
+        switch (true) {
+          case (player.level  - npc.level > 4):
+            npcColorize = ['<cyan>', '</cyan>'];
+            break;
+          case (npc.level - player.level > 9):
+            npcColorize = ['<b><black>', '</black></b>'];
+            break;
+          case (npc.level - player.level > 5):
+            npcColorize = ['<yellow>', '</yellow>'];
+            break;
+          case (npc.level - player.level > 3):
+            npcColorize = ['<red>', '</red>'];
+            break;
+          default:
+            npcColorize = ['<green>', '</green>'];
+            break;
+        }
+        B.sayAt(player, `${npcColorize[0]}${npc.name}${npcColorize[1]} ${combatantsDisplay}`);
+      });
+    }
 
     B.at(player, '[<yellow><b>Exits</yellow></b>: ');
       B.at(player, Array.from(room.exits).map(ex => ex.direction).join(' '));
@@ -178,10 +205,10 @@ module.exports = (srcPath, bundlePath) => {
     }
 
     //FIXME: Refactor
-    let entity = CommandParser.parseDot(search, room.items);
-    entity = entity || CommandParser.parseDot(search, room.players);
-    entity = entity || CommandParser.parseDot(search, room.npcs);
-    entity = entity || CommandParser.parseDot(search, player.inventory);
+    let entity = CommandParser.parseDot(search, room.items) ||
+      CommandParser.parseDot(search, room.players) ||
+      CommandParser.parseDot(search, room.npcs) ||
+      CommandParser.parseDot(search, player.inventory);
 
     if (!entity) {
       return B.sayAt(player, "You don't see anything like that here.");
@@ -189,7 +216,7 @@ module.exports = (srcPath, bundlePath) => {
 
     if (entity instanceof Player) {
       // TODO: Show player equipment?
-      B.sayAt(player, `You see fellow player ${entity.name}.`);
+      B.sayAt(player, `You see fellow player, ${entity.name}.`);
 
       // Event hook to use look to show dynamic appearance.
       entity.emit('look', player);
