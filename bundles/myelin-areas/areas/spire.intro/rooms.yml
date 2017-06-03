@@ -10,6 +10,7 @@
 - id: 2
   title: Pipe Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls. In one direction is a dark, cold alcove. In the opposite direction is a small door flooded with light.'
+  items: ['spire.intro:20']
   # npcs: []
   # script: '1-tomb'
   exits:
@@ -25,7 +26,9 @@
     - id: 'spire.intro:1'
       maxLoad: 2
       respawnChance: 75
+  items: ['spire.intro:21']
   exits:
     - roomId: 'spire.intro:2'
     - direction: north
     - leaveMessage: ' steps into the dark chamber and disappears.'
+

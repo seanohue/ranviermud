@@ -348,3 +348,19 @@
     noPickup: true
   keywords: [ "tube", "tubes", "snakelike", "mass"  ]
   description: "The tubes are running from the alcove's entrance, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."
+
+- id: 20
+  name: "A Central Column of Tubes"
+  roomDesc: "Thousands of tubes form a central column in this chamber"
+  properties:
+    noPickup: true
+  keywords: [ "tube, tubes", "column", "central" ]
+  description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the chilled alcove to the north."
+
+- id: 21
+  name: "A Semicircular Slate Bench"
+  roomDesc: "A semicircular slate bench is built into the ground in the center of this room"
+  description: "This bench is the same color and material as the floor, walls, and ceiling. It arcs towards the door to the north, allowing people to sit and observe what happens beyond the panes of glass. It looks uncomfortable to <b>sit</b> on."
+  properties:
+    noPickup: true  
+  keywords: ["bench", "slate", "circular", "seat", "semi"]
