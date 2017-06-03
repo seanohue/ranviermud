@@ -107,7 +107,7 @@ module.exports = (srcPath, bundlePath) => {
 
 
     // show all the items in the room
-    if (room.items.size > 1) {
+    if (room.items.size > 0) {
       const itemArray = [...room.items.values()];
 
       const resources = itemArray.filter(item => item.hasBehavior('resource'));
