@@ -5,20 +5,19 @@
     - roomId: 'spire.intro:2'
       direction: south
   items: ['spire.intro:18', 'spire.intro:19']
-  # npcs: []
   script: '1-tomb'
+
 - id: 2
   title: Pipe Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls. In one direction is a dark, cold alcove. In the opposite direction is a small door flooded with light.'
   items: ['spire.intro:20']
-  # npcs: []
-  # script: '1-tomb'
   exits:
     - roomId: 'spire.intro:1'
       direction: north
     - roomId: 'spire.intro:3'
       direction: south
       leaveMessage: ' steps into the light and disappears.'
+
 - id: 3
   title: Observation Deck
   description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room from the south. To the north is a dark chamber. To the south is a clear wall of thick glass. Beyond, you see four glowing crystals. To the east and west are heavy metal doors.'
@@ -29,6 +28,38 @@
   items: ['spire.intro:21']
   exits:
     - roomId: 'spire.intro:2'
-    - direction: north
-    - leaveMessage: ' steps into the dark chamber and disappears.'
+      direction: north
+      leaveMessage: ' steps into the dark chamber and disappears.'
+    - roomId: 'spire.intro:4'
+      direction: east
+      leaveMessage: ' leaves through the metal door to the east.'
+    - roomId: 'spire.intro:5'
+      direction: west
+      leaveMessage: ' leaves through the metal door to the west.'
+
+- id: 4
+  title: Cold Hallway (East)
+  description: A short hallway, cold enough to see one's breath. To the east, the hallway disappears around a gradual curve. To the west is a metal door.
+  npcs:
+    - id: 'spire.intro:1'
+      maxLoad: 1
+      respawnChance: 25
+  exits:
+    - roomId: 'spire.intro:3'
+      direction: west
+      leaveMessage: ' leaves through the metal door to the west.'
+
+- id: 5
+  title: Cold Hallway (West)
+  description: A short hallway, cold enough to see one\'s breath. To the east, the hallway disappears around a gradual curve. To the west is a metal door.
+  npcs:
+    - id: 'spire.intro:1'
+      maxLoad: 1
+      respawnChance: 25
+  exits:
+    - roomId: 'spire.intro:3'
+      direction: east
+      leaveMessage: ' leaves through the metal door to the east.'
+
+
 

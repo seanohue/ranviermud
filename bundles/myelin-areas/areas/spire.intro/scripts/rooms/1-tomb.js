@@ -13,7 +13,7 @@ module.exports = (srcPath) => {
 
         const cooldown = 60 * 1000;
         const pastCooldown = (Date.now() - lastEventEmitted) > cooldown;
-        if (pastCooldown && Random.probability(1)) {
+        if (pastCooldown && Random.probability(3)) {
           const flavorEvents = [
             'You hear a soft, high whistling coming from the pipes overhead.',
             'A wooshing sound can be heard from the chamber nearby.',

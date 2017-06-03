@@ -362,5 +362,5 @@
   roomDesc: "A semicircular slate bench is built into the ground in the center of this room"
   description: "This bench is the same color and material as the floor, walls, and ceiling. It arcs towards the door to the north, allowing people to sit and observe what happens beyond the panes of glass. It looks uncomfortable to <b>sit</b> on."
   properties:
-    noPickup: true  
+    noPickup: true
   keywords: ["bench", "slate", "circular", "seat", "semi"]
