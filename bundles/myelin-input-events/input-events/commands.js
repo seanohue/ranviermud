@@ -35,6 +35,7 @@ module.exports = (src) => {
                 throw new RestrictedCommandError();
               }
               if (result.originalCommand === 'move') {
+                //FIXME: This seems off....
                 return Broadcast.sayAt(player, 'You are stunned and cannot move.');
               }
               // commands have no lag and are not queued, just immediately execute them

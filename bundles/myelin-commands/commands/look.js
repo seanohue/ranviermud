@@ -214,13 +214,13 @@ module.exports = (srcPath, bundlePath) => {
       return B.sayAt(player, "You don't see anything like that here.");
     }
 
+
+    // Event hook to use look to show dynamic appearance.
+    entity.emit('look', player);
+
     if (entity instanceof Player) {
       // TODO: Show player equipment?
-      B.sayAt(player, `You see fellow player, ${entity.name}.`);
-
-      // Event hook to use look to show dynamic appearance.
-      entity.emit('look', player);
-      return;
+      return B.sayAt(player, `You see fellow player, ${entity.name}.`);
     }
 
     B.sayAt(player, entity.description, 80);
