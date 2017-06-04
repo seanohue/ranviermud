@@ -114,6 +114,7 @@ module.exports = (srcPath) => {
 
       function bootPlayer(player, reason) {
         player.save(() => {
+          if (player.room) { player.room.emit('playerQuit', player); }
           Logger.warn(`Booting ${player.name}: ${reason}`);
           Broadcast.sayAt(player, reason);
           player.socket.emit('close');

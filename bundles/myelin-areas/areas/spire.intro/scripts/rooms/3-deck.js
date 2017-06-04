@@ -30,12 +30,12 @@ module.exports = (srcPath) => {
       return Broadcast.sayAt(player, 'You are already seated.');
     }
 
-    const lookListener = _lookListener.bind(this, player);
+    const lookListener = _lookListener.bind(player);
     benchSeating.set(player, lookListener);
     player.on('look', lookListener);
 
     const benchRef = 'spire.intro:21';
-    const bench = [...this.items].find(item => item.entityRef === benchRef);
+    const bench = [...this.items].find(item => item.entityReference === benchRef);
     bench.on('look', lookListener);
 
     Broadcast.sayAt(player, 'You sit on the bench.');
@@ -55,7 +55,7 @@ module.exports = (srcPath) => {
     player.removeListener('look', lookListener);
 
     const benchRef = 'spire.intro:21';
-    const bench = [...this.items].find(item => item.entityRef === benchRef);
+    const bench = [...this.items].find(item => item.entityReference === benchRef);
     bench.removeListener('look', lookListener);
 
     Broadcast.sayAt(player, 'You stand up.');
@@ -64,8 +64,8 @@ module.exports = (srcPath) => {
     }
   }
 
-  function _lookListener(player) {
-    return `${player.name} is sitting on the slate bench.`;
+  function _lookListener(observer) {
+    Broadcast.sayAt(observer, `<b>${this.name} is sitting on the slate bench.</b>`);
   }
 
 };

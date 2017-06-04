@@ -11,6 +11,7 @@ module.exports = (srcPath) => {
       }
 
       player.save(() => {
+        player.room.emit('playerQuit', player);
         Broadcast.sayAt(player, "Goodbye!");
         Broadcast.sayAt(player.room, `${player.name} disappears.`);
         player.socket.emit('close');

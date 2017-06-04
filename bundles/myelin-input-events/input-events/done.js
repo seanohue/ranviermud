@@ -62,6 +62,7 @@ module.exports = (srcPath) => {
         //}
 
         player.save(() => {
+          player.room.emit('playerQuit', player);
           player.room.removePlayer(player);
           state.PlayerManager.removePlayer(player, true);
         });
