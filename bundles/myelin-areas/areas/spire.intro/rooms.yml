@@ -64,5 +64,29 @@
       direction: east
       leaveMessage: ' leaves through the metal door to the east.'
 
+- id: 6
+  title: Cold Hallway Bend (East)
+  description: A gradual curve at the end of an otherwise short hallway, leading to another metal door. There is a chill in the air here.
+  npcs:
+    - id: 'spire.intro:1'
+      maxLoad: 1
+      respawnChance: 25
+  exits:
+    - roomId: 'spire.intro:3'
+      direction: west
+      leaveMessage: ' leaves through the metal door to the west.'
+
+- id: 7
+  title: Cold Hallway Bend (West)
+  description: A gradual curve at the end of an otherwise short hallway, leading to another metal door. There is a chill in the air here.
+  npcs:
+    - id: 'spire.intro:1'
+      maxLoad: 1
+      respawnChance: 25
+  exits:
+    - roomId: 'spire.intro:3'
+      direction: east
+      leaveMessage: ' leaves through the metal door to the east.'
+
 
 
