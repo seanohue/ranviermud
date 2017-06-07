@@ -51,6 +51,9 @@
     - roomId: 'spire.intro:3'
       direction: west
       leaveMessage: ' leaves through the metal door to the west.'
+    - roomId: 'spire.intro:6'
+      direction: north
+      leaveMessage: ' disappears around the bend to the north.'
 
 - id: 5
   title: Cold Hallway (West)
@@ -63,6 +66,9 @@
     - roomId: 'spire.intro:3'
       direction: east
       leaveMessage: ' leaves through the metal door to the east.'
+    - roomId: 'spire.intro:7'
+      direction: north
+      leaveMessage: ' disappears around the bend to the north.'
 
 - id: 6
   title: Cold Hallway Bend (East)
@@ -72,9 +78,9 @@
       maxLoad: 1
       respawnChance: 25
   exits:
-    - roomId: 'spire.intro:3'
-      direction: west
-      leaveMessage: ' leaves through the metal door to the west.'
+    - roomId: 'spire.intro:4'
+      direction: south
+      leaveMessage: ' disappears around the bend to the south.'
 
 - id: 7
   title: Cold Hallway Bend (West)
@@ -84,9 +90,9 @@
       maxLoad: 1
       respawnChance: 25
   exits:
-    - roomId: 'spire.intro:3'
-      direction: east
-      leaveMessage: ' leaves through the metal door to the east.'
+    - roomId: 'spire.intro:5'
+      direction: south
+      leaveMessage: ' disappears around the bend to the south.'
 
 
 
