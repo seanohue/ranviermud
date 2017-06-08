@@ -17,8 +17,9 @@
   keywords: ['broken', 'malfunctioning', 'automaton', 'auto', 'steam']
   level: 3
   description: "This whirring contraption is a mess of spindly legs, grinding gears, and flittering wings. Its domed body is blinking many colors at once as its limbs flail in every direction."
-  behavior:
-    aggro: {}
+  behaviors:
+    aggro:
+      lag: 0.2
   damage: '3-23'
   attributes:
     health: 65

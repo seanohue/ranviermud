@@ -11,16 +11,17 @@ module.exports = srcPath => {
           maxCombatants = Infinity,
           minLevelToAttack = 0,
           maxLevelToAttack = Infinity,
-          lag = 0
+          lag = 0 // seconds
         } = config;
 
         const playerInLevelRange = player.level >= minLevelToAttack && player.level <= maxLevelToAttack;
-        const npcCanAttack = this.combatants.length < maxCombatants;
+        const npcCanAttack = this.combatants.size < maxCombatants;
+
         if (playerInLevelRange && npcCanAttack) {
           Logger.log(`${this.name} went aggro and attacked ${player.name}!`);
           B.sayAt(player, `<red><b>${this.name} attacks you!</red></b>`);
           B.sayAtExcept(this.room, `<red><b>${this.name} attacks ${player.name}!</red></b>`, player);
-          this.initiateCombat(player, lag);
+          this.initiateCombat(player, lag * 1000);
         }
       }
     }

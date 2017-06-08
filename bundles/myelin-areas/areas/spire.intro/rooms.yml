@@ -89,6 +89,9 @@
     - id: 'spire.intro:1'
       maxLoad: 1
       respawnChance: 25
+    - id: 'spire.intro:2'
+      maxLoad: 1
+      respawnChance: 20
   exits:
     - roomId: 'spire.intro:5'
       direction: south
