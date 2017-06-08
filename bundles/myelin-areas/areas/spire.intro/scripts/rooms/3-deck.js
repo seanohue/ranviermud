@@ -20,7 +20,9 @@ module.exports = (srcPath) => {
       },
 
       playerLeave: state => stand,
-      playerQuit: state => stand
+      playerQuit: state => function removeWhileQuitting(player, args) {
+        return stand(player, args, true);
+      }
 
     }
   };
@@ -44,8 +46,9 @@ module.exports = (srcPath) => {
     }
   }
 
-  function stand(player, args) {
+  function stand(player, args, isQuitting) {
     if (!benchSeating.has(player)) {
+      if (isQuitting) { return; } // Avoid confusing broadcast.
       return Broadcast.sayAt(player, 'You are already standing.');
     }
 
