@@ -19,10 +19,8 @@ module.exports = (srcPath) => {
         }
       },
 
-      playerLeave: state => stand,
-      playerQuit: state => function removeWhileQuitting(player, args) {
-        return stand(player, args, true);
-      }
+      playerLeave: state => autoStand,
+      playerQuit: state => autoStand
 
     }
   };
@@ -46,9 +44,13 @@ module.exports = (srcPath) => {
     }
   }
 
-  function stand(player, args, isQuitting) {
+  function autoStand(player, args) {
+    return stand.call(this, player, args, true);
+  }
+
+  function stand(player, args, isAutomatic) {
     if (!benchSeating.has(player)) {
-      if (isQuitting) { return; } // Avoid confusing broadcast.
+      if (isAutomatic) { return; } // Avoid confusing broadcast.
       return Broadcast.sayAt(player, 'You are already standing.');
     }
 
