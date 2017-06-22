@@ -103,7 +103,7 @@
 - id: 8
   title: Airlock (East)
   description: A small room with metal vault doors to the south and north. Aside from that, this nearly-perfect cube is featureless.
-  npcs: 
+  npcs:
     - id: 'spire.intro:3'
       maxLoad: 1
       respawnChance: 100
