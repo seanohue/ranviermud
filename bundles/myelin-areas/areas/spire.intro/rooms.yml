@@ -81,6 +81,9 @@
     - roomId: 'spire.intro:4'
       direction: south
       leaveMessage: ' disappears around the bend to the south.'
+    - roomId: 'spire.intro:8'
+      direction: north
+      leaveMessage: ' disappears through the vault door to the north.'
 
 - id: 7
   title: Cold Hallway Bend (West)
@@ -96,6 +99,19 @@
     - roomId: 'spire.intro:5'
       direction: south
       leaveMessage: ' disappears around the bend to the south.'
+
+- id: 8
+  title: Airlock (East)
+  description: A small room with metal vault doors to the south and north. Aside from that, this nearly-perfect cube is featureless.
+  npcs: 
+    - id: 'spire.intro:3'
+      maxLoad: 1
+      respawnChance: 100
+  exits:
+    - roomId: 'spire.intro:6'
+      direction: south
+      leaveMessage: ' disappears through the vault door to the south.'
+
 
 
 

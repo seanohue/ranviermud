@@ -28,3 +28,17 @@
     willpower: 10
     might: 6
     intellect: 4
+
+- id: 3
+  name: A Legless Voicebox Automaton
+  keywords: ['voicebox', 'automaton', 'auto']
+  level: 11
+  description: 'This box of nuts and bolts has exposed, sparking wires where its legs should be. Where other automatons have a dome with blinking lights, this one has a box with a spiraling funnel on top of it, like a victrola.'
+  damage: '3-35'
+  attributes:
+    health: 190
+    focus: 600
+    quickness: 10
+    willpower: 18
+    might: 9
+    intellect: 14
