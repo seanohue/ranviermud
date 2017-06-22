@@ -167,10 +167,12 @@ class Player extends Character {
 
     onMoved();
 
-    for (const npc of nextRoom.npcs) {
-      npc.emit('playerEnter', this);
+    for (const entity of [...nextRoom.npcs, ...nextRoom.players]) {
+      entity.emit('playerEnter', this);
     }
+
     nextRoom.emit('playerEnter', this);
+    this.emit('enterRoom', nextRoom);
   }
 
   /**
