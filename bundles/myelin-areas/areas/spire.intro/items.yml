@@ -364,3 +364,9 @@
   properties:
     noPickup: true
   keywords: ["bench", "slate", "circular", "seat", "semi"]
+
+- id: 22
+  name: "Airlock Key"
+  roomDesc: "Airlock Key"
+  description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
+  keywords: ["key", "airlock"]

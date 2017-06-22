@@ -18,17 +18,21 @@ module.exports = (srcPath) => {
       },
 
       giveQuestSpeech: state => function (player) {
-        if (this.hasEffectType('speaking')) {
+        if (!this.room.players.has(player)) {
           return;
+        }
+
+        if (this.hasEffectType('speaking')) {
+          return setTimeout(this.emit.bind(this, 'giveQuestSpeech', player), 5000);
         }
 
         const speak = state.EffectFactory.create('speak', this, {}, {
           messageList: [
             "Hello... *whirring noise*",
-            "...According to my data orb, you are /%player%/. Yes?",
-            "Welcome back, /%player%/. We have a small problem.",
+            "...According to my data orb, you are %player%. Yes?",
+            "Welcome back, %player%. We have a small problem.",
             "Some of my autonomic brethren have malfunctioned and taken the key that will open this airlock.",
-            "You will find them in the airlock to the west.",
+            "You will find them in the airlock on the west wing of this floor.",
             "Please, destroy them, and retrieve the key.",
             "I would do it myself, but they scavenged my legs to use as weapons."
           ],
