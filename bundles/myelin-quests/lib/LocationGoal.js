@@ -21,7 +21,7 @@ class LocationGoal extends QuestGoal {
 
     super(quest, config, player);
 
-    this.on('playerEnter', this._checkRoom.bind(this, player));
+    this.on('enterRoom', this._checkRoom.bind(this, player));
   }
 
   _checkRoom(player, nextRoom) {
