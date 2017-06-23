@@ -44,4 +44,4 @@ class LocationGoal extends QuestGoal {
 
 }
 
-module.exports = FetchGoal;
+module.exports = LocationGoal;
