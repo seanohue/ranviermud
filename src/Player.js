@@ -156,9 +156,6 @@ class Player extends Character {
   moveTo(nextRoom, onMoved = _ => _) {
     if (this.room) {
       this.room.emit('playerLeave', this, nextRoom);
-      for (const npc of this.room.npcs) {
-        npc.emit('playerLeave', this, nextRoom);
-      }
       this.room.removePlayer(this);
     }
 
@@ -166,10 +163,6 @@ class Player extends Character {
     nextRoom.addPlayer(this);
 
     onMoved();
-
-    for (const entity of [...nextRoom.npcs, ...nextRoom.players]) {
-      entity.emit('playerEnter', this);
-    }
 
     nextRoom.emit('playerEnter', this);
     this.emit('enterRoom', nextRoom);
