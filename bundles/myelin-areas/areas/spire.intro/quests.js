@@ -3,6 +3,7 @@
 const FetchGoal = require('../../../ranvier-quests/lib/FetchGoal');
 const EquipGoal = require('../../../ranvier-quests/lib/EquipGoal');
 const KillGoal = require('../../../ranvier-quests/lib/KillGoal');
+const LocationGoal = require('../../../myelin-quests/lib/LocationGoal');  
 
 module.exports = (srcPath) => {
   const LevelUtil = require(srcPath + 'LevelUtil');
@@ -10,11 +11,27 @@ module.exports = (srcPath) => {
   const say = Broadcast.sayAt;
 
   return {
-    // 0: title: 'A way out' (initialized when they enter spire.intro:1 room)
     1: {
       config: {
-        title: "Through the Airlock.",
+        title: 'A Way Out', // (initialized when they enter spire.intro:1 room)
         level: 1,
+        desc: `You must find your way out of this strange place. First, you must head south.`,
+        autoComplete: true,
+        reward(quest, player) {
+          player.emit('experience', LevelUtil.mobExp(quest.config.level) * 5)
+          // say something about what they need to do to leave.
+        }
+      },
+      goals: [
+        {
+          type: LocationGoal,
+        }
+      ]
+    },
+    2: {
+      config: {
+        title: "Through the Airlock.",
+        level: 2,
         desc: `Some of the automatons have malfunctioned, destroying one airlock and stealing the key to the remaining exit. Destroy them in turn, and retrieve the key.`,
         autoComplete: true,
         reward(quest, player) {

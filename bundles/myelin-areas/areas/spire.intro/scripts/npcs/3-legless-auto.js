@@ -6,7 +6,7 @@ module.exports = (srcPath) => {
   return  {
     listeners: {
       playerEnter: state => function (player) {
-        const quest = state.QuestFactory.create(state, 'spire.intro:1', player);
+        const quest = state.QuestFactory.create(state, 'spire.intro:2', player);
         if (player.questTracker.canStart(quest)) {
           player.questTracker.start(quest);
           this.emit('giveQuestSpeech', player);
