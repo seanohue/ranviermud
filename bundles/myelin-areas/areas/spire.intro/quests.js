@@ -26,7 +26,7 @@ module.exports = (srcPath) => {
       goals: [
         {
           type: LocationGoal,
-          config: { title: 'Leave This Tomb', location: 'spire.intro:2' }
+          config: { title: 'Leave This Tomb', location: 'spire.intro:3', roomTitle: 'The Observation Deck' }
         }
       ]
     },
