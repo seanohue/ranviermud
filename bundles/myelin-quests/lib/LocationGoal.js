@@ -10,12 +10,11 @@ class LocationGoal extends QuestGoal {
     config = Object.assign({
       title: 'Go To Place',
       location: '',
-      roomTitle: '',
       predicate: _ => true, // auxilary goal
       predicateDesc: '' // example: ' while carrying the sacred artifact.'
     }, config);
 
-    if (!config.location || !config.roomTitle) {
+    if (!config.location) {
       throw new Error('You must set a location for the LocationGoal')
     }
 
