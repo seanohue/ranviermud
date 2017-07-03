@@ -72,12 +72,14 @@ class Quest extends EventEmitter {
   getProgress() {
     let overallPercent = 0;
     let overallDisplay = [];
+    console.log(this.goals)
     this.goals.forEach(goal => {
       const goalProgress = goal.getProgress();
       overallPercent += goalProgress.percent;
       overallDisplay.push(goalProgress.display);
     });
-
+    console.log(overallPercent)
+    console.log(this.goals.length)
     return {
       percent: Math.round(overallPercent / this.goals.length),
       display: overallDisplay.join('\r\n'),

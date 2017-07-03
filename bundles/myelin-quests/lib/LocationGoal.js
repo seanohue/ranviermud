@@ -45,6 +45,11 @@ class LocationGoal extends QuestGoal {
     return { percent, display };
   }
 
+  complete() {
+    this.emit('progress', this.getProgress())
+    this.quest.emit('progress', this.getProgress())
+  }
+
 }
 
 module.exports = LocationGoal;

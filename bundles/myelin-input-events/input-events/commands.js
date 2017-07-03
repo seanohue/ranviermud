@@ -34,9 +34,9 @@ module.exports = (src) => {
               if (requiredRole > player.role) {
                 throw new RestrictedCommandError();
               }
-              if (result.originalCommand === 'move') {
-                //FIXME: This seems off....
-                return Broadcast.sayAt(player, 'You are stunned and cannot move.');
+              if (result.originalCommand === 'move' && player.hasEffectType('stun')) {
+                Broadcast.sayAt(player, 'You are stunned and cannot move.');
+                break;
               }
               // commands have no lag and are not queued, just immediately execute them
               result.command.execute(result.args, player, result.originalCommand);
