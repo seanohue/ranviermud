@@ -19,7 +19,7 @@ module.exports = (srcPath) => {
         autoComplete: true,
         reward(quest, player) {
           player.emit('experience', LevelUtil.mobExp(quest.config.level) * 5);
-          say(player, '<b>The chill begins to leave your bones and your mind feels less foggy. Continuing exploring to find out more about where you\'ve found yourself, and to find a way out of these strange chambers.<b>');
+          say(player, '<b>The chill begins to leave your bones and your mind feels less foggy. Continuing exploring to learn more about this place, and to find a way out of these strange chambers.<b>');
           say(player, `<b><cyan>Hint: To move around the game type any of the exit names listed in <white>[Exits: ...]</white> when you use the '<white>look</white>' command.</cyan>`, 80);
         }
       },

@@ -6,6 +6,13 @@ module.exports = (srcPath) => {
   let lastEventEmitted = Date.now() - (60 * 1000);
   return {
     listeners: {
+      playerEnter: state => function (player) {
+        const quest = state.QuestFactory.create(state, 'spire.intro:1', player);
+        if (player.questTracker.canStart(quest)) {
+          player.questTracker.start(quest);
+        }
+      },
+
       updateTick: state => function () {
         if (!this.players.size) {
           return;
