@@ -26,7 +26,7 @@ class LocationGoal extends QuestGoal {
 
   _checkRoom(player, nextRoom) {
     if (this._isCorrectRoom(nextRoom) && this.config.predicate()) {
-      return this.complete();
+      this.emit('progress', this.getProgress())
     }
   }
 
@@ -41,11 +41,6 @@ class LocationGoal extends QuestGoal {
     const display = `${this.config.title}: [Get to ${this.config.roomTitle}${this.config.predicateDesc}]`;
     return { percent, display };
   }
-
-  complete() {
-    this.emit('progress', this.getProgress())
-  }
-
 }
 
 module.exports = LocationGoal;
