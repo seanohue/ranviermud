@@ -34,7 +34,8 @@ module.exports = (src) => {
               if (requiredRole > player.role) {
                 throw new RestrictedCommandError();
               }
-              if (result.originalCommand === 'move' && player.hasEffectType('stun')) {
+              const isMove = result.command.usage.includes('move') || result.originalCommand === 'move';
+              if (isMove && player.hasEffectType('stun')) {
                 Broadcast.sayAt(player, 'You are stunned and cannot move.');
                 break;
               }
