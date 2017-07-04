@@ -32,7 +32,7 @@ module.exports = (srcPath) => {
     },
     2: {
       config: {
-        title: "Through the Airlock.",
+        title: "Through the Airlock",
         level: 2,
         desc: `Some of the automatons have malfunctioned, destroying one airlock and stealing the key to the remaining exit. Destroy them in turn, and retrieve the key.`,
         autoComplete: true,
