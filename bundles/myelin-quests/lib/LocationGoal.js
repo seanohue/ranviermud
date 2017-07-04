@@ -25,7 +25,6 @@ class LocationGoal extends QuestGoal {
   }
 
   _checkRoom(player, nextRoom) {
-    console.log('met predicate? ', this.config.predicate());
     if (this._isCorrectRoom(nextRoom) && this.config.predicate()) {
       return this.complete();
     }
@@ -33,8 +32,6 @@ class LocationGoal extends QuestGoal {
 
   _isCorrectRoom(nextRoom) {
     const room = nextRoom || this.player.room;
-    console.log('checking ', room.entityReference, 'against', this.config.location)
-    console.log('is correct? ', room.entityReference === this.config.location);
     return room.entityReference === this.config.location;
   }
 
