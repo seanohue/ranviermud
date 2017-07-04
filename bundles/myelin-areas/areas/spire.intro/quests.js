@@ -21,6 +21,9 @@ module.exports = (srcPath) => {
           player.emit('experience', LevelUtil.mobExp(quest.config.level) * 5);
           say(player, '<b>The chill begins to leave your bones and your mind feels less foggy. Continuing exploring to learn more about this place, and to find a way out of these strange chambers.<b>');
           say(player, `<b><cyan>Hint: To move around the game type any of the exit names listed in <white>[Exits: ...]</white> when you use the '<white>look</white>' command.</cyan>`, 80);
+          setTimeout(() =>
+            say(player, `<b><cyan>Hint: To look in a container, type <white>look desk</white>. To get an item from the container, type <white>get [thing] desk</white></cyan>`, 80)
+          , 2500);
         }
       },
       goals: [
@@ -53,5 +56,24 @@ module.exports = (srcPath) => {
         }
       ]
     },
+    3: {
+      config: {
+        title: "A Sinister Beginning",
+        level: 2,
+        desc: `Check the surrounding area to find out more about this strange, sterilized place, and your life before the long sleep you just awoke from.`,
+        autoComplete: true,
+        reward(quest, player) {
+          player.emit('experience', LevelUtil.mobExp(quest.config.level) * 5);
+          say(player, `<b><cyan>Hint: You can use the '<white>tnl</white>' or '<white>level</white>' commands to see how much experience you need to reach the next level.</cyan>`, 80);
+          say(player);
+        }
+      }, 
+      goals: [
+        {
+          type: FetchGoal,
+          config: { title: 'Find More About This Place', count: 1, item: "spire.intro:23" }
+        }
+      ]
+    }
   };
 };

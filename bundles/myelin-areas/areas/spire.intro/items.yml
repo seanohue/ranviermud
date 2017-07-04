@@ -370,3 +370,9 @@
   roomDesc: "Airlock Key"
   description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
   keywords: ["key", "airlock"]
+
+- id: 23
+  name: "Experimental Report 64572001"
+  roomDesc: "Experimental Report"
+  description: "//TODO"
+  keywords: ["exper", "exp", "experiment", "experimental", "report", "rep"]
