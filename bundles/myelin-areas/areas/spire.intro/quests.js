@@ -3,7 +3,7 @@
 const FetchGoal = require('../../../ranvier-quests/lib/FetchGoal');
 const EquipGoal = require('../../../ranvier-quests/lib/EquipGoal');
 const KillGoal = require('../../../ranvier-quests/lib/KillGoal');
-const LocationGoal = require('../../../myelin-quests/lib/LocationGoal');  
+const LocationGoal = require('../../../myelin-quests/lib/LocationGoal');
 
 module.exports = (srcPath) => {
   const LevelUtil = require(srcPath + 'LevelUtil');
