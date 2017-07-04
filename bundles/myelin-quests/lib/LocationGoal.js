@@ -44,7 +44,6 @@ class LocationGoal extends QuestGoal {
 
   complete() {
     this.emit('progress', this.getProgress())
-    this.quest.emit('progress', this.getProgress())
   }
 
 }
