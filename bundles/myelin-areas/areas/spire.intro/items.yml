@@ -376,3 +376,9 @@
   roomDesc: "Experimental Report"
   description: "//TODO"
   keywords: ["exper", "exp", "experiment", "experimental", "report", "rep"]
+  behaviors:
+    readable:
+      divName: "section"
+      content:
+        a: "Section A blah bla"
+        b: "Section B blau blau"

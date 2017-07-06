@@ -25,7 +25,7 @@
     - id: 'spire.intro:1'
       maxLoad: 2
       respawnChance: 75
-  items: ['spire.intro:21']
+  items: ['spire.intro:21', 'spire.intro:23']
   script: '3-deck'
   exits:
     - roomId: 'spire.intro:2'
