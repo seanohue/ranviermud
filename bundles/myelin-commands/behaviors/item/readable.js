@@ -63,7 +63,7 @@ module.exports = srcPath => {
 
   function renderContent(divToRead, divName, divTargetName, player) {
     Broadcast.sayAt(player, `<white><b>${this.name}:</white></b>`);
-    Broadcast.sayAt(player, Broadcast.center(40, `${divName} ${divTargetName}`, 'bold'));
+    Broadcast.sayAt(player, Broadcast.center(40, `${divName.toUpperCase()} ${divTargetName.toUpperCase()}`, 'bold'));
     Broadcast.sayAt(player, divToRead);
   }
 };
