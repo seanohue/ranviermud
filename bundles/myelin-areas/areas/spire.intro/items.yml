@@ -380,6 +380,6 @@
     readable:
       divName: "section"
       content:
-        a: "<b>Dated 08-22-09:</b>\nWe have found that the most recent specimen are better preserved in temperatures well below freezing.\nAfter the cadavers have reached these temperatures, the eidolon are far more equipped to communicate with them freely.\nThis includes both the presence of brain waves, as perceived previously under higher temperatures but otherwise similar experimental circumstances, and also the presence of limited speech and movement of extremities."
-        b: "<b>Dated 11-03-09:</b>\nAfter increasing the amount of recursive psionic power (RPP), we have found that specimen who have had this force applied to their tissues for at least 5 days will exhibit symptoms of complete autonomy upon being thawed.\nFull speech.\nFull limb and digital dexterity.\nUnfortunately, most subjects seem bewildered;\noverburdened by an overencumbrance of memories from both their former meat-self and their former spirit-self, as returned to a body."
-        c: "<b>Dated 2-16-10:</b>\nI am one of such specimen.\n____ you all."
+        a: "This section covers many technical details around the storage of 'vessels'. Much of it centers around storing them at freezing temperatures to 'prevent rot' until the 'vessels' are ready to be filled."
+        b: "This section details how to prepare a 'vessel' for 'the process of filling', including schematics for an automaton that would aide in the process. It seems to involve unfreezing the 'vessel' in a chemical bath before running a gentle electrical current through it."
+        c: "This section consists of handwritten logs, likely from a researcher. Oddly enough, it is only half-filled and ends abruptly."
