@@ -374,11 +374,12 @@
 - id: 23
   name: "Experimental Report 64572001"
   roomDesc: "Experimental Report"
-  description: "//TODO"
+  description: "A tightly bound book of three reports on various graduate-level experiments.\n\nThey expound on cross-species experimentalism, which shows a tolerance of crosshumanism, including religious exceptionalism: "
   keywords: ["exper", "exp", "experiment", "experimental", "report", "rep"]
   behaviors:
     readable:
       divName: "section"
       content:
         a: "<b>Dated 08-22-09:</b>\nWe have found that the most recent specimen are better preserved in temperatures well below freezing.\nAfter the cadavers have reached these temperatures, the eidolon are far more equipped to communicate with them freely.\nThis includes both the presence of brain waves, as perceived previously under higher temperatures but otherwise similar experimental circumstances, and also the presence of limited speech and movement of extremities."
-        b: "<b>Dated 11-03-09:</b>\nAfter increasing the amount of recursive psionic power (RPP), we have found that specimen who have had this force applied to their tissues for at least 5 days will exhibit symptoms of complete autonomy upon being thawed.\nFull speech.\nFull limb and digital dexterity.\nUnfortunately, most subjects seem bewildered; overburdened by an overencumbrance of memories from both their former meat-self and their former spirit-self, as returned to a body."
+        b: "<b>Dated 11-03-09:</b>\nAfter increasing the amount of recursive psionic power (RPP), we have found that specimen who have had this force applied to their tissues for at least 5 days will exhibit symptoms of complete autonomy upon being thawed.\nFull speech.\nFull limb and digital dexterity.\nUnfortunately, most subjects seem bewildered;\noverburdened by an overencumbrance of memories from both their former meat-self and their former spirit-self, as returned to a body."
+        c: "<b>Dated 2-16-10:</b>\nI am one of such specimen.\nFuck you all."
