@@ -372,14 +372,15 @@
   keywords: ["key", "airlock"]
 
 - id: 23
-  name: "Experimental Report 64572001"
-  roomDesc: "Experimental Report"
+  name: "Report: On The Containment of Vessels"
+  roomDesc: "A small, tightly bound report titled 'On the Containment of Vessels'"
   description: "A tightly bound book of three reports on various graduate-level experiments.\n\nThey expound on cross-species experimentalism, which shows a tolerance of crosshumanism, including religious exceptionalism: "
-  keywords: ["exper", "exp", "experiment", "experimental", "report", "rep"]
+  keywords: ["vessels", "containment", "exper", "experiment", "experimental", "report", "rep"]
   behaviors:
     readable:
       divName: "section"
       content:
         a: "This section covers many technical details around the storage of 'vessels'. Much of it centers around storing them at freezing temperatures to 'prevent rot' until the 'vessels' are ready to be filled."
         b: "This section details how to prepare a 'vessel' for 'the process of filling', including schematics for an automaton that would aide in the process. It seems to involve unfreezing the 'vessel' in a chemical bath before running a gentle electrical current through it."
-        c: "This section consists of handwritten logs, likely from a researcher. Oddly enough, it is only half-filled and ends abruptly."
+        c: "This section consists of handwritten logs, likely from a researcher. Oddly enough, it is only half-filled and ends abruptly. The last log recorded details how some of the 'filled vessels' seem to 'have both retained memories and gained abilities beyond what should be possible'."
+        d: "There are a handful of pages that seem to have been ripped out, and the rest of the space for handwritten logs is left blank."
