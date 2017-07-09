@@ -1,114 +1,114 @@
-- id: 1
+- id: tomb
   title: A Frosted Tomb
   description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders. There is only one way out.'
   exits:
-    - roomId: 'spire.intro:2'
+    - roomId: 'spire.intro:pipes'
       direction: south
-  items: ['spire.intro:18', 'spire.intro:19']
+  items: ['spire.intro:cylinders', 'spire.intro:masstubes']
   script: '1-tomb'
 
-- id: 2
+- id: pipes
   title: Pipe Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls. In one direction is a dark, cold alcove. In the opposite direction is a small door flooded with light.'
-  items: ['spire.intro:20']
+  items: ['spire.intro:columntubes']
   exits:
-    - roomId: 'spire.intro:1'
+    - roomId: 'spire.intro:tomb'
       direction: north
-    - roomId: 'spire.intro:3'
+    - roomId: 'spire.intro:deck'
       direction: south
       leaveMessage: ' steps into the light and disappears.'
 
-- id: 3
+- id: deck
   title: Observation Deck
   description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room from the south. To the north is a dark chamber. To the south is a clear wall of thick glass. Beyond, you see four glowing crystals. To the east and west are heavy metal doors.'
   npcs:
-    - id: 'spire.intro:1'
+    - id: 'spire.intro:tinyauto'
       maxLoad: 2
       respawnChance: 75
-  items: ['spire.intro:21', 'spire.intro:23']
+  items: ['spire.intro:slatebench', 'spire.intro:vesselsreport']
   script: '3-deck'
   exits:
-    - roomId: 'spire.intro:2'
+    - roomId: 'spire.intro:pipes'
       direction: north
       leaveMessage: ' steps into the dark chamber and disappears.'
-    - roomId: 'spire.intro:4'
+    - roomId: 'spire.intro:halleast'
       direction: east
       leaveMessage: ' leaves through the metal door to the east.'
-    - roomId: 'spire.intro:5'
+    - roomId: 'spire.intro:hallwest'
       direction: west
       leaveMessage: ' leaves through the metal door to the west.'
   behaviors:
     commands: ['sit', 'stand']
 
-- id: 4
+- id: halleast
   title: Cold Hallway (East)
   description: A short hallway, cold enough to see one's breath. To the east, the hallway disappears around a gradual curve. To the west is a metal door.
   npcs:
-    - id: 'spire.intro:1'
+    - id: 'spire.intro:tinyauto'
       maxLoad: 1
       respawnChance: 25
   exits:
-    - roomId: 'spire.intro:3'
+    - roomId: 'spire.intro:deck'
       direction: west
       leaveMessage: ' leaves through the metal door to the west.'
-    - roomId: 'spire.intro:6'
+    - roomId: 'spire.intro:bendeast'
       direction: north
       leaveMessage: ' disappears around the bend to the north.'
 
-- id: 5
+- id: hallwest
   title: Cold Hallway (West)
   description: A short hallway, cold enough to see one\'s breath. To the east, the hallway disappears around a gradual curve. To the west is a metal door.
   npcs:
-    - id: 'spire.intro:1'
+    - id: 'spire.intro:tinyauto'
       maxLoad: 1
       respawnChance: 25
   exits:
-    - roomId: 'spire.intro:3'
+    - roomId: 'spire.intro:deck'
       direction: east
       leaveMessage: ' leaves through the metal door to the east.'
-    - roomId: 'spire.intro:7'
+    - roomId: 'spire.intro:bendwest'
       direction: north
       leaveMessage: ' disappears around the bend to the north.'
 
-- id: 6
+- id: bendeast
   title: Cold Hallway Bend (East)
   description: A gradual curve at the end of an otherwise short hallway, leading to another metal door. There is a chill in the air here.
   npcs:
-    - id: 'spire.intro:1'
+    - id: 'spire.intro:tinyauto'
       maxLoad: 1
       respawnChance: 25
   exits:
-    - roomId: 'spire.intro:4'
+    - roomId: 'spire.intro:halleast'
       direction: south
       leaveMessage: ' disappears around the bend to the south.'
-    - roomId: 'spire.intro:8'
+    - roomId: 'spire.intro:airlockeast'
       direction: north
       leaveMessage: ' disappears through the vault door to the north.'
 
-- id: 7
+- id: bendwest
   title: Cold Hallway Bend (West)
   description: A gradual curve at the end of an otherwise short hallway, leading to another metal door. There is a chill in the air here.
   npcs:
-    - id: 'spire.intro:1'
+    - id: 'spire.intro:tinyauto'
       maxLoad: 1
       respawnChance: 25
-    - id: 'spire.intro:2'
+    - id: 'spire.intro:malfunctionauto'
       maxLoad: 1
-      respawnChance: 20
+      respawnChance: 30
   exits:
-    - roomId: 'spire.intro:5'
+    - roomId: 'spire.intro:hallwest'
       direction: south
       leaveMessage: ' disappears around the bend to the south.'
 
-- id: 8
+- id: airlockeast
   title: Airlock (East)
   description: A small room with metal vault doors to the south and north. Aside from that, this nearly-perfect cube is featureless.
   npcs:
-    - id: 'spire.intro:3'
+    - id: 'spire.intro:leglessauto'
       maxLoad: 1
       respawnChance: 100
   exits:
-    - roomId: 'spire.intro:6'
+    - roomId: 'spire.intro:bendeast'
       direction: south
       leaveMessage: ' disappears through the vault door to the south.'
 

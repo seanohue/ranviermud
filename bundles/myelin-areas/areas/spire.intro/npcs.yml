@@ -1,4 +1,4 @@
-- id: 1
+- id: tinyauto
   keywords: ['tiny', 'auto', 'automaton', 'steam']
   name: A Tiny Steam Automaton
   level: 2
@@ -12,7 +12,7 @@
     willpower: 10
     might: 5
     intellect: 5
-- id: 2
+- id: malfunctionauto
   name: A Malfunctioning Steam Automaton
   keywords: ['broken', 'malfunctioning', 'automaton', 'auto', 'steam']
   level: 3
@@ -29,7 +29,7 @@
     might: 6
     intellect: 4
 
-- id: 3
+- id: leglessauto
   name: A Legless Voicebox Automaton
   keywords: ['voicebox', 'automaton', 'auto']
   level: 11

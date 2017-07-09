@@ -6,7 +6,12 @@ attributes:
   intellect: 8
   might: 7
   willpower: 9
-equipment: ['spire.intro:9', 'spire.intro:10', 'spire.intro:11']
+equipment:
+  - 'spire.intro:shank'
+  - 'spire.intro:vest'
+  - 'spire.intro:trousers'
+  - 'spire.intro:sandals'
+  - 'spire.intro:knapsack'
 skills: [ 'lunge' ]
 abilityPoints: 1
 tier: 0

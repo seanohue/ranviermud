@@ -1,5 +1,5 @@
 # Starting gear for Penitent Ascetic:
-- id: 1
+- id: frock
   name: "Canvas Frock"
   type: ARMOR
   roomDesc: "Canvas Frock"
@@ -18,7 +18,7 @@
       value: 2
       currency: gold
 
-- id: 2
+- id: toque
   name: "Red Toque"
   type: ARMOR
   roomDesc: "Red Toque"
@@ -37,7 +37,7 @@
       value: 1
       currency: gold
 
-- id: 3
+- id: stick
   name: "Gnarled Walking Stick"
   type: WEAPON
   roomDesc: "Gnarled Walking Stick"
@@ -64,7 +64,7 @@
       currency: gold
 
 # Both the Acrid Mendicant and the Penitent Ascetic have this.
-- id: 4
+- id: loincloth
   name: "Loincloth"
   type: ARMOR
   roomDesc: "Loincloth"
@@ -83,7 +83,7 @@
       currency: gold
 
 # Acrid Mendicant Starters
-- id: 5
+- id: robe
   name: "Ragged Robe"
   type: ARMOR
   roomDesc: "Ragged Robe"
@@ -100,7 +100,7 @@
       value: 1
       currency: gold
 
-- id: 6
+- id: alms
   name: "Alms Pouch"
   type: CONTAINER
   roomDesc: "Alms Pouch"
@@ -119,7 +119,7 @@
       value: 2
       currency: gold
 
-- id: 7
+- id: sandals
   name: "Worn Sandals"
   type: ARMOR
   roomDesc: "Worn Sandals"
@@ -135,7 +135,7 @@
       value: 1
       currency: gold
 
-- id: 8
+- id: dusters
   name: "Knuckle Dusters"
   type: WEAPON
   roomDesc: "Knuckle Dusters"
@@ -157,7 +157,7 @@
       currency: gold
 
 # Furtive Urchin starting gear
-- id: 9
+- id: shank
   name: "Rusty Shank"
   type: WEAPON
   roomDesc: "Rusty Shank"
@@ -183,7 +183,7 @@
       value: 2
       currency: gold
 
-- id: 10
+- id: vest
   name: "Ragged Vest"
   type: ARMOR
   roomDesc: "Ragged Vest"
@@ -200,7 +200,7 @@
       value: 1
       currency: gold
 
-- id: 11
+- id: trousers
   name: "Ragged Trousers"
   type: ARMOR
   roomDesc: "Ragged Trousers"
@@ -218,7 +218,7 @@
       currency: gold
 
 # Rugged Tough starting equipment
-- id: 12
+- id: jerkin
   name: "Leather Jerkin"
   type: ARMOR
   roomDesc: "Leather Jerkin"
@@ -235,7 +235,7 @@
       value: 9
       currency: gold
 
-- id: 13
+- id: slacks
   name: "Plain Slacks"
   type: ARMOR
   roomDesc: "Plain Slacks"
@@ -252,7 +252,7 @@
       value: 2
       currency: gold
 
-- id: 14
+- id: boots
   name: "Low Leather Boots"
   type: ARMOR
   roomDesc: "Low Leather Boots"
@@ -269,7 +269,7 @@
       value: 3
       currency: gold
 
-- id: 15
+- id: blackjack
   name: "Worn Leather Blackjack"
   type: WEAPON
   roomDesc: "Worn Leather Blackjack"
@@ -293,7 +293,7 @@
       value: 5
       currency: gold
 
-- id: 16
+- id: knapsack
   name: "Ragged Canvas Knapsack"
   type: CONTAINER
   roomDesc: "Ragged Canvas Knapsack"
@@ -312,7 +312,7 @@
       currency: gold
 
 # Test Subject starter
-- id: 17
+- id: aetherrobe
   name: "Simple Aethersilk Robe"
   type: ARMOR
   roomDesc: "Simple Aethersilk Robe"
@@ -333,7 +333,7 @@
       currency: gold
 
 # Scenery
-- id: 18
+- id: cylinders
   name: "A Row of Frosted Cylinders"
   roomDesc: "A row of frosted cylinders embedded in the wall"
   properties:
@@ -341,7 +341,7 @@
   keywords: [ "cylinder", "coffin", "frosted", "row" ]
   description: "Upon closer inspection, the cylinders are made of thick glass. Some of them are slightly cracked, and a thin vapor is emerging. Others are too frosted over to see within. In one, you see a dim silhouette."
 
-- id: 19
+- id: masstubes
   name: "A Snakelike Mass of Tubes"
   roomDesc: "A mass of tubes snaking to each of the cylinders"
   properties:
@@ -349,7 +349,7 @@
   keywords: [ "tube", "tubes", "snakelike", "mass"  ]
   description: "The tubes are running from the alcove's entrance, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."
 
-- id: 20
+- id: columntubes
   name: "A Central Column of Tubes"
   roomDesc: "Thousands of tubes form a central column in this chamber"
   properties:
@@ -357,7 +357,7 @@
   keywords: [ "tube, tubes", "column", "central" ]
   description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the chilled alcove to the north."
 
-- id: 21
+- id: slatebench
   name: "A Semicircular Slate Bench"
   roomDesc: "A semicircular slate bench is built into the ground in the center of this room"
   description: "This bench is the same color and material as the floor, walls, and ceiling. It arcs towards the door to the north, allowing people to sit and observe what happens beyond the panes of glass. It looks uncomfortable to <b>sit</b> on."
@@ -365,13 +365,13 @@
     noPickup: true
   keywords: ["bench", "slate", "circular", "seat", "semi"]
 
-- id: 22
+- id: airlockkey
   name: "Airlock Key"
   roomDesc: "Airlock Key"
   description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
   keywords: ["key", "airlock"]
 
-- id: 23
+- id: vesselsreport
   name: "Report: On The Containment of Vessels"
   roomDesc: "A small, tightly bound report titled 'On the Containment of Vessels'"
   description: "A tightly bound book of three reports on various graduate-level experiments.\n\nThey expound on cross-species experimentalism, which shows a tolerance of crosshumanism, including religious exceptionalism: "
