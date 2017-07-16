@@ -58,6 +58,9 @@ class BundleManager {
     this.state.AreaManager.distribute(this.state);
 
     this.state.RoomManager.startingRoom = this.state.RoomManager.getRoom(this.state.Config.get('startingRoom'));
+    if (!this.state.RoomManager.startingRoom) {
+      throw new Error('You must define a valid starting room in ranvier.json.');
+    }
     Logger.verbose(`CONFIG: Starting Room [${this.state.RoomManager.startingRoom.entityReference}]`);
   }
 
@@ -141,7 +144,7 @@ class BundleManager {
    * @param {string} areaPath
    */
   loadArea(bundle, areaName, areaPath) {
-    var paths = {
+    const paths = {
       manifest: areaPath + '/manifest.yml',
       rooms: areaPath + '/rooms.yml',
       items: areaPath + '/items.yml',
@@ -151,7 +154,7 @@ class BundleManager {
 
     const manifest = Data.parseFile(paths.manifest);
 
-    let area = new Area(bundle, areaName, manifest);
+    const area = new Area(bundle, areaName, manifest);
 
     // load quests
     // Quests have to be loaded first so items/rooms/npcs that are questors have the quest defs available
@@ -337,7 +340,7 @@ class BundleManager {
 
     for (const commandFile of files) {
       const commandPath = commandsDir + commandFile;
-      if (!fs.statSync(commandPath).isFile() || !commandFile.match(/js$/)) {
+      if (!Data.isScriptFile(commandPath, commandFile)) {
         continue;
       }
 
@@ -426,7 +429,7 @@ class BundleManager {
 
     for (const eventFile of files) {
       const eventPath = inputEventsDir + eventFile;
-      if (!fs.statSync(eventPath).isFile() || !eventFile.match(/js$/)) {
+      if (!Data.isScriptFile(eventPath, eventFile)) {
         continue;
       }
 
@@ -458,7 +461,7 @@ class BundleManager {
 
       for (const behaviorFile of files) {
         const behaviorPath = typeDir + behaviorFile;
-        if (!fs.statSync(behaviorPath).isFile() || !behaviorFile.match(/js$/)) {
+        if (!Data.isScriptFile(behaviorPath, behaviorFile)) {
           continue;
         }
 
@@ -493,7 +496,7 @@ class BundleManager {
 
     for (const effectFile of files) {
       const effectPath = effectsDir + effectFile;
-      if (!fs.statSync(effectPath).isFile() || !effectFile.match(/js$/)) {
+      if (!Data.isScriptFile(effectPath, effectFile)) {
         continue;
       }
 
@@ -517,7 +520,7 @@ class BundleManager {
 
     for (const skillFile of files) {
       const skillPath = skillsDir + skillFile;
-      if (!fs.statSync(skillPath).isFile() || !skillFile.match(/js$/)) {
+      if (!Data.isScriptFile(skillPath, skillFile)) {
         continue;
       }
 
@@ -548,7 +551,7 @@ class BundleManager {
 
     for (const classFile of files) {
       const classPath = classesDir + classFile;
-      if (!fs.statSync(classPath).isFile() || !classFile.match(/js$/)) {
+      if (!Data.isScriptFile(classPath, classFile)) {
         continue;
       }
 
