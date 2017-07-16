@@ -18,9 +18,11 @@ Mutations:
    Heavy physical damage to that area may impede usage of the mutation.
    Ex: leatherskin, extra arm, feathering, mutated legs for +speed/+jumping
 */
-module.exports = {
-  SKILL:    Symbol("SKILL"),
-  FEAT:     Symbol("FEAT"),
+
+const SkillType = {
+  SKILL: Symbol("SKILL"),
+  SPELL: Symbol("SPELL"),
   MUTATION: Symbol("MUTATION")
 };
 
+module.exports = SkillType;

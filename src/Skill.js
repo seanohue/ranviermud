@@ -34,7 +34,7 @@ class Skill {
       initiatesCombat = false,
       name,
       requiresTarget = true,
-      resource = { attribute: 'energy', cost: 0 },
+      resource = null, /* format [{ attribute: 'someattribute', cost: 10}] */
       run = _ => {},
       targetSelf = false,
       type = SkillType.SKILL,
@@ -229,6 +229,10 @@ class Skill {
     return "skill:" + this.id;
   }
 
+  /**
+   * @param {Character} character
+   * @return {boolean}
+   */
   hasEnoughResources(character) {
     if (Array.isArray(this.resource)) {
       return this.resource.every((resource) => this.hasEnoughResource(character, resource));
@@ -236,6 +240,11 @@ class Skill {
     return this.hasEnoughResource(character, this.resource);
   }
 
+  /**
+   * @param {Character} character
+   * @param {{ attribute: string, cost: number}} resource
+   * @return {boolean}
+   */
   hasEnoughResource(character, resource) {
     return !resource.cost || (
       character.hasAttribute(resource.attribute) &&

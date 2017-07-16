@@ -3,6 +3,7 @@
 /**
  * Maintaining list of classes in the game
  * @see PlayerClass
+ * @extends Map
  */
 class ClassManager extends Map {
   /*

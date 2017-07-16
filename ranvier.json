@@ -21,6 +21,7 @@
     "myelin-classes",
     "ranvier-quests",
     "ranvier-vendors",
+    "ranvier-npc-behaviors",
     "debug-commands"
   ],
   "maxAccountNameLength": 20,
@@ -29,7 +30,7 @@
   "minPlayerNameLength": 3,
   "maxCharacters": 3,
   "allowMultiplay": false,
-  "startingRoom": "spire.intro:1",
+  "startingRoom": "spire.intro:tomb",
   "moveCommand": "move",
   "skillLag": 2000,
   "defaultMaxPlayerInventory": 16

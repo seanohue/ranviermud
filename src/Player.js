@@ -19,6 +19,7 @@ const PlayerRoles = require('./PlayerRoles');
  * @property {QuestTracker} questTracker
  * @property {Map<string,function ()>} extraPrompts Extra prompts to render after the default prompt
  * @property {{completed: Array, active: Array}} questData
+ * @extends Character
  */
 class Player extends Character {
   constructor(data) {
@@ -146,6 +147,14 @@ class Player extends Character {
    */
   removePrompt(id) {
     this.extraPrompts.delete(id);
+  }
+
+  /**
+   * @param {string} id
+   * @return {boolean}
+   */
+  hasPrompt(id) {
+    return this.extraPrompts.has(id);
   }
 
   /**

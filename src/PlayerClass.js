@@ -20,12 +20,10 @@ class PlayerClass {
   }
 
   /**
-<<<<<<< HEAD
-   * Table of abilityName: prerequisites.
-=======
    * Override this method in your class to do initial setup of the player. This
    * includes things like adding the resource attribute to the player or anything
    * else that should be done when the player is initially given this class
+   * @param {Player} player
    */
   setupPlayer(player) {
     if (typeof this.config.setupPlayer === 'function') {
@@ -34,15 +32,14 @@ class PlayerClass {
   }
 
   /**
-   * Table of level: abilities learned.
->>>>>>> staging
+   * Table of abilityName: prerequisites.
    * Example:
    *   lunge: {
    *      level:     4,
    *      quickness:  12,
    *      might: 12
    *    },
-   * @return {Object<string, Object<string, number>>}
+   * @type {Object<string, Object<string, number>>}
    */
   get abilityTable() {
     return this.config.abilityTable;
@@ -96,10 +93,11 @@ class PlayerClass {
     });
   }
 
-  /** Does the ability even exist?
-   * @param {String} id
-   * @return {Boolean} exists
-  */
+  /**
+   * Check to see if this class has a given ability
+   * @param {string} id
+   * @return {boolean}
+   */
   hasAbility(id) {
     return this.abilityList.includes(id);
   }
