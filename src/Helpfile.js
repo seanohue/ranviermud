@@ -43,6 +43,9 @@ class Helpfile {
     return [];
   }
 
+
+  //FIXME: Use the above two methods in the `help` command where the rendering is happening now.
+  // The method below is now deprecated.
   /**
    * TODO: Not sure this should be so opinionated, don't know where to move it yet
    * @param {GameState} state

@@ -12,7 +12,8 @@ module.exports = (srcPath) => {
     event: state => (socket, { playerName, desc, attributes, account, equipment, skills, background, attributePoints, abilityPoints }) => {
       let player = new Player({
         name: playerName,
-        account
+        account,
+        //FIXME: Add default attributes here
       });
 
       const room = state.RoomManager.startingRoom;

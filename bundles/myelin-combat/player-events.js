@@ -2,23 +2,31 @@
 const leftPad = require('left-pad');
 
 const Combat = require('./lib/Combat');
+const CombatErrors = require('./lib/CombatErrors');
+const LevelUtil = require('../ranvier-lib/lib/LevelUtil');
 
 /**
  * Auto combat module
  */
 module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
-  const LevelUtil = require(srcPath + 'LevelUtil');
-  const Damage = require(srcPath + 'Damage');
-  const Logger = require(srcPath + 'Logger');
-  const Item = require(srcPath + 'Item');
 
   return  {
     listeners: {
       updateTick: state => function () {
         Combat.startRegeneration(state, this);
 
-        const hadActions = Combat.updateRound(state, this);
+        let hadActions = false;
+        try {
+          hadActions = Combat.updateRound(state, this);
+        } catch (e) {
+          if (e instanceof CombatErrors.CombatInvalidTargetError) {
+            B.sayAt(this, "You can't attack that target.");
+          } else {
+            throw e;
+          }
+        }
+
         if (!hadActions) {
           return;
         }
