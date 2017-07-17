@@ -144,6 +144,9 @@ class EffectList {
   evaluateAttribute(attr) {
     this.validateEffects();
 
+    console.log('effects list target:', this.target.name);
+    console.log('attributes of target:', this.target.attributes);
+
     let attrName  = attr.name;
     let attrValue = attr.base || 0;
 

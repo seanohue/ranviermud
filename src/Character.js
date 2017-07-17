@@ -74,6 +74,7 @@ class Character extends EventEmitter
    * @return {number}
    */
   getMaxAttribute(attr) {
+    console.log('Attempting evaluation of: ', attr);
     const attribute = this.attributes.get(attr);
     return this.effects.evaluateAttribute(attribute);
   }
@@ -108,6 +109,7 @@ class Character extends EventEmitter
    * @param {string} attr
   */
   setAttributeToMax(attr) {
+    console.log('setting',attr,'to max');
     this.attributes.get(attr).setDelta(0);
   }
 

@@ -14,6 +14,17 @@ const Logger = require('./Logger');
  */
 class Npc extends Character {
   constructor(area, data) {
+
+    data.attributes = Object.assign({
+        intellect: 5,
+        willpower: 5,
+        quickness: 5,
+        might: 5,
+        health: 100,
+        energy: 100,
+        focus: 100,
+        critical: 1
+      }, data.attributes);
     super(data);
     const validate = ['keywords', 'name', 'id'];
 
