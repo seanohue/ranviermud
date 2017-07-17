@@ -1,7 +1,7 @@
 'use strict';
 
 const sprintf = require('sprintf-js').sprintf;
-const Combat = require('../../ranvier-combat/lib/Combat');
+const Combat = require('../../myelin-combat/lib/Combat');
 
 module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');

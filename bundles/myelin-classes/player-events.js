@@ -4,8 +4,8 @@ module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
   const SkillErrors = require(srcPath + 'SkillErrors');
 
-  const Combat = require('../ranvier-combat/lib/Combat');
-  const CombatErrors = require('../ranvier-combat/lib/CombatErrors');
+  const Combat = require('../myelin-combat/lib/Combat');
+  const CombatErrors = require('../myelin-combat/lib/CombatErrors');
   const humanize = (sec) => (require('humanize-duration'))(sec, { round: true });
 
   return  {

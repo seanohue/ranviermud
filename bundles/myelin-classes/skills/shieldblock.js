@@ -1,6 +1,6 @@
 'use strict';
 
-const Combat = require('../../ranvier-combat/lib/Combat');
+const Combat = require('../../myelin-combat/lib/Combat');
 
 /**
  * Damage mitigation skill

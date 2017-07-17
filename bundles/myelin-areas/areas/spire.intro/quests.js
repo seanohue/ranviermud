@@ -6,7 +6,7 @@ const KillGoal = require('../../../ranvier-quests/lib/KillGoal');
 const LocationGoal = require('../../../myelin-quests/lib/LocationGoal');
 
 module.exports = (srcPath) => {
-  const LevelUtil = require(srcPath + 'LevelUtil');
+  const LevelUtil = require('../../../ranvier-lib/lib/LevelUtil');
   const Broadcast = require(srcPath + 'Broadcast');
   const say = Broadcast.sayAt;
 
