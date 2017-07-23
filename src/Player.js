@@ -23,6 +23,21 @@ const PlayerRoles = require('./PlayerRoles');
  */
 class Player extends Character {
   constructor(data) {
+
+    // Set default attributes for Player
+    data.attributes = Object.assign(
+      {},
+      {
+        might:     5,
+        intellect: 5,
+        willpower: 5,
+        quickness: 5,
+        critical:  0,
+        health: 100,
+        energy: 100,
+        focus:  100
+    }, data.attributes);
+
     super(data);
 
     this.account = data.account || null;

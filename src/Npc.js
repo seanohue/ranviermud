@@ -14,7 +14,7 @@ const Logger = require('./Logger');
  */
 class Npc extends Character {
   constructor(area, data) {
-
+    // Set default attributes for NPCs.
     data.attributes = Object.assign({
         intellect: 5,
         willpower: 5,
