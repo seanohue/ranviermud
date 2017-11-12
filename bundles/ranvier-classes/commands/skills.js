@@ -7,73 +7,39 @@ module.exports = srcPath => {
   const Logger = require(srcPath + 'Logger');
 
   return {
-    aliases: ['abilities', 'spells'],
+    aliases: [ 'abilities', 'feats' ],
     command: state => (args, player) => {
       const say = message => B.sayAt(player, message);
-      say("<b>" + B.center(80, 'Abilities', 'green'));
+      say("<b>" + B.center(80, 'Your Abilities', 'green'));
       say("<b>" + B.line(80, '=', 'green'));
-
-      for (const [ level, abilities ] of Object.entries(player.playerClass.abilityTable)) {
-        abilities.skills = abilities.skills || [];
-        abilities.spells = abilities.spells || [];
-
-        if (!abilities.skills.length && !abilities.spells.length) {
-          continue;
+      const ownAbilities = player.playerClass.getOwnAbilitiesForPlayer(player);
+      if (ownAbilities.length > 0) {
+        for (const ability of ownAbilities) {
+          say(B.center(80, `${B.capitalize(ability.trim())}`, "white"));
         }
-
-        say(`\r\n<bold>Level ${level}</bold>`);
-        say(B.line(50));
-
-        let i = 0;
-        if (abilities.skills.length) {
-          say('\r\n<bold>Skills</bold>');
-        }
-
-        for (let skillId of abilities.skills) {
-          let skill = state.SkillManager.get(skillId);
-
-          if (!skill) {
-            Logger.error(`Invalid skill in ability table: ${player.playerClass.name}:${level}:${skillId}`);
-            continue;
-          }
-
-          let name = sprintf("%-20s", skill.name);
-          if (player.level >= level) {
-            name = `<green>${name}</green>`;
-          }
-          B.at(player, name);
-
-          if (++i % 3 === 0) {
-            say();
-          }
-        }
-
-        if (abilities.spells.length) {
-          say('\r\n<bold>Spells</bold>');
-        }
-
-        for (let spellId of abilities.spells) {
-          let spell = state.SpellManager.get(spellId);
-
-          if (!spell) {
-            Logger.error(`Invalid spell in ability table: ${player.playerClass.name}:${level}:${spellId}`);
-            continue;
-          }
-
-          let name = sprintf("%-20s", spell.name);
-          if (player.level >= level) {
-            name = `<green>${name}</green>`;
-          }
-          B.at(player, name);
-
-          if (++i % 3 === 0) {
-            say();
-          }
-        }
-
-        // end with a line break
-        say();
+      } else {
+        say(B.center(80, "None", "white"));
       }
+
+      say(""); // Divide with newline
+
+      const availableAbilities = player.playerClass
+        .getAbilitiesForPlayer(player)
+        .filter(ability => player.playerClass.canPurchaseAbility(player, ability));
+
+      if (availableAbilities.length > 0) {
+        say("<b>" + B.center(80, 'Available Abilities', 'green'));
+        say("<b>" + B.line(80, '=', 'green'));
+        for (const ability of availableAbilities) {
+          const cost = player.playerClass.abilityTable.skills[ability].cost || 1;
+          say(B.center(80, `${B.capitalize(ability.trim())} (cost: ${cost})`, 'white'));
+        }
+      }
+      let abilityPoints = player.getMeta('abilityPoints') || 0;
+
+      say("<b>" + B.line(80, '=', 'green') + "</b>");
+      say("");
+      say(`<b>You have <white>${abilityPoints} points</white> to spent on abilities.`);
     }
   };
 };
