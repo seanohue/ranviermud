@@ -111,9 +111,7 @@ class PlayerClass {
    * @return {boolean}
    */
   canPurchaseAbility(player, abilityId) {
-    const ownAbilities = this.getOwnAbilitiesForPlayer(player);
-    return this.getAbilitiesForPlayer(player)
-               .includes(abilityId) &&
+    return this.canUseAbility(player, abilityId) &&
                !ownAbilities.includes(abilityId);
   }
 
