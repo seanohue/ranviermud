@@ -1,0 +1,8 @@
+---
+command: remove
+body: |
+  Remove equipped item
+related:
+  - equipment
+  - inventory
+  - wear
