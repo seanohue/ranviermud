@@ -50,7 +50,7 @@
     "class": "base"
   },
   "playerClass": "base",
-  "prompt": "[ %health.current%/%health.max% <b>hp</b> %energy.current%/%energy.max% <b>energy</b> %focus.current%/%focus.max% <b>focus</b> ]",
+  "prompt": "[ %health.current%/%health.max% <b>health</b> %focus.current%/%focus.max% <b>focus</b> %energy.current%/%energy.max% <b>energy</b> ]",
   "quests": {
     "completed": [],
     "active": []
