@@ -47,10 +47,10 @@
     "max": 16
   },
   "metadata": {
-    "class": "warrior"
+    "class": "base"
   },
-  "playerClass": "warrior",
-  "prompt": "[ %health.current%/%health.max% <b>hp</b> %energy.current%/%energy.max% <b>energy</b> ]",
+  "playerClass": "base",
+  "prompt": "[ %health.current%/%health.max% <b>hp</b> %energy.current%/%energy.max% <b>energy</b> %focus.current%/%focus.max% <b>focus</b> ]",
   "quests": {
     "completed": [],
     "active": []
