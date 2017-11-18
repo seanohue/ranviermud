@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO: Change to fit Myelin flavor & attributes.
+
 /**
  * Effect applied by Judge skill. Reduces damage done.
  */

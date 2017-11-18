@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
 
   // config placed here just for easy copy/paste of this skill later on
-  const attribute = 'strength';
+  const attribute = 'might';
   const cooldown = 10;
   const cost = 50;
   const duration = 20 * 1000;

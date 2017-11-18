@@ -1,32 +1,36 @@
 {
   "attributes": {
-    "strength": {
+    "might": {
       "delta": 0,
-      "base": 17
+      "base": 20
     },
-    "agility": {
+    "quickness": {
       "delta": 0,
-      "base": 10
+      "base": 20
     },
     "intellect": {
       "delta": 0,
-      "base": 8
+      "base": 20
     },
-    "stamina": {
+    "willpower": {
       "delta": 0,
-      "base": 11
+      "base": 20
     },
     "health": {
       "delta": 0,
-      "base": 154
+      "base": 200
+    },
+    "energy": {
+      "delta": 0,
+      "base": 200
+    },
+    "focus": {
+      "delta": 0,
+      "base": 200
     },
     "armor": {
       "delta": 0,
       "base": 0
-    },
-    "energy": {
-      "delta": 0,
-      "base": 100
     },
     "critical": {
       "delta": 0,

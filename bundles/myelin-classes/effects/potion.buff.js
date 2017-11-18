@@ -12,7 +12,7 @@ module.exports = srcPath => {
     },
     flags: [Flag.BUFF],
     state: {
-      stat: "strength",
+      stat: "might",
       magnitude: 1
     },
     modifiers: {
