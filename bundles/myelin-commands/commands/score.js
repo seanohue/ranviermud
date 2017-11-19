@@ -37,7 +37,7 @@ module.exports = (srcPath) => {
       B.at(p, sprintf(' %-9s: %12s', 'Health', `${stats.health.current}/${stats.health.max}`));
       B.at(p, sprintf(' %-9s: %12s', 'Energy', `${stats.energy.current}/${stats.energy.max}`));
       B.at(p, sprintf(' %-9s: %12s', 'Focus', `${stats.focus.current}/${stats.focus.max}`));
-      
+
       say('<b><green>' + sprintf(
         '%36s',
         'Weapon '
