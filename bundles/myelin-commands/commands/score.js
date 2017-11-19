@@ -9,6 +9,8 @@ module.exports = (srcPath) => {
   return {
     aliases: [ 'stats' ],
     command : (state) => (args, p) => {
+
+      //TODO: Redo to make it less inscrutable.
       const say = message => B.sayAt(p, message);
 
       say('<b>' + B.center(60, `${p.name}, level ${p.level} ${p.playerClass.config.name || 'person'}`, 'green'));
@@ -33,6 +35,9 @@ module.exports = (srcPath) => {
       }
 
       B.at(p, sprintf(' %-9s: %12s', 'Health', `${stats.health.current}/${stats.health.max}`));
+      B.at(p, sprintf(' %-9s: %12s', 'Energy', `${stats.energy.current}/${stats.energy.max}`));
+      B.at(p, sprintf(' %-9s: %12s', 'Focus', `${stats.focus.current}/${stats.focus.max}`));
+      
       say('<b><green>' + sprintf(
         '%36s',
         'Weapon '
@@ -73,13 +78,13 @@ module.exports = (srcPath) => {
         }
       };
 
-      printStat('strength', false); // left
+      printStat('might', false); // left
       say('<b><green>' + sprintf('%36s', 'Gold ')); // right
-      printStat('agility', false); // left
+      printStat('quickness', false); // left
       say(sprintf('%36s', '.' + B.line(12) + '.')); // right
       printStat('intellect', false); // left
       say(sprintf('%22s| <b>%10s</b> |', '', p.getMeta('currencies.gold') || 0)); // right
-      printStat('stamina', false); // left
+      printStat('willpower', false); // left
       say(sprintf('%36s', "'" + B.line(12) + "'")); // right
 
       say(':' + B.line(22) + ':');
