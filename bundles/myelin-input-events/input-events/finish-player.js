@@ -22,12 +22,15 @@ module.exports = (srcPath) => {
         willpower: 10,
         armor: 0,
         critical: 0
-      }, backgrounds[args.background].attributes);
+      }, backgrounds[args.background || "tough"].attributes);
 
       let player = new Player({
         name: args.name,
         account: args.account,
+        attributes
       });
+
+      player.setMeta('background', args.background || "tough");
 
       args.account.addCharacter(args.name);
       args.account.save();

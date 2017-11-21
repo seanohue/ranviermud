@@ -80,8 +80,8 @@ class Player extends Character {
         base: this.getBaseAttribute(attr),
       };
     }
-    const promptData = Object.assign(attributeData, extraData);
 
+    const promptData = Object.assign(attributeData, extraData);
     let matches = null;
     while (matches = promptStr.match(/%([a-z\.]+)%/)) {
       const token = matches[1];

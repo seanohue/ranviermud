@@ -22,8 +22,8 @@ class Account {
     this.username   = data.username;
     this.characters = data.characters || [];
     this.password   = data.password;
-    this.banned = data.banned || false;
-    this.deleted = data.deleted || false;
+    this.banned     = data.banned || false;
+    this.deleted    = data.deleted || false;
     // Arbitrary data bundles are free to shove whatever they want in
     // WARNING: values must be JSON.stringify-able
     this.metadata = data.metadata || {};
