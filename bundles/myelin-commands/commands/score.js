@@ -61,7 +61,7 @@ module.exports = (srcPath) => {
         'Weapon '
       ));
 
-      say(sprintf('%35s', '.' + B.line(22)) + '.');
+      say(sprintf('%59s', '.' + B.line(22)) + '.');
 
       B.at(p, sprintf('%37s', '|'));
       const weaponDamage = Combat.getWeaponDamage(p);
