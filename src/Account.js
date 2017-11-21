@@ -1,6 +1,8 @@
 'use strict';
 const bcrypt = require('bcryptjs');
 const Data   = require('./Data');
+const Metadatable = require('./Metadatable');
+
 
 /**
  * Representation of a player's account
@@ -9,6 +11,7 @@ const Data   = require('./Data');
  * @property {Array<string>} characters List of character names in this account
  * @property {string} password Hashed password
  * @property {boolean} banned Whether this account is banned or not
+ * @mixes Metadatable
  */
 class Account {
 
@@ -142,4 +145,4 @@ class Account {
   }
 }
 
-module.exports = Account;
+module.exports = Metadatable(Account);
