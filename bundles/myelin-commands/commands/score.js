@@ -23,6 +23,8 @@ module.exports = (srcPath) => {
         willpower: 0,
         armor: 0,
         health: 0,
+        energy: 0,
+        focus: 0,
         critical: 0,
       };
 
@@ -33,6 +35,22 @@ module.exports = (srcPath) => {
           max: p.getMaxAttribute(stat) || 0,
         };
       }
+
+      function printStat(stat, newline = true) {
+        const val = stats[stat];
+        const statColor = (val.current > val.base ? 'green' : 'white');
+        const str = sprintf(
+          `| %-9s : <b><${statColor}>%8s</${statColor}></b> |`,
+          stat[0].toUpperCase() + stat.slice(1),
+          val.current
+        );
+
+        if (newline) {
+          say(str);
+        } else {
+          B.at(p, str);
+        }
+      };
 
       B.at(p, sprintf(' %-9s: %12s', 'Health', `${stats.health.current}/${stats.health.max}`));
       B.at(p, sprintf(' %-9s: %12s', 'Energy', `${stats.energy.current}/${stats.energy.max}`));
@@ -60,23 +78,6 @@ module.exports = (srcPath) => {
         ' Stats'
       ) + '</green></b>');
       say('.' + B.line(22) + '.');
-
-
-      const printStat = (stat, newline = true) => {
-        const val = stats[stat];
-        const statColor = (val.current > val.base ? 'green' : 'white');
-        const str = sprintf(
-          `| %-9s : <b><${statColor}>%8s</${statColor}></b> |`,
-          stat[0].toUpperCase() + stat.slice(1),
-          val.current
-        );
-
-        if (newline) {
-          say(str);
-        } else {
-          B.at(p, str);
-        }
-      };
 
       printStat('might', false); // left
       say('<b><green>' + sprintf('%36s', 'Gold ')); // right
