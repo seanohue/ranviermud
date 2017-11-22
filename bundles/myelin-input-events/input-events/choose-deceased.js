@@ -11,6 +11,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
+      throw new Error ('no');
       let account = args.account;
 
       const say = EventUtil.genSay(socket);
@@ -26,9 +27,8 @@ module.exports = (srcPath) => {
       say("------------------------------");
 
       // This just gets their names.
+      const characters = account.characters.filter(currChar => currChar.deleted === false && currChar.metadata.deceased !== true);
       const deceased = account.getMeta('deceased') || [];
-      const deleted = account.getMeta('deleted') || []
-      const characters = account.characters.filter(currChar => !(deceased.includes(currChar) || deleted.includes(currChar)));
 
       const maxCharacters   = Config.get("maxCharacters");
       const canAddCharacter = characters.length < maxCharacters;
