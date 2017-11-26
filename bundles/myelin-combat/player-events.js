@@ -265,9 +265,9 @@ module.exports = (srcPath) => {
 
         // Record as dead.
         this.setMeta('deceased', true);
-        this.account.setMeta('deceased'
-          (this.account.getMeta('deceased') || []).push(this.name)
-        );
+        const deceased = (this.account.getMeta('deceased') || []).concat(this.name);
+
+        this.account.setMeta('deceased', deceased);
 
         // Disconnect player
         player.save(() => {
