@@ -77,7 +77,7 @@ module.exports = (srcPath) => {
       }
 
       if (deceased.length) {
-        options.push({ display: "=+".repeat(8) });
+        options.push({ display: "=+".repeat(14) });
         options.push({
           display: "Pay Respects to The Dead:",
           onSelect: () => {

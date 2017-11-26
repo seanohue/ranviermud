@@ -241,7 +241,7 @@ module.exports = (srcPath) => {
        */
       killed: state => function (killer) {
         const Death = require('./lib/Death')(srcPath);
-
+        const Broadcast = require(srcPath + 'Broadcast');
         this.removePrompt('combat');
 
         const othersDeathMessage = killer
@@ -270,10 +270,10 @@ module.exports = (srcPath) => {
         this.account.setMeta('deceased', deceased);
 
         // Disconnect player
-        player.save(() => {
-          Broadcast.sayAt(player, Death.message());
-          Broadcast.sayAtExcept(player.room, `${player.name}'s soul leaves the body.`, player);
-          player.socket.emit('close');
+        this.save(() => {
+          Broadcast.sayAt(this, `~* <red>* <b>* ${Death.message()} *</b> *</red> *~`);
+          Broadcast.sayAtExcept(this.room, `<red><b>${this.name}'s soul leaves the body.</red></b>`, this);
+          this.socket.emit('close');
         });
       },
 

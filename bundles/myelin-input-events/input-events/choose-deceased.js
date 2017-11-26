@@ -11,7 +11,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      throw new Error ('no');
+      throw new Error ('unimplemented');
       let account = args.account;
 
       const say = EventUtil.genSay(socket);
