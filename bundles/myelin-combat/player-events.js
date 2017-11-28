@@ -265,6 +265,9 @@ module.exports = (srcPath) => {
 
         // Record as dead.
         this.setMeta('deceased', true);
+        this.setMeta('killedBy', killer || null);
+        this.setMeta('killedOn', Date.now());
+
         const deceased = (this.account.getMeta('deceased') || []).concat(this.name);
 
         this.account.setMeta('deceased', deceased);
@@ -283,6 +286,19 @@ module.exports = (srcPath) => {
        */
       deathblow: state => function (target, skipParty) {
         const xp = LevelUtil.mobExp(target.level);
+
+        this.setMeta('kills',
+          (this.getMeta('kills') || 0) + 1
+        );
+
+        const strongest = this.getMeta('strongestKilled') || { level: 0 };
+        if (target.level > strongest.level) {
+          this.setMeta('strongestKilled', {
+            name: target.name,
+            level: target.level
+          });
+        }
+
         if (this.party && !skipParty) {
           // if they're in a party proxy the deathblow to all members of the party in the same room.
           // this will make sure party members get quest credit trigger anything else listening for deathblow
