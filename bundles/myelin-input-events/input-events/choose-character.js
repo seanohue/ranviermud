@@ -28,7 +28,10 @@ module.exports = (srcPath) => {
       // This just gets their names.
       const deceased = account.getMeta('deceased') || [];
       const deleted = account.getMeta('deleted') || []
-      const characters = account.characters.filter(currChar => !(deceased.includes(currChar) || deleted.includes(currChar)));
+      const characters = account.characters.filter(currChar => !(deceased.includes(currChar.username) || currChar.deleted));
+
+      console.log('Account is', account, '\n\n\n\n\n');
+      console.log({deceased, deleted, characters});
 
       const maxCharacters   = Config.get("maxCharacters");
       const canAddCharacter = characters.length < maxCharacters;
@@ -76,16 +79,6 @@ module.exports = (srcPath) => {
         });
       }
 
-      if (deceased.length) {
-        options.push({ display: "=+".repeat(14) });
-        options.push({
-          display: "Pay Respects to The Dead:",
-          onSelect: () => {
-            socket.emit('choose-deceased', socket, { account, deceased });
-          }
-        });
-      }
-
       /*
       If multiplaying is not allowed:
       * Check all PCs on this person's account
@@ -129,6 +122,15 @@ module.exports = (srcPath) => {
       }
 
       options.push({ display: "" });
+
+      if (deceased.length) {
+        options.push({
+          display: "Pay Respects to The Dead",
+          onSelect: () => {
+            socket.emit('choose-deceased', socket, { account, deceased });
+          }
+        });
+      }
 
       if (characters.length) {
         options.push({

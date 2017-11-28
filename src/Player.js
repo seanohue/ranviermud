@@ -171,6 +171,7 @@ class Player extends Character {
 
   save(callback) {
     Data.save('player', this.name, this.serialize(), callback);
+    this.account.save();
   }
 
   hydrate(state) {
