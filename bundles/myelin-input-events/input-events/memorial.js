@@ -18,7 +18,7 @@ module.exports = (srcPath) => {
       const deceased = Data.load('player', name);
       const attrs = deceased.attributes;
       const { // Get interesting metadata.
-        killedOn,
+        killedOn, //TODO: Record this!
         killedBy = name,
         kills = 0,
         strongestDefeated
