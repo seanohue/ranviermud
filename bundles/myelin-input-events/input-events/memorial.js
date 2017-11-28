@@ -45,7 +45,7 @@ module.exports = (srcPath) => {
       say(`| Died ${timeSinceDeath} ago.`);
       say("------------------------------");
       say(`| Kills: ${kills || 0}`);
-      if (strongestDefeated) {
+      if (strongestDefeated && strongestDefeated.level) {
         say(`| Strongest Enemy Defeated:`);
         say(`| ${strongestDefeated.name} (level ${strongestDefeated.level})`);
       }
