@@ -30,9 +30,6 @@ module.exports = (srcPath) => {
       const deleted = account.getMeta('deleted') || []
       const characters = account.characters.filter(currChar => !(deceased.includes(currChar.username) || currChar.deleted));
 
-      console.log('Account is', account, '\n\n\n\n\n');
-      console.log({deceased, deleted, characters});
-
       const maxCharacters   = Config.get("maxCharacters");
       const canAddCharacter = characters.length < maxCharacters;
       const canMultiplay    = Config.get("allowMultiplay");
