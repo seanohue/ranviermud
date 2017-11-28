@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (socket, args) => {
-      let { name } = args;
+      let { dead: name } = args;
       const say = EventUtil.genSay(socket);
       const write = EventUtil.genWrite(socket);
 
