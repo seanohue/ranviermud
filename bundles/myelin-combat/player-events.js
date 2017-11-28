@@ -257,6 +257,46 @@ module.exports = (srcPath) => {
           B.sayAt(this.party, `<b><green>${this.name} was killed!</green></b>`);
         }
 
+        // Leave a good-looking corpse.
+        const items = [];
+
+        if (this.inventory) {
+          items.push(...this.inventory.values());
+        }
+
+        if (this.equipment) {
+          items.push(...this.equipment.values());
+        }
+
+        const corpse = new Item(this.area, {
+          id: 'corpse',
+          name: `Corpse of ${this.name}`,
+          roomDesc: `Corpse of ${this.name}`,
+          description: `The rotting corpse of ${this.name}`,
+          keywords: ['corpse', this.name],
+          type: 'CONTAINER',
+          properties: {
+            noPickup: true,
+          },
+          maxItems: items.length + 1,
+          behaviors: {
+            decay: {
+              // To prevent killing yourself to harvest own items.
+              duration: this.level < 9 ? 30 : 600
+            }
+          },
+        });
+        corpse.hydrate(state);
+
+        Logger.log(`Generated corpse: ${corpse.uuid}`);
+
+        items.forEach(item => {
+          item.hydrate(state);
+          corpse.addItem(item)
+        });
+        this.room.addItem(corpse);
+        state.ItemManager.add(corpse);
+
         // Calculate Memories
         const memoriesEarned = Death.calculateMemories(this);
         this.account.setMeta('memories',
