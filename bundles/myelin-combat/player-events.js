@@ -244,7 +244,7 @@ module.exports = (srcPath) => {
         const Item = require(srcPath + 'Item');
         const Logger = require(srcPath + 'Logger');
 
-        Logger.log(`${this.name} killed by ${killer && killer.name || 'something'} at ${player.room && player.room.entityReference}.`);
+        Logger.log(`${this.name} killed by ${killer && killer.name || 'something'} at ${this.room && this.room.entityReference}.`);
         this.removePrompt('combat');
 
         const othersDeathMessage = killer
@@ -308,7 +308,7 @@ module.exports = (srcPath) => {
 
         // Record as dead.
         this.setMeta('deceased', true);
-        this.setMeta('killedBy', killer || null);
+        this.setMeta('killedBy', killer && killer.name || null);
         this.setMeta('killedOn', Date.now());
 
         const deceased = (this.account.getMeta('deceased') || []).concat(this.name);
