@@ -241,7 +241,8 @@ module.exports = (srcPath) => {
        */
       killed: state => function (killer) {
         const Death = require('./lib/Death')(srcPath);
-        const Broadcast = require(srcPath + 'Broadcast');
+        const Item = require(srcPath + 'Item');
+        
         this.removePrompt('combat');
 
         const othersDeathMessage = killer
@@ -314,8 +315,9 @@ module.exports = (srcPath) => {
 
         // Disconnect player
         this.save(() => {
-          Broadcast.sayAt(this, `~* <red>* <b>* ${Death.message()} *</b> *</red> *~`);
-          Broadcast.sayAtExcept(this.room, `<red><b>${this.name}'s soul leaves the body.</red></b>`, this);
+          B.sayAt(this, `<red>${Death.message()}</red>`)
+          B.sayAt(this, `~* <red>* <b>* YOU DIED *</b> *</red> *~`); // rethink this, or at least make it less corny.
+          B.sayAtExcept(this.room, `<red><b>${this.name}'s soul leaves the body.</red></b>`, this);
           this.socket.emit('close');
         });
       },
