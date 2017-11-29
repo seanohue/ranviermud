@@ -25,7 +25,7 @@ module.exports = (srcPath) => {
 
 
       let options = deceased.map(dead => ({
-          display: deceased,
+          display: dead,
           onSelect: () => {
             socket.emit('memorial', socket, { dead, account });
           }
