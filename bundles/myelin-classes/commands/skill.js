@@ -5,18 +5,26 @@ module.exports = (srcPath) => {
   const SkillFlag = require(srcPath + 'SkillFlag');
 
   return {
-    aliases: [ "spell" ],
+    usage: 'skill [skill name], skill <list>, skill <learn/buy> [skill name]',
+    aliases: [ "ability", "feat" ],
     command : state => (args, player) => {
       const say = (message, wrapWidth) => B.sayAt(player, message, wrapWidth);
 
       if (!args.length) {
-        return say("What skill or spell do you want to look up? Use 'skills' to view all skills/spells.");
+        say("What ability do you want to look up? Use 'skills' to view all skills/abilities.");
+        return state.CommandManager.get('skills').execute(null, player);
+      }
+
+      const [first, ...rest] = args.split(' ');
+      if (first === 'buy' || first === 'learn') {
+        return state.CommandManager.get('manifest').execute(rest.join(' '), player);
+      }
+
+      if (first === 'list') {
+        return state.CommandManager.get('skills').execute(null, player);
       }
 
       let skill = state.SkillManager.find(args, true);
-      if (!skill) {
-        skill = state.SpellManager.find(args, true);
-      }
 
       if (!skill) {
         return say("No such skill.");
@@ -41,5 +49,4 @@ module.exports = (srcPath) => {
     }
   };
 };
-
 

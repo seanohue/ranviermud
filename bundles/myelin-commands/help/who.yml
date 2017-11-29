@@ -1,0 +1,7 @@
+---
+command: who
+body: |
+  List currently logged in players
+keywords:
+- online
+

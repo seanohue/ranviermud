@@ -1,32 +1,36 @@
 {
   "attributes": {
-    "strength": {
+    "might": {
       "delta": 0,
-      "base": 17
+      "base": 20
     },
-    "agility": {
+    "quickness": {
       "delta": 0,
-      "base": 10
+      "base": 20
     },
     "intellect": {
       "delta": 0,
-      "base": 8
+      "base": 20
     },
-    "stamina": {
+    "willpower": {
       "delta": 0,
-      "base": 11
+      "base": 20
     },
     "health": {
       "delta": 0,
-      "base": 154
+      "base": 200
+    },
+    "energy": {
+      "delta": 0,
+      "base": 200
+    },
+    "focus": {
+      "delta": 0,
+      "base": 200
     },
     "armor": {
       "delta": 0,
       "base": 0
-    },
-    "energy": {
-      "delta": 0,
-      "base": 100
     },
     "critical": {
       "delta": 0,
@@ -43,10 +47,10 @@
     "max": 16
   },
   "metadata": {
-    "class": "warrior"
+    "class": "base"
   },
-  "playerClass": "warrior",
-  "prompt": "[ %health.current%/%health.max% <b>hp</b> %energy.current%/%energy.max% <b>energy</b> ]",
+  "playerClass": "base",
+  "prompt": "[ %health.current%/%health.max% <b>health</b> %focus.current%/%focus.max% <b>focus</b> %energy.current%/%energy.max% <b>energy</b> ]",
   "quests": {
     "completed": [],
     "active": []

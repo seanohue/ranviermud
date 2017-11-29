@@ -240,39 +240,34 @@ module.exports = (srcPath) => {
        * @param {Character} killer
        */
       killed: state => function (killer) {
+        const Death = require('./lib/Death')(srcPath);
+
         this.removePrompt('combat');
 
-        const othersDeathMessage = killer ?
-          `<b><red>${this.name} collapses to the ground, dead at the hands of ${killer.name}.</b></red>` :
-          `<b><red>${this.name} collapses to the ground, dead</b></red>`;
+        const othersDeathMessage = killer
+          ? `<b><red>${this.name} collapses to the ground, dead at the hands of ${killer.name}.</b></red>`
+          : `<b><red>${this.name} collapses to the ground, dead.</b></red>`;
+        const except = killer && !killer.isNpc
+          ? [killer, this]
+          : this;
 
-        B.sayAtExcept(this.room, othersDeathMessage, (killer ? [killer, this] : this));
+        B.sayAtExcept(this.room, othersDeathMessage, except);
 
         if (this.party) {
           B.sayAt(this.party, `<b><green>${this.name} was killed!</green></b>`);
         }
 
-        this.setAttributeToMax('health');
+        // Calculate Memories
+        const memoriesEarned = Death.calculateMemories(this);
+        this.account.setMeta('memories',
+          (this.account.getMeta('memories') || 0) + memoriesEarned
+        );
 
-        let home = state.RoomManager.getRoom(this.getMeta('waypoint.home'));
-        if (!home) {
-          home = state.RoomManager.startingRoom;
-        }
-
-        this.moveTo(home, _ => {
-          state.CommandManager.get('look').execute(null, this);
-
-          B.sayAt(this, '<b><red>Whoops, that sucked!</red></b>');
-          if (killer && killer !== this) {
-            B.sayAt(this, `You were killed by ${killer.name}.`);
-          }
-          // player loses 20% exp gained this level on death
-          const lostExp = Math.floor(this.experience * 0.2);
-          this.experience -= lostExp;
-          this.save();
-          B.sayAt(this, `<red>You lose <b>${lostExp}</b> experience!</red>`);
-
-          B.prompt(this);
+        // Disconnect player
+        player.save(() => {
+          Broadcast.sayAt(player, Death.message());
+          Broadcast.sayAtExcept(player.room, `${player.name}'s soul leaves the body.`, player);
+          player.socket.emit('close');
         });
       },
 

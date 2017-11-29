@@ -1,0 +1,11 @@
+---
+command: inventory
+body: |
+  View current items in your inventory
+related:
+  - equipment
+  - get
+  - drop
+  - put
+keywords:
+- loot
