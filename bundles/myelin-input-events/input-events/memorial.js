@@ -50,13 +50,19 @@ module.exports = (srcPath) => {
         say(`| ${strongestDefeated.name} (level ${strongestDefeated.level})`);
       }
       say("------------------------------");
-      if (effects.length) {
+
+      const visibleEffects = effects.filter(effect => !effect.config.hidden);
+      if (visibleEffects.length) {
         say("| Died under the effects of: ");
-        effects.forEach((effect, i) => {
+        visibleEffects.forEach((effect, i) => {
+          console.log(effect.config);
+          if (effect.config.hidden) {
+            return; // do not display.
+          }
           const put = i % 3 ? say : write;
           put(`| ${effect.config.name} `);
         });
-        if (effects.length % 2 === 0) {
+        if (visibleEffects.length % 2 === 0) {
           say("------------------------------");
         } else {
           say("\r\n------------------------------");
