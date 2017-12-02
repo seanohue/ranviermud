@@ -93,6 +93,11 @@ module.exports = (srcPath) => {
             display: 'Push back against it. ' + rebel[choices.origin],
             onSelect: () => {
               choices.treatment = 'rebellious';
+              const effects = {
+                orphan() {
+                  foreground
+                }
+              }
               socket.emit(`bg-${id}`, socket, { foundBackground, choices });
             }
           });
@@ -159,8 +164,20 @@ module.exports = (srcPath) => {
         }
 
         default: {
-          // Handle results of choices.
-          // Emit next event then return;
+          switch (choices.origin) {
+            case 'orphan': {
+              if (choices.treatment === 'rebellious') {
+
+              }
+              break;
+            }
+            case 'cleric': {
+              break;
+            }
+            case 'escapist': {
+              break;
+            }
+          }
         }
       }
 
