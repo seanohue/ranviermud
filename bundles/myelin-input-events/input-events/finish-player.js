@@ -7,17 +7,6 @@
 module.exports = (srcPath) => {
   const EventUtil = require(srcPath + 'EventUtil');
   const Player = require(srcPath + 'Player');
-  const BackgroundGenerator = require('../backgrounds');
-
-  let backgrounds;
-
-  BackgroundGenerator()
-    .then((bgs) => {
-      backgrounds = bgs;
-    }).catch(err) => {
-      console.log('Error while loading backgrounds...' , err);
-      backgrounds = {};
-    });
 
   return {
     event: state => (socket, args) => {
