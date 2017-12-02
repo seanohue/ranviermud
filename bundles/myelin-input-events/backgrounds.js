@@ -1,19 +1,26 @@
-module.exports = {
-  tough: {
-    id: "tough",
-    name: "Rugged Tough",
-    description: "You've always done what it took to survive. Your fists and your prodigious size kept you alive, and earned you a living, even if it wasn't always honest. They usually deserved it, or so you told yourself.",
-    attributes: {
-      quickness: 11,
-      intellect: 4,
-      might: 17,
-      willpower: 8
-    },
-    // Re-do but don't use numbers, yeesh
-    equipment: ["spire.intro:12", "spire.intro:13", "spire.intro:14", "spire.intro:15", "spire.intro:16"],
-    skills: [ "bash" ],
-    attributePoints: 0,
-    abilityPoints: 0,
-    tier: 0
+const fs = require('fs');
+const {promisify} = require('util');
+
+const readdir = promisify(fs.readdir);
+const readfile = promisify(fs.readFile);
+
+module.exports = async function () {
+  const files = await readdir(__dirname + '/backgrounds');
+  const backgrounds = {};
+
+  for (const filename of files) {
+    if (filename.endsWith('.json')) {
+      const fileRecord = require('./backgrounds/' + filename);
+      backgrounds[filename.split('.')[0]] = JSON.parse(fileRecord);    
+    }
+
+    if (filename.endsWith('.js')) {
+      const fileRecord = require('./backgrounds/' + filename);
+      backgrounds[filename.split('.')[0]] = fileRecord;
+    }
+
+    //TODO: Handle YAML
   }
-};
+
+  return backgrounds;
+}

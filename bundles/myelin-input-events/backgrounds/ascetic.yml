@@ -1,0 +1,13 @@
+id: ascetic
+name: 'Penitent Ascetic'
+description: 'After years of meditation and solitude, your dedication has absolved you of past sins.'
+attributes:
+  quickness: 8
+  might: 5
+  intellect: 13
+  willpower: 14
+equipment: ['spire.intro:1', 'spire.intro:2', 'spire.intro:3', 'spire.intro:4']
+skills: [ 'mend', 'concentration' ]
+attributePoints: 0
+abilityPoints: 3
+tier: 0
