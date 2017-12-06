@@ -1,6 +1,20 @@
 module.exports = class Background {
-  constructor(backgroundDef) {
-    this.background = backgroundDef;
+  /**
+   * @class Background
+   * @param {Object} background - Configuration object
+   * @param {string} background.id
+   * @param {string} background.name
+   * @param {string} background.description
+   * @param {Object} background.attributes - Starting attributes
+   * @param {Array} background.equipment
+   * @param {Array} background.skills
+   * @param {Number} background.attributePoints
+   * @param {Number} background.abilityPoints
+   * @param {Number} background.tier
+   */
+  */
+  constructor(background) {
+    this.background = background;
     this.scenarios = [];
     this.activeScenario;
     this.choices = {};
