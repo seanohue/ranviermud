@@ -1,3 +1,28 @@
+/*
+  Ideally, a chaining API of sorts:
+  ```javascript
+  return (new Choices(definition))
+    .scenario('moral conundrum')
+    .where('smart_idea', 'you solve with brain!',
+      (chooser, definition) => {
+        definition.attributes.intellect += 5;
+        chooser.respond('brain get gooder');
+      })
+    .where('brute_idea', 'you punch thing! rawr',
+      (chooser, definition) => {
+        definition.attributes.might += 3;
+        chooser.respond('you do punch good');
+      })
+    // Player is made before this hook.
+    .decide((chooser, definition) => {
+      chooser.player.setAttributes(definition.attributes);
+      definition.equipment.forEach(id => chooser.player.equip(id));
+      chooser.socket.emit('done');
+    });
+  ```
+
+*/
+
 module.exports = class Background {
   /**
    * @class Background
