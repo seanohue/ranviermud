@@ -21,18 +21,17 @@ module.exports = (srcPath) => {
 
     const backgroundTitles = await readdirAsync(pathToBg);
     await Promise.all(backgroundTitles)
-      .then(files => files.map(file => console.log({file}) || readFileAsync(`${pathToBg}/${file}`)))
+      .then(files => files.map(file => readFileAsync(`${pathToBg}/${file}`)))
       .then(files => files.map(promise => promise.then(file => yaml.load(file))))
-      .then(parsed => console.log({parsed}) || parsed.forEach(thing => console.log({thing}) || thing.then(bg => backgrounds.push(bg))))
+      .then(parsed => parsed.forEach(thing => thing.then(bg => backgrounds.push(bg))))
   }());
 
   return {
     event: state => (socket, args) => {
-      const { name, account, background = 'tough'} = args;
+      const { name, account, background = 'tough' } = args;
       if (background && typeof(background) !== 'object') {
         background = backgrounds.find(bg => bg.id === background);
       }
-      console.log({backgrounds, background});
       // TIP:DefaultAttributes: This is where you can change the default attributes for players
       // TODO:
       const attributes = Object.assign({
@@ -65,7 +64,6 @@ module.exports = (srcPath) => {
       player.save();
 
       // reload from manager so events are set
-      console.log({player}, player.name);
       player = state.PlayerManager.loadPlayer(state, player.account, player.name);
       player.socket = socket;
 

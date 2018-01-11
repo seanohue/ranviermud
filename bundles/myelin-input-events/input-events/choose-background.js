@@ -65,7 +65,7 @@ module.exports = (srcPath) => {
           account.setMeta('karma', (karma - cost) || 0);
 
           // Temporarily skip the background choices thing.
-          socket.emit('finish-player', socket, { playerName, account, background: foundBackground });
+          socket.emit('finish-player', socket, { name: playerName, account, background: foundBackground });
           // socket.emit(`bg-${id}`, socket, { playerName, foundBackground });
         } else {
           return socket.emit('choose-background', socket, { playerName, account });
