@@ -2,6 +2,9 @@
   Background story event for ascetic.
 */
 
+// Deprecated/rough draft. Looking to create some kind of reusable/configurable interface for this instead.
+// @see lib/Choices.js in this bundle.
+
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
