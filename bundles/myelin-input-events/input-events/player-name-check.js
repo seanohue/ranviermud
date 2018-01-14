@@ -26,11 +26,11 @@ module.exports = (srcPath) => {
         }
 
         // If they don't have enough karma, just send them right to the choosebackground menu.
-        const karma = args.account.getMeta('karma');
+        const memoryPoints = args.account.getMeta('memories');
         const tiers  = require(__dirname + '/../tiers');
         const costOfSecondTier = tiers[1].cost || 1;
 
-        if (karma >= costOfSecondTier) {
+        if (memoryPoints >= costOfSecondTier) {
           socket.emit('choose-bg-tier', socket, { playerName: args.name, account: args.account });
         } else {
           socket.emit('choose-background', socket, { playerName: args.name, account: args.account, tier: 0 });

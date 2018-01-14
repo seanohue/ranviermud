@@ -61,8 +61,8 @@ module.exports = (srcPath) => {
           const { id } = foundBackground;
 
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
-          const karma = account.getMeta('karma');
-          account.setMeta('karma', (karma - cost) || 0);
+          const memoryPoints = account.getMeta('memories');
+          account.setMeta('memories', (memoryPoints - cost) || 0);
 
           // Temporarily skip the background choices thing.
           socket.emit('finish-player', socket, { name: playerName, account, background: foundBackground, backgrounds: choices });
