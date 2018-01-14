@@ -8,36 +8,18 @@ module.exports = (srcPath) => {
   const EventUtil = require(srcPath + 'EventUtil');
   const Player = require(srcPath + 'Player');
 
-  let backgrounds = [];
-  (async function loadBackgrounds() {
-    const fs = require('fs');
-    const util = require('util');
-    const yaml = require('js-yaml');
-    const path = require('path');
-
-    const readdirAsync = util.promisify(fs.readdir);
-    const readFileAsync = util.promisify(fs.readFile);
-    const pathToBg = path.resolve(__dirname, '../backgrounds');
-
-    const backgroundTitles = await readdirAsync(pathToBg);
-    await Promise.all(backgroundTitles)
-      .then(files => files.map(file => readFileAsync(`${pathToBg}/${file}`)))
-      .then(files => files.map(promise => promise.then(file => yaml.load(file))))
-      .then(parsed => parsed.forEach(thing => thing.then(bg => backgrounds.push(bg))))
-  }());
-
   return {
     event: state => (socket, args) => {
-      const { name, account, background = 'tough' } = args;
+      const { name, account, background = 'tough', backgrounds } = args;
       if (background && typeof(background) !== 'object') {
         background = backgrounds.find(bg => bg.id === background);
       }
       // TIP:DefaultAttributes: This is where you can change the default attributes for players
       // TODO:
       const attributes = Object.assign({
-        health: 10,
-        focus: 10,
-        energy: 10,
+        health: 20,
+        focus: 20,
+        energy: 20,
         might: 5,
         quickness: 5,
         intellect: 5,
