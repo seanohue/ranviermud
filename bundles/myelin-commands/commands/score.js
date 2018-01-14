@@ -10,7 +10,10 @@ module.exports = (srcPath) => {
     aliases: [ 'stats' ],
     command : (state) => (args, p) => {
 
-      //TODO: Redo to make it less inscrutable.
+      //TODO: Redo to make it less inscrutable. (WIP)
+      // [√] Add Broadcast method 'corner' that outputs the corner to a box
+      // [ ] Something like `Broadcast.corner('top-left') ==> '╔'`
+      // [ ] Compose Broadcast methods to do things like "`Broadcast.box('top', 3)`"
       const say = message => B.sayAt(p, message);
 
       say('<b>' + B.center(60, `${p.name}, level ${p.level} ${p.getMeta('background') || 'person'}`, 'green'));

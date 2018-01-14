@@ -217,6 +217,29 @@ class Broadcast {
     return openColor + (new Array(width + 1)).join(fillChar) + closeColor;
   }
 
+  static corner(which, color) {
+    const corners = {
+      'top-left': '╔',
+      'top-right': '╗',
+      'bottom-left': '╚',
+      'bottom-right': '╝'
+    };
+
+    function colorize(string, color) {
+      let openColor = '';
+      let closeColor = '';
+
+      if (color) {
+        openColor = `<${color}>`;
+        closeColor = `</${color}>`;
+      }
+      return openColor + string + closeColor;
+    }
+
+    const corner = corners[which] || 'o';
+    return colorize(corner, color);
+  }
+
   /**
    * Wrap a message to a given width. Note: Evaluates color tags
    * @param {string}  message

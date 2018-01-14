@@ -26,7 +26,6 @@ module.exports = (srcPath) => {
 
       console.log('In ascetic story, found ', foundBackground);
 
-
       const say = EventUtil.genSay(socket);
       const write = EventUtil.genWrite(socket);
 
