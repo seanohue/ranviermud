@@ -13,7 +13,7 @@ module.exports = (srcPath) => {
       //TODO: Redo to make it less inscrutable.
       const say = message => B.sayAt(p, message);
 
-      say('<b>' + B.center(60, `${p.name}, level ${p.level} ${p.playerClass.config.name || 'person'}`, 'green'));
+      say('<b>' + B.center(60, `${p.name}, level ${p.level} ${p.getMeta('background') || 'person'}`, 'green'));
       say('<b>' + B.line(60, '-', 'green'));
 
       let stats = {

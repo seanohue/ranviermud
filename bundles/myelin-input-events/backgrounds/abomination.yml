@@ -1,0 +1,13 @@
+id: abomination
+name: 'Scarred Abomination'
+description: 'You were the subject of a horrific, failed experiment. This has left you disfigured, twisted, and scarred, but with strength and anger beyond average.'
+attributes:
+  quickness: 16
+  might: 20
+  intellect: 6
+  willpower: 7
+equipment: []
+skills: ['claw', 'disfigured']
+attributePoints: 0
+abilityPoints: 1
+tier: 1

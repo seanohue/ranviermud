@@ -7,32 +7,36 @@
 module.exports = (srcPath) => {
   const EventUtil = require(srcPath + 'EventUtil');
   const Player = require(srcPath + 'Player');
-  const backgrounds = require('../backgrounds');
 
   return {
     event: state => (socket, args) => {
+      const { name, account, background = 'tough', backgrounds } = args;
+      if (background && typeof(background) !== 'object') {
+        background = backgrounds.find(bg => bg.id === background);
+      }
       // TIP:DefaultAttributes: This is where you can change the default attributes for players
+      // TODO:
       const attributes = Object.assign({
-        health: 100,
-        focus: 100,
-        energy: 100,
-        might: 10,
-        quickness: 10,
-        intellect: 10,
-        willpower: 10,
+        health: 20,
+        focus: 20,
+        energy: 20,
+        might: 5,
+        quickness: 5,
+        intellect: 5,
+        willpower: 5,
         armor: 0,
         critical: 0
-      }, backgrounds[args.background || "tough"].attributes);
+      }, background.attributes);
 
       let player = new Player({
-        name: args.name,
-        account: args.account,
+        name,
+        account,
         attributes
       });
 
-      player.setMeta('background', args.background || "tough");
+      player.setMeta('background', background.id);
 
-      args.account.addCharacter(args.name);
+      args.account.addCharacter(name);
       args.account.save();
 
       player.setMeta('class', 'base');
