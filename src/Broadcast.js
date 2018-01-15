@@ -184,20 +184,13 @@ class Broadcast {
    */
   static center(width, message, color, fillChar = " ") {
     const padWidth = width / 2 - message.length / 2;
-    let openColor = '';
-    let closeColor = '';
-    if (color) {
-      openColor = `<${color}>`;
-      closeColor = `</${color}>`;
-    }
 
-    return (
-      openColor +
+    const lined =
       Broadcast.line(Math.floor(padWidth), fillChar) +
       message +
-      Broadcast.line(Math.ceil(padWidth), fillChar) +
-      closeColor
-    );
+      Broadcast.line(Math.ceil(padWidth), fillChar);
+
+    return colorize(lined, color);
   }
 
   /**
@@ -225,19 +218,25 @@ class Broadcast {
       'bottom-right': '╝'
     };
 
-    function colorize(string, color) {
-      let openColor = '';
-      let closeColor = '';
-
-      if (color) {
-        openColor = `<${color}>`;
-        closeColor = `</${color}>`;
-      }
-      return openColor + string + closeColor;
-    }
-
     const corner = corners[which] || 'o';
-    return colorize(corner, color);
+    return Broadcast.colorize(corner, color);
+  }
+
+  /**
+   * Returns a string using color tags if present.
+   * @param {string}  message
+   * @param {?string} color   Example: 'blue'
+   * @return {string} Example: '<blue>Hello world</blue>'
+   */
+  static colorize(message = '', color) {
+    let openColor = '';
+    let closeColor = '';
+
+    if (color) {
+      openColor = `<${color}>`;
+      closeColor = `</${color}>`;
+    }
+    return openColor + message + closeColor;
   }
 
   /**
