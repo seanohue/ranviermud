@@ -12,13 +12,22 @@ module.exports = (srcPath) => {
 
       //TODO: Redo to make it less inscrutable. (WIP)
       // [√] Add Broadcast method 'corner' that outputs the corner to a box
-      // [ ] Something like `Broadcast.corner('top-left') ==> '╔'`
-      // [ ] Compose Broadcast methods to do things like "`Broadcast.box('top', 3)`"
+      // [√] Something like `Broadcast.corner('top-left') ==> '╔'`
+      // [√] Compose Broadcast methods to do things like "`Broadcast.box('top', 3)`"
       const say = message => B.sayAt(p, message);
+      const pipe = B.pipe();
+      const width = 60;
 
-      say('<b>' + B.center(60, `${p.name}, level ${p.level} ${p.getMeta('background') || 'person'}`, 'green'));
-      say('<b>' + B.line(60, '-', 'green'));
+      // top border
+      say(`<b>${B.box('top', "[About You]", width)}</b>`);
 
+      // "about you"
+      const generalStats = `${p.name}, level ${p.level} ${p.getMeta('background') || 'person'}`;
+      const greenDiv = '<b>' + B.line(width, '-', 'green') + '</b>';
+      say(`<b>${B.pipe(B.center(width, generalStats, 'green'))}</b>`);
+      say(B.pipe(greenDiv));
+
+      // stat pools
       let stats = {
         might: 0,
         quickness: 0,

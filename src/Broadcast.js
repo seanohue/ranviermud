@@ -174,6 +174,31 @@ class Broadcast {
     return buf;
   }
 
+  static pipe(message, color, fillChar) {
+    if (message) {
+      return Broadcast.center(message.length, `║${message}║`, color, fillChar)
+    }
+    return Broadcast.colorize('║', color);
+  }
+
+  static box(where, message = '', _width = 80, color) {
+    const width = Math.max(_width, message.length);
+
+    const boxLine = Broadcast.center(width, message, color, '=');
+    const boxParts = {
+      'top': () => `${Broadcast.corner('top-left')}${boxLine}${Broadcast.corner('top-right')}`,
+      'bottom': () => `${Broadcast.corner('bottom-left')}${boxLine}${Broadcast.corner('bottom-right')}`
+    }
+
+    let box;
+    if (Reflect.has(boxParts, where)) {
+      box = boxParts[where]();
+    } else {
+      box = boxLine;
+    }
+    return Broadcast.colorize(box);
+  }
+
   /**
    * Center a string in the middle of a given width
    * @param {number} width
@@ -190,7 +215,7 @@ class Broadcast {
       message +
       Broadcast.line(Math.ceil(padWidth), fillChar);
 
-    return colorize(lined, color);
+    return Broadcast.colorize(lined, color);
   }
 
   /**
