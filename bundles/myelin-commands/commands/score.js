@@ -56,7 +56,7 @@ module.exports = (srcPath) => {
       say(div('[Attributes]'));
 
       function compileStatString(isStart = false) {
-        return (output, [label, _color]) => {
+        return (output, [label, _color], index, arr) => {
           const stat         = stats[label.trim().toLowerCase()];
           const percent      = Math.floor((stat.current / stat.max) * 100);
           const numericStat  = `${Math.round(stat.current)}/${Math.round(stat.max)}`;
@@ -67,8 +67,8 @@ module.exports = (srcPath) => {
           let _width = width;
           if (!isStart) _width = width / 2;
           const borderFn = isStart ? centerBox : (w, msg) => `${B.center(w, msg) + ' ' + pipe}`;
-            //fixme: rm last /n
-          return output.concat(borderFn(_width, `${label}: ${bar} ${numericLabel}`) + '\n');
+          const ending = index === arr.length - 1 ? '' : '\n';
+          return output.concat(borderFn(_width, `${label}: ${bar} ${numericLabel}`) + ending);
         }
       }
 
@@ -97,7 +97,8 @@ module.exports = (srcPath) => {
         .split('\n')
         .reduce((output, line, index) => {
           const pool = poolLines[index];
-          return output + line + pool + '\n';
+          const ending = index === poolLines.length - 1 ? '' : '\n';
+          return output + line + pool + ending;
         }, '');
 
       say(statsBoxes);
