@@ -181,10 +181,18 @@ class Broadcast {
     return Broadcast.colorize('║', color);
   }
 
+  static boxH(_width, message, color) {
+    const width = _width || (message && message.length);
+    if (width && message) {
+      return Broadcast.center(width, message, color, Broadcast.boxH());
+    }
+    return Broadcast.colorize('═', color);
+   }
+
   static box(where, message = '', _width = 80, color) {
     const width = Math.max(_width, message.length);
 
-    const boxLine = Broadcast.center(width, message, color, '=');
+    const boxLine = Broadcast.center(width, message, color, Broadcast.boxH());
     const boxParts = {
       'top': () => `${Broadcast.corner('top-left')}${boxLine}${Broadcast.corner('top-right')}`,
       'bottom': () => `${Broadcast.corner('bottom-left')}${boxLine}${Broadcast.corner('bottom-right')}`
@@ -207,9 +215,9 @@ class Broadcast {
    * @param {?string} fillChar Character to pad with, defaults to ' '
    * @return {string}
    */
-  static center(width, message, color, fillChar = " ") {
-    const padWidth = width / 2 - message.length / 2;
-
+  static center(width, message = '', color, fillChar = " ") {
+    const padWidth = Math.max(width / 2 - message.length / 2, 0);
+    console.log('center', {width, padWidth, message});
     const lined =
       Broadcast.line(Math.floor(padWidth), fillChar) +
       message +
@@ -225,7 +233,12 @@ class Broadcast {
    * @param {?string} color
    * @return {string}
    */
-  static line(width, fillChar = "-", color = null) {
+  static line(_width, fillChar = "-", color = null) {
+    if (isNaN(_width)) {
+      console.log('Broadcast.line received width of NaN. Weird, right?');
+    }
+    const width = _width || 0;
+    console.log('line', {width, fillChar});
     let openColor = '';
     let closeColor = '';
     if (color) {
