@@ -217,7 +217,6 @@ class Broadcast {
    */
   static center(width, message = '', color, fillChar = " ") {
     const padWidth = Math.max(width / 2 - message.length / 2, 0);
-    console.log('center', {width, padWidth, message});
     const lined =
       Broadcast.line(Math.floor(padWidth), fillChar) +
       message +
@@ -238,7 +237,6 @@ class Broadcast {
       console.log('Broadcast.line received width of NaN. Weird, right?');
     }
     const width = _width || 0;
-    console.log('line', {width, fillChar});
     let openColor = '';
     let closeColor = '';
     if (color) {

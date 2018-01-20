@@ -49,7 +49,6 @@ module.exports = (srcPath) => {
           base: p.getBaseAttribute(stat) || 0,
           max: p.getMaxAttribute(stat) || 0,
         };
-        console.log(stats[stat]);
       });
 
       // Print attributes with color-coded progress bar and labels.
@@ -116,14 +115,6 @@ module.exports = (srcPath) => {
       //TODO: Secondary, if it exists, once implemented.
       //TODO: Crit chance, modified by weapon.
       //TODO: Currencies/resources.
-      // ideation: 4-6 resources that have to be scavenged from items or creatures:
-      // - alloy (e.g, crafting metal items, high mid-value)
-      // - viscera (e.g., crafting biomechanical items, some psionic stuff, extra low-value except to a few)
-      // - composite (e.g., wood, plastic, glass crafting, low mid-value)
-      // - fuel - (e.g., crafting anything requiring fuel of literally any sort, food, high value)
-      // - fabric - (crafting clothing/shelter, patching armor, low mid-value)
-      // - aethereum - (psionic crafting, high value)
-      // maybe -- consider flora/fauna instead of viscera, remove fuel and have fuels be one of flora,fauna,aethereum
 
       say(B.box('bottom', p.name || '', width));
     }
