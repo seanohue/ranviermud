@@ -25,18 +25,30 @@ module.exports = srcPath => {
       console.log({playerStats, npcStats});
 
       const comparators = {
-        might: ['stronger', 'weaker'],
-        quickness: ['faster', 'slower'],
-        intellect: ['more alert', 'less alert'],
-        willpower: ['more disciplined', 'lazier'],
+        might: ['strong', 'weak'],
+        quickness: ['fast', 'slow'],
+        intellect: ['alert', 'dull'],
+        willpower: ['disciplined', 'lazy'],
 
-        armor: ['more protected', 'less protected'],
+        armor: ['well-armored', 'less armored'],
 
-        health: ['healthier', 'weaker'],
-        focus: ['more concentrated', 'more aimless']
+        health: ['healthy', 'unhealthy'],
+        focus: ['focused', 'aimless']
       };
 
-      const considerLines = playerStats.reduce((lines, playerStat) => {
+      const colors = {
+        might: 'red',
+        quickness: 'yellow',
+        intellect: 'cyan',
+        willpower: 'magenta',
+        health: 'red',
+        focus: 'blue',
+        armor: 'bold'
+      };
+
+      Broadcast.sayAt(player, Broadcast.colorize(`You consider ${npc.name}:`, 'bold'));
+
+      const considerLines = playerStats.reduce((lines, playerStat, index) => {
         const {stat} = playerStat;
         const npcStat = npcStats.find(obj => obj.stat === stat);
 
@@ -46,12 +58,15 @@ module.exports = srcPath => {
         const [more, less] = comparators[stat];
         const npcIsBetter  = npcStat.current >= playerStat.current;
         const comparator   = npcIsBetter ? more : less;
-        const line = `They seem ${comparator} than you in terms of ${stat}.`;
+        const line = Broadcast.colorize(comparator, colors[stat] || 'white');
         console.log(line);
-        return lines.concat(line);
+        const ending = (index === playerStats.length - 1)
+          ? 'and '
+          : '';
+        return lines.concat(ending + line);
       }, []);
 
-      Broadcast.sayAt(player, considerLines.join('\n'));
+      Broadcast.sayAt(player, `They seem ${considerLines.join(', ')} compared to you.`);
     }
   };
 };
