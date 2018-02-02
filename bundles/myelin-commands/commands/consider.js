@@ -59,7 +59,6 @@ module.exports = srcPath => {
         const npcIsBetter  = npcStat.current >= playerStat.current;
         const comparator   = npcIsBetter ? more : less;
         const line = Broadcast.colorize(comparator, colors[stat] || 'white');
-        console.log(line);
         const ending = (index === playerStats.length - 1)
           ? 'and '
           : '';
@@ -73,26 +72,24 @@ module.exports = srcPath => {
 
 //TODO: Optimize, extract for use w/ score command as well.
 function getParseableAttrs(char) {
-  const stats = {
-    might: 0,
-    quickness: 0,
-    intellect: 0,
-    willpower: 0,
+  const stats = [
+    "might",
+    "quickness",
+    "intellect",
+    "willpower",
 
-    armor: 0,
-    critical: 0,
+    "armor",
+    "critical",
 
-    health: 0,
-    energy: 0,
-    focus: 0,
-  };
-  return Object.keys(stats)
-    .map(stat => {
-      return {
-        stat,
-        current: char.getAttribute(stat) || 0,
-        base: char.getBaseAttribute(stat) || 0,
-        max: char.getMaxAttribute(stat) || 0,
-      };
-    });
+    "health",
+    "energy",
+    "focus",
+  ];
+  return stats.map(stat => ({
+      stat,
+      current: char.getAttribute(stat) || 0,
+      base: char.getBaseAttribute(stat) || 0,
+      max: char.getMaxAttribute(stat) || 0,
+    })
+  );
 }
