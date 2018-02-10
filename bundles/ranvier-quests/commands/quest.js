@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = (srcPath) => {
-  const Broadcast = require(srcPath + 'Broadcast');
-  const say = Broadcast.sayAt;
+  const B = require(srcPath + 'Broadcast');
+  const say = B.sayAt;
   const Parser = require(srcPath + 'CommandParser').CommandParser;
   const CommandManager = require(srcPath + 'CommandManager');
 
@@ -24,10 +24,7 @@ module.exports = (srcPath) => {
         return say(player, `${npc.name} has no quests.`);
       }
 
-      let availableQuests = npc.quests
-        .map(qid => state.QuestFactory.create(state, qid, player))
-        .filter(quest => (player.questTracker.canStart(quest) || player.questTracker.isActive(quest.id)))
-      ;
+      let availableQuests = getAvailableQuests(state, player, npc);
 
       if (!availableQuests.length) {
         return say(player, `${npc.name} has no quests.`);
@@ -35,11 +32,12 @@ module.exports = (srcPath) => {
 
       for (let i in availableQuests) {
         let quest = availableQuests[i];
+        let qref = quest.entityReference;
         const displayIndex = parseInt(i, 10) + 1;
         if (player.questTracker.canStart(quest)) {
           say(player, `[<b><yellow>!</yellow></b>] - ${displayIndex}. ${quest.config.title}`);
-        } else if (player.questTracker.isActive(quest.id)) {
-          quest = player.questTracker.get(quest.id);
+        } else if (player.questTracker.isActive(qref)) {
+          quest = player.questTracker.get(qref);
           const symbol = quest.getProgress().percent >= 100 ? '?' : '%';
           say(player, `[<b><yellow>${symbol}</yellow></b>] - ${displayIndex}. ${quest.config.title}`);
         }
@@ -63,7 +61,7 @@ module.exports = (srcPath) => {
         return say(player, `No quest giver [${search}] found.`);
       }
 
-      if (!npc.quests) {
+      if (!npc.quests || !npc.quests.length) {
         return say(player, `${npc.name} has no quests.`);
       }
 
@@ -71,14 +69,11 @@ module.exports = (srcPath) => {
         return say(player, `Invalid quest, use 'quest list ${search}' to see their quests.`);
       }
 
-      let availableQuests = npc.quests
-        .map(qid => state.QuestFactory.create(state, qid, player))
-        .filter(quest => (player.questTracker.canStart(quest) || player.questTracker.isActive(quest.id)))
-      ;
+      let availableQuests = getAvailableQuests(state, player, npc);
 
       const targetQuest = availableQuests[questIndex - 1];
 
-      if (player.questTracker.isActive(targetQuest.id)) {
+      if (player.questTracker.isActive(targetQuest.entityReference)) {
         return say(player, "You've already started that quest. Use 'quest log' to see your active quests.");
       }
 
@@ -99,24 +94,36 @@ module.exports = (srcPath) => {
         const [, quest] = active[i];
         const progress = quest.getProgress();
 
-        Broadcast.at(player, '<b><yellow>' + (parseInt(i, 10) + 1) + '</yellow></b>: ');
-        say(player, Broadcast.progress(60, progress.percent, 'yellow') + ` ${progress.percent}%`);
-        say(player, Broadcast.indent('<b><yellow>' + quest.getProgress().display + '</yellow></b>', 2));
+        B.at(player, '<b><yellow>' + (parseInt(i, 10) + 1) + '</yellow></b>: ');
+        say(player, B.progress(60, progress.percent, 'yellow') + ` ${progress.percent}%`);
+        say(player, B.indent('<b><yellow>' + quest.getProgress().display + '</yellow></b>', 2));
 
         if (quest.config.npc) {
           const npc = state.MobFactory.getDefinition(quest.config.npc);
           say(player, `  <b><yellow>Questor: ${npc.name}</yellow></b>`);
         }
 
-        say(player, '  ' + Broadcast.line(78));
+        say(player, '  ' + B.line(78));
         say(
           player,
-          Broadcast.indent(
-            Broadcast.wrap(`<b><yellow>${quest.config.desc}</yellow></b>`, 78),
+          B.indent(
+            B.wrap(`<b><yellow>${quest.config.description}</yellow></b>`, 78),
             2
           )
         );
-        say(player, '  ' + Broadcast.line(78));
+
+        if (quest.config.rewards.length) {
+          say(player);
+          say(player, '<b><yellow>' + B.center(80, 'Rewards') + '</yellow></b>');
+          say(player, '<b><yellow>' + B.center(80, '-------') + '</yellow></b>');
+
+          for (const reward of quest.config.rewards) {
+            const rewardClass = state.QuestRewardManager.get(reward.type);
+            say(player, '  ' + rewardClass.display(state, quest, reward.config, player));
+          }
+        }
+
+        say(player, '  ' + B.line(78));
       }
     }
   });
@@ -167,3 +174,13 @@ module.exports = (srcPath) => {
     }
   };
 };
+
+function getAvailableQuests(state, player, npc) {
+  return npc.quests
+    .map(qid => state.QuestFactory.create(state, qid, player))
+    .filter(quest => {
+        const qref = quest.entityReference;
+        return player.questTracker.canStart(quest) || player.questTracker.isActive(qref);
+    })
+  ;
+}

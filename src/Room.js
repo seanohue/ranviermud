@@ -34,6 +34,7 @@ class Room extends Metadatable(EventEmitter) {
       }
     }
 
+    this.def = def;
     this.area = area;
     this.defaultItems = def.items || [];
     this.defaultNpcs  = def.npcs || [];
@@ -344,6 +345,10 @@ class Room extends Metadatable(EventEmitter) {
     newItem.sourceRoom = this;
     state.ItemManager.add(newItem);
     this.addItem(newItem);
+    /**
+     * @event Item#spawn
+     */
+    newItem.emit('spawn');
   }
 
   /**

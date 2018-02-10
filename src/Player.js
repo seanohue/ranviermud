@@ -127,7 +127,7 @@ class Player extends Character {
    * @param {function} onMoved Function to run after the player is moved to the next room but before enter events are fired
    */
   moveTo(nextRoom, onMoved = _ => _) {
-    if (this.room) {
+    if (this.room && this.room !== nextRoom) {
       this.room.emit('playerLeave', this, nextRoom);
       this.room.removePlayer(this);
     }
@@ -189,7 +189,7 @@ class Player extends Character {
       }
 
       this.room = room;
-      room.addPlayer(this);
+      this.moveTo(room);
     }
 
     if (typeof this.account === 'string') {
@@ -240,7 +240,7 @@ class Player extends Character {
       role: this.role,
     });
 
-    if (this.equipment) {
+    if (this.equipment instanceof Map) {
       let eq = {};
       for (let [ slot, item ] of this.equipment) {
         eq[slot] = item.serialize();
