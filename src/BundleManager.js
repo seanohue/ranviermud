@@ -88,6 +88,7 @@ class BundleManager {
       { path: 'input-events/', fn: 'loadInputEvents' },
       { path: 'server-events/', fn: 'loadServerEvents' },
       { path: 'player-events.js', fn: 'loadPlayerEvents' },
+      { path: 'room-events.js', fn: 'loadRoomEvents'},
       { path: 'skills/', fn: 'loadSkills' },
     ];
 
@@ -160,6 +161,26 @@ class BundleManager {
     }
 
     Logger.verbose(`\tENDLOAD: Player Events...`);
+  }
+
+    /**
+   * Load/initialize rooms. See the {@link http://ranviermud.com/extending/input_events/|Player Event guide}
+   * @param {string} bundle
+   * @param {string} eventsFile event js file to load
+   */
+  loadRoomEvents(bundle, eventsFile) {
+    Logger.verbose(`\tLOAD: Room Events...`);
+
+    const roomListeners = require(eventsFile)(srcPath, bundlesPath).listeners;
+
+    for (const [eventName, listener] of Object.entries(roomListeners)) {
+      Logger.verbose(`\t\tEvent: ${eventName}`);
+      this.state.RoomManager.addListener(eventName, listener(this.state));
+    }
+
+    this.state.RoomManager.attachAllEvents(); // Since room events are loaded after rooms.
+
+    Logger.verbose(`\tENDLOAD: Room Events...`);
   }
 
   /**
