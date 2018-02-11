@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * General functions used on the ranvier-input-events bundle
+ * General functions used on the myelin-input-events bundle
  */
 
 const srcPath = '../../../src/'

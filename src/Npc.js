@@ -14,6 +14,21 @@ const Logger = require('./Logger');
  */
 class Npc extends Character {
   constructor(area, data) {
+    const defaultAttr = data.level || 1;
+    data.attributes = Object.assign({},
+      {
+        might: defaultAttr,
+        quickness: defaultAttr,
+        intellect: defaultAttr,
+        willpower: defaultAttr,
+
+        armor: 0,
+        critical: 0,
+
+        health: defaultAttr + 5,
+        energy: defaultAttr + 5,
+        focus: defaultAttr + 5,
+      }, data.attributes);
     super(data);
     const validate = ['keywords', 'name', 'id'];
 
@@ -29,7 +44,7 @@ class Npc extends Character {
     this.defaultEquipment = data.equipment || [];
     this.defaultItems = data.items || [];
     this.description = data.description;
-    this.entityReference = data.entityReference; 
+    this.entityReference = data.entityReference;
     this.id = data.id;
     this.keywords = data.keywords;
     this.pacifist = data.pacifist || false;

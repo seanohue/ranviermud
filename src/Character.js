@@ -148,7 +148,7 @@ class Character extends Metadatable(EventEmitter) {
   }
 
   /**
-   * Update an attribute's base value. 
+   * Update an attribute's base value.
    *
    * NOTE: You _probably_ don't want to use this the way you think you do. You should not use this
    * for any temporary modifications to an attribute, instead you should use an Effect modifier.
