@@ -22,8 +22,6 @@ module.exports = srcPath => {
       const playerStats = getParseableAttrs(player);
       const npcStats = getParseableAttrs(npc);
 
-      console.log({playerStats, npcStats});
-
       const comparators = {
         might: ['strong', 'weak'],
         quickness: ['fast', 'slow'],

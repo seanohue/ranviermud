@@ -7,13 +7,8 @@ module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
 
   return {
-    aliases: [ 'stats' ],
+    aliases: [ 'stats', 'character' ],
     command : (state) => (args, p) => {
-
-      //TODO: Redo to make it less inscrutable. (WIP)
-      // [√] Add Broadcast method 'corner' that outputs the corner to a box
-      // [√] Something like `Broadcast.corner('top-left') ==> '╔'`
-      // [√] Compose Broadcast methods to do things like "`Broadcast.box('top', 3)`"
       const say = message => B.sayAt(p, message);
       const div = (header = '', color) => B.pipe(B.boxH(width, header, color));
       const centerBox = (width = 60, message = '', color) => B.pipe(B.center(width, message, color));
@@ -112,7 +107,8 @@ module.exports = (srcPath) => {
       say(centerBox(width, `Primary: ${primaryWeapon.name || 'Unarmed'}`));
       say(centerBox(width, `Damage: ${min + ' - ' + max}  Speed: ${speed}`));
 
-      //TODO: Secondary, if it exists, once implemented.
+      //TODO: Secondary arms, if it exists, once implemented.
+      //TODO: Wounds/disease state?
       //TODO: Crit chance, modified by weapon.
       //TODO: Currencies/resources.
 
