@@ -1,97 +1,118 @@
 'use strict';
 
 const sprintf = require('sprintf-js').sprintf;
-const Combat = require('../../ranvier-combat/lib/Combat');
+const Combat = require('../../myelin-combat/lib/Combat');
 
 module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
 
   return {
-    aliases: [ 'stats' ],
+    aliases: [ 'stats', 'character' ],
     command : (state) => (args, p) => {
-
-      //TODO: Redo to make it less inscrutable.
       const say = message => B.sayAt(p, message);
+      const div = (header = '', color) => B.pipe(B.boxH(width, header, color));
+      const centerBox = (width = 60, message = '', color) => B.pipe(B.center(width, message, color));
+      const pipe = B.pipe();
+      const width = 62;
 
-      say('<b>' + B.center(60, `${p.name}, level ${p.level} ${p.getMeta('background') || 'person'}`, 'green'));
-      say('<b>' + B.line(60, '-', 'green'));
+      // top border
+      say(`<b>${B.box('top', "[About You]", width)}</b>`);
 
+      // "about you"
+      const generalStats = `${p.name}, level ${p.level} ${p.getMeta('background') || 'person'}`;
+      say(`<b>${centerBox(width, generalStats)}</b>`);
+      say(B.pipe(' '.repeat(width)));
+
+      // stat pools
       let stats = {
         might: 0,
         quickness: 0,
         intellect: 0,
         willpower: 0,
+
         armor: 0,
+        critical: 0,
+
         health: 0,
         energy: 0,
         focus: 0,
-        critical: 0,
       };
 
-      for (const stat in stats) {
+      Object.keys(stats).forEach(stat => {
         stats[stat] = {
           current: p.getAttribute(stat) || 0,
           base: p.getBaseAttribute(stat) || 0,
           max: p.getMaxAttribute(stat) || 0,
         };
+      });
+
+      // Print attributes with color-coded progress bar and labels.
+      say(div('[Attributes]'));
+
+      function compileStatString(isStart = false) {
+        return (output, [label, _color], index, arr) => {
+          const stat         = stats[label.trim().toLowerCase()];
+          const percent      = Math.floor((stat.current / stat.max) * 100);
+          const numericStat  = `${Math.round(stat.current)}/${Math.round(stat.max)}`;
+          const numericLabel = `(${B.center(7, numericStat, _color)})`;
+          const bar = stat.max === 0
+            ? B.colorize('[        ]', _color)
+            : B.progress(10, percent, _color, 'o', '-', '[]');
+          let _width = width;
+          if (!isStart) _width = width / 2;
+          const borderFn = isStart ? centerBox : (w, msg) => `${B.center(w, msg) + ' ' + pipe}`;
+          const ending = index === arr.length - 1 ? '' : '\n';
+          return output.concat(borderFn(_width, `${label}: ${bar} ${numericLabel}`) + ending);
+        }
       }
 
-      function printStat(stat, newline = true) {
-        const val = stats[stat];
-        const statColor = (val.current > val.base ? 'green' : 'white');
-        const str = sprintf(
-          `| %-9s : <b><${statColor}>%8s</${statColor}></b> |`,
-          stat[0].toUpperCase() + stat.slice(1),
-          val.current
-        );
-
-        if (newline) {
-          say(str);
-        } else {
-          B.at(p, str);
-        }
+      const attributes = {
+        '    Might': 'red',
+        'Quickness': 'yellow',
+        'Intellect': 'cyan',
+        'Willpower': 'magenta'
       };
+      const attributesBox = Object
+        .entries(attributes)
+        .reduce(compileStatString(true), '');
 
-      B.at(p, sprintf(' %-9s: %12s', 'Health', `${stats.health.current}/${stats.health.max}`));
-      B.at(p, sprintf(' %-9s: %12s', 'Energy', `${stats.energy.current}/${stats.energy.max}`));
-      B.at(p, '\n' + sprintf(' %-9s: %12s', 'Focus', `${stats.focus.current}/${stats.focus.max}`));
+      const pools = {
+        ' Health': 'red',
+        '  Focus': 'blue',
+        ' Energy': 'yellow',
+        '  Armor': 'bold'
+      };
+      const poolsBox = Object
+        .entries(pools)
+        .reduce(compileStatString(), '');
 
-      say('<b><green>' + sprintf(
-        '%36s',
-        'Weapon '
-      ));
+      const poolLines = poolsBox.split('\n');
+      const statsBoxes = attributesBox
+        .split('\n')
+        .reduce((output, line, index) => {
+          const pool = poolLines[index];
+          const ending = index === poolLines.length - 1 ? '' : '\n';
+          return output + line + pool + ending;
+        }, '');
 
-      say(sprintf('%59s', '.' + B.line(22)) + '.');
+      say(statsBoxes);
 
-      B.at(p, sprintf('%37s', '|'));
+      // Primary & secondary wielded.
+      const primaryWeapon = p.equipment.get('wield') || {};
       const weaponDamage = Combat.getWeaponDamage(p);
       const min = Combat.normalizeWeaponDamage(p, weaponDamage.min);
       const max = Combat.normalizeWeaponDamage(p, weaponDamage.max);
-      say(sprintf(' %6s:<b>%5s</b> - <b>%-5s</b> |', 'Damage', min, max));
-      B.at(p, sprintf('%37s', '|'));
-      say(sprintf(' %6s: <b>%12s</b> |', 'Speed', B.center(12, Combat.getWeaponSpeed(p) + ' sec')));
+      const speed = Combat.getWeaponSpeed(p) + ' sec';
+      say(div('[Armaments]'));
+      say(centerBox(width, `Primary: ${primaryWeapon.name || 'Unarmed'}`));
+      say(centerBox(width, `Damage: ${min + ' - ' + max}  Speed: ${speed}`));
 
-      say(sprintf('%60s', "'" + B.line(22) + "'"));
+      //TODO: Secondary arms, if it exists, once implemented.
+      //TODO: Wounds/disease state?
+      //TODO: Crit chance, modified by weapon.
+      //TODO: Currencies/resources.
 
-      say('<b><green>' + sprintf(
-        '%-24s',
-        ' Stats'
-      ) + '</green></b>');
-      say('.' + B.line(22) + '.');
-
-      printStat('might', false); // left
-      say('<b><green>' + sprintf('%36s', 'Gold ')); // right
-      printStat('quickness', false); // left
-      say(sprintf('%36s', '.' + B.line(12) + '.')); // right
-      printStat('intellect', false); // left
-      say(sprintf('%22s| <b>%10s</b> |', '', p.getMeta('currencies.gold') || 0)); // right
-      printStat('willpower', false); // left
-      say(sprintf('%36s', "'" + B.line(12) + "'")); // right
-
-      say(':' + B.line(22) + ':');
-      printStat('armor');
-      printStat('critical');
-      say("'" + B.line(22) + "'");
+      say(B.box('bottom', p.name || '', width));
     }
   };
 };
