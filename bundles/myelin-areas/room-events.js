@@ -83,24 +83,18 @@ module.exports = (srcPath, bundlePath) => {
           }
 
           // color NPC label by difficulty
-          let npcLabel = 'NPC';
-          switch (true) {
-            case (player.level  - npc.level > 4):
-              npcLabel = '<cyan>NPC</cyan>';
-              break;
-            case (npc.level - player.level > 9):
-              npcLabel = '<b><black>NPC</black></b>';
-              break;
-            case (npc.level - player.level > 5):
-              npcLabel = '<red>NPC</red>';
-              break;
-            case (npc.level - player.level > 3):
-              npcLabel = '<yellow>NPC</red>';
-              break;
-            default:
-              npcLabel = '<green>NPC</green>';
-              break;
+          let npcLabel = getNpcLevel(player, npc);
+
+          function getNpcLevel(player, npc) {
+            switch (true) {
+              case (player.level - npc.level > 4): return '<cyan>NPC</cyan>';
+              case (npc.level - player.level > 9): return '<b><black>NPC</black></b>';
+              case (npc.level - player.level > 5): return '<red>NPC</red>';
+              case (npc.level - player.level > 3): return '<yellow>NPC</red>';
+              default: return '<green>NPC</green>';
+            }
           }
+
           B.sayAt(player, `[${npcLabel}] ` + npc.name + combatantsDisplay);
         });
 
@@ -125,7 +119,7 @@ module.exports = (srcPath, bundlePath) => {
 
             foundExits = [...foundExits, ...(Object.entries(directions)
               .map(([dir, diff]) => {
-                return [dir, area.getRoomAtCoordinates(coords.x + diff[0], coords.y + diff[1], coords.z + diff[2])];
+                return [dir, area.getRoomAtCoordinates(coords.x + x, coords.y + y, coords.z + z)];
               })
               .filter(([dir, exitRoom]) => {
                 return !!exitRoom;
