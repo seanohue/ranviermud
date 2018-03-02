@@ -5,7 +5,7 @@ module.exports = (srcPath, bundlePath) => {
   const Logger = require(srcPath + 'Logger');
   const B = require(srcPath + 'Broadcast');
   const ItemUtil = require(bundlePath + 'ranvier-lib/lib/ItemUtil');
-  console.log('LOADING LOADING'.repeat(100));
+
   return  {
     listeners: {
       look: state => function (player) {
@@ -75,7 +75,7 @@ module.exports = (srcPath, bundlePath) => {
               questString += hasReadyQuest ? '[<b><yellow>?</yellow></b>]' : '';
               B.at(player, questString + ' ');
             }
-          }
+          } // could also represent in websocket GUI
 
           let combatantsDisplay = '';
           if (npc.isInCombat()) {
