@@ -119,6 +119,7 @@ module.exports = (srcPath, bundlePath) => {
 
             foundExits = [...foundExits, ...(Object.entries(directions)
               .map(([dir, diff]) => {
+                let [x, y, z] = diff;
                 return [dir, area.getRoomAtCoordinates(coords.x + x, coords.y + y, coords.z + z)];
               })
               .filter(([dir, exitRoom]) => {
