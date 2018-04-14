@@ -13,7 +13,9 @@
  *   --respawn Minutes between respawn
  */
 
+
 /* NPM Modules */
+const semver = require('semver');
 const net = require('net');
 const commander = require('commander');
 const wrap = require('wrap-ansi');
@@ -21,6 +23,13 @@ const argv = require('optimist').argv;
 
 // Package.json for versioning
 const pkg = require('./package.json');
+
+if (!semver.satisfies(process.version, pkg.engines.node)) {
+  throw new Error(
+    `Ranvier's core engine requires Node version ${pkg.engines.node},
+    you are currently running Node ${process.version}.`
+  );
+}
 
 // State managers and factories
 const AccountManager = require('./src/AccountManager');
@@ -40,6 +49,8 @@ const MobManager = require('./src/MobManager');
 const PartyManager = require('./src/PartyManager');
 const PlayerManager = require('./src/PlayerManager');
 const QuestFactory = require('./src/QuestFactory');
+const QuestGoalManager = require('./src/QuestGoalManager');
+const QuestRewardManager = require('./src/QuestRewardManager');
 const RoomManager = require('./src/RoomManager');
 const SkillManager = require('./src/SkillManager');
 
@@ -108,6 +119,8 @@ function init(restartServer) {
     PartyManager: new PartyManager(),
     PlayerManager: new PlayerManager(),
     QuestFactory: new QuestFactory(),
+    QuestGoalManager: new QuestGoalManager(),
+    QuestRewardManager: new QuestRewardManager(),
     RoomBehaviorManager: new BehaviorManager(),
     RoomManager: new RoomManager(),
     SkillManager: new SkillManager(),

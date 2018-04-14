@@ -9,7 +9,7 @@
   "bundles": [
     "ranvier-telnet",
     "ranvier-websocket",
-    "ranvier-areas",
+    "myelin-areas",
     "ranvier-channels",
     "myelin-commands",
     "ranvier-effects",

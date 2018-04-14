@@ -1,6 +1,7 @@
 'use strict';
 
 const Room = require('./Room');
+const EventManager = require('./EventManager');
 
 /**
  * Keeps track of all the individual rooms in the game
@@ -9,6 +10,7 @@ const Room = require('./Room');
 class RoomManager {
   constructor() {
     this.rooms = new Map();
+    this.events = new EventManager();
     this.startingRoom = null;
   }
 
@@ -25,6 +27,7 @@ class RoomManager {
    */
   addRoom(room) {
     this.rooms.set(room.entityReference, room);
+    this.events.attach(room);
   }
 
   /**
@@ -52,6 +55,16 @@ class RoomManager {
     }
 
     return exits.pop();
+  }
+
+  addListener(eventName, listener) {
+    this.events.add(eventName, listener);
+  }
+
+  attachAllEvents() {
+    for (const room of this.rooms.values()) {
+      this.events.attach(room);
+    }
   }
 }
 

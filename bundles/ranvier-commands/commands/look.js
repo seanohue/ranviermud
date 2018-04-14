@@ -125,13 +125,23 @@ module.exports = (srcPath, bundlePath) => {
       // show quest state as [!], [%], [?] for available, in progress, ready to complete respectively
       let hasNewQuest, hasActiveQuest, hasReadyQuest;
       if (npc.quests) {
-        const quests = npc.quests.map(qid => state.QuestFactory.create(state, qid, player));
+        const quests = npc.quests.map(qid => {
+          try {
+            return state.QuestFactory.create(state, qid, player)
+          } catch (e) {
+            Logger.error(e.message);
+            return null;
+          }
+        }).filter(q => q);
+
         hasNewQuest = quests.find(quest => player.questTracker.canStart(quest));
         hasReadyQuest = quests.find(quest => {
-          return player.questTracker.isActive(quest.id) && player.questTracker.get(quest.id).getProgress().percent >= 100;
+            return player.questTracker.isActive(quest.entityReference) &&
+              player.questTracker.get(quest.entityReference).getProgress().percent >= 100;
         });
         hasActiveQuest = quests.find(quest => {
-          return player.questTracker.isActive(quest.id) && player.questTracker.get(quest.id).getProgress().percent < 100;
+            return player.questTracker.isActive(quest.entityReference) &&
+              player.questTracker.get(quest.entityReference).getProgress().percent < 100;
         });
 
         let questString = '';
