@@ -1,20 +1,11 @@
 module.exports = {
-    type: 'Digger',
+    type: 'IceyMaze',
     areaTitle: 'The Spire: Cryochamber',
   
-    width: 20,
-    height: 20,
+    width: 10,
+    height: 10,
   
-    roomHeightMaximum: 7,
-    roomHeightMinimum: 3,
-  
-    roomWidthMaximum: 7,
-    roomWidthMinimum: 3,
-  
-    dugPercentage: 0.2,
-  
-    corridorLengthMaximum: 7,
-    corridorLengthMinimum: 2,
+    regularity: 0,
   
     weightedRoomsTable: require('./rooms-table')
   
