@@ -1,0 +1,7 @@
+- id: columntubes
+  name: "A Central Column of Tubes"
+  roomDesc: "Thousands of tubes form a central column in this chamber"
+  properties:
+    noPickup: true
+  keywords: [ "tube, tubes", "column", "central" ]
+  description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the surrounding chambers."
