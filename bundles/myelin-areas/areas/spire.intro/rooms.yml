@@ -1,0 +1,493 @@
+- id: data-observation-deck-0
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [5, 4, 0]
+  weight: 1
+  items: &ref_0 ['spire.intro:datacrystals']
+- id: a-frosted-tomb-1
+  title: A Frosted Tomb
+  description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
+  coordinates: [5, 5, 0]
+  weight: 1
+- id: data-observation-deck-2
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [5, 6, 0]
+  weight: 1
+  items: *ref_0
+- id: a-cold-hall-3
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [5, 7, 0]
+  weight: 5
+- id: data-observation-deck-4
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [5, 8, 0]
+  weight: 1
+  items: *ref_0
+- id: airlock-chamber-5
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [5, 9, 0]
+  weight: 3
+- id: a-cold-hall-6
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [5, 10, 0]
+  weight: 5
+- id: a-cold-hall-7
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [5, 11, 0]
+  weight: 5
+- id: a-cold-hall-8
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [6, 4, 0]
+  weight: 5
+- id: a-cold-hall-9
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [6, 9, 0]
+  weight: 5
+- id: tube-chamber-10
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [6, 10, 0]
+  weight: 3
+  items: &ref_1 ['spire.intro:columntubes']
+- id: tube-chamber-11
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [6, 11, 0]
+  weight: 3
+  items: *ref_1
+- id: airlock-chamber-12
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [7, 2, 0]
+  weight: 3
+- id: tube-chamber-13
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [7, 3, 0]
+  weight: 3
+  items: *ref_1
+- id: a-cold-hall-14
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [7, 4, 0]
+  weight: 5
+- id: tube-chamber-15
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [7, 5, 0]
+  weight: 3
+  items: *ref_1
+- id: airlock-chamber-16
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [7, 9, 0]
+  weight: 3
+- id: airlock-chamber-17
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [7, 10, 0]
+  weight: 3
+- id: a-cold-hall-18
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [7, 11, 0]
+  weight: 5
+- id: a-cold-hall-19
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [8, 2, 0]
+  weight: 5
+- id: a-frosted-tomb-20
+  title: A Frosted Tomb
+  description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
+  coordinates: [8, 3, 0]
+  weight: 1
+- id: airlock-chamber-21
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [8, 4, 0]
+  weight: 3
+- id: a-frosted-tomb-22
+  title: A Frosted Tomb
+  description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
+  coordinates: [8, 5, 0]
+  weight: 1
+- id: airlock-chamber-23
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [8, 9, 0]
+  weight: 3
+- id: tube-chamber-24
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [8, 10, 0]
+  weight: 3
+  items: *ref_1
+- id: a-frosted-tomb-25
+  title: A Frosted Tomb
+  description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
+  coordinates: [8, 11, 0]
+  weight: 1
+- id: airlock-chamber-26
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [9, 2, 0]
+  weight: 3
+- id: tube-chamber-27
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [9, 3, 0]
+  weight: 3
+  items: *ref_1
+- id: airlock-chamber-28
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [9, 4, 0]
+  weight: 3
+- id: airlock-chamber-29
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [9, 5, 0]
+  weight: 3
+- id: a-cold-hall-30
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [9, 9, 0]
+  weight: 5
+- id: tube-chamber-31
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [9, 10, 0]
+  weight: 3
+  items: *ref_1
+- id: airlock-chamber-32
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [9, 11, 0]
+  weight: 3
+- id: a-cold-hall-33
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [9, 12, 0]
+  weight: 5
+- id: tube-chamber-34
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [9, 13, 0]
+  weight: 3
+  items: *ref_1
+- id: a-cold-hall-35
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [9, 14, 0]
+  weight: 5
+- id: airlock-chamber-36
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [9, 15, 0]
+  weight: 3
+- id: a-cold-hall-37
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [9, 16, 0]
+  weight: 5
+- id: airlock-chamber-38
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [10, 2, 0]
+  weight: 3
+- id: airlock-chamber-39
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [10, 3, 0]
+  weight: 3
+- id: tube-chamber-40
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [10, 4, 0]
+  weight: 3
+  items: *ref_1
+- id: tube-chamber-41
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [10, 5, 0]
+  weight: 3
+  items: *ref_1
+- id: tube-chamber-42
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [10, 9, 0]
+  weight: 3
+  items: *ref_1
+- id: a-cold-hall-43
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [10, 10, 0]
+  weight: 5
+- id: a-cold-hall-44
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [10, 11, 0]
+  weight: 5
+- id: tube-chamber-45
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [10, 16, 0]
+  weight: 3
+  items: *ref_1
+- id: airlock-chamber-46
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [11, 2, 0]
+  weight: 3
+- id: airlock-chamber-47
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [11, 3, 0]
+  weight: 3
+- id: a-cold-hall-48
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [11, 4, 0]
+  weight: 5
+- id: a-cold-hall-49
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [11, 5, 0]
+  weight: 5
+- id: tube-chamber-50
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [11, 16, 0]
+  weight: 3
+  items: *ref_1
+- id: a-cold-hall-51
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [12, 2, 0]
+  weight: 5
+- id: a-cold-hall-52
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [12, 3, 0]
+  weight: 5
+- id: data-observation-deck-53
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [12, 4, 0]
+  weight: 1
+  items: *ref_0
+- id: a-cold-hall-54
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [12, 5, 0]
+  weight: 5
+- id: a-cold-hall-55
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [12, 16, 0]
+  weight: 5
+- id: a-cold-hall-56
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [13, 2, 0]
+  weight: 5
+- id: airlock-chamber-57
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [13, 3, 0]
+  weight: 3
+- id: tube-chamber-58
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [13, 4, 0]
+  weight: 3
+  items: *ref_1
+- id: airlock-chamber-59
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [13, 5, 0]
+  weight: 3
+- id: a-frosted-tomb-60
+  title: A Frosted Tomb
+  description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
+  coordinates: [13, 10, 0]
+  weight: 1
+- id: data-observation-deck-61
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [13, 11, 0]
+  weight: 1
+  items: *ref_0
+- id: a-cold-hall-62
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [13, 12, 0]
+  weight: 5
+- id: a-frosted-tomb-63
+  title: A Frosted Tomb
+  description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
+  coordinates: [13, 13, 0]
+  weight: 1
+- id: a-cold-hall-64
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [13, 14, 0]
+  weight: 5
+- id: a-cold-hall-65
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [13, 16, 0]
+  weight: 5
+- id: a-cold-hall-66
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [13, 17, 0]
+  weight: 5
+- id: a-cold-hall-67
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [13, 18, 0]
+  weight: 5
+- id: a-cold-hall-68
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [14, 10, 0]
+  weight: 5
+- id: airlock-chamber-69
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [14, 11, 0]
+  weight: 3
+- id: a-cold-hall-70
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [14, 12, 0]
+  weight: 5
+- id: a-cold-hall-71
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [14, 13, 0]
+  weight: 5
+- id: data-observation-deck-72
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [14, 14, 0]
+  weight: 1
+  items: *ref_0
+- id: a-cold-hall-73
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [14, 18, 0]
+  weight: 5
+- id: airlock-chamber-74
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [15, 10, 0]
+  weight: 3
+- id: airlock-chamber-75
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [15, 11, 0]
+  weight: 3
+- id: a-cold-hall-76
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [15, 12, 0]
+  weight: 5
+- id: tube-chamber-77
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [15, 13, 0]
+  weight: 3
+  items: *ref_1
+- id: tube-chamber-78
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [15, 14, 0]
+  weight: 3
+  items: *ref_1
+- id: data-observation-deck-79
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [15, 18, 0]
+  weight: 1
+  items: *ref_0
+- id: data-observation-deck-80
+  title: Data Observation Deck
+  description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
+  coordinates: [16, 10, 0]
+  weight: 1
+  items: *ref_0
+- id: a-cold-hall-81
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [16, 11, 0]
+  weight: 5
+- id: a-frosted-tomb-82
+  title: A Frosted Tomb
+  description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
+  coordinates: [16, 12, 0]
+  weight: 1
+- id: tube-chamber-83
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [16, 13, 0]
+  weight: 3
+  items: *ref_1
+- id: a-cold-hall-84
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [16, 14, 0]
+  weight: 5
+- id: a-cold-hall-85
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [16, 18, 0]
+  weight: 5
+- id: a-cold-hall-86
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [17, 14, 0]
+  weight: 5
+- id: a-cold-hall-87
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [17, 18, 0]
+  weight: 5
+- id: tube-chamber-88
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [18, 14, 0]
+  weight: 3
+  items: *ref_1
+- id: airlock-chamber-89
+  title: Airlock Chamber
+  description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
+  coordinates: [18, 15, 0]
+  weight: 3
+- id: tube-chamber-90
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [18, 16, 0]
+  weight: 3
+  items: *ref_1
+- id: a-cold-hall-91
+  title: A Cold Hall
+  description: 'A short hallway, cold enough to see one''s breath.'
+  coordinates: [18, 17, 0]
+  weight: 5
+- id: tube-chamber-92
+  title: Tube Chamber
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  coordinates: [18, 18, 0]
+  weight: 3
+  items: *ref_1
