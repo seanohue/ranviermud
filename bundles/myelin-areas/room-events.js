@@ -119,7 +119,11 @@ module.exports = (srcPath, bundlePath) => {
 
             foundExits = [...foundExits, ...(Object.entries(directions)
               .map(([dir, diff]) => {
-                return [dir, area.getRoomAtCoordinates(coords.x + x, coords.y + y, coords.z + z)];
+                return [dir, area.getRoomAtCoordinates(
+                  coords.x + diff.x, 
+                  coords.y + diff.y, 
+                  coords.z + diff.z
+                )];
               })
               .filter(([dir, exitRoom]) => {
                 return !!exitRoom;

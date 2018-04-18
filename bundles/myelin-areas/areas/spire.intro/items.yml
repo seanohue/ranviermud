@@ -5,3 +5,10 @@
     noPickup: true
   keywords: [ "tube, tubes", "column", "central" ]
   description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the surrounding chambers."
+- id: datacrystals
+  name: "Datacrystal Cluster"
+  description: "Four crystals hover a dozen hands above the ground, rotating slowly and emanating a blue light. In the light you can see various shapes and figures."
+  properties:
+    noPickup: true
+  keywords: [ "crystals", "data", "datacrystals", "cluster"]
+  roomDesc: "Four crystals hover above the ground here, glowing"
