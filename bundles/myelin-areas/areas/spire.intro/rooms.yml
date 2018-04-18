@@ -117,7 +117,7 @@
   weight: 1
 - id: tube-chamber-22
   title: Tube Chamber
-  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
+  description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls. This seems to be a dead end.'
   coordinates: [6, 1, 0]
   weight: 3
   items: *ref_0
