@@ -403,7 +403,7 @@ class Room extends Metadatable(EventEmitter) {
     for (let [behaviorName, config] of this.behaviors) {
       let behavior = state.RoomBehaviorManager.get(behaviorName);
       if (!behavior) {
-        Log.error(`Could not find behavior ${behaviorName}, in ${this.entityReference}.`);
+        Logger.error(`Could not find behavior ${behaviorName}, in ${this.entityReference}.`);
         return;
       }
 

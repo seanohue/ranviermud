@@ -3,6 +3,14 @@
   description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
   coordinates: [1, 1, 0]
   weight: 1
+  behaviors:
+    flavorevents:
+      messages:
+        - 'You hear a soft, high whistling coming from the pipes overhead.'
+        - 'A wooshing sound can be heard from the chamber nearby.'
+        - 'You hear a scurrying noise coming from an indeterminate distance away.'
+        - 'A sound like distant thunder echoes from afar.'
+        - 'Bubbles form behind the glass of one of the cylinders.'
 - id: tube-chamber-1
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
