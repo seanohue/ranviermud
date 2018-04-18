@@ -118,6 +118,8 @@ module.exports = (srcPath, bundlePath) => {
       }
     }
 
+    // For room-specific descriptiony things.
+    room.emit('itemLook', player, entity.entityReference);
     entity.emit('look', player);
   }
 };

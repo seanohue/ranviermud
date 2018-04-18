@@ -46,6 +46,9 @@
   description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
   coordinates: [2, 5, 0]
   items: &ref_1 ['spire.intro:datacrystals']
+  behaviors: 
+    datacrystal:
+      message: 'Test'
   weight: 1
 - id: a-cold-hall-9
   title: A Cold Hall
@@ -80,6 +83,9 @@
   coordinates: [4, 1, 0]
   weight: 1
   items: *ref_1
+  behaviors: 
+    datacrystal:
+      message: 'Test'
 - id: airlock-chamber-15
   title: Airlock Chamber
   description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
