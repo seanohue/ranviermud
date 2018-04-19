@@ -1,0 +1,17 @@
+- id: wayout
+  level: 1
+  desc: 'You must find your way out of this strange place.'
+  autoComplete: true
+  description: |-
+   You awaken from your slumber, finding yourself on the floor in front of a glass <white>cylinder</white>. You are covered in a viscous fluid.
+   Your surroundings seem vaguely familiar. You know you need to find a... portal of sorts.
+
+   You have a gut feeling that you cannot stay here forever.
+
+   <b><cyan>Hint: If you are using a telnet client, type 'config set minimap on' to use the minimap.</cyan></b>
+
+  completionMessage: |-
+    You have escaped the cryochambers.
+
+    <b><cyan>Hint: You know you will need to make your way up the spire. What you'll find at the top, you cannot imagine.</cyan></b>
+

@@ -18,10 +18,7 @@ module.exports = (srcPath) => {
   return {
     listeners: {
       command: state => function(config, player, commandName, args) {
-        if (!this.__seating) {
-          this.__seating = new Map();
-        }
-    console.log('ayyyyy');
+        checkSeating.call(this);
         switch(commandName) {
           case 'sit':
             return sit.call(this, player, args, config);
@@ -62,6 +59,9 @@ module.exports = (srcPath) => {
   }
 
   function autoStand(config, player, args) {
+    if (!this.__seating) {
+      this.__seating = new Map();
+    }
     return stand.call(this, player, args, config, true);
   }
 
@@ -94,3 +94,9 @@ module.exports = (srcPath) => {
     Broadcast.sayAt(observer, `<b>${this.name} ${message}</b>`);
   }
 };
+
+function checkSeating() {
+  if (!this.__seating) {
+    this.__seating = new Map();
+  }
+}
