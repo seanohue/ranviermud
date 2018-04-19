@@ -7,7 +7,6 @@ module.exports = (srcPath) => {
   return {
     listeners: {
       respawnTick: state => function ({messages = [], cooldown = 60 * 1000, color = 'white'}) {
-        console.log('Updortin:', this, messages);
         if (!this.players.size || !messages.length || !Array.isArray(messages)) {
           return;
         }

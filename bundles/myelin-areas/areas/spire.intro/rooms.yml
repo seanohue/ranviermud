@@ -53,10 +53,13 @@
   title: Data Observation Deck A
   description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
   coordinates: [2, 5, 0]
-  items: &ref_1 ['spire.intro:datacrystals']
+  items: &ref_1 ['spire.intro:datacrystals', 'spire.intro:bench']
   behaviors: 
     datacrystal:
       message: 'Test'
+    seating:
+      seatingRef: 'spire.intro:bench'
+    commands: ['sit', 'stand']
   weight: 1
 - id: a-cold-hall-9
   title: A Cold Hall
@@ -94,6 +97,14 @@
   behaviors: 
     datacrystal:
       message: 'Test'
+    seating:
+      seatingRef: 'spire.intro:bench'
+      sitMessage: 'You sit on the slate bench.'
+      sitObserverMessage: 'sits on the slate bench.'
+      standMessage: 'You stand up from the slate bench.'
+      standObserverMessage: 'stands up from the slate bench.'
+      observerMessage: 'is sitting on the bench.'
+    commands: ['sit', 'stand']
 - id: airlock-chamber-15
   title: Airlock Chamber
   description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'

@@ -12,3 +12,10 @@
     noPickup: true
   keywords: [ "crystals", "data", "datacrystals", "cluster"]
   roomDesc: "Four crystals hover above the ground here, glowing"
+- id: bench
+  name: "A Semicircular Slate Bench"
+  roomDesc: "A semicircular slate bench is built into the ground in the center of this room"
+  description: "This bench is the same color and material as the floor, walls, and ceiling. It arcs in a semicircle around the crystals hovering in the center of the room. It looks uncomfortable to <b>sit</b> on for any considerable span."
+  properties:
+    noPickup: true
+  keywords: ["bench", "slate", "circular", "seat", "semi"]
