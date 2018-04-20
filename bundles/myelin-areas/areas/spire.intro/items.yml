@@ -19,3 +19,17 @@
   properties:
     noPickup: true
   keywords: ["bench", "slate", "circular", "seat", "semi"]
+- id: cylinders
+  name: "A Row of Frosted Cylinders"
+  roomDesc: "A row of frosted cylinders embedded in the wall"
+  properties:
+    noPickup: true
+  keywords: [ "cylinder", "coffin", "frosted", "row" ]
+  description: "Upon closer inspection, the cylinders are made of thick glass. Some of them are slightly cracked, and a thin vapor is emerging. Others are too frosted over to see within. In one, you see a dim silhouette."
+- id: masstubes
+  name: "A Snakelike Mass of Tubes"
+  roomDesc: "A mass of tubes snaking to each of the cylinders"
+  properties:
+    noPickup: true
+  keywords: [ "tube", "tubes", "snakelike", "mass"  ]
+  description: "The tubes are running from the surrounding spaces, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."

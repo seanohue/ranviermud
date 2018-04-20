@@ -3,6 +3,7 @@
   description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
   coordinates: [1, 1, 0]
   weight: 1
+  items: &ref_3 ['spire.intro:cylinders', 'spire.intro:masstubes']
   behaviors:
     startquest: 
       questId: 'spire.intro:wayout'
@@ -142,6 +143,7 @@
   description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
   coordinates: [5, 7, 0]
   weight: 1
+  items: *ref_3
   behaviors:
     flavorevents:
       messages:
