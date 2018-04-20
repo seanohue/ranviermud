@@ -7,10 +7,15 @@ module.exports = (srcPath) => {
     listeners: {
       playerEnter: state => function (config, player) {
         let questId;
+
         if (typeof config === 'string') {
           questId = config;
         } else if (config && typeof config === 'object') {
           questId = config.questId;
+        }
+
+        if (!questId.includes(':')) {
+          questId = `${this.area.title}:questId`;
         }
 
         if (!questId) {
