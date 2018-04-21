@@ -1,5 +1,6 @@
 - id: wayout
   level: 1
+  title: 'A Way Out'
   desc: 'You must find your way out of this strange place.'
   autoComplete: true
   description: |-
@@ -11,11 +12,11 @@
    <b><cyan>Hint: If you are using a telnet client, type 'config set minimap on' to use the minimap.</cyan></b>
 
   completionMessage: |-
-    An open hatch in the floor beckons for you to descend.
+    An open portal in the floor beckons for you to descend... if you only had a key.
   goals:
     - type: LocationGoal
       config:
-        title: 'Find an open airlock hatch'
+        title: 'Find a functional portal'
         rooms: ['spire.intro:airlock-chamber-25']
   rewards:
     - type: ExperienceReward

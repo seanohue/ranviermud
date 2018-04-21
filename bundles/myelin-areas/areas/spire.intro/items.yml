@@ -33,3 +33,9 @@
     noPickup: true
   keywords: [ "tube", "tubes", "snakelike", "mass"  ]
   description: "The tubes are running from the surrounding spaces, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."
+
+- id: portalkey
+  name: "Portal Key"
+  roomDesc: "Portal Key"
+  description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
+  keywords: ["key", "portal"]
