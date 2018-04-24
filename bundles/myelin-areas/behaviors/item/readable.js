@@ -48,25 +48,33 @@ module.exports = srcPath => {
   }
 
   function getContentToRead(contentMap, args, player) {
-    if (args.length > 1) {
-      const divNameList = Array.from(contentMap.keys()).map(key => key.toLowerCase());
+    if (args.length > 0) {
+      let searchableMap = new Map(
+        Array.from(contentMap.entries())
+          .map(([key, entry]) => [key.toLowerCase(), entry])
+      );
+ 
+      const divNameList = Array.from(searchableMap.keys());
       args = args.map(arg => arg.toLowerCase());
-      const found = args.filter(search => divNameList.has(search));
+      const found = args.find(search => divNameList.includes(search));
 
       if (!found) {
-        const partialMatch = args
-          .filter(search => divNameList
-            .filter(key => key.includes(search)));
-        return [partialMatch[0], contentMap.get(partialMatch[0])];
+        const partialMatch = args.reduce((_found, search) => {
+          console.log({_found, search});
+          console.log(divNameList.find(key => key.includes(search) || search.includes(key)));
+          return _found || divNameList.find(key => key.includes(search) || search.includes(key));
+        }, '');
+        return [partialMatch, searchableMap.get(partialMatch)];
       }
-      return [found[0], contentMap.get(found[0])];
+      return [found, searchableMap.get(found)];
     }
-    return [args[0], contentMap.get(args[0])];
+
+    return [null, null];
   }
 
   function renderContent(divToRead, divName, divTargetName, player) {
     Broadcast.sayAt(player, `<white><b>${this.name}:</white></b>`);
     Broadcast.sayAt(player, Broadcast.center(40, `${divName.toUpperCase()} ${divTargetName.toUpperCase()}`, 'bold'));
-    return Broadcast.sayAt(player, divToRead);
+    return Broadcast.sayAt(player, divToRead, 40);
   }
 };
