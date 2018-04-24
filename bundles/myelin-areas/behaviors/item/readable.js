@@ -60,9 +60,8 @@ module.exports = srcPath => {
 
       if (!found) {
         const partialMatch = args.reduce((_found, search) => {
-          console.log({_found, search});
-          console.log(divNameList.find(key => key.includes(search) || search.includes(key)));
-          return _found || divNameList.find(key => key.includes(search) || search.includes(key));
+          return _found || 
+            divNameList.find(key => key.includes(search) || search.includes(key));
         }, '');
         return [partialMatch, searchableMap.get(partialMatch)];
       }
