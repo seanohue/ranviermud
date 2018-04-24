@@ -7,7 +7,7 @@
   description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the surrounding chambers."
 - id: datacrystals
   name: "Datacrystal Cluster"
-  description: "Four crystals hover a dozen hands above the ground, rotating slowly and emanating a blue light. In the light you can see various shapes and figures."
+  description: "Four crystals hover a dozen hands above the ground, rotating slowly and emanating a blue light.\nIn the light you can see various shapes and figures."
   properties:
     noPickup: true
   behaviors:

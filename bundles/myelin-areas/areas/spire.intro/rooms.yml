@@ -58,8 +58,6 @@
   coordinates: [2, 5, 0]
   items: &ref_1 ['spire.intro:datacrystals', 'spire.intro:bench']
   behaviors: 
-    datacrystal:
-      message: 'Test'
     seating:
       seatingRef: 'spire.intro:bench'
     commands: ['sit', 'stand']

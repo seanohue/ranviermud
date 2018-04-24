@@ -33,26 +33,29 @@ module.exports = srcPath => {
   function renderTableOfContents(player, content, divName) {
     Broadcast.sayAt(player, Broadcast.center(40, this.name, 'bold', '-'));
     Broadcast.sayAt(player, this.description);
+    Broadcast.sayAt(player, '');
 
     const [first, ...rest] = divName;
     const capitalizedDivName = [first.toUpperCase()].concat(rest).join('');
     const divsList = Array
       .from(content.keys())
       .map(div => div.toUpperCase())
-      .join(', ');
+      .join(',\n');
 
     const keywordForThis = this.name.split(' ')[0].toLowerCase();
-    Broadcast.sayAt(player, `<b>${capitalizedDivName}s:<b> ${divsList}.`)
+    Broadcast.sayAt(player, `<b>${capitalizedDivName}s:</b>\n${divsList}.\n`);
     Broadcast.sayAt(player, `<b>Try 'read ${keywordForThis} [${divName}]' to read a specific ${divName}.</b>`);
   }
 
   function getContentToRead(contentMap, args, player) {
     if (args.length > 1) {
-      const found = args.filter(search => contentMap.has(search));
+      const divNameList = Array.from(contentMap.keys()).map(key => key.toLowerCase());
+      args = args.map(arg => arg.toLowerCase());
+      const found = args.filter(search => divNameList.has(search));
+
       if (!found) {
-        const divNamesList = Array.from(contentMap.keys());
         const partialMatch = args
-          .filter(search => divNamesList
+          .filter(search => divNameList
             .filter(key => key.includes(search)));
         return [partialMatch[0], contentMap.get(partialMatch[0])];
       }
