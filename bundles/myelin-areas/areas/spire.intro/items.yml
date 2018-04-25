@@ -45,8 +45,23 @@
   keywords: [ "tube", "tubes", "snakelike", "mass"  ]
   description: "The tubes are running from the surrounding spaces, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."
 
+
+- id: brokenportal
+  name: "A Broken Portal"
+  roomDesc: "A broken portal"
+  description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center, however, this cylinder has been snapped in half. Scorch marks and jagged spurs scar the metal cylinder where it was damaged."
+  properties:
+    noPickup: true
+  keywords: [ "portal", "broken" ]
+- id: portal
+  name: "A Portal"
+  roomDesc: "A portal"
+  description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center, however, this cylinder has been snapped in half. Scorch marks and jagged spurs scar the metal cylinder where it was damaged."
+  keywords: ["portal", "port"]
+  properties:
+    noPickup: true
 - id: portalkey
   name: "Portal Key"
-  roomDesc: "Portal Key"
+  roomDesc: "Portal key"
   description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
   keywords: ["key", "portal"]
