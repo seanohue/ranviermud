@@ -19,7 +19,9 @@ module.exports = srcPath => {
         visited: []
       };
 
-      this.on('enterRoom', this._checkForRoom);
+      this.checkForRoom = this._checkForRoom.bind(this, player);
+
+      player.on('enterRoom', this.checkForRoom);
     }
 
     getProgress() {
@@ -29,15 +31,17 @@ module.exports = srcPath => {
       return { percent, display };
     }
 
-    complete() {
+    complete(player) {
       if (this.state.visited.length !== this.config.rooms.length) {
         return;
       }
+      
+      player.off('enterRoom', this.checkForRoom);
 
       super.complete();
     }
 
-    _checkForRoom(room) {
+    _checkForRoom(player, room) {
       const roomRef = room.entityReference;
 
       if (this.config.inOrder) {
@@ -49,12 +53,12 @@ module.exports = srcPath => {
         }
       } else {
         if (this.config.rooms.includes(roomRef) && !this.state.visited.includes(roomRef)) {
-          this.state.visited.push(roomRef)
+          this.state.visited.push(roomRef);
         }
       }
 
       if (this.state.visited.length === this.config.rooms.length) {
-        return this.complete();
+        return this.complete(player);
       }
     }
   };
