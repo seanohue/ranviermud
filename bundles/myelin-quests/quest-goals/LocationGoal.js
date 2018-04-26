@@ -19,9 +19,9 @@ module.exports = srcPath => {
         visited: []
       };
 
-      this.checkForRoom = this._checkForRoom.bind(this, player);
+      this.checkForRoom = this._checkForRoom.bind(this);
 
-      player.on('enterRoom', this.checkForRoom);
+     (this.player || player).on('enterRoom', this.checkForRoom);
     }
 
     getProgress() {
@@ -31,23 +31,27 @@ module.exports = srcPath => {
       return { percent, display };
     }
 
-    complete(player) {
+    complete() {
       if (this.state.visited.length !== this.config.rooms.length) {
         return;
       }
       
-      player.off('enterRoom', this.checkForRoom);
+      this.player.off('enterRoom', this.checkForRoom);
 
       super.complete();
     }
 
     _checkForRoom(player, room) {
+      console.log('check' + '+'.repeat(20));
+      console.log({config: this.config, rooms: this.config.rooms, state: this.state, room});
       const roomRef = room.entityReference;
 
-      if (this.config.inOrder) {
+      if (this.config.inOrder === true) {
+        console.log({inOrder: this.config.inOrder});
         if (this.config.rooms.includes(roomRef)) {
           const numberVisited = this.state.visited.length;
           if (this.config.rooms[numberVisited] === roomRef) {
+            console.log('Went to a new room in order.');
             this.visited.push(roomRef);
           }
         }
@@ -58,7 +62,7 @@ module.exports = srcPath => {
       }
 
       if (this.state.visited.length === this.config.rooms.length) {
-        return this.complete(player);
+        return this.complete();
       }
     }
   };
