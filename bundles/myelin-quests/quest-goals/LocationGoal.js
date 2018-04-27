@@ -19,7 +19,7 @@ module.exports = srcPath => {
         visited: []
       };
 
-      this.checkForRoom = this._checkForRoom.bind(this);
+      this.checkForRoom = this._checkForRoom.bind(this, player);
 
      (this.player || player).on('enterRoom', this.checkForRoom);
     }
@@ -31,38 +31,39 @@ module.exports = srcPath => {
       return { percent, display };
     }
 
-    complete() {
+    complete(player) {
       if (this.state.visited.length !== this.config.rooms.length) {
         return;
       }
-      
-      this.player.off('enterRoom', this.checkForRoom);
 
+      player.removeListener('enterRoom', this.checkForRoom);
+      
       super.complete();
     }
 
     _checkForRoom(player, room) {
-      console.log('check' + '+'.repeat(20));
-      console.log({config: this.config, rooms: this.config.rooms, state: this.state, room});
+      if (!room) {
+        return console.log('No room.');
+      }
       const roomRef = room.entityReference;
 
       if (this.config.inOrder === true) {
-        console.log({inOrder: this.config.inOrder});
         if (this.config.rooms.includes(roomRef)) {
           const numberVisited = this.state.visited.length;
           if (this.config.rooms[numberVisited] === roomRef) {
-            console.log('Went to a new room in order.');
             this.visited.push(roomRef);
+            this.emit('progress', this.getProgress());
           }
         }
       } else {
         if (this.config.rooms.includes(roomRef) && !this.state.visited.includes(roomRef)) {
           this.state.visited.push(roomRef);
+          this.emit('progress', this.getProgress());
         }
       }
 
-      if (this.state.visited.length === this.config.rooms.length) {
-        return this.complete();
+      if (this.state.visited.length >= this.config.rooms.length) {
+        return this.complete(player);
       }
     }
   };
