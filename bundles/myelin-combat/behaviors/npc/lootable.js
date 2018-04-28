@@ -53,6 +53,8 @@ module.exports = srcPath => {
           if (resources) {
             distribute(resources, 'resources');
           }
+
+          state.CommandManager.get('look').execute(corpse.uuid, recipient);
   
           function distribute(distributables, type) {
             distributables.forEach(distributable => {
@@ -77,9 +79,7 @@ module.exports = srcPath => {
                   recipient.setMeta(type, {});
                 }
                 recipient.setMeta(key, (recipient.getMeta(key) || 0) + amount);
-                recipient.save();
-          
-                state.CommandManager.get('look').execute(corpse.uuid, recipient);
+                recipient.save();          
               }
             });
           }

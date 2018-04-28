@@ -227,10 +227,8 @@ class Combat {
     let intBonus = (attacker.getAttribute('intelligence') || 0) * 0.15;
     let quickBonus = (attacker.getAttribute('quickness') || 1) * 0.25; 
 
-    const bonus = Math.min(
-      (intBonus + quickBonus),
-      8
-    );
+    const statBonus = Math.min((intBonus + quickBonus), 8);
+
     const weapon = attacker.equipment.get('wield');
     let weaponBonus = 0;
     if (!attacker.isNpc && weapon) {
@@ -251,13 +249,13 @@ class Combat {
   }
 
   static getMartialSkillBonus(attacker) {
-    if (!attacker) {
+    if (!attacker || !attacker.skills) {
       console.log('No attacker.');
       return 1;
     }
-    return attacker.skill.has('martial_arts_2') 
+    return attacker.skills.has('martial_arts_2') 
     ? 5 
-    : attacker.skill.has('martial_arts_1')
+    : attacker.skills.has('martial_arts_1')
       ? 3
       : 1;
   }

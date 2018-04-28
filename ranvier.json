@@ -19,10 +19,10 @@
     "ranvier-skills",
     "myelin-combat",
     "myelin-classes",
-    "ranvier-crafting",
+    "myelin-crafting",
     "myelin-quests",
     "ranvier-vendors",
-    "ranvier-npc-behaviors",
+    "myelin-npc-behaviors",
     "ranvier-bug-report",
     "debug-commands"
   ],

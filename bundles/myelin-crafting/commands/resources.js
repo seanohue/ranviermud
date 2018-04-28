@@ -4,7 +4,7 @@
 
 module.exports = (srcPath, bundlePath) => {
   const B = require(srcPath + 'Broadcast');
-  const Crafting = require(bundlePath + 'ranvier-crafting/lib/Crafting');
+  const Crafting = require(bundlePath + 'myelin-crafting/lib/Crafting');
   const ItemUtil = require(bundlePath + 'ranvier-lib/lib/ItemUtil');
 
   return {

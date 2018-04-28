@@ -19,5 +19,6 @@
     ranvier-wander:
       interval: 15
   attributes:
-    health: 100
-    energy: 100
+    health: 50
+    energy: 50
+    focus: 50

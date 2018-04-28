@@ -19,6 +19,8 @@ module.exports = srcPath => {
         visited: []
       };
 
+      this.player = player;
+
       this.checkForRoom = this._checkForRoom.bind(this, player);
 
      (this.player || player).on('enterRoom', this.checkForRoom);
@@ -32,12 +34,13 @@ module.exports = srcPath => {
     }
 
     complete(player) {
+      player = player || this.player;
       if (this.state.visited.length !== this.config.rooms.length) {
         return;
       }
 
       player.removeListener('enterRoom', this.checkForRoom);
-      
+
       super.complete();
     }
 
