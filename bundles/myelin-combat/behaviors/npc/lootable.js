@@ -13,6 +13,7 @@ module.exports = srcPath => {
       killed: state => function (config, killer) {
         const lootTable = new LootTable(state, config);
         const currencies = lootTable.currencies();
+        const resources = lootTable.resources();
         const items = lootTable.roll().map(
           item => state.ItemFactory.create(state.AreaManager.getAreaByReference(item), item)
         );
@@ -21,7 +22,7 @@ module.exports = srcPath => {
           id: 'corpse',
           name: `Corpse of ${this.name}`,
           roomDesc: `Corpse of ${this.name}`,
-          description: `The rotting corpse of ${this.name}`,
+          description: `The corpse of ${this.name}`,
           keywords: this.keywords.concat(['corpse']),
           type: 'CONTAINER',
           metadata: {
@@ -30,7 +31,7 @@ module.exports = srcPath => {
           maxItems: items.length,
           behaviors: {
             decay: {
-              duration: 180
+              duration: (this.metadata || {}).decayDuration || 180
             }
           },
         });
@@ -47,36 +48,46 @@ module.exports = srcPath => {
 
         if (killer && killer instanceof Player) {
           if (currencies) {
-            currencies.forEach(currency => {
-              const friendlyName = currency.name.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
-              const key = `currencies.${currency.name}`;
-
-              // distribute currency among group members in the same room
+            distribute(currencies, 'currencies');
+          }
+          if (resources) {
+            distribute(resources, 'resources');
+          }
+  
+          function distribute(distributables, type) {
+            distributables.forEach(distributable => {
+              const friendlyName = distributable.name.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+              const key = `${type}.${distributable.name}`;
+          
+              // distribute  among group members in the same room
               const recipients = (killer.party ? [...killer.party] : [killer]).filter(recipient => {
                 return recipient.room === killer.room;
               });
-
-              let remaining = currency.amount;
+          
+              let remaining = distributable.amount;
               for (const recipient of recipients) {
-                // Split currently evenly amount recipients.  The way the math works out the leader
-                // of the party will get any remainder if the currency isn't divisible evenly
+                // Split  evenly amount amongst recipients.  The way the math works out, the leader
+                // of the party will get any remainder if the distributable isn't divisible evenly
                 const amount = Math.floor(remaining / recipients.length) + (remaining % recipients.length);
                 remaining -= amount;
-
-                B.sayAt(recipient, `<green>You receive currency: <b><white>[${friendlyName}]</white></b> x${amount}.`);
-
-                if (!recipient.getMeta('currencies')) {
-                  recipient.setMeta('currencies', {});
+          
+                B.sayAt(recipient, `<green>You receive ${type}: <b><white>[${friendlyName}]</white></b> x${amount}.`);
+          
+                if (!recipient.getMeta(type)) {
+                  recipient.setMeta(type, {});
                 }
                 recipient.setMeta(key, (recipient.getMeta(key) || 0) + amount);
                 recipient.save();
-
+          
                 state.CommandManager.get('look').execute(corpse.uuid, recipient);
               }
             });
           }
+
         }
       }
     }
   };
 };
+
+

@@ -114,7 +114,6 @@ class Combat {
     killer = killer || deadEntity.combatData.killedBy;
     Logger.log(`${killer ? killer.name : 'Something'} killed ${deadEntity.name}.`);
 
-
     if (killer) {
       killer.emit('deathblow', deadEntity);
     }
@@ -202,10 +201,15 @@ class Combat {
    */
   static getWeaponDamage(attacker) {
     const weapon = attacker.equipment.get('wield');
+    const might = attacker.getAttribute('might') || 1;
     let min = 0, max = 0;
     if (weapon) {
       min = weapon.metadata.minDamage;
       max = weapon.metadata.maxDamage;
+    } else {
+      const martialArtsSkill = this.getMartialSkillBonus(attacker);
+      min = 1 * martialArtsSkill;
+      max = might * martialArtsSkill;
     }
 
     return {
@@ -220,13 +224,42 @@ class Combat {
    * @return {number}
    */
   static getWeaponSpeed(attacker) {
-    let speed = 2.0;
+    let intBonus = (attacker.getAttribute('intelligence') || 0) * 0.15;
+    let quickBonus = (attacker.getAttribute('quickness') || 1) * 0.25; 
+
+    const bonus = Math.min(
+      (intBonus + quickBonus),
+      8
+    );
     const weapon = attacker.equipment.get('wield');
+    let weaponBonus = 0;
     if (!attacker.isNpc && weapon) {
-      speed = weapon.metadata.speed;
+      weaponBonus = (weapon.metadata.speed || 1) * 0.25;
+      weaponBonus = Math.min(8, weaponBonus);
     }
 
+    if (!attacker.isNpc && !weapon) {
+      weaponBonus = this.getMartialSkillBonus(attacker);
+    }
+
+    const speed = Math.max(
+      10 - statBonus - weaponBonus,
+      1
+    );
+
     return speed;
+  }
+
+  static getMartialSkillBonus(attacker) {
+    if (!attacker) {
+      console.log('No attacker.');
+      return 1;
+    }
+    return attacker.skill.has('martial_arts_2') 
+    ? 5 
+    : attacker.skill.has('martial_arts_1')
+      ? 3
+      : 1;
   }
 
   /**

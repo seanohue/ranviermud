@@ -1,0 +1,10 @@
+---
+scrap_metal:
+  title: Scrap Metal
+  quality: common
+gear:
+  title: Gear
+  quality: uncommon
+piston:
+  title: Piston
+  quality: uncommon

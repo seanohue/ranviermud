@@ -68,6 +68,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [2, 7, 0]
   weight: 5
+  npcs: ['spire.intro:maintenanceauto']
 - id: tube-chamber-10
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
@@ -203,3 +204,4 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [7, 7, 0]
   weight: 5
+  npcs: ['spire.intro:maintenanceauto']

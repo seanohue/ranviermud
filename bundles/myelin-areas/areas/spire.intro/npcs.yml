@@ -1,0 +1,23 @@
+- id: maintenanceauto
+  keywords: ['maintenance', 'auto']
+  name: Maintenance Automaton
+  level: 3
+  description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
+  behaviors:
+    combat: true
+    lootable: 
+      resources: 
+        scrap_metal:
+          min: 1
+          max: 5
+        gear:
+          min: 0
+          max: 2
+        piston:
+          min: 0
+          max: 2
+    ranvier-wander:
+      interval: 15
+  attributes:
+    health: 100
+    energy: 100

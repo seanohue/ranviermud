@@ -17,9 +17,9 @@ module.exports = (srcPath) => {
       // TIP:DefaultAttributes: This is where you can change the default attributes for players
       // TODO:
       const attributes = Object.assign({
-        health: 20,
-        focus: 20,
-        energy: 20,
+        health: 100,
+        focus: 100,
+        energy: 100,
         might: 5,
         quickness: 5,
         intellect: 5,
