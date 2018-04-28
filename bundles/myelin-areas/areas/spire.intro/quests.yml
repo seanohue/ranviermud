@@ -12,7 +12,7 @@
    <b><cyan>Hint: If you are using a telnet client, type 'config set minimap on' to use the minimap.</cyan></b>
 
   completionMessage: |-
-    An open portal in the floor beckons for you to descend... if you only had a key.
+    An working portal... if you only had a key.
   goals:
     - type: LocationGoal
       config:
