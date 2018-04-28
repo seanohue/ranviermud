@@ -9,19 +9,14 @@ const dataPath = __dirname + '/../data/';
 const _loadedResources = Data.parseFile(dataPath + 'resources.yml');
 const _loadedRecipes = Data.parseFile(dataPath + 'recipes.yml');
 
-console.log(_loadedResources);
-
 class Crafting {
   static getResource(resourceKey) {
-    console.log(_loadedResources);
-    console.log(resourceKey);
     return _loadedResources[resourceKey];
   }
 
   static getResourceItem(resourceKey) {
-    console.log(_loadedResources);
-    console.log(resourceKey);
     const resourceDef = this.getResource(resourceKey);
+
     // create a temporary fake item for the resource for rendering purposes
     return new Item(null, {
       name: resourceDef.title,

@@ -3,7 +3,6 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Random = require(srcPath + 'RandomUtil');
-  console.log('ADDING FLAVOREVENTS'.repeat(100));
   return {
     listeners: {
       respawnTick: state => function ({messages = [], cooldown = 60 * 1000, color = 'white'}) {
