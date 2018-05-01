@@ -14,9 +14,8 @@ module.exports = (srcPath) => {
       if (background && typeof(background) !== 'object') {
         background = backgrounds.find(bg => bg.id === background);
       }
+
       // TIP:DefaultAttributes: This is where you can change the default attributes for players
-
-
       console.log('Background is ', background);
       /*
         Background is  { id: 'mendicant',
@@ -69,27 +68,31 @@ module.exports = (srcPath) => {
       player.setMeta('abilityPoints',    abilityPoints   || 0);
       player.setMeta('description',      desc || '');
 
-      if (equipment && equipment.length) {
-        equipment.forEach(itemRef => {
-          const area = state.AreaManager.getAreaByReference(itemRef);
-          const item = state.ItemFactory.create(area, itemRef);
-          item.hydrate(state);
-          item.emit('get', player);
-          if (item.slot) {
-            player.equip(item);
-            item.emit('equip', player);
-          } else {
-            player.addItem(item);
-          }
-        });
-      }
-
       const room = state.RoomManager.startingRoom;
       player.room = room;
       player.save(() => {
         // reload from manager so events are set
         player = state.PlayerManager.loadPlayer(state, player.account, player.name);
         player.socket = socket;
+
+        if (equipment && equipment.length) {
+          console.log('equipment is ', equipment);
+          equipment.forEach(itemRef => {
+            const area = state.AreaManager.getAreaByReference(itemRef);
+            const item = state.ItemFactory.create(area, itemRef);
+            item.hydrate(state);
+            console.log(item);
+            item.emit('get', player);
+            if (item.slot) {
+              player.equip(item);
+              item.emit('equip', player);
+              console.log('equipped?');
+            } else {
+              console.log('added to inventory');
+              player.addItem(item);
+            }
+          });
+        }
 
         socket.emit('done', socket, { player });
       });

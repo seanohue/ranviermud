@@ -51,6 +51,9 @@ class Item extends Metadatable(EventEmitter) {
     this.entityReference = item.entityReference; // EntityFactory key
     this.id          = item.id;
 
+    this.metadata.slot = item.slot;
+    this.slot = item.slot;
+
     this.maxItems    = item.maxItems || Infinity;
     this.initializeInventory(item.inventory, this.maxItems);
 
