@@ -38,10 +38,10 @@ module.exports = (srcPath) => {
       args.account.addCharacter(name);
       args.account.save();
 
-      const {name: bgName, abilityPoints, attributes, attributePoints,  equipment, skills} = background
+      const {name: bgName, abilityPoints, attributes:bgAttr, attributePoints,  equipment, skills} = background;
 
       // TODO:
-      const defaultAttributes = Object.assign({
+      const attributes = Object.assign({
         health: 100,
         focus: 100,
         energy: 100,
@@ -51,12 +51,12 @@ module.exports = (srcPath) => {
         willpower: 5,
         armor: 0,
         critical: 0
-      }, attributes);
+      }, bgAttr);
 
       let player = new Player({
         name,
         account,
-        defaultAttributes
+        attributes
       });
 
       //TODO: Custom descs
@@ -84,17 +84,15 @@ module.exports = (srcPath) => {
         });
       }
 
-      player.save();
-
       const room = state.RoomManager.startingRoom;
       player.room = room;
-      player.save();
+      player.save(() => {
+        // reload from manager so events are set
+        player = state.PlayerManager.loadPlayer(state, player.account, player.name);
+        player.socket = socket;
 
-      // reload from manager so events are set
-      player = state.PlayerManager.loadPlayer(state, player.account, player.name);
-      player.socket = socket;
-
-      socket.emit('done', socket, { player });
+        socket.emit('done', socket, { player });
+      });
     }
   };
 };
