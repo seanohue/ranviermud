@@ -51,15 +51,17 @@ module.exports = (srcPath) => {
         critical: 0
       }, bgAttr);
 
-      const equipment = new Map(Object.entries((bgEquipment || []).reduce((eq, item) => {
+      const equipment = new Map(Object.entries((bgEquipment || []).reduce((eq, itemRef) => {
+        const area = state.AreaManager.getAreaByReference(itemRef);
+        const item = state.ItemFactory.create(area, itemRef);
+        item.hydrate(state);
         const slot = item.slot || (item.metadata && item.metadata.slot);
         if (eq[slot]) {
-          console.log('Slot taken?!');
           throw Error('Check for duplicate slot property on background kit starting equipment.');
         }
         eq[slot] = eq[slot] || item;
         return eq;
-      })));
+      }, {})));
 
       let player = new Player({
         name,
