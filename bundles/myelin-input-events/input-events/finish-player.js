@@ -16,9 +16,8 @@ module.exports = (srcPath) => {
       }
 
       // TIP:DefaultAttributes: This is where you can change the default attributes for players
-      console.log('Background is ', background);
-      /*
-        Background is  { id: 'mendicant',
+      /* Example background:
+        { id: 'mendicant',
           name: 'Acrid Mendicant',
           description: 'You\'re a wiley sort, surviving on the streets through your own wits, charming alms from strangers.',
           attributes: { quickness: 6, intellect: 11, willpower: 12, might: 11 },
@@ -37,7 +36,7 @@ module.exports = (srcPath) => {
       args.account.addCharacter(name);
       args.account.save();
 
-      const {name: bgName, abilityPoints, attributes:bgAttr, attributePoints,  equipment, skills} = background;
+      const {name: bgName, abilityPoints, attributes: bgAttr, attributePoints,  equipment: bgEquipment, skills} = background;
 
       // TODO:
       const attributes = Object.assign({
@@ -52,10 +51,21 @@ module.exports = (srcPath) => {
         critical: 0
       }, bgAttr);
 
+      const equipment = new Map(Object.entries((bgEquipment || []).reduce((eq, item) => {
+        const slot = item.slot || (item.metadata && item.metadata.slot);
+        if (eq[slot]) {
+          console.log('Slot taken?!');
+          throw Error('Check for duplicate slot property on background kit starting equipment.');
+        }
+        eq[slot] = eq[slot] || item;
+        return eq;
+      })));
+
       let player = new Player({
         name,
         account,
-        attributes
+        attributes,
+        equipment
       });
 
       //TODO: Custom descs
@@ -74,25 +84,6 @@ module.exports = (srcPath) => {
         // reload from manager so events are set
         player = state.PlayerManager.loadPlayer(state, player.account, player.name);
         player.socket = socket;
-
-        if (equipment && equipment.length) {
-          console.log('equipment is ', equipment);
-          equipment.forEach(itemRef => {
-            const area = state.AreaManager.getAreaByReference(itemRef);
-            const item = state.ItemFactory.create(area, itemRef);
-            item.hydrate(state);
-            console.log(item);
-            item.emit('get', player);
-            if (item.slot) {
-              player.equip(item);
-              item.emit('equip', player);
-              console.log('equipped?');
-            } else {
-              console.log('added to inventory');
-              player.addItem(item);
-            }
-          });
-        }
 
         socket.emit('done', socket, { player });
       });
