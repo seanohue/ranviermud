@@ -54,8 +54,8 @@ module.exports = srcPath => {
             distribute(resources, 'resources');
           }
 
-          state.CommandManager.get('look').execute(corpse.uuid, recipient);
-  
+          state.CommandManager.get('look').execute(corpse.uuid, killer);
+
           function distribute(distributables, type) {
             distributables.forEach(distributable => {
               const friendlyName = distributable.name.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());

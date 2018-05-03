@@ -82,7 +82,7 @@ module.exports = srcPath => {
 
   function renderContent(divToRead, config, divTargetName, player) {
     const {divName, readAction} = config;
-    Broadcast.sayAt(player, readAction.replace('%where', divName), 40);
+    Broadcast.sayAt(player, readAction.replace('%where', divTargetName), 40);
     Broadcast.sayAt(player, `<white><b>${this.name}:</white></b>`);
     Broadcast.sayAt(player, Broadcast.center(40, `${divName.toUpperCase()} ${divTargetName.toUpperCase()}`, 'bold'));
     return Broadcast.sayAt(player, divToRead, 40);

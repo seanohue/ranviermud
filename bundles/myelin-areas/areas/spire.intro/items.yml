@@ -140,10 +140,10 @@
   level: 1
   itemLevel: 1
   quality: common
-  properties:
+  metadata:
     minDamage: 1
     maxDamage: 11
-    speed: 4.1
+    speed: 2.7
     stats:
       willpower: 1
       critical: 1
@@ -166,7 +166,7 @@
   level: 1
   itemLevel: 1
   quality: common
-  properties:
+  metadata:
     stats:
       armor: 1
   behaviors:
@@ -184,7 +184,7 @@
   slot: 'body'
   level: 1
   quality: common
-  properties:
+  metadata:
     stats:
       armor: 2
   behaviors:
@@ -201,7 +201,7 @@
   items: [ ] # maybe have some kind of special trinket in here
   maxItems: 2
   script: "6-alms-pouch" #resource.buff
-  properties:
+  metadata:
     specialEffects:
       - "When this is in your possession, you have more luck when finding resources and earning rewards."
   slot: 'waist'
@@ -219,7 +219,7 @@
   description: "A beaten pair of sandals. At one point they may have been mostly leather, now they are mostly patches."
   quality: common
   slot: "feet"
-  properties:
+  metadata:
     stats:
       armor: 1
   behaviors:
@@ -237,10 +237,10 @@
   level: 1
   itemLevel: 1
   quality: common
-  properties:
+  metadata:
     minDamage: 3
     maxDamage: 8
-    speed: 2
+    speed: 5.5
     stats:
       critical: 1
   behaviors:
@@ -260,10 +260,10 @@
   level: 1
   itemLevel: 1
   quality: common
-  properties:
+  metadata:
     minDamage: 2
     maxDamage: 12
-    speed: 2.3
+    speed: 5.4
     stats:
       critical: 4
     specialEffects:
@@ -284,7 +284,7 @@
   slot: 'chest'
   level: 1
   quality: common
-  properties:
+  metadata:
     stats:
       armor: 1
   behaviors:
@@ -301,7 +301,7 @@
   level: 1
   quality: common
   slot: "legs"
-  properties:
+  metadata:
     stats:
       armor: 1
   behaviors:
@@ -319,7 +319,7 @@
   level: 1
   slot: "chest"
   quality: common
-  properties:
+  metadata:
     stats:
       armor: 9
   behaviors:
@@ -336,7 +336,7 @@
   slot: "legs"
   level: 1
   quality: common
-  properties:
+  metadata:
     stats:
       armor: 2
   behaviors:
@@ -353,7 +353,7 @@
   description: "A pair of boots made from thick leather. These are broken in and only reach a few inches above the ankle."
   level: 1
   quality: common
-  properties:
+  metadata:
     stats:
       armor: 2
   behaviors:
@@ -371,7 +371,7 @@
   slot: "wield"
   quality: common
   script: "14-blackjack"
-  properties:
+  metadata:
     specialEffects:
       - "Chance on hit: Stun your opponent for a short time."
       - "On critical: Stun your opponent for an extended time."
@@ -395,7 +395,7 @@
   maxItems: 3
   slot: 'back'
   quality: common
-  properties:
+  metadata:
     stats:
       armor: 1
   behaviors:
@@ -414,7 +414,7 @@
   slot: "body"
   level: 1
   quality: rare
-  properties:
+  metadata:
     stats:
       armor: 2
     specialEffects:

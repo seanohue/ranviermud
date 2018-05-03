@@ -250,7 +250,7 @@ class Combat {
 
   static getMartialSkillBonus(attacker) {
     if (!attacker || !attacker.skills) {
-      console.log('No attacker.');
+      console.log('No attacker or no skills.', attacker && attacker.skill);
       return 1;
     }
     return attacker.skills.has('martial_arts_2') 
@@ -268,7 +268,7 @@ class Combat {
    */
   static normalizeWeaponDamage(attacker, amount) {
     let speed = this.getWeaponSpeed(attacker);
-    amount += attacker.hasAttribute('strength') ? attacker.getAttribute('strength') : attacker.level;
+    amount += attacker.hasAttribute('might') ? attacker.getAttribute('might') : 0;
     return Math.round(amount / 3.5 * speed);
   }
 }
