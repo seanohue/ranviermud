@@ -102,13 +102,10 @@
       resources: 
         scrap_metal:
           min: 1
-          max: 4
-        gear:
-          min: 1
           max: 2
     ranvier-wander: 
       interval: 20
-      # eventually restrict from spawn hallway
+      # eventually restrict from spawn hallway?
     ranvier-aggro:
       warnMessage: '%name%''s metal wings whir as it turns to face you, its sensors flashing <red>red</red>.'
       attackMessage: '%name% hurtles towards you!'
@@ -116,3 +113,12 @@
       towards:
         players: true
         npcs: true
+  attributes:
+    health: 35
+    energy: 100
+    focus: 50
+    might: 4
+    quickness: 14
+    intellect: 3
+    willpower: 1
+    critical: 4
