@@ -1,3 +1,4 @@
+# Scenery
 - id: columntubes
   name: "A Central Column of Tubes"
   roomDesc: "Thousands of tubes form a central column in this chamber"
@@ -5,24 +6,6 @@
     noPickup: true
   keywords: [ "tube, tubes", "column", "central" ]
   description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the surrounding chambers."
-- id: datacrystals
-  name: "Datacrystal Cluster"
-  description: "Four crystals hover a dozen hands above the ground, rotating slowly and emanating a blue light.\nIn the light you can see various shapes and figures."
-  properties:
-    noPickup: true
-  behaviors:
-    readable:
-      content:
-        On Containment Of Vessels: "This report begins, 'Over the centuries, the Ranvierii have collected untold numbers of vessels for their mind-body experimentation. They are kept in the depths of our Spire, frozen, until a consciousness has need...' and it goes on to detail the procedures for automating proper storage of humanoid cadavers for reuse."
-        On The City Of Myelin: "A brief overview of the history of a city called 'Myelin'. It is described as a cultural hub brought together by a peace between four formerly-warring factions: the Ranvierii, the Eligere, the Tremonts, and the Anzeige. The city started as a military encampment and grew into a mechanized arcology, shielded from the outside world. The peoples who founded Myelin are now extinct, though their legacies have shaped the city and its four quarters, as well as the Labyrinthine Spire in its heart."
-        On The Ranvierii: "The Ranvierii were known as the mystical survivalists of Myelin. Millenia ago, they had settled in the deserts to the west, beyond a treacherous mountain range. They studied the inner workings of the mind, consciousness, and the spirit. They trained willpower and quickness through intense meditation, sleight of hand, parkour, and martial arts."
-        On The Eligere: "The Eligere are Myelin's premiere scholars and diplomats. They settled the temperate land north of Myelin, and founded the city through a truce with the Tremonts centuries past. They study alchemy and the inner workings of the world, bending it to their will and intellect."
-        On The Tremonts: "The Tremonts are historically a seafaring tribe. They settled in the port town that eventually became Myelin, and are known as swashbuckling adventurers as well as hardworking farmers. They value might and quickness over all else, preferring instinct to intellect."
-        On The Anzeige: "The Anzeige come from the mountains south of what is now Myelin. A warfaring people, the Anzeige display great might and willpower, and nearly conquered Myelin before being beat back by a coalition of the other three factions."
-        On The Spire: "This report begins, 'The Spire was created after the truce between the Ranvierii, Eligere, Tremonts, and Anzeige -- its construction began approximately one century before the creation of this datacrystal. The four peoples collaborated on projects that were previously thought to be impossible. Their codenames include: 'Ex Nihilo', 'Ungenocide', 'Sacred Naming', and 'Extropy'. As a result of these experiments, and the growing need to defend them from heretics, a powerful psionic forcefield was built to radiate from the Spire, protecting Myelin from the outside world." 
-        On Project Ex Nihilo: "PROJECT EX NIHILO:\nStart date: ██████\nCompletion date: ██████ Principal scientists: Mahabharata ███████, Elegans ██████, J. Icahn ████████████\n\nPRELIMINARY RESULTS:\nWhile experiments in physical immortality have been abject failures, resulting in loss of █████ subjects and the discovery of ██ new cancers, research in the direction of consciousness transfer as a vehicle for immortality has seen a promising ██% success rate.\n\nThus far, all subjects have survived, however many suffer from various forms of amnesia, loss of motor function, ████████ of the ████, and post-transfer depression. The principal scientists request the acquisition of █████ subjects from the Hinterlands to continue this research."
-  keywords: [ "crystals", "data", "datacrystals", "cluster"]
-  roomDesc: "Four crystals hover above the ground here, glowing"
 - id: bench
   name: "A Semicircular Slate Bench"
   roomDesc: "A semicircular slate bench is built into the ground in the center of this room"
@@ -44,8 +27,6 @@
     noPickup: true
   keywords: [ "tube", "tubes", "snakelike", "mass"  ]
   description: "The tubes are running from the surrounding spaces, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."
-
-
 - id: brokenportal
   name: "A Broken Portal"
   roomDesc: "A broken portal"
@@ -53,6 +34,8 @@
   properties:
     noPickup: true
   keywords: [ "portal", "broken" ]
+
+  # Quest items
 - id: portal
   name: "A Portal"
   roomDesc: "A portal"
@@ -65,6 +48,47 @@
   roomDesc: "Portal key"
   description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
   keywords: ["key", "portal"]
+
+# Readables
+## Projects
+- id: datacrystals_blue
+  name: "Datacrystal Cluster"
+  description: "Five blue crystals hover a dozen hands above the ground, rotating slowly and <blue>emanating a blue light</blue>.\nIn the light you can see various shapes and figures."
+  properties:
+    noPickup: true
+  behaviors:
+    readable:
+      divName: 'crystal'
+      indexName: 'CHOOSE ONE'
+      readAction: "You touch the crystal. It <blue>pulses</blue> and a voice rings out in your head:\n\n'%where'.\n\nThe voice continues, occasionally punctuated by a moving image flashing in front of your eyes:"
+      content:
+        On The Spire: |
+          The voice begins, 'The Spire was created after the truce between the Ranvierii Associations and the Anzeige Empire...' A time-lapse animation of the Spire being raised is projected from the crystal, starting with mountain-sized machines flattening the earth, and ending with flying automatons hauling chunks of the structure's massive carapace to its very top.
+
+          'Declaring themselves the bastion of civilization, the peoples conspired to transcend the rest of humanity by taking on projects previously thought to be impossible...' A series of glyphs appear above the crystal, and the voice echoes in your head in a monotone chant:
+
+          'Ex Nihilo'
+          ... An image of a tall, thin woman standing before a dais. An indigo light shimmers as they slide a device into a hole on the top of the structure.
+          The image cuts to a flat plain, and the same shimmering light fills the air. Before your eyes, a mountain erupts into the sky...
+
+          'Ungenocide'
+          ... An image of a person's face in one of the cylinders surrounding you flashes before you
+          The eyes open, a look of shock on their face...
+
+          'Sacredname'
+          ...A man and a woman are in an otherwise empty room, sitting cross-legged, deep in thought. 
+          They both mouth a word at the same time, shimmer, and vanish...
+
+          'Extropy'
+          ...A person is in the center of a dark, cylindrical chamber. They stand before a glass vat filled with a glittering liquid. 
+          They thrust their arm into the liquid, and their skin cracks, becoming hard and scaled...
+
+          The voice intones,
+
+          'WOULD YOU LIKE TO KNOW MORE?'
+        On Project Ex Nihilo: "PROJECT EX NIHILO:\nStart date: ██████\nCompletion date: ██████ Principal scientists: Mahabharata ███████, Elegans ██████, J. Icahn ████████████\n\nPRELIMINARY RESULTS:\nWhile experiments in physical immortality have been abject failures, resulting in loss of █████ subjects and the discovery of ██ new cancers, research in the direction of consciousness transfer as a vehicle for immortality has seen a promising ██% success rate.\n\nThus far, all subjects have survived, however many suffer from various forms of amnesia, loss of motor function, ████████ of the ████, and post-transfer depression. The principal scientists request the acquisition of █████ subjects from the Hinterlands to continue this research."
+  keywords: [ "crystals", "data", "datacrystals", "cluster"]
+  roomDesc: "Five crystals hover above the ground here, <blue>glowing blue</blue>"
 
 # Starting gear for Penitent Ascetic:
 - id: frock

@@ -7,30 +7,39 @@ module.exports = srcPath => {
 
   return {
     listeners: {
-      read: state => function (config, player, args) {
+      read: state => function (_config, player, args) {
+        const config = Object.assign({
+          divName: 'section',
+          content: {},
+          readAction: `You open ${this.name}.`,
+          indexName: 'table of contents'
+        }, _config);
+
         let {
-          divName = 'section',
-          content = {}
+          divName,
+          content,
         } = config;
         const contentMap = new Map(Object.entries(content));
 
         if (!args || !args.length) {
-          return renderTableOfContents.call(this, player, contentMap, divName)
+          return renderTableOfContents.call(this, player, contentMap, config)
         }
 
         const [targetDiv, toRead] = getContentToRead.call(this, contentMap, args, player);
 
         if (toRead) {
-          return renderContent.call(this, toRead, divName, targetDiv, player);
+          return renderContent.call(this, toRead, config, targetDiv, player);
         }
 
         Broadcast.sayAt(player, `<yellow>${this.name} does not have that ${divName}.</yellow>`);
-        return renderTableOfContents.call(this, player, contentMap, divName);
+        return renderTableOfContents.call(this, player, contentMap, config);
       },
     }
   };
 
-  function renderTableOfContents(player, content, divName) {
+  function renderTableOfContents(player, content, config) {
+    const {divName, readAction, indexName} = config;
+    Broadcast.sayAt(player, readAction.replace('%where', indexName), 40);
     Broadcast.sayAt(player, Broadcast.center(40, this.name, 'bold', '-'));
     Broadcast.sayAt(player, this.description);
     Broadcast.sayAt(player, '');
@@ -71,7 +80,9 @@ module.exports = srcPath => {
     return [null, null];
   }
 
-  function renderContent(divToRead, divName, divTargetName, player) {
+  function renderContent(divToRead, config, divTargetName, player) {
+    const {divName, readAction} = config;
+    Broadcast.sayAt(player, readAction.replace('%where', divName), 40);
     Broadcast.sayAt(player, `<white><b>${this.name}:</white></b>`);
     Broadcast.sayAt(player, Broadcast.center(40, `${divName.toUpperCase()} ${divTargetName.toUpperCase()}`, 'bold'));
     return Broadcast.sayAt(player, divToRead, 40);

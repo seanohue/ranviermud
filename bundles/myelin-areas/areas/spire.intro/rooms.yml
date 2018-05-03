@@ -57,7 +57,7 @@
   title: Data Observation Deck A
   description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
   coordinates: [2, 5, 0]
-  items: &ref_1 ['spire.intro:datacrystals', 'spire.intro:bench']
+  items: &ref_1 ['spire.intro:datacrystals_blue', 'spire.intro:bench']
   behaviors: 
     seating:
       seatingRef: 'spire.intro:bench'
