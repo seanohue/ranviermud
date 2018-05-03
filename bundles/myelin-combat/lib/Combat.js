@@ -224,7 +224,7 @@ class Combat {
    * @return {number}
    */
   static getWeaponSpeed(attacker) {
-    let intBonus = (attacker.getAttribute('intelligence') || 0) * 0.15;
+    let intBonus = (attacker.getAttribute('intellect') || 0) * 0.15;
     let quickBonus = (attacker.getAttribute('quickness') || 1) * 0.25; 
 
     const statBonus = Math.min((intBonus + quickBonus), 8);

@@ -1,7 +1,7 @@
 - id: maintenanceauto
-  keywords: ['maintenance', 'auto']
+  keywords: ['maintenance', 'auto', 'automaton', 'robot']
   name: Maintenance Automaton
-  level: 3
+  level: 2
   description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
     combat: true
@@ -17,8 +17,102 @@
           min: 0
           max: 2
     ranvier-wander:
-      interval: 15
+      interval: 30
+    # TODO: add breeding behavior where if there are more than one
+    # of an NPC in a room, there is a small chance they produce a clone?
   attributes:
     health: 50
     energy: 50
     focus: 50
+    might: 2
+    quickness: 5
+    intellect: 2
+    willpower: 1
+    critical: 2
+
+- id: vendorauto
+  keywords: ['vendor', 'automaton']
+  name: Vending Automaton
+  level: 9
+  description: "This automaton is a hulking block with a glass front. It has two treads that it uses to get around, one on each side. It is filled with various goods. A funnel is jutting from one side of the machine, presumably for payment. A small tube juts from the lower front center of the automaton, for dispensing goods."
+  behaviors:
+    combat: true
+    # combat:
+    #   vengeful: true # hunts down past attackers
+    lootable: 
+      resources: 
+        scrap_metal:
+          min: 5
+          max: 15
+        gear:
+          min: 2
+          max: 4
+        piston:
+          min: 1
+          max: 4
+        # Later add behavior for it to drop some/all of its goods.
+        # Add shopkeep behavior
+    ranvier-wander:
+      interval: 45
+  attributes:
+    health: 420
+    energy: 150
+    focus: 50
+    might: 20
+    quickness: 3
+    intellect: 3
+    willpower: 1
+    critical: 3
+
+- id: securityauto
+  keywords: ['security', 'auto', 'flying']
+  name: Flying Security Automaton
+  level: 5
+  description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring in all directions. Its undercarriage features razor-sharp 'legs' and a small cannon."
+  behaviors:
+    combat: true
+    lootable: 
+      resources: 
+        scrap_metal:
+          min: 1
+          max: 3
+        gear:
+          min: 0
+          max: 1
+    ranvier-wander: 
+      interval: 15
+  attributes:
+    health: 35
+    energy: 100
+    focus: 50
+    might: 2
+    quickness: 15
+    intellect: 5
+    willpower: 2
+    critical: 5
+
+- id: malfunctioningauto
+  keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
+  name: Flying Malfunctioning Automaton
+  level: 4
+  description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring <red>erratically</red>. Its undercarriage features razor-sharp 'legs' and a small cannon."
+  behaviors:
+    combat: true
+    lootable: 
+      resources: 
+        scrap_metal:
+          min: 1
+          max: 4
+        gear:
+          min: 1
+          max: 2
+    ranvier-wander: 
+      interval: 20
+      # eventually restrict from spawn hallway
+    ranvier-aggro:
+      warnMessage: '%name%''s metal wings whir as it turns to face you, its sensors flashing <red>red</red>.'
+      attackMessage: '%name% hurtles towards you!'
+      delay: 3
+      towards:
+        players: true
+        npcs: true

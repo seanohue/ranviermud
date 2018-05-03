@@ -91,7 +91,7 @@ class Character extends Metadatable(EventEmitter) {
     this.equipment = data.equipment || new Map();
     this.combatants = new Set();
     this.combatData = {};
-    this.level = data.level || 1;
+    this.level = data.level || (data.metadata && data.metadata.level) || 1;
     this.room = data.room || null;
     this.attributes = new Attributes(data.attributes || null);
 
