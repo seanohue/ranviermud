@@ -23,4 +23,26 @@
       config:
         amount: 5
         leveledTo: QUEST
+- id: misbehaving-autos
+  level: 3
+  title: 'Misbehaving'
+  desc: 'Many misbehaving automatons have been reported in this area...\n You must destroy at least 6 of them to be able to engage with the other automatons in good faith.'
+  autoComplete: true
+  description: |-
+   You find that automatons, quite literally, have a mind of their own. You must help clear the locality of a half-dozen violent security drones to gain the trust of the automatons here.
+    # add hint if needed
+
+  completionMessage: |-
+    You've destroyed more than enough automatons to prove your point...
+  goals:
+    - type: KillGoal
+      config:
+        title: 'Kill a half-dozen malfunctioning security automatons...'
+        npc: ['spire.intro:malfunctioningauto']
+        count: 6
+  rewards:
+    - type: ExperienceReward
+      config:
+        amount: 5
+        leveledTo: QUEST
 

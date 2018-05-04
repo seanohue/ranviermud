@@ -85,7 +85,7 @@
     ranvier-wander: 
       interval: 15
   attributes:
-    health: 35
+    health: 95
     energy: 100
     focus: 50
     might: 2
@@ -117,7 +117,7 @@
         players: true
         npcs: true
   attributes:
-    health: 35
+    health: 105
     energy: 100
     focus: 50
     might: 4
