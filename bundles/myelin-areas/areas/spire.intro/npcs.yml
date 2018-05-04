@@ -24,7 +24,7 @@
     # TODO: add breeding behavior where if there are more than one
     # of an NPC in a room, there is a small chance they produce a clone?
   attributes:
-    health: 50
+    health: 150
     energy: 50
     focus: 50
     might: 5
