@@ -5,7 +5,7 @@
   description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
     combat: true
-    flavorEvents:
+    flavorevents:
       onSpawn: 'A spiderlike automaton crawls from an aperture in the ceiling and down one of the walls. The aperture whirrs shut behind it.'
       onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  #eventually add scavenger behavior
     lootable: 

@@ -1,7 +1,10 @@
+import { Random } from 'rando-js';
+
 'use strict';
 
 const Damage = require('../../../src/Damage');
 const Logger = require('../../../src/Logger');
+const Broadcast = require('../../../src/Broadcast');
 const RandomUtil = require('../../../src/RandomUtil');
 const CombatErrors = require('./CombatErrors');
 const Parser = require('../../../src/CommandParser').CommandParser;
@@ -85,13 +88,55 @@ class Combat {
     return null;
   }
 
+  static calculateDefense(defender, amount) {
+    // Stats always used in defense.
+    const quickness = defender.getAttribute('quickness') || 1;
+    const intellect = defender.getAttribute('intellect') || 1;
+    const armor     = defender.getAttribute('armor')     || 0;
+
+    // Defensive skills.
+    const dodge = defender.skills.has('dodging');
+    const blocking = defender.skills.has('blocking');
+
+    let armor;
+
+    let dodged = false;
+    if (dodge && Random.probability((quickness + intellect) + 1)) {
+      amount = 0;
+      dodged = true; // Still get the blocked bonus but broadcast differently.
+      Broadcast.sayAt(defender, 'You dodge the attack!');
+    }
+
+    if (blocking) {
+      const willpower = defender.getAttribute('willpower') || 1;
+      const might     = defender.getAttribute('might')     || 1;
+      amount = Math.max(5, willpower + dodge ? 1 : 0);
+
+      if (!dodged) {
+        Broadcast.sayAt(defender, 'You block the attack!');
+      }
+      
+      amount = Math.max(amount, 1);
+    }
+
+    return Math.max(
+      quickness + intellect, 
+      quickness + amount, 
+      intellect + amount,
+      amount, 
+      1
+    );
+    return dodge && blocking ? Math.max(amount || 0, 2) : 1;
+  }
+
   /**
    * Actually apply some damage from an attacker to a target
    * @param {Character} attacker
    * @param {Character} target
    */
   static makeAttack(attacker, target) {
-    const amount = this.calculateWeaponDamage(attacker);
+    const rawDamageAmount = this.calculateWeaponDamage(attacker);
+    const amount = rawDamageAmount - this.calculateDefense(target, rawDamageAmount);
     const damage = new Damage({ attribute: 'health', amount, attacker });
     damage.commit(target);
 
