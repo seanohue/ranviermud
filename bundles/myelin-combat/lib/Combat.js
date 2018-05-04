@@ -1,7 +1,7 @@
-import { Random } from 'rando-js';
 
 'use strict';
 
+const Random = require('../../../src/RandomUtil');
 const Damage = require('../../../src/Damage');
 const Logger = require('../../../src/Logger');
 const Broadcast = require('../../../src/Broadcast');
@@ -98,35 +98,38 @@ class Combat {
     const dodge = defender.skills.has('dodging');
     const blocking = defender.skills.has('blocking');
 
-    let armor;
-
     let dodged = false;
     if (dodge && Random.probability((quickness + intellect) + 1)) {
-      amount = 0;
-      dodged = true; // Still get the blocked bonus but broadcast differently.
       Broadcast.sayAt(defender, 'You dodge the attack!');
+      return 0;
     }
 
-    if (blocking) {
-      const willpower = defender.getAttribute('willpower') || 1;
-      const might     = defender.getAttribute('might')     || 1;
-      amount = Math.max(5, willpower + dodge ? 1 : 0);
-
-      if (!dodged) {
-        Broadcast.sayAt(defender, 'You block the attack!');
+    if (blocking && !dodged) {
+      const willpower  = defender.getAttribute('willpower') || 1;
+      const might      = defender.getAttribute('might')     || 1;
+      if (Random.probability(willpower + might + 10)) {
+        Broadcast.sayAt(defender, 'You block the attack.');
+        return Math.max(1, amount - willpower, amount - might);;
+      } else {
+        Broadcast.sayAt(defender, 'You attempt to deflect the attack.');
+        return Random.fromArray([0, might, willpower, 1]);
       }
-      
-      amount = Math.max(amount, 1);
     }
 
-    return Math.max(
-      quickness + intellect, 
-      quickness + amount, 
-      intellect + amount,
-      amount, 
-      1
+    const hitFactor = Math.min(
+      Math.max(
+        quickness + intellect, 
+        quickness + amount, 
+        intellect + amount, 
+        16
+      ),
+      Math.min(
+        amount - 1,
+        2
+      )
     );
-    return dodge && blocking ? Math.max(amount || 0, 2) : 1;
+    
+    return dodge && blocking ? hitFactor * (Math.max(0, amount - 7) ||  1) : hitFactor;
   }
 
   /**

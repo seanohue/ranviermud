@@ -27,7 +27,7 @@
     health: 50
     energy: 50
     focus: 50
-    might: 2
+    might: 5
     quickness: 5
     intellect: 2
     willpower: 1
@@ -120,7 +120,7 @@
     health: 105
     energy: 100
     focus: 50
-    might: 4
+    might: 6
     quickness: 14
     intellect: 3
     willpower: 1
