@@ -3,14 +3,29 @@
 module.exports = (srcPath) => {
   const Logger = require(srcPath + 'Logger');
   const Random = require(srcPath + 'RandomUtil');
+  const Broadcast = require(srcPath + 'Broadcast');
 
   return  {
     listeners: {
       spawn: state => function (config) {
+        if (config.onSpawn) {
+          let onSpawnMessage;
 
+          if (Array.isArray(config.onSpawn)) {
+            onSpawnMessage = Random.fromArray(config.onSpawn);
+          } else if (typeof config.onSpawn === 'string') {
+            onSpawnMessage = config.onSpawn
+          } else {
+            Logger.log('Invalid spawn message:', this.name, config);
+            return;
+          }
+
+          Broadcast.sayAt(this.room, onSpawnMessage);
+        }
       },
 
       playerEnter: state => function (config, player) {
+        console.log('PLAYER ENTERED', config);
         if (!config.onPlayerEnter) {
           return;
         }
@@ -30,6 +45,7 @@ module.exports = (srcPath) => {
         }
 
         if (!Random.probability(chance)) {
+          console.log('failed luck');
           return;
         }
         const toPlayerMessage = message.replace('%playerName%', 'you').replace('%name%', this.name);
@@ -39,38 +55,32 @@ module.exports = (srcPath) => {
       },
 
       playerDropItem: state => function(config, player, item) {
-      },
-    }
-  };
-};
-
-'use strict';
-
-module.exports = (srcPath) => {
-  const Broadcast = require(srcPath + 'Broadcast');
-  const Random = require(srcPath + 'RandomUtil');
-  return {
-    listeners: {
-      respawnTick: state => function ({messages = [], cooldown = 60 * 1000, color = 'white'}) {
-        if (!this.players.size || !messages.length || !Array.isArray(messages)) {
+        if (!config.onItemDrop) {
           return;
         }
 
-        if (!this.__lastEventEmitted) {
-          this.__lastEventEmitted = Date.now();
+        let message, chance = 50;
+        if (typeof config.onItemDrop === 'string') {
+          message = config.onItemDrop;
+        } else if (typeof config.onItemDrop === 'object') {
+          if (!config.onItemDrop.message) {
+            return;
+          }
+
+          message = config.onItemDrop.message;
+          chance  = config.onItemDrop.chance || chance; 
+        } else {
+          return;
         }
 
-        if (cooldown < 1000) cooldown = cooldown * 1000; // Accidental use of seconds.
-        if (cooldown < 30 * 1000) cooldown = 30 * 1000; // 30 is a good minimum.
-
-        const pastCooldown = (Date.now() - this.__lastEventEmitted) > cooldown;
-        if (pastCooldown) {
-          let message = Random.fromArray(messages);
-          if (color) message = `<${color}>${message}</${color}>`;
-          Broadcast.sayAt(this, message);
-          this.__lastEventEmitted = Date.now();
+        if (!Random.probability(chance)) {
+          return;
         }
-      }
+        const toPlayerMessage = message.replace('%playerName%', 'you').replace('%name%', this.name).replace('%itemName%', item.name);
+        const toRoomMessage = message.replace('%playerName%', player.name).replace('%name%', this.name).replace('%itemName%', item.name);
+        Broadcast.sayAt(player, toPlayerMessage);
+        Broadcast.sayAtExcept(this.room, toRoomMessage, player);
+      },
     }
   };
 };
