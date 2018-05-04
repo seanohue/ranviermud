@@ -45,4 +45,5 @@
       config:
         amount: 5
         leveledTo: QUEST
+    # eventually add ItemReward and/or ResourceReward....
 
