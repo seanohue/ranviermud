@@ -30,7 +30,7 @@
   description: |-
     You find a mysterious corpse. It seems all is not well here. 
     
-    Thus far you have seen only peaceful automatons on this floor, and perhaps the occasionaly confused wanderer such as yourself.
+    Thus far you have seen only peaceful automatons on this floor, and perhaps the occasional confused wanderer such as yourself.
 
     Perhaps the nearby datacrystal has more information?
 
@@ -42,7 +42,7 @@
     - type: KillGoal
       config:
         title: 'Kill a half-dozen malfunctioning security automatons.'
-        npc: ['spire.intro:malfunctioningauto']
+        npc: 'spire.intro:malfunctioningauto'
         count: 6
   rewards:
     - type: ExperienceReward
