@@ -7,7 +7,7 @@ module.exports = (srcPath) => {
     listeners: {
       playerEnter: state => function (config, player) {
         let questId;
-
+        console.log('Player entered quest room.');
         if (typeof config === 'string') {
           questId = config;
         } else if (config && typeof config === 'object') {
@@ -22,10 +22,14 @@ module.exports = (srcPath) => {
           Logger.error(`No quest name configured in ${this.entityReference}`);
           return;
         }
-
+        console.log('ID is ', questId);
         const quest = state.QuestFactory.create(state, config.questId, player);
         if (player.questTracker.canStart(quest)) {
+          Logget.log('Starting!');
           player.questTracker.start(quest);
+        } else {
+          Logger.log('Player could not start quest yet.');
+          console.log(quest);
         }
       }
     }

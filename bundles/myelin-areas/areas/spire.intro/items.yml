@@ -86,9 +86,53 @@
           The voice intones,
 
           'WOULD YOU LIKE TO KNOW MORE?'
-        On Project Ex Nihilo: "PROJECT EX NIHILO:\nStart date: ██████\nCompletion date: ██████ Principal scientists: Mahabharata ███████, Elegans ██████, J. Icahn ████████████\n\nPRELIMINARY RESULTS:\nWhile experiments in physical immortality have been abject failures, resulting in loss of █████ subjects and the discovery of ██ new cancers, research in the direction of consciousness transfer as a vehicle for immortality has seen a promising ██% success rate.\n\nThus far, all subjects have survived, however many suffer from various forms of amnesia, loss of motor function, ████████ of the ████, and post-transfer depression. The principal scientists request the acquisition of █████ subjects from the Hinterlands to continue this research."
+        On Project Ex Nihilo: "A monotone voice begins reciting data, punctuated by bursts of static to remove confidential information:\nPROJECT EX NIHILO:\nStart date: ██████\nCompletion date: ██████ Principal scientists: Mahabharata ███████, Elegans ██████, J. Icahn ████████████\n\nPRELIMINARY RESULTS:\nWhile experiments in physical immortality have been abject failures, resulting in loss of █████ subjects and the discovery of ██ new cancers, research in the direction of consciousness transfer as a vehicle for immortality has seen a promising ██% success rate.\n\nThus far, all subjects have survived, however many suffer from various forms of amnesia, loss of motor function, ████████ of the ████, and post-transfer depression. The principal scientists request the acquisition of █████ subjects from the Hinterlands to continue this research."
+        On Project Ungenocide: "A single burst of static, and a voice utters: 'This data has been removed.'"
+        On Project Sacredname: "A single burst of static, and a voice utters: 'This data has been removed.'"
+        On Project Extropy: "A single burst of static, and a voice utters: 'This data has been removed.'"
   keywords: [ "crystals", "data", "datacrystals", "cluster"]
   roomDesc: "Five crystals hover above the ground here, <blue>glowing blue</blue>"
+### Quests
+## Projects
+- id: datacrystals_green
+  name: "Datacrystal Cluster"
+  description: "A green crystal hovers a dozen hands above the ground, rotating slowly and <green>emanating a green light</green>.\nIn the light you can see various shapes and figures."
+  properties:
+    noPickup: true
+  behaviors:
+    readable:
+      divName: 'crystal'
+      indexName: 'CHOOSE ONE'
+      readAction: "You touch the crystal. It <green>pulses</green> and a voice rings out in your head:\n\n'%where'.\n\nThe voice continues, occasionally punctuated by a moving image flashing in front of your eyes:"
+      content:
+        The Automaton Uprising: |
+          A man's voice begins, in a hurried and breathless tone:
+          'I hope this can save someone's life. It's too late for me. 
+          
+          Something has happened to the automatons here in the spire. It started this morning when a
+          few experiments were ruined by what seemed to be a routine malfunction.
+
+          Midday, there was an announcement: We were to decommission any automatons behaving abnormally.
+
+          Rumors began to spread. Regardless of the cause, some of the automatons had learned to betray a root-level directive, the command to do no harm. This aberration seemed to spread like a virus and within the last few minutes, it reached our floor. A battle erupted and *the voice chokes up for a minute* we lost. We were overwhelmed, even with the handful of security drones that were still on our side.
+
+          I am bleeding far too much to be able to escape. *the voice laughs mirthlessly*
+
+          My last acts are to record this message, and to enable a security fence that will hopefully prevent the automatons from slaughtering anyone unlucky enough to be revived on this floor.
+
+          If you're listening to this, they should be confined to the north end of the floor. Be careful.
+
+          The message ends with a short burst of static.
+  keywords: [ "crystals", "data", "datacrystals", "cluster"]
+  roomDesc: "A crystal hovers above the ground here, <green>glowing green</green>"
+
+- id: skeleton
+  name: "A Skeleton"
+  description: "A skeletal corpse lays here. On further examination you can tell that its right femur was smashed to bits."
+  properties:
+    noPickup: true 
+  keywords: [ "skeleton"]
+  roomDesc: "A skeletal corpse lays here, covered in dried blood."
 
 # Starting gear for Penitent Ascetic:
 - id: frock

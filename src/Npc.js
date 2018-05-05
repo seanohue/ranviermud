@@ -25,9 +25,9 @@ class Npc extends Character {
         armor: 0,
         critical: 0,
 
-        health: defaultAttr + 5,
-        energy: defaultAttr + 5,
-        focus: defaultAttr + 5,
+        health: defaultAttr + 50,
+        energy: defaultAttr + 50,
+        focus: defaultAttr + 50,
       }, data.attributes);
     super(data);
     const validate = ['keywords', 'name', 'id'];
@@ -50,6 +50,14 @@ class Npc extends Character {
     this.pacifist = data.pacifist || false;
     this.quests = data.quests || [];
     this.uuid = data.uuid || uuid.v4();
+
+    if (data.skills) {
+      if (typeof data.skills === 'object') {
+        this.skills = new Map(Object.entries(data.skills));
+      } else if (Array.isArray(data.skills)) {
+        data.skills.forEach(skill => this.skills.add(skill, true));
+      }
+    }
   }
 
 

@@ -89,12 +89,11 @@ class Combat {
   }
 
   /**
-   * Damage sock when a character is hit, based on stats and skills.
+   * Damage soak when a character is hit, based on stats and skills.
    * @param {Character} defender
    * @param {Number} amount of raw damage done by attack
    */
-  static calculateDefense(defender, amount) {
-    console.log(`${defender.name} is defending themselves.`);
+  static calculateDefense(defender, amount, attacker) {
     // Stats always used in defense.
     const quickness = defender.getAttribute('quickness') || 1;
     const intellect = defender.getAttribute('intellect') || 1;
@@ -105,8 +104,9 @@ class Combat {
     const blocking = defender.skills.has('blocking');
 
     if (dodge && Random.probability((quickness + intellect) + 1)) {
-      Broadcast.sayAt(defender, 'You dodge the attack!');
-      console.log('They dodge.');
+      if (!defender.isNpc) Broadcast.sayAt(defender, 'You dodge the attack!');
+      if (!attacker.isNpc) Broadcast.sayAt(attacker, `${defender.name} dodges your attack!`);
+      console.log(`${defender.name} dodges.`);
       return amount;
     }
 
@@ -115,7 +115,8 @@ class Combat {
       const might      = defender.getAttribute('might')     || 1;
       if (Random.probability(willpower + might + 10)) {
         if (!defender.isNpc) Broadcast.sayAt(defender, 'You block the attack.');
-        console.log('they block for ', willpower + might + armor);
+        if (!attacker.isNpc) Broadcast.sayAt(attacker, `${defender.name} blocks your attack!`);
+
         return willpower + might + armor;
       }
     }
@@ -252,9 +253,14 @@ class Combat {
       min = weapon.metadata.minDamage;
       max = weapon.metadata.maxDamage;
     } else {
-      const martialArtsSkill = this.getMartialSkillBonus(attacker);
-      min = 1 * martialArtsSkill;
-      max = might * martialArtsSkill;
+      if (attacker.isNpc) {
+        min = attacker.metadata.minDamage || 1;
+        max = attacker.metadata.maxDamage || 1 + might;
+      } else {
+        const martialArtsSkill = this.getMartialSkillBonus(attacker);
+        min = min + (1 * martialArtsSkill);
+        max = max + (might * martialArtsSkill);
+      }
     }
 
     return {
