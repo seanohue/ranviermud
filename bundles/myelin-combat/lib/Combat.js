@@ -88,7 +88,13 @@ class Combat {
     return null;
   }
 
+  /**
+   * Damage sock when a character is hit, based on stats and skills.
+   * @param {Character} defender
+   * @param {Number} amount of raw damage done by attack
+   */
   static calculateDefense(defender, amount) {
+    console.log(`${defender.name} is defending themselves.`);
     // Stats always used in defense.
     const quickness = defender.getAttribute('quickness') || 1;
     const intellect = defender.getAttribute('intellect') || 1;
@@ -98,38 +104,29 @@ class Combat {
     const dodge = defender.skills.has('dodging');
     const blocking = defender.skills.has('blocking');
 
-    let dodged = false;
     if (dodge && Random.probability((quickness + intellect) + 1)) {
       Broadcast.sayAt(defender, 'You dodge the attack!');
-      return 0;
+      console.log('They dodge.');
+      return amount;
     }
 
-    if (blocking && !dodged) {
+    if (blocking) {
       const willpower  = defender.getAttribute('willpower') || 1;
       const might      = defender.getAttribute('might')     || 1;
       if (Random.probability(willpower + might + 10)) {
-        Broadcast.sayAt(defender, 'You block the attack.');
-        return Math.max(1, amount - willpower, amount - might);;
-      } else {
-        Broadcast.sayAt(defender, 'You attempt to deflect the attack.');
-        return Random.fromArray([0, might, willpower, 1]);
+        if (!defender.isNpc) Broadcast.sayAt(defender, 'You block the attack.');
+        console.log('they block for ', willpower + might + armor);
+        return willpower + might + armor;
       }
     }
 
-    const hitFactor = Math.min(
-      Math.max(
-        quickness + intellect, 
-        quickness + amount, 
-        intellect + amount, 
-        16
-      ),
-      Math.min(
-        amount - 1,
-        2
-      )
-    );
-    
-    return dodge && blocking ? hitFactor * (Math.max(0, amount - 7) ||  1) : hitFactor;
+    const def =
+      (quickness / 5)
+      + (intellect / 5)
+      + (dodge ? 1 : 0)
+      + (blocking ? 1 : 0)
+      + armor;
+    return Random.inRange(armor, Math.ceil(def));
   }
 
   /**
@@ -139,7 +136,7 @@ class Combat {
    */
   static makeAttack(attacker, target) {
     const rawDamageAmount = this.calculateWeaponDamage(attacker);
-    const amount = rawDamageAmount - this.calculateDefense(target, rawDamageAmount);
+    const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount), 0);
     const damage = new Damage({ attribute: 'health', amount, attacker });
     damage.commit(target);
 

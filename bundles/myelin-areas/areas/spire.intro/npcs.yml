@@ -32,6 +32,7 @@
     intellect: 2
     willpower: 1
     critical: 2
+    armor: 5
 
 - id: vendorauto
   keywords: ['vendor', 'automaton']
@@ -66,6 +67,7 @@
     intellect: 3
     willpower: 1
     critical: 3
+    armor: 5
 
 - id: securityauto
   keywords: ['security', 'auto', 'flying']
@@ -88,11 +90,12 @@
     health: 95
     energy: 100
     focus: 50
-    might: 2
-    quickness: 15
+    might: 4
+    quickness: 25
     intellect: 5
     willpower: 2
     critical: 5
+    armor: 1
 
 - id: malfunctioningauto
   keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
@@ -121,7 +124,8 @@
     energy: 100
     focus: 50
     might: 6
-    quickness: 14
+    quickness: 20
     intellect: 3
     willpower: 1
     critical: 4
+    armor: 1
