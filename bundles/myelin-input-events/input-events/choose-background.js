@@ -44,7 +44,7 @@ module.exports = (srcPath) => {
       tierBackgrounds.forEach((choice, index) => {
         at(`[${index + 1}] `);
         say(`<bold>${choice.name}:</bold> `);
-        wrapDesc(`<blue>${choice.description}</blue>`);
+        wrapDesc(`<cyan>${choice.description}</cyan>`);
         say(""); // Newline to separate.
       });
 

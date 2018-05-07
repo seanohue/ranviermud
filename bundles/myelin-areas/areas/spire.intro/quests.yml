@@ -50,4 +50,26 @@
         amount: 5
         leveledTo: QUEST
     # eventually add ItemReward and/or ResourceReward....
+- id: findakey
+  level: 1
+  title: 'Find A Key'
+  desc: 'You need to find a key to activate the portal...'
+  description: |-
+    You have found a way out, but to use it, you will need a key.
+    Perhaps an automaton will have one.
+    
+    Perhaps you could make your own.
+
+    <b><cyan>Hint: type 'craft' to see the crafting options.
+    Hint: try 'loot [name]' to retrieve all items from an NPC's corpse.
+    Hint: try 'list' when at a vending NPC to see what they are selling.</cyan></b>
+   autoComplete: true
+  completionMessage: |-
+    You've found a key! Now to use it on the portal.
+  goals: 
+    - type: FetchGoal
+      config:
+        title: Find Or Create A Portal Key
+        count: 1
+        item: 'spire.intro:portalkey'
 

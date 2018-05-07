@@ -19,8 +19,15 @@
         piston:
           min: 0
           max: 2
+      pools:
+        - spire.intro:portalkey_rare
+      currency:
+        theans:
+          min: 0
+          max: 5
     ranvier-wander:
       interval: 30
+
     # TODO: add breeding behavior where if there are more than one
     # of an NPC in a room, there is a small chance they produce a clone?
   attributes:
@@ -55,6 +62,12 @@
         piston:
           min: 1
           max: 4
+      currency:
+        theans:
+          min: 5
+          max: 500
+      pools:
+        - "spire.intro:portalkey_common"
         # Later add behavior for it to drop some/all of its goods.
         # Add shopkeep behavior
     ranvier-wander:
@@ -86,6 +99,10 @@
         gear:
           min: 0
           max: 1
+      currency:
+        theans:
+          min: 0
+          max: 15
     ranvier-wander: 
       interval: 15
   attributes:
@@ -115,6 +132,10 @@
         scrap_metal:
           min: 1
           max: 2
+      currency:
+        theans:
+          min: 0
+          max: 5
     ranvier-wander: 
       interval: 20
       restrictTo: 
