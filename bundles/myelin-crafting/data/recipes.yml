@@ -1,5 +1,6 @@
 ---
-- item: "limbo:7"
+- item: "spire.intro:portalkey"
   recipe:
-    plant_material: 3
-    rose_petal: 1
+    scrap_metal: 15
+    gear: 2
+    piston: 1

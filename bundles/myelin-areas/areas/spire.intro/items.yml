@@ -152,7 +152,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: gold
+      currency: thean
 
 - id: toque
   name: "Red Toque"
@@ -171,7 +171,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: gold
+      currency: thean
 
 - id: stick
   name: "Gnarled Walking Stick"
@@ -197,7 +197,7 @@
   behaviors:
     sellable:
       value: 4
-      currency: gold
+      currency: thean
 
 # Both the Acrid Mendicant and the Penitent Ascetic have this.
 - id: loincloth
@@ -216,7 +216,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: gold
+      currency: thean
 
 # Acrid Mendicant Starters
 - id: robe
@@ -234,7 +234,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: gold
+      currency: thean
 
 - id: alms
   name: "Alms Pouch"
@@ -253,7 +253,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: gold
+      currency: thean
 
 - id: sandals
   name: "Worn Sandals"
@@ -269,7 +269,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: gold
+      currency: thean
 
 - id: dusters
   name: "Knuckle Dusters"
@@ -290,7 +290,7 @@
   behaviors:
     sellable:
       value: 4
-      currency: gold
+      currency: thean
 
 # Furtive Urchin starting gear
 - id: shank
@@ -317,7 +317,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: gold
+      currency: thean
 
 - id: vest
   name: "Ragged Vest"
@@ -334,7 +334,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: gold
+      currency: thean
 
 - id: trousers
   name: "Ragged Trousers"
@@ -351,7 +351,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: gold
+      currency: thean
 
 # Rugged Tough starting equipment
 - id: jerkin
@@ -369,7 +369,7 @@
   behaviors:
     sellable:
       value: 9
-      currency: gold
+      currency: thean
 
 - id: slacks
   name: "Plain Slacks"
@@ -386,7 +386,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: gold
+      currency: thean
 
 - id: boots
   name: "Low Leather Boots"
@@ -403,7 +403,7 @@
   behaviors:
     sellable:
       value: 3
-      currency: gold
+      currency: thean
 
 - id: blackjack
   name: "Worn Leather Blackjack"
@@ -427,7 +427,7 @@
   behaviors:
     sellable:
       value: 5
-      currency: gold
+      currency: thean
 
 - id: knapsack
   name: "Ragged Canvas Knapsack"
@@ -445,7 +445,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: gold
+      currency: thean
 
 # Test Subject starter
 - id: aetherrobe
@@ -466,4 +466,4 @@
   behaviors:
     sellable:
       value: 60
-      currency: gold
+      currency: thean
