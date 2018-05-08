@@ -56,7 +56,7 @@
 - <<: *trainingroom
   id: 4
   items:
-    - id: "craft:1"
+    - id: "craft:greenplant"
       respawnChance: 30
   npcs:
     - id: "limbo:4"
@@ -73,7 +73,7 @@
 - <<: *trainingroom
   id: 5
   items:
-    - id: "craft:2"
+    - id: "craft:redrose"
       respawnChance: 15
   exits:
     - roomId: "limbo:4"

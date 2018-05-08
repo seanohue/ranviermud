@@ -61,9 +61,9 @@
   coordinates: [2, 5, 0]
   items: &ref_1 ['spire.intro:datacrystals_blue', 'spire.intro:bench']
   behaviors: 
+    commands: ['sit', 'stand']
     seating:
       seatingRef: 'spire.intro:bench'
-    commands: ['sit', 'stand']
   weight: 1
 - id: a-cold-hall-9
   title: A Cold Hall
@@ -104,6 +104,7 @@
   behaviors:
     startquest:
       questId: 'spire.intro:misbehavingautos'
+    commands: ['sit', 'stand']
     seating:
       seatingRef: 'spire.intro:bench'
       sitMessage: 'You sit on the slate bench.'
@@ -111,7 +112,6 @@
       standMessage: 'You stand up from the slate bench.'
       standObserverMessage: 'stands up from the slate bench.'
       observerMessage: 'is sitting on the bench.'
-    commands: ['sit', 'stand']
 - id: airlock-chamber-15
   title: Portal Chamber
   description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
@@ -183,6 +183,9 @@
   weight: 3
   items: ['spire.intro:portal']
   npcs: ['spire.intro:malfunctioningauto', 'spire.intro:maintenanceauto']
+  behaviors:
+    startquest: 
+      questId: 'spire.intro:findakey'
 - id: tube-chamber-26
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'

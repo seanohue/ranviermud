@@ -43,8 +43,10 @@
   keywords: ["portal", "port"]
   properties:
     noPickup: true
+
 - id: portalkey
   name: "Portal Key"
+  type: POTION
   roomDesc: "Portal key"
   description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
   keywords: ["key", "portal"]
@@ -92,7 +94,8 @@
         On Project Extropy: "A single burst of static, and a voice utters: 'This data has been removed.'"
   keywords: [ "crystals", "data", "datacrystals", "cluster"]
   roomDesc: "Five crystals hover above the ground here, <blue>glowing blue</blue>"
-### Quests
+
+
 ## Projects
 - id: datacrystals_green
   name: "Datacrystal Cluster"

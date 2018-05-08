@@ -7,8 +7,8 @@ module.exports = (srcPath, bundlePath) => {
   const say = B.sayAt;
   const CommandManager = require(srcPath + 'CommandManager');
   const ItemType = require(srcPath + 'ItemType');
-  const Crafting = require(bundlePath + 'ranvier-crafting/lib/Crafting');
-  const ItemUtil = require(bundlePath + 'ranvier-lib/lib/ItemUtil');
+  const Crafting = require(bundlePath + 'myelin-crafting/lib/Crafting');
+  const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
   const subcommands = new CommandManager();
 
@@ -23,9 +23,10 @@ module.exports = (srcPath, bundlePath) => {
         say(player, '<b>Crafting Categories</b>');
         say(player, B.line(40));
 
-        return craftingCategories.forEach((category, index) => {
+        craftingCategories.forEach((category, index) => {
           say(player, sprintf('%2d) %s', parseInt(index, 10) + 1, craftingCategories[index].title));
         });
+        say(player, 'Type `craft list [number]` to see the recipes for each category.');
       }
 
       let [itemCategory, itemNumber] = args.split(' ');
@@ -124,7 +125,7 @@ module.exports = (srcPath, bundlePath) => {
     let craftingCategories = [
       {
         type: ItemType.POTION,
-        title: "Potion",
+        title: "Consumable",
         items: []
       },
       {

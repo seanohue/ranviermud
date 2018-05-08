@@ -18,9 +18,9 @@
           max: 2
         piston:
           min: 0
-          max: 2
+          max: 1
       pools:
-        - spire.intro:portalkey_rare
+        - spire.intro:portalkey: 5
       currency:
         theans:
           min: 0
@@ -67,7 +67,7 @@
           min: 5
           max: 500
       pools:
-        - "spire.intro:portalkey_common"
+        - spire.intro:portalkey: 50
         # Later add behavior for it to drop some/all of its goods.
         # Add shopkeep behavior
     ranvier-wander:
