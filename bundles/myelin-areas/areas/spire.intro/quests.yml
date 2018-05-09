@@ -73,4 +73,9 @@
         count: 1
         item: 'spire.intro:portalkey'
         canCraft: true
+  rewards:
+    - type: ExperienceReward
+      config:
+        amount: 10
+        leveledTo: QUEST
 

@@ -59,7 +59,6 @@ module.exports = srcPath => {
     }
 
     _getItem(item) {
-      console.log('GOT ', item);
       if (item.entityReference !== this.config.item) {
         return;
       }

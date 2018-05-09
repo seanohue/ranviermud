@@ -118,7 +118,7 @@ module.exports = (srcPath, bundlePath) => {
 
       state.ItemManager.add(item.item);
       player.addItem(item.item);
-      player.emit('craft', item);
+      player.emit('craft', item.item);
       say(player, `<b><green>You create: ${ItemUtil.display(item.item)}.</green></b>`);
       player.save();
     }
