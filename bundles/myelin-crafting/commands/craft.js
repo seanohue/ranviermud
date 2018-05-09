@@ -26,7 +26,8 @@ module.exports = (srcPath, bundlePath) => {
         craftingCategories.forEach((category, index) => {
           say(player, sprintf('%2d) %s', parseInt(index, 10) + 1, craftingCategories[index].title));
         });
-        say(player, 'Type `craft list [number]` to see the recipes for each category.');
+
+        return say(player, 'Type `craft list [number]` to see the recipes for each category.');
       }
 
       let [itemCategory, itemNumber] = args.split(' ');
@@ -99,7 +100,8 @@ module.exports = (srcPath, bundlePath) => {
       for (const [resource, recipeRequirement] of Object.entries(item.recipe)) {
         const playerResource = player.getMeta(`resources.${resource}`) || 0;
         if (playerResource < recipeRequirement) {
-          return say(player, `You don't have enough resources. 'craft list ${args}' to see recipe. You need ${recipeRequirement - playerResource} more ${resource}.`);
+          const resItem = Crafting.getResourceItem(resource);
+          return say(player, `You don't have enough resources. 'craft list ${args}' to see recipe. You need ${recipeRequirement - playerResource} more ${resItem.name}.`);
         }
       }
 
@@ -116,6 +118,7 @@ module.exports = (srcPath, bundlePath) => {
 
       state.ItemManager.add(item.item);
       player.addItem(item.item);
+      player.emit('craft', item);
       say(player, `<b><green>You create: ${ItemUtil.display(item.item)}.</green></b>`);
       player.save();
     }

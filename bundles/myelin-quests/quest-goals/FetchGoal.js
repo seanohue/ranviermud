@@ -24,6 +24,9 @@ module.exports = srcPath => {
       this.on('drop', this._dropItem);
       this.on('decay', this._dropItem);
       this.on('start', this._checkInventory);
+      if (this.config.canCraft) {
+        this.on('craft', this._getItem);
+      }
     }
 
     getProgress() {
@@ -56,6 +59,7 @@ module.exports = srcPath => {
     }
 
     _getItem(item) {
+      console.log('GOT ', item);
       if (item.entityReference !== this.config.item) {
         return;
       }

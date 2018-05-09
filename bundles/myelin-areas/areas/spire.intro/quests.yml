@@ -72,4 +72,5 @@
         title: Find Or Create A Portal Key
         count: 1
         item: 'spire.intro:portalkey'
+        canCraft: true
 
