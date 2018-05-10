@@ -29,11 +29,19 @@ module.exports = (srcPath, bundlePath) => {
 
       const usable = item.getBehavior('usable');
       if (!usable) {
+        // Special portal code...
+        if (item.entityReference.includes('portalkey')){
+          if (player.room.hasBehavior('portal')) {
+            say("You use the key...");
+            return player.room.emit('usePortal', player, item);
+          }
+          return say("You can't use that here.");
+        }
         return say("You can't use that.");
       }
 
       if ('charges' in usable && usable.charges <= 0) {
-        return say(`You've used up all the magic in ${ItemUtil.display(item)}.`);
+        return say(`You've used up ${ItemUtil.display(item)}.`);
       }
 
       if (usable.spell) {

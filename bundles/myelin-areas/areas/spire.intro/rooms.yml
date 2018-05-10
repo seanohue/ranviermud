@@ -186,6 +186,7 @@
   behaviors:
     startquest: 
       questId: 'spire.intro:findakey'
+    portal: true
 - id: tube-chamber-26
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
