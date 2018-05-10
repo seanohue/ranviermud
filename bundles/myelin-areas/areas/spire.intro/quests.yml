@@ -59,10 +59,12 @@
     Perhaps an automaton will have one.
     
     Perhaps you could make your own.
-
-    <b><cyan>Hint: type 'craft list' to see the crafting options.
+    <b><cyan>
+    Hint: type 'craft list' to see the crafting options.
+    Hint: try 'gather [item]' to try gathering crafting resources.
     Hint: try 'loot [name]' to retrieve all items from an NPC's corpse.
-    Hint: try 'list' when at a vending NPC to see what they are selling.</cyan></b>
+    Hint: try 'list' when at a vending NPC to see what they are selling.
+    </cyan></b>
   autoComplete: true
   completionMessage: |-
     You've found a key! Now to use it on the portal.

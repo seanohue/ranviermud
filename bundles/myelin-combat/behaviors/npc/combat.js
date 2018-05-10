@@ -1,7 +1,6 @@
 'use strict';
 
 const Combat = require('../../lib/Combat');
-
 /**
  * Example real-time combat behavior for NPCs that goes along with the player's player-combat.js
  * Have combat implemented in a behavior like this allows two NPCs with this behavior to fight without
@@ -23,6 +22,17 @@ module.exports = (srcPath) => {
        * @param {Character} killer
        */
       killed: state => function (config, killer) {
+        // Broadcast to players that NPC has been killed.
+        if (!this.room.players.size) return;
+
+        const Broadcast = require(srcPath + 'Broadcast');
+        [...this.room.players].forEach(player => {
+          if (player === killer) return;
+          if (!killer) {
+            return Broadcast.sayAt(player, `<red><b>${this.name} has died!</b></red>`);
+          }
+          Broadcast.sayAt(player, `<red><b>${this.name} was killed by ${killer.name}!</b></red>`);
+        });
       },
 
       /**
@@ -49,6 +59,8 @@ module.exports = (srcPath) => {
         if (!this.isInCombat()) {
           Combat.startRegeneration(state, this);
         }
+        const targetLevel = target ? target.level || (target.metadata ? target.metadata.level : 1) : 1;
+        this._xp = (this._xp || 0) + targetLevel; // maybe use later to determine xp bonus from kill?
       }
 
       // refer to bundles/ranvier-combat/player-events.js for a further list of combat events

@@ -34,6 +34,20 @@
   properties:
     noPickup: true
   keywords: [ "portal", "broken" ]
+  type: RESOURCE
+  behaviors:
+    resource:
+      depletedMessage: "has been reduced to useless rubble."
+      materials:
+        scrap_metal:
+          min: 3
+          max: 10
+        piston:
+          min: 0
+          max: 2
+        gear:
+          min: 0
+          max: 4
 
   # Quest items
 - id: portal

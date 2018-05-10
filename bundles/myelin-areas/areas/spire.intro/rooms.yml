@@ -36,7 +36,7 @@
   description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'
   coordinates: [1, 6, 0]
   weight: 3
-  items: &ref_2 ['spire.intro:brokenportal']
+  items: &ref_2 [{id: 'spire.intro:brokenportal', respawnChance: 20, replaceOnRespawn: true}]
 - id: a-cold-hall-5
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
