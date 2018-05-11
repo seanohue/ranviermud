@@ -1,7 +1,7 @@
 'use strict';
 
 const PortalDestinations = new Map();
-const {generate} = require('../../lib/generator');
+const {generate, addToWorld} = require('../../lib/generator');
 
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
@@ -69,30 +69,55 @@ module.exports = srcPath => {
         if (!PortalDestinations.size) {
           // LOAD
           if (!loaded) {
-            for (const area of state.AreaManager.areas) {
-              if (!area.manifest.isGenerated) continue;
-              PortalDestinations.set(area.name, area);
+            for (const [areaName, area] of state.AreaManager.areas) {
+              if (!area.info.isGenerated) continue;
+              PortalDestinations.set(areaName, area);
             }
           }
           if (!PortalDestinations.size) {
-            // GEN AREA
-            const generatedArea = generate();
+            const min = Math.max(1, player.level - 2);
+            const max = Math.min(99, player.level + 5);
+            const levelRange = {min, max};
+
+            const {generatedArea, name} = generate(srcPath, state, levelRange);
+
+            const {firstRoom} = addToWorld(srcPath, state, name, generated);
+
+            // SEND THERE
+            const targetRoom = state.RoomManager.getRoom(firstRoom);
+            if (!targetRoom) {
+              return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
+            } else if (targetRoom === player.room) {
+              return Broadcast.sayAt(player, 'Teleportation failed. Teleported to same room. Contact an admin.');
+            }
+        
+            player.followers.forEach(follower => {
+              // TODO: Change to send followers as well.
+              follower.unfollow();
+              if (!follower.isNpc) {
+                Broadcast.sayAt(follower, `You stop following ${player.name}.`);
+              }
+            });
+      
+            if (player.isInCombat()) {
+              player.removeFromCombat();
+            }
+      
+            player.moveTo(targetRoom, () => {
+              Broadcast.sayAt(player, '<b><green>You find yourself in a strange new world...</green></b>\r\n');
+              state.CommandManager.get('look').execute('', player);
+            });
+      
+            Broadcast.sayAtExcept(targetRoom, `<b>${player.name} appears in a <yellow>flash</yellow> of light.</b>`, player);
           }
         } 
         
         if (PortalDestinations.size > 1 || !PortalDestinations.has(player.room.area.name)) {
-          
+          console.log('unimplemented...');
         }
 
         // ELSE CHOOSE AT RANDOM...
-        // 20% chance of new?
-
-        // TODO EVENTUALLY:
-        // Emit input event on player????  (how do that work??)
-        //  - Remove command listener
-        
-        //  - Emit new input event and pass it player along with other data.
-        // - Quitting or going linkdead should maybe result in them ending back up in this room... 
+        // 20% chance of new? Less and less once there are more pocket worlds.
       }
     }
   };

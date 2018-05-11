@@ -24,7 +24,6 @@ class Area extends EventEmitter {
     this.bundle = bundle;
     this.name = name;
     this.title = manifest.title;
-    this.manifest = manifest;
     this.rooms = new Map();
     this.npcs = new Set();
     this.info = Object.assign({

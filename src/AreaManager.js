@@ -16,7 +16,6 @@ class AreaManager {
    * @return Area
    */
   getArea(name) {
-    console.log(this.areas);
     return this.areas.get(name);
   }
 
