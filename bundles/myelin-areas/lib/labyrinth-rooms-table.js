@@ -17,11 +17,17 @@ module.exports = {
     items: ['spire.intro:cylinders', 'spire.intro:masstubes']
   },
 
+  hall_maint: {
+    weight: COMMON,
+    title: 'A Cold Hall',
+    description: 'A short hallway, cold enough to see one\'s breath.',
+    npcs: ['spire.intro:maintenanceauto']
+  },
+
   hall: {
     weight: COMMON,
     title: 'A Cold Hall',
     description: 'A short hallway, cold enough to see one\'s breath.',
-    npcs: ['spire.intro:maintenanceautos']
   },
 
 };

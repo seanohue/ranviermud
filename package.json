@@ -17,7 +17,7 @@
     "bundle-install": "for bundleDir in bundles/*; do (cd $bundleDir; if [ -e package.json ]; then echo \"Updating $bundleDir\"; npm install 2> /dev/null; fi;); done"
   },
   "dependencies": {
-    "axolemma": "^0.5.1",
+    "axolemma": "^0.5.3",
     "bcryptjs": "^2.4.0",
     "celebrate": "^4.0.1",
     "chokidar": "^1.6.1",

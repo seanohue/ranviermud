@@ -1,7 +1,9 @@
 const axolemma = require('axolemma');
+const path = require('path');
+
 const configs = require('./configs');
 
-const baseFilePath = __dirname + '../areas/';
+const baseFilePath = path.join(__dirname, '/../areas/');
 const bundle = 'myelin-areas';
 
 const defaults = {
@@ -21,7 +23,7 @@ module.exports = {
     const axolemmaOptions = Object.assign({},  
       defaults, 
       config, 
-      { filePath: baseFilePath + filename });
+      { filepath: baseFilePath + filename });
     axolemmaOptions.areaInfo.levelRange = levelRange;
 
     return { generated: axolemma.generate(axolemmaOptions), name: config._name};

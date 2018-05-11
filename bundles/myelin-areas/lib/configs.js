@@ -3,8 +3,8 @@ module.exports = [{
     type: 'DividedMaze',
     areaTitle: 'The Spire: Labyrinth',
   
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 20,
   
     regularity: 0.2,
   

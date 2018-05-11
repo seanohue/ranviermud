@@ -79,7 +79,7 @@ module.exports = srcPath => {
             const max = Math.min(99, player.level + 5);
             const levelRange = {min, max};
 
-            const {generatedArea, name} = generate(srcPath, state, levelRange);
+            const {generated, name} = generate(srcPath, state, levelRange);
 
             const {firstRoom} = addToWorld(srcPath, state, name, generated);
 
