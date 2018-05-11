@@ -14,6 +14,7 @@ module.exports = (src) => {
   return {
     event: state => player => {
       player.socket.once('data', data => {
+        if (player._isUsingPortal) return;
         function loop () {
           player.socket.emit('commands', player);
         }

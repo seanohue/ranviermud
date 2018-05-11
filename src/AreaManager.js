@@ -9,11 +9,14 @@ class AreaManager {
     this.areas = new Map();
   }
 
+
+
   /**
    * @param {string} name
    * @return Area
    */
   getArea(name) {
+    console.log(this.areas);
     return this.areas.get(name);
   }
 
