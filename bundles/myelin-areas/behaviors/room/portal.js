@@ -60,7 +60,6 @@ module.exports = srcPath => {
         Broadcast.sayAt(player, `<b>There is a <yellow>flash</yellow> of light, and your surroundings vanish...</b>`);
         Broadcast.sayAtExcept(this, `<b>${player.name} disappears in a <yellow>flash</yellow> of light...</b>`, player);
 
-        
         // Have it remove the player from the room, broadcasting such to them and anyone else there.
         //TODO: Do this to entire party... Have them in a limbo of sorts? Have them vote? Idk.
         this.removePlayer(player);
@@ -73,51 +72,81 @@ module.exports = srcPath => {
               if (!area.info.isGenerated) continue;
               PortalDestinations.set(areaName, area);
             }
+            loaded = true;
           }
+
           if (!PortalDestinations.size) {
-            const min = Math.max(1, player.level - 2);
-            const max = Math.min(99, player.level + 5);
-            const levelRange = {min, max};
-
-            const {generated, name} = generate(srcPath, state, levelRange);
-
-            const {firstRoom} = addToWorld(srcPath, state, name, generated);
-
-            // SEND THERE
-            const targetRoom = state.RoomManager.getRoom(firstRoom);
-            if (!targetRoom) {
-              return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
-            } else if (targetRoom === player.room) {
-              return Broadcast.sayAt(player, 'Teleportation failed. Teleported to same room. Contact an admin.');
-            }
-        
-            player.followers.forEach(follower => {
-              // TODO: Change to send followers as well.
-              follower.unfollow();
-              if (!follower.isNpc) {
-                Broadcast.sayAt(follower, `You stop following ${player.name}.`);
-              }
-            });
-      
-            if (player.isInCombat()) {
-              player.removeFromCombat();
-            }
-      
-            player.moveTo(targetRoom, () => {
-              Broadcast.sayAt(player, '<b><green>You find yourself in a strange new world...</green></b>\r\n');
-              state.CommandManager.get('look').execute('', player);
-            });
-      
-            Broadcast.sayAtExcept(targetRoom, `<b>${player.name} appears in a <yellow>flash</yellow> of light.</b>`, player);
+            return generateDestination();
           }
-        } 
+        }
         
         if (PortalDestinations.size > 1 || !PortalDestinations.has(player.room.area.name)) {
-          console.log('unimplemented...');
+          const destinationCount = PortalDestinations.size;
+          const chanceOfCreation = Math.max(
+            5,
+            10 - destinationCount
+          );
+          if (Random.probability(chanceOfCreation)) {
+            return generateDestination();
+          } else {
+            const destinationArea = 
+              Random.fromArray(
+                Array.from(PortalDestinations.values())
+                  .filter(area => area.name !== player.room.area.name)
+              );
+            const destinationRoom = Array.from(area.rooms)[0];
+            movePlayerToPortalDestination(destinationRoom);
+          }
         }
 
-        // ELSE CHOOSE AT RANDOM...
-        // 20% chance of new? Less and less once there are more pocket worlds.
+        function generateDestination() {
+          const min = Math.max(1, player.level - 2);
+          const max = Math.min(99, player.level + 5);
+          const levelRange = {min, max};
+
+          return generate(srcPath, state, levelRange)
+            .then(({generated, name}) => {
+              console.log('Generated!');
+              const {firstRoom} = addToWorld(srcPath, state, name, generated);
+
+              const targetRoom = state.RoomManager.getRoom(firstRoom);
+              if (!targetRoom) {
+                return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
+              } else if (targetRoom === player.room) {
+                return Broadcast.sayAt(player, 'Teleportation failed. Teleported to same room. Contact an admin.');
+              }
+
+              movePlayerToPortalDestination(targetRoom);
+            })
+            .catch(err => {
+              console.error('Error', err);
+              player._isUsingPortal = false;
+              Broadcast.sayAt(player, 'An error has occurred. Please contact an admin.');
+            });
+        }
+
+        function movePlayerToPortalDestination(targetRoom) {
+          player.followers.forEach(follower => {
+            // TODO: Change to send followers as well.
+            follower.unfollow();
+            if (!follower.isNpc) {
+              Broadcast.sayAt(follower, `You stop following ${player.name}.`);
+            }
+          });
+    
+          if (player.isInCombat()) {
+            player.removeFromCombat();
+          }
+    
+          player.moveTo(targetRoom, () => {
+            Broadcast.sayAt(player, '<b><green>You find yourself in a strange new world...</green></b>\r\n');
+            Broadcast.sayAtExcept(targetRoom, `<b>${player.name} appears in a <yellow>flash</yellow> of light.</b>`, player);
+            state.CommandManager.get('look').execute('', player);
+            player._isUsingPortal = false;
+            state.ItemManager.remove(key);
+          });
+        }
+
       }
     }
   };

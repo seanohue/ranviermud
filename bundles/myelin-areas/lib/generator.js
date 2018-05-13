@@ -14,6 +14,48 @@ const defaults = {
 };
 
 module.exports = {
+  // teleport(srcPath, state, player) {
+  //   const min = Math.max(1, player.level - 2);
+  //   const max = Math.min(99, player.level + 5);
+  //   const levelRange = {min, max};
+
+  //   return Generator.generate(srcPath, state, levelRange)
+  //     .then(({generated, name}) => {
+  //       console.log('Generated!');
+  //       const {firstRoom} = Generator.addToWorld(srcPath, state, name, generated);
+
+  //       const targetRoom = state.RoomManager.getRoom(firstRoom);
+  //       if (!targetRoom) {
+  //         return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
+  //       } else if (targetRoom === player.room) {
+  //         return Broadcast.sayAt(player, 'Teleportation failed. Teleported to same room. Contact an admin.');
+  //       }
+    
+  //       player.followers.forEach(follower => {
+  //         // TODO: Change to send followers as well.
+  //         follower.unfollow();
+  //         if (!follower.isNpc) {
+  //           Broadcast.sayAt(follower, `You stop following ${player.name}.`);
+  //         }
+  //       });
+  
+  //       if (player.isInCombat()) {
+  //         player.removeFromCombat();
+  //       }
+  
+  //       player.moveTo(targetRoom, () => {
+  //         Broadcast.sayAt(player, '<b><green>You find yourself in a strange new world...</green></b>\r\n');
+  //         Broadcast.sayAtExcept(targetRoom, `<b>${player.name} appears in a <yellow>flash</yellow> of light.</b>`, player);
+  //         state.CommandManager.get('look').execute('', player);
+  //         //TODO: Remove key
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.error('Error', err);
+  //       Broadcast.sayAt(player, 'An error has occurred. Please contact an admin.');
+  //     });
+  // },
+
   generate(srcPath, state, levelRange) {
     levelRange = levelRange || {min: 3, max: 10};
     const Random = require(srcPath + 'RandomUtil');
@@ -26,7 +68,11 @@ module.exports = {
       { filepath: baseFilePath + filename });
     axolemmaOptions.areaInfo.levelRange = levelRange;
 
-    return { generated: axolemma.generate(axolemmaOptions), name: config._name};
+    return axolemma.generate(axolemmaOptions)
+      .then((generated) => {
+        console.log('generated...', generated.graphic); 
+        return { generated, name: config._name };
+      });
   },
 
   addToWorld(srcPath, state, name, generated) {
@@ -58,7 +104,6 @@ module.exports = {
       newArea.addRoom(room);
       state.RoomManager.addRoom(room);
       room.hydrate(state);
-      console.log('Finished with: ', room);
     });
 
     state.AreaManager.addArea(newArea);

@@ -1,0 +1,83 @@
+- id: berzerkmaintenanceauto
+  keywords: ['berzerk', 'maintenance', 'auto', 'automaton', 'robot']
+  name: Berzerk Maintenance Automaton
+  level: 6
+  description: "This is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a cracked dome, with iridescent fluid streaming from it. Steam billows from the many gaskets lining its underbelly like metallic ribs."
+  behaviors:
+    combat: true
+    flavorevents:
+      onSpawn: 'A spiderlike automaton falls from an aperture in the ceiling, its limbs flailing wildly. The aperture whirrs shut behind it.'
+      onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  #eventually add scavenger behavior
+    ranvier-aggro:
+      warnMessage: '%name%''s metal legs clack as it turns to face you, its sensors flashing <red>red</red>.'
+      attackMessage: '%name% scuttles towards you!'
+      delay: 4
+      towards:
+        players: true
+        npcs: ['spire.intro:vendoraudo', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
+    lootable: 
+      resources: 
+        scrap_metal:
+          min: 1
+          max: 7
+        gear:
+          min: 0
+          max: 2
+      currency:
+        theans:
+          min: 5
+          max: 10
+    ranvier-wander:
+      interval: 30
+  attributes:
+    health: 180
+    energy: 100
+    focus: 50
+    might: 8
+    quickness: 10
+    intellect: 3
+    willpower: 1
+    critical: 3
+    armor: 2
+  metadata:
+    minDamage: 8
+    maxDamage: 30
+- id: malfunctioningauto
+  keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
+  name: Flying Malfunctioning Automaton
+  level: 8
+  description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring <red>erratically</red>. Its undercarriage features razor-sharp 'legs' and a small cannon."
+  skills: ['dodge']
+  behaviors:
+    combat: true
+    lootable: 
+      resources: 
+        scrap_metal:
+          min: 0
+          max: 5
+      currency:
+        theans:
+          min: 0
+          max: 15
+    ranvier-wander: 
+      interval: 20
+    ranvier-aggro:
+      warnMessage: '%name%''s metal wings whir as it turns to face you, its sensors flashing <red>red</red>.'
+      attackMessage: '%name% hurtles towards you!'
+      delay: 3
+      towards:
+        players: true
+        npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
+  attributes:
+    health: 185
+    energy: 100
+    focus: 50
+    might: 7
+    quickness: 21
+    intellect: 4
+    willpower: 1
+    critical: 5
+    armor: 2
+  metadata:
+    minDamage: 5
+    maxDamage: 25

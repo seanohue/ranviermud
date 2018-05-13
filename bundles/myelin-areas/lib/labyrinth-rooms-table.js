@@ -30,4 +30,19 @@ module.exports = {
     description: 'A short hallway, cold enough to see one\'s breath.',
   },
 
+  cryocolumn_maint: {
+    weight: RARE,
+    title: 'Tube Chamber',
+    description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.',
+    items: ['spire.intro:columntubes'],  
+    npcs: ['spire.labyrinth:berzerkmaintenanceauto']
+  },
+
+  hall_sec: {
+    weight: UNCOMMON,
+    title: 'A Cold Hall',
+    description: 'A short hallway, cold enough to see one\'s breath.',   
+    npcs: ['spire.labyrinth:malfunctioningauto'] 
+  }
+
 };

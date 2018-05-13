@@ -154,7 +154,7 @@
       delay: 3
       towards:
         players: true
-        npcs: ['spire.intro:vendoraudo', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
+        npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
   attributes:
     health: 105
     energy: 100

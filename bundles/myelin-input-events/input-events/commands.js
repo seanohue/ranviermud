@@ -13,7 +13,8 @@ module.exports = (src) => {
 
   return {
     event: state => player => {
-      player.socket.once('data', data => {
+      console.log('Emitted commands for ', player.name);
+      player.__commandLoop = data => {
         if (player._isUsingPortal) return;
         function loop () {
           player.socket.emit('commands', player);
@@ -84,7 +85,10 @@ module.exports = (src) => {
 
         Broadcast.prompt(player);
         loop();
-      });
+      }
+
+
+      player.socket.once('data', player.__commandLoop);
     }
   };
 };
