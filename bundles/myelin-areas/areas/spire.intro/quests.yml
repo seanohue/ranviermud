@@ -35,6 +35,10 @@
     Perhaps the nearby datacrystal has more information?
 
     <b><cyan>Hint: You can try `read crystal` to begin reading data from the crystal.</cyan></b>
+    <b><cyan>Hint: You can attack someone or something by typing `kill [name]`.</cyan></b>
+    <b><cyan>Hint: Before attacking, consider your chances of success by typing `consider [name]`.</cyan></b>
+
+
   autoComplete: true
   completionMessage: |-
     You've killed quite a few of the hostile drones, enough to make the area safer for now...

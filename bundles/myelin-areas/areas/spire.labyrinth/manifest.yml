@@ -1,0 +1,7 @@
+# placeholderish
+title: 'The Spire: Cryochamber'
+info:
+  respawnInterval: 30
+  levelRange:
+    min: 5
+    max: 15

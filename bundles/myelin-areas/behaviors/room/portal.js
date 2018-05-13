@@ -7,13 +7,14 @@ module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Logger = require(srcPath + 'Logger');
   const Player = require(srcPath + 'Player');
+  const Random = require(srcPath + 'RandomUtil');
 
   let loaded = false;
 
   return {
     listeners: {
       playerEnter: state => function (_config, player, args) {
-        if (!player.inventory.size) return;
+        if (!player.inventory || !player.inventory.size) return;
 
         const inv = Array.from(player.inventory.values());
         if (inv.find(item => item.entityReference.includes('portalkey'))) {
@@ -26,9 +27,8 @@ module.exports = srcPath => {
 
       respawnTick: state => function (_config, ...args) {
         if (!this.players.size) return;
-
         for (const player of this.players) {
-          if (!player.inventory.size) continue;
+          if (!player.inventory || !player.inventory.size) continue;
 
           const inv = Array.from(player.inventory.values());
           if (inv.find(item => item.entityReference.includes('portalkey'))) {
@@ -94,12 +94,13 @@ module.exports = srcPath => {
                 Array.from(PortalDestinations.values())
                   .filter(area => area.name !== player.room.area.name)
               );
-            const destinationRoom = Array.from(area.rooms)[0];
-            movePlayerToPortalDestination(destinationRoom);
+            const destinationRoom = Array.from(destinationArea.rooms.values())[0];
+            return movePlayerToPortalDestination(destinationRoom.entityReference);
           }
         }
 
         function generateDestination() {
+          console.log('GENERATING NEW AREA....');
           const min = Math.max(1, player.level - 2);
           const max = Math.min(99, player.level + 5);
           const levelRange = {min, max};
@@ -109,14 +110,7 @@ module.exports = srcPath => {
               console.log('Generated!');
               const {firstRoom} = addToWorld(srcPath, state, name, generated);
 
-              const targetRoom = state.RoomManager.getRoom(firstRoom);
-              if (!targetRoom) {
-                return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
-              } else if (targetRoom === player.room) {
-                return Broadcast.sayAt(player, 'Teleportation failed. Teleported to same room. Contact an admin.');
-              }
-
-              movePlayerToPortalDestination(targetRoom);
+              movePlayerToPortalDestination(firstRoom);
             })
             .catch(err => {
               console.error('Error', err);
@@ -125,7 +119,15 @@ module.exports = srcPath => {
             });
         }
 
-        function movePlayerToPortalDestination(targetRoom) {
+        function movePlayerToPortalDestination(firstRoom) {
+          console.log({firstRoom});
+          const targetRoom = state.RoomManager.getRoom(firstRoom);
+          if (!targetRoom) {
+            return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
+          } else if (targetRoom === player.room) {
+            return Broadcast.sayAt(player, 'Teleportation failed. Teleported to same room. Contact an admin.');
+          }
+
           player.followers.forEach(follower => {
             // TODO: Change to send followers as well.
             follower.unfollow();
@@ -146,7 +148,6 @@ module.exports = srcPath => {
             state.ItemManager.remove(key);
           });
         }
-
       }
     }
   };

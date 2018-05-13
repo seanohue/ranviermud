@@ -31,7 +31,7 @@
     # TODO: add breeding behavior where if there are more than one
     # of an NPC in a room, there is a small chance they produce a clone?
   attributes:
-    health: 150
+    health: 130
     energy: 50
     focus: 50
     might: 5
@@ -39,7 +39,7 @@
     intellect: 2
     willpower: 1
     critical: 2
-    armor: 5
+    armor: 4
 
 - id: vendorauto
   keywords: ['vendor', 'automaton']

@@ -13,7 +13,6 @@ module.exports = (src) => {
 
   return {
     event: state => player => {
-      console.log('Emitted commands for ', player.name);
       player.__commandLoop = data => {
         if (player._isUsingPortal) return;
         function loop () {

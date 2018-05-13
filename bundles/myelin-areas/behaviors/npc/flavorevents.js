@@ -4,7 +4,6 @@ module.exports = (srcPath) => {
   const Logger = require(srcPath + 'Logger');
   const Random = require(srcPath + 'RandomUtil');
   const Broadcast = require(srcPath + 'Broadcast');
-  console.log('ADDING FLAVOR EVENTSSSSS', '='.repeat(100));
 
   return  {
     listeners: {
