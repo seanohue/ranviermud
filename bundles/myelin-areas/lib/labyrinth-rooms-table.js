@@ -21,6 +21,7 @@ module.exports = {
     weight: COMMON,
     title: 'A Cold Hall',
     description: 'A short hallway, cold enough to see one\'s breath.',
+    level: 7,
     npcs: ['spire.intro:maintenanceauto']
   },
 
@@ -35,14 +36,25 @@ module.exports = {
     title: 'Tube Chamber',
     description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.',
     items: ['spire.intro:columntubes'],  
-    npcs: ['spire.labyrinth:berzerkmaintenanceauto']
+    npcs: ['spire.labyrinth:berzerkmaintenanceauto'],
+    level: 9
   },
 
   hall_sec: {
     weight: UNCOMMON,
     title: 'A Cold Hall',
     description: 'A short hallway, cold enough to see one\'s breath.',   
-    npcs: ['spire.labyrinth:malfunctioningauto'] 
-  }
+    npcs: ['spire.labyrinth:malfunctioningauto'], 
+    level: 9
+  },
+
+  broken_portal_arbit: {
+    weight: RARE,
+    title: 'A Portal Chamber',
+    description: 'A small room with metal vault doors here and there.',
+    npcs: ['spire.labyrinth:arbiter'],
+    items: ['spire.intro:brokenportal'],
+    level: 12
+  },
 
 };

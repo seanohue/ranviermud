@@ -81,3 +81,42 @@
   metadata:
     minDamage: 5
     maxDamage: 25
+- id: arbiter
+  keywords: 'arbiter'
+  name: Arbiter
+  level: 12
+  description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
+  skills: ['dodge']
+  behaviors:
+    combat: true
+    lootable: 
+      resources: 
+        aethersilk:
+          min: 0
+          max: 5
+      currency:
+        theans:
+          min: 0
+          max: 150
+    ranvier-wander: 
+      interval: 100
+    ranvier-aggro:
+      warnMessage: 'You sense %name% turning in your direction... judging you.'
+      attackMessage: '%name% raises its arms and attacks!'
+      delay: 6
+      towards:
+        players: true  
+  attributes:
+    health: 205
+    energy: 125
+    focus: 250
+    might: 7
+    quickness: 18
+    intellect: 21
+    willpower: 21
+    critical: 4
+    armor: 1
+  metadata:
+    minDamage: 5
+    maxDamage: 65
+    damageType: 'psionic'

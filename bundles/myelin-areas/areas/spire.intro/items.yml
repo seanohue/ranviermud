@@ -122,7 +122,7 @@
       indexName: 'CHOOSE ONE'
       readAction: "You touch the crystal. It <green>pulses</green> and a voice rings out in your head:\n\n'%where'.\n\nThe voice continues, occasionally punctuated by a moving image flashing in front of your eyes:"
       content:
-        The Automaton Uprising: |
+        On The Automaton Uprising: |
           A man's voice begins, in a hurried and breathless tone:
           'I hope this can save someone's life. It's too late for me. 
           
@@ -137,7 +137,7 @@
 
           My last acts are to record this message, and to enable a security fence that will hopefully prevent the automatons from slaughtering anyone unlucky enough to be revived on this floor.
 
-          If you're listening to this, they should be confined to the north end of the floor. Be careful.
+          If you're listening to this, they should be confined to the north end of the floor. Be careful.'
 
           The message ends with a short burst of static.
   keywords: [ "crystals", "data", "datacrystals", "cluster"]
