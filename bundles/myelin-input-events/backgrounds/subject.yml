@@ -7,7 +7,6 @@ attributes:
   intellect: 6
   willpower: 6
 equipment: ['spire.intro:aetherrobe']
-skills: ['nervestrike']
 attributePoints: 16
 abilityPoints: 10
 tier: 1

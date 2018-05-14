@@ -7,6 +7,6 @@ attributes:
   intellect: 6
   willpower: 7
 equipment: []
-skills: ['claw', 'disfigured']
+skills: ['rend', 'disfigured']
 abilityPoints: 1
 tier: 1
