@@ -80,6 +80,8 @@ module.exports = (srcPath) => {
       player.setMeta('abilityPoints',    abilityPoints   || 0);
       player.setMeta('description',      desc || '');
 
+      player.setMeta('config',           { minimap: true });
+
       const room = state.RoomManager.startingRoom;
       player.room = room;
       player.save(() => {
