@@ -14,6 +14,4 @@ equipment:
   - 'spire.intro:sandals'
   - 'spire.intro:dusters'
 skills: [ 'combust', 'concentration' ]
-attributePoints: 0
-abilityPoints: 0
 tier: 0

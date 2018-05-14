@@ -12,6 +12,4 @@ equipment:
   - 'spire.intro:stick'
   - 'spire.intro:loincloth'
 skills: [ 'mend', 'concentration' ]
-attributePoints: 0
-abilityPoints: 0
 tier: 0

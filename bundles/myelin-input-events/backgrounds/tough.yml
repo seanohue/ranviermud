@@ -14,5 +14,4 @@ equipment:
   - 'spire.intro:blackjack'
   - 'spire.intro:knapsack'
 skills: [ 'bash' ]
-attributePoints: 0
 tier: 0
