@@ -8,9 +8,9 @@ module.exports = srcPath => {
 
   return {
     config: {
-      name: 'Shield Block',
-      description: "You are blocking incoming physical attacks!",
-      type: 'skill:shieldblock',
+      name: 'Block',
+      description: "You are actively blocking incoming physical attacks!",
+      type: 'skill:block',
     },
     flags: [Flag.BUFF],
     state: {
@@ -42,18 +42,18 @@ module.exports = srcPath => {
         this.state.remaining = this.state.magnitude;
 
         if (this.target instanceof Player) {
-          this.target.addPrompt('shieldblock', () => {
-            const width = 60 - "Shield ".length;
+          this.target.addPrompt('block', () => {
+            const width = 60 - "Blocking ".length;
             const remaining = `<b>${this.state.remaining}/${this.state.magnitude}</b>`;
-            return "<b>Shield</b> " + Broadcast.progress(width, (this.state.remaining / this.state.magnitude) * 100, "white") + ` ${remaining}`;
+            return "<b>Blocking</b> " + Broadcast.progress(width, (this.state.remaining / this.state.magnitude) * 100, "white") + ` ${remaining}`;
           });
         }
       },
 
       effectDeactivated: function () {
-        Broadcast.sayAt(this.target, 'You lower your shield, unable to block any more attacks.');
+        Broadcast.sayAt(this.target, 'You lower your defenses, unable to block any more attacks.');
         if (this.target instanceof Player) {
-          this.target.removePrompt('shieldblock');
+          this.target.removePrompt('block');
         }
       }
     }

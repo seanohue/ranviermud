@@ -17,12 +17,16 @@ module.exports = srcPath => {
 
         /* Physicalist: */
 
-        // claw: {
-        //   level: 1,
-        //   might: 15,
-        //   quickness: 10,
-        //   cost: 2
-        // },
+        block: {
+          level: 4,
+          might: 12,
+          willpower: 10,
+        },
+        dodge: {
+          level: 4,
+          quickness: 15,
+          intellect: 10
+        },
         lunge: {
           level: 1,
           quickness: 15,

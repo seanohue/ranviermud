@@ -100,8 +100,8 @@ class Combat {
     const armor     = defender.getAttribute('armor')     || 0;
 
     // Defensive skills.
-    const dodge = defender.skills.has('dodging');
-    const blocking = defender.skills.has('blocking');
+    const dodge = defender.isNpc && defender.skills.has('dodging');
+    const blocking = defender.isNpc && defender.skills.has('blocking');
 
     if (dodge && Random.probability((quickness + intellect) + 1)) {
       if (!defender.isNpc) Broadcast.sayAt(defender, 'You dodge the attack!');

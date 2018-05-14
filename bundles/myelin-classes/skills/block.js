@@ -13,10 +13,9 @@ module.exports = (srcPath) => {
   const cost = 50;
   const healthPercent = 15;
   const duration = 20 * 1000;
-
   
   return {
-    name: 'Shield Block',
+    name: 'Block',
     type: SkillType.SKILL,
     requiresTarget: false,
     resource: {
@@ -26,13 +25,8 @@ module.exports = (srcPath) => {
     cooldown,
 
     run: state => function (args, player, target) {
-      if (!player.equipment.has('shield')) {
-        Broadcast.sayAt(player, "You aren't wearing a shield!");
-        return false;
-      }
-
       const effect = state.EffectFactory.create(
-        'skill.shieldblock',
+        'skill.block',
         player,
         {
           duration,
