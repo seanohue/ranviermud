@@ -10,11 +10,11 @@ module.exports = (srcPath) => {
   const Damage = require(srcPath + 'Damage');
   const SkillType = require(srcPath + 'SkillType');
 
-  const damagePercent = 250;
+  const damagePercent = 150;
   const energyCost = 20;
 
   function getDamage(player) {
-    return Combat.calculateWeaponDamage(player) * (damagePercent / 100);
+    return Combat.calculateWeaponDamage(player) * (damagePercent / 100) + player.getMaxAttribute('quickness') || 0;
   }
 
   return {
@@ -37,7 +37,7 @@ module.exports = (srcPath) => {
         source: this
       });
 
-      Broadcast.sayAt(player, '<red>You shift your feet and let loose a mighty attack!</red>');
+      Broadcast.sayAt(player, '<red>You shift your feet and let loose a fierce attack!</red>');
       Broadcast.sayAtExcept(player.room, `<red>${player.name} lets loose a lunging attack on ${target.name}!</red>`, [player, target]);
       if (!target.isNpc) {
         Broadcast.sayAt(target, `<red>${player.name} lunges at you with a fierce attack!</red>`);
@@ -46,7 +46,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage.`;
+      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness.`;
     }
   };
 };

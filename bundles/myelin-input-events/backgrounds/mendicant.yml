@@ -4,16 +4,16 @@ name: 'Acrid Mendicant'
 description: "You're a wiley sort, surviving on the streets through your own wits, charming alms from strangers."
 attributes:
   quickness: 6
-  intellect: 11
-  willpower: 12
-  might:     11
+  intellect: 15
+  willpower: 10
+  might:     9
 equipment:
   - 'spire.intro:loincloth'
   - 'spire.intro:robe'
   - 'spire.intro:alms'
   - 'spire.intro:sandals'
   - 'spire.intro:dusters'
-skills: [ 'secondwind', 'concentration' ]
+skills: [ 'combust', 'concentration' ]
 attributePoints: 0
-abilityPoints: 2
+abilityPoints: 0
 tier: 0

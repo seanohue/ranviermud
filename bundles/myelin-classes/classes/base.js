@@ -17,12 +17,12 @@ module.exports = srcPath => {
 
         /* Physicalist: */
 
-        claw: {
-          level: 1,
-          might: 15,
-          quickness: 10,
-          cost: 2
-        },
+        // claw: {
+        //   level: 1,
+        //   might: 15,
+        //   quickness: 10,
+        //   cost: 2
+        // },
         lunge: {
           level: 1,
           quickness: 15,
@@ -31,6 +31,7 @@ module.exports = srcPath => {
           level: 1,
           might: 8,
           willpower: 8,
+          quickness: 10,
           cost: 2
         },
         bash: {
@@ -38,10 +39,10 @@ module.exports = srcPath => {
           might: 15
         },
         nervestrike: {
-          level: 10,
-          quickness: 23,
-          might: 13,
-          willpower: 12
+          level: 5,
+          quickness: 20,
+          might: 10,
+          willpower: 10
         },
 
         /* Mentalist: */
@@ -55,7 +56,7 @@ module.exports = srcPath => {
         combust: {
           level: 1,
           intellect: 15,
-          willpower: 15,
+          willpower: 7,
           cost: 2
         },
         concentration: {

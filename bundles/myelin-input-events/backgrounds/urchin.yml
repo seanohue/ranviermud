@@ -14,5 +14,5 @@ equipment:
   - 'spire.intro:sandals'
   - 'spire.intro:knapsack'
 skills: [ 'lunge' ]
-abilityPoints: 1
+abilityPoints: 0
 tier: 0
