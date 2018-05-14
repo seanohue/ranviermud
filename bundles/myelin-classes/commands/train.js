@@ -29,10 +29,10 @@ module.exports = srcPath => {
 
       if (player.attributes.has(targetAttr)) {
         const attr = player.attributes.get(targetAttr);
-
+        const increment = pools.includes(targetAttr) ? 15 : 1;
         player.setMeta('attributePoints', attributePoints - 1);
-        attr.setBase(attr.base + 1);
-        say(`<b>Boosted ${attr.name} to ${attr.base}!`);
+        attr.setBase(attr.base + increment);
+        say(`<b>Training has boosted ${attr.name} to ${attr.base}!`);
         say(`<b>You have ${player.getMeta('attributePoints')} attribute points remaining.</b>`);
       } else {
         say('<b>You do not have that attribute.</b>');
