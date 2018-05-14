@@ -7,4 +7,8 @@ gear:
   quality: uncommon
 piston:
   title: Piston
+  quality: uncommon
+aethersilk:
+  title: Aethersilk
   quality: rare
+
