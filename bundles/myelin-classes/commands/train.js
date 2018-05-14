@@ -25,13 +25,10 @@ module.exports = srcPath => {
         return displayAttrs();
       }
 
-      if (player.attributes.has(targetAttr)) {
-        const attr = player.attributes.get(targetAttr)
+      const pools = ['health', 'energy', 'focus'];
 
-        if (attr.isDerived) {
-          say('<b>That specific attribute cannot be boosted directly...</b>');
-          return displayAttrs();
-        }
+      if (player.attributes.has(targetAttr)) {
+        const attr = player.attributes.get(targetAttr);
 
         player.setMeta('attributePoints', attributePoints - 1);
         attr.setBase(attr.base + 1);
@@ -45,13 +42,9 @@ module.exports = srcPath => {
       function displayAttrs() {
         say("<green>Attributes you can boost:</green>");
         for (const [name, attr] of player.attributes) {
-          if (attr.isDerived) {
-            continue;
-          }
-          say(`<white>${name}</white>`);
+          say(`<white>${name}</white> <b>${pools.includes(name) ? '(+15)' : '(+1)'}</b>`);
         }
       }
-
     }
   };
 };

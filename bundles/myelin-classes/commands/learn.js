@@ -5,6 +5,8 @@ module.exports = (srcPath) => {
   const { sayAt, center, line } = Broadcast;
   return {
     usage: 'learn [ability]',
+    aliases: ['manifest'],
+
     command : state => (args, player) => {
       const say = (message, wrapWidth) => sayAt(player, message, wrapWidth);
 

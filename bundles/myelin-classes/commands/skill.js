@@ -17,7 +17,7 @@ module.exports = (srcPath) => {
 
       const [first, ...rest] = args.split(' ');
       if (first === 'buy' || first === 'learn') {
-        return state.CommandManager.get('manifest').execute(rest.join(' '), player);
+        return state.CommandManager.get('learn').execute(rest.join(' '), player);
       }
 
       if (first === 'list') {

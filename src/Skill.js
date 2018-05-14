@@ -142,7 +142,6 @@ class Skill {
       throw new Error('Passive skill has no attached effect');
     }
 
-
     let effect = this.state.EffectFactory.create(this.effect, player, { description: this.info(player) });
     effect = this.configureEffect(effect);
     effect.skill = this;

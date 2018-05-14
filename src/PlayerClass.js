@@ -64,6 +64,7 @@ class PlayerClass {
         totalAbilities = totalAbilities.concat(ability);
       }
     }
+
     return totalAbilities;
   }
 
@@ -112,7 +113,7 @@ class PlayerClass {
    */
   canPurchaseAbility(player, abilityId) {
     return this.canUseAbility(player, abilityId) &&
-               !ownAbilities.includes(abilityId);
+               !this.getOwnAbilitiesForPlayer(player).includes(abilityId);
   }
 
   /**

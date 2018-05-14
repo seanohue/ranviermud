@@ -113,6 +113,14 @@ class Broadcast {
     Broadcast.sayAt(source, message, wrapWidth, useColor, formatter);
   }
 
+  static capitalize(string) {
+    if (typeof string === 'string') {
+      const [first, ...rest] = string;
+      return `${first.toUpperCase()}${rest.join('')}`;
+    }
+    return string;
+  }
+
   /**
    * Render the player's prompt including any extra prompts
    * @param {Player} player

@@ -12,10 +12,6 @@ module.exports = srcPath => {
   return  {
     listeners: {
       useAbility: state => function (ability, args) {
-        if (!this.playerClass.hasAbility(ability.id)) {
-          return B.sayAt(this, 'Your class cannot use that ability.');
-        }
-
         if (!this.playerClass.canUseAbility(this, ability.id)) {
           return B.sayAt(this, 'You have not yet learned that ability.');
         }
@@ -77,22 +73,20 @@ module.exports = srcPath => {
        * Handle player leveling up
        */
       level: state => function () {
-        const abilities = this.playerClass.abilityTable;
-        if (!(this.level in this.playerClass.abilityTable)) {
-          return;
+        // Award attribute points for boosting attributes.
+        const attributePoints = parseInt(this.getMeta('attributePoints') || 0, 10);
+        this.setMeta('attributePoints', attributePoints + 1);
+        Broadcast.sayAt(this, `<blue>You now have ${attributePoints + 1} points to spend on boosting attributes.</blue>`);
+
+        // Award ability points for buying skills/feats.
+        if (this.level % 2 === 0) {
+          const abilityPoints = parseInt(this.getMeta('abilityPoints') || 0, 10);
+          this.setMeta('abilityPoints', abilityPoints + 1);
+          Broadcast.sayAt(this, `<blue>You now have ${abilityPoints + 1} points to spend on new abilities.</blue>`);
         }
 
-        const newSkills = abilities[this.level].skills || [];
-        for (const abilityId of newSkills) {
-          const skill = state.SkillManager.get(abilityId);
-          B.sayAt(this, `<bold><yellow>You can now use skill: ${skill.name}.</yellow></bold>`);
-          skill.activate(this);
-        }
-
-        const newSpells = abilities[this.level].spells || [];
-        for (const abilityId of newSpells) {
-          const spell = state.SpellManager.get(abilityId);
-          B.sayAt(this, `<bold><yellow>You can now use spell: ${spell.name}.</yellow></bold>`);
+        if (this.level < 6) {
+          Broadcast.sayAt(this, `<cyan>Hint: use 'train' to improve your attributes and 'learn' to gain new abilities.`);
         }
       }
     }
