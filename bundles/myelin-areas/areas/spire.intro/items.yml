@@ -231,6 +231,8 @@
   metadata:
     stats:
       armor: 1
+      quickness: 1
+      critical: 1
   behaviors:
     sellable:
       value: 1
@@ -262,7 +264,7 @@
   description: "A small burlap sack attached to a corded belt."
   items: [ ] # maybe have some kind of special trinket in here
   maxItems: 2
-  script: "6-alms-pouch" #resource.buff
+  script: "alms-pouch" #resource.buff
   metadata:
     specialEffects:
       - "When this is in your possession, you have more luck when finding resources and earning rewards."
@@ -318,7 +320,7 @@
   keywords: [ "rusty", "shank", "shiv", "stabby" ]
   description: "This jagged, rusted piece of metal has some cloth wrapped around it as an improvised handle. Seems as likely to hurt the attacker as the victim, but a nasty piece nonetheless."
   slot: 'wield'
-  script: '9-shank'
+  script: 'shank'
   level: 1
   itemLevel: 1
   quality: common
@@ -470,7 +472,7 @@
   type: ARMOR
   roomDesc: "Simple Aethersilk Robe"
   keywords: [ "aether", "silk", "aeth", "robe", "simple", "aethersilk" ]
-  script: "17-aethersilk-robe"
+  script: "aethersilk-robe"
   description: "A no-frills robe made of a smooth material with an uncanny silver sheen."
   slot: "body"
   level: 1
