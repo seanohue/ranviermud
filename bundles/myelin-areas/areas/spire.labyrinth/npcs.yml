@@ -159,6 +159,8 @@
       delay: 5
       towards:
         players: true  
+    startquest:
+      questId: 'spire.labyrinth:killminotaur'
   attributes:
     health: 360
     energy: 250

@@ -22,10 +22,9 @@ module.exports = (srcPath) => {
           Logger.error(`No quest name configured in ${this.entityReference}`);
           return;
         }
-        console.log('ID is ', questId);
         const quest = state.QuestFactory.create(state, config.questId, player);
         if (player.questTracker.canStart(quest)) {
-          Logget.log('Starting!');
+          Logger.log('Starting!');
           player.questTracker.start(quest);
         } else {
           Logger.log('Player could not start quest yet.');
