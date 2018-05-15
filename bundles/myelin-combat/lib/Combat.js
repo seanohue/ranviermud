@@ -93,11 +93,16 @@ class Combat {
    * @param {Character} defender
    * @param {Number} amount of raw damage done by attack
    */
-  static calculateDefense(defender, amount, attacker) {
+  static calculateDefense(defender, amount, attacker, isPsionic) {
+    if (isPsionic) {
+      const willpower = defender.getMaxAttribute('willpower');
+      return Math.max(1, amount - willpower);
+    }
+
     // Stats always used in defense.
-    const quickness = defender.getAttribute('quickness') || 1;
-    const intellect = defender.getAttribute('intellect') || 1;
-    const armor     = defender.getAttribute('armor')     || 0;
+    const quickness = defender.getMaxAttribute('quickness') || 1;
+    const intellect = defender.getMaxAttribute('intellect') || 1;
+    const armor     = defender.getMaxAttribute('armor')     || 0;
 
     // Defensive skills.
     const dodge = defender.isNpc && defender.skills.has('dodging');
@@ -111,8 +116,8 @@ class Combat {
     }
 
     if (blocking) {
-      const willpower  = defender.getAttribute('willpower') || 1;
-      const might      = defender.getAttribute('might')     || 1;
+      const willpower  = defender.getMaxAttribute('willpower') || 1;
+      const might      = defender.getMaxAttribute('might')     || 1;
       if (Random.probability(willpower + might + 10)) {
         if (!defender.isNpc) Broadcast.sayAt(defender, 'You block the attack.');
         if (!attacker.isNpc) Broadcast.sayAt(attacker, `${defender.name} blocks your attack!`);
@@ -137,7 +142,8 @@ class Combat {
    */
   static makeAttack(attacker, target) {
     const rawDamageAmount = this.calculateWeaponDamage(attacker);
-    const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount), 0);
+    const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
+    const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, isPsionic), 0);
     const damage = new Damage({ attribute: 'health', amount, attacker });
     damage.commit(target);
 
