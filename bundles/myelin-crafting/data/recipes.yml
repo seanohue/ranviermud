@@ -30,4 +30,9 @@
 - item: 'spire.labyrinth:leatherpouch'
   recipe:
     leather: 35
+- item: 'spire.labyrinth:hatchet'
+  recipe:
+    scrap_metal: 120
+    piston: 2
+    gear: 2
 
