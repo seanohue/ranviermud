@@ -7,13 +7,13 @@
  */
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
-  const Damage = require(srcPath + 'Damage');
+  const Damage    = require(srcPath + 'Damage');
   const SkillType = require(srcPath + 'SkillType');
-  const Random = require(srcPath + 'RandomUtil');
+  const Random    = require(srcPath + 'RandomUtil');
 
   const damagePercent = 80;
-  const focusCost = 30;
-  const stunPercent = 60;
+  const focusCost     = 30;
+  const stunPercent   = 60;
   
   function getCritPercent(player) {
     return 30 + player.getMaxAttribute('quickness');
@@ -24,7 +24,7 @@ module.exports = (srcPath) => {
   }
 
   function getDuration(player) {
-    return 2 + Math.ceil(player.getMaxAttribute('quickness') / 5);
+    return 1000 * (2 + Math.ceil(player.getMaxAttribute('quickness') / 5));
   }
 
   return {
@@ -42,11 +42,11 @@ module.exports = (srcPath) => {
       this.verb = 'jabbed';
       const damage = new Damage({
         attribute: 'health',
-        amount: totalDamage(player),
-        attacker: player,
-        type: 'piercing',
-        source: this,
-        critical: Random.probability(critPercent)
+        amount:    totalDamage(player),
+        attacker:  player,
+        type:      'piercing',
+        source:    this,
+        critical:  Random.probability(critPercent)
       });
 
       const duration = getDuration(player, damage);

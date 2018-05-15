@@ -88,8 +88,9 @@
           The image cuts to a flat plain, and the same shimmering light fills the air. Before your eyes, a mountain erupts into the sky...
 
           'Ungenocide'
-          ... An image of a person's face in one of the cylinders surrounding you flashes before you
-          The eyes open, a look of shock on their face...
+          ... A scene of a dead body, being hauled from the gutter by an automaton. Their piercing green eyes stare lifelessly.
+          An image of the person's face, in one of the cylinders surrounding you, flashes before you.
+          The green eyes open, a look of shock on their face...
 
           'Sacredname'
           ...A man and a woman are in an otherwise empty room, sitting cross-legged, deep in thought. 
@@ -196,7 +197,7 @@
   roomDesc: "Gnarled Walking Stick"
   keywords: [ "gnarled", "gnarl", "stick", "walking" ]
   description: "This walking stick appears to have been crafted from the bough of a sturdy tree. Baroque designs have been carved along its length."
-  script: "3-walking-stick"
+  script: "walking-stick"
   slot: 'wield'
   level: 1
   itemLevel: 1
@@ -329,8 +330,7 @@
       critical: 4
     specialEffects:
       - "Chance on hit: Bleed your opponent."
-      - "Chance on hit: Bleed yourself."
-      - "On critical: Bleed your opponent."
+      - "On critical: Bleed your opponent for an extended duration."
   behaviors:
     sellable:
       value: 2
@@ -431,7 +431,7 @@
   level: 1
   slot: "wield"
   quality: common
-  script: "14-blackjack"
+  script: "blackjack"
   metadata:
     specialEffects:
       - "Chance on hit: Stun your opponent for a short time."

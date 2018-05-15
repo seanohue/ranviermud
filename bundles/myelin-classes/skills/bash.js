@@ -19,7 +19,7 @@ module.exports = (srcPath) => {
   }
 
   function getDuration(player) {
-    return Math.ceil(player.getMaxAttribute('might') / 5);
+    return 1000 * Math.ceil(player.getMaxAttribute('might') / 5);
   }
 
   return {
