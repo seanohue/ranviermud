@@ -90,8 +90,6 @@
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring in all directions. Its undercarriage features razor-sharp 'legs' and a small cannon."
   skills: ['dodge']
   behaviors:
-    startquest: 
-      questId: 'spire.intro:misbehavingautos'
     combat: true
     lootable: 
       resources: 
@@ -128,6 +126,8 @@
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring <red>erratically</red>. Its undercarriage features razor-sharp 'legs' and a small cannon."
   skills: ['dodge']
   behaviors:
+    startquest: 
+      questId: 'spire.intro:misbehavingautos'
     combat: true
     lootable: 
       resources: 

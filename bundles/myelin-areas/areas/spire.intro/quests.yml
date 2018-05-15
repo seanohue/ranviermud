@@ -28,11 +28,11 @@
   title: 'Misbehaving Automatons'
   desc: 'You find a suspicious scene of violence...'
   description: |-
-    You find a mysterious corpse. It seems all is not well here. 
+    It seems all is not well here. 
     
     Thus far you have seen only peaceful automatons on this floor, and perhaps the occasional confused wanderer such as yourself.
 
-    Perhaps the nearby datacrystal has more information?
+    Perhaps a nearby datacrystal has more information?
 
     <b><cyan>Hint: You can try `read crystal` to begin reading data from the crystal.</cyan></b>
     <b><cyan>Hint: You can attack someone or something by typing `kill [name]`.</cyan></b>

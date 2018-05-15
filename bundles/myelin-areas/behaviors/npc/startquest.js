@@ -18,11 +18,14 @@ module.exports = (srcPath) => {
           questId = `${this.room.area.title}:questId`;
         }
 
+        Logger.log('Quest is ', questId);
+
         if (!questId) {
           Logger.error(`No quest name configured in ${this.entityReference}`);
           return;
         }
         const quest = state.QuestFactory.create(state, config.questId, player);
+        console.log(quest);
         if (player.questTracker.canStart(quest)) {
           Logger.log('Starting!');
           player.questTracker.start(quest);
