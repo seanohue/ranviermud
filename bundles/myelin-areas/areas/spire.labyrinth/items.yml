@@ -36,7 +36,7 @@
   keywords: ['scrap', 'hatchet', 'axe']
   level: 2
   slot: wield
-metadata:
+  metadata:
     specialEffects:
       - "Chance on hit: Bleed your opponent."
       - "On critical: Bleed your opponent for an extended time."
