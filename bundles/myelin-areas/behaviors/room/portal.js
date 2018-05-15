@@ -81,19 +81,18 @@ module.exports = srcPath => {
         }
         
         if (PortalDestinations.size > 1 || !PortalDestinations.has(player.room.area.name)) {
-          const destinationCount = PortalDestinations.size;
-          const chanceOfCreation = Math.max(
-            5,
-            10 - destinationCount
-          );
-          if (Random.probability(chanceOfCreation)) {
+          const destinationValues = Array.from(PortalDestinations.values());
+          const inLevelRange = destinationValues.filter((dest) => {
+            return area.name !== player.room.area.name && 
+              dest.levelRange 
+                ? player.level >= dest.levelRange.min && player.level <= dest.levelRange.max
+                : true;
+          });
+
+          if (!inLevelRange.length) {
             return generateDestination();
           } else {
-            const destinationArea = 
-              Random.fromArray(
-                Array.from(PortalDestinations.values())
-                  .filter(area => area.name !== player.room.area.name)
-              );
+            const destinationArea = Random.fromArray(inLevelRange);
             const destinationRoom = Array.from(destinationArea.rooms.values())[0];
             return movePlayerToPortalDestination(destinationRoom.entityReference);
           }
