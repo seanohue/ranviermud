@@ -23,16 +23,16 @@ module.exports = (srcPath) => {
         const quickness = player.getMaxAttribute('quickness') || 0;
         const chanceOfBleedOther = damage.critical ? 100 : Math.min(quickness + 5, 10); // 10 - quickness+5%
         if (Random.probability(chanceOfBleedOther)) {
-          const duration = ((damage.critical ? 5 : 0) + Math.min(Math.ceil(quickness / 2), 20)) * 1000;
+          const duration = ((damage.critical ? 5 : 0) + Math.min(Math.ceil(quickness * 2, 60))) * 1000;
           const effect = state.EffectFactory.create(
             'skill.rend',
             target,
             {
-              name: 'Shank',
-              type: 'shank.other',
+              name: 'Hatchet',
+              type: 'hatchet.other',
               tickInterval: Math.max(15 - quickness, 2),
               duration,
-              description: "You've been stabbed... and it's a deep one.",
+              description: "You've been hacked open... and it's a deep one.",
             },
             {
               totalDamage: Math.min(quickness, 30) + (damage.critical ? 10 : 0)
@@ -41,10 +41,10 @@ module.exports = (srcPath) => {
           effect.skill = this;
           effect.attacker = player;
           if (!target.isNpc) {
-            Broadcast.sayAt(target, `<b><red>You have been stabbed by ${player.name}! Blood gushes forth.</red></b>`);
+            Broadcast.sayAt(target, `<b><red>You have been hacked open by ${player.name}! Blood gushes forth.</red></b>`);
           }
           target.addEffect(effect);
-          Broadcast.sayAt(player, `<b><red>You stab <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and blood pulses from the wound.</red></b>`, 80);
+          Broadcast.sayAt(player, `<b><red>You hack open <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and blood pulses from the wound.</red></b>`, 80);
         }
       }
     }

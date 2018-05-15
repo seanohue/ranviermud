@@ -13,7 +13,7 @@
   level: 2
   slot: "wield"
   quality: uncommon
-  script: "blackjack"
+  script: "boneclub"
   metadata:
     specialEffects:
       - "Chance on hit: Stun your opponent for a short time."
@@ -27,3 +27,26 @@
     sellable:
       value: 80
       currency: thean
+- id: hatchet
+  name: Scrap Hatchet
+  type: WEAPON
+  roomDesc: 'Scrap Hatchet'
+  description: A hatchet crafted from mechanical parts and scrap metal. It is sharp and jagged.
+  script: "hatchet"
+  keywords: ['scrap', 'hatchet', 'axe']
+  level: 2
+  slot: wield
+metadata:
+    specialEffects:
+      - "Chance on hit: Bleed your opponent."
+      - "On critical: Bleed your opponent for an extended time."
+    minDamage: 5
+    maxDamage: 35
+    speed: 4.8
+    stats:
+      critical: 5
+  behaviors:
+    sellable:
+      value: 80
+      currency: thean
+
