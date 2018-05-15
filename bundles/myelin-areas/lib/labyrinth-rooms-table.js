@@ -57,4 +57,13 @@ module.exports = {
     level: 12
   },
 
+  minotaur_chamber: {
+    weight: RARE,
+    title: 'Minotaur\s Chamber',
+    description: 'Bones and gristle litter this bloodstained chamber. The floors and walls are horrifically gouged.',
+    npcs: ['spire.labyrinth:minotaur'],
+    level: 12,
+    items: ['spire.labyrinth:boneclub']
+  }
+
 };

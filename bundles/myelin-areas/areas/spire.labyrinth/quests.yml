@@ -1,0 +1,21 @@
+- id: killminotaur
+  level: 15
+  title: 'Slay the Minotaur'
+  desc: 'You find evidence of a horrific creature...'
+  description: |-
+    You have come across evidence of a horrific creation of the Spire.
+
+  autoComplete: true
+  completionMessage: |-
+    You've slain the Minotaur!
+  goals:
+    - type: KillGoal
+      config:
+        title: 'Find and kill the Minotaur.'
+        npc: 'spire.labyrinth:minotaur'
+        count: 1
+  rewards:
+    - type: ExperienceReward
+      config:
+        amount: 50
+        leveledTo: QUEST

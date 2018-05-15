@@ -17,7 +17,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Combust',
-    type: SkillType.SPELL,
+    type: SkillType.SKILL,
     requiresTarget: true,
     initiatesCombat: true,
     resource: {

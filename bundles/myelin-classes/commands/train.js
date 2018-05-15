@@ -2,6 +2,8 @@
 
 const sprintf = require('sprintf-js').sprintf;
 
+const pools = ['health', 'energy', 'focus'];
+
 module.exports = srcPath => {
   const B = require(srcPath + 'Broadcast');
   const Logger = require(srcPath + 'Logger');
@@ -24,8 +26,6 @@ module.exports = srcPath => {
         say(`You have <b>${attributePoints} points</b> to spend on attributes.`);
         return displayAttrs();
       }
-
-      const pools = ['health', 'energy', 'focus'];
 
       if (player.attributes.has(targetAttr)) {
         const attr = player.attributes.get(targetAttr);

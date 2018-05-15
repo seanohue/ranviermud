@@ -4,3 +4,26 @@
   roomDesc: "Minotaur's Key"
   description: "A key the size of an average adult's forearm. One end of the key is in the shape of a minotaur's head. It is made of a silver, metallic substance."
   keywords: ["minotaur", "key", "portal"]
+- id: boneclub
+  name: 'Bone Club'
+  type: WEAPON
+  roomDesc: 'Bone Club'
+  description: 'A crudely crafted club, about 15 hands long, made out of what appear to be human bones. Yep, that is definitely a femur.'
+  keywords: ['bone', 'club']
+  level: 2
+  slot: "wield"
+  quality: uncommon
+  script: "blackjack"
+  metadata:
+    specialEffects:
+      - "Chance on hit: Stun your opponent for a short time."
+      - "On critical: Stun your opponent for an extended time."
+    minDamage: 15
+    maxDamage: 30
+    speed: 2.2
+    stats:
+      critical: 3
+  behaviors:
+    sellable:
+      value: 80
+      currency: thean
