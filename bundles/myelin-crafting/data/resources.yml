@@ -11,4 +11,7 @@ piston:
 aethersilk:
   title: Aethersilk
   quality: rare
+leather:
+  title: Leather
+  quality: common
 

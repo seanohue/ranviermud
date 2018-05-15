@@ -4,3 +4,30 @@
     scrap_metal: 85
     gear: 6
     piston: 3
+- item: 'spire.intro:shank'
+  recipe:
+    scrap_metal: 35
+- item: 'spire.intro:aetherrobe'
+  recipe:
+    aethersilk: 40
+- item: 'spire.intro:alms'
+  recipe:
+    ectoplasm: 1
+    leather: 10
+- item: 'spire.intro:dusters'
+  recipe: 
+    scrap_metal: 35
+- item: 'spire.intro:blackjack'
+  recipe:
+    leather: 30
+    scrap_metal: 10
+- item: 'spire.intro:jerkin'
+  recipe:
+    leather: 100
+- item: 'spire.intro:boots'
+  recipe:
+    leather: 65
+- item: 'spire.labyrinth:leatherpouch'
+  recipe:
+    leather: 35
+

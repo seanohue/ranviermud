@@ -486,3 +486,21 @@
     sellable:
       value: 60
       currency: thean
+
+- id: leatherpouch
+  name: "Leather Pouch"
+  type: CONTAINER
+  roomDesc: "Leather Pouch"
+  keywords: [ "leather", "pouch" ]
+  description: "A small leather pouch with a strap allowing it to be attached to ones's belt or easily held."
+  items: [ ]
+  maxItems: 3
+  slot: 'waist'
+  quality: common
+  metadata:
+    stats:
+      armor: 1
+  behaviors:
+    sellable:
+      value: 8
+      currency: thean

@@ -27,7 +27,7 @@ module.exports = srcPath => {
         const currentResource = player.getMeta(metaKey) || 0;
         Broadcast.sayAt(player, `You are able to gather ${amount || 0} extra ${name}...`);
         player.setMeta(metaKey, currentResource + amount);
-      }
+      },
 
       gather(resource, amount = 0, name = 'resources') {
         const metaKey = `resources.${name}`;

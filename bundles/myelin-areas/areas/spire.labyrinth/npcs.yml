@@ -93,7 +93,10 @@
       resources: 
         aethersilk:
           min: 0
-          max: 5
+          max: 40
+        ectoplasm:
+          min: 0
+          max: 2
       currency:
         theans:
           min: 0
@@ -120,3 +123,31 @@
     minDamage: 5
     maxDamage: 65
     damageType: 'psionic'
+- id: minotaur
+  name: 'The Minotaur'
+  level: 16
+  keywords: ['minotaur']
+  skills: ['block']
+  description: 'A hulking mass of flesh and machinery stands before you. Metallic "hooves" at the end of inhumanly muscled legs. An enormous torso with armor grafted to it. Arms the size of a normal human''s entire body. And a series of tubes and horns that ring a head that is no longer recognizable as alive.'
+  behaviors:
+    combat: true
+    lootable: 
+      pools:
+        - spire.labyrinth:minotaurkey: 90
+      resources:
+        scrap_metal:
+          min: 5
+          max: 50
+        gear:
+          min: 1
+          max: 8
+        piston:
+          min: 2
+          max: 4
+        leather:
+          min: 5
+          max: 100
+      currency:
+        theans:
+          min: 50
+          max: 500
