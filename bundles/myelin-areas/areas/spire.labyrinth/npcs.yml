@@ -151,3 +151,24 @@
         theans:
           min: 50
           max: 500
+    ranvier-wander: 
+      interval: 40
+    ranvier-aggro:
+      warnMessage: '%name% stomps its enormous metal hooves and a burst of steam shoots from its nostrils as it stares you down...'
+      attackMessage: '%name% charges you!'
+      delay: 5
+      towards:
+        players: true  
+  attributes:
+    health: 360
+    energy: 250
+    focus: 50
+    might: 40
+    quickness: 9
+    intellect: 10
+    willpower: 10
+    critical: 10
+    armor: 30
+  metadata:
+    minDamage: 5
+    maxDamage: 75
