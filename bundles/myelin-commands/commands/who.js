@@ -11,7 +11,7 @@ module.exports = (srcPath) => {
       Broadcast.sayAt(player, '');
 
       state.PlayerManager.players.forEach((otherPlayer) => {
-        Broadcast.sayAt(player, ` *  ${otherPlayer.name} ${getRoleString(otherPlayer.role)}`);
+        Broadcast.sayAt(player, ` *  ${otherPlayer.name} ${getRoleString(otherPlayer.role)} [${otherPlayer.room.area.title || 'The Void'}]`);
       });
 
       Broadcast.sayAt(player, state.PlayerManager.players.size + ' total');

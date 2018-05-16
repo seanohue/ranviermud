@@ -15,7 +15,7 @@ module.exports = (srcPath) => {
         }
 
         if (!questId.includes(':')) {
-          questId = `${this.area.title}:questId`;
+          questId = `${this.area.name}:${questId}`;
         }
 
         if (!questId) {
