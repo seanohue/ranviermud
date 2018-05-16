@@ -106,6 +106,24 @@
     sellable:
       value: 9
       currency: thean
+- id: jumpsuit
+  name: "Armored Security Jumpsuit"
+  type: ARMOR
+  roomDesc: "Armored Security Jumpsuit"
+  keywords: ["armor", "security", "jumpsuit"]
+  description: "A grey jumpsuit made of a synthetic material. Armored plates are woven into it."
+  level: 3
+  slot: "body"
+  quality: uncommon
+  metadata:
+    stats:
+      armor: 15
+      quickness: -1
+      critical: -1
+  behaviors:
+    sellable:
+      value: 75
+      currency: thean
 
 
 

@@ -41,4 +41,10 @@
 - item: 'spire.labyrinth:bonehelm'
   recipe:
     bone: 25
+- item: 'spire.intro:bonebroth'
+  recipe:
+    bone: 20
+- item: 'spire.intro:elixir'
+  recipe:
+    ectoplasm: 3
 

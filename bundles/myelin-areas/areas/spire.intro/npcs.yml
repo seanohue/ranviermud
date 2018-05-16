@@ -68,6 +68,7 @@
           max: 500
       pools:
         - spire.intro:portalkey: 50
+        - spire.labyrinth:jumpsuit: 20
         # Later add behavior for it to drop some/all of its goods.
         # Add shopkeep behavior
     ranvier-wander:
@@ -81,7 +82,34 @@
     intellect: 3
     willpower: 1
     critical: 3
-    armor: 5
+    armor: 10
+  behaviors:
+    ranvier-sentient: true
+    vendor:
+      items:
+        "spire.intro:portalkey":
+          cost: 100
+          currency: theans
+        "spire.intro:knapsack":
+          cost: 35
+          currency: theans
+        "spire.intro:aetherrobe"
+          cost: 350
+          currency: theans
+        "spire.labyrinth:leatherpants":
+          cost: 100
+          currency: theans
+        "spire.labyrinth:jumpsuit":
+          cost: 200
+          currency: theans
+        "spire.intro:tea":
+          cost: 10
+          currency: theans
+        "spire.intro:elixir":
+          cost: 100
+          currency: theans
+      enterMessage: "The vendor automaton emits a happy bloop."
+      leaveMessage: "The vendor automaton emits a sad bloop, its lights dimming slightly."
 
 - id: securityauto
   keywords: ['security', 'auto', 'flying']
