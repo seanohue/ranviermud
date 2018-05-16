@@ -40,12 +40,12 @@ module.exports = (srcPath) => {
       });
 
       if (target !== player) {
-        Broadcast.sayAt(player, `bold>You concentrate on mending ${target.name}'s wounds.</bold>`);
+        Broadcast.sayAt(player, `<bold>You concentrate on mending ${target.name}'s wounds.</bold>`);
         Broadcast.sayAtExcept(player.room, `bold>${player.name} closes their eyes, concentrating on ${target.name}'s wounds.</bold>`, [target, player]);
-        Broadcast.sayAt(target, `bold>${player.name} closes their eyes,and you can feel your wounds mending themselves.</bold>`);
+        Broadcast.sayAt(target, `<bold>${player.name} closes their eyes,and you can feel your wounds mending themselves.</bold>`);
       } else {
         Broadcast.sayAt(player, "<bold>You concentrate on soothing your own wounds.</bold>");
-        Broadcast.sayAtExcept(player.room, `bold>${player.name} concentrates, and their wounds mend themselves before your eyes.</bold>`, [player, target]);
+        Broadcast.sayAtExcept(player.room, `<bold>${player.name} concentrates, and their wounds mend themselves before your eyes.</bold>`, [player, target]);
       }
 
       heal.commit(target);
