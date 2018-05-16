@@ -20,21 +20,21 @@ module.exports = (srcPath) => {
 
       let available = player.playerClass.getAbilitiesForPlayer(player)
       let purchaseable = available.filter(ability => player.playerClass.canPurchaseAbility(player, ability));
-
+      console.log({purchaseable});
       let skill = purchaseable.filter(name => args === name);
 
-      if (skill.length !== 1) {
+      if (skill.length > 1) {
         return say(`Please be more specific. Found: ${skill.join(', ')}.`);
       }
 
       if (!skill.length) {
-        return say("No such skill or ability.");
+        return say("No such skill or ability found.");
       }
 
       skill = skill[0];
 
       if (!abilityPoints) {
-        return say("You are not ready to earn new abilities yet...");
+        return say("You are not ready to learn new abilities yet...");
       }
 
       const cost = player.playerClass.abilityTable.skills[skill].cost || 1;
