@@ -38,6 +38,7 @@ module.exports = srcPath => {
       },
 
       usePortal: state => function(_config, player, key) {
+        const self = this;
         try {
           if (_config === true) _config = {};
 
@@ -62,40 +63,28 @@ module.exports = srcPath => {
 
           // Have it remove the player from the room, broadcasting such to them and anyone else there.
           //TODO: Do this to entire party... Have them in a limbo of sorts? Have them vote? Idk.
-          this.removePlayer(player);
           player._isUsingPortal = true;
 
-          PortalDestinations = new Map();
-          for (const [areaName, area] of state.AreaManager.areas) {
-            const nope = ['intro', 'limbo', 'map'];
-            if (nope.find(bad => area.name.includes(bad))) continue;
-            PortalDestinations.set(areaName, area);
-          }
+          // PortalDestinations = new Map();
+          // for (const [areaName, area] of state.AreaManager.areas) {
+          //   const nope = ['intro', 'limbo', 'map'];
+          //   if (nope.find(bad => area.name.includes(bad))) continue;
+          //   PortalDestinations.set(areaName, area);
+          // }
 
-          if (!PortalDestinations.size) {
-            return generateDestination();
-          }
+          // if (!PortalDestinations.size) {
+          //   return generateDestination();
+          // }
           
-          if (PortalDestinations.size > 1 || !PortalDestinations.has(player.room.area.name)) {
-            const destinationValues = Array.from(PortalDestinations.values());
-            const inLevelRange = destinationValues.filter((dest) => {
-              return dest.name !== player.room.area.name && 
-                dest.levelRange 
-                  ? player.level >= dest.levelRange.min && player.level <= dest.levelRange.max
-                  : true;
-            });
-
-            if (!inLevelRange.length) {
-              return generateDestination();
-            } else {
-              const destinationArea = Random.fromArray(inLevelRange);
-              const destinationRoom = Array.from(destinationArea.rooms.values())[0];
-              console.log({destinationArea, destinationRoom, inLevelRange});
-              return movePlayerToPortalDestination(destinationRoom.entityReference);
-            }
+          if (true) {
+            console.log(state.AreaManager.areas);
+            const destinationRoom = Array.from(state.AreaManager.getArea('labyrinth').rooms.values())[0];
+            return movePlayerToPortalDestination(destinationRoom.entityReference);
           }
 
           function generateDestination() {
+            self.removePlayer(player);
+
             console.log('GENERATING NEW AREA....');
 
             return generate(srcPath, state, player.level)
@@ -114,6 +103,7 @@ module.exports = srcPath => {
 
           function movePlayerToPortalDestination(firstRoom) {
             console.log({firstRoom});
+            self.removePlayer(player);
             const targetRoom = state.RoomManager.getRoom(firstRoom);
             if (!targetRoom) {
               return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
@@ -143,9 +133,10 @@ module.exports = srcPath => {
           }
         } catch (e) {
           Broadcast.sayAt(player, 'Error: ' + e);
-          Broadcast.sayAt(player, 'Please concact an Admin!');
+          Broadcast.sayAt(player, 'Error: ' + e.stack);
+          
+          Broadcast.sayAt(player, 'Please contact an Admin!');
           player._isUsingPortal = false;
-          throw e;
         }
       }
     }
