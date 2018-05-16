@@ -49,6 +49,7 @@ module.exports = (srcPath) => {
       effect.attacker = player;
 
       effect.on('effectDeactivated', _ => {
+        if (target.room !== player.room) return;
         Broadcast.sayAt(player, `<red><b>${target.name}</b> stops bleeding.</red>`);
       });
 

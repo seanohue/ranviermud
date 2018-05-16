@@ -48,6 +48,11 @@ module.exports = srcPath => {
           might: 10,
           willpower: 10
         },
+        rend: {
+          level: 10,
+          quickness: 18,
+          might: 20
+        },
 
         /* Mentalist: */
 
@@ -71,9 +76,8 @@ module.exports = srcPath => {
         },
         tactics: {
           level: 5,
-          intellect: 18,
-          willpower: 12,
-          quickness: 12
+          intellect: 17,
+          quickness: 15
         }
       }
     }
