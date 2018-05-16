@@ -9,4 +9,8 @@ module.exports = [
     cost: 3,
     label: "The Abandoned"
   },
+  {
+    cost: 8,
+    label: "The Established"
+  }
 ];
