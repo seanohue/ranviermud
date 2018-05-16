@@ -1,7 +1,7 @@
 ---
 - item: "spire.intro:portalkey"
   recipe:
-    scrap_metal: 55
+    scrap_metal: 10
     gear: 2
     piston: 1
 - item: 'spire.intro:shank'
