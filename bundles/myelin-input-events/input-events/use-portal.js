@@ -9,7 +9,6 @@ module.exports = (srcPath) => {
 
   return {
     event: state => (player, args) => {
-      console.log('PORTALLLLL', this, player, args);
       Broadcast.sayAt(player, 'PORTAL!!!!!');
     }
   };

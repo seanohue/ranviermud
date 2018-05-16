@@ -27,7 +27,7 @@
 - item: 'spire.intro:boots'
   recipe:
     leather: 65
-- item: 'spire.labyrinth:leatherpouch'
+- item: 'spire.intro:leatherpouch'
   recipe:
     leather: 35
 - item: 'spire.labyrinth:hatchet'

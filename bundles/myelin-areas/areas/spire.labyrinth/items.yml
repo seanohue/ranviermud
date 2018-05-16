@@ -4,6 +4,7 @@
   roomDesc: "Minotaur's Key"
   description: "A key the size of an average adult's forearm. One end of the key is in the shape of a minotaur's head. It is made of a silver, metallic substance."
   keywords: ["minotaur", "key", "portal"]
+
 - id: boneclub
   name: 'Bone Club'
   type: WEAPON

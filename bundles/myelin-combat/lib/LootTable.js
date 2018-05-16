@@ -61,7 +61,6 @@ class LootTable {
    */
   currencies() {
     if (!this.currencyRanges) {
-      console.log({self: this, curr: this.currencyRanges});
       return null;
     }
 

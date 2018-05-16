@@ -26,7 +26,6 @@ module.exports = srcPath => {
       const learnableAbilities = player.playerClass
         .getAbilitiesForPlayer(player)
         .filter(ability => player.playerClass.canPurchaseAbility(player, ability));
-      console.log({learnableAbilities});
 
       if (learnableAbilities.length > 0) {
         say("<b>" + B.center(80, 'Learnable Abilities', 'green'));

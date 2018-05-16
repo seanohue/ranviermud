@@ -7,7 +7,6 @@ module.exports = (srcPath) => {
     listeners: {
       playerEnter: state => function (config, player) {
         let questId;
-        console.log('Player entered quest room.');
         if (typeof config === 'string') {
           questId = config;
         } else if (config && typeof config === 'object') {
@@ -25,7 +24,6 @@ module.exports = (srcPath) => {
           return;
         }
         const quest = state.QuestFactory.create(state, config.questId, player);
-        console.log(quest);
         if (player.questTracker.canStart(quest)) {
           Logger.log('Starting!');
           player.questTracker.start(quest);

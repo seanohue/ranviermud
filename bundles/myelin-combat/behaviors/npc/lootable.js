@@ -11,10 +11,8 @@ module.exports = srcPath => {
   return {
     listeners: {
       killed: state => function (config, killer) {
-        console.log({config});
         const lootTable = new LootTable(state, config);
         const currencies = lootTable.currencies();
-        console.log({currencies})
         const resources = lootTable.resources();
         const items = lootTable.roll().map(
           item => state.ItemFactory.create(state.AreaManager.getAreaByReference(item), item)
