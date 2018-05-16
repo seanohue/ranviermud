@@ -33,10 +33,10 @@ module.exports = srcPath => {
         },
         secondwind: {
           level: 1,
-          might: 8,
-          willpower: 8,
-          quickness: 10,
-          cost: 2
+          might: 9,
+          willpower: 9,
+          quickness: 9,
+          cost: 1
         },
         bash: {
           level: 1,
@@ -44,14 +44,14 @@ module.exports = srcPath => {
         },
         nervestrike: {
           level: 5,
-          quickness: 20,
+          quickness: 15,
           might: 10,
           willpower: 10
         },
         rend: {
-          level: 10,
-          quickness: 18,
-          might: 20
+          level: 5,
+          quickness: 13,
+          might: 15
         },
 
         /* Mentalist: */
@@ -60,24 +60,24 @@ module.exports = srcPath => {
           level: 1,
           intellect: 13,
           willpower: 12,
-          cost: 2
+          cost: 1
         },
         combust: {
           level: 1,
           intellect: 15,
           willpower: 7,
-          cost: 2
+          cost: 1
         },
         concentration: {
           level: 1,
-          intellect: 11,
+          intellect: 9,
           willpower: 12,
-          cost: 2
+          cost: 1
         },
         tactics: {
           level: 5,
-          intellect: 17,
-          quickness: 15
+          intellect: 13,
+          quickness: 10
         }
       }
     }
