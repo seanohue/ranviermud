@@ -1,0 +1,45 @@
+- id: blupe
+  keywords: ['blupe']
+  name: Blupe
+  level: 14
+  description: 'This being hovers a short distance from the ground. It is elliptical in shape, with bulging white eyes set in a semi-transparent body. It is covered in an array of fins and tendrils. It pulsates slightly. The Blupe smells like the air after a fierce storm.'
+  skills: ['dodge']
+  behaviors:
+    flavorevents:
+      onSpawn: 'A small elliptical creature rises from the murky waters...'
+    combat: true
+    lootable: 
+      resources: 
+        aethersilk:
+          min: 0
+          max: 4
+        ectoplasm:
+          min: 0
+          max: 20
+      currency:
+        theans:
+          min: 0
+          max: 2
+    ranvier-wander: 
+      interval: 45
+    ranvier-aggro:
+      warnMessage: '%name% raises its fins, twirling them about.'
+      attackMessage: '%name% lets loose a psionic attack!'
+      delay: 6
+      towards:
+        players: true
+  # eventually make weak to fire damage, and also attracted to fire usage  
+  attributes:
+    health: 205
+    energy: 125
+    focus: 250
+    might: 8
+    quickness: 25
+    intellect: 11
+    willpower: 21
+    critical: 5
+    armor: 2
+  metadata:
+    minDamage: 1
+    maxDamage: 70
+    damageType: 'psionic'

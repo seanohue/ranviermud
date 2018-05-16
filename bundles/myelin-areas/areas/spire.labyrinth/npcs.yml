@@ -82,7 +82,7 @@
     minDamage: 5
     maxDamage: 25
 - id: arbiter
-  keywords: 'arbiter'
+  keywords: ['arbiter']
   name: Arbiter
   level: 12
   description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'

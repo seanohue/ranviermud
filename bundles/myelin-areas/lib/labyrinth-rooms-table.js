@@ -48,6 +48,14 @@ module.exports = {
     level: 9
   },
 
+  hall_vendor: {
+    weight: UNCOMMON,
+    title: 'A Cold Hall',
+    description: 'A short hallway, cold enough to see one\'s breath.',   
+    npcs: ['spire.intro:vendorauto'], 
+    level: 9
+  },
+
   broken_portal_arbit: {
     weight: UNCOMMON,
     title: 'Portal Chamber',
@@ -72,7 +80,20 @@ module.exports = {
     weight: RARE,
     title: 'Neural Link Chamber',
     description: 'Wires run along the sides and floor of this chamber, connecting to a chair in the center. They pulse with strange lights.',
-    behaviors: { waypoint: true }
-  }
+    behaviors: { waypoint: true },
+    items: ['spire.labyrinth:neurallink']
+  },
+
+  working_portal_arbit: {
+    weight: RARE,
+    title: 'Portal Chamber',
+    description: 'A small room with metal vault doors here and there.',
+    npcs: ['spire.labyrinth:arbiter'],
+    items: ['spire.intro:portal'],
+    level: 12,
+    behaviors: {
+      portal: {keyId: 'spire.labyrinth:minotaurkey'}
+    }
+  },
 
 };

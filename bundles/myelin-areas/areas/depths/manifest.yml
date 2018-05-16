@@ -1,0 +1,7 @@
+# placeholderish
+title: 'The Ruinous Depths'
+info:
+  respawnInterval: 60
+  levelRange:
+    min: 15
+    max: 99
