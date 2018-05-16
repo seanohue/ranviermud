@@ -2,7 +2,7 @@
 - id: columntubes
   name: "A Central Column of Tubes"
   roomDesc: "Thousands of tubes form a central column in this chamber"
-  properties:
+  metadata:    
     noPickup: true
   keywords: [ "tube, tubes", "column", "central" ]
   description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the surrounding chambers."
@@ -10,20 +10,20 @@
   name: "A Semicircular Slate Bench"
   roomDesc: "A semicircular slate bench is built into the ground in the center of this room"
   description: "This bench is the same color and material as the floor, walls, and ceiling. It arcs in a semicircle around the crystals hovering in the center of the room. It looks uncomfortable to <b>sit</b> on for any considerable span."
-  properties:
+  metadata:    
     noPickup: true
   keywords: ["bench", "slate", "circular", "seat", "semi"]
 - id: cylinders
   name: "A Row of Frosted Cylinders"
   roomDesc: "A row of frosted cylinders embedded in the wall"
-  properties:
+  metadata:    
     noPickup: true
   keywords: [ "cylinder", "coffin", "frosted", "row" ]
   description: "Upon closer inspection, the cylinders are made of thick glass. Some of them are slightly cracked, and a thin vapor is emerging. Others are too frosted over to see within. In one, you see a dim silhouette."
 - id: masstubes
   name: "A Snakelike Mass of Tubes"
   roomDesc: "A mass of tubes snaking to each of the cylinders"
-  properties:
+  metadata:    
     noPickup: true
   keywords: [ "tube", "tubes", "snakelike", "mass"  ]
   description: "The tubes are running from the surrounding spaces, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."
@@ -31,7 +31,7 @@
   name: "A Broken Portal"
   roomDesc: "A broken portal"
   description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center, however, this cylinder has been snapped in half. Scorch marks and jagged spurs scar the metal cylinder where it was damaged."
-  properties:
+  metadata:    
     noPickup: true
   keywords: [ "portal", "broken" ]
   type: RESOURCE
@@ -55,7 +55,7 @@
   roomDesc: "A portal"
   description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center, however, this cylinder has been snapped in half. Scorch marks and jagged spurs scar the metal cylinder where it was damaged."
   keywords: ["portal", "port"]
-  properties:
+  metadata:    
     noPickup: true
 
 - id: portalkey
@@ -70,7 +70,7 @@
 - id: datacrystals_blue
   name: "Datacrystal Cluster"
   description: "Five blue crystals hover a dozen hands above the ground, rotating slowly and <blue>emanating a blue light</blue>.\nIn the light you can see various shapes and figures."
-  properties:
+  metadata:    
     noPickup: true
   behaviors:
     readable:
@@ -115,7 +115,7 @@
 - id: datacrystals_green
   name: "Datacrystal Cluster"
   description: "A green crystal hovers a dozen hands above the ground, rotating slowly and <green>emanating a green light</green>.\nIn the light you can see various shapes and figures."
-  properties:
+  metadata:    
     noPickup: true
   behaviors:
     readable:
@@ -147,7 +147,7 @@
 - id: skeleton
   name: "A Skeleton"
   description: "A skeletal corpse lays here. On further examination you can tell that its right femur was smashed to bits."
-  properties:
+  metadata:    
     noPickup: true 
   keywords: [ "skeleton"]
   roomDesc: "A skeletal corpse lays here, covered in dried blood."
@@ -163,7 +163,7 @@
   level: 1
   itemLevel: 1
   quality: common
-  properties:
+  metadata:    
     stats:
       armor: 3
       quickness: -1
@@ -182,7 +182,7 @@
   level: 1
   itemLevel: 1
   quality: common
-  properties:
+  metadata:    
     stats:
       armor: 1
       intellect: 1

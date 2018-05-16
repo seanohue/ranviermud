@@ -49,8 +49,8 @@ module.exports = {
   },
 
   broken_portal_arbit: {
-    weight: RARE,
-    title: 'A Portal Chamber',
+    weight: UNCOMMON,
+    title: 'Portal Chamber',
     description: 'A small room with metal vault doors here and there.',
     npcs: ['spire.labyrinth:arbiter'],
     items: ['spire.intro:brokenportal'],
@@ -63,10 +63,16 @@ module.exports = {
     description: 'Bones and gristle litter this bloodstained chamber. The floors and walls are horrifically gouged.',
     npcs: ['spire.labyrinth:minotaur'],
     level: 12,
-    items: ['spire.labyrinth:boneclub'],
     behaviors: {
       startquest: { questId: 'spire.labyrinth:killminotaur' }
     }
+  },
+
+  neural_link: {
+    weight: RARE,
+    title: 'Neural Link Chamber',
+    description: 'Wires run along the sides and floor of this chamber, connecting to a chair in the center. They pulse with strange lights.',
+    behaviors: { waypoint: true }
   }
 
 };

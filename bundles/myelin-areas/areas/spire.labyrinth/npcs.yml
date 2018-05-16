@@ -88,6 +88,8 @@
   description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
   skills: ['dodge']
   behaviors:
+    flavorevents:
+      onSpawn: 'A purple light fills the room as a being cloaked in a silk robe <b>pops</b> into existence.'
     combat: true
     lootable: 
       resources: 
@@ -134,6 +136,8 @@
     lootable: 
       pools:
         - spire.labyrinth:minotaurkey: 90
+        - spire.labyrinth:boneclub: 50
+        - spire.labyrinth:bonehelm: 50
       resources:
         scrap_metal:
           min: 5
@@ -153,6 +157,8 @@
           max: 500
     ranvier-wander: 
       interval: 40
+    flavorevents:
+      onSpawn: 'The Minotaur comes crashing out of a pile of bones.'
     ranvier-aggro:
       warnMessage: '%name% stomps its enormous metal hooves and a burst of steam shoots from its nostrils as it stares you down...'
       attackMessage: '%name% charges you!'

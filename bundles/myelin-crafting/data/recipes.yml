@@ -35,4 +35,10 @@
     scrap_metal: 120
     piston: 2
     gear: 2
+- item: 'spire.labyrinth:boneclub'
+  recipe:
+    bone: 25
+- item: 'spire.labyrinth:bonehelm'
+  recipe:
+    bone: 25
 

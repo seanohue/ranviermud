@@ -50,3 +50,62 @@
       value: 80
       currency: thean
 
+- id: pilebones
+  name: "A Pile Of Bones"
+  roomDesc: "A pile of bones"
+  description: "This pile of bones is even taller than an average human, and nearly fills this entire room."
+  metadata:
+    noPickup: true
+  keywords: [ "pile", "bones" ]
+  type: RESOURCE
+  behaviors:
+    resource:
+      depletedMessage: "has been picked clean."
+      materials:
+        bone:
+          min: 10
+          max: 100
+        leather:
+          min: 0
+          max: 33
+- id: neurallink
+  name: 'Neural Link (Waypoint)'
+  roomDesc: 'Neural Link (Waypoint)'
+  metadata:
+    noPickup: true
+  description: 'This piece of machinery includes a chair, bolted into the ground with several wires running along it up to a skullcap attached to a device hanging from the chair''s back.<cyan><b>Hint: Try `help waypoint`.</b></cyan'
+  keywords: ['neural', 'link', 'waypoint']
+- id: bonehelm
+  name: 'Bone Helm'
+  roomDesc: 'Bone Helm'
+  description: 'A helm crafted from pieces of skull and hip bones.'
+  keywords: ['bone', 'helm']
+  level: 3
+  slot: "head"
+  quality: uncommon
+  metadata:
+    stats:
+      armor: 6
+  behaviors:
+    sellable:
+      value: 20
+      currency: thean
+- id: leatherpants
+  name: "Leather Pants"
+  type: ARMOR
+  roomDesc: "Leather Jerkin"
+  keywords: ["leather", "jerkin"]
+  description: "A sleeveless jacket made mostly of leather strips. For those who want to look tough and stop smaller blades from puncturing them, all at the same time."
+  level: 1
+  slot: "chest"
+  quality: common
+  metadata:
+    stats:
+      armor: 9
+  behaviors:
+    sellable:
+      value: 9
+      currency: thean
+
+
+
