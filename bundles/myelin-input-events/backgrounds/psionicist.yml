@@ -6,6 +6,6 @@ attributes:
   might: 9
   intellect: 18
   willpower: 20
-equipment: ['spire.intro:boots', 'spire.labyrinth:jumpsuit', 'spire.labyrinth:pouch']
+equipment: ['spire.intro:boots', 'spire.labyrinth:jumpsuit', 'spire.intro:pouch']
 skills: ['concentration', 'combust', 'mend']
 tier: 2

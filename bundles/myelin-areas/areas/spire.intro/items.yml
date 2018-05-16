@@ -151,6 +151,15 @@
     noPickup: true 
   keywords: [ "skeleton"]
   roomDesc: "A skeletal corpse lays here, covered in dried blood."
+  type: RESOURCE
+  behaviors:
+    resource:
+      depletedMessage: "has been scavenged."
+      materials:
+        bone:
+          min: 2
+          max: 10
+
 
 # Starting gear for Penitent Ascetic:
 - id: frock

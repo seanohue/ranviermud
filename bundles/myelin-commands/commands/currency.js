@@ -8,7 +8,7 @@ module.exports = (srcPath, bundlePath) => {
   return {
     aliases: [ "money", "theans", "purse" ],
     command: state => (args, player) => {
-      const playerResources = player.getMeta('currency');
+      const playerResources = player.getMeta('currencies');
 
       if (!playerResources) {
         return B.sayAt(player, "You haven't gathered any currency.");
