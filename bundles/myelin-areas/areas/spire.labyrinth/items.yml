@@ -98,7 +98,7 @@
   keywords: ["leather", "jerkin"]
   description: "A sleeveless jacket made mostly of leather strips. For those who want to look tough and stop smaller blades from puncturing them, all at the same time."
   level: 1
-  slot: "chest"
+  slot: "legs"
   quality: common
   metadata:
     stats:
