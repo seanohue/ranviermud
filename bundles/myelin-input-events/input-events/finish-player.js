@@ -88,7 +88,7 @@ module.exports = (srcPath) => {
         // reload from manager so events are set
         player = state.PlayerManager.loadPlayer(state, player.account, player.name);
         player.socket = socket;
-
+        state.CommandManager.get('config').execute('set minimap on', player);
         socket.emit('done', socket, { player });
       });
     }

@@ -95,8 +95,8 @@
         "spire.intro:elixir":
           cost: 100
           currency: theans
-      enterMessage: "The vendor automaton emits a happy bloop."
-      leaveMessage: "The vendor automaton emits a sad bloop, its lights dimming slightly."
+      enterMessage: "BEEP BOOP, MAKE A PURCHASE."
+      leaveMessage: "BOOP WHIRR, COME BACK SOON."
 
     ranvier-wander:
       interval: 45
