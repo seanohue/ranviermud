@@ -93,7 +93,7 @@
         "spire.intro:knapsack":
           cost: 35
           currency: theans
-        "spire.intro:aetherrobe"
+        "spire.intro:aetherrobe":
           cost: 350
           currency: theans
         "spire.labyrinth:leatherpants":
