@@ -29,7 +29,6 @@ module.exports = (srcPath) => {
           player.questTracker.start(quest);
         } else {
           Logger.log('Player could not start quest yet.');
-          console.log(quest);
         }
       }
     }

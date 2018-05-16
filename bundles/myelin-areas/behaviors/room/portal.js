@@ -1,6 +1,6 @@
 'use strict';
 
-const PortalDestinations = new Map();
+let PortalDestinations = new Map();
 const {generate, addToWorld} = require('../../lib/generator');
 
 module.exports = srcPath => {
@@ -9,7 +9,6 @@ module.exports = srcPath => {
   const Player = require(srcPath + 'Player');
   const Random = require(srcPath + 'RandomUtil');
 
-  let loaded = false;
 
   return {
     listeners: {
@@ -66,25 +65,21 @@ module.exports = srcPath => {
           this.removePlayer(player);
           player._isUsingPortal = true;
 
-          if (!PortalDestinations.size) {
-            // LOAD
-            if (!loaded) {
-              for (const [areaName, area] of state.AreaManager.areas) {
-                if (!area.info.isGenerated) continue;
-                PortalDestinations.set(areaName, area);
-              }
-              loaded = true;
-            }
+          PortalDestinations = new Map();
+          for (const [areaName, area] of state.AreaManager.areas) {
+            const nope = ['intro', 'limbo', 'map'];
+            if (nope.find(bad => area.name.includes(bad))) continue;
+            PortalDestinations.set(areaName, area);
+          }
 
-            if (!PortalDestinations.size) {
-              return generateDestination();
-            }
+          if (!PortalDestinations.size) {
+            return generateDestination();
           }
           
           if (PortalDestinations.size > 1 || !PortalDestinations.has(player.room.area.name)) {
             const destinationValues = Array.from(PortalDestinations.values());
             const inLevelRange = destinationValues.filter((dest) => {
-              return area.name !== player.room.area.name && 
+              return dest.name !== player.room.area.name && 
                 dest.levelRange 
                   ? player.level >= dest.levelRange.min && player.level <= dest.levelRange.max
                   : true;
@@ -95,6 +90,7 @@ module.exports = srcPath => {
             } else {
               const destinationArea = Random.fromArray(inLevelRange);
               const destinationRoom = Array.from(destinationArea.rooms.values())[0];
+              console.log({destinationArea, destinationRoom, inLevelRange});
               return movePlayerToPortalDestination(destinationRoom.entityReference);
             }
           }
@@ -149,6 +145,7 @@ module.exports = srcPath => {
           Broadcast.sayAt(player, 'Error: ' + e);
           Broadcast.sayAt(player, 'Please concact an Admin!');
           player._isUsingPortal = false;
+          throw e;
         }
       }
     }
