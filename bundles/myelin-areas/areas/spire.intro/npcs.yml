@@ -70,21 +70,8 @@
         - spire.intro:portalkey: 50
         - spire.labyrinth:jumpsuit: 20
         # Later add behavior for it to drop some/all of its goods.
-        # Add shopkeep behavior
-    ranvier-wander:
-      interval: 45
-  attributes:
-    health: 420
-    energy: 150
-    focus: 50
-    might: 20
-    quickness: 3
-    intellect: 3
-    willpower: 1
-    critical: 3
-    armor: 10
-  behaviors:
-    ranvier-sentient: true
+        - spire.intro:tea: 100
+        - spire.labyrinth:jumpsuit: 100
     vendor:
       items:
         "spire.intro:portalkey":
@@ -111,6 +98,18 @@
       enterMessage: "The vendor automaton emits a happy bloop."
       leaveMessage: "The vendor automaton emits a sad bloop, its lights dimming slightly."
 
+    ranvier-wander:
+      interval: 45
+  attributes:
+    health: 420
+    energy: 150
+    focus: 50
+    might: 20
+    quickness: 3
+    intellect: 3
+    willpower: 1
+    critical: 3
+    armor: 10
 - id: securityauto
   keywords: ['security', 'auto', 'flying']
   name: Flying Security Automaton
