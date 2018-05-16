@@ -149,7 +149,7 @@
 - id: malfunctioningauto
   keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
   name: Flying Malfunctioning Automaton
-  level: 4
+  level: 2
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring <red>erratically</red>. Its undercarriage features razor-sharp 'legs' and a small cannon."
   skills: ['dodge']
   behaviors:
