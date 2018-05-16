@@ -71,7 +71,6 @@ module.exports = {
       defaults, 
       config, 
       { filepath: baseFilePath + filename });
-    axolemmaOptions.areaInfo.levelRange = levelRange;
 
     return axolemma.generate(axolemmaOptions)
       .then((generated) => {
