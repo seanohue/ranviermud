@@ -17,8 +17,8 @@ class LootTable {
    */
   constructor(state, config) {
     this.pools = config.pools || [];
-    this.currencyRanges = config.currencies || null;
-    this.resourceRanges = config.resources || null;
+    this.currencyRanges = config.currencies || config.currency || null;
+    this.resourceRanges = config.resources || config.resource || null;
 
     this.options = Object.assign({
       maxItems: 5
@@ -61,6 +61,7 @@ class LootTable {
    */
   currencies() {
     if (!this.currencyRanges) {
+      console.log({self: this, curr: this.currencyRanges});
       return null;
     }
 

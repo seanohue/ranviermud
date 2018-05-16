@@ -43,10 +43,10 @@
           min: 3
           max: 10
         piston:
-          min: 0
+          min: 1
           max: 2
         gear:
-          min: 0
+          min: 1
           max: 4
 
   # Quest items
@@ -472,19 +472,18 @@
   type: ARMOR
   roomDesc: "Simple Aethersilk Robe"
   keywords: [ "aether", "silk", "aeth", "robe", "simple", "aethersilk" ]
-  script: "aethersilk-robe"
   description: "A no-frills robe made of a smooth material with an uncanny silver sheen."
   slot: "body"
   level: 1
   quality: rare
   metadata:
     stats:
-      armor: 2
+      willpower: 5
     specialEffects:
       - "When worn: Shields the wearer from psionic effects."
   behaviors:
     sellable:
-      value: 60
+      value: 100
       currency: thean
 
 - id: leatherpouch

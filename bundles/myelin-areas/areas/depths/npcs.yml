@@ -11,14 +11,14 @@
     lootable: 
       resources: 
         aethersilk:
-          min: 0
+          min: 1
           max: 4
         ectoplasm:
-          min: 0
+          min: 1
           max: 20
       currency:
         theans:
-          min: 0
+          min: 1
           max: 2
     ranvier-wander: 
       interval: 45
@@ -57,14 +57,14 @@
     lootable: 
       resources: 
         leather:
-          min: 0
+          min: 1
           max: 8
         bone:
-          min: 0
+          min: 1
           max: 20
       currency:
         theans:
-          min: 0
+          min: 1
           max: 20
     ranvier-wander: 
       interval: 30

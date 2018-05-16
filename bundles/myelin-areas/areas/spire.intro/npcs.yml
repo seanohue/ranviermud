@@ -14,16 +14,16 @@
           min: 1
           max: 5
         gear:
-          min: 0
+          min: 1
           max: 2
         piston:
-          min: 0
+          min: 1
           max: 1
       pools:
         - spire.intro:portalkey: 5
       currency:
         theans:
-          min: 0
+          min: 1
           max: 5
     ranvier-wander:
       interval: 30
@@ -124,11 +124,11 @@
           min: 1
           max: 3
         gear:
-          min: 0
+          min: 1
           max: 1
       currency:
         theans:
-          min: 0
+          min: 1
           max: 15
     ranvier-wander: 
       interval: 15
@@ -163,7 +163,7 @@
           max: 2
       currency:
         theans:
-          min: 0
+          min: 1
           max: 5
     ranvier-wander: 
       interval: 20

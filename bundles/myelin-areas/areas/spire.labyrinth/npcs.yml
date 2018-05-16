@@ -21,7 +21,7 @@
           min: 1
           max: 7
         gear:
-          min: 0
+          min: 1
           max: 2
       currency:
         theans:
@@ -53,11 +53,11 @@
     lootable: 
       resources: 
         scrap_metal:
-          min: 0
+          min: 1
           max: 5
       currency:
         theans:
-          min: 0
+          min: 1
           max: 15
     ranvier-wander: 
       interval: 20
@@ -94,14 +94,14 @@
     lootable: 
       resources: 
         aethersilk:
-          min: 0
+          min: 1
           max: 40
         ectoplasm:
-          min: 0
+          min: 1
           max: 2
       currency:
         theans:
-          min: 0
+          min: 1
           max: 150
     ranvier-wander: 
       interval: 100

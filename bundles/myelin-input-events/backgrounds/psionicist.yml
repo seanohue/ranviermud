@@ -1,0 +1,11 @@
+id: psionics
+name: 'Psionics Expert'
+description: 'You were a part of the psionic forces responsible for protecting Myelin''s Spire, before your untimely demise.'
+attributes:
+  quickness: 10
+  might: 9
+  intellect: 18
+  willpower: 20
+equipment: ['spire.intro:boots', 'spire.labyrinth:jumpsuit', 'spire.labyrinth:pouch']
+skills: ['concentration', 'combust', 'mend']
+tier: 2
