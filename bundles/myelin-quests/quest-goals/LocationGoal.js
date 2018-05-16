@@ -48,6 +48,9 @@ module.exports = srcPath => {
       if (!room) {
         return console.log('No room.');
       }
+
+      if (!player.questTracker.canStart(quest) || player.questTracker.isComplete(quest)) return;
+
       const roomRef = room.entityReference;
 
       if (this.config.inOrder === true) {
