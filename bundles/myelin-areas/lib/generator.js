@@ -56,10 +56,15 @@ module.exports = {
   //     });
   // },
 
-  generate(srcPath, state, levelRange) {
-    levelRange = levelRange || {min: 3, max: 10};
+  generate(srcPath, state, level) {
+    level = level || 10;
     const Random = require(srcPath + 'RandomUtil');
-    const config = Random.fromArray(configs);
+    const config = Random.fromArray(
+      configs.filter(config => {
+        const range = config.areaInfo.levelRange || {min: 5, max: 15};
+        return range.min <= level && range.max >= level;
+      })
+    );
     const filename = `${config._name}_${Date.now()}`;
 
     const axolemmaOptions = Object.assign({},  

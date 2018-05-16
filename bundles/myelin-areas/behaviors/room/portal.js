@@ -100,11 +100,8 @@ module.exports = srcPath => {
 
         function generateDestination() {
           console.log('GENERATING NEW AREA....');
-          const min = Math.max(1, player.level - 2);
-          const max = Math.min(99, player.level + 5);
-          const levelRange = {min, max};
 
-          return generate(srcPath, state, levelRange)
+          return generate(srcPath, state, player.level)
             .then(({generated, name}) => {
               console.log('Generated!');
               const {firstRoom} = addToWorld(srcPath, state, name, generated);

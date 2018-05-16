@@ -10,7 +10,7 @@ module.exports = [{
   },
 
   rough_hewn_hall_arbiter: {
-    weight: UNCOMMON,
+    weight: COMMON,
     title: 'A Rough-Hewn Hall',
     description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.',
     npcs: ['spire.labyrinth:arbiter']
@@ -27,5 +27,13 @@ module.exports = [{
     title: 'A Pool of Murky Water',
     description: 'This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.',
     npcs: ['depths:blupe']
+  },
+
+  waypoint_shrine: {
+    weight: RARE,
+    title: 'Shrine (Waypoint)',
+    description: 'In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.',
+    npcs: ['depths:gug'],
+    behaviors: { waypoint: true }
   }
 }]
