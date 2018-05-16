@@ -49,7 +49,7 @@ module.exports = srcPath => {
         return console.log('No room.');
       }
 
-      if (!player.questTracker.canStart(quest) || player.questTracker.isComplete(quest)) return;
+      if (!player.questTracker.canStart(this.quest) || player.questTracker.isComplete(this.quest)) return;
 
       const roomRef = room.entityReference;
 
