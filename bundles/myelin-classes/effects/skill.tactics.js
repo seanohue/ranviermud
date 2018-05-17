@@ -8,7 +8,6 @@ module.exports = srcPath => {
     config: {
       name: 'Tactics',
       type: 'skill.tactics',
-      hidden: true
     },
     flags: [Flag.BUFF],
     state: {
