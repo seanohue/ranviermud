@@ -37,24 +37,171 @@
       "base": 0
     }
   },
-  "level": 10,
+  "level": 22,
   "name": "Admin",
   "room": "spire.intro:a-frosted-tomb-0",
-  "effects": [],
-  "experience": 0,
+  "effects": [
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "You are regenerating over time.",
+        "duration": "inf",
+        "hidden": true,
+        "maxStacks": 0,
+        "name": "Regenerate",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": 3,
+        "type": "regen",
+        "unique": true
+      },
+      "elapsed": 386029,
+      "id": "regen",
+      "remaining": null,
+      "state": {
+        "magnitude": 15,
+        "lastTick": 2195,
+        "ticks": 128
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Due to your tactical mind, you gain +5 to armor and critical chance.",
+        "duration": "inf",
+        "hidden": true,
+        "maxStacks": 0,
+        "name": "Tactics",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "skill.tactics",
+        "unique": true
+      },
+      "elapsed": 372320,
+      "id": "skill.tactics",
+      "remaining": null,
+      "skill": "tactics",
+      "state": {
+        "magnitude": 5
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Once every 2 minutes, when dropping below 30 energy, restore 50% of your max energy.",
+        "duration": "inf",
+        "hidden": false,
+        "maxStacks": 0,
+        "name": "Second Wind",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "skill:secondwind",
+        "unique": true
+      },
+      "elapsed": 285803,
+      "id": "skill.secondwind",
+      "remaining": null,
+      "skill": "secondwind",
+      "state": {
+        "threshold": 30,
+        "restorePercent": 50
+      }
+    }
+  ],
+  "experience": 6168,
   "inventory": {
     "items": [],
     "max": 32
   },
   "metadata": {
-    "class": "base"
+    "class": "base",
+    "kills": 1,
+    "strongestKilled": {
+      "name": "Maintenance Automaton",
+      "level": 2
+    },
+    "currencies": {
+      "theans": 3
+    },
+    "resources": {
+      "scrap_metal": 3,
+      "gear": 2,
+      "piston": 1
+    },
+    "attributePoints": 12,
+    "abilityPoints": 6
   },
   "playerClass": "base",
   "prompt": "[ %health.current%/%health.max% <b>health</b> %focus.current%/%focus.max% <b>focus</b> %energy.current%/%energy.max% <b>energy</b> ]",
   "quests": {
     "completed": [],
-    "active": []
+    "active": [
+      [
+        "spire.intro:wayout",
+        {
+          "state": [
+            {
+              "state": {
+                "visited": []
+              },
+              "progress": {
+                "percent": 0,
+                "display": "Find a functional portal: [0/1]"
+              },
+              "config": {
+                "title": "Find a functional portal",
+                "rooms": [
+                  "spire.intro:airlock-chamber-25"
+                ],
+                "inOrder": false
+              }
+            }
+          ],
+          "progress": {
+            "percent": 0,
+            "display": "Find a functional portal: [0/1]"
+          },
+          "config": {
+            "desc": "You must find your way out of this strange place.",
+            "level": 1,
+            "title": "A Way Out"
+          }
+        }
+      ],
+      [
+        "spire.intro:misbehavingautos",
+        {
+          "state": [
+            {
+              "state": {
+                "count": 0
+              },
+              "progress": {
+                "percent": 0,
+                "display": "Kill a half-dozen malfunctioning security automatons.: [0/6]"
+              },
+              "config": {
+                "title": "Kill a half-dozen malfunctioning security automatons.",
+                "npc": "spire.intro:malfunctioningauto",
+                "count": 6
+              }
+            }
+          ],
+          "progress": {
+            "percent": 0,
+            "display": "Kill a half-dozen malfunctioning security automatons.: [0/6]"
+          },
+          "config": {
+            "desc": "You find a suspicious scene of violence...",
+            "level": 1,
+            "title": "Misbehaving Automatons"
+          }
+        }
+      ]
+    ]
   },
   "role": 2,
-  "equipment": {} 
+  "equipment": {}
 }

@@ -6,6 +6,6 @@ attributes:
   might: 17
   intellect: 18
   willpower: 10
-equipment: ['spire.labyrinth:hatchet', 'spire.intro:boots', 'spire.labyrinth:jumpsuit', 'spire.intro:pouch']
+equipment: ['spire.labyrinth:hatchet', 'spire.intro:boots', 'spire.labyrinth:jumpsuit', 'spire.intro:leatherpouch']
 skills: ['tactics', 'lunge', 'bash']
 tier: 2
