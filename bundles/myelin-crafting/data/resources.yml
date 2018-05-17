@@ -14,4 +14,10 @@ aethersilk:
 leather:
   title: Leather
   quality: common
+ectoplasm:
+  title: Ectoplasm
+  quality: rare
+bone: 
+  title: Bone
+  quality: uncommon
 
