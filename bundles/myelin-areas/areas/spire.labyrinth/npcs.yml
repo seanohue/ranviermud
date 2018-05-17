@@ -30,7 +30,7 @@
     ranvier-wander:
       interval: 30
   attributes:
-    health: 180
+    health: 150
     energy: 100
     focus: 50
     might: 8
@@ -41,7 +41,7 @@
     armor: 2
   metadata:
     minDamage: 8
-    maxDamage: 30
+    maxDamage: 25
 - id: malfunctioningauto
   keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
   name: Flying Malfunctioning Automaton
@@ -69,11 +69,11 @@
         players: true
         npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
   attributes:
-    health: 185
+    health: 105
     energy: 100
     focus: 50
     might: 7
-    quickness: 21
+    quickness: 19
     intellect: 4
     willpower: 1
     critical: 5
@@ -112,11 +112,11 @@
       towards:
         players: true  
   attributes:
-    health: 205
+    health: 150
     energy: 125
     focus: 250
     might: 7
-    quickness: 18
+    quickness: 10
     intellect: 21
     willpower: 21
     critical: 4
@@ -171,7 +171,7 @@
     health: 360
     energy: 250
     focus: 50
-    might: 40
+    might: 30
     quickness: 9
     intellect: 10
     willpower: 10
@@ -179,4 +179,4 @@
     armor: 30
   metadata:
     minDamage: 5
-    maxDamage: 75
+    maxDamage: 50

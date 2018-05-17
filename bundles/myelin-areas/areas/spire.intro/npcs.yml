@@ -137,7 +137,7 @@
     energy: 100
     focus: 50
     might: 4
-    quickness: 25
+    quickness: 20
     intellect: 5
     willpower: 2
     critical: 5
@@ -189,7 +189,7 @@
     energy: 100
     focus: 50
     might: 6
-    quickness: 20
+    quickness: 16
     intellect: 3
     willpower: 1
     critical: 4

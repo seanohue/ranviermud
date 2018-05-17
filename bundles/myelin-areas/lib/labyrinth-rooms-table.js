@@ -66,7 +66,7 @@ module.exports = {
   },
 
   minotaur_chamber: {
-    weight: RARE,
+    weight: RARE - 4,
     title: 'Minotaur\s Chamber',
     description: 'Bones and gristle litter this bloodstained chamber. The floors and walls are horrifically gouged.',
     npcs: ['spire.labyrinth:minotaur'],
@@ -85,7 +85,7 @@ module.exports = {
   },
 
   working_portal_arbit: {
-    weight: RARE,
+    weight: RARE - 1,
     title: 'Portal Chamber',
     description: 'A small room with metal vault doors here and there.',
     npcs: ['spire.labyrinth:arbiter'],
