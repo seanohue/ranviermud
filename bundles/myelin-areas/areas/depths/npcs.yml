@@ -41,7 +41,7 @@
     armor: 2
   metadata:
     minDamage: 1
-    maxDamage: 70
+    maxDamage: 30
     damageType: 'psionic'
 
 - id: gug
@@ -52,13 +52,13 @@
   skills: ['block']
   behaviors:
     flavorevents:
-      onSpawn: 'A small elliptical creature rises from the murky waters...'
+      onSpawn: 'A hairy beast shambles from a nearby crevice...'
     combat: true
     lootable: 
       resources: 
         leather:
           min: 1
-          max: 8
+          max: 20
         bone:
           min: 1
           max: 20
