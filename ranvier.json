@@ -31,11 +31,11 @@
   "maxPlayerNameLength": 20,
   "minPlayerNameLength": 3,
   "maxCharacters": 3,
-  "allowMultiplay": false,
-  "reportToAdmins": false,
+  "allowMultiplay": true,
+  "reportToAdmins": true,
   "startingRoom": "spire.intro:a-frosted-tomb-0",
   "moveCommand": "move",
-  "skillLag": 2000,
+  "skillLag": 500,
   "defaultMaxPlayerInventory": 16,
   "maxIdleTime": 20
 }
