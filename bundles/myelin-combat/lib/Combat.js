@@ -146,6 +146,7 @@ class Combat {
    * @param {Character} target
    */
   static makeAttack(attacker, target) {
+    console.log(attacker.effects);
     const rawDamageAmount = attacker.hasEffectType('skill:stun') ? 0 : this.calculateWeaponDamage(attacker);
     const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
     const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, isPsionic), 0);
@@ -304,7 +305,7 @@ class Combat {
 
     const speed = Math.max(
       10 - statBonus - weaponBonus,
-      1
+      1.5
     );
 
     return speed;

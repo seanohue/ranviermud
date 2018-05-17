@@ -52,7 +52,7 @@ class Npc extends Character {
     this.uuid = data.uuid || uuid.v4();
 
     if (data.skills) {
-      if (typeof data.skills === 'object') {
+      if (typeof data.skills === 'object' && !Array.isArray(data.skills)) {
         this.skills = new Map(Object.entries(data.skills));
       } else if (Array.isArray(data.skills)) {
         data.skills.forEach(skill => this.skills.add(skill, true));
