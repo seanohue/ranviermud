@@ -57,7 +57,7 @@ module.exports = (srcPath) => {
         'stun',
         target,
         {
-          duration,: getDuration(player),
+          duration: getDuration(player),
           description: "You are paralyzed by a nerve strike!"
         }
       );
