@@ -57,7 +57,7 @@ module.exports = (srcPath) => {
           'stun',
           target,
           {
-            duration,
+            duration: getDuration(player),
             description: "You've been bashed senseless."
           }
         );

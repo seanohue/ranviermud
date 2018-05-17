@@ -10,7 +10,7 @@
     "ranvier-telnet",
     "ranvier-websocket",
     "myelin-areas",
-    "ranvier-channels",
+    "myelin-channels",
     "myelin-commands",
     "myelin-effects",
     "ranvier-groups",

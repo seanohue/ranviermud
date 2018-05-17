@@ -37,7 +37,7 @@ class Combat {
     attacker.combatData.roundStarted = Date.now();
 
     // cancel if the attacker's combat lag hasn't expired yet
-    if (attacker.combatData.lag > 0 || attacker.hasEffectType('skill:stun')) {
+    if (attacker.combatData.lag > 0) {
       const elapsed = Date.now() - lastRoundStarted;
       attacker.combatData.lag -= elapsed;
       return false;
@@ -59,6 +59,12 @@ class Combat {
       attacker.removeFromCombat();
       // reset combat data to remove any lag
       attacker.combatData = {};
+      return false;
+    }
+    if (attacker.hasEffectType('skill:stun')) {
+      console.log('Attacker is stunned!!!'.repeat(10));
+      if (!attacker.isNpc) Broadcast.sayAt(attacker, '<yellow><b>You are stunned!</b></yellow>');
+      if (!target.isNpc) Broadcast.sayAt(target, `<yellow>${attacker.name} is stunned!</yellow>`);
       return false;
     }
 
@@ -146,7 +152,7 @@ class Combat {
    * @param {Character} target
    */
   static makeAttack(attacker, target) {
-    console.log(attacker.name, attacker.effects.effects);
+    console.log(attacker.name, [...attacker.effects.effects].map(effect => effect.config.type));
     const rawDamageAmount = attacker.hasEffectType('skill:stun') ? 0 : this.calculateWeaponDamage(attacker);
     const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
     const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, attacker, isPsionic), 0);
