@@ -10,8 +10,10 @@ module.exports = (srcPath) => {
   const Damage    = require(srcPath + 'Damage');
   const SkillType = require(srcPath + 'SkillType');
   const Random    = require(srcPath + 'RandomUtil');
+  const Combat    = require(srcPath + '../bundles/myelin-combat/lib/Combat');
 
-  const damagePercent = 80;
+
+  const damagePercent = 110;
   const focusCost     = 30;
   const stunPercent   = 60;
   
@@ -20,7 +22,7 @@ module.exports = (srcPath) => {
   }
 
   function totalDamage(player) {
-    return player.calculateWeaponDamage() * (damagePercent / 100) + player.getMaxAttribute('quickness');
+    return Combat.calculateWeaponDamage(player) * (damagePercent / 100) + player.getMaxAttribute('quickness');
   }
 
   function getDuration(player) {
@@ -46,7 +48,7 @@ module.exports = (srcPath) => {
         attacker:  player,
         type:      'piercing',
         source:    this,
-        critical:  Random.probability(critPercent)
+        critical:  Random.probability(getCritPercent(player))
       });
 
       const duration = getDuration(player, damage);
