@@ -56,7 +56,7 @@ class Npc extends Character {
         this.skills = new Map(Object.entries(data.skills));
       } else if (Array.isArray(data.skills)) {
         this.skills = this.skills || new Map();
-        data.skills.forEach(skill => this.skills.set(skill, true));
+        data.skills.forEach(skill => this.skills.set(skill, {}));
       }
     }
   }
