@@ -19,7 +19,7 @@ module.exports = srcPath => {
 
         block: {
           level: 4,
-          might: 12,
+          might: 15,
           willpower: 10,
         },
         dodge: {
@@ -43,15 +43,15 @@ module.exports = srcPath => {
           might: 15
         },
         nervestrike: {
-          level: 5,
+          level: 3,
           quickness: 15,
-          might: 10,
-          willpower: 10
+          might: 8,
+          willpower: 9
         },
         rend: {
-          level: 5,
+          level: 3,
           quickness: 13,
-          might: 15
+          might: 13
         },
 
         /* Mentalist: */

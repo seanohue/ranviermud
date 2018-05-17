@@ -37,7 +37,7 @@ class Combat {
     attacker.combatData.roundStarted = Date.now();
 
     // cancel if the attacker's combat lag hasn't expired yet
-    if (attacker.combatData.lag > 0) {
+    if (attacker.combatData.lag > 0 || attacker.hasEffectType('skill:stun')) {
       const elapsed = Date.now() - lastRoundStarted;
       attacker.combatData.lag -= elapsed;
       return false;
@@ -94,15 +94,20 @@ class Combat {
    * @param {Number} amount of raw damage done by attack
    */
   static calculateDefense(defender, amount, attacker, isPsionic) {
+    const isStunned = defender.hasEffectType('skill:stun');
     if (isPsionic) {
       const willpower = defender.getMaxAttribute('willpower');
-      return Math.max(1, amount - willpower);
+      return Math.max(1, willpower - isStunned ? 10 : 0);
     }
+
 
     // Stats always used in defense.
     const quickness = defender.getMaxAttribute('quickness') || 1;
     const intellect = defender.getMaxAttribute('intellect') || 1;
     const armor     = defender.getMaxAttribute('armor')     || 0;
+
+
+    if (isStunned) return armor;
 
     // Defensive skills.
     const dodge = defender.isNpc && defender.skills.has('dodge');
@@ -136,12 +141,12 @@ class Combat {
   }
 
   /**
-   * Actually apply some damage from an attacker to a target
+   * Actually apply some J from an attacker to a target
    * @param {Character} attacker
    * @param {Character} target
    */
   static makeAttack(attacker, target) {
-    const rawDamageAmount = this.calculateWeaponDamage(attacker);
+    const rawDamageAmount = attacker.hasEffectType('skill:stun') ? 0 : this.calculateWeaponDamage(attacker);
     const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
     const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, isPsionic), 0);
     const damage = new Damage({ attribute: 'health', amount, attacker });

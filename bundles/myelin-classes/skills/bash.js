@@ -76,7 +76,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Might, with a <bold>${stunPercent + player.getMaxAttribute('might')}</bold> chance to stun for <bold>${getDuration(player)}</bold> seconds.`;
+      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Might, with a <bold>${stunPercent + player.getMaxAttribute('might')}</bold> chance to stun for <bold>${getDuration(player) / 1000}</bold> seconds.`;
     }
   };
 };
