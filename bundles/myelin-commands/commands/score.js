@@ -116,8 +116,9 @@ module.exports = (srcPath) => {
 
       say(B.box('bottom', p.name || '', width));
 
-      state.CommandManager.get('currency').execute('', player);
-      state.CommandManager.get('resources').execute('', player);
+      state.CommandManager.get('currency').execute('', p);
+      say('');
+      state.CommandManager.get('resources').execute('', p);
     }
   };
 };
