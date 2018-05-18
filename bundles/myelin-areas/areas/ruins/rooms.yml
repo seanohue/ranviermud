@@ -1,0 +1,2687 @@
+- id: a-rough-hewn-hall-0
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 1, 0]
+  npcs: &ref_0 ['spire.labyrinth:arbiter']
+- id: a-rough-hewn-hall-1
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 2, 0]
+- id: a-rough-hewn-hall-2
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 3, 0]
+- id: a-pool-of-murky-water-3
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 4, 0]
+  npcs: &ref_1 ['depths:blupe']
+- id: a-rough-hewn-hall-4
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 5, 0]
+- id: a-rough-hewn-hall-5
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 6, 0]
+- id: a-rough-hewn-hall-6
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 7, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-7
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 8, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-8
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 9, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-9
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 11, 0]
+  npcs: &ref_2 ['spire.labyrinth:minotaur']
+  items: &ref_3 ['spire.labyrinth:pilebones']
+- id: a-rough-hewn-hall-10
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 13, 0]
+- id: a-rough-hewn-hall-11
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 15, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-12
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 16, 0]
+- id: a-rough-hewn-hall-13
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 17, 0]
+- id: a-rough-hewn-hall-14
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 18, 0]
+- id: a-pool-of-murky-water-15
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 19, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-16
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 20, 0]
+- id: a-pool-of-murky-water-17
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 21, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-18
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 22, 0]
+- id: a-rough-hewn-hall-19
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 23, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-20
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 24, 0]
+- id: a-rough-hewn-hall-21
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 25, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-22
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 27, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-23
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 28, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-24
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 29, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-25
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 30, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-26
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 31, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-27
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [1, 32, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-28
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [1, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-29
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-30
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [2, 7, 0]
+- id: a-rough-hewn-hall-31
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 9, 0]
+- id: a-rough-hewn-hall-32
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 11, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-33
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [2, 13, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-34
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [2, 15, 0]
+- id: a-pool-of-murky-water-35
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [2, 16, 0]
+- id: a-rough-hewn-hall-36
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 17, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-37
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 18, 0]
+- id: a-rough-hewn-hall-38
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 19, 0]
+- id: a-pool-of-murky-water-39
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [2, 20, 0]
+- id: a-rough-hewn-hall-40
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 21, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-41
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 22, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-42
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 23, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-43
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 24, 0]
+- id: a-rough-hewn-hall-44
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 25, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-45
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 26, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-46
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 27, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-47
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [2, 28, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-48
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 29, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-49
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 30, 0]
+- id: a-rough-hewn-hall-50
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 31, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-51
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [2, 32, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-52
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [2, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-53
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-54
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 2, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-55
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 3, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-56
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-57
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-58
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 7, 0]
+- id: a-rough-hewn-hall-59
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-60
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 11, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-61
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 13, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-62
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 15, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-63
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 16, 0]
+  npcs: *ref_1
+- id: shrine--waypoint-64
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [3, 17, 0]
+  npcs: &ref_4 ['depths:gug']
+  behaviors: &ref_5 {waypoint: true}
+- id: a-rough-hewn-hall-65
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 18, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-66
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 19, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-67
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 20, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-68
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 21, 0]
+- id: a-rough-hewn-hall-69
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 22, 0]
+  npcs: *ref_0
+- id: shrine--waypoint-70
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [3, 23, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-rough-hewn-hall-71
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 24, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-72
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 25, 0]
+- id: a-rough-hewn-hall-73
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 27, 0]
+- id: a-rough-hewn-hall-74
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 28, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: shrine--waypoint-75
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [3, 29, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-rough-hewn-hall-76
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 30, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-77
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [3, 31, 0]
+  npcs: *ref_0
+- id: shrine--waypoint-78
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [3, 32, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-pool-of-murky-water-79
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [3, 33, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-80
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [4, 4, 0]
+- id: a-rough-hewn-hall-81
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [4, 7, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-82
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [4, 11, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-83
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [4, 13, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-84
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [4, 23, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-85
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 1, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-86
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [5, 3, 0]
+- id: shrine--waypoint-87
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [5, 4, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-rough-hewn-hall-88
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 5, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-89
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [5, 7, 0]
+- id: a-rough-hewn-hall-90
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 9, 0]
+- id: a-rough-hewn-hall-91
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 11, 0]
+- id: a-rough-hewn-hall-92
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 13, 0]
+- id: a-rough-hewn-hall-93
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 15, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-94
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 17, 0]
+- id: a-rough-hewn-hall-95
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 18, 0]
+- id: a-rough-hewn-hall-96
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 19, 0]
+- id: a-rough-hewn-hall-97
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 20, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-98
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 21, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-99
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 22, 0]
+- id: a-pool-of-murky-water-100
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [5, 23, 0]
+- id: a-pool-of-murky-water-101
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [5, 25, 0]
+- id: a-rough-hewn-hall-102
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 27, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-103
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 29, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-104
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 31, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-105
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [5, 33, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-106
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 1, 0]
+- id: a-rough-hewn-hall-107
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 3, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-108
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-109
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 5, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-110
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 7, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-111
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-112
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 10, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-113
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 11, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-114
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 13, 0]
+- id: a-rough-hewn-hall-115
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 15, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-116
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 20, 0]
+- id: a-rough-hewn-hall-117
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 25, 0]
+- id: a-pool-of-murky-water-118
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [6, 27, 0]
+- id: a-rough-hewn-hall-119
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 28, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-120
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 29, 0]
+- id: a-rough-hewn-hall-121
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [6, 31, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-122
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [6, 33, 0]
+  npcs: *ref_1
+- id: shrine--waypoint-123
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [7, 1, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-rough-hewn-hall-124
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 3, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-125
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-126
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-127
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 7, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-128
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 9, 0]
+- id: a-pool-of-murky-water-129
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [7, 11, 0]
+- id: a-pool-of-murky-water-130
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [7, 13, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-131
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 15, 0]
+- id: a-rough-hewn-hall-132
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 17, 0]
+- id: a-rough-hewn-hall-133
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 18, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-134
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-135
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [7, 20, 0]
+- id: a-rough-hewn-hall-136
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 21, 0]
+- id: a-rough-hewn-hall-137
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 22, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-138
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 23, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-139
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [7, 24, 0]
+- id: a-rough-hewn-hall-140
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 25, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-141
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [7, 27, 0]
+- id: a-pool-of-murky-water-142
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [7, 29, 0]
+- id: a-rough-hewn-hall-143
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 31, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-144
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [7, 32, 0]
+- id: a-rough-hewn-hall-145
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [7, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-146
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 1, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-147
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 3, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-148
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 4, 0]
+- id: a-rough-hewn-hall-149
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-150
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [8, 7, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-151
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-152
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 11, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-153
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 13, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-154
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [8, 15, 0]
+- id: a-rough-hewn-hall-155
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 17, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-156
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [8, 18, 0]
+- id: a-rough-hewn-hall-157
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-158
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 20, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-159
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [8, 21, 0]
+- id: a-pool-of-murky-water-160
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [8, 23, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-161
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 25, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-162
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [8, 27, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-163
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [8, 29, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-164
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [8, 31, 0]
+- id: a-pool-of-murky-water-165
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [9, 1, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-166
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 3, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-167
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 4, 0]
+- id: a-rough-hewn-hall-168
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-169
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 7, 0]
+- id: a-rough-hewn-hall-170
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 9, 0]
+- id: a-rough-hewn-hall-171
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 11, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-172
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 12, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-173
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 13, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-174
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 14, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-175
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 15, 0]
+- id: a-rough-hewn-hall-176
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 17, 0]
+- id: a-rough-hewn-hall-177
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 18, 0]
+- id: a-rough-hewn-hall-178
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-179
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 20, 0]
+- id: a-rough-hewn-hall-180
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 21, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: shrine--waypoint-181
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [9, 23, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-pool-of-murky-water-182
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [9, 25, 0]
+- id: a-rough-hewn-hall-183
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 26, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-184
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 27, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-185
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 29, 0]
+- id: a-rough-hewn-hall-186
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 30, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-187
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [9, 31, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-188
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 32, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-189
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [9, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-190
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [10, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-191
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [10, 3, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-192
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [10, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-193
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [10, 5, 0]
+- id: a-rough-hewn-hall-194
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [10, 7, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-195
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [10, 9, 0]
+- id: a-pool-of-murky-water-196
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [10, 11, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-197
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [10, 13, 0]
+- id: a-pool-of-murky-water-198
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [10, 15, 0]
+- id: a-rough-hewn-hall-199
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [10, 18, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-200
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [10, 25, 0]
+- id: a-pool-of-murky-water-201
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [10, 29, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-202
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-203
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 3, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-204
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 4, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-205
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 5, 0]
+- id: a-rough-hewn-hall-206
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 7, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-207
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 9, 0]
+- id: a-rough-hewn-hall-208
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 11, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-209
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 13, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-210
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 15, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-211
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 17, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-212
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 18, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-213
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-214
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 20, 0]
+- id: a-rough-hewn-hall-215
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 21, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-216
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 22, 0]
+- id: a-pool-of-murky-water-217
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 23, 0]
+- id: a-pool-of-murky-water-218
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 25, 0]
+- id: a-pool-of-murky-water-219
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 27, 0]
+- id: a-pool-of-murky-water-220
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 28, 0]
+- id: a-pool-of-murky-water-221
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 29, 0]
+- id: a-pool-of-murky-water-222
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 31, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-223
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [11, 32, 0]
+- id: a-rough-hewn-hall-224
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [11, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-225
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-226
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 3, 0]
+- id: a-rough-hewn-hall-227
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 4, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-228
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [12, 5, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-229
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 7, 0]
+- id: a-rough-hewn-hall-230
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-231
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 11, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-232
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 13, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-233
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 15, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-234
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 18, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-235
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 27, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-236
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 28, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-237
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 29, 0]
+- id: a-pool-of-murky-water-238
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [12, 30, 0]
+- id: a-rough-hewn-hall-239
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 31, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-240
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [12, 32, 0]
+- id: a-pool-of-murky-water-241
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [12, 33, 0]
+- id: a-pool-of-murky-water-242
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [13, 1, 0]
+- id: a-rough-hewn-hall-243
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 3, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-244
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 4, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-245
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 5, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-246
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 7, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-247
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 9, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-248
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 11, 0]
+- id: a-rough-hewn-hall-249
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 13, 0]
+- id: a-pool-of-murky-water-250
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [13, 15, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-251
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 16, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-252
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [13, 17, 0]
+- id: a-rough-hewn-hall-253
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 18, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-254
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 19, 0]
+  npcs: *ref_0
+- id: shrine--waypoint-255
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [13, 20, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-pool-of-murky-water-256
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [13, 21, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-257
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 22, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-258
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 23, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-259
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 24, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-260
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 25, 0]
+- id: a-rough-hewn-hall-261
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 27, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-262
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 28, 0]
+- id: a-rough-hewn-hall-263
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 29, 0]
+- id: a-rough-hewn-hall-264
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 31, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-265
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 32, 0]
+- id: a-rough-hewn-hall-266
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [13, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-267
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [14, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-268
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [14, 3, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-269
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [14, 4, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-270
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [14, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-271
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [14, 7, 0]
+- id: a-rough-hewn-hall-272
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [14, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-273
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [14, 13, 0]
+- id: a-rough-hewn-hall-274
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [14, 15, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-275
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 1, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-276
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 2, 0]
+- id: a-rough-hewn-hall-277
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 3, 0]
+- id: a-rough-hewn-hall-278
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 4, 0]
+- id: a-pool-of-murky-water-279
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 5, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-280
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 7, 0]
+- id: a-rough-hewn-hall-281
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-282
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 11, 0]
+- id: a-rough-hewn-hall-283
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 13, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-284
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 15, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-285
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 16, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-286
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 17, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-287
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 18, 0]
+- id: a-rough-hewn-hall-288
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 19, 0]
+- id: a-rough-hewn-hall-289
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 20, 0]
+- id: a-rough-hewn-hall-290
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 21, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-291
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 22, 0]
+- id: a-rough-hewn-hall-292
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 23, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-293
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 24, 0]
+- id: a-rough-hewn-hall-294
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 25, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-295
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 27, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-296
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [15, 29, 0]
+- id: a-rough-hewn-hall-297
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 30, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-298
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 31, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-299
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 32, 0]
+- id: a-rough-hewn-hall-300
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [15, 33, 0]
+- id: shrine--waypoint-301
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [16, 4, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-rough-hewn-hall-302
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [16, 7, 0]
+- id: a-rough-hewn-hall-303
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [16, 9, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-304
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [16, 11, 0]
+- id: a-rough-hewn-hall-305
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [16, 13, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-306
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [16, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-307
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [16, 23, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-308
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [16, 27, 0]
+- id: a-pool-of-murky-water-309
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [16, 29, 0]
+- id: a-rough-hewn-hall-310
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-311
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 3, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-312
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [17, 4, 0]
+- id: a-rough-hewn-hall-313
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-314
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 7, 0]
+- id: a-pool-of-murky-water-315
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [17, 9, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-316
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [17, 11, 0]
+- id: a-rough-hewn-hall-317
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 13, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-318
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 15, 0]
+- id: a-rough-hewn-hall-319
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 16, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-320
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [17, 17, 0]
+- id: a-rough-hewn-hall-321
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 18, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-322
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 19, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-323
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 20, 0]
+- id: a-rough-hewn-hall-324
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 21, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-325
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 23, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-326
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 24, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-327
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 25, 0]
+- id: a-rough-hewn-hall-328
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 27, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-329
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [17, 28, 0]
+- id: a-rough-hewn-hall-330
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 29, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-331
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 30, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-332
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [17, 31, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-333
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 32, 0]
+- id: a-rough-hewn-hall-334
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [17, 33, 0]
+- id: a-rough-hewn-hall-335
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 1, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-336
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 3, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-337
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 4, 0]
+- id: a-pool-of-murky-water-338
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [18, 5, 0]
+- id: a-pool-of-murky-water-339
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [18, 7, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-340
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 9, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-341
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 11, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-342
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 13, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-343
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [18, 15, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-344
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [18, 19, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-345
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 21, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-346
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 23, 0]
+- id: a-rough-hewn-hall-347
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [18, 30, 0]
+- id: a-rough-hewn-hall-348
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-349
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 2, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-350
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [19, 3, 0]
+- id: a-rough-hewn-hall-351
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 4, 0]
+- id: shrine--waypoint-352
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [19, 5, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: shrine--waypoint-353
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [19, 7, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-pool-of-murky-water-354
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [19, 9, 0]
+- id: a-rough-hewn-hall-355
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 11, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-356
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 13, 0]
+- id: a-rough-hewn-hall-357
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 15, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-358
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 16, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-359
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 17, 0]
+- id: a-rough-hewn-hall-360
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-361
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 21, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-362
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [19, 23, 0]
+- id: a-pool-of-murky-water-363
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [19, 24, 0]
+- id: a-rough-hewn-hall-364
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 25, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-365
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 26, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-366
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 27, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-367
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 28, 0]
+- id: a-pool-of-murky-water-368
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [19, 29, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-369
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [19, 30, 0]
+- id: a-rough-hewn-hall-370
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 31, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-371
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 32, 0]
+- id: a-rough-hewn-hall-372
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [19, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-373
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [20, 1, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-374
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [20, 3, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-375
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [20, 4, 0]
+- id: a-rough-hewn-hall-376
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [20, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-377
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [20, 7, 0]
+- id: a-pool-of-murky-water-378
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [20, 8, 0]
+- id: a-rough-hewn-hall-379
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [20, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-380
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [20, 11, 0]
+- id: a-rough-hewn-hall-381
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [20, 13, 0]
+- id: a-rough-hewn-hall-382
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [20, 25, 0]
+- id: a-rough-hewn-hall-383
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 1, 0]
+- id: a-rough-hewn-hall-384
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 3, 0]
+- id: a-rough-hewn-hall-385
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-386
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [21, 5, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-387
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 7, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-388
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 9, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-389
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [21, 11, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-390
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 12, 0]
+- id: a-pool-of-murky-water-391
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [21, 13, 0]
+- id: a-rough-hewn-hall-392
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 15, 0]
+- id: a-rough-hewn-hall-393
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 16, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-394
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 17, 0]
+- id: a-rough-hewn-hall-395
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 19, 0]
+- id: a-rough-hewn-hall-396
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 20, 0]
+- id: a-rough-hewn-hall-397
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 21, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-398
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 23, 0]
+- id: a-rough-hewn-hall-399
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 25, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-400
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 26, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-401
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 27, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-402
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 28, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-403
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [21, 29, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-404
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 31, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-405
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [21, 32, 0]
+  npcs: *ref_0
+- id: shrine--waypoint-406
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [21, 33, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-rough-hewn-hall-407
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 1, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-408
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 3, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-409
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 4, 0]
+- id: a-rough-hewn-hall-410
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 5, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-411
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 7, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-412
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [22, 9, 0]
+- id: a-rough-hewn-hall-413
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 11, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-414
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [22, 13, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-415
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 16, 0]
+- id: a-pool-of-murky-water-416
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [22, 20, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-417
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 23, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-418
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 28, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-419
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [22, 32, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-420
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 1, 0]
+- id: a-pool-of-murky-water-421
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 3, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-422
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 4, 0]
+- id: a-rough-hewn-hall-423
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 5, 0]
+- id: a-rough-hewn-hall-424
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 7, 0]
+- id: a-pool-of-murky-water-425
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 9, 0]
+- id: a-rough-hewn-hall-426
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 11, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-427
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 13, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-428
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 15, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-429
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 16, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-430
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 17, 0]
+- id: a-rough-hewn-hall-431
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 19, 0]
+- id: a-rough-hewn-hall-432
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 20, 0]
+- id: a-rough-hewn-hall-433
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 21, 0]
+- id: a-pool-of-murky-water-434
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 23, 0]
+- id: a-rough-hewn-hall-435
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 24, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-436
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 25, 0]
+- id: a-pool-of-murky-water-437
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 26, 0]
+- id: a-rough-hewn-hall-438
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 27, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-439
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 28, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-440
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 29, 0]
+- id: a-pool-of-murky-water-441
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 30, 0]
+- id: a-rough-hewn-hall-442
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [23, 31, 0]
+- id: a-pool-of-murky-water-443
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 32, 0]
+- id: a-pool-of-murky-water-444
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [23, 33, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-445
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 1, 0]
+- id: a-rough-hewn-hall-446
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 3, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-447
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-448
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [24, 5, 0]
+- id: a-pool-of-murky-water-449
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [24, 7, 0]
+  npcs: *ref_1
+- id: shrine--waypoint-450
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [24, 9, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-rough-hewn-hall-451
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 11, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-452
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [24, 13, 0]
+- id: a-rough-hewn-hall-453
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 15, 0]
+- id: a-rough-hewn-hall-454
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 16, 0]
+- id: a-pool-of-murky-water-455
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [24, 17, 0]
+- id: a-pool-of-murky-water-456
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [24, 19, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-457
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 20, 0]
+- id: a-rough-hewn-hall-458
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 21, 0]
+- id: a-rough-hewn-hall-459
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [24, 23, 0]
+- id: a-pool-of-murky-water-460
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [24, 31, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-461
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 1, 0]
+- id: a-rough-hewn-hall-462
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 3, 0]
+- id: a-rough-hewn-hall-463
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-464
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 5, 0]
+- id: a-pool-of-murky-water-465
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 7, 0]
+- id: a-rough-hewn-hall-466
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 9, 0]
+- id: a-pool-of-murky-water-467
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 11, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-468
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 13, 0]
+- id: a-rough-hewn-hall-469
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 15, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-470
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 16, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-471
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 17, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-472
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 18, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-473
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-474
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 20, 0]
+- id: a-rough-hewn-hall-475
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 21, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-476
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 22, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-477
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 23, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-478
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 25, 0]
+- id: a-pool-of-murky-water-479
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 26, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-480
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 27, 0]
+- id: a-rough-hewn-hall-481
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 28, 0]
+- id: a-rough-hewn-hall-482
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 29, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-483
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 30, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-484
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [25, 31, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: shrine--waypoint-485
+  title: Shrine (Waypoint)
+  description: In the center of this space is a raised obsidian dais. It pulses with an obscene red light and is streaked with blood.
+  coordinates: [25, 32, 0]
+  npcs: *ref_4
+  behaviors: *ref_5
+- id: a-pool-of-murky-water-486
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [25, 33, 0]
+- id: a-rough-hewn-hall-487
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [26, 5, 0]
+- id: a-rough-hewn-hall-488
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [26, 26, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-489
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 1, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-490
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 2, 0]
+- id: a-rough-hewn-hall-491
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 3, 0]
+- id: a-pool-of-murky-water-492
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 4, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-493
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 5, 0]
+- id: a-pool-of-murky-water-494
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 6, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-495
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 7, 0]
+- id: a-pool-of-murky-water-496
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 8, 0]
+- id: a-rough-hewn-hall-497
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 9, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-498
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 11, 0]
+- id: a-rough-hewn-hall-499
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 12, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-500
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 13, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-501
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 14, 0]
+- id: a-rough-hewn-hall-502
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 15, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-503
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 16, 0]
+- id: a-rough-hewn-hall-504
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 17, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-505
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 18, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-506
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 19, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-507
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 20, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-508
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 21, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-509
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 22, 0]
+- id: a-pool-of-murky-water-510
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 23, 0]
+- id: a-pool-of-murky-water-511
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 24, 0]
+- id: a-rough-hewn-hall-512
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 25, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-513
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 26, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-514
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 27, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-515
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 28, 0]
+- id: a-rough-hewn-hall-516
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 29, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-517
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 30, 0]
+- id: a-rough-hewn-hall-518
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 31, 0]
+- id: a-pool-of-murky-water-519
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [27, 32, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-520
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [27, 33, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-521
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 1, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-522
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 2, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-523
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 3, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-524
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 4, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-525
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 5, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-526
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 6, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-527
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 7, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-528
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 8, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-529
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 9, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-530
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 11, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-531
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 12, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-532
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 13, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-533
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 14, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-534
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 15, 0]
+- id: a-rough-hewn-hall-535
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 16, 0]
+- id: a-rough-hewn-hall-536
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 17, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-537
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 18, 0]
+  npcs: *ref_1
+- id: a-pool-of-murky-water-538
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 19, 0]
+- id: a-pool-of-murky-water-539
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 20, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-540
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 21, 0]
+- id: a-rough-hewn-hall-541
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 22, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-pool-of-murky-water-542
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 23, 0]
+- id: a-pool-of-murky-water-543
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 24, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-544
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 25, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-545
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 26, 0]
+  npcs: *ref_1
+- id: a-rough-hewn-hall-546
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 27, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-547
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 28, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-548
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 29, 0]
+  npcs: *ref_2
+  items: *ref_3
+- id: a-rough-hewn-hall-549
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 30, 0]
+- id: a-rough-hewn-hall-550
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 31, 0]
+  npcs: *ref_0
+- id: a-rough-hewn-hall-551
+  title: A Rough-Hewn Hall
+  description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
+  coordinates: [28, 32, 0]
+  npcs: *ref_0
+- id: a-pool-of-murky-water-552
+  title: A Pool of Murky Water
+  description: This space is a bit wider than the surrounding halls and chambers. In the center is a pool of murky water. It is impossible to tell how deep it is. Water drips from stalactites that have formed above it.
+  coordinates: [28, 33, 0]

@@ -2,7 +2,7 @@ const COMMON = 50;
 const UNCOMMON = 30;
 const RARE = 10;
 
-module.exports = [{
+module.exports = {
   rough_hewn_hall_empty: {
     weight: COMMON,
     title: 'A Rough-Hewn Hall',
@@ -44,4 +44,4 @@ module.exports = [{
     npcs: ['depths:gug'],
     behaviors: { waypoint: true }
   }
-}]
+};

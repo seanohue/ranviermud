@@ -71,7 +71,7 @@ module.exports = {
       defaults, 
       config, 
       { filepath: baseFilePath + filename });
-
+    console.log('building with ', axolemmaOptions);
     return axolemma.generate(axolemmaOptions)
       .then((generated) => {
         console.log('generated...', generated.graphic); 

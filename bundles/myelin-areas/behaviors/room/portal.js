@@ -49,7 +49,7 @@ module.exports = srcPath => {
 
           let goToArea = 'labyrinth';
           if (config.keyId.includes('minotaur')) {
-            goToArea = 'depths';
+            goToArea = 'ruins';
           }
 
           if (!key || key.entityReference !== config.keyId) {
@@ -69,7 +69,6 @@ module.exports = srcPath => {
           // Have it remove the player from the room, broadcasting such to them and anyone else there.
           //TODO: Do this to entire party... Have them in a limbo of sorts? Have them vote? Idk.
           player._isUsingPortal = true;
-          generator.generate(srcPath, state, 25);
           // PortalDestinations = new Map();
           // for (const [areaName, area] of state.AreaManager.areas) {
           //   const nope = ['intro', 'limbo', 'map'];
