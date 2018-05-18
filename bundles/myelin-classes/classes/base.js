@@ -67,6 +67,10 @@ module.exports = srcPath => {
           intellect: 14,
           willpower: 11
         },
+        empower: {
+          level: 5,
+          willpower: 20
+        },
         combust: {
           level: 1,
           intellect: 15,

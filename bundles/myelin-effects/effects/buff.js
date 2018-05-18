@@ -6,10 +6,10 @@ module.exports = srcPath => {
 
   return {
     config: {
-      name: 'Buff Strength',
-      description: "You feel stronger!",
+      name: 'Buff',
+      description: "You feel stronger and faster!",
       duration: 30 * 1000,
-      type: 'buff.strength',
+      type: 'buff.physical',
     },
     flags: [Flag.BUFF],
     state: {
@@ -17,18 +17,21 @@ module.exports = srcPath => {
     },
     modifiers: {
       attributes: {
-        strength: function (current) {
+        might(current) {
+          return current + this.state.magnitude;
+        },
+        quickness(current) {
           return current + this.state.magnitude;
         }
       }
     },
     listeners: {
-      effectActivated: function () {
-        Broadcast.sayAt(this.target, "Strength courses through your veins!");
+      effectActivated() {
+        Broadcast.sayAt(this.target, "Power courses through your veins!");
       },
 
-      effectDeactivated: function () {
-        Broadcast.sayAt(this.target, "You feel weaker.");
+      effectDeactivated() {
+        Broadcast.sayAt(this.target, "You feel weaker and slower.");
       }
     }
   };
