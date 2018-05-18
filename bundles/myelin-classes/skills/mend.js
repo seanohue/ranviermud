@@ -60,8 +60,9 @@ module.exports = (srcPath) => {
       });
 
       if (atFullHealth) {
-        player.commit(heal); // restore focus cost.
-        return Broadcast.sayAt(player, `<bold>${target} is already fully healed.`);
+        heal.hidden = true;
+        heal.commit(player); // restore focus cost.
+        return Broadcast.sayAt(player, `<bold>${target.name} is already fully healed.`);
       }
 
       if (target !== player) {
