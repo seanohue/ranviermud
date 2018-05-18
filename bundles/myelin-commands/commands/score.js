@@ -115,6 +115,9 @@ module.exports = (srcPath) => {
       //TODO: Currencies/resources.
 
       say(B.box('bottom', p.name || '', width));
+
+      state.CommandManager.get('currency').execute('', player);
+      state.CommandManager.get('resources').execute('', player);
     }
   };
 };
