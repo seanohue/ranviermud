@@ -34,10 +34,10 @@
     energy: 125
     focus: 250
     might: 8
-    quickness: 25
+    quickness: 35
     intellect: 11
     willpower: 21
-    critical: 5
+    critical: 15
     armor: 2
   metadata:
     minDamage: 1
