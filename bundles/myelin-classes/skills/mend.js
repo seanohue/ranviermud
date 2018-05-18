@@ -13,7 +13,7 @@ module.exports = (srcPath) => {
   function getHeal(player) {
     return {
       min: player.getAttribute('willpower'),
-      max: player.getAttribute('willpower') * (healPercent / 100) + (player.getAttribute('intellect') * 0.5)
+      max: player.getAttribute('willpower') * (healPercent / 100) + (player.getAttribute('intellect') * 0.5) 
     };  
   }
 
@@ -32,17 +32,42 @@ module.exports = (srcPath) => {
 
     run: state => function (args, player, target) {
       const healRange = getHeal(player);
+      const maxHealth = target.getMaxAttribute('health');
+      const currentHealth = target.getAttribute('health');
+      let amount = Random.inRange(healRange.min, healRange.max);
+
+      let attribute = 'health';
+      // if (currentHealth >= maxHealth) {
+      //   attribute = 'energy';
+      //   const maxEnergy = target.getMaxAttribute('energy');
+      //   const currentEnergy = target.getAttribute('energy');
+
+      //   if (currentEnergy >= maxEnergy) {
+      //     attribute = 'focus';
+      //   }
+      // }
+      const atFullHealth = currentHealth >= maxHealth;
+      if (atFullHealth) {
+        attribute = 'focus';
+        amount = focusCost;
+      }
+
       const heal = new Heal({
-        attribute: 'health',
-        amount:    Random.inRange(healRange.min, healRange.max),
+        attribute,
+        amount,
         attacker:  player,
         source:    this
       });
 
+      if (atFullHealth) {
+        player.commit(heal); // restore focus cost.
+        return Broadcast.sayAt(player, `<bold>${target} is already fully healed.`);
+      }
+
       if (target !== player) {
         Broadcast.sayAt(player, `<bold>You concentrate on mending ${target.name}'s wounds.</bold>`);
         Broadcast.sayAtExcept(player.room, `bold>${player.name} closes their eyes, concentrating on ${target.name}'s wounds.</bold>`, [target, player]);
-        Broadcast.sayAt(target, `<bold>${player.name} closes their eyes,and you can feel your wounds mending themselves.</bold>`);
+        if (!target.isNpc) Broadcast.sayAt(target, `<bold>${player.name} closes their eyes,and you can feel your wounds mending themselves.</bold>`);
       } else {
         Broadcast.sayAt(player, "<bold>You concentrate on soothing your own wounds.</bold>");
         Broadcast.sayAtExcept(player.room, `<bold>${player.name} concentrates, and their wounds mend themselves before your eyes.</bold>`, [player, target]);
@@ -53,7 +78,7 @@ module.exports = (srcPath) => {
 
     info: (player) => {
       const healRange = getHeal(player);
-      return `Psionically heal your target's wounds for ${healRange.min} to ${healRange.max} health.`;
+      return `Psionically heal your target's wounds for ${healRange.min} to ${healRange.max} health. If they are at full health, it will give them energy. If they have full health and energy, it will restore their focus.`;
     }
   };
 };
