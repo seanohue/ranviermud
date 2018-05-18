@@ -62,9 +62,22 @@ class Combat {
       return false;
     }
     if (attacker.hasEffectType('skill:stun')) {
-      console.log('Attacker is stunned!!!'.repeat(10));
-      if (!attacker.isNpc) Broadcast.sayAt(attacker, '<yellow><b>You are stunned!</b></yellow>');
-      if (!target.isNpc) Broadcast.sayAt(target, `<yellow>${attacker.name} is stunned!</yellow>`);
+      let shouldAnnounce = true;
+      if (!attacker.lastAnnouncedStun) {
+        attacker.lastAnnouncedStun = Date.now();
+      } else {
+        if (Date.now() - attacker.lastAnnouncedStun >= 4000) {
+          attacker.lastAnnouncedStun = Date.now();
+        } else {
+          shouldAnnounce = false;
+        }
+      }
+      
+      if (shouldAnnounce) {
+        if (!attacker.isNpc) Broadcast.sayAt(attacker, '<yellow><b>You are stunned!</b></yellow>');
+        if (!target.isNpc) Broadcast.sayAt(target, `<yellow>${attacker.name} is stunned!</yellow>`);
+      }
+
       return false;
     }
 
@@ -152,12 +165,12 @@ class Combat {
    * @param {Character} target
    */
   static makeAttack(attacker, target) {
-    console.log(attacker.name, [...attacker.effects.effects].map(effect => effect.config.type));
     const rawDamageAmount = attacker.hasEffectType('skill:stun') ? 0 : this.calculateWeaponDamage(attacker);
     const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
     const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, attacker, isPsionic), 0);
     const damage = new Damage({ attribute: 'health', amount, attacker });
-    damage.commit(target);
+    damage.type === isPsionic ? 'psionic' : 'physical';
+    damage.commit(target); 
 
     if (target.getAttribute('health') <= 0) {
       target.combatData.killedBy = attacker;

@@ -30,7 +30,7 @@ module.exports = (srcPath, bundlePath) => {
       const usable = item.getBehavior('usable');
       if (!usable) {
         // Special portal code...
-        if (item.entityReference.includes('portalkey')){
+        if (item.entityReference.includes('key')){
           if (player.room.hasBehavior('portal')) {
             say("<b>You use the key...</b>");
             return player.room.emit('usePortal', player, item);

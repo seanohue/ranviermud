@@ -44,7 +44,7 @@
 - id: vendorauto
   keywords: ['vendor', 'automaton']
   name: Vending Automaton
-  level: 25
+  level: 40
   description: "This automaton is a hulking block with a glass front. It has two treads that it uses to get around, one on each side. It is filled with various goods. A funnel is jutting from one side of the machine, presumably for payment. A small tube juts from the lower front center of the automaton, for dispensing goods."
   skills: ['block']
   behaviors:
@@ -55,17 +55,17 @@
       resources: 
         scrap_metal:
           min: 5
-          max: 15
+          max: 150
         gear:
           min: 2
-          max: 4
+          max: 40
         piston:
           min: 1
-          max: 4
+          max: 40
       currency:
         theans:
           min: 5
-          max: 500
+          max: 5000
       pools:
         - spire.intro:portalkey: 50
         - spire.labyrinth:jumpsuit: 20
