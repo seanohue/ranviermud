@@ -1,0 +1,39 @@
+---
+body: |
+  Welcome to MYELIN.
+
+  Myelin is a permadeath MUD with lineages. What that means is that while your character can die permanently, some attributes
+  will be carried on from character to character. Specifically, your characters gain 'memories' during their lifetime which can
+  then be spent during character creation.
+
+  Some general tips:
+
+  - Look for Resources to use the 'gather' command on.
+
+  - You may be attacked or try to 'kill' an enemy. 
+
+  - 'Flee'ing is a valid tactic.
+
+  - Don't forget to use your 'skills'.
+
+  - Find or 'craft' a key to the portal.
+
+  - Playing with friends is fun, you can 'follow' each other.
+  
+  - Once you level up, be sure to 'learn' and 'train'.
+related:
+  - gather
+  - kill
+  - flee
+  - skills
+  - craft
+  - follow
+  - learn
+  - train
+keywords:
+  - newbie
+  - tutorial
+  - intro
+  - tips
+  - hints
+  - advice

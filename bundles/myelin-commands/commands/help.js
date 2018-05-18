@@ -4,6 +4,7 @@
 module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
   const Logger = require(srcPath + 'Logger');
+  const width = 40;
 
   return {
     usage: 'help [search] [topic keyword]',
@@ -38,7 +39,6 @@ module.exports = (srcPath) => {
     let body = hfile.body;
     const name = hfile.name;
 
-    const width = 80;
     const bar = B.line(width, '-', 'yellow') + '\r\n';
 
     let header = bar + B.center(width, name, 'white') + '\r\n' + bar;
@@ -64,7 +64,7 @@ module.exports = (srcPath) => {
       footer += bar;
     }
 
-    return header + B.wrap(hfile.body, 80) + footer;
+    return header + B.wrap(hfile.body, width) + footer;
   }
 
   function searchHelpfiles(args, player, state) {
@@ -82,9 +82,9 @@ module.exports = (srcPath) => {
       const [ _, hfile ] = [...results][0];
       return B.sayAt(player, render(state, hfile));
     }
-    B.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
+    B.sayAt(player, "<yellow>--------------------------</yellow>");
     B.sayAt(player, "<white>Search Results:</white>");
-    B.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
+    B.sayAt(player, "<yellow>--------------------------</yellow>");
 
     for (const [name, help] of results) {
       B.sayAt(player, `<cyan>${name}</cyan>`);
