@@ -42,11 +42,11 @@ module.exports = srcPath => {
         try {
           if (_config === true) _config = {};
 
-          const config = Object.assign(_config || {}, {
+          const config = Object.assign({
             keyId: 'spire.intro:portalkey',
             flags: []
-          });
-
+          }, _config || {});
+          console.log(key.entityReference, config.keyId);
           let goToArea = 'labyrinth';
           if (config.keyId.includes('minotaur')) {
             goToArea = 'ruins';
