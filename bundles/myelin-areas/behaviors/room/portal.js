@@ -47,6 +47,11 @@ module.exports = srcPath => {
             flags: []
           });
 
+          let goToArea = 'labyrinth';
+          if (config.keyId.includes('minotaur')) {
+            goToArea = 'depths';
+          }
+
           if (!key || key.entityReference !== config.keyId) {
             return Broadcast.sayAt(player, '<yellow><b>This portal wants a different key...</b></yellow>');
           }
@@ -64,7 +69,7 @@ module.exports = srcPath => {
           // Have it remove the player from the room, broadcasting such to them and anyone else there.
           //TODO: Do this to entire party... Have them in a limbo of sorts? Have them vote? Idk.
           player._isUsingPortal = true;
-
+          generator.generate(srcPath, state, 25);
           // PortalDestinations = new Map();
           // for (const [areaName, area] of state.AreaManager.areas) {
           //   const nope = ['intro', 'limbo', 'map'];
@@ -78,7 +83,7 @@ module.exports = srcPath => {
           
           if (true) {
             console.log(state.AreaManager.areas);
-            const destinationRoom = Array.from(state.AreaManager.getArea('labyrinth').rooms.values())[0];
+            const destinationRoom = Array.from(state.AreaManager.getArea(goToArea).rooms.values())[0];
             return movePlayerToPortalDestination(destinationRoom.entityReference);
           }
 

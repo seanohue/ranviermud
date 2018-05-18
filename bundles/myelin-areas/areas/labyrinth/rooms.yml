@@ -39,6 +39,7 @@
   coordinates: [1, 7, 0]
   level: 7
   npcs: *ref_0
+  items: ['spire.labyrinth:pilebones']
 - id: a-cold-hall-7
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
@@ -143,6 +144,7 @@
   description: Bones and gristle litter this bloodstained chamber. The floors and walls are horrifically gouged.
   coordinates: [3, 5, 0]
   npcs: &ref_11 ['spire.labyrinth:minotaur']
+  items: ['spire.labyrinth:pilebones']
   level: 12
   behaviors: &ref_12 {startquest: {questId: 'spire.labyrinth:killminotaur'}}
 - id: a-cold-hall-25
@@ -176,6 +178,7 @@
   coordinates: [3, 13, 0]
   npcs: *ref_11
   level: 12
+  items: ['spire.labyrinth:pilebones']
   behaviors: *ref_12
 - id: portal-chamber-30
   title: Portal Chamber
@@ -214,6 +217,7 @@
   npcs: *ref_11
   level: 12
   behaviors: *ref_12
+  items: ['spire.labyrinth:pilebones']
 - id: tube-chamber-36
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
@@ -275,10 +279,12 @@
   npcs: *ref_11
   level: 12
   behaviors: *ref_12
+  items: ['spire.labyrinth:pilebones']
 - id: a-cold-hall-46
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [5, 9, 0]
+  items: ['spire.labyrinth:pilebones']
 - id: portal-chamber-47
   title: Portal Chamber
   description: A small room with metal vault doors here and there.
@@ -585,6 +591,7 @@
   npcs: *ref_11
   level: 12
   behaviors: *ref_12
+  items: ['spire.labyrinth:pilebones']
 - id: tube-chamber-100
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'

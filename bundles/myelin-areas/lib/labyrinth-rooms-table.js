@@ -70,6 +70,7 @@ module.exports = {
     title: 'Minotaur\s Chamber',
     description: 'Bones and gristle litter this bloodstained chamber. The floors and walls are horrifically gouged.',
     npcs: ['spire.labyrinth:minotaur'],
+    items: ['spire.labyrinth:pilebones'],
     level: 12,
     behaviors: {
       startquest: { questId: 'spire.labyrinth:killminotaur' }

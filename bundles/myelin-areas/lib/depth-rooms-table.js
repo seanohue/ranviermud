@@ -29,6 +29,14 @@ module.exports = [{
     npcs: ['depths:blupe']
   },
 
+  rough_hewn_hall_minotaur: {
+    weight: COMMON,
+    title: 'A Rough-Hewn Hall',
+    description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.',
+    npcs: ['spire.labyrinth:minotaur'],
+    items: ['spire.labyrinth:pilebones'],
+  },
+
   waypoint_shrine: {
     weight: RARE,
     title: 'Shrine (Waypoint)',
