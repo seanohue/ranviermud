@@ -62,11 +62,11 @@ module.exports = srcPath => {
           willpower: 12,
           cost: 1
         },
-        enervate: {
-          level: 1,
-          intellect: 14,
-          willpower: 11
-        },
+        // enervate: {
+        //   level: 1,
+        //   intellect: 14,
+        //   willpower: 11
+        // },
         combust: {
           level: 1,
           intellect: 15,
