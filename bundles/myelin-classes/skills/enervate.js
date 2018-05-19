@@ -14,7 +14,7 @@ module.exports = (srcPath) => {
   function getHeal(player) {
     return {
       min: player.getAttribute('intellect') * (healPercent / 100),
-      max: player.getAttribute('intellect') * (healPercent / 100) + player.getAttribute('willpower');
+      max: player.getAttribute('intellect') * (healPercent / 100) + player.getAttribute('willpower')
     }
   }
 
