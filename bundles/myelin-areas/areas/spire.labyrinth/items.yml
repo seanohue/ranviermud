@@ -95,9 +95,9 @@
 - id: leatherpants
   name: "Leather Pants"
   type: ARMOR
-  roomDesc: "Leather Jerkin"
-  keywords: ["leather", "jerkin"]
-  description: "A sleeveless jacket made mostly of leather strips. For those who want to look tough and stop smaller blades from puncturing them, all at the same time."
+  roomDesc: "Leather Pants"
+  keywords: ["leather", "pants"]
+  description: "A pair of pants seemingly made of leather. Simultaneously skintight and one-size-fits-all, somehow. Thick."
   level: 1
   slot: "legs"
   quality: common
