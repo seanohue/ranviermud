@@ -7,13 +7,15 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
   const Random    = require(srcPath + 'RandomUtil');
 
-  const healPercent = 120;
+  const healPercent = 200;
   const focusCost   = 40;
 
   function getHeal(player) {
     return {
-      min: player.getAttribute('willpower'),
-      max: player.getAttribute('willpower') * (healPercent / 100) + (player.getAttribute('intellect') * 0.5) 
+      min: player.getAttribute('willpower') + (player.level || 0),
+      max: player.getAttribute('willpower') * (healPercent / 100) 
+           + (player.getAttribute('intellect') * 0.5) 
+           + (player.level * 2 || 1)
     };  
   }
 
