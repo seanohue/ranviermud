@@ -24,7 +24,7 @@
       currency:
         theans:
           min: 1
-          max: 5
+          max: 15
     ranvier-wander:
       interval: 30
 
@@ -64,7 +64,7 @@
           max: 40
       currency:
         theans:
-          min: 5
+          min: 500
           max: 5000
       pools:
         - spire.intro:portalkey: 50
@@ -129,7 +129,7 @@
       currency:
         theans:
           min: 1
-          max: 15
+          max: 30
     ranvier-wander: 
       interval: 15
   attributes:
@@ -163,8 +163,8 @@
           max: 2
       currency:
         theans:
-          min: 1
-          max: 5
+          min: 3
+          max: 35
     ranvier-wander: 
       interval: 20
       restrictTo: 
