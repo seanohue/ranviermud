@@ -34,7 +34,6 @@ module.exports = (srcPath) => {
     cooldown: 6,
 
     run: state => function (args, player, target) {
-      this.verb = 'crushed';
       const damage = new Damage({
         attribute: 'health',
         amount: totalDamage(player),
@@ -42,6 +41,7 @@ module.exports = (srcPath) => {
         type: 'crushing',
         source: this
       });
+      damage.verb = 'crushes';
 
       const duration = Math.ceil(player.getMaxAttribute('might') / 5);
       const isStunned = Random.probability(stunPercent + player.getMaxAttribute('might'));

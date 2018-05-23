@@ -41,7 +41,7 @@ module.exports = (srcPath) => {
     cooldown: 12,
 
     run: state => function (args, player, target) {
-      this.verb = 'jabbed';
+      this.verb = 'jabs';
       const damage = new Damage({
         attribute: 'health',
         amount:    totalDamage(player),

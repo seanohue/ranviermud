@@ -34,6 +34,7 @@ module.exports = (srcPath) => {
         type: 'fire', // eventually, fire
         source: this
       });
+      damage.verb = 'burns';
 
       Broadcast.sayAt(player, `<bold>You will forth a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at ${target.name}!</bold>`);
       Broadcast.sayAtExcept(player.room, `<bold>With a gesture and a glare, ${player.name} unleashes a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at ${target.name}!</bold>`, [player, target]);

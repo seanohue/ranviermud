@@ -16,32 +16,35 @@ module.exports = srcPath => {
     },
     flags: [Flag.DEBUFF],
     listeners: {
-      effectStackAdded: function (newEffect) {
+      effectStackAdded(newEffect) {
         // add incoming rend's damage to the existing damage but don't extend duration
         this.state.totalDamage += newEffect.state.totalDamage;
       },
 
-      effectActivated: function () {
+      effectActivated() {
         Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely</red></bold>");
       },
 
-      effectDeactivated: function () {
+      effectDeactivated() {
         Broadcast.sayAt(this.target, "Your wound has stopped bleeding.");
       },
 
-      updateTick: function () {
+      updateTick() {
         const amount = Math.round(this.state.totalDamage / Math.round((this.config.duration / 1000) / this.config.tickInterval));
-
+        console.log('rend amount:', amount);
         const damage = new Damage({
           attribute: "health",
           amount,
+          type: 'bleeding',
           attacker: this.attacker,
           source: this
         });
+
+        damage.verb = 'bleeds';
         damage.commit(this.target);
       },
 
-      killed: function () {
+      killed() {
         this.remove();
       }
     }

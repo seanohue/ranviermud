@@ -50,7 +50,7 @@ module.exports = (srcPath) => {
        * @param {Character} target
        */
       hit: state => function (damage, target) {
-        const shouldBroadcast = !damage.hidden && (damage.ranged && (target.room !== this.room)); 
+        const shouldBroadcast = !damage.hidden && (damage.ranged || (target.room === this.room)); 
         if (shouldBroadcast) {
           let buf = '';
           let verb = damage.verb || 'hit';
