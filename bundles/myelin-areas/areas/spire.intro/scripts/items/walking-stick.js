@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
   return  {
     listeners: {
       hit: state => function (damage, target) {
-        if (!damage.attacker || damage.attacker.isNpc) {
+        if (!damage.attacker || damage.attacker.isNpc || damage.source === this) {
           return;
         }
 

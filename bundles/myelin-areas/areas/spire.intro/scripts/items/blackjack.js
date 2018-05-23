@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
   return  {
     listeners: {
       hit: state => function (damage, target) {
-        if (!damage.attacker || damage.attacker.isNpc) {
+        if (!damage.attacker || damage.attacker.isNpc || damage.source === this) {
           return;
         }
 
@@ -20,6 +20,7 @@ module.exports = (srcPath) => {
         // it listens for the 'hit' event you will have to check to make sure that `damage.source
         // !== this` otherwise you could create an infinite loop the weapon's own damage triggering
         // its script
+
         const might = player.getMaxAttribute('might') || 0;
 
         if (damage.critical || Random.probability(might)) {

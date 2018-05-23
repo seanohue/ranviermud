@@ -32,7 +32,9 @@ module.exports = (srcPath) => {
             attacker: damage.attacker
           });
 
-          Broadcast.sayAt(damage.attacker, `<b><white>The Blade of Ranvier shines with a bright white light and you see wisps of ${target.name}'s soul flow into the blade.</white></b>`, 80);
+          if (!damage.hidden) {
+            Broadcast.sayAt(damage.attacker, `<b><white>The Blade of Ranvier shines with a bright white light and you see wisps of ${target.name}'s soul flow into the blade.</white></b>`, 80);
+          }
           heal.commit(damage.attacker);
         }
       }

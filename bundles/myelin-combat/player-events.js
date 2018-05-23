@@ -50,36 +50,36 @@ module.exports = (srcPath) => {
        * @param {Character} target
        */
       hit: state => function (damage, target) {
-        if (damage.hidden) {
-          return;
+        const shouldBroadcast = !damage.hidden && (damage.ranged && (target.room !== this.room)); 
+        if (shouldBroadcast) {
+          let buf = '';
+          let verb = damage.verb || 'hit';
+          if (damage.source) {
+            buf = `Your <b>${damage.source.name}</b> ${verb}`;
+          } else {
+            buf = "You " + verb;
+          }
+  
+          buf += ` <b>${target.name}</b> for <b>${damage.finalAmount}</b> damage.`;
+  
+          if (damage.critical) {
+            buf += ' <red><b>(Critical)</b></red>';
+          }
+  
+          B.sayAt(this, buf);
         }
-
-        let buf = '';
-        if (damage.source) {
-          buf = `Your <b>${damage.source.name}</b> hit`;
-        } else {
-          buf = "You hit";
-        }
-
-        buf += ` <b>${target.name}</b> for <b>${damage.finalAmount}</b> damage.`;
-
-        if (damage.critical) {
-          buf += ' <red><b>(Critical)</b></red>';
-        }
-
-        B.sayAt(this, buf);
 
         if (this.equipment.has('wield')) {
           this.equipment.get('wield').emit('hit', damage, target);
         }
 
         // show damage to party members
-        if (!this.party) {
+        if (!this.party || damage.hidden) {
           return;
         }
 
         for (const member of this.party) {
-          if (member === this || member.room !== this.room) {
+          if (member === this || (member.room !== target.room && member.room !== this.room)) {
             continue;
           }
 
