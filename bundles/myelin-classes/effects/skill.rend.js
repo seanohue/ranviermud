@@ -31,7 +31,6 @@ module.exports = srcPath => {
 
       updateTick() {
         const amount = Math.round(this.state.totalDamage / Math.round((this.config.duration / 1000) / this.config.tickInterval));
-        console.log('rend amount:', amount);
         const damage = new Damage({
           attribute: "health",
           amount,

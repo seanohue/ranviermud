@@ -41,7 +41,7 @@
     armor: 2
   metadata:
     minDamage: 1
-    maxDamage: 30
+    maxDamage: 60
     damageType: 'psionic'
 
 - id: gug

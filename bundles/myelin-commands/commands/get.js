@@ -8,7 +8,7 @@ module.exports = (srcPath, bundlePath) => {
 
   return {
     usage: 'get <item> [container]',
-    aliases: [ 'take', 'pick', 'loot' ],
+    aliases: [ 'take', 'pick', 'loot', 'pickup' ],
     command : (state) => (args, player, arg0) => {
       if (!args.length) {
         return Broadcast.sayAt(player, 'Get what?');

@@ -53,17 +53,29 @@ module.exports = (srcPath) => {
         return (output, [label, _color], index, arr) => {
           const stat         = stats[label.trim().toLowerCase()];
           const percent      = Math.floor((stat.current / stat.max) * 100);
-          const numericStat  = `${Math.round(stat.current)}/${Math.round(stat.max)}`;
+          const numericStat  = `${parseNumericStat(stat.current)}/${parseNumericStat(stat.max)}`;
           const numericLabel = `(${B.center(7, numericStat, _color)})`;
           const bar = stat.max === 0
             ? B.colorize('[        ]', _color)
             : B.progress(10, percent, _color, 'o', '-', '[]');
           let _width = width;
-          if (!isStart) _width = width / 2;
+          if (!isStart) _width = (width / 2);
           const borderFn = isStart ? centerBox : (w, msg) => `${B.center(w, msg) + ' ' + pipe}`;
           const ending = index === arr.length - 1 ? '' : '\n';
           return output.concat(borderFn(_width, `${label}: ${bar} ${numericLabel}`) + ending);
         }
+      }
+
+      function parseNumericStat(statValue) {
+        const parsed = String(Math.round(statValue));
+        if (parsed.length === 4) {
+          let [first] = parsed;
+          return `${first}k`;
+        } else if (parsed.length > 4) {
+          return 'WOW';
+        }
+
+        return parsed;
       }
 
       const attributes = {

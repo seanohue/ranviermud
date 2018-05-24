@@ -141,6 +141,11 @@ module.exports = (srcPath, bundlePath) => {
         title: "Armor",
         items: []
       },
+      {
+        type: ItemType.CONTAINER,
+        title: "Containers",
+        items: []
+      },
     ];
 
     const recipes = Crafting.getRecipes();
