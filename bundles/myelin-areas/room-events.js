@@ -49,6 +49,8 @@ module.exports = (srcPath, bundlePath) => {
         room.items.forEach(item => {
           if (item.hasBehavior('resource')) {
             B.sayAt(player, `[${ItemUtil.qualityColorize(item, 'Resource')}] <magenta>${item.roomDesc}</magenta>`);
+          } else if (item.metadata.noPickup) {
+            B.sayAt(player, `[${ItemUtil.qualityColorize(item, 'Scenery')}] <magenta>${item.roomDesc}</magenta>`);
           } else {
             B.sayAt(player, `[${ItemUtil.qualityColorize(item, 'Item')}] <magenta>${item.roomDesc}</magenta>`);
           }
