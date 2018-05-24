@@ -85,7 +85,7 @@ module.exports = (srcPath) => {
     },
 
     info(player) {
-      return `Make a pinpoint attack against your target, dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness, with a <bold>${stunPercent + player.getMaxAttribute('quickness')}%</bold> chance to stun for <bold>${getDuration(player)}</bold> seconds. A nerve strike has an extra <b>${getCritPercent(player)}%</b> chance of a critical strike!`;
+      return `Make a pinpoint attack against your target, dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness, with a <bold>${stunPercent + player.getMaxAttribute('quickness')}%</bold> chance to stun for <bold>${getDuration(player)}</bold> seconds. A nerve strike has an extra <b>${getCritPercent(player)}%</b> chance of a critical strike and ignores armor!`;
     }
   };
 };

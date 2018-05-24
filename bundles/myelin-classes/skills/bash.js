@@ -36,7 +36,7 @@ module.exports = (srcPath) => {
     run: state => function (args, player, target) {
       const damage = new Damage({
         attribute: 'health',
-        amount: totalDamage(player),
+        amount: totalDamage(player) - (target.getAttribute('armor') || 0),
         attacker: player,
         type: 'crushing',
         source: this
