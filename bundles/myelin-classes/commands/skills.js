@@ -22,13 +22,13 @@ module.exports = srcPath => {
         say(B.center(width, "None", "white"));
       }
 
-      say(""); // Divide with newline
 
       const learnableAbilities = player.playerClass
         .getAbilitiesForPlayer(player)
         .filter(ability => player.playerClass.canPurchaseAbility(player, ability));
 
       if (learnableAbilities.length > 0) {
+        say(""); // Divide with newline
         say("<b>" + B.center(width, 'Learnable Abilities', 'green'));
         say("<b>" + B.line(width, '=', 'green'));
         for (const ability of learnableAbilities) {
@@ -37,12 +37,12 @@ module.exports = srcPath => {
         }
       }
 
-      say(""); // Divide with newline
 
       const otherAbilities = player.playerClass.abilityList
         .filter(ability => !(learnableAbilities.includes(ability) || ownAbilities.includes(ability)));
 
         if (otherAbilities.length > 0) {
+          say(""); // Divide with newline
           say("<b>" + B.center(width, 'Other Abilities', 'cyan'));
           say("<b>" + B.line(width, '=', 'cyan'));
           for (const ability of otherAbilities) {

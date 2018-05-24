@@ -14,6 +14,7 @@
   "banned": false,
   "deleted": false,
   "metadata": {
-    "memories": 92
+    "memories": 128,
+    "deceased": []
   }
 }

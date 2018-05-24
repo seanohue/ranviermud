@@ -71,7 +71,8 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Call upon the light to heal your target's wounds for ${healPercent}% of your Intellect.`;
+      const {min, max} = getHeal(player);
+      return `Psionically restore ${min} to ${max} energy to yourself or an ally.`;
     }
   };
 };

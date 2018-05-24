@@ -16,7 +16,7 @@ module.exports = srcPath => {
       magnitude: 1
     },
     modifiers: {
-      attributes: function (attribute, current) {
+      attributes(attribute, current) {
         if (attribute !== this.state.stat) {
           return current;
         }
@@ -25,16 +25,16 @@ module.exports = srcPath => {
       }
     },
     listeners: {
-      effectRefreshed: function (newEffect) {
+      effectRefreshed(newEffect) {
         this.startedAt = Date.now();
         Broadcast.sayAt(this.target, "You refresh the potion's magic.");
       },
 
-      effectActivated: function () {
+      effectActivated() {
         Broadcast.sayAt(this.target, "You drink down the potion and feel more powerful!");
       },
 
-      effectDeactivated: function () {
+      effectDeactivated() {
         Broadcast.sayAt(this.target, "You feel less powerful.");
       }
     }
