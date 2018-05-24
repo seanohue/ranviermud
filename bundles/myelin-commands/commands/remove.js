@@ -8,9 +8,16 @@ module.exports = (srcPath, bundlePath) => {
   return {
     aliases: [ 'unwield', 'unequip' ],
     usage: 'remove <item>',
-    command : state => (arg, player) => {
+    command: state => (arg, player) => {
       if (!arg.length) {
         return Broadcast.sayAt(player, 'Remove what?');
+      }
+
+      if (arg === 'all') {
+        for (const [slot, item] of player.equipment) {
+          remove(player, slot, item);
+        }
+        return;
       }
 
       const result =  Parser.parseDot(arg, player.equipment, true);
@@ -19,8 +26,12 @@ module.exports = (srcPath, bundlePath) => {
       }
 
       const [slot, item] = result;
-      Broadcast.sayAt(player, `<green>You un-equip: </green>${ItemUtil.display(item)}<green>.</green>`);
-      player.unequip(slot);
+      remove(player, slot, item);
     }
   };
+
+  function remove(player, slot, item) {
+    Broadcast.sayAt(player, `<green>You un-equip: </green>${ItemUtil.display(item)}<green>.</green>`);
+    player.unequip(slot);
+  }
 };
