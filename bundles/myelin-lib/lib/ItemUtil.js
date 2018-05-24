@@ -6,18 +6,18 @@
 
 const srcPath = '../../../src/'
 
-const sprintf = require('sprintf-js').sprintf;
+const sprintf  = require('sprintf-js').sprintf;
 const ItemType = require(srcPath + 'ItemType');
 const B = require(srcPath + 'Broadcast');
 
 const qualityColors = {
-  poor: ['bold', 'black'],
-  common: ['bold', 'white'],
-  uncommon: ['bold', 'green'],
-  rare: ['bold', 'blue'],
-  epic: ['bold', 'magenta'],
-  legendary: ['bold', 'red'],
-  artifact: ['yellow'],
+  poor:               ['bold', 'black'],
+  common:             ['bold', 'white'],
+  uncommon:           ['bold', 'green'],
+  rare:               ['bold', 'blue'],
+  epic:               ['bold', 'magenta'],
+  legendary:          ['bold', 'red'],
+  artifact:           ['yellow'],
 };
 exports.qualityColors = qualityColors;
 

@@ -1,13 +1,15 @@
 
 'use strict';
 
-const Random = require('../../../src/RandomUtil');
-const Damage = require('../../../src/Damage');
-const Logger = require('../../../src/Logger');
-const Broadcast = require('../../../src/Broadcast');
-const RandomUtil = require('../../../src/RandomUtil');
+const Random       = require('../../../src/RandomUtil');
+const Damage       = require('../../../src/Damage');
+const Logger       = require('../../../src/Logger');
+const Broadcast    = require('../../../src/Broadcast');
+const RandomUtil   = require('../../../src/RandomUtil');
+const Parser       = require('../../../src/CommandParser').CommandParser;
+
 const CombatErrors = require('./CombatErrors');
-const Parser = require('../../../src/CommandParser').CommandParser;
+const DamageType   = require('./DamageType');
 
 /**
  * This class is an example implementation of a Diku-style real time combat system. Combatants
@@ -107,6 +109,22 @@ class Combat {
     return null;
   }
 
+  static getDamageType(entity) {
+    if (entity.damageType) return entity.damageType;
+
+    const damageType = entity.metadata.damageType;
+    if (Array.isArray(damageType)) {
+      return damageType.map(type => getSingleDamageType(type));
+    }
+    return [getSingleDamageType(damageType)];
+
+    function getSingleDamageType(entity) {
+      return typeof damageType === 'string' 
+        ? DamageType[damageType] 
+        : (typeof damageType === 'symbol' ? damageType : DamageType.PHYSICAL)
+    }
+  }
+
   /**
    * Damage soak when a character is hit, based on stats and skills.
    * @param {Character} defender
@@ -169,7 +187,7 @@ class Combat {
     const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
     const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, attacker, isPsionic), 0);
     const damage = new Damage({ attribute: 'health', amount, attacker });
-    damage.type === isPsionic ? 'psionic' : 'physical';
+    damage.type = isPsionic ? 'psionic' : 'physical';
     damage.commit(target); 
 
     if (target.getAttribute('health') <= 0) {

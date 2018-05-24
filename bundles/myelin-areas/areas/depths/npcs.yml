@@ -42,7 +42,7 @@
   metadata:
     minDamage: 1
     maxDamage: 60
-    damageType: 'psionic'
+    damageType: 'PSIONIC'
 
 - id: gug
   keywords: ['gug']

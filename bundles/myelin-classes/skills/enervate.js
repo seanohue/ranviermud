@@ -7,6 +7,7 @@ module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Heal = require(srcPath + 'Heal');
   const SkillType = require(srcPath + 'SkillType');
+  const Random = require(srcPath + 'RandomUtil');
 
   const healPercent = 300;
   const focusCost = 40;
@@ -15,7 +16,7 @@ module.exports = (srcPath) => {
     return {
       min: player.getAttribute('intellect') * (healPercent / 100),
       max: player.getAttribute('intellect') * (healPercent / 100) + player.getAttribute('willpower')
-    }
+    };
   }
 
   return {
@@ -35,9 +36,9 @@ module.exports = (srcPath) => {
       let attribute = 'energy';
 
       const healRange = getHeal(player);
-      const max = target.getMaxAttribute(attribute);
-      const current = target.getAttribute(attribute);
-      let amount = Random.inRange(healRange.min, healRange.max);
+      const max       = target.getMaxAttribute(attribute);
+      const current   = target.getAttribute(attribute);
+      let amount      = Random.inRange(healRange.min, healRange.max);
 
       const atFullEnergy = current>= max;
       if (atFullEnergy) {
@@ -52,7 +53,7 @@ module.exports = (srcPath) => {
         source: this
       });
 
-      if (atFullHealth) {
+      if (atFullEnergy) {
         heal.hidden = true;
         heal.commit(player); // restore focus cost.
         return Broadcast.sayAt(player, `<bold>${target.name} is already fully energized.`);

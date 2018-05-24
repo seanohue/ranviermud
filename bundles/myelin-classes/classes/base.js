@@ -55,7 +55,10 @@ module.exports = srcPath => {
         },
 
         /* Mentalist: */
-
+        leatherskin: {
+          level: 3,
+          willpower: 16
+        },
         mend: {
           level: 1,
           intellect: 13,
@@ -66,6 +69,10 @@ module.exports = srcPath => {
           level: 1,
           intellect: 14,
           willpower: 11
+        },
+        empower: {
+          level: 5,
+          willpower: 18
         },
         combust: {
           level: 1,

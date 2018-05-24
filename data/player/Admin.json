@@ -55,13 +55,13 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 4556172,
+      "elapsed": 6169691,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 2209,
-        "ticks": 1482
+        "lastTick": 3,
+        "ticks": 1621
       }
     },
     {
@@ -78,7 +78,7 @@
         "type": "skill.tactics",
         "unique": true
       },
-      "elapsed": 4542440,
+      "elapsed": 6155956,
       "id": "skill.tactics",
       "remaining": null,
       "skill": "tactics",
@@ -100,7 +100,7 @@
         "type": "skill:secondwind",
         "unique": true
       },
-      "elapsed": 4455916,
+      "elapsed": 6069432,
       "id": "skill.secondwind",
       "remaining": null,
       "skill": "secondwind",
@@ -123,7 +123,7 @@
         "type": "skill:concentration",
         "unique": true
       },
-      "elapsed": 4111181,
+      "elapsed": 5724696,
       "id": "skill.concentration",
       "remaining": null,
       "skill": "concentration",
@@ -146,7 +146,7 @@
         "type": "equip.head",
         "unique": true
       },
-      "elapsed": 3620019,
+      "elapsed": 5233534,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -170,7 +170,7 @@
         "type": "equip.body",
         "unique": true
       },
-      "elapsed": 3270017,
+      "elapsed": 4883532,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -196,7 +196,7 @@
         "type": "equip.wield",
         "unique": true
       },
-      "elapsed": 3187293,
+      "elapsed": 4800808,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -220,7 +220,7 @@
         "type": "equip.feet",
         "unique": true
       },
-      "elapsed": 2975733,
+      "elapsed": 4589248,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -228,6 +228,28 @@
         "stats": {
           "armor": 2
         }
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Increase your Health by 40 points and your energy by 20, permanently.",
+        "duration": "inf",
+        "hidden": false,
+        "maxStacks": 0,
+        "name": "Constitution",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "health.buff",
+        "unique": true
+      },
+      "elapsed": 1608442,
+      "id": "health.buff",
+      "remaining": null,
+      "skill": "constitution",
+      "state": {
+        "magnitude": 40
       }
     }
   ],
@@ -409,7 +431,7 @@
       "leather": 579
     },
     "attributePoints": 0,
-    "abilityPoints": 12,
+    "abilityPoints": 11,
     "abilities": [
       "block",
       "dodge",
@@ -423,7 +445,8 @@
       "nervestrike",
       "rend",
       "enervate",
-      "empower"
+      "empower",
+      "constitution"
     ],
     "config": {
       "minimap": true

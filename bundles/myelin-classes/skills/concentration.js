@@ -13,7 +13,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Concentration',
-    type: SkillType.FEAT,
+    type: SkillType.SKILL,
     flags: [SkillFlag.PASSIVE],
     effect: "skill.concentration",
     cooldown: interval,

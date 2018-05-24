@@ -214,6 +214,7 @@
   metadata:
     minDamage: 1
     maxDamage: 11
+    damageType: CRUSHING
     speed: 2.7
     stats:
       willpower: 1
@@ -313,6 +314,7 @@
   metadata:
     minDamage: 3
     maxDamage: 8
+    damageType: CRUSHING
     speed: 5.5
     stats:
       critical: 1
@@ -336,6 +338,7 @@
   metadata:
     minDamage: 2
     maxDamage: 12
+    damageType: PIERCING
     speed: 5.4
     stats:
       critical: 4

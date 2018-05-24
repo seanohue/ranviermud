@@ -124,7 +124,7 @@
   metadata:
     minDamage: 5
     maxDamage: 65
-    damageType: 'psionic'
+    damageType: 'PSIONIC'
 - id: minotaur
   name: 'The Minotaur'
   level: 16

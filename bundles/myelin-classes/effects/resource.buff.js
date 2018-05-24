@@ -41,7 +41,6 @@ module.exports = srcPath => {
       look(observer) {
         const player = this.target;
         if (observer.isNpc) { return; }
-        if (player.isNpc) { return; }
         Broadcast.sayAt(observer, `Something about ${this.target.name} makes you want to give them a gift.`);
       }
     }

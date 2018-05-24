@@ -7,6 +7,7 @@ const ItemType = require('./ItemType');
 const Logger = require('./Logger');
 const Metadatable = require('./Metadatable');
 const Player = require('./Player');
+const Combat = require ('../bundles/myelin-combat/lib/Combat');
 const { Inventory, InventoryFullError } = require('./Inventory');
 
 /**
@@ -43,13 +44,13 @@ class Item extends Metadatable(EventEmitter) {
       }
     }
 
-    this.area = area;
-    this.metadata  = item.metadata || {};
-    this.behaviors = item.behaviors || {};
-    this.defaultItems = item.items || [];
-    this.description = item.description || 'Nothing special.';
+    this.area            = area;
+    this.metadata        = item.metadata || {};
+    this.behaviors       = item.behaviors || {};
+    this.defaultItems    = item.items || [];
+    this.description     = item.description || 'Nothing special.';
     this.entityReference = item.entityReference; // EntityFactory key
-    this.id          = item.id;
+    this.id              = item.id;
 
     this.metadata.slot = item.slot;
     this.slot = item.slot;
@@ -69,6 +70,11 @@ class Item extends Metadatable(EventEmitter) {
     this.closed      = item.closed || false;
     this.locked      = item.locked || false;
     this.lockedBy    = item.lockedBy || null;
+    if (this.type === ItemType.WEAPON) {
+      const damageType = Combat.getDamageType(item);
+      console.log('Type for ' + this.name + ' is ', damageType);
+      this.damageType = damageType;
+    }
   }
 
   /**
