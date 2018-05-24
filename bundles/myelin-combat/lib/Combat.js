@@ -169,7 +169,7 @@ class Combat {
     const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
     const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, attacker, isPsionic), 0);
     const damage = new Damage({ attribute: 'health', amount, attacker });
-    damage.type === isPsionic ? 'psionic' : 'physical';
+    damage.type = isPsionic ? 'psionic' : 'physical';
     damage.commit(target); 
 
     if (target.getAttribute('health') <= 0) {
