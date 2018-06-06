@@ -15,7 +15,7 @@ module.exports = (srcPath) => {
   };
 
   const getDuration = player => {
-    return player.getAttribute('willpower') * 2000;
+    return Math.max(player.getAttribute('willpower'), 25) * 2000;
   }
 
   const cooldown = 60;
@@ -42,26 +42,27 @@ module.exports = (srcPath) => {
           name: 'Leatherskin',
           duration: getDuration(player),
           description: this.info(player),
+
         },
         {
           magnitude: getMagnitude(player),
-          attributes: ['armor']
+          attributes: ['armor'],
+          activated: `<red>You feel your skin toughen!</red>`,
+          deactivated: `<red>Your skin returns to normal</red>`
         }
       );
       effect.skill = this;
       effect.attacker = player;
 
-      if (target === player) {
-        Broadcast.sayAt(player, `<red>You feel your skin toughen!</red>`);
-      } else {
-        Broadcast.sayAt(target, `<red>You feel your skin toughen as ${player.name} grants you Leatherskin!</red>`);
+      if (target !== player) {
+        Broadcast.sayAt(target, `<red>${player.name} grants you Leatherskin!</red>`);
       }
       
       target.addEffect(effect);
     },
 
     info: (player) => {
-      return `Increase your Armor by ${getMagnitude(player)} for ${getDuration(player) / 1000} seconds.`;
+      return `Increase your Armor or that of an ally by ${getMagnitude(player)} for ${getDuration(player) / 1000} seconds.`;
     }
   };
 };

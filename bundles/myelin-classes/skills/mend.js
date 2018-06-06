@@ -39,15 +39,8 @@ module.exports = (srcPath) => {
       let amount = Random.inRange(healRange.min, healRange.max);
 
       let attribute = 'health';
-      // if (currentHealth >= maxHealth) {
-      //   attribute = 'energy';
-      //   const maxEnergy = target.getMaxAttribute('energy');
-      //   const currentEnergy = target.getAttribute('energy');
 
-      //   if (currentEnergy >= maxEnergy) {
-      //     attribute = 'focus';
-      //   }
-      // }
+      // Handle full health
       const atFullHealth = currentHealth >= maxHealth;
       if (atFullHealth) {
         attribute = 'focus';

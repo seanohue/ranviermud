@@ -5,6 +5,7 @@ const Attributes = require('./Attributes');
 const Character = require('./Character');
 const Config = require('./Config');
 const Logger = require('./Logger');
+const Combat = require('../bundles/myelin-combat/lib/Combat');
 
 /**
  * @property {number} id   Area-relative id (vnum)
@@ -50,6 +51,8 @@ class Npc extends Character {
     this.pacifist = data.pacifist || false;
     this.quests = data.quests || [];
     this.uuid = data.uuid || uuid.v4();
+
+    this.damageType = Combat.getDamageType(data);
 
     if (data.skills) {
       if (typeof data.skills === 'object' && !Array.isArray(data.skills)) {

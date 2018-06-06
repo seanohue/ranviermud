@@ -53,7 +53,13 @@ class EffectFactory {
    */
   create(id, target, config = {}, state = {}) {
     const entry = this.effects.get(id);
-    let def = Object.assign({}, entry.definition);
+    let def 
+    try {
+      def = Object.assign({}, entry.definition);
+    } catch (err) {
+      console.log('Error when trying to create effect ' + id);
+      console.log(err.stack);
+    }
     def.config = Object.assign(def.config, config);
     def.state = Object.assign(def.state || {}, state);
     const effect = new Effect(id, def, target);

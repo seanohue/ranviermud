@@ -112,7 +112,7 @@ class Combat {
   static getDamageType(entity) {
     if (entity.damageType) return entity.damageType;
 
-    const damageType = entity.metadata.damageType;
+    const damageType = entity.metadata && entity.metadata.damageType;
     if (Array.isArray(damageType)) {
       return damageType.map(type => getSingleDamageType(type));
     }
@@ -184,7 +184,7 @@ class Combat {
    */
   static makeAttack(attacker, target) {
     const rawDamageAmount = attacker.hasEffectType('skill:stun') ? 0 : this.calculateWeaponDamage(attacker);
-    const isPsionic = attacker.metadata && attacker.metadata.damageType === 'psionic';
+    const isPsionic = attacker.damageType === DamageType.PSIONIC; // attacker.metadata && attacker.metadata.damageType === 'psionic';
     const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, attacker, isPsionic), 0);
     const damage = new Damage({ attribute: 'health', amount, attacker });
     damage.type = isPsionic ? 'psionic' : 'physical';

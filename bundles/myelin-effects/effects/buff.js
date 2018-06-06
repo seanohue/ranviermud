@@ -20,6 +20,7 @@ module.exports = srcPath => {
         if (this.state.attributes.includes(name)) {
           return current + this.state.magnitude;
         }
+        return current;
       }
     },
     listeners: {

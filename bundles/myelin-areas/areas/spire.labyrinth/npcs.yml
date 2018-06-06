@@ -180,3 +180,4 @@
   metadata:
     minDamage: 5
     maxDamage: 50
+    damageType: CRUSHING

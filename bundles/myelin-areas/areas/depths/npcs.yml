@@ -87,3 +87,4 @@
   metadata:
     minDamage: 15
     maxDamage: 45
+    damageType: SLASHING

@@ -39,7 +39,7 @@
   },
   "level": 61,
   "name": "Admin",
-  "room": "spire.intro:airlock-chamber-18",
+  "room": "spire.intro:a-frosted-tomb-0",
   "effects": [
     {
       "config": {
@@ -55,13 +55,13 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 6169691,
+      "elapsed": 7599016,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 3,
-        "ticks": 1621
+        "lastTick": 2551,
+        "ticks": 2087
       }
     },
     {
@@ -78,7 +78,7 @@
         "type": "skill.tactics",
         "unique": true
       },
-      "elapsed": 6155956,
+      "elapsed": 7585280,
       "id": "skill.tactics",
       "remaining": null,
       "skill": "tactics",
@@ -100,7 +100,7 @@
         "type": "skill:secondwind",
         "unique": true
       },
-      "elapsed": 6069432,
+      "elapsed": 7498756,
       "id": "skill.secondwind",
       "remaining": null,
       "skill": "secondwind",
@@ -123,7 +123,7 @@
         "type": "skill:concentration",
         "unique": true
       },
-      "elapsed": 5724696,
+      "elapsed": 7154020,
       "id": "skill.concentration",
       "remaining": null,
       "skill": "concentration",
@@ -146,7 +146,7 @@
         "type": "equip.head",
         "unique": true
       },
-      "elapsed": 5233534,
+      "elapsed": 6662857,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -170,7 +170,7 @@
         "type": "equip.body",
         "unique": true
       },
-      "elapsed": 4883532,
+      "elapsed": 6312855,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -196,7 +196,7 @@
         "type": "equip.wield",
         "unique": true
       },
-      "elapsed": 4800808,
+      "elapsed": 6230131,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -220,7 +220,7 @@
         "type": "equip.feet",
         "unique": true
       },
-      "elapsed": 4589248,
+      "elapsed": 6018571,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -228,28 +228,6 @@
         "stats": {
           "armor": 2
         }
-      }
-    },
-    {
-      "config": {
-        "autoActivate": true,
-        "description": "Increase your Health by 40 points and your energy by 20, permanently.",
-        "duration": "inf",
-        "hidden": false,
-        "maxStacks": 0,
-        "name": "Constitution",
-        "persists": true,
-        "refreshes": false,
-        "tickInterval": false,
-        "type": "health.buff",
-        "unique": true
-      },
-      "elapsed": 1608442,
-      "id": "health.buff",
-      "remaining": null,
-      "skill": "constitution",
-      "state": {
-        "magnitude": 40
       }
     }
   ],
@@ -431,7 +409,7 @@
       "leather": 579
     },
     "attributePoints": 0,
-    "abilityPoints": 11,
+    "abilityPoints": 10,
     "abilities": [
       "block",
       "dodge",
@@ -446,7 +424,8 @@
       "rend",
       "enervate",
       "empower",
-      "constitution"
+      "constitution",
+      "leatherskin"
     ],
     "config": {
       "minimap": true
