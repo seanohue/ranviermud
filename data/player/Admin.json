@@ -2,19 +2,19 @@
   "attributes": {
     "might": {
       "delta": 0,
-      "base": 23
+      "base": 230
     },
     "quickness": {
       "delta": 0,
-      "base": 33
+      "base": 330
     },
     "intellect": {
       "delta": 0,
-      "base": 24
+      "base": 240
     },
     "willpower": {
       "delta": 0,
-      "base": 25
+      "base": 250
     },
     "health": {
       "delta": 0,
@@ -22,22 +22,22 @@
     },
     "energy": {
       "delta": 0,
-      "base": 215
+      "base": 2150
     },
     "focus": {
       "delta": 0,
-      "base": 215
+      "base": 2150
     },
     "armor": {
       "delta": 0,
-      "base": 1
+      "base": 10
     },
     "critical": {
       "delta": 0,
-      "base": 4
+      "base": 40
     }
   },
-  "level": 61,
+  "level": 69,
   "name": "Admin",
   "room": "spire.intro:a-frosted-tomb-0",
   "effects": [
