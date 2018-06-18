@@ -91,10 +91,16 @@ class PlayerClass {
           return abilityPoints >= level;
         case 'level':
           return player.level >= level;
+        case 'skills':
+          return this.hasAllSkills(player, level);
         default:
           return player.getBaseAttribute(attribute) >= level;
       }
     });
+  }
+
+  hasAllSkills(player, skillList) {
+    return skillList.every((skill) => this.canUseAbility(player, skill));
   }
 
   /** Does the ability even exist?

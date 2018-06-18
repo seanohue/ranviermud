@@ -15,7 +15,7 @@ module.exports = (srcPath) => {
         return Logger.warn;
       case 'suggestion':
       default:
-        return Logger.verbose;
+        return Logger.warn;
     }
   }
 

@@ -2,7 +2,6 @@
 
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
-
   return {
     usage: 'bug <description>',
     aliases: ['typo', 'suggestion'],
@@ -14,7 +13,7 @@ module.exports = srcPath => {
       player.emit('bugReport', {
         description: args,
         type: arg0
-      });
+      })
 
       Broadcast.sayAt(player, `<b>Your ${arg0} report has been submitted as:</b>\n${args}`);
       Broadcast.sayAt(player, '<b>Thanks!</b>');

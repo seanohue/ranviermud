@@ -75,7 +75,10 @@ process.stdin.setEncoding('utf8');
 const Logger = require('./src/Logger');
 const logfile = Config.get('logfile');
 if (logfile) {
-  Logger.setFileLogging(logfile);
+  const time = (new Date()).toString()
+    .replace(':', '_')
+    .replace('-', '_');
+  Logger.setFileLogging(logfile + '_' + Date.now());
 }
 
 if (commander.prettyErrors) {

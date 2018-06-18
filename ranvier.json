@@ -26,16 +26,23 @@
     "ranvier-bug-report",
     "debug-commands"
   ],
+
   "maxAccountNameLength": 20,
   "minAccountNameLength": 3,
   "maxPlayerNameLength": 20,
   "minPlayerNameLength": 3,
   "maxCharacters": 3,
   "allowMultiplay": true,
+
   "reportToAdmins": true,
   "startingRoom": "spire.intro:a-frosted-tomb-0",
   "moveCommand": "move",
   "skillLag": 500,
   "defaultMaxPlayerInventory": 16,
-  "maxIdleTime": 20
+  "maxIdleTime": 20,
+
+  "logfile": "alpha",
+  "logLevel": "warn",
+
+  "playerTickFrequency": 32
 }

@@ -59,6 +59,12 @@ module.exports = srcPath => {
           level: 3,
           willpower: 16
         },
+        ironskin: {
+          level: 8,
+          willpower: 16,
+          might: 10,
+          skills: ['leatherskin']
+        },
         mend: {
           level: 1,
           intellect: 13,

@@ -48,7 +48,7 @@ module.exports = (srcPath) => {
           magnitude: getMagnitude(player),
           attributes: ['armor'],
           activated: `<red>You feel your skin toughen!</red>`,
-          deactivated: `<red>Your skin returns to normal</red>`
+          deactivated: `<red>Your skin returns to normal.</red>`
         }
       );
       effect.skill = this;
