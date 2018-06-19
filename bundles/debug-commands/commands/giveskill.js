@@ -13,7 +13,6 @@ module.exports = (srcPath) => {
       }
 
       const skill = state.SkillManager.get(args);
-      console.log({skill});
       if (!skill) {
         return Broadcast.sayAt(player, "No such skill.");
       }

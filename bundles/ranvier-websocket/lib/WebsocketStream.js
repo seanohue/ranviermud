@@ -1,7 +1,7 @@
 'use strict';
 
 const TransportStream = require('../../../src/TransportStream');
-
+const sanitize = require('sanitize-html');
 /**
  * Essentially we want to look at the methods of WebSocket and match them to the appropriate methods on TransportStream
  */
@@ -12,6 +12,7 @@ class WebsocketStream extends TransportStream
 
     // websocket uses 'message' instead of the 'data' event net.Socket uses
     socket.on('message', message => {
+      console.log('Message from WS: ', message || null);
       this.emit('data', message);
     });
   }
@@ -24,6 +25,8 @@ class WebsocketStream extends TransportStream
     if (!this.writable) {
       return;
     }
+
+    message = sanitize(message);
 
     // this.socket will be set when we do `ourWebsocketStream.attach(websocket)`
     this.socket.send(JSON.stringify({
