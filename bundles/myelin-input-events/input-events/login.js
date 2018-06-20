@@ -43,7 +43,7 @@ module.exports = (srcPath) => {
           socket.end();
           return;
         }
-
+        
         return socket.emit('password', socket, { dontwelcome: false, account });
       });
     }

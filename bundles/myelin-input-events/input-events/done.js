@@ -21,7 +21,7 @@ module.exports = (srcPath) => {
       player._lastCommandTime = Date.now();
 
       player.socket.on('close', () => {
-        Logger.log(player.name + ' has gone linkdead.');
+        Logger.warn(player.name + ' has gone linkdead.');
         // TODO: try to fetch the person the player is fighting and dereference the player
         //if (player.inCombat.inCombat) {
         //  player.inCombat.inCombat = null;
@@ -39,6 +39,7 @@ module.exports = (srcPath) => {
 
       // All that shit done, let them play!
       player.socket.emit('commands', player);
+      Logger.warn(`Player ${player.name} has logged on.`);
     }
   };
 };
