@@ -37,8 +37,23 @@ module.exports = (srcPath) => {
       player.room.emit('playerEnter', player);
       Broadcast.prompt(player);
 
+      let armor = state.EffectFactory.create('armor', player);
+      if (player.addEffect(armor)) {
+        armor.activate();
+      }
+
+      let psionicArmor = state.EffectFactory.create('armor', player, 
+        { name: 'Psionic Resistance', type: 'psionic_armor', hidden: false }, 
+        { attribute: 'willpower', typeMethod: 'isPsionic' }
+      );
+
+      if (player.addEffect(psionicArmor)) {
+        psionicArmor.activate();
+      }
       // All that shit done, let them play!
       player.socket.emit('commands', player);
+
+
       Logger.warn(`Player ${player.name} has logged on.`);
     }
   };

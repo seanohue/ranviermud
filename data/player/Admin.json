@@ -55,12 +55,12 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 10030270,
+      "elapsed": 10030303,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 327,
+        "lastTick": 359,
         "ticks": 2716
       }
     },
@@ -78,7 +78,7 @@
         "type": "skill.tactics",
         "unique": true
       },
-      "elapsed": 10016531,
+      "elapsed": 10016562,
       "id": "skill.tactics",
       "remaining": null,
       "skill": "tactics",
@@ -100,7 +100,7 @@
         "type": "skill:secondwind",
         "unique": true
       },
-      "elapsed": 9930006,
+      "elapsed": 9930037,
       "id": "skill.secondwind",
       "remaining": null,
       "skill": "secondwind",
@@ -123,7 +123,7 @@
         "type": "skill:concentration",
         "unique": true
       },
-      "elapsed": 9585268,
+      "elapsed": 9585299,
       "id": "skill.concentration",
       "remaining": null,
       "skill": "concentration",
@@ -146,7 +146,7 @@
         "type": "equip.head",
         "unique": true
       },
-      "elapsed": 9094104,
+      "elapsed": 9094134,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -170,7 +170,7 @@
         "type": "equip.body",
         "unique": true
       },
-      "elapsed": 8744102,
+      "elapsed": 8744132,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -196,7 +196,7 @@
         "type": "equip.wield",
         "unique": true
       },
-      "elapsed": 8661378,
+      "elapsed": 8661407,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -220,7 +220,7 @@
         "type": "equip.feet",
         "unique": true
       },
-      "elapsed": 8449818,
+      "elapsed": 8449847,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -244,9 +244,9 @@
         "type": "buff",
         "unique": true
       },
-      "elapsed": 14854,
+      "elapsed": 14883,
       "id": "buff",
-      "remaining": 485146,
+      "remaining": 485117,
       "skill": "ironskin",
       "state": {
         "magnitude": 240,
@@ -271,9 +271,9 @@
         "type": "debuff",
         "unique": true
       },
-      "elapsed": 14854,
+      "elapsed": 14881,
       "id": "debuff",
-      "remaining": 485146,
+      "remaining": 485119,
       "skill": "ironskin",
       "state": {
         "magnitude": 230,
@@ -297,9 +297,9 @@
         "type": "cooldown",
         "unique": false
       },
-      "elapsed": 14853,
+      "elapsed": 14880,
       "id": "cooldown",
-      "remaining": 45147,
+      "remaining": 45120,
       "skill": "ironskin",
       "state": {
         "cooldownId": "skill:ironskin"

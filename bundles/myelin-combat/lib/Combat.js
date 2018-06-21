@@ -121,11 +121,11 @@ class Combat {
     function getSingleDamageType(entity) {
       return typeof damageType === 'string' 
         ? DamageType[damageType] 
-        : (typeof damageType === 'symbol' ? damageType : DamageType.PHYSICAL)
+        : (typeof damageType === 'symbol' ? damageType : DamageType.CRUSHING);
     }
   }
 
-  /**
+  /** TODO: Get rid of this eventually...
    * Damage soak when a character is hit, based on stats and skills.
    * @param {Character} defender
    * @param {Number} amount of raw damage done by attack

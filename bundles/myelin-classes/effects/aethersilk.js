@@ -5,6 +5,7 @@ module.exports = srcPath => {
   const Heal = require(srcPath + 'Heal');
   const Player = require(srcPath + 'Player');
   const Flag = require(srcPath + 'EffectFlag');
+  //TODO: Fix with damagetypes thing
 
   return {
     config: {
@@ -18,7 +19,7 @@ module.exports = srcPath => {
     },
     modifiers: {
       outgoingDamage: (damage, current) => current,
-      incomingDamage: function (damage, currentAmount) {
+      incomingDamage(damage, currentAmount) {
         if (damage.type !== 'psionic') {
           return currentAmount;
         }
