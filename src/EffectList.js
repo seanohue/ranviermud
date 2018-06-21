@@ -177,7 +177,7 @@ class EffectList {
       attrValue = effect.modifyAttribute(attrName, attrValue);
     }
 
-    return Math.max(attrValue, 0) || 0;
+    return Math.max(attrValue, -attr.base) || 0;
   }
 
   /**

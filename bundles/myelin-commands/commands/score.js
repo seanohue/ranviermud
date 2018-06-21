@@ -114,7 +114,6 @@ module.exports = (srcPath) => {
       const weaponDamage = Combat.getWeaponDamage(p);
       const min = Combat.normalizeWeaponDamage(p, weaponDamage.min);
       const max = Combat.normalizeWeaponDamage(p, weaponDamage.max);
-      console.log({weaponDamage, min, max});
 
       const speed = Combat.getWeaponSpeed(p) + ' sec';
       say(div('[Armaments]'));

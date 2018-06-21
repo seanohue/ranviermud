@@ -153,7 +153,6 @@ class Combat {
     if (dodge && Random.probability((quickness + intellect) + 1)) {
       if (!defender.isNpc) Broadcast.sayAt(defender, 'You dodge the attack!');
       if (!attacker.isNpc) Broadcast.sayAt(attacker, `${defender.name} dodges your attack!`);
-      console.log(`${defender.name} dodges.`);
       return amount;
     }
 
@@ -350,7 +349,7 @@ class Combat {
 
   static getMartialSkillBonus(attacker) {
     if (!attacker || !attacker.skills) {
-      console.log('No attacker or no skills.', attacker && attacker.skill);
+      Logger.warn('No attacker or no skills.', attacker && attacker.skill);
       return 1;
     }
     return attacker.skills.has('martial_arts_2') 

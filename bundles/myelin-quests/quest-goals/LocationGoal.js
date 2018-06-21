@@ -46,7 +46,7 @@ module.exports = srcPath => {
 
     _checkForRoom(player, room) {
       if (!room) {
-        return console.log('No room.');
+        return Logger.warn('No room found for locationGoal...');
       }
 
       if (!player.questTracker.canStart(this.quest) || player.questTracker.isComplete(this.quest)) return;

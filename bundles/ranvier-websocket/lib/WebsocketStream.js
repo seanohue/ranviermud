@@ -12,7 +12,6 @@ class WebsocketStream extends TransportStream
 
     // websocket uses 'message' instead of the 'data' event net.Socket uses
     socket.on('message', message => {
-      console.log('Message from WS: ', message || null);
       this.emit('data', message);
     });
   }

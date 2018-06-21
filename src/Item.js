@@ -72,7 +72,6 @@ class Item extends Metadatable(EventEmitter) {
     this.lockedBy    = item.lockedBy || null;
     if (this.type === ItemType.WEAPON) {
       const damageType = Combat.getDamageType(item);
-      console.log('Type for ' + this.name + ' is ', damageType);
       this.damageType = damageType;
     }
   }

@@ -150,7 +150,6 @@ module.exports = (srcPath, bundlePath) => {
 
     const recipes = Crafting.getRecipes();
     for (const recipe of recipes) {
-      console.log(recipe.item);
       const recipeItem = state.ItemFactory.create(
         state.AreaManager.getAreaByReference(recipe.item),
         recipe.item

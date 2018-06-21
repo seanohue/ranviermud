@@ -101,7 +101,14 @@ module.exports = srcPath => {
 
         request.on('error', err => {
           Logger.error('API-AI Error Response');
-          console.log(err);
+          let error;
+          try {
+            error = JSON.stringify(error)
+          } catch(e) {
+            Logger.error('Parsing error ' + e);
+            error = err;
+          }
+          Logger.error(error);
           failure();
         });
 

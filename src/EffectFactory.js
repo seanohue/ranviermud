@@ -2,6 +2,7 @@
 
 const EventManager = require('./EventManager');
 const Effect = require('./Effect');
+const Logger = require('./Logger');
 
 /** @typedef {{config: Object<string,*>, listeners: Object<String,function (...*)>}} */
 var EffectConfig;
@@ -57,8 +58,8 @@ class EffectFactory {
     try {
       def = Object.assign({}, entry.definition);
     } catch (err) {
-      console.log('Error when trying to create effect ' + id);
-      console.log(err.stack);
+      Logger.error('Error when trying to create effect ' + id);
+      Logger.error(err.stack);
     }
     def.config = Object.assign(def.config, config);
     def.state = Object.assign(def.state || {}, state);

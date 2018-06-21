@@ -20,7 +20,6 @@ module.exports = (srcPath) => {
 
       let available = player.playerClass.getAbilitiesForPlayer(player)
       let purchaseable = available.filter(ability => player.playerClass.canPurchaseAbility(player, ability));
-      console.log({purchaseable});
       let skill = purchaseable.filter(name => args === name);
 
       if (skill.length > 1) {

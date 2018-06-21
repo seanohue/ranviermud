@@ -100,7 +100,7 @@ module.exports = srcPath => {
         });
 
         request.on('error', err => {
-          Logger.error('API-AI Error Response');
+          Logger.error('API-AI Error Response', JSON.stringify(err));
           console.log(err);
           failure();
         });

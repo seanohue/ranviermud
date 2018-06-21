@@ -144,9 +144,7 @@ class Skill {
 
     let effect = this.state.EffectFactory.create(this.effect, player, { description: this.info(player) });
     effect = this.configureEffect(effect);
-    if (this.id.includes('tactic')) {
-      console.log('effect configured:', effect);
-    }
+
     effect.skill = this;
     player.addEffect(effect);
     this.run(player);

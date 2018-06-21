@@ -55,13 +55,13 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 7599016,
+      "elapsed": 10030270,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 2551,
-        "ticks": 2087
+        "lastTick": 327,
+        "ticks": 2716
       }
     },
     {
@@ -78,7 +78,7 @@
         "type": "skill.tactics",
         "unique": true
       },
-      "elapsed": 7585280,
+      "elapsed": 10016531,
       "id": "skill.tactics",
       "remaining": null,
       "skill": "tactics",
@@ -100,7 +100,7 @@
         "type": "skill:secondwind",
         "unique": true
       },
-      "elapsed": 7498756,
+      "elapsed": 9930006,
       "id": "skill.secondwind",
       "remaining": null,
       "skill": "secondwind",
@@ -123,7 +123,7 @@
         "type": "skill:concentration",
         "unique": true
       },
-      "elapsed": 7154020,
+      "elapsed": 9585268,
       "id": "skill.concentration",
       "remaining": null,
       "skill": "concentration",
@@ -146,7 +146,7 @@
         "type": "equip.head",
         "unique": true
       },
-      "elapsed": 6662857,
+      "elapsed": 9094104,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -170,7 +170,7 @@
         "type": "equip.body",
         "unique": true
       },
-      "elapsed": 6312855,
+      "elapsed": 8744102,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -196,7 +196,7 @@
         "type": "equip.wield",
         "unique": true
       },
-      "elapsed": 6230131,
+      "elapsed": 8661378,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -220,7 +220,7 @@
         "type": "equip.feet",
         "unique": true
       },
-      "elapsed": 6018571,
+      "elapsed": 8449818,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -228,6 +228,81 @@
         "stats": {
           "armor": 2
         }
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Increase your Armor or that of an ally by 240, at a cost of as much as 230 Quickness, for 500 seconds.",
+        "duration": 500000,
+        "hidden": false,
+        "maxStacks": 0,
+        "name": "Ironskin",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "buff",
+        "unique": true
+      },
+      "elapsed": 14854,
+      "id": "buff",
+      "remaining": 485146,
+      "skill": "ironskin",
+      "state": {
+        "magnitude": 240,
+        "attributes": [
+          "armor"
+        ],
+        "activated": "<red>You feel your skin toughen!</red>",
+        "deactivated": "<red>Your skin returns to normal.</red>"
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Increase your Armor or that of an ally by 240, at a cost of as much as 230 Quickness, for 500 seconds.",
+        "duration": 500000,
+        "hidden": false,
+        "maxStacks": 0,
+        "name": "Ironskin",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "debuff",
+        "unique": true
+      },
+      "elapsed": 14854,
+      "id": "debuff",
+      "remaining": 485146,
+      "skill": "ironskin",
+      "state": {
+        "magnitude": 230,
+        "attributes": [
+          "quickness"
+        ],
+        "activated": "<red>You feel incredibly heavy!</red>"
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Cannot use ability while on cooldown.",
+        "duration": 60000,
+        "hidden": false,
+        "maxStacks": 0,
+        "name": "Cooldown: Ironskin",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "cooldown",
+        "unique": false
+      },
+      "elapsed": 14853,
+      "id": "cooldown",
+      "remaining": 45147,
+      "skill": "ironskin",
+      "state": {
+        "cooldownId": "skill:ironskin"
       }
     }
   ],
@@ -409,7 +484,7 @@
       "leather": 579
     },
     "attributePoints": 0,
-    "abilityPoints": 10,
+    "abilityPoints": 9,
     "abilities": [
       "block",
       "dodge",
@@ -424,8 +499,8 @@
       "rend",
       "enervate",
       "empower",
-      "constitution",
-      "leatherskin"
+      "leatherskin",
+      "ironskin"
     ],
     "config": {
       "minimap": true

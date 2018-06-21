@@ -55,7 +55,6 @@ module.exports = (srcPath) => {
       if (visibleEffects.length) {
         say("| Died under the effects of: ");
         visibleEffects.forEach((effect, i) => {
-          console.log(effect.config);
           if (effect.config.hidden) {
             return; // do not display.
           }

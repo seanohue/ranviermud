@@ -19,7 +19,7 @@ module.exports = (srcPath) => {
   const getDebuffMagnitude = (player, target) => {
     const magnitude = Math.max(10, player.getAttribute('might'));
     const safeguard = target.getAttribute('quickness') - 1;
-    return -(Math.min(magnitude, safeguard));
+    return (Math.min(magnitude, safeguard));
   }
 
   const getDuration = player => {
@@ -63,7 +63,7 @@ module.exports = (srcPath) => {
 
 
       const quicknessEffect = state.EffectFactory.create(
-        'buff',
+        'debuff',
         target,
         {
           name: 'Ironskin',
@@ -78,6 +78,7 @@ module.exports = (srcPath) => {
       );
       quicknessEffect.skill = this;
       quicknessEffect.attacker = player;
+
 
       if (target !== player) {
         Broadcast.sayAt(target, `<red>${player.name} grants you Ironskin!</red>`);
