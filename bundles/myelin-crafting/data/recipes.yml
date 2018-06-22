@@ -12,7 +12,7 @@
     aethersilk: 40
 - item: 'spire.intro:alms'
   recipe:
-    ectoplasm: 1
+    aetherplasm: 1
     leather: 10
 - item: 'spire.intro:dusters'
   recipe: 
@@ -46,5 +46,5 @@
     bone: 20
 - item: 'spire.intro:elixir'
   recipe:
-    ectoplasm: 3
+    aetherplasm: 3
 

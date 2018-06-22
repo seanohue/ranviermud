@@ -11,6 +11,7 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
   const Random    = require(srcPath + 'RandomUtil');
   const Combat    = require(srcPath + '../bundles/myelin-combat/lib/Combat');
+  const DamageType = require('../../myelin-combat/lib/DamageType');
 
 
   const damagePercent = 110;
@@ -46,7 +47,7 @@ module.exports = (srcPath) => {
         attribute: 'health',
         amount:    totalDamage(player),
         attacker:  player,
-        type:      'piercing',
+        type:      [DamageType.PIERCING],
         source:    this,
         critical:  Random.probability(getCritPercent(player))
       });

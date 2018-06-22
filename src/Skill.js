@@ -4,6 +4,7 @@ const SkillFlag = require('./SkillFlag');
 const SkillType = require('./SkillType');
 const SkillErrors = require('./SkillErrors');
 const Damage = require('./Damage');
+const DamageType = require('../bundles/myelin-combat/lib/DamageType');
 
 /**
  * @property {function (Effect)} configureEffect modify the skill's effect before adding to player
@@ -125,6 +126,7 @@ class Skill {
       attribute: resource.attribute,
       amount: resource.cost,
       attacker: null,
+      type: [DamageType.RESOURCE],
       hidden: true,
       source: this
     });

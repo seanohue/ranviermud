@@ -7,6 +7,7 @@ module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Damage = require(srcPath + 'Damage');
   const SkillType = require(srcPath + 'SkillType');
+  const DamageType = require('../../myelin-combat/lib/DamageType');
 
   const damagePercent = 300;
   const cost = 65;
@@ -31,7 +32,7 @@ module.exports = (srcPath) => {
         attribute: 'health',
         amount: getDamage(player),
         attacker: player,
-        type: 'fire', // eventually, fire
+        type: [DamageType.FIRE],
         source: this
       });
       damage.verb = 'burns';

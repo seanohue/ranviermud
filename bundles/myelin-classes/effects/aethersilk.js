@@ -5,7 +5,7 @@ module.exports = srcPath => {
   const Heal = require(srcPath + 'Heal');
   const Player = require(srcPath + 'Player');
   const Flag = require(srcPath + 'EffectFlag');
-  //TODO: Fix with damagetypes thing
+  const DamageType = require('../../myelin-combat/lib/DamageType');
 
   return {
     config: {
@@ -20,7 +20,7 @@ module.exports = srcPath => {
     modifiers: {
       outgoingDamage: (damage, current) => current,
       incomingDamage(damage, currentAmount) {
-        if (damage.type !== 'psionic') {
+        if (!DamageType.isPsionic(damage.type)) {
           return currentAmount;
         }
 

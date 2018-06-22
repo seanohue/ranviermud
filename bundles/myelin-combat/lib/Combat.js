@@ -74,7 +74,7 @@ class Combat {
           shouldAnnounce = false;
         }
       }
-      
+
       if (shouldAnnounce) {
         if (!attacker.isNpc) Broadcast.sayAt(attacker, '<yellow><b>You are stunned!</b></yellow>');
         if (!target.isNpc) Broadcast.sayAt(target, `<yellow>${attacker.name} is stunned!</yellow>`);
@@ -119,61 +119,10 @@ class Combat {
     return [getSingleDamageType(damageType)];
 
     function getSingleDamageType(entity) {
-      return typeof damageType === 'string' 
-        ? DamageType[damageType] 
+      return typeof damageType === 'string'
+        ? DamageType[damageType]
         : (typeof damageType === 'symbol' ? damageType : DamageType.CRUSHING);
     }
-  }
-
-  /** TODO: Get rid of this eventually...
-   * Damage soak when a character is hit, based on stats and skills.
-   * @param {Character} defender
-   * @param {Number} amount of raw damage done by attack
-   */
-  static calculateDefense(defender, amount, attacker, isPsionic) {
-    const isStunned = defender.hasEffectType('skill:stun');
-    if (isPsionic) {
-      const willpower = defender.getMaxAttribute('willpower');
-      return Math.max(1, willpower - isStunned ? 10 : 0);
-    }
-
-
-    // Stats always used in defense.
-    const quickness = defender.getMaxAttribute('quickness') || 1;
-    const intellect = defender.getMaxAttribute('intellect') || 1;
-    const armor     = defender.getMaxAttribute('armor')     || 0;
-
-
-    if (isStunned) return armor;
-
-    // Defensive skills.
-    const dodge = defender.isNpc && defender.skills.has('dodge');
-    const blocking = defender.isNpc && defender.skills.has('block');
-
-    if (dodge && Random.probability((quickness + intellect) + 1)) {
-      if (!defender.isNpc) Broadcast.sayAt(defender, 'You dodge the attack!');
-      if (!attacker.isNpc) Broadcast.sayAt(attacker, `${defender.name} dodges your attack!`);
-      return amount;
-    }
-
-    if (blocking) {
-      const willpower  = defender.getMaxAttribute('willpower') || 1;
-      const might      = defender.getMaxAttribute('might')     || 1;
-      if (Random.probability(willpower + might + 10)) {
-        if (!defender.isNpc) Broadcast.sayAt(defender, 'You block the attack.');
-        if (!attacker.isNpc) Broadcast.sayAt(attacker, `${defender.name} blocks your attack!`);
-
-        return willpower + might + armor;
-      }
-    }
-
-    const def =
-      (quickness / 5)
-      + (intellect / 5)
-      + (dodge ? 1 : 0)
-      + (blocking ? 1 : 0)
-      + armor;
-    return Random.inRange(armor, Math.ceil(def));
   }
 
   /**
@@ -182,12 +131,11 @@ class Combat {
    * @param {Character} target
    */
   static makeAttack(attacker, target) {
-    const rawDamageAmount = attacker.hasEffectType('skill:stun') ? 0 : this.calculateWeaponDamage(attacker);
-    const isPsionic = attacker.damageType === DamageType.PSIONIC; // attacker.metadata && attacker.metadata.damageType === 'psionic';
-    const amount = Math.max(rawDamageAmount - this.calculateDefense(target, rawDamageAmount, attacker, isPsionic), 0);
+    const amount = attacker.hasEffectType('skill:stun') ? 0 : this.calculateWeaponDamage(attacker);
     const damage = new Damage({ attribute: 'health', amount, attacker });
-    damage.type = isPsionic ? 'psionic' : 'physical';
-    damage.commit(target); 
+    const type = Combat.getDamageTypeFromAttacker(attacker);
+    damage.type = type;
+    damage.commit(target);
 
     if (target.getAttribute('health') <= 0) {
       target.combatData.killedBy = attacker;
@@ -224,7 +172,7 @@ class Combat {
       return;
     }
 
-    let regenEffect = state.EffectFactory.create('regen', entity, { hidden: true }, { magnitude: 15 });
+    const regenEffect = state.EffectFactory.create('regen', entity, { hidden: true }, { magnitude: 15 });
     if (entity.addEffect(regenEffect)) {
       regenEffect.activate();
     }
@@ -256,7 +204,7 @@ class Combat {
     }
 
     if (!target.hasAttribute('health')) {
-      throw new CombatErrors.CombatInvalidTargetError("You can't attack that target");
+      throw new CombatErrors.CombatInvalidTargetError("They are immortal.");
     }
 
     if (!target.isNpc && !target.getMeta('pvp')) {
@@ -296,25 +244,63 @@ class Combat {
   static getWeaponDamage(attacker) {
     const weapon = attacker.equipment.get('wield');
     const might = attacker.getAttribute('might') || 1;
-    let min = 0, max = 0;
+    let min = 0, max = 0, isMelee = false;
     if (weapon) {
-      min = weapon.metadata.minDamage;
-      max = weapon.metadata.maxDamage;
+      const {minDamage, maxDamage} = weapon.metadata;
+      const {damageType} = weapon;
+      const bonus = getAttrBonus(attacker, damageType);
+      min = minDamage;
+      max = maxDamage + bonus;
     } else {
       if (attacker.isNpc) {
+        const {damageType} = attacker;
+        const bonus = getAttrBonus(attacker, damageType);
         min = attacker.metadata.minDamage || 1;
-        max = attacker.metadata.maxDamage || 1 + might;
+        max = attacker.metadata.maxDamage || 1 + (bonus || might);
       } else {
-        const martialArtsSkill = this.getMartialSkillBonus(attacker);
-        min = min + (1 * martialArtsSkill);
-        max = max + (might * martialArtsSkill);
+        isMelee = true;
+        min = min + 1;
+        max = max + 1 + might;
       }
+    }
+
+    function getAttrBonus(attacker, damageType) {
+      const isMight = damageType.includes(DamageType.CRUSHING);
+      const isQuickness = damageType.some(type => [DamageType.SLASHING, DamageType.PIERCING].includes(type));
+
+      if (isMight && isQuickness) {
+        const might = attacker.getAttribute('might');
+        const quickness = attacker.getAttribute('quickness');
+        return Math.ceil((might + quickness) / 8);
+      }
+
+      if (isMight) {
+        return Math.ceil(attacker.getAttribute('might') / 4);
+      }
+      if (isQuickness) {
+        return Math.ceil(attacker.getAttribute('quickness') / 4);
+      }
+
+      if (DamageType.isPsionic(damageType)) {
+        const intellect = attacker.getAttribute('intellect');
+        const willpower = attacker.getAttribute('willpower');
+        return Math.ceil((intellect + willpower) / 8);
+      }
+      return 0;
     }
 
     return {
       max,
       min
     };
+  }
+
+  static getDamageTypeFromAttacker(attacker) {
+    const weapon = attacker.equipment.get('wielded');
+    if (weapon) {
+      return weapon.damageType || [DamageType.CRUSHING];
+    }
+    return attacker.damageType || [DamageType.CRUSHING];
   }
 
   /**
@@ -324,7 +310,7 @@ class Combat {
    */
   static getWeaponSpeed(attacker) {
     let intBonus = (attacker.getAttribute('intellect') || 0) * 0.15;
-    let quickBonus = (attacker.getAttribute('quickness') || 1) * 0.25; 
+    let quickBonus = (attacker.getAttribute('quickness') || 1) * 0.25;
 
     const statBonus = Math.min((intBonus + quickBonus), 8);
 
@@ -352,8 +338,8 @@ class Combat {
       Logger.warn('No attacker or no skills.', attacker && attacker.skill);
       return 1;
     }
-    return attacker.skills.has('martial_arts_2') 
-    ? 5 
+    return attacker.skills.has('martial_arts_2')
+    ? 5
     : attacker.skills.has('martial_arts_1')
       ? 3
       : 1;
@@ -366,8 +352,7 @@ class Combat {
    * @return {number}
    */
   static normalizeWeaponDamage(attacker, amount) {
-    let speed = this.getWeaponSpeed(attacker);
-    amount += attacker.hasAttribute('might') ? attacker.getAttribute('might') : 0;
+    const speed = this.getWeaponSpeed(attacker);
     return Math.round(amount / 3.5 * speed);
   }
 }

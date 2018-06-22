@@ -44,7 +44,8 @@ module.exports = (srcPath) => {
             Broadcast.sayAt(target, `<b><red>You have been hacked open by ${player.name}! Blood gushes forth.</red></b>`);
           }
           target.addEffect(effect);
-          Broadcast.sayAt(player, `<b><red>You hack open <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and blood pulses from the wound.</red></b>`, 80);
+          const bleeds = target.metadata.bleeds || 'blood';
+          Broadcast.sayAt(player, `<b><red>You hack open <blue>${target.name}</blue> with the <blue>${this.name}</blue>, and ${bleeds} pulses from the wound.</red></b>`, 80);
         }
       }
     }

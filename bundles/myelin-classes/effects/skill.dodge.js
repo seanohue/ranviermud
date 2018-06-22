@@ -19,8 +19,8 @@ module.exports = srcPath => {
     },
     modifiers: {
       outgoingDamage: (damage, current) => current,
-      incomingDamage: function (damage, currentAmount) {
-        if (damage instanceof Heal || damage.type === 'psionic') {
+      incomingDamage(damage, currentAmount) {
+        if (damage instanceof Heal || !DamageType.isPhysical(damage.type)) {
           return currentAmount;
         }
 
@@ -37,7 +37,7 @@ module.exports = srcPath => {
       }
     },
     listeners: {
-      effectDeactivated: function () {
+      effectDeactivated() {
         Broadcast.sayAt(this.target, 'You are no longer actively dodging attacks.');
       }
     }

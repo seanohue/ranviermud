@@ -337,7 +337,7 @@
   quality: common
   metadata:
     minDamage: 2
-    maxDamage: 12
+    maxDamage: 19
     damageType: PIERCING
     speed: 5.4
     stats:

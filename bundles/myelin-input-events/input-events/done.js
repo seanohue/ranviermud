@@ -37,13 +37,21 @@ module.exports = (srcPath) => {
       player.room.emit('playerEnter', player);
       Broadcast.prompt(player);
 
-      let armor = state.EffectFactory.create('armor', player);
+      const armor = state.EffectFactory.create('armor', player);
       if (player.addEffect(armor)) {
         armor.activate();
       }
 
-      let psionicArmor = state.EffectFactory.create('armor', player, 
-        { name: 'Psionic Resistance', type: 'psionic_armor', hidden: false }, 
+      const quicknessDef = state.EffectFactory.create('armor', player, 
+        { name: 'Quickness Defense', type: 'quick_def' },
+        { attribute: 'quickness', typeMethod: 'isPhysical', multiplier: 0.25 }
+      );
+      if (player.addEffect(quicknessDef)) {
+        quicknessDef.activate();
+      }
+
+      const psionicArmor = state.EffectFactory.create('armor', player, 
+        { name: 'Psionic Resistance', type: 'psionic_armor' }, 
         { attribute: 'willpower', typeMethod: 'isPsionic' }
       );
 

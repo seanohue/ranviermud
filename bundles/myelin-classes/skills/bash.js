@@ -9,6 +9,7 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
   const Random = require(srcPath + 'RandomUtil');
   const Combat = require(srcPath + '../bundles/myelin-combat/lib/Combat');
+  const DamageType = require('../../myelin-combat/lib/DamageType');
 
   const damagePercent = 150;
   const energyCost = 75;
@@ -38,7 +39,7 @@ module.exports = (srcPath) => {
         attribute: 'health',
         amount: totalDamage(player) - (target.getAttribute('armor') || 0),
         attacker: player,
-        type: 'crushing',
+        type: [DamageType.CRUSHING],
         source: this
       });
       damage.verb = 'crushes';
@@ -76,7 +77,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Might, with a <bold>${stunPercent + player.getMaxAttribute('might')}</bold> chance to stun for <bold>${getDuration(player) / 1000}</bold> seconds.`;
+      return `Make a crushing attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Might, with a <bold>${stunPercent + player.getMaxAttribute('might')}</bold> chance to stun for <bold>${getDuration(player) / 1000}</bold> seconds.`;
     }
   };
 };

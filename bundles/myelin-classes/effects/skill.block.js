@@ -15,12 +15,12 @@ module.exports = srcPath => {
     flags: [Flag.BUFF],
     state: {
       magnitude: 1,
-      type: "physical"
+      type: "isPhysical"
     },
     modifiers: {
       outgoingDamage: (damage, current) => current,
-      incomingDamage: function (damage, currentAmount) {
-        if (damage instanceof Heal || damage.attribute !== 'health' || damage.type === 'psionic') {
+      incomingDamage(damage, currentAmount) {
+        if (damage instanceof Heal || damage.attribute !== 'health' || !DamageType[this.state.type](damage.type)) {
           return currentAmount;
         }
 

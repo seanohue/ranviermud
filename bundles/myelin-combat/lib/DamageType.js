@@ -22,24 +22,29 @@ const DamageType = {
   DISEASE:    Symbol("DISEASE"),
   BLEEDING:   Symbol("BLEEDING"),
 
+  RESOURCE:   Symbol("RESOURCE"),
 
-  isPhysical(type) {
+  isPhysical(types) {
     const {CRUSHING, PIERCING, SLASHING} = DamageType;
-    return [CRUSHING, PIERCING, SLASHING].includes(type);
+    return [].concat(types).some((type) => [CRUSHING, PIERCING, SLASHING].includes(type));
   },
 
-  isPsionic(type) {
-    return type === DamageType.PSIONIC;
+  isPsionic(types) {
+    return [].concat(types).includes(DamageType.PSIONIC);
   },
 
-  isElemental(type) {
+  isResource(types) {
+    return [].concat(types).includes(DamageType.RESOURCE);
+  },
+
+  isElemental(types) {
     const {FIRE, BLEEDING, FREEZING, DROWNING} = DamageType;
-    return [FIRE, BLEEDING, FREEZING, DROWNING].includes(type);
+    return [].concat(types).some(type => [FIRE, BLEEDING, FREEZING, DROWNING].includes(type));
   },
 
-  isBiological(type) {
+  isBiological(types) {
     const {POISON, DISEASE, BLEEDING} = DamageType;
-    return [POISON, DISEASE, BLEEDING].includes(type);
+    return [].concat(types).some(type => [POISON, DISEASE, BLEEDING].includes(type));
   }
 };
 

@@ -17,6 +17,24 @@ module.exports = (srcPath) => {
       },
 
       /**
+       * Add armor & other combat-related behaviors on spawn.
+       * @param {*} config Behavior config
+       */
+      spawn: state => function (config) {
+        let armor = state.EffectFactory.create('armor', this);
+        if (this.addEffect(armor)) {
+          armor.activate();
+        }
+        const quicknessDef = state.EffectFactory.create('armor', this, 
+          { name: 'Quickness Defense', type: 'quick_def' },
+          { attribute: 'quickness', typeMethod: 'isPhysical', multiplier: 0.25 }
+        );
+        if (this.addEffect(quicknessDef)) {
+          quicknessDef.activate();
+        }
+      },
+
+      /**
        * NPC was killed
        * @param {*} config Behavior config
        * @param {Character} killer

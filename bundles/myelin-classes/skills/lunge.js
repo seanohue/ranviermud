@@ -10,6 +10,8 @@ module.exports = (srcPath) => {
   const Damage = require(srcPath + 'Damage');
   const SkillType = require(srcPath + 'SkillType');
 
+  const DamageType = require('../../myelin-combat/lib/DamageType');
+
   const damagePercent = 150;
   const energyCost = 20;
 
@@ -29,11 +31,12 @@ module.exports = (srcPath) => {
     cooldown: 6,
 
     run: state => function (args, player, target) {
+
       const damage = new Damage({
         attribute: 'health',
         amount: getDamage(player) - (target.getAttribute('armor') || 0),
         attacker: player,
-        type: 'physical',
+        type: [DamageType.PIERCING],
         source: this
       });
 
@@ -46,7 +49,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Make a strong attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness.`;
+      return `Make a piercing attack against your target dealing <bold>${damagePercent}%</bold> weapon damage, plus your Quickness.`;
     }
   };
 };

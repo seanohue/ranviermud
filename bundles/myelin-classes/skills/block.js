@@ -39,7 +39,7 @@ module.exports = (srcPath) => {
       effect.skill = this;
 
       Broadcast.sayAt(player, `<b>You brace for incoming attacks!</b>`);
-      Broadcast.sayAtExcept(player.room, `<b>${player.name} raises their shield, bracing for incoming damage.</b>`, [player]);
+      Broadcast.sayAtExcept(player.room, `<b>${player.name} raises their defenses, bracing for incoming damage.</b>`, [player]);
       player.addEffect(effect);
     },
 

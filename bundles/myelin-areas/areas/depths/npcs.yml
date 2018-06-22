@@ -13,7 +13,7 @@
         aethersilk:
           min: 1
           max: 4
-        ectoplasm:
+        aetherplasm:
           min: 1
           max: 20
       currency:
@@ -43,6 +43,7 @@
     minDamage: 1
     maxDamage: 60
     damageType: 'PSIONIC'
+    bleeds: 'ichor'
 
 - id: gug
   keywords: ['gug']

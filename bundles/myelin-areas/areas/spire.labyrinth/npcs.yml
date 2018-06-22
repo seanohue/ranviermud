@@ -42,6 +42,8 @@
   metadata:
     minDamage: 8
     maxDamage: 25
+    bleeds: 'oil'
+
 - id: malfunctioningauto
   keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
   name: Flying Malfunctioning Automaton
@@ -81,6 +83,8 @@
   metadata:
     minDamage: 5
     maxDamage: 25
+    bleeds: 'oil'
+
 - id: arbiter
   keywords: ['arbiter']
   name: Arbiter
@@ -96,7 +100,7 @@
         aethersilk:
           min: 1
           max: 40
-        ectoplasm:
+        aetherplasm:
           min: 1
           max: 2
       currency:
@@ -125,6 +129,8 @@
     minDamage: 5
     maxDamage: 65
     damageType: 'PSIONIC'
+    bleeds: 'aetherplasm'
+
 - id: minotaur
   name: 'The Minotaur'
   level: 16

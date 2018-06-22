@@ -2,6 +2,7 @@
   keywords: ['maintenance', 'auto', 'automaton', 'robot']
   name: Maintenance Automaton
   level: 2
+  # TODO: Give it a combust skill that it uses when attacked by higher-level char.
   description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
     combat: true
@@ -27,7 +28,6 @@
           max: 15
     ranvier-wander:
       interval: 30
-
     # TODO: add breeding behavior where if there are more than one
     # of an NPC in a room, there is a small chance they produce a clone?
   attributes:
@@ -40,6 +40,9 @@
     willpower: 1
     critical: 2
     armor: 4
+  metadata:
+    damageType: ['SLASHING']
+    bleeds: 'oil'
 
 - id: vendorauto
   keywords: ['vendor', 'automaton']
@@ -97,7 +100,6 @@
           currency: theans
       enterMessage: "BEEP BOOP, MAKE A PURCHASE."
       leaveMessage: "BOOP WHIRR, COME BACK SOON."
-
     ranvier-wander:
       interval: 45
   attributes:
@@ -110,6 +112,9 @@
     willpower: 1
     critical: 3
     armor: 10
+  metadata:
+    bleeds: 'oil'
+
 - id: securityauto
   keywords: ['security', 'auto', 'flying']
   name: Flying Security Automaton
@@ -145,6 +150,8 @@
   metadata:
     minDamage: 5
     maxDamage: 20
+    damageType: ['PIERCING', 'SLASHING']
+    bleeds: 'oil'
 
 - id: malfunctioningauto
   keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
@@ -197,3 +204,6 @@
   metadata:
     minDamage: 5
     maxDamage: 20
+    damageType: ['PIERCING', 'SLASHING']
+    bleeds: 'oil'
+

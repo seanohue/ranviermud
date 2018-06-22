@@ -53,15 +53,6 @@ class Npc extends Character {
     this.uuid = data.uuid || uuid.v4();
 
     this.damageType = Combat.getDamageType(data);
-
-    if (data.skills) {
-      if (typeof data.skills === 'object' && !Array.isArray(data.skills)) {
-        this.skills = new Map(Object.entries(data.skills));
-      } else if (Array.isArray(data.skills)) {
-        this.skills = this.skills || new Map();
-        data.skills.forEach(skill => this.skills.set(skill, {}));
-      }
-    }
   }
 
 

@@ -7,6 +7,7 @@ module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Damage = require(srcPath + 'Damage');
   const Flag = require(srcPath + 'EffectFlag');
+  const DamageType = require('../../myelin-combat/lib/DamageType');
 
   return {
     config: {
@@ -34,7 +35,7 @@ module.exports = srcPath => {
         const damage = new Damage({
           attribute: "health",
           amount,
-          type: 'bleeding',
+          type: [DamageType.BLEEDING],
           attacker: this.attacker,
           source: this
         });

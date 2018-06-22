@@ -36,7 +36,7 @@ module.exports = srcPath => {
           attribute: "health",
           amount,
           attacker: this.attacker,
-          source: this
+          source: this,
         });
         damage.commit(this.target);
       },

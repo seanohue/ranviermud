@@ -18,13 +18,19 @@ module.exports = srcPath => {
     },
     state: {
       attribute: 'armor',
-      typeMethod: 'isPhysical'
+      typeMethod: 'isPhysical',
+      multiplier: 1
     },
     flags: [Flag.BUFF],
     modifiers: {
       incomingDamage(damage, currentAmount) {
         if (DamageType[this.state.typeMethod](damage.type)) {
-          return currentAmount - this.target.getAttribute(this.state.attribute || 'armor') || 0;
+          const attr = this.state.attribute || 'armor';
+          const isCrushing = damage.type.includes(DamageType.CRUSHING);
+          const soak = (this.target.getAttribute(attr) || 0) * this.state.multiplier;
+          return isCrushing 
+          ? currentAmount - Math.ceil(soak * 0.75)
+          : currentAmount - soak;
         }
 
         return currentAmount;

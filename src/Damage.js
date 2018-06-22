@@ -25,7 +25,7 @@ class Damage {
       attribute,
       amount = null,
       attacker = null,
-      type = "physical",
+      type = [],
       source = null,
       hidden = false,
       critical = false,
