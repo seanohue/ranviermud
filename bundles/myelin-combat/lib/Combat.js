@@ -249,14 +249,16 @@ class Combat {
       const {minDamage, maxDamage} = weapon.metadata;
       const {damageType} = weapon;
       const bonus = getAttrBonus(attacker, damageType);
-      min = minDamage;
+      min = minDamage + bonus;
       max = maxDamage + bonus;
+      console.log({damageType, bonus});
     } else {
       if (attacker.isNpc) {
         const {damageType} = attacker;
         const bonus = getAttrBonus(attacker, damageType);
-        min = attacker.metadata.minDamage || 1;
-        max = attacker.metadata.maxDamage || 1 + (bonus || might);
+        console.log({damageType, bonus});
+        min = (attacker.metadata.minDamage || 1) + bonus;
+        max = (attacker.metadata.maxDamage || 1) + bonus;
       } else {
         isMelee = true;
         min = min + 1;
@@ -267,7 +269,7 @@ class Combat {
     function getAttrBonus(attacker, damageType) {
       const isMight = damageType.includes(DamageType.CRUSHING);
       const isQuickness = damageType.some(type => [DamageType.SLASHING, DamageType.PIERCING].includes(type));
-
+      console.log(attacker.name, {isMight, isQuickness});
       if (isMight && isQuickness) {
         const might = attacker.getAttribute('might');
         const quickness = attacker.getAttribute('quickness');
