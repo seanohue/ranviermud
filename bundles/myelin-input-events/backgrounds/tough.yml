@@ -4,9 +4,9 @@ name: 'Rugged Tough'
 description: "You've always done what it took to survive. Your fists and your prodigious size kept you alive, and earned you a living, even if it wasn't always honest. They usually deserved it, or so you told yourself."
 attributes:
   quickness: 11
-  intellect: 4
+  intellect: 8
   might: 17
-  willpower: 8
+  willpower: 4
 equipment:
   - 'spire.intro:jerkin'
   - 'spire.intro:slacks'

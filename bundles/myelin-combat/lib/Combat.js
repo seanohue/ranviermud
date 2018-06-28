@@ -244,54 +244,56 @@ class Combat {
   static getWeaponDamage(attacker) {
     const weapon = attacker.equipment.get('wield');
     const might = attacker.getAttribute('might') || 1;
-    let min = 0, max = 0, isMelee = false;
+    let min = 0, max = 0;
     if (weapon) {
       const {minDamage, maxDamage} = weapon.metadata;
       const {damageType} = weapon;
-      const bonus = getAttrBonus(attacker, damageType);
+      const bonus = Combat.getAttrBonus(attacker, damageType);
       min = minDamage + bonus;
       max = maxDamage + bonus;
     } else {
       if (attacker.isNpc) {
         const {damageType} = attacker;
-        const bonus = getAttrBonus(attacker, damageType);
+        const bonus = Combat.getAttrBonus(attacker, damageType);
         min = (attacker.metadata.minDamage || 1) + bonus;
         max = (attacker.metadata.maxDamage || 1) + bonus;
       } else {
-        isMelee = true;
         min = min + 1;
         max = max + 1 + might;
       }
     }
 
-    function getAttrBonus(attacker, damageType) {
-      const isMight = damageType.includes(DamageType.CRUSHING);
-      const isQuickness = damageType.some(type => [DamageType.SLASHING, DamageType.PIERCING].includes(type));
-      if (isMight && isQuickness) {
-        const might = attacker.getAttribute('might');
-        const quickness = attacker.getAttribute('quickness');
-        return Math.ceil((might + quickness) / 8);
-      }
-
-      if (isMight) {
-        return Math.ceil(attacker.getAttribute('might') / 4);
-      }
-      if (isQuickness) {
-        return Math.ceil(attacker.getAttribute('quickness') / 4);
-      }
-
-      if (DamageType.isPsionic(damageType)) {
-        const intellect = attacker.getAttribute('intellect');
-        const willpower = attacker.getAttribute('willpower');
-        return Math.ceil((intellect + willpower) / 8);
-      }
-      return 0;
-    }
+    // TODO: Make into a method, use in the 'score' display for weapon damage.
 
     return {
       max,
       min
     };
+  }
+
+  static getAttrBonus(attacker, damageType) {
+    const isMight = damageType.includes(DamageType.CRUSHING);
+    const isQuickness = damageType.some(type => [DamageType.SLASHING, DamageType.PIERCING].includes(type));
+    if (isMight && isQuickness) {
+      const might = attacker.getAttribute('might');
+      const quickness = attacker.getAttribute('quickness');
+      return Math.ceil((might + quickness) / 8);
+    }
+
+    if (isMight) {
+      return Math.ceil(attacker.getAttribute('might') / 4);
+    }
+    if (isQuickness) {
+      return Math.ceil(attacker.getAttribute('quickness') / 4);
+    }
+
+    if (DamageType.isPsionic(damageType)) {
+      const intellect = attacker.getAttribute('intellect');
+      const willpower = attacker.getAttribute('willpower');
+      return Math.ceil((intellect + willpower) / 8);
+    }
+
+    return 0;
   }
 
   static getDamageTypeFromAttacker(attacker) {
@@ -312,7 +314,6 @@ class Combat {
     let quickBonus = (attacker.getAttribute('quickness') || 1) * 0.25;
 
     const statBonus = Math.min((intBonus + quickBonus), 8);
-
     const weapon = attacker.equipment.get('wield');
     let weaponBonus = 0;
     if (!attacker.isNpc && weapon) {
@@ -326,7 +327,7 @@ class Combat {
 
     const speed = Math.max(
       10 - statBonus - weaponBonus,
-      1.5
+      1
     );
 
     return speed;

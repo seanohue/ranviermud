@@ -31,7 +31,7 @@
     # TODO: add breeding behavior where if there are more than one
     # of an NPC in a room, there is a small chance they produce a clone?
   attributes:
-    health: 130
+    health: 90
     energy: 50
     focus: 50
     might: 5
@@ -138,11 +138,11 @@
     ranvier-wander: 
       interval: 15
   attributes:
-    health: 95
+    health: 65
     energy: 100
     focus: 50
     might: 4
-    quickness: 20
+    quickness: 12
     intellect: 5
     willpower: 2
     critical: 5
@@ -192,11 +192,11 @@
         players: true
         npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
   attributes:
-    health: 65
+    health: 35
     energy: 100
     focus: 50
     might: 6
-    quickness: 16
+    quickness: 10
     intellect: 3
     willpower: 1
     critical: 4

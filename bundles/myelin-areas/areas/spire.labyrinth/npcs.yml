@@ -30,7 +30,7 @@
     ranvier-wander:
       interval: 30
   attributes:
-    health: 150
+    health: 120
     energy: 100
     focus: 50
     might: 8
@@ -71,7 +71,7 @@
         players: true
         npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
   attributes:
-    health: 105
+    health: 90
     energy: 100
     focus: 50
     might: 7
@@ -174,7 +174,7 @@
     startquest:
       questId: 'spire.labyrinth:killminotaur'
   attributes:
-    health: 360
+    health: 300
     energy: 250
     focus: 50
     might: 30
@@ -182,7 +182,7 @@
     intellect: 10
     willpower: 10
     critical: 10
-    armor: 30
+    armor: 20
   metadata:
     minDamage: 5
     maxDamage: 50

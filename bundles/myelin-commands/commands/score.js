@@ -115,10 +115,13 @@ module.exports = (srcPath) => {
       const min = Combat.normalizeWeaponDamage(p, weaponDamage.min);
       const max = Combat.normalizeWeaponDamage(p, weaponDamage.max);
 
-      const speed = Combat.getWeaponSpeed(p) + ' sec';
+      const speed = Combat.getWeaponSpeed(p);
       say(div('[Armaments]'));
       say(centerBox(width, `Primary: ${primaryWeapon.name || 'Unarmed'}`));
-      say(centerBox(width, `Damage: ${min + ' - ' + max}  Speed: ${String(speed).split('.')[0]}`));
+      
+      const [whole, decimals] = String(speed).split('.');
+      const speedLabel = whole + (decimals && decimals[0] !== '0' ? '.' + decimals[0] : '');
+      say(centerBox(width, `Damage: ${min + ' - ' + max}  Speed: ${speedLabel} sec. per attack`));
 
       //TODO: Secondary arms, if it exists, once implemented.
       //TODO: Wounds/disease state?
