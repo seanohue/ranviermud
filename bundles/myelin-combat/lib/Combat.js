@@ -246,7 +246,6 @@ class Combat {
     const weapon = attacker.equipment.get('wield');
     const might = attacker.getAttribute('might') || 1;
     let min = 0, max = 0;
-    console.log(attacker.name, attacker.isNpc);
     if (weapon) {
       const {minDamage, maxDamage} = weapon.metadata;
       const {damageType} = weapon;
@@ -259,7 +258,6 @@ class Combat {
         const bonus = Combat.getAttrBonus(attacker, damageType);
         min = (attacker.metadata.minDamage || 1) + bonus;
         max = (attacker.metadata.maxDamage || 1) + bonus;
-        console.log({bonus, min, max});
       } else {
         min = min + 1;
         max = max + 1 + might;
