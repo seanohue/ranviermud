@@ -317,7 +317,7 @@ module.exports = (srcPath) => {
 
         // Disconnect player
         this.save(() => {
-          if (this.level <= 5) B.sayAt(this, `<red>${Death.hint()}</red>`)
+          if (this.level <= 5) B.sayAt(this, `<red><b>HINT:</b> ${Death.hint()}</red>`)
           B.sayAt(this, `~* <red>* <b>* YOU DIED *</b> *</red> *~`); // rethink this, or at least make it less corny.
           B.sayAtExcept(this.room, `<red><b>${this.name}'s soul leaves the body.</red></b>`, this);
           this.socket.emit('close');

@@ -63,6 +63,7 @@ class Combat {
       attacker.combatData = {};
       return false;
     }
+
     if (attacker.hasEffectType('skill:stun')) {
       let shouldAnnounce = true;
       if (!attacker.lastAnnouncedStun) {
@@ -233,7 +234,7 @@ class Combat {
       amount = RandomUtil.inRange(weaponDamage.min, weaponDamage.max);
     }
 
-    return this.normalizeWeaponDamage(attacker, amount);
+    return amount;
   }
 
   /**
@@ -245,6 +246,7 @@ class Combat {
     const weapon = attacker.equipment.get('wield');
     const might = attacker.getAttribute('might') || 1;
     let min = 0, max = 0;
+    console.log(attacker.name, attacker.isNpc);
     if (weapon) {
       const {minDamage, maxDamage} = weapon.metadata;
       const {damageType} = weapon;
@@ -257,6 +259,7 @@ class Combat {
         const bonus = Combat.getAttrBonus(attacker, damageType);
         min = (attacker.metadata.minDamage || 1) + bonus;
         max = (attacker.metadata.maxDamage || 1) + bonus;
+        console.log({bonus, min, max});
       } else {
         min = min + 1;
         max = max + 1 + might;
@@ -329,7 +332,6 @@ class Combat {
       10 - statBonus - weaponBonus,
       1
     );
-
     return speed;
   }
 
@@ -343,17 +345,6 @@ class Combat {
     : attacker.skills.has('martial_arts_1')
       ? 3
       : 1;
-  }
-
-  /**
-   * Get a damage amount adjusted by attack power/weapon speed
-   * @param {Character} attacker
-   * @param {number} amount
-   * @return {number}
-   */
-  static normalizeWeaponDamage(attacker, amount) {
-    const speed = this.getWeaponSpeed(attacker);
-    return Math.round(amount / 3.5 * speed);
   }
 }
 

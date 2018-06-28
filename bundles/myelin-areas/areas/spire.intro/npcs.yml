@@ -142,14 +142,14 @@
     energy: 100
     focus: 50
     might: 4
-    quickness: 12
+    quickness: 10
     intellect: 5
     willpower: 2
     critical: 5
     armor: 1
   metadata:
-    minDamage: 5
-    maxDamage: 20
+    minDamage: 2
+    maxDamage: 18
     damageType: ['PIERCING', 'SLASHING']
     bleeds: 'oil'
 
@@ -202,8 +202,8 @@
     critical: 4
     armor: 1
   metadata:
-    minDamage: 5
-    maxDamage: 20
+    minDamage: 1
+    maxDamage: 16
     damageType: ['PIERCING', 'SLASHING']
     bleeds: 'oil'
 
