@@ -7,6 +7,7 @@ module.exports = srcPath => {
 
   return {
     usage: 'flee [direction]',
+    aliases: ['run', 'escape'],
     command: state => (direction, player) => {
       if (!player.isInCombat()) {
         return say(player, "You jump at the sight of your own shadow.");

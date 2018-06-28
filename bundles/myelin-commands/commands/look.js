@@ -15,6 +15,7 @@ module.exports = (srcPath, bundlePath) => {
 
   return {
     usage: "look [thing]",
+    aliases: ['inspect', 'examine'],
     command: state => (args, player) => {
       if (!player.room) {
         Logger.error(player.getName() + ' is in limbo.');
