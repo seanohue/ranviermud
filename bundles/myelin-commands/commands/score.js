@@ -112,8 +112,7 @@ module.exports = (srcPath) => {
       // Primary & secondary wielded.
       const primaryWeapon = p.equipment.get('wield') || {};
       const weaponDamage = Combat.getWeaponDamage(p);
-      const min = Combat.normalizeWeaponDamage(p, weaponDamage.min);
-      const max = Combat.normalizeWeaponDamage(p, weaponDamage.max);
+      const {min = 1, max = 1} = weaponDamage;
 
       const speed = Combat.getWeaponSpeed(p);
       say(div('[Armaments]'));

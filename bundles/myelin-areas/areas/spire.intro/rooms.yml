@@ -9,9 +9,9 @@
       questId: 'spire.intro:wayout'
     flavorevents:
       messages:
-        - 'You hear a soft, high whistling coming from the pipes overhead.'
+        - 'A soft, high whistling comes from the pipes overhead.'
         - 'A wooshing sound can be heard from the chamber nearby.'
-        - 'You hear a scurrying noise coming from an indeterminate distance away.'
+        - 'A scurrying noise comes from above your head.'
         - 'A sound like distant thunder echoes from afar.'
         - 'Bubbles form behind the glass of one of the cylinders.'
 - id: tube-chamber-1

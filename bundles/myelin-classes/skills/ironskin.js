@@ -47,7 +47,7 @@ module.exports = (srcPath) => {
         'buff',
         target,
         {
-          name: 'Ironskin',
+          name: 'Ironskin Armor',
           duration: getDuration(player),
           description: this.info(player),
         },
@@ -61,12 +61,11 @@ module.exports = (srcPath) => {
       armorEffect.skill = this;
       armorEffect.attacker = player;
 
-
       const quicknessEffect = state.EffectFactory.create(
         'debuff',
         target,
         {
-          name: 'Ironskin',
+          name: 'Ironskin Slowness',
           duration: getDuration(player),
           description: this.info(player),
         },

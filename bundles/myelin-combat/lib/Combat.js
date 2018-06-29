@@ -260,7 +260,7 @@ class Combat {
         max = (attacker.metadata.maxDamage || 1) + bonus;
       } else {
         min = min + 1;
-        max = max + 1 + might;
+        max = max + 1 + (Math.ceil(might / 4));
       }
     }
 

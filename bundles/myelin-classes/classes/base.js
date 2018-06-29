@@ -96,6 +96,16 @@ module.exports = srcPath => {
           level: 5,
           intellect: 13,
           quickness: 10
+        },
+        weaken: {
+          level: 4,
+          intellect: 12,
+          willpower: 10
+        },
+        stupefy: {
+          level: 4,
+          willpower: 12,
+          intellect: 10
         }
       }
     }

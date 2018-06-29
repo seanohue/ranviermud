@@ -18,7 +18,8 @@ module.exports = srcPath => {
     modifiers: {
       attributes(name, current) {
         if (this.state.attributes.includes(name)) {
-          return current - this.state.magnitude;
+          // Cannot go negative or zero due to, uh, math.
+          return Math.max(current - this.state.magnitude, 1);
         }
         return current;
       }
