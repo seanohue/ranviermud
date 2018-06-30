@@ -10,9 +10,7 @@ module.exports = (srcPath) => {
     command : (state) => (args, player) => {
       B.sayAt(player, "Current Effects:");
 
-      const effects = player.effects.entries().filter(effect => {
-        return !effect.config.hidden;
-      });
+      const effects = player.effects.entries().filter(effect => !effect.config.hidden);
 
       if (!effects.length) {
         return B.sayAt(player, "  None.");

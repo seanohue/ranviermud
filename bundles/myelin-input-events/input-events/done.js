@@ -58,6 +58,7 @@ module.exports = (srcPath) => {
       if (player.addEffect(psionicArmor)) {
         psionicArmor.activate();
       }
+
       // All that shit done, let them play!
       player.socket.emit('commands', player);
 

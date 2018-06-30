@@ -38,6 +38,7 @@ module.exports = (srcPath) => {
         {
           duration: getDuration(player),
           description: this.info(player),
+          persists: true,
         },
         {
           magnitude: getMagnitude(player),
@@ -52,6 +53,8 @@ module.exports = (srcPath) => {
         Broadcast.sayAtExcept(player.room, `<red>${player.name} lets out a primal scream!</red>`, [player]);
       } else {
         Broadcast.sayAt(target, `<red>You let out a scream as you're filled with superhuman power!</red>`);
+        Broadcast.sayAt(target, `${player.name} has <b>Empowered</b> you!`);
+
         Broadcast.sayAtExcept(player.room, `<red>${target.name} lets out a primal scream!</red>`, [target]);        
       }
       
@@ -59,7 +62,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Increase your Might and Quickness by ${getMagnitude(player)} points for <bold>${getDuration(player) / 1000}</bold> seconds.`;
+      return `Increase your (or an ally's) Might and Quickness by ${getMagnitude(player)} points for <bold>${getDuration(player) / 1000}</bold> seconds.`;
     }
   };
 };

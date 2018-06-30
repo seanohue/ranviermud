@@ -83,6 +83,13 @@ module.exports = (srcPath) => {
       player.setMeta('config',           { minimap: true });
 
       const room = state.RoomManager.startingRoom;
+
+      // Activate all passive skills.
+      for (const skillName of skills) {
+        const skill = state.SkillManager.get(skillName);
+        skill.activate(player);
+      }
+
       player.room = room;
       player.save(() => {
         // reload from manager so events are set

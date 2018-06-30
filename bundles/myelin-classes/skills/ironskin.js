@@ -85,7 +85,7 @@ module.exports = (srcPath) => {
 
 
       if (target !== player) {
-        Broadcast.sayAt(target, `<red>${player.name} grants you Ironskin!</red>`);
+        Broadcast.sayAt(target, `<cyan>${player.name} grants you Ironskin!</cyan>`);
       }
 
       Broadcast.sayAt(target.room, `<cyan>A resounding <b>clunk</b> fills the air.</cyan>`);

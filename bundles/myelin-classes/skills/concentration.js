@@ -23,7 +23,6 @@ module.exports = (srcPath) => {
       effect.state = Object.assign(effect.state, {
         threshold,
         attrMultiplier,
-        persists
       });
 
       return effect;

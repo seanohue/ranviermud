@@ -17,6 +17,7 @@ module.exports = srcPath => {
 
         /* Physicalist: */
 
+        // Defensive
         block: {
           level: 4,
           might: 15,
@@ -27,16 +28,11 @@ module.exports = srcPath => {
           quickness: 15,
           intellect: 10
         },
+
+        // Offensive
         lunge: {
           level: 1,
           quickness: 15,
-        },
-        secondwind: {
-          level: 1,
-          might: 9,
-          willpower: 9,
-          quickness: 9,
-          cost: 1
         },
         bash: {
           level: 1,
@@ -54,7 +50,18 @@ module.exports = srcPath => {
           might: 13
         },
 
+        // Phys. Regen
+        secondwind: {
+          level: 1,
+          might: 9,
+          willpower: 9,
+          quickness: 9,
+          cost: 1
+        },
+
         /* Mentalist: */
+
+        // Armor
         leatherskin: {
           level: 3,
           willpower: 16
@@ -65,6 +72,8 @@ module.exports = srcPath => {
           might: 10,
           skills: ['leatherskin']
         },
+
+        // Healing
         mend: {
           level: 1,
           intellect: 13,
@@ -76,11 +85,31 @@ module.exports = srcPath => {
           intellect: 14,
           willpower: 11
         },
+
+        // Active buffs
         empower: {
           level: 5,
           willpower: 18
         },
+        enlighten: {
+          level: 5,
+          intellect: 18
+        },
 
+        // Active debuffs
+        weaken: {
+          level: 4,
+          intellect: 12,
+          willpower: 10
+        },
+        stupefy: {
+          level: 4,
+          willpower: 12,
+          intellect: 10
+        },
+
+        // Elemental tracks
+        // FIRE:
         combust: {
           level: 1,
           intellect: 15,
@@ -95,6 +124,7 @@ module.exports = srcPath => {
           skills: ['combust']
         },
 
+        // Mental regen
         concentration: {
           level: 1,
           intellect: 9,
@@ -106,16 +136,6 @@ module.exports = srcPath => {
           intellect: 13,
           quickness: 10
         },
-        weaken: {
-          level: 4,
-          intellect: 12,
-          willpower: 10
-        },
-        stupefy: {
-          level: 4,
-          willpower: 12,
-          intellect: 10
-        }
       }
     }
   };

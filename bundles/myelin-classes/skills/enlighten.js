@@ -3,35 +3,32 @@
 const Combat = require('../../ranvier-combat/lib/Combat');
 
 /**
- * Buff armor
+ * Buff physical attrs
  */
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const SkillType = require(srcPath + 'SkillType');
-  const cost = 30;
+  const cost = 75;
 
   const getMagnitude = player => {
-    return Math.ceil(player.getAttribute('willpower') / 2);
+    return Math.ceil(player.getAttribute('intellect') / 2);
   };
 
   const getDuration = player => {
-    return Math.max(player.getAttribute('willpower'), 25) * 2000;
+    return player.getAttribute('intellect') * 2000;
   }
 
-  const cooldown = 60;
+  const cooldown = 40;
 
   return {
-    name: 'Leatherskin',
+    name: 'Empower',
     type: SkillType.SKILL,
     requiresTarget: true,
     targetSelf: true,
-    resource: [{
+    resource: {
       attribute: 'focus',
       cost,
-    }, {
-      attribute: 'energy',
-      cost,
-    }],
+    },
     cooldown,
 
     run: state => function (args, player, target) {
@@ -39,29 +36,30 @@ module.exports = (srcPath) => {
         'buff',
         target,
         {
-          name: 'Leatherskin',
           duration: getDuration(player),
           description: this.info(player),
+          persists: true,
         },
         {
           magnitude: getMagnitude(player),
-          attributes: ['armor'],
-          activated: `<red>You feel your skin toughen!</red>`,
-          deactivated: `<red>Your skin returns to normal.</red>`
+          attributes: ['willpower', 'intellect']
         }
       );
       effect.skill = this;
       effect.attacker = player;
 
-      if (target !== player) {
-        Broadcast.sayAt(target, `<cyan>${player.name} grants you Leatherskin!</cyan>`);
+      if (target === player) {
+        Broadcast.sayAt(player, `<cyan>Your mind reels as you see the full scope of the universe!</cyan>`);
+      } else {
+        Broadcast.sayAt(target, `<red>Your mind reels as you see the full scope of the universe!</red>`);
+        Broadcast.sayAt(target, `${player.name} has <b>Enlightened</b> you!`);
       }
       
       target.addEffect(effect);
     },
 
     info: (player) => {
-      return `Increase your Armor or that of an ally by ${getMagnitude(player)} for ${getDuration(player) / 1000} seconds.`;
+      return `Increase your (or an ally's) Might and Quickness by ${getMagnitude(player)} points for <bold>${getDuration(player) / 1000}</bold> seconds.`;
     }
   };
 };
