@@ -19,9 +19,11 @@ module.exports = (srcPath) => {
     cooldown: interval,
 
     configureEffect: effect => {
+      effect.config.persists = true;
       effect.state = Object.assign(effect.state, {
         threshold,
         attrMultiplier,
+        persists
       });
 
       return effect;

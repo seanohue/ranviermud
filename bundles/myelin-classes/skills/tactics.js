@@ -24,6 +24,7 @@ module.exports = (srcPath) => {
     effect: "skill.tactics",
 
     configureEffect: effect => {
+      effect.config.persists = true;
       effect.state = Object.assign(effect.state, {
         magnitude: getMagnitude(effect.target)
       });

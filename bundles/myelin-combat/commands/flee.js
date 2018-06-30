@@ -65,9 +65,10 @@ module.exports = srcPath => {
         return;
       }
 
-      say(player, "You cowardly flee from the battle!");
+      say(player, "You flee from battle!");
 
-      // TODO: Add or subtract XP.
+      // TODO: Add cowardice effect.
+      // Add XP if the enemy is tougher than they are and the player is not cowardiced.
       player.removeFromCombat();
       state.CommandManager.get('move').execute(direction, player);
     }

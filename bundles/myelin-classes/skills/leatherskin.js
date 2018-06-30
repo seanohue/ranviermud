@@ -42,7 +42,6 @@ module.exports = (srcPath) => {
           name: 'Leatherskin',
           duration: getDuration(player),
           description: this.info(player),
-
         },
         {
           magnitude: getMagnitude(player),

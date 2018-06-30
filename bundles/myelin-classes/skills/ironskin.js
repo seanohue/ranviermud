@@ -68,6 +68,11 @@ module.exports = (srcPath) => {
           name: 'Ironskin Slowness',
           duration: getDuration(player),
           description: this.info(player),
+          listeners: {
+            look: state => function(observer) {
+              return Broadcast.sayAt(observer, 'Their skin has a metallic appearance.');
+            }
+          }
         },
         {
           magnitude: getDebuffMagnitude(player, target),

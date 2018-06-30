@@ -20,7 +20,9 @@ module.exports = (srcPath) => {
 
       let available = player.playerClass.getAbilitiesForPlayer(player)
       let purchaseable = available.filter(ability => player.playerClass.canPurchaseAbility(player, ability));
-      let skill = purchaseable.filter(name => args === name);
+      let skill = purchaseable.filter(name => args === name.toLowerCase());
+
+      console.log({available, purchaseable, skill});
 
       if (skill.length > 1) {
         return say(`Please be more specific. Found: ${skill.join(', ')}.`);

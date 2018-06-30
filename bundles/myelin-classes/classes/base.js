@@ -80,12 +80,21 @@ module.exports = srcPath => {
           level: 5,
           willpower: 18
         },
+
         combust: {
           level: 1,
           intellect: 15,
           willpower: 7,
           cost: 1
         },
+        flare: {
+          level: 4,
+          intellect: 15,
+          willpower: 7,
+          cost: 1,
+          skills: ['combust']
+        },
+
         concentration: {
           level: 1,
           intellect: 9,
