@@ -31,17 +31,13 @@ Shawn Biddle (RanvierMUD Creator/BDFL)
 Special thanks to MUD Coder's Guild 
 www.mudcoders.com (Join this Slack, too!)
 
-CHANGELOG (6/28/2018):
+CHANGELOG (6/30/2018):
 
-** Combat overhaul in progress, including tweaks to NPCs and items stats.
-- Intro area is more survivable.
-- Backgrounds are more equal.
-- Sets the stage for cool new skills & more dynamic combat.
-
-** New skills! (mostly Level 4 or higher) 
-** Bugfixes, of course.
+** Combat overhaul in progress, including tweaks to backgrounds, skills, NPCs and items.
+** Intro area is more survivable.
+** 6+ new skills! (mostly Level 4 or higher) 
+** Fixed bug with passive skills.
 ** Hints when you die at a lower level.
 ** New aliases for common commands for quality of life.
 
-(6/29/2018) Added two more skills!
 
