@@ -118,7 +118,7 @@ module.exports = srcPath => {
           level: 6,
           intellect: 12,
           quickness: 10,
-        }
+        },
 
         // Elemental tracks
         // FIRE:
