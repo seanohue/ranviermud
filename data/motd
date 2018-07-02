@@ -31,13 +31,12 @@ Shawn Biddle (RanvierMUD Creator/BDFL)
 Special thanks to MUD Coder's Guild 
 www.mudcoders.com (Join this Slack, too!)
 
-CHANGELOG (6/30/2018):
+CHANGELOG (7/2/2018):
 
 ** Combat overhaul in progress, including tweaks to backgrounds, skills, NPCs and items.
 ** Intro area is more survivable.
-** 6+ new skills! (mostly Level 4 or higher) 
-** Fixed bug with passive skills.
+** 10+ new skills! (mostly Level 4 or higher) 
+** Gain more build points as you reach higher levels.
+** Gain XP from successfully crafting.
 ** Hints when you die at a lower level.
 ** New aliases for common commands for quality of life.
-
-
