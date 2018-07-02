@@ -18,6 +18,10 @@ module.exports = srcPath => {
         const inv = Array.from(player.inventory.values());
         if (inv.find(item => item.entityReference.includes('portalkey'))) {
           Broadcast.sayAt(player, `<cyan>The portal in this room begins to <b>thrum</b> with light as you approach.</cyan>`);
+          if (!player._hadPortalKeyHint) {
+            Broadcast.sayAt(player, `<cyan><b>HINT:</b> Try <b>'use portal key'</b> to activate the portal.</cyan>`);
+            player._hadPortalKeyHint = true;
+          }
           if (this.players.size > 1) {
             Broadcast.sayAtExcept(this, `<cyan>The portal in this room begins to <b>thrum</b> with light as ${player.name} approaches.`, player)
           }       
