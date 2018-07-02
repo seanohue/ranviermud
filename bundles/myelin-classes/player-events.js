@@ -75,14 +75,14 @@ module.exports = srcPath => {
       level: state => function () {
         // Award attribute points for boosting attributes.
         const attributePoints = parseInt(this.getMeta('attributePoints') || 0, 10);
-        const gained = Math.max(Math.round(this.level / 20) + 1, 4);
+        const gained = Math.min(Math.round(this.level / 20) + 1, 4);
         this.setMeta('attributePoints', attributePoints + gained);
         B.sayAt(this, `<blue>You now have ${attributePoints + gained} points to spend on boosting attributes.</blue>`);
 
         // Award ability points for buying skills/feats.
         if (this.level % 2 === 0) {
           const abilityPoints = parseInt(this.getMeta('abilityPoints') || 0, 10);
-          const gained = Math.max(Math.round(this.level / 20) + 1, 2);
+          const gained = Math.min(Math.round(this.level / 20) + 1, 2);
           this.setMeta('abilityPoints', abilityPoints + gained);
           B.sayAt(this, `<blue>You now have ${abilityPoints + gained} points to spend on new abilities.</blue>`);
         }

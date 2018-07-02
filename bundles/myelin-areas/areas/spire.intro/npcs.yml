@@ -43,6 +43,8 @@
   metadata:
     damageType: ['SLASHING']
     bleeds: 'oil'
+    minDamage: 1
+    maxDamage: 6
 
 - id: vendorauto
   keywords: ['vendor', 'automaton']
@@ -114,6 +116,8 @@
     armor: 10
   metadata:
     bleeds: 'oil'
+    minDamage: 5
+    maxDamage: 40
 
 - id: securityauto
   keywords: ['security', 'auto', 'flying']

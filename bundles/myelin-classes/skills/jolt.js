@@ -14,7 +14,10 @@ module.exports = (srcPath) => {
   const cost = 25;
 
   function getDamage(player) {
-    return player.getAttribute('intellect') * (damagePercent / 100);
+    return {
+      min: player.getAttribute('intellect'),
+      max: player.getAttribute('intellect') * (damagePercent / 100)
+    }
   }
 
   function getStunChance(player) {
@@ -44,9 +47,11 @@ module.exports = (srcPath) => {
     cooldown: 15,
 
     run: state => function (args, player, target) {
+      const {min, max} = getDamage(player);
+
       const damage = new Damage({
         attribute: 'health',
-        amount: getDamage(player),
+        amount: Random.inRange(min, max),
         attacker: player,
         type: [DamageType.ELECTRICAL],
         source: this
@@ -86,7 +91,8 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Conjure a bolt of lightning at your target dealing ${getDamage(player)} Electrical damage, with a ${getStunChance(player)}% chance of stunning them for ${getDuration(player)} seconds.`;
+      const {min, max} = getDamage(player);
+      return `Conjure an arc of electricity at your target dealing ${min} - ${max} Electrical damage, with a ${getStunChance(player)}% chance of stunning them for ${getDuration(player)} seconds.`;
     }
   };
 };

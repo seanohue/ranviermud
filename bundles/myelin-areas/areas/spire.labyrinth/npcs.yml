@@ -132,7 +132,7 @@
     bleeds: 'aetherplasm'
 
 - id: minotaur
-  name: 'The Minotaur'
+  name: 'Minotaur'
   level: 16
   keywords: ['minotaur']
   skills: ['block']

@@ -6,6 +6,7 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Damage = require(srcPath + 'Damage');
+  const Random = require(srcPath + 'RandomUtil');
   const SkillType = require(srcPath + 'SkillType');
   const DamageType = require('../../myelin-combat/lib/DamageType');
 
@@ -13,7 +14,10 @@ module.exports = (srcPath) => {
   const cost = 40;
 
   function getDamage(player) {
-    return player.getAttribute('intellect') * (damagePercent / 100);
+    return {
+      min: player.getAttribute('intellect'),
+      max: player.getAttribute('intellect') * (damagePercent / 100)
+    };
   }
 
   return {
@@ -35,9 +39,10 @@ module.exports = (srcPath) => {
       }
       
       function fireDamageFactory() {
+        const {min, max} = getDamage(player);
         const damage = new Damage({
           attribute: 'health',
-          amount: getDamage(player),
+          amount: Random.inRange(min, max),
           attacker: player,
           type: [DamageType.FIRE],
           source: this
@@ -60,7 +65,8 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Unleash a fan of flame at your target and all other enemy combatants, dealing ${getDamage(player)} Fire damage.`;
+      const {min, max} = getDamage(player);
+      return `Unleash a fan of flame at your target and all other enemy combatants, dealing ${min} - ${max} Fire damage to each.`;
     }
   };
 };
