@@ -44,7 +44,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Raise your shield block damage up to <bold>${healthPercent}%</bold> of your maximum health for <bold>${duration / 1000}</bold> seconds. Requires a shield.`;
+      return `Raise your defenses to block damage up to <bold>${healthPercent}%</bold> of your maximum health for <bold>${duration / 1000}</bold> seconds.`;
     }
   };
 };

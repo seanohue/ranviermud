@@ -50,7 +50,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Hurl a magical fireball at your target dealing ${getDamage(player)} Fire damage.`;
+      return `Conjure a burst of flame at your target, dealing ${getDamage(player)} Fire damage.`;
     }
   };
 };

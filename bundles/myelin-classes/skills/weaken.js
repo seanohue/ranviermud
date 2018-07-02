@@ -8,7 +8,9 @@ module.exports = (srcPath) => {
   const Random    = require(srcPath + 'RandomUtil');
 
   function getMagnitude(player) {
-    return player.getAttribute('intellect');
+    return Math.ceil(
+      Math.min(player.getAttribute('intellect') / 3, 10)
+    );
   }
 
   function getDuration(player) {

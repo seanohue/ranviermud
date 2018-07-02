@@ -6,7 +6,9 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
 
   function getMagnitude(player) {
-    return Math.max(player.getAttribute('willpower'));
+    return Math.ceil(
+      Math.min(player.getAttribute('willpower') / 3, 10)
+    );
   }
 
   function getDuration(player) {

@@ -28,6 +28,13 @@ module.exports = srcPath => {
           quickness: 15,
           intellect: 10
         },
+        riposte: {
+          level: 8,
+          quickness: 15,
+          intellect: 12,
+          might: 12,
+          skills: ['block', 'dodge']
+        },
 
         // Offensive
         lunge: {
@@ -107,6 +114,11 @@ module.exports = srcPath => {
           willpower: 12,
           intellect: 10
         },
+        expose: {
+          level: 6,
+          intellect: 12,
+          quickness: 10,
+        }
 
         // Elemental tracks
         // FIRE:
@@ -122,6 +134,21 @@ module.exports = srcPath => {
           willpower: 7,
           cost: 1,
           skills: ['combust']
+        },
+
+        //ELECTRICAL
+        jolt: {
+          level: 2,
+          intellect: 16,
+          willpower: 7,
+          cost: 1
+        },
+        bolt: {
+          level: 6,
+          intellect: 16,
+          willpower: 10,
+          cost: 1,
+          skills: ['jolt']
         },
 
         // Mental regen
