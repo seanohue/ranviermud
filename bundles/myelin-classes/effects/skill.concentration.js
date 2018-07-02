@@ -16,7 +16,6 @@ module.exports = srcPath => {
     flags: [Flag.BUFF],
     listeners: {
       damaged(damage) {
-        console.log('Damaged:', damage.attribute);
         if (damage.attribute !== 'focus') {
           return;
         }

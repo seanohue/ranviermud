@@ -35,7 +35,7 @@ module.exports = (srcPath) => {
               description: "You've been hacked open... and it's a deep one.",
             },
             {
-              totalDamage: Math.min(quickness, 30) + (damage.critical ? 10 : 0)
+              totalDamage: Math.min(quickness * 2, 60) + (damage.critical ? 20 : 0)
             }
           );
           effect.skill = this;

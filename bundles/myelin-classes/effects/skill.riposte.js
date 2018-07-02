@@ -8,11 +8,12 @@ module.exports = srcPath => {
   const Flag      = require(srcPath + 'EffectFlag');
   const Random    = require(srcPath + 'RandomUtil');
 
-  const Combat = require(srcPath + '../bundles/myelin-combat/lib/Combat.js');
+  const DamageType = require(srcPath + '../bundles/myelin-combat/lib/DamageType.js');
+  const Combat     = require(srcPath + '../bundles/myelin-combat/lib/Combat.js');
 
   return {
     config: {
-      name: 'Block',
+      name: 'Riposte',
       description: "You are actively riposting incoming physical attacks!",
       type: 'skill:block',
     },
@@ -24,23 +25,35 @@ module.exports = srcPath => {
     modifiers: {
       outgoingDamage: (damage, current) => current,
       incomingDamage(damage, currentAmount) {
-        if (!damage.attacker || damage instanceof Heal || damage.attribute !== 'health' || !DamageType[this.state.type](damage.type)) {
+        if (!damage.attacker || 
+          damage instanceof Heal || 
+          damage.attribute !== 'health' || 
+           (Array.isArray(damage.type) && typeof damage.type[0] === 'symbol'
+           && !DamageType[this.state.type](damage.type))
+          ) {
           return currentAmount;
         }
-        
-        const riposted = Random.inRange(
-          Math.min(currentAmount, this.state.minimum || 1),
-          Math.min(currentAmount, this.state.maximum || currentAmount)
-        );
+
+        let riposted = 0;
+
+        if (currentAmount > 0) {
+          const max = Math.min(currentAmount, this.state.maximum || currentAmount);
+          const min = Math.min(max, this.state.minimum || 1);
+
+          riposted      = Random.inRange(min, max);
+          currentAmount = Math.max(0, currentAmount - riposted);
+        } else {
+          riposted = Random.inRange(this.state.minimum || 1, this.state.maximum || 1);
+        }
+    
+        console.log({riposted, state: this.state, currentAmount});
         
         this.state.remaining--;
-
-        currentAmount -= riposted;
 
         if (!riposted) return currentAmount;
 
         const player = this.target;
-        Broadcast.sayAt(player, `You riposte the attack, dealing <bold>${riposted}</bold> damage to ${damage.attacker.name}!`);
+        Broadcast.sayAt(player, `You riposte the attack from ${damage.attacker.name}!`);
         if (!this.state.remaining) {
           this.remove();
         }
@@ -49,7 +62,7 @@ module.exports = srcPath => {
 
         const riposteDamage = new Damage({
           attribute: 'health',
-          amount: riposted,
+          amount: Math.abs(riposted),
           attacker: player,
           type: type,
           source: this
