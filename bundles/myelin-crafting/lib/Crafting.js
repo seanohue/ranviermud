@@ -2,6 +2,7 @@
 
 const srcPath = '../../../src/';
 
+const Logger = require(srcPath + 'Logger');
 const Data =require(srcPath + 'Data');
 const Item = require(srcPath + 'Item');
 
@@ -16,7 +17,9 @@ class Crafting {
 
   static getResourceItem(resourceKey) {
     const resourceDef = this.getResource(resourceKey);
-
+    if (!resourceDef) {
+      return Logger.error('Invalid or missing resource definition.');
+    }
     // create a temporary fake item for the resource for rendering purposes
     return new Item(null, {
       name: resourceDef.title,
