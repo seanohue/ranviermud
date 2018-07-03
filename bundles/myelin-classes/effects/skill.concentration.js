@@ -20,8 +20,6 @@ module.exports = srcPath => {
           return;
         }
 
-        console.log(damage);
-
         if (this.skill.onCooldown(this.target)) {
           return;
         }

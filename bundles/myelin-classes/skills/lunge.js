@@ -21,7 +21,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Lunge',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     requiresTarget: true,
     initiatesCombat: true,
     resource: {

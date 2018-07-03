@@ -36,7 +36,7 @@ module.exports = (srcPath) => {
       args.account.addCharacter(name);
       args.account.save();
 
-      const {name: bgName, abilityPoints, attributes: bgAttr, attributePoints,  equipment: bgEquipment, skills} = background;
+      const {name: bgName, abilityPoints, attributes: bgAttr, attributePoints,  equipment: bgEquipment, skills = []} = background;
 
       // TODO:
       const attributes = Object.assign({

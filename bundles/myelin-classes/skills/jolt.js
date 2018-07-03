@@ -15,8 +15,8 @@ module.exports = (srcPath) => {
 
   function getDamage(player) {
     return {
-      min: player.getAttribute('intellect'),
-      max: player.getAttribute('intellect') * (damagePercent / 100)
+      min: Math.min(player.getAttribute('intellect'), 25),
+      max: Math.min(player.getAttribute('intellect') * (damagePercent / 100), 60)
     }
   }
 
@@ -34,7 +34,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Jolt',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     requiresTarget: true,
     initiatesCombat: true,
     resource: [{

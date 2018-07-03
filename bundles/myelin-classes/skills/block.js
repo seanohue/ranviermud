@@ -16,7 +16,7 @@ module.exports = (srcPath) => {
   
   return {
     name: 'Block',
-    type: SkillType.SKILL,
+    type: SkillType.BUFF,
     requiresTarget: false,
     resource: {
       attribute: 'energy',

@@ -24,6 +24,7 @@ class Broadcast {
     formatter = formatter || ((target, message) => message);
 
     if (!TypeUtil.is(source, Broadcastable)) {
+      if (source.isNpc) { return; }
       throw new Error(`Tried to broadcast message not non-broadcastable object: MESSAGE [${message}]`);
     }
 
@@ -54,9 +55,14 @@ class Broadcast {
    * @param {function} formatter
    */
   static atExcept(source, message, excludes, wrapWidth, useColor, formatter) {
-
-    if (!TypeUtil.is(source, Broadcastable)) {
-      throw new Error(`Tried to broadcast message not non-broadcastable object: MESSAGE [${message}]`);
+    if (source.isNpc) { return; }
+    try{
+      if (!TypeUtil.is(source, Broadcastable)) {
+        throw new Error(`Tried to broadcast message not non-broadcastable object: MESSAGE [${message}]`);
+      }
+    } catch(e) {
+      console.log(e);
+      console.log(source);
     }
 
     // Could be an array or a single target.

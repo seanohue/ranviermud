@@ -16,14 +16,14 @@ module.exports = (srcPath) => {
 
   function getDamage(player) {
     return {
-      min: player.getAttribute('intellect'),
-      max: player.getAttribute('intellect') * (damagePercent / 100)
+      min: Math.min(player.getAttribute('intellect'), 20),
+      max: Math.min(player.getAttribute('intellect') * (damagePercent / 100), 90)
     };
   }
 
   return {
     name: 'Combust',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     requiresTarget: true,
     initiatesCombat: true,
     resource: {
@@ -46,10 +46,22 @@ module.exports = (srcPath) => {
       });
       damage.verb = 'burns';
 
-      Broadcast.sayAt(player, `<bold>You will forth a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at ${target.name}!</bold>`);
-      Broadcast.sayAtExcept(player.room, `<bold>With a gesture and a glare, ${player.name} unleashes a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at ${target.name}!</bold>`, [player, target]);
-      if (!target.isNpc) {
-        Broadcast.sayAt(target, `<bold>With a wave of their hand, ${player.name} unleashes a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at you!</bold>`);
+      // TOSO:  To avoid this, make a very similar 'flamethrower' skill that can also be added to weapons.
+      if (!player.isNpc) {
+        Broadcast.sayAt(player, `<bold>You will forth a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at ${target.name}!</bold>`);
+        Broadcast.sayAtExcept(player.room, `<bold>With a gesture and a glare, ${player.name} unleashes a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at ${target.name}!</bold>`, [player, target]);
+        if (!target.isNpc) {
+          Broadcast.sayAt(target, `<bold>With a wave of their hand, ${player.name} unleashes a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at you!</bold>`);
+        }
+      } else {
+        const {fireBroadcast = {}} = player.metadata;
+        const {
+          atTarget = `<bold>${player.name} shoots a <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> at you!</bold>`,
+          atOthers = `<bold>${player.name} shoots a  <red>burst</red></bold> <yellow>of <bold>flame</bold></yellow> at ${target.name}!</bold>`
+        } = fireBroadcast;
+
+        Broadcast.sayAt(target, atTarget);
+        Broadcast.sayAtExcept(target.room, atOthers, [player, target]);
       }
 
       // TODO: Check for dodge.

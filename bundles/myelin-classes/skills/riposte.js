@@ -10,7 +10,7 @@ module.exports = (srcPath) => {
   // config placed here just for easy configuration of this skill later on
   const attribute = 'quickness';
   const cooldown  = 60;
-  const cost      = 50;
+  const cost      = 45;
   const maximum   = 100;
   const duration  = 30 * 1000;
 
@@ -36,12 +36,15 @@ module.exports = (srcPath) => {
   
   return {
     name: 'Riposte',
-    type: SkillType.SKILL,
+    type: SkillType.BUFF,
     requiresTarget: false,
-    resource: {
+    resource: [{
       attribute: 'energy',
       cost,
-    },
+    }, {
+      attribute: 'focus',
+      cost: 5
+    }],
     cooldown,
 
     run: state => function (args, player, target) {

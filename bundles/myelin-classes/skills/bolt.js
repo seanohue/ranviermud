@@ -14,7 +14,10 @@ module.exports = (srcPath) => {
   const cost = 50;
 
   function getDamage(player) {
-    return player.getAttribute('intellect') * (damagePercent / 100);
+    return {
+      min: Math.min(player.getAttribute('intellect'), 20),
+      max: Math.min(player.getAttribute('intellect') * (damagePercent / 100), 160)
+    };
   }
 
   function getStunChance(player, factor = 1) {
@@ -30,7 +33,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Bolt',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     requiresTarget: true,
     initiatesCombat: true,
     resource: [{

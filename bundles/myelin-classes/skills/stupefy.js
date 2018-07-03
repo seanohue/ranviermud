@@ -19,7 +19,7 @@ module.exports = (srcPath) => {
 
   return {
     name:            'Stupefy',
-    type:            SkillType.FEAT,
+    type:            SkillType.COMBAT,
     requiresTarget:  true,
     initiatesCombat: true,
     targetSelf:      false,

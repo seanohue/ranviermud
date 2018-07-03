@@ -6,6 +6,7 @@ module.exports = srcPath => {
   const Random = require(srcPath + 'RandomUtil');
   const Player = require(srcPath + 'Player');
   const Flag = require(srcPath + 'EffectFlag');
+  const DamageType = require('../../myelin-combat/lib/DamageType');
 
   return {
     config: {
@@ -24,12 +25,18 @@ module.exports = srcPath => {
           return currentAmount;
         }
 
-        const dodged = Random.probability(this.magnitude);
+        const dodged = Random.probability(this.state.magnitude);
+        if (damage.attacker instanceof Player) {
+          console.log('Dodged?', dodged, this.state.magnitude);
+        }
         if (dodged) {
           Broadcast.sayAt(this.target, `You dodge the attack completely!`);
+          Broadcast.sayAt(damage.attacker, `<yellow>${this.target.name} <b>dodges</b> your attack!</yellow>`)
           return 0;
-        } else if (Random.probability(this.magnitude)) {
+        } else if (Random.probability(this.state.magnitude)) {
           Broadcast.sayAt(this.target, 'You nearly dodge the attack, but it still grazes you...');
+          Broadcast.sayAt(damage.attacker, `<yellow>${this.target.name} <b>mearly dodges</b> your attack!</yellow>`);
+
           return Math.ceil(currentAmount / 2);
         }
 

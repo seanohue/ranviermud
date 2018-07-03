@@ -25,7 +25,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Bash',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     requiresTarget: true,
     initiatesCombat: true,
     resource: {

@@ -23,7 +23,7 @@ module.exports = srcPath => {
       effectDeactivated() {
         this.target.combatData.speed -= this.duration;
         if (!this.target.isNpc) Broadcast.sayAt(this.target, "<bold>You regain your senses.</bold>");
-        Broadcast.sayAtExcept(this.target.room, `${this.target.name} has regained their senses...`, this.target);
+        if (this.target.room) Broadcast.sayAtExcept(this.target.room, `${this.target.name} is no longer stunned.`, this.target);
       },
 
       look(observer) {

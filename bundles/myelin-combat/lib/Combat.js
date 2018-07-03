@@ -42,6 +42,7 @@ class Combat {
     if (attacker.combatData.lag > 0) {
       const elapsed = Date.now() - lastRoundStarted;
       attacker.combatData.lag -= elapsed;
+      attacker.emit('cannotAttack'); // May use skills though.
       return false;
     }
 

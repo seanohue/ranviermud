@@ -17,12 +17,12 @@ module.exports = (srcPath) => {
   }
   
   function getDodgeChance(player) {
-    return 10 + player.getMaxAttribute('quickness');
+    return 10 + player.getAttribute('quickness');
   }
 
   return {
     name: 'Dodge',
-    type: SkillType.SKILL,
+    type: SkillType.BUFF,
     requiresTarget: false,
     resource: [{
       attribute: 'energy',

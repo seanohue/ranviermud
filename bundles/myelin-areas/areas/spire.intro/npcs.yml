@@ -5,6 +5,8 @@
   # TODO: Give it a combust skill that it uses when attacked by higher-level char.
   description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
+    skilled:
+      skills: ['combust']
     combat: true
     flavorevents:
       onSpawn: 'A spiderlike automaton crawls from an aperture in the ceiling and down one of the walls. The aperture whirrs shut behind it.'
@@ -32,11 +34,11 @@
     # of an NPC in a room, there is a small chance they produce a clone?
   attributes:
     health: 90
-    energy: 50
-    focus: 50
+    energy: 90
+    focus: 250
     might: 5
     quickness: 5
-    intellect: 2
+    intellect: 9
     willpower: 1
     critical: 2
     armor: 4
@@ -44,16 +46,17 @@
     damageType: ['SLASHING']
     bleeds: 'oil'
     minDamage: 1
-    maxDamage: 6
+    maxDamage: 10
 
 - id: vendorauto
   keywords: ['vendor', 'automaton']
   name: Vending Automaton
-  level: 40
+  level: 7
   description: "This automaton is a hulking block with a glass front. It has two treads that it uses to get around, one on each side. It is filled with various goods. A funnel is jutting from one side of the machine, presumably for payment. A small tube juts from the lower front center of the automaton, for dispensing goods."
-  skills: ['block']
   behaviors:
     combat: true
+    skilled:
+      skills: ['bash', 'block']
     # combat:
     #   vengeful: true # hunts down past attackers
     lootable: 
@@ -69,8 +72,8 @@
           max: 40
       currency:
         theans:
-          min: 500
-          max: 5000
+          min: 1
+          max: 500
       pools:
         - spire.intro:portalkey: 50
         - spire.labyrinth:jumpsuit: 20
@@ -106,7 +109,7 @@
       interval: 45
   attributes:
     health: 420
-    energy: 150
+    energy: 250
     focus: 50
     might: 20
     quickness: 3
@@ -116,17 +119,18 @@
     armor: 10
   metadata:
     bleeds: 'oil'
-    minDamage: 5
-    maxDamage: 40
+    minDamage: 15
+    maxDamage: 50
 
 - id: securityauto
   keywords: ['security', 'auto', 'flying']
   name: Flying Security Automaton
   level: 6
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring in all directions. Its undercarriage features razor-sharp 'legs' and a small cannon."
-  skills: ['dodge']
   behaviors:
     combat: true
+    skilled:
+      skills: ['dodge']
     lootable: 
       resources: 
         scrap_metal:
@@ -160,10 +164,11 @@
 - id: malfunctioningauto
   keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
   name: Flying Malfunctioning Automaton
-  level: 2
+  level: 3
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring <red>erratically</red>. Its undercarriage features razor-sharp 'legs' and a small cannon."
-  skills: ['dodge']
   behaviors:
+    skilled:
+      skills: ['dodge', 'rend']
     startquest: 
       questId: 'spire.intro:misbehavingautos'
     combat: true
@@ -197,7 +202,7 @@
         npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
   attributes:
     health: 35
-    energy: 100
+    energy: 250
     focus: 50
     might: 6
     quickness: 10

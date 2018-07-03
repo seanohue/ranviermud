@@ -3,8 +3,10 @@
   name: Blupe
   level: 14
   description: 'This being hovers a short distance from the ground. It is elliptical in shape, with bulging white eyes set in a semi-transparent body. It is covered in an array of fins and tendrils. It pulsates slightly. The Blupe smells like the air after a fierce storm.'
-  skills: ['dodge']
   behaviors:
+    skilled:
+      skills: ['dodge',  'stupefy', 'weaken', 'jolt', 'combust']
+      wait: 1000
     flavorevents:
       onSpawn: 'A small elliptical creature rises from the murky waters...'
     combat: true
@@ -29,10 +31,11 @@
       towards:
         players: true
   # eventually make weak to fire damage, and also attracted to fire usage  
+  # make immune to lightning
   attributes:
     health: 205
     energy: 125
-    focus: 250
+    focus: 850
     might: 8
     quickness: 35
     intellect: 11
@@ -50,8 +53,9 @@
   name: Gug
   level: 25
   description: 'A shaggy humanoid with four limbs and several spider-like eyes. It is covered in bristling tufts of hair and has an enormous maw on the top of its head, splitting its face vertically. Its legs resemble tree roots.'
-  skills: ['block']
   behaviors:
+    skilled:
+      skills: ['block', 'dodge', 'riposte', 'rend', 'bash', 'lunge', 'enervate', 'secondwind']
     flavorevents:
       onSpawn: 'A hairy beast shambles from a nearby crevice...'
     combat: true
@@ -77,8 +81,8 @@
         players: true
   attributes:
     health: 355
-    energy: 125
-    focus: 250
+    energy: 600
+    focus: 30
     might: 30
     quickness: 18
     intellect: 8

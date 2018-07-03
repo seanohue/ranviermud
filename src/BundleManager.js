@@ -613,12 +613,7 @@ class BundleManager {
 
       Logger.verbose(`\t\t${skillName}`);
       const skill = new Skill(skillName, skillImport, this.state);
-
-      if (skill.type === SkillType.SKILL) {
-        this.state.SkillManager.add(skill);
-      } else {
-        this.state.SpellManager.add(skill);
-      }
+      this.state.SkillManager.add(skill);
     }
 
     Logger.verbose(`\tENDLOAD: Skills...`);

@@ -5,7 +5,9 @@ module.exports = srcPath => {
   const Heal = require(srcPath + 'Heal');
   const Player = require(srcPath + 'Player');
   const Flag = require(srcPath + 'EffectFlag');
+  const DamageType = require('../../myelin-combat/lib/DamageType');
 
+  // Compose this to make psionic/elemental wards.
   return {
     config: {
       name: 'Block',

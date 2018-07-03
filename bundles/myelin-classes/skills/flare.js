@@ -15,8 +15,8 @@ module.exports = (srcPath) => {
 
   function getDamage(player) {
     return {
-      min: player.getAttribute('intellect'),
-      max: player.getAttribute('intellect') * (damagePercent / 100)
+      min: Math.min(player.getAttribute('intellect'), 20),
+      max: Math.min(player.getAttribute('intellect') * (damagePercent / 100), 75)
     };
   }
 

@@ -23,7 +23,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Rend',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     requiresTarget: true,
     initiatesCombat: true,
     resource: {

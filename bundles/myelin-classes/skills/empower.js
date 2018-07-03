@@ -22,7 +22,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Empower',
-    type: SkillType.SKILL,
+    type: SkillType.BUFF,
     requiresTarget: true,
     targetSelf: true,
     resource: {

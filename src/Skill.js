@@ -72,6 +72,7 @@ class Skill {
    * @param {Character} target
    */
   execute(args, player, target) {
+    if (target && !target.isNpc) console.log('executing ', this.name);
     if (this.flags.includes(SkillFlag.PASSIVE)) {
       throw new SkillErrors.PassiveError();
     }
@@ -139,7 +140,6 @@ class Skill {
     if (!this.flags.includes(SkillFlag.PASSIVE)) {
       return;
     }
-
     if (!this.effect) {
       throw new Error('Passive skill has no attached effect');
     }

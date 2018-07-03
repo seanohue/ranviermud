@@ -198,7 +198,7 @@ class Character extends Metadatable(EventEmitter) {
     if (!this.isInCombat()) {
       this.combatData.lag = lag;
       this.combatData.roundStarted = Date.now();
-      this.emit('combatStart');
+      this.emit('combatStart', target);
     }
 
     if (this.isInCombat(target)) {
