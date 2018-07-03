@@ -28,7 +28,7 @@ module.exports = (srcPath) => {
   }
 
   function getDuration(player) {
-    return Math.min(player.getAttribute('willpower'), 20);
+    return Math.min(player.getAttribute('willpower'), 20) * 1000;
   }
 
   return {
@@ -132,7 +132,7 @@ module.exports = (srcPath) => {
     },
 
     info: (player) => {
-      return `Conjure a bolt of lightning at your foes dealing ${getDamage(player)} Electrical damage, with a ${getStunChance(player)}% chance of stunning them for ${getDuration(player)} seconds for the first target. This bolt then travels to other combatants you are fighting, doing half damage and half chance to stun each time.`;
+      return `Conjure a bolt of lightning at your foes dealing ${getDamage(player)} Electrical damage, with a ${getStunChance(player)}% chance of stunning them for ${getDuration(player) / 1000} seconds for the first target. This bolt then travels to other combatants you are fighting, doing half damage and half chance to stun each time.`;
     }
   };
 };

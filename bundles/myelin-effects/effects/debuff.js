@@ -25,6 +25,7 @@ module.exports = srcPath => {
       }
     },
     listeners: {
+      //TODO: Custom activated/deactivated where it makes sense.`
       effectActivated() {
         Broadcast.sayAt(this.target, this.state.activated || "You feel weakened!");
       },
