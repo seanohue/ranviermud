@@ -32,7 +32,6 @@ Special thanks to MUD Coder's Guild
 www.mudcoders.com (Join this Slack, too!)
 
 CHANGELOG (7/2/2018):
-
 ** Combat overhaul in progress, including tweaks to backgrounds, skills, NPCs and items.
 ** Intro area is more survivable.
 ** 10+ new skills! (mostly Level 4 or higher) 
@@ -40,3 +39,6 @@ CHANGELOG (7/2/2018):
 ** Gain XP from successfully crafting.
 ** Hints when you die at a lower level.
 ** New aliases for common commands for quality of life.
+
+(7/3/2018)
+** NPCs can use skills during combat! Watch out.
