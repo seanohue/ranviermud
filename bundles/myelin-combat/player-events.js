@@ -154,12 +154,23 @@ module.exports = (srcPath) => {
         }
 
         if (damage.source) {
-          buf += (damage.attacker ? "'s " : " ") + `<b>${damage.source.name}</b>`;
+          let source = damage.source.name;
+          const isNpc = damage.attacker && damage.attacker.isNpc;
+          if (isNpc) {
+            const Skill = require(srcPath + 'Skill');
+            const isSkill = damage.source instanceof Skill;
+            if (!isSkill) {
+              //TODO: get weapon first if exists.
+              isNpc = damage.attacker.metadata.attackVerb || 'attack';
+            }
+          }
+
+          buf += (damage.attacker ? "'s " : " ") + `<b>${source}</b>`;
         } else if (!damage.attacker) {
           buf += "Something";
         }
 
-        buf += ` hit <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage.`;
+        buf += ` ${damage.verb || 'hit'} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage.`;
 
         if (damage.critical) {
           buf += ' <red><b>(Critical)</b></red>';
