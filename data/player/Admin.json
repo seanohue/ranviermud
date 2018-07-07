@@ -39,7 +39,7 @@
   },
   "level": 69,
   "name": "Admin",
-  "room": "spire.intro:a-frosted-tomb-0",
+  "room": "ruins:a-rough-hewn-hall-152",
   "effects": [
     {
       "config": {
@@ -55,13 +55,13 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 10030303,
+      "elapsed": 20801885,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 359,
-        "ticks": 2716
+        "lastTick": 1739,
+        "ticks": 5747
       }
     },
     {
@@ -78,7 +78,7 @@
         "type": "skill.tactics",
         "unique": true
       },
-      "elapsed": 10016562,
+      "elapsed": 20788119,
       "id": "skill.tactics",
       "remaining": null,
       "skill": "tactics",
@@ -100,7 +100,7 @@
         "type": "skill:secondwind",
         "unique": true
       },
-      "elapsed": 9930037,
+      "elapsed": 20701578,
       "id": "skill.secondwind",
       "remaining": null,
       "skill": "secondwind",
@@ -123,7 +123,7 @@
         "type": "skill:concentration",
         "unique": true
       },
-      "elapsed": 9585299,
+      "elapsed": 20356839,
       "id": "skill.concentration",
       "remaining": null,
       "skill": "concentration",
@@ -146,7 +146,7 @@
         "type": "equip.head",
         "unique": true
       },
-      "elapsed": 9094134,
+      "elapsed": 19865674,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -170,7 +170,7 @@
         "type": "equip.body",
         "unique": true
       },
-      "elapsed": 8744132,
+      "elapsed": 19515672,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -189,30 +189,6 @@
         "duration": "inf",
         "hidden": true,
         "maxStacks": 0,
-        "name": "Equip: wield",
-        "persists": true,
-        "refreshes": false,
-        "tickInterval": false,
-        "type": "equip.wield",
-        "unique": true
-      },
-      "elapsed": 8661407,
-      "id": "equip",
-      "remaining": null,
-      "state": {
-        "slot": "wield",
-        "stats": {
-          "critical": 4
-        }
-      }
-    },
-    {
-      "config": {
-        "autoActivate": true,
-        "description": "",
-        "duration": "inf",
-        "hidden": true,
-        "maxStacks": 0,
         "name": "Equip: feet",
         "persists": true,
         "refreshes": false,
@@ -220,7 +196,7 @@
         "type": "equip.feet",
         "unique": true
       },
-      "elapsed": 8449847,
+      "elapsed": 19221386,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -233,80 +209,74 @@
     {
       "config": {
         "autoActivate": true,
-        "description": "Increase your Armor or that of an ally by 240, at a cost of as much as 230 Quickness, for 500 seconds.",
-        "duration": 500000,
-        "hidden": false,
+        "description": "",
+        "duration": "inf",
+        "hidden": true,
         "maxStacks": 0,
-        "name": "Ironskin",
+        "name": "Armor",
         "persists": true,
         "refreshes": false,
         "tickInterval": false,
-        "type": "buff",
+        "type": "armor",
         "unique": true
       },
-      "elapsed": 14883,
-      "id": "buff",
-      "remaining": 485117,
-      "skill": "ironskin",
+      "elapsed": 10771522,
+      "id": "armor",
+      "remaining": null,
       "state": {
-        "magnitude": 240,
-        "attributes": [
-          "armor"
-        ],
-        "activated": "<red>You feel your skin toughen!</red>",
-        "deactivated": "<red>Your skin returns to normal.</red>"
+        "attribute": "armor",
+        "typeMethod": "isPhysical",
+        "multiplier": 1
       }
     },
     {
       "config": {
         "autoActivate": true,
-        "description": "Increase your Armor or that of an ally by 240, at a cost of as much as 230 Quickness, for 500 seconds.",
-        "duration": 500000,
-        "hidden": false,
+        "description": "",
+        "duration": "inf",
+        "hidden": true,
         "maxStacks": 0,
-        "name": "Ironskin",
+        "name": "Quickness Defense",
         "persists": true,
         "refreshes": false,
         "tickInterval": false,
-        "type": "debuff",
+        "type": "quick_def",
         "unique": true
       },
-      "elapsed": 14881,
-      "id": "debuff",
-      "remaining": 485119,
-      "skill": "ironskin",
+      "elapsed": 10771519,
+      "id": "armor",
+      "remaining": null,
       "state": {
-        "magnitude": 230,
-        "attributes": [
-          "quickness"
-        ],
-        "activated": "<red>You feel incredibly heavy!</red>"
+        "attribute": "quickness",
+        "typeMethod": "isPhysical",
+        "multiplier": 0.5
       }
     },
     {
       "config": {
         "autoActivate": true,
-        "description": "Cannot use ability while on cooldown.",
-        "duration": 60000,
-        "hidden": false,
+        "description": "",
+        "duration": "inf",
+        "hidden": true,
         "maxStacks": 0,
-        "name": "Cooldown: Ironskin",
+        "name": "Psionic Resistance",
         "persists": true,
         "refreshes": false,
         "tickInterval": false,
-        "type": "cooldown",
-        "unique": false
+        "type": "psionic_armor",
+        "unique": true
       },
-      "elapsed": 14880,
-      "id": "cooldown",
-      "remaining": 45120,
-      "skill": "ironskin",
+      "elapsed": 10771519,
+      "id": "armor",
+      "remaining": null,
       "state": {
-        "cooldownId": "skill:ironskin"
+        "attribute": "willpower",
+        "typeMethod": "isPsionic",
+        "multiplier": 0.5
       }
     }
   ],
-  "experience": 115251,
+  "experience": 132131,
   "inventory": {
     "items": [
       [
@@ -363,29 +333,6 @@
         }
       ],
       [
-        "293dd394-ccfb-4698-993e-47eee25fbcae",
-        {
-          "entityReference": "spire.labyrinth:boneclub",
-          "inventory": null,
-          "metadata": {
-            "specialEffects": [
-              "Chance on hit: Stun your opponent for a short time.",
-              "On critical: Stun your opponent for an extended time."
-            ],
-            "minDamage": 15,
-            "maxDamage": 30,
-            "speed": 2.2,
-            "stats": {
-              "critical": 3
-            },
-            "slot": "wield"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
-      [
         "d1776f5e-9783-4469-a4aa-f6370214da19",
         {
           "entityReference": "spire.labyrinth:bonehelm",
@@ -410,6 +357,27 @@
           "closed": false,
           "locked": false,
           "behaviors": {}
+        }
+      ],
+      [
+        "e8b10829-bfb1-4e5a-a0f4-57a076fa6097",
+        {
+          "entityReference": "spire.labyrinth:bonehelm",
+          "inventory": null,
+          "metadata": {
+            "stats": {
+              "armor": 6
+            },
+            "slot": "head"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "sellable": {
+              "value": 20,
+              "currency": "thean"
+            }
+          }
         }
       ],
       [
@@ -441,24 +409,49 @@
         }
       ],
       [
-        "e8b10829-bfb1-4e5a-a0f4-57a076fa6097",
+        "3ec79dd1-e9ec-4e77-ba58-89e361d9fecf",
         {
-          "entityReference": "spire.labyrinth:bonehelm",
+          "entityReference": "spire.labyrinth:boneclub",
           "inventory": null,
           "metadata": {
+            "specialEffects": [
+              "Chance on hit: Stun your opponent for a short time.",
+              "On critical: Stun your opponent for an extended time."
+            ],
+            "minDamage": 15,
+            "maxDamage": 30,
+            "speed": 2.2,
             "stats": {
-              "armor": 6
+              "critical": 3
             },
-            "slot": "head"
+            "slot": "wield"
           },
           "closed": false,
           "locked": false,
-          "behaviors": {
-            "sellable": {
-              "value": 20,
-              "currency": "thean"
-            }
-          }
+          "behaviors": {}
+        }
+      ],
+      [
+        "033e6cf3-3312-451b-8209-47d745737bb4",
+        {
+          "entityReference": "spire.intro:shank",
+          "inventory": null,
+          "metadata": {
+            "minDamage": 2,
+            "maxDamage": 12,
+            "speed": 5.4,
+            "stats": {
+              "critical": 4
+            },
+            "specialEffects": [
+              "Chance on hit: Bleed your opponent.",
+              "On critical: Bleed your opponent for an extended duration."
+            ],
+            "slot": "wield"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {}
         }
       ]
     ],
@@ -466,25 +459,25 @@
   },
   "metadata": {
     "class": "base",
-    "kills": 64,
+    "kills": 206,
     "strongestKilled": {
       "name": "Vending Automaton",
       "level": 25
     },
     "currencies": {
-      "theans": 4456
+      "theans": 15171
     },
     "resources": {
-      "scrap_metal": 358,
-      "gear": 80,
-      "piston": 53,
-      "bone": 482,
-      "aethersilk": 336,
-      "ectoplasm": 161,
-      "leather": 579
+      "scrap_metal": 1299,
+      "gear": 234,
+      "piston": 153,
+      "bone": 821,
+      "aethersilk": 1025,
+      "aetherplasm": 410,
+      "leather": 2595
     },
     "attributePoints": 0,
-    "abilityPoints": 9,
+    "abilityPoints": 1,
     "abilities": [
       "block",
       "dodge",
@@ -500,7 +493,15 @@
       "enervate",
       "empower",
       "leatherskin",
-      "ironskin"
+      "ironskin",
+      "weaken",
+      "stupefy",
+      "flare",
+      "enlighten",
+      "jolt",
+      "bolt",
+      "riposte",
+      "expose"
     ],
     "config": {
       "minimap": true
@@ -510,7 +511,8 @@
         "labyrinth:neural-link-chamber-125"
       ],
       "home": "labyrinth:neural-link-chamber-125"
-    }
+    },
+    "pvp": true
   },
   "playerClass": "base",
   "prompt": "[ %health.current%/%health.max% <b>health</b> %focus.current%/%focus.max% <b>focus</b> %energy.current%/%energy.max% <b>energy</b> ]",
@@ -597,26 +599,6 @@
           "critical": -1
         },
         "slot": "body"
-      },
-      "closed": false,
-      "locked": false,
-      "behaviors": {}
-    },
-    "wield": {
-      "entityReference": "spire.intro:shank",
-      "inventory": null,
-      "metadata": {
-        "minDamage": 2,
-        "maxDamage": 12,
-        "speed": 5.4,
-        "stats": {
-          "critical": 4
-        },
-        "specialEffects": [
-          "Chance on hit: Bleed your opponent.",
-          "On critical: Bleed your opponent for an extended duration."
-        ],
-        "slot": "wield"
       },
       "closed": false,
       "locked": false,

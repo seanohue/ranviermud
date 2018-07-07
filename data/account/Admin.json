@@ -7,6 +7,38 @@
     },
     {
       "username": "Poo",
+      "deleted": true
+    },
+    {
+      "username": "Yurp",
+      "deleted": false
+    },
+    {
+      "username": "Borked",
+      "deleted": false
+    },
+    {
+      "username": "Hamman",
+      "deleted": false
+    },
+    {
+      "username": "Trrrrr",
+      "deleted": true
+    },
+    {
+      "username": "Ardmore",
+      "deleted": false
+    },
+    {
+      "username": "Nononono",
+      "deleted": false
+    },
+    {
+      "username": "Rammsteine",
+      "deleted": true
+    },
+    {
+      "username": "Rammstein",
       "deleted": false
     }
   ],
@@ -14,7 +46,14 @@
   "banned": false,
   "deleted": false,
   "metadata": {
-    "memories": 128,
-    "deceased": []
+    "memories": 117,
+    "deceased": [
+      "Borked",
+      "Hamman",
+      "Ardmore",
+      "Nononono",
+      "Rammstein",
+      "Yurp"
+    ]
   }
 }

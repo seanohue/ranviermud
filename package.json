@@ -33,6 +33,7 @@
     "longjohn": "^0.2.11",
     "node": "^8.9.4",
     "node-uuid": "",
+    "nodemailer": "^4.6.7",
     "optimist": "",
     "pretty-error": "^2.0.2",
     "purdy": "^2.2.0",

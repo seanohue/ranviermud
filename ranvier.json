@@ -7,6 +7,7 @@
     "::1"
   ],
   "bundles": [
+    "gossip",
     "ranvier-telnet",
     "ranvier-websocket",
     "myelin-areas",
@@ -15,7 +16,7 @@
     "myelin-effects",
     "ranvier-groups",
     "myelin-input-events",
-    "ranvier-player-events",
+    "myelin-player-events",
     "ranvier-skills",
     "myelin-combat",
     "myelin-classes",
@@ -44,5 +45,14 @@
   "logfile": "alpha",
   "logLevel": "warn",
 
-  "playerTickFrequency": 32
+  "playerTickFrequency": 32,
+
+  "gossip": {
+    "url": "wss://gossip.haus/socket",
+    "clientId": "client id",
+    "clientSecret": "client secret",
+    "channels": {
+      "gossip": "gossip"
+    }
+  }
 }
