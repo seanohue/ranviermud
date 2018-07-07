@@ -1,8 +1,7 @@
 'use strict';
 
 const sprintf = require('sprintf-js').sprintf;
-
-const LevelUtil = require('../myelin-lib/lib/LevelUtil');
+const LevelUtil = require('../ranvier-lib/lib/LevelUtil');
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
@@ -15,18 +14,6 @@ module.exports = (srcPath) => {
       //  const command = this.commandQueue.queue[commandIndex];
       //  const ttr = sprintf('%.1f', this.commandQueue.getTimeTilRun(commandIndex));
       //  Broadcast.sayAt(this, `<bold><yellow>Executing</yellow> '<white>${command.label}</white>' <yellow>in</yellow> <white>${ttr}</white> <yellow>seconds.</yellow>`);
-      },
-
-      spawn: state => function() {
-        if (this.room) {
-          this.room.emit('playerSpawned', this);
-        }
-      },
-
-      quit: state => function() {
-        if (this.room) {
-          this.room.emit('playerDespawned', this);
-        }
       },
 
       updateTick: state => function () {

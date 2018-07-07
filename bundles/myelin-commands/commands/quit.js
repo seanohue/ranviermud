@@ -11,6 +11,7 @@ module.exports = (srcPath) => {
         return Broadcast.sayAt(player, "You're too busy fighting for your life!");
       }
 
+      player.emit('quit');
       player.save(() => {
         Broadcast.sayAt(player, "Goodbye!");
         Broadcast.sayAtExcept(player.room, `${player.name} disappears.`, player);

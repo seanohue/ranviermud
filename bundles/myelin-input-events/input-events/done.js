@@ -61,7 +61,7 @@ module.exports = (srcPath) => {
 
       // All that shit done, let them play!
       player.socket.emit('commands', player);
-
+      player.emit('spawn');
 
       Logger.warn(`Player ${player.name} has logged on.`);
     }

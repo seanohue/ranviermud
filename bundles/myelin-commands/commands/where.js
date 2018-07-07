@@ -2,7 +2,7 @@
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
-
+  const PlayerRoles = require(srcPath + 'PlayerRoles');
   return {
     usage: 'where', 
     aliases: ['area', 'location', 'gps'],
@@ -12,6 +12,9 @@ module.exports = (srcPath) => {
       const roomName = (room && room.title) || 'Unknown';
       
       Broadcast.sayAt(player, `${area} - ${roomName}`);
+      if (player.role > PlayerRoles.PLAYER) {
+        Broadcast.sayAt(player, `Ref: ${room.entityReference}`);
+      }
     }
   };
 };

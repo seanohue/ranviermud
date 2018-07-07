@@ -46,7 +46,6 @@ module.exports = srcPath => {
           riposted = Random.inRange(this.state.minimum || 1, this.state.maximum || 1);
         }
     
-        console.log({riposted, state: this.state, currentAmount});
         
         this.state.remaining--;
 

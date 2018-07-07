@@ -13,10 +13,11 @@ module.exports = (srcPath) => {
   const damagePercent = 400;
   const cost = 50;
 
-  function getDamage(player) {
+  function getDamage(player, factor = 1) {
+    console.log('Bolt'.repeat(100), player.getAttribute('intellect'));
     return {
-      min: Math.min(player.getAttribute('intellect'), 20),
-      max: Math.min(player.getAttribute('intellect') * (damagePercent / 100), 160)
+      min: Math.round(Math.min(player.getAttribute('intellect'), 20) / factor),
+      max: Math.ceil(Math.min(player.getAttribute('intellect') * (damagePercent / 100), 160) / factor)
     };
   }
 
@@ -48,9 +49,10 @@ module.exports = (srcPath) => {
     run: state => function (args, player, target) {
 
       function electricalDamageFactory(dam) {
+        const {min, max} = getDamage(player);
         const damage = new Damage({
           attribute: 'health',
-          amount: dam || getDamage(player),
+          amount: Random.inRange(min, max),
           attacker: player,
           type: [DamageType.ELECTRICAL],
           source: this
@@ -97,7 +99,7 @@ module.exports = (srcPath) => {
       console.log('CHAINING...');
       otherTargets.forEach((t, i) => {
         const factor = (i + 1) * 2;
-        const newDamageAmount = Math.ceil(getDamage(player) / factor);
+        const newDamageAmount = getDamage(player, factor);
         const isStunned = Random.probability(Math.ceil(getStunChance(player, factor)));
         const newDamage = electricalDamageFactory.call(this, newDamageAmount);
 

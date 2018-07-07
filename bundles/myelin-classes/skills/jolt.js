@@ -58,10 +58,10 @@ module.exports = (srcPath) => {
       });
       damage.verb = 'zaps';
 
-      Broadcast.sayAt(player, `<bold>You will forth a <cyan>bolt</cyan></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at ${target.name}!</bold>`);
-      Broadcast.sayAtExcept(player.room, `<bold>With a gesture and a glare, ${player.name} unleashes a <cyan>bolt</cyan></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at ${target.name}!</bold>`, [player, target]);
+      Broadcast.sayAt(player, `<bold>You will forth an <cyan>arc</cyan></bold> <yellow>of <bold>electricity</bold></yellow> <bold>at ${target.name}!</bold>`);
+      Broadcast.sayAtExcept(player.room, `<bold>With a gesture and a glare, ${player.name} unleashes an <cyan>arc</cyan></bold> <yellow>of <bold>electricity</bold></yellow> <bold>at ${target.name}!</bold>`, [player, target]);
       if (!target.isNpc) {
-        Broadcast.sayAt(target, `<bold>With a clenching of their fist, ${player.name} unleashes a <blue>bolt</blue></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at you!</bold>`);
+        Broadcast.sayAt(target, `<bold>With a clenching of their fist, ${player.name} unleashes an <blue>arc</blue></bold> <yellow>of <bold>electricity</bold></yellow> <bold>at you!</bold>`);
       }
 
       const isStunned = Random.probability(getStunChance(player));
