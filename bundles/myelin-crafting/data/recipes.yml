@@ -41,6 +41,11 @@
 - item: 'spire.labyrinth:bonehelm'
   recipe:
     bone: 25
+- item: 'spire.labyrinth:scraphelm'
+  recipe:
+    scrap_metal: 80
+    leather: 2
+    gear: 2 
 - item: 'spire.intro:bonebroth'
   recipe:
     bone: 20

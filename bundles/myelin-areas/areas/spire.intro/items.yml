@@ -177,6 +177,9 @@
       armor: 3
       quickness: -1
   behaviors:
+    resistance:
+      fire: -25
+      electrical: 10
     sellable:
       value: 2
       currency: thean
@@ -226,6 +229,9 @@
       - "Chance on hit: Stun your opponent for a short time."
       - "On critical: Stun your opponent for a short time."
   behaviors:
+    resistance:
+      fire: -10
+      electrical: 5
     sellable:
       value: 4
       currency: thean
@@ -270,6 +276,8 @@
       currency: thean
     resistance:
       slashing: 10
+      fire: -20
+      electrical: 5
 
 - id: alms
   name: "Alms Pouch"
@@ -305,6 +313,8 @@
     sellable:
       value: 1
       currency: thean
+    resistance:
+      electrical: 5
 
 - id: dusters
   name: "Knuckle Dusters"
@@ -408,6 +418,8 @@
       currency: thean
     resistance:
       piercing: 5
+      fire: -10
+      electrical: 5
 
 - id: slacks
   name: "Plain Slacks"
@@ -444,6 +456,7 @@
       currency: thean
     resistance:
       piercing: 5
+      electrical: 5
 
 
 - id: blackjack

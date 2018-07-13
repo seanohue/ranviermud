@@ -11,6 +11,7 @@
       fire: 75
       electrical: -75
       crushing: 10
+      drowning: 95
     flavorevents:
       onSpawn: 'A spiderlike automaton crawls from an aperture in the ceiling and down one of the walls. The aperture whirrs shut behind it.'
       onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  # TODO: eventually add scavenger behavior
@@ -143,6 +144,7 @@
       fire: 75
       electrical: -75
       crushing: 20
+      drowning: 95
     skilled:
       skills: ['dodge']
     lootable: 
@@ -185,6 +187,7 @@
       fire: 50
       electrical: -75
       crushing: 15
+      drowning: 80
     skilled:
       skills: ['dodge', 'rend']
     startquest: 

@@ -11,6 +11,7 @@
       piercing: -20
       slashing: -35
       bleeding: -50
+      drowning: 95
     skilled:
       skills: ['dodge',  'stupefy', 'weaken', 'jolt', 'bolt']
       wait: 1000

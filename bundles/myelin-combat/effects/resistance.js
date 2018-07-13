@@ -19,7 +19,6 @@ module.exports = srcPath => {
     modifiers: {
       outgoingDamage: (damage, current) => current,
       incomingDamage(damage, currentAmount) {
-        console.log(this.state.resistance);
         for (const [typeName, percentage] of Object.entries(this.state.resistance)) {
           if (currentAmount <= 0) break;
           const damageType = DamageType[typeName.toUpperCase()];
@@ -33,9 +32,7 @@ module.exports = srcPath => {
           }
 
           if (resists) {
-            console.log('Resisted!!!', damage.type, currentAmount);
             currentAmount = Math.max(0, Math.round(((100 - percentage) / 100) * currentAmount));
-            console.log(currentAmount);
           }
         }
 

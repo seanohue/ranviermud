@@ -11,6 +11,7 @@
       fire: 75
       electrical: -75
       crushing: 20
+      drowning: 95
     flavorevents:
       onSpawn: 'A spiderlike automaton falls from an aperture in the ceiling, its limbs flailing wildly. The aperture whirrs shut behind it.'
       onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  #eventually add scavenger behavior
@@ -63,6 +64,7 @@
       fire: 50
       electrical: -75
       crushing: 10
+      drowning: 95
     combat: true
     lootable: 
       resources: 
@@ -110,6 +112,7 @@
       fire: -25
       bleeding: 90
       isPhysical: 80
+      drowning: 80
     skilled:
       skills: ['dodge', 'jolt', 'stupefy', 'mend', 'concentration']
     flavorevents:

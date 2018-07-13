@@ -28,6 +28,7 @@
     sellable:
       value: 80
       currency: thean
+
 - id: hatchet
   name: Scrap Hatchet
   type: WEAPON
@@ -47,6 +48,8 @@
     stats:
       critical: 5
   behaviors:
+    resistance:
+      electrical: -20
     sellable:
       value: 80
       currency: thean
@@ -69,6 +72,7 @@
         leather:
           min: 1
           max: 33
+
 - id: neurallink
   name: 'Neural Link (Waypoint)'
   roomDesc: 'Neural Link (Waypoint)'
@@ -81,7 +85,7 @@
   type: ARMOR 
   name: 'Bone Helm'
   roomDesc: 'Bone Helm'
-  description: 'A helm crafted from pieces of skull and hip bones.'
+  description: 'A helm crafted from pieces of skulls and hip bones.'
   keywords: ['bone', 'helm']
   level: 3
   slot: "head"
@@ -95,6 +99,31 @@
       currency: thean
     resistance:
       crushing: 10
+      slashing: 5
+
+- id: scraphelm
+  name: 'Scrap Plate Helm'
+  type: ARMOR
+  roomDesc: 'Scrap Plate Helm'
+  description: 'A bunch of wielded-together pieces of scrap metal, vaguely bucket-shaped with a slit for one''s eyes. It has gears fashioned onto each side, and leather straps.'
+  keywords: ['plate', 'helm', 'scrap']
+  level: 4
+  slot: head
+  metadata:
+    stats:
+      armor: 10
+      intellect: -1
+    behaviors:
+      sellable:
+        value: 35
+        currency: thean
+      resistance:
+        isPhysical: 15
+        isPsionic: 5
+        electrical: -40
+        fire: -10
+        freezing: -10
+
 - id: leatherpants
   name: "Leather Pants"
   type: ARMOR
@@ -137,9 +166,7 @@
       crushing: 10
       piercing: 20
       slashing: 35
+      freezing: 5
     sellable:
       value: 75
       currency: thean
-
-
-
