@@ -52,7 +52,7 @@
   keywords: ['gug']
   name: Gug
   level: 25
-  description: 'A shaggy humanoid with four limbs and several spider-like eyes. It is covered in bristling tufts of hair and has an enormous maw on the top of its head, splitting its face vertically. Its legs resemble tree roots.'
+  description: 'A shaggy humanoid with four limbs and several spider-like eyes. It is covered in bristling tufts of hair and has an enormous maw on the top of its head, splitting its face vertically. Its legs resemble tree roots and its arms end in daggerlike claws.'
   behaviors:
     skilled:
       skills: ['block', 'dodge', 'riposte', 'rend', 'bash', 'lunge', 'secondwind']
@@ -93,5 +93,5 @@
     minDamage: 15
     maxDamage: 45
     damageType: SLASHING
-    attackVerb: 'Claws'
+    attackVerb: 'claw'
 

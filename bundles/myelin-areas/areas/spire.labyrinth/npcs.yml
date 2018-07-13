@@ -88,7 +88,7 @@
     minDamage: 5
     maxDamage: 25
     bleeds: 'oil'
-    attackVerb: 'Razorlegs'
+    attackVerb: 'razor'
 
 - id: arbiter
   keywords: ['arbiter']

@@ -214,5 +214,5 @@
     maxDamage: 16
     damageType: ['PIERCING', 'SLASHING']
     bleeds: 'oil'
-    attackVerb: 'Razorlegs'
+    attackVerb: 'razor'
 
