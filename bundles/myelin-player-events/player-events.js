@@ -2,18 +2,15 @@
 
 const sprintf = require('sprintf-js').sprintf;
 const LevelUtil = require('../myelin-lib/lib/LevelUtil');
-console.log('what'.repeat(100));
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const PlayerRoles = require(srcPath + 'PlayerRoles');
   const Logger = require(srcPath + 'Logger');
   const Config = require(srcPath + 'Config');
-  console.log('Adding player events!'.repeat(100));
   return  {
     listeners: {
       commandQueued: state => function (commandIndex) {
-        console.log('Queued emitted.');
         if (this.role < PlayerRoles.ADMIN) return;
         const command = this.commandQueue.queue[commandIndex];
         const ttr = sprintf('%.1f', this.commandQueue.getTimeTilRun(commandIndex));
@@ -21,10 +18,8 @@ module.exports = (srcPath) => {
       },
 
       updateTick: state => function () {
-        console.log('.');
         if (this.commandQueue.hasPending && this.commandQueue.lagRemaining <= 0) {
           Broadcast.sayAt(this);
-          console.log('Executing command queue....');
           this.commandQueue.execute();
           Broadcast.prompt(this);
         }

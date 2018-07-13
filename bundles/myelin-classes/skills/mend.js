@@ -12,10 +12,10 @@ module.exports = (srcPath) => {
 
   function getHeal(player) {
     return {
-      min: player.getAttribute('willpower') + (player.level || 0),
-      max: player.getAttribute('willpower') * (healPercent / 100) 
+      min: Math.min(player.getAttribute('willpower') + (player.level || 0), 20),
+      max: Math.min(player.getAttribute('willpower') * (healPercent / 100) 
            + (player.getAttribute('intellect') * 0.5) 
-           + (player.level * 2 || 1)
+           + (player.level * 2 || 1), 100)
     };  
   }
 

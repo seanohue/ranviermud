@@ -14,7 +14,6 @@ module.exports = (srcPath) => {
   const cost = 50;
 
   function getDamage(player, factor = 1) {
-    console.log('Bolt'.repeat(100), player.getAttribute('intellect'));
     return {
       min: Math.round(Math.min(player.getAttribute('intellect'), 20) / factor),
       max: Math.ceil(Math.min(player.getAttribute('intellect') * (damagePercent / 100), 160) / factor)
@@ -47,7 +46,6 @@ module.exports = (srcPath) => {
     cooldown: 35,
 
     run: state => function (args, player, target) {
-      console.log('running bolt...');
       function electricalDamageFactory(factor) {
         const {min, max} = getDamage(player, factor);
         const damage = new Damage({
@@ -96,7 +94,7 @@ module.exports = (srcPath) => {
 
       const otherTargets = [...player.combatants].filter(com => com !== target);
       if (!otherTargets.length) return;
-      console.log('CHAINING...');
+
       otherTargets.forEach((t, i) => {
         const factor = (i + 1) * 2;
         const isStunned = Random.probability(Math.ceil(getStunChance(player, factor)));

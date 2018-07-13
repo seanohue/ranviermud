@@ -56,7 +56,7 @@ class Broadcast {
    */
   static atExcept(source, message, excludes, wrapWidth, useColor, formatter) {
     if (source.isNpc) { return; }
-    try{
+    try {
       if (!TypeUtil.is(source, Broadcastable)) {
         throw new Error(`Tried to broadcast message not non-broadcastable object: MESSAGE [${message}]`);
       }

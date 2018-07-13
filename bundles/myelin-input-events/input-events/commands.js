@@ -19,6 +19,7 @@ module.exports = (src) => {
           console.log(player.name, ' is using a portal.');
           return;
         }
+
         function loop () {
           player.socket.emit('commands', player);
         }
@@ -67,8 +68,6 @@ module.exports = (src) => {
             }
           }
         } catch (error) {
-          Logger.error(error);
-          console.log('oooops', error);
           switch(true) {
             case error instanceof InvalidCommandError:
               // check to see if room has a matching context-specific command

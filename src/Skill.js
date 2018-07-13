@@ -72,10 +72,6 @@ class Skill {
    * @param {Character} target
    */
   execute(args, player, target) {
-    if (!player.isNpc) {
-      console.log('Executing skill with ', args);
-    }
-
     if (this.flags.includes(SkillFlag.PASSIVE)) {
       throw new SkillErrors.PassiveError();
     }
