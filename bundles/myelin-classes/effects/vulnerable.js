@@ -8,7 +8,6 @@ module.exports = srcPath => {
   const Random     = require(srcPath + 'RandomUtil');
   const DamageType = require('../../myelin-combat/lib/DamageType');
 
-
   return {
     config: {
       name: 'Vulnerable',

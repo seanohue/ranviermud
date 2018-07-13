@@ -58,7 +58,6 @@ module.exports = srcPath => {
         return;
       }
 
-
       const door = player.room.getDoor(randomRoom) || randomRoom.getDoor(player.room);
       if (randomRoom && door && (door.locked || door.closed)) {
         say(player, "In your panic you run into a closed door!");
@@ -67,10 +66,44 @@ module.exports = srcPath => {
 
       say(player, "You flee from battle!");
 
-      // TODO: Add cowardice effect.
-      // Add XP if the enemy is tougher than they are and the player is not cowardiced.
+      const totalEnemyLevels = [...player.combatants].reduce((levels, enemy) => {
+        return levels + (enemy.level - player.level);
+      }, 0);
+
+      if (totalEnemyLevels > 0 && !player.hasEffect('cowardice')) {
+        player.emit('experience', totalEnemyLevels * 10);
+      }
+
+      const duration = getDuration(totalEnemyLevels);
+      const magnitude = getMagnitude(totalEnemyLevels);
+      const cowardice = state.EffectFactory.create('cowardice', player, { duration }, { magnitude });
+      console.log({magnitude, duration, totalEnemyLevels});
+      player.addEffect(cowardice);
+
       player.removeFromCombat();
       state.CommandManager.get('move').execute(direction, player);
     }
   };
 };
+
+function getMagnitude(levels) {
+  switch(true) {
+    case (levels <= -5): return 20;
+    case (levels <= -3): return 12;
+    case (levels <= -1): return 7;
+    case (levels <= 0):  return 5;
+    case (levels <= 3):  return 3;
+    default:             return 1;
+  }
+}
+
+function getDuration(levels) {
+  switch(true) {
+    case (levels <= -5): return 180 * 1000;
+    case (levels <= -3): return 120 * 1000;
+    case (levels <= -1): return 90 * 1000;
+    case (levels <= 0):  return 60 * 1000;
+    case (levels <= 3):  return 30 * 1000;
+    default:             return 20 * 1000;
+  }
+}
