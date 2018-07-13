@@ -9,7 +9,7 @@
     scrap_metal: 35
 - item: 'spire.intro:aetherrobe'
   recipe:
-    aethersilk: 40
+    aethersilk: 50
 - item: 'spire.intro:alms'
   recipe:
     aetherplasm: 1
@@ -23,10 +23,10 @@
     scrap_metal: 10
 - item: 'spire.intro:jerkin'
   recipe:
-    leather: 100
+    leather: 55
 - item: 'spire.intro:boots'
   recipe:
-    leather: 65
+    leather: 45
 - item: 'spire.intro:leatherpouch'
   recipe:
     leather: 35
@@ -47,4 +47,5 @@
 - item: 'spire.intro:elixir'
   recipe:
     aetherplasm: 3
+    bone: 1
 

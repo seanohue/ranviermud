@@ -20,7 +20,7 @@ module.exports = (srcPath) => {
       }
 
       if (player.isInCombat()) {
-        return B.sayAt(player, 'You are in the middle of a fight!');
+        return B.sayAt(player, 'You are in the middle of a fight! Try <b>flee</b>ing.');
       }
 
       const exit = state.RoomManager.findExit(oldRoom, exitName);

@@ -199,6 +199,9 @@
     sellable:
       value: 1
       currency: thean
+    resistance:
+      fire: 20
+      electrical: 10
 
 - id: stick
   name: "Gnarled Walking Stick"
@@ -265,6 +268,8 @@
     sellable:
       value: 1
       currency: thean
+    resistance:
+      slashing: 10
 
 - id: alms
   name: "Alms Pouch"
@@ -401,6 +406,8 @@
     sellable:
       value: 9
       currency: thean
+    resistance:
+      piercing: 5
 
 - id: slacks
   name: "Plain Slacks"
@@ -435,6 +442,9 @@
     sellable:
       value: 3
       currency: thean
+    resistance:
+      piercing: 5
+
 
 - id: blackjack
   name: "Worn Leather Blackjack"

@@ -76,6 +76,7 @@
     noPickup: true
   description: 'This piece of machinery includes a chair, bolted into the ground with several wires running along it up to a skullcap attached to a device hanging from the chair''s back.<cyan><b>Hint: Try `help waypoint`.</b></cyan'
   keywords: ['neural', 'link', 'waypoint']
+
 - id: bonehelm
   type: ARMOR 
   name: 'Bone Helm'
@@ -92,6 +93,8 @@
     sellable:
       value: 20
       currency: thean
+    resistance:
+      crushing: 10
 - id: leatherpants
   name: "Leather Pants"
   type: ARMOR
@@ -108,6 +111,11 @@
     sellable:
       value: 9
       currency: thean
+    resistance:
+      fire: -10
+      piercing: 5
+      slashing: 5
+
 - id: jumpsuit
   name: "Armored Security Jumpsuit"
   type: ARMOR
@@ -123,6 +131,12 @@
       quickness: -1
       critical: -1
   behaviors:
+    resistance:
+      fire: -10
+      electrical: -50
+      crushing: 10
+      piercing: 20
+      slashing: 35
     sellable:
       value: 75
       currency: thean

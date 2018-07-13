@@ -7,6 +7,10 @@
     skilled:
       skills: ['combust']
     combat: true
+    resistance:
+      fire: 75
+      electrical: -75
+      crushing: 20
     flavorevents:
       onSpawn: 'A spiderlike automaton falls from an aperture in the ceiling, its limbs flailing wildly. The aperture whirrs shut behind it.'
       onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  #eventually add scavenger behavior
@@ -55,6 +59,10 @@
   behaviors:
     skilled:
       skills: ['dodge', 'rend']
+    resistance:
+      fire: 50
+      electrical: -75
+      crushing: 10
     combat: true
     lootable: 
       resources: 
@@ -96,6 +104,12 @@
   level: 9
   description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
   behaviors:
+    resistance:
+      isPsionic: -25
+      electrical: -25
+      fire: -25
+      bleeding: 90
+      isPhysical: 80
     skilled:
       skills: ['dodge', 'jolt', 'stupefy', 'mend', 'concentration']
     flavorevents:
@@ -146,6 +160,12 @@
     skilled:
       skills: ['bash', 'block', 'enervate', 'empower', 'secondwind']
     combat: true
+    resistance:
+      isPsionic: 10
+      isElemental: -45
+      crushing: 60
+      slashing: 50
+      piercing: 40
     lootable: 
       pools:
         - spire.labyrinth:minotaurkey: 90

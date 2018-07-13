@@ -4,8 +4,15 @@
   level: 14
   description: 'This being hovers a short distance from the ground. It is elliptical in shape, with bulging white eyes set in a semi-transparent body. It is covered in an array of fins and tendrils. It pulsates slightly. The Blupe smells like the air after a fierce storm.'
   behaviors:
+    resistance:
+      fire: -100
+      electrical: 90
+      crushing: 40
+      piercing: -20
+      slashing: -35
+      bleeding: -50
     skilled:
-      skills: ['dodge',  'stupefy', 'weaken', 'jolt', 'combust']
+      skills: ['dodge',  'stupefy', 'weaken', 'jolt', 'bolt']
       wait: 1000
     flavorevents:
       onSpawn: 'A small elliptical creature rises from the murky waters...'
@@ -34,7 +41,7 @@
   # make immune to lightning
   attributes:
     health: 205
-    energy: 125
+    energy: 225
     focus: 850
     might: 8
     quickness: 35
@@ -59,6 +66,13 @@
     flavorevents:
       onSpawn: 'A hairy beast shambles from a nearby crevice...'
     combat: true
+    resistance:
+      fire: 50
+      electrical: 50
+      crushing: 50
+      slashing: -30
+      isPsionic: 50
+      bleeding: 50
     lootable: 
       resources: 
         leather:
