@@ -71,10 +71,8 @@ module.exports = {
       defaults, 
       config, 
       { filepath: baseFilePath + filename });
-    console.log('building with ', axolemmaOptions);
     return axolemma.generate(axolemmaOptions)
       .then((generated) => {
-        console.log('generated...', generated.graphic); 
         return { generated, name: config._name };
       });
   },
@@ -89,11 +87,9 @@ module.exports = {
 
     const { manifest, graphic, rooms} = generated;
     if (!manifest || !rooms) { 
-      console.log(generated);
       throw new Error('Invalid generated area!'); 
     }
 
-    console.log(graphic);
     const newArea = new Area(bundle, name, manifest);
     const newRooms = rooms.map(room =>
       new Room(

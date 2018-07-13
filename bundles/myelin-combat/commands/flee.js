@@ -70,7 +70,7 @@ module.exports = srcPath => {
         return levels + (enemy.level - player.level);
       }, 0);
 
-      if (totalEnemyLevels > 0 && !player.hasEffect('cowardice')) {
+      if (totalEnemyLevels > 0 && !player.hasEffectType('cowardice')) {
         player.emit('experience', totalEnemyLevels * 5);
       }
 

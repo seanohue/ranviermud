@@ -45,6 +45,7 @@
     minDamage: 8
     maxDamage: 25
     bleeds: 'oil'
+    damageType: ['SLASHING']
 
 - id: malfunctioningauto
   keywords: ['berz', 'malfunc', 'broken', 'automaton', 'flying']
@@ -72,7 +73,7 @@
       delay: 3
       towards:
         players: true
-        npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
+        npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto', 'spire.labyrinth:minotaur']
   attributes:
     health: 90
     energy: 150
@@ -87,11 +88,12 @@
     minDamage: 5
     maxDamage: 25
     bleeds: 'oil'
+    attackVerb: 'Razorlegs'
 
 - id: arbiter
   keywords: ['arbiter']
   name: Arbiter
-  level: 12
+  level: 9
   description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
   behaviors:
     skilled:

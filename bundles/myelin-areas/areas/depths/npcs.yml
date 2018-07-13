@@ -55,7 +55,7 @@
   description: 'A shaggy humanoid with four limbs and several spider-like eyes. It is covered in bristling tufts of hair and has an enormous maw on the top of its head, splitting its face vertically. Its legs resemble tree roots.'
   behaviors:
     skilled:
-      skills: ['block', 'dodge', 'riposte', 'rend', 'bash', 'lunge', 'enervate', 'secondwind']
+      skills: ['block', 'dodge', 'riposte', 'rend', 'bash', 'lunge', 'secondwind']
     flavorevents:
       onSpawn: 'A hairy beast shambles from a nearby crevice...'
     combat: true
@@ -82,7 +82,7 @@
   attributes:
     health: 355
     energy: 600
-    focus: 30
+    focus: 65
     might: 30
     quickness: 18
     intellect: 8
@@ -93,3 +93,5 @@
     minDamage: 15
     maxDamage: 45
     damageType: SLASHING
+    attackVerb: 'Claws'
+

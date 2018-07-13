@@ -50,7 +50,7 @@ module.exports = srcPath => {
             keyId: 'spire.intro:portalkey',
             flags: []
           }, _config || {});
-          console.log(key.entityReference, config.keyId);
+
           let goToArea = 'labyrinth';
           if (config.keyId.includes('minotaur')) {
             goToArea = 'ruins';
@@ -84,20 +84,14 @@ module.exports = srcPath => {
           //   return generateDestination();
           // }
           
-          if (true) {
-            console.log(state.AreaManager.areas);
-            const destinationRoom = Array.from(state.AreaManager.getArea(goToArea).rooms.values())[0];
-            return movePlayerToPortalDestination(destinationRoom.entityReference);
-          }
+          const destinationRoom = Array.from(state.AreaManager.getArea(goToArea).rooms.values())[0];
+          return movePlayerToPortalDestination(destinationRoom.entityReference);
 
           function generateDestination() {
             self.removePlayer(player);
 
-            console.log('GENERATING NEW AREA....');
-
             return generate(srcPath, state, player.level)
               .then(({generated, name}) => {
-                console.log('Generated!');
                 const {firstRoom} = addToWorld(srcPath, state, name, generated);
 
                 movePlayerToPortalDestination(firstRoom);
@@ -110,7 +104,6 @@ module.exports = srcPath => {
           }
 
           function movePlayerToPortalDestination(firstRoom) {
-            console.log({firstRoom});
             self.removePlayer(player);
             const targetRoom = state.RoomManager.getRoom(firstRoom);
             if (!targetRoom) {

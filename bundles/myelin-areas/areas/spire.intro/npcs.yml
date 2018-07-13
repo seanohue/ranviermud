@@ -2,7 +2,6 @@
   keywords: ['maintenance', 'auto', 'automaton', 'robot']
   name: Maintenance Automaton
   level: 2
-  # TODO: Give it a combust skill that it uses when attacked by higher-level char.
   description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
     skilled:
@@ -10,7 +9,7 @@
     combat: true
     flavorevents:
       onSpawn: 'A spiderlike automaton crawls from an aperture in the ceiling and down one of the walls. The aperture whirrs shut behind it.'
-      onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  #eventually add scavenger behavior
+      onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  # TODO: eventually add scavenger behavior
     lootable: 
       resources: 
         scrap_metal:
@@ -79,7 +78,7 @@
         - spire.labyrinth:jumpsuit: 20
         # Later add behavior for it to drop some/all of its goods.
         - spire.intro:tea: 100
-        - spire.labyrinth:jumpsuit: 100
+        - spire.labyrinth:jumpsuit: 80
     vendor:
       items:
         "spire.intro:portalkey":
@@ -89,13 +88,13 @@
           cost: 35
           currency: theans
         "spire.intro:aetherrobe":
-          cost: 350
+          cost: 300
           currency: theans
         "spire.labyrinth:leatherpants":
           cost: 100
           currency: theans
         "spire.labyrinth:jumpsuit":
-          cost: 200
+          cost: 250
           currency: theans
         "spire.intro:tea":
           cost: 10
@@ -215,4 +214,5 @@
     maxDamage: 16
     damageType: ['PIERCING', 'SLASHING']
     bleeds: 'oil'
+    attackVerb: 'Razorlegs'
 
