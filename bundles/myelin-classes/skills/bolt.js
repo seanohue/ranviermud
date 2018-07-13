@@ -47,9 +47,9 @@ module.exports = (srcPath) => {
     cooldown: 35,
 
     run: state => function (args, player, target) {
-
-      function electricalDamageFactory(dam) {
-        const {min, max} = getDamage(player);
+      console.log('running bolt...');
+      function electricalDamageFactory(factor) {
+        const {min, max} = getDamage(player, factor);
         const damage = new Damage({
           attribute: 'health',
           amount: Random.inRange(min, max),
@@ -99,9 +99,8 @@ module.exports = (srcPath) => {
       console.log('CHAINING...');
       otherTargets.forEach((t, i) => {
         const factor = (i + 1) * 2;
-        const newDamageAmount = getDamage(player, factor);
         const isStunned = Random.probability(Math.ceil(getStunChance(player, factor)));
-        const newDamage = electricalDamageFactory.call(this, newDamageAmount);
+        const newDamage = electricalDamageFactory.call(this, factor);
 
         if (isStunned) {
           const effect = state.EffectFactory.create(

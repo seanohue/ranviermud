@@ -2,6 +2,12 @@ const BaseChannel = require('../../../src/Channel');
 const Logger = require('../../../src/Logger');
 
 class GossipChannel extends BaseChannel {
+  constructor(config) {
+    super(config);
+
+    this.remoteChannel = config.remoteChannel;
+  }
+
   send(state, sender, message) {
     super.send(state, sender, message);
 
@@ -9,7 +15,7 @@ class GossipChannel extends BaseChannel {
       return;
     }
 
-    state.GossipServer.emit("messages/new", this.name, sender.name, message);
+    state.GossipEmitter.emit("messages/new", this.remoteChannel, sender.name, message);
   }
 }
 

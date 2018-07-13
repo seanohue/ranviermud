@@ -129,6 +129,7 @@ function tryAbility(ability, target, args = '') {
 }
 
 function log(...msg) {
+  return;
   if ([...this.combatants].find(c => !c.isNpc)) {
     console.log(...msg);
   }

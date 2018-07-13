@@ -6,7 +6,7 @@ module.exports = srcPath => {
   return {
     listeners: {
       startup: state => (commander) => {
-        let gossipClient = new SocketClient(state);
+        let gossipClient = new SocketClient(state, commander.version());
         state.GossipClient = gossipClient;
         gossipClient.connect();
       },
