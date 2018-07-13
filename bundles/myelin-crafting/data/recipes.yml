@@ -46,6 +46,11 @@
     scrap_metal: 80
     leather: 2
     gear: 2 
+- item: 'spire.labyrinth:scrapchestplate'
+  recipe:
+    scrap_metal: 140
+    leather: 2
+    piston: 2 
 - item: 'spire.intro:bonebroth'
   recipe:
     bone: 20

@@ -124,6 +124,28 @@
         fire: -10
         freezing: -10
 
+- id: scrapchestplate
+  name: 'Scrap Chestplate'
+  type: ARMOR
+  roomDesc: 'Scrap Chestplate'
+  description: 'A bunch of wielded-together pieces of scrap metal, shaped like a breastplate. It has a piston attached to the metal for sturdiness, and leather straps.'
+  keywords: ['chest', 'plate', 'scrap', 'breastplate']
+  level: 4
+  slot: chest
+  metadata:
+    stats:
+      armor: 15
+      quickness: -1
+    behaviors:
+      sellable:
+        value: 65
+        currency: thean
+      resistance:
+        isPhysical: 10
+        electrical: -60
+        fire: -10
+        freezing: -10
+
 - id: leatherpants
   name: "Leather Pants"
   type: ARMOR
