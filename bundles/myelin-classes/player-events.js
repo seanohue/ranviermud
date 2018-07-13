@@ -12,7 +12,7 @@ module.exports = srcPath => {
   return  {
     listeners: {
       useAbility: state => function (ability, args) {
-        console.log('Trying ', ability);
+        console.log('Trying ability: ', ability);
         if (!this.playerClass.canUseAbility(this, ability.id)) {
           return B.sayAt(this, 'You have not yet learned that ability.');
         }

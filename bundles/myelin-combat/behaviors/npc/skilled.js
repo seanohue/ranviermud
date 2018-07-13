@@ -22,7 +22,6 @@ module.exports = (srcPath) => {
           return;
         }
 
-        log.call(this, 'Cannot attack, using skill instead');
 
         const {combatPriorities = ['COMBAT', 'BUFF', 'HEAL']} = config;
 
@@ -33,8 +32,6 @@ module.exports = (srcPath) => {
           if (!skillType) continue;
           if (tryAllAbilitiesOfType.call(this, skillType, target)) {
             break;
-          } else {
-            log.call(this, 'Failed ability attempt...', typeName);
           }
         }
       },
@@ -61,10 +58,8 @@ module.exports = (srcPath) => {
         if (!canUseAbilities.call(this, config)) {
           return;
         }
-        log.call(this, 'Damaged');
 
         if (tryAllAbilitiesOfType.call(this, SkillType.HEAL, this)) {
-
           return;
         }
 
@@ -93,7 +88,6 @@ function canUseAbilities(config) {
     return true;
   }
   const canUse = (now - this.combatData.lastSkillUse) >= wait;
-  log.call(this, {canUse, wait, diff: now - this.combatData.lastSkillUse });
 
   return canUse;
 }
@@ -101,10 +95,9 @@ function canUseAbilities(config) {
 function tryAllAbilitiesOfType(type, target = null, args = '') {
   if (this.skills.types.includes(type)) {
     const skillsToTry = [...this.skills].filter(([name, skill]) => skill.type === type);
-    log.call(this, 'Trying: ', skillsToTry.map(a => a && a[0]));
+
     while(skillsToTry.length) {
       const [name, skill] = skillsToTry.shift();
-      log.call(this, name);
       if (tryAbility.call(this, skill, target, args)) {
         return true;
       }
@@ -119,11 +112,9 @@ function tryAbility(ability, target, args = '') {
     const success = ability.execute(args, this, target);
     if (success) {
       this.combatData.lastSkillUse = Date.now();
-      log.call(this, 'Succeeded with ', ability.name, ability.id);
     }
     return success;
   } catch(e) {
-    log.call(this, 'Err: ', e.message || e.stack);
     return false;
   }
 }

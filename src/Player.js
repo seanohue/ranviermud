@@ -51,6 +51,8 @@ class Player extends Character {
    * @see CommandQueue::enqueue
    */
   queueCommand(executable, lag) {
+    console.log('Queued...', executable.label, ' on ', this.name);
+    console.log(this._events);
     const index = this.commandQueue.enqueue(executable, lag);
     this.emit('commandQueued', index);
   }

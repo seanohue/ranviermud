@@ -26,9 +26,7 @@ module.exports = srcPath => {
         }
 
         const dodged = Random.probability(this.state.magnitude);
-        if (damage.attacker instanceof Player) {
-          console.log('Dodged?', dodged, this.state.magnitude);
-        }
+
         if (dodged) {
           Broadcast.sayAt(this.target, `You dodge the attack completely!`);
           Broadcast.sayAt(damage.attacker, `<yellow>${this.target.name} <b>dodges</b> your attack!</yellow>`)

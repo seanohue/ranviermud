@@ -14,7 +14,11 @@ module.exports = (src) => {
   return {
     event: state => player => {
       player.__commandLoop = data => {
-        if (player._isUsingPortal) return;
+        
+        if (player._isUsingPortal) {
+          console.log(player.name, ' is using a portal.');
+          return;
+        }
         function loop () {
           player.socket.emit('commands', player);
         }
@@ -52,16 +56,19 @@ module.exports = (src) => {
             case CommandTypes.SKILL: {
               // See bundles/ranvier-player-events/player-events.js commandQueued and updateTick for when these
               // actually get executed
+              const lag = result.skill.lag || state.Config.get('skillLag') || 1000;
               player.queueCommand({
                 execute: _ => {
                   player.emit('useAbility', result.skill, result.args);
                 },
                 label: data,
-              }, result.skill.lag || state.Config.get('skillLag') || 1000);
+              }, lag);
               break;
             }
           }
         } catch (error) {
+          Logger.error(error);
+          console.log('oooops', error);
           switch(true) {
             case error instanceof InvalidCommandError:
               // check to see if room has a matching context-specific command

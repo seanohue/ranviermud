@@ -99,7 +99,6 @@ class CommandParser {
         originalCommand: command
       };
     }
-
     // see if they typed at least the beginning of a command and try to match
     let found = state.CommandManager.find(command, /* returnAlias: */ true);
     if (found) {
