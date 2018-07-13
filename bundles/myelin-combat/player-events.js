@@ -155,13 +155,13 @@ module.exports = (srcPath) => {
 
         if (damage.source) {
           let source = damage.source.name;
-          const isNpc = damage.attacker && damage.attacker.isNpc;
+          let isNpc = damage.attacker && damage.attacker.isNpc;
           if (isNpc) {
             const Skill = require(srcPath + 'Skill');
             const isSkill = damage.source instanceof Skill;
             if (!isSkill) {
               //TODO: get weapon first if exists.
-              isNpc = damage.attacker.metadata.attackVerb || 'attack';
+              source = damage.attacker.metadata.attackVerb || 'attack';
             }
           }
 

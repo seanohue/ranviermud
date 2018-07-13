@@ -71,7 +71,7 @@ module.exports = srcPath => {
       }, 0);
 
       if (totalEnemyLevels > 0 && !player.hasEffect('cowardice')) {
-        player.emit('experience', totalEnemyLevels * 10);
+        player.emit('experience', totalEnemyLevels * 5);
       }
 
       const duration = getDuration(totalEnemyLevels);
