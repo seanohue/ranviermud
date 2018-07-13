@@ -158,6 +158,8 @@ module.exports = srcPath => {
           willpower: 12,
           cost: 1
         },
+
+        // Passive buff
         tactics: {
           level: 5,
           intellect: 13,

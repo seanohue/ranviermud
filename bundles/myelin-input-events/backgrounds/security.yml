@@ -2,9 +2,9 @@ id: security
 name: 'Guardian'
 description: 'You were a part of the armed forces responsible for protecting Myelin''s Spire, before your untimely demise.'
 attributes:
-  quickness: 17
-  might: 17
-  intellect: 18
+  quickness: 20
+  might: 19
+  intellect: 13
   willpower: 10
 equipment: ['spire.labyrinth:hatchet', 'spire.intro:boots', 'spire.labyrinth:jumpsuit', 'spire.intro:leatherpouch']
 skills: ['tactics', 'lunge', 'bash']

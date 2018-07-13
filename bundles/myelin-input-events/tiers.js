@@ -6,11 +6,11 @@ module.exports = [
     label: "The Deprived"
   },
   {
-    cost: 3,
+    cost: 4,
     label: "The Abandoned"
   },
   {
-    cost: 8,
+    cost: 24,
     label: "The Established"
   }
 ];
