@@ -6,25 +6,29 @@
     "127.0.0.1",
     "::1"
   ],
+
   "bundles": [
     "gossip",
-    "ranvier-telnet",
-    "ranvier-websocket",
+
     "myelin-areas",
     "myelin-channels",
     "myelin-commands",
     "myelin-effects",
-    "ranvier-groups",
     "myelin-input-events",
     "myelin-player-events",
-    "ranvier-skills",
     "myelin-combat",
     "myelin-classes",
     "myelin-crafting",
     "myelin-quests",
-    "ranvier-vendors",
     "myelin-npc-behaviors",
+
+    "ranvier-groups",
+    "ranvier-skills",
+    "ranvier-telnet",
+    "ranvier-websocket",
+    "ranvier-vendors",
     "ranvier-bug-report",
+
     "debug-commands"
   ],
 
@@ -43,7 +47,7 @@
   "maxIdleTime": 20,
 
   "logfile": "alpha",
-  "logLevel": "verbose",
+  "logLevel": "warn",
 
   "playerTickFrequency": 32,
 
