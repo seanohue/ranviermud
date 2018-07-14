@@ -281,8 +281,6 @@ class Item extends Metadatable(EventEmitter) {
       // behavior may be a boolean in which case it will be `behaviorName: true`
       config = config === true ? {} : config;
       behavior.attach(this, config);
-      if (behaviorName === 'resistance') 
-        console.log('Attached ', behaviorName, ' with ', this.name, ' configured ', config);
     }
   }
 
