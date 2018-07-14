@@ -11,7 +11,7 @@ module.exports = (srcPath) => {
       },
       unequip: state => function (player) {
         const effect = player.effects.filterByType('aethersilk').find(eff => effect.config.source === this.uuid);
-        player.removeEffect(effect);
+        if (effect) player.removeEffect(effect);
       }
     }
   };

@@ -88,6 +88,28 @@ exports.renderItem = function (state, item, player) {
     );
   }
 
+  const resistance = item.getBehavior('resistance');
+
+  if (resistance) {
+    buf += sprintf(
+      '| %-36s |\r\n', 
+      'Resistances:'
+    );
+    for (const stat in resistance) {
+      const value = resistance[stat];
+      const statName = {
+        isPhysical: 'Physical',
+        isPsionic: 'Psionic',
+        isElemental: 'Elemental',
+      }[stat] || stat;
+
+      buf += sprintf(
+        '| %-36s |\r\n',
+        (value < 0 ? '' : '+') + value + '% ' + B.capitalize(statName)
+      );
+    }
+  }
+
   // custom special effect rendering
   if (props.specialEffects) {
     props.specialEffects.forEach(effectText => {

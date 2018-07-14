@@ -47,6 +47,7 @@ class Item extends Metadatable(EventEmitter) {
     this.area            = area;
     this.metadata        = item.metadata || {};
     this.behaviors       = item.behaviors || {};
+
     this.defaultItems    = item.items || [];
     this.description     = item.description || 'Nothing special.';
     this.entityReference = item.entityReference; // EntityFactory key
@@ -269,15 +270,19 @@ class Item extends Metadatable(EventEmitter) {
     const behaviors = JSON.parse(JSON.stringify(serialized.behaviors || this.behaviors));
     this.behaviors = new Map(Object.entries(behaviors));
 
+    
+
     for (let [behaviorName, config] of this.behaviors) {
       let behavior = state.ItemBehaviorManager.get(behaviorName);
       if (!behavior) {
-        return;
+        continue;
       }
 
       // behavior may be a boolean in which case it will be `behaviorName: true`
       config = config === true ? {} : config;
       behavior.attach(this, config);
+      if (behaviorName === 'resistance') 
+        console.log('Attached ', behaviorName, ' with ', this.name, ' configured ', config);
     }
   }
 

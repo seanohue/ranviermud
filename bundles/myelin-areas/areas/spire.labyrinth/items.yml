@@ -113,16 +113,16 @@
     stats:
       armor: 10
       intellect: -1
-    behaviors:
-      sellable:
-        value: 35
-        currency: thean
-      resistance:
-        isPhysical: 15
-        isPsionic: 5
-        electrical: -40
-        fire: -10
-        freezing: -10
+  behaviors:
+    sellable:
+      value: 35
+      currency: thean
+    resistance:
+      isPhysical: 15
+      isPsionic: 5
+      electrical: -40
+      fire: -10
+      freezing: -10
 
 - id: scrapchestplate
   name: 'Scrap Chestplate'
@@ -136,15 +136,15 @@
     stats:
       armor: 15
       quickness: -1
-    behaviors:
-      sellable:
-        value: 65
-        currency: thean
-      resistance:
-        isPhysical: 10
-        electrical: -60
-        fire: -10
-        freezing: -10
+  behaviors:
+    sellable:
+      value: 65
+      currency: thean
+    resistance:
+      isPhysical: 10
+      electrical: -60
+      fire: -10
+      freezing: -10
 
 - id: leatherpants
   name: "Leather Pants"

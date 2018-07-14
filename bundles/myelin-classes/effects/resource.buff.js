@@ -10,6 +10,7 @@ module.exports = srcPath => {
     config: {
       name: 'Resource Buff',
       type: 'resource.buff',
+      persists: true
     },
     flags: [Flag.BUFF],
     listeners: {

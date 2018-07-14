@@ -43,3 +43,4 @@ CHANGELOG (7/2/2018):
 (7/12/2018)
 ** Added gossip.haus support!
 ** Fixed major bug that made skills unusable.
+** Damage resistance is implemented. Try different weapon types and abilities.

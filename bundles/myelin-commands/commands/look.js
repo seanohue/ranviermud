@@ -11,7 +11,7 @@ module.exports = (srcPath, bundlePath) => {
   const ItemType = require(srcPath + 'ItemType');
   const Logger = require(srcPath + 'Logger');
   const Player = require(srcPath + 'Player');
-  const ItemUtil = require(bundlePath + 'ranvier-lib/lib/ItemUtil');
+  const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
   return {
     usage: "look [thing]",

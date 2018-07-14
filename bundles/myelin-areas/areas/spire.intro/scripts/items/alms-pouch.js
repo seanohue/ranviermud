@@ -9,7 +9,7 @@ module.exports = (srcPath) => {
       	player.addEffect(effect);
       },
       unequip: state => function (player) {
-        const effect = player.effects.filterByType('resource.buff').filter(eff => effect.config.source === this.uuid);
+        const effect = player.effects.filterByType('resource.buff').filter(eff => eff.config.source === this.uuid);
         player.removeEffect(effect);
       }
     }
