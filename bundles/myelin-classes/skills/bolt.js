@@ -62,9 +62,9 @@ module.exports = (srcPath) => {
       const damage = electricalDamageFactory.call(this);
 
       Broadcast.sayAt(player, `<bold>You will forth a <cyan>bolt</cyan></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at ${target.name}!</bold>`);
-      Broadcast.sayAtExcept(player.room, `<bold>With a gesture and a glare, ${player.name} unleashes a <cyan>bolt</cyan></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at ${target.name}!</bold>`, [player, target]);
+      Broadcast.sayAtExcept(player.room, `<bold>${!player.isNpc ? 'With a gesture and a glare, ' : ''}${player.name} unleashes a <cyan>bolt</cyan></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at ${target.name}!</bold>`, [player, target]);
       if (!target.isNpc) {
-        Broadcast.sayAt(target, `<bold>With a clenching of their fist, ${player.name} unleashes a <blue>bolt</blue></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at you!</bold>`);
+        Broadcast.sayAt(target, `<bold>${!player.isNpc ? 'With a gesture and a glare, ' : ''}${player.name} unleashes a <blue>bolt</blue></bold> <yellow>of <bold>lightning</bold></yellow> <bold>at you!</bold>`);
       }
 
       const isStunned = Random.probability(getStunChance(player));

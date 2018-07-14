@@ -6,7 +6,8 @@
   behaviors:
     skilled:
       skills: ['combust']
-    combat: true
+    combat:
+      wimpy: 50
     resistance:
       fire: 75
       electrical: -75

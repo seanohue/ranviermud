@@ -33,7 +33,7 @@ module.exports = srcPath => {
           return 0;
         } else if (Random.probability(this.state.magnitude)) {
           Broadcast.sayAt(this.target, 'You nearly dodge the attack, but it still grazes you...');
-          Broadcast.sayAt(damage.attacker, `<yellow>${this.target.name} <b>mearly dodges</b> your attack!</yellow>`);
+          Broadcast.sayAt(damage.attacker, `<yellow>${this.target.name} <b>nearly dodges</b> your attack!</yellow>`);
 
           return Math.ceil(currentAmount / 2);
         }

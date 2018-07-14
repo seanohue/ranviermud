@@ -7,6 +7,9 @@ const Combat = require('../../lib/Combat');
  * the player having to be involved
  */
 module.exports = (srcPath) => {
+  const Random = require(srcPath + 'RandomUtil');
+  const Broadcast = require(srcPath + 'Broadcast');
+
   return  {
     listeners: {
       /**
@@ -63,8 +66,74 @@ module.exports = (srcPath) => {
       },
 
       damaged: state => function (config, damage) {
-        if (this.getAttribute('health') <= 0 && damage.attacker) {
+        const health = this.getAttribute('health');
+        if (health <= 0 && damage.attacker) {
+          if (config.wimpy) console.log('Dead!');
           this.combatData.killedBy = damage.attacker;
+          return;
+        }
+        const wimpyPercent = config.wimpy;
+
+        if (wimpyPercent && damage.constructor.name !== 'Heal' && damage.attribute === 'health') {
+          const healthPercent = (health / this.getMaxAttribute('health'));
+          const mustFlee =  healthPercent < (wimpyPercent / 100) && healthPercent > 0.05;
+          if (mustFlee) {
+            if (this._lastFleeAttempt && Date.now() - this._lastFleeAttempt < 6000) {
+              return;
+            }
+
+            this._lastFleeAttempt = Date.now();
+
+            let possibleRooms = {};
+            for (const possibleExit of this.room.exits) {
+              possibleRooms[possibleExit.direction] = possibleExit.roomId;
+            }
+      
+            // TODO: This is in a few places now, there is probably a refactor to be had here
+            // but can't be bothered at the moment.
+            const coords = this.room.coordinates;
+            if (coords) {
+              // find exits from coordinates
+              const area = this.room.area;
+              const directions = {
+                north: [0, 1, 0],
+                south: [0, -1, 0],
+                east:  [1, 0, 0],
+                west:  [-1, 0, 0],
+                up:    [0, 0, 1],
+                down:  [0, 0, -1],
+              };
+      
+              for (const [dir, diff] of Object.entries(directions)) {
+                const room = area.getRoomAtCoordinates(coords.x + diff[0], coords.y + diff[1], coords.z + diff[2]);
+                if (room) {
+                  possibleRooms[dir] = room.entityReference;
+                }
+              }
+            }
+
+            const entries = Object.entries(possibleRooms);
+            let direction = null, roomId = null;
+            if (entries.length) {
+              [direction, roomId] = Random.fromArray(entries);
+            }
+
+            const randomRoom = state.RoomManager.getRoom(roomId);
+
+            if (!randomRoom) {
+              return;
+            }
+      
+            const door = this.room.getDoor(randomRoom) || randomRoom.getDoor(this.room);
+            if (randomRoom && door && (door.locked || door.closed)) {
+              return;
+            }
+            
+            Broadcast.sayAt(this.room, `${this.name} flees to${direction !== 'up' && direction !== 'down' ? ' the' : ''} ${direction}!`);
+            this.removeFromCombat();
+            this.moveTo(randomRoom);
+            Broadcast.sayAt(randomRoom, `${this.name} rushes in.`);
+          }
         }
       },
 

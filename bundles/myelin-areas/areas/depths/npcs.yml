@@ -17,7 +17,8 @@
       wait: 1000
     flavorevents:
       onSpawn: 'A small elliptical creature rises from the murky waters...'
-    combat: true
+    combat:
+      wimpy: 20
     lootable: 
       resources: 
         aethersilk:

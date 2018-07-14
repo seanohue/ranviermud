@@ -47,7 +47,7 @@ module.exports = srcPath => {
       } else {
         const entries = Object.entries(possibleRooms);
         if (entries.length) {
-          [direction, roomId] = Random.fromArray(Object.entries(possibleRooms));
+          [direction, roomId] = Random.fromArray(entries);
         }
       }
 
@@ -82,6 +82,7 @@ module.exports = srcPath => {
 
       player.removeFromCombat();
       state.CommandManager.get('move').execute(direction, player);
+      this._lastWanderTime = Date.now();
     }
   };
 };

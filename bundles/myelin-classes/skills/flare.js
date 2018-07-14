@@ -54,10 +54,10 @@ module.exports = (srcPath) => {
       const targets = [...player.combatants];
 
       Broadcast.sayAt(player, `<bold>You spin and a <red>fan</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>hits your foes!</bold>`);
-      Broadcast.sayAtExcept(player.room, `<bold>With a gesture and a glare, ${player.name} unleashes a <red>fan</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at their foes!</bold>`, [player, ...player.combatants]);
+      Broadcast.sayAtExcept(player.room, `<bold>${!player.isNpc ? 'With a gesture and a glare, ' : ''}${player.name} unleashes a <red>fan</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at their foes!</bold>`, [player, ...player.combatants]);
       targets.forEach(t => {
         if (!t.isNpc) {
-          Broadcast.sayAt(t, `<bold>With a gesture and a glare, ${player.name} unleashes a <red>fan</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at you!</bold>`);
+          Broadcast.sayAt(t, `<bold>${!player.isNpc ? 'With a gesture and a glare, ' : ''}${player.name} unleashes a <red>fan</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>at you!</bold>`);
         }
         const damage = fireDamageFactory.call(this);
         damage.commit(t);

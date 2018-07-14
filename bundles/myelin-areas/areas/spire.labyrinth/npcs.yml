@@ -117,7 +117,8 @@
       skills: ['dodge', 'jolt', 'stupefy', 'mend', 'concentration']
     flavorevents:
       onSpawn: 'A purple light fills the room as a being cloaked in a silk robe <b>pops</b> into existence.'
-    combat: true
+    combat:
+      wimpy: 35
     lootable: 
       resources: 
         aethersilk:
