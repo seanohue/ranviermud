@@ -17,6 +17,21 @@ module.exports = (srcPath) => {
         Broadcast.sayAt(this, `<bold><yellow>Executing</yellow> '<white>${command.label}</white>' <yellow>in</yellow> <white>${ttr}</white> <yellow>seconds.</yellow>`);
       },
 
+      spawn: state => function() {
+        if (this.room) {
+          this.room.emit('playerSpawned', this);
+        }
+        Broadcast.sayAt(this.room, `${this.name} has appeared.`);
+      },
+
+      quit: state => function() {
+        if (this.room) {
+          this.room.emit('playerDespawned', this);
+        }
+
+        Broadcast.sayAt(this.room, `${this.name} has vanished.`);
+      },
+
       updateTick: state => function () {
         if (this.commandQueue.hasPending && this.commandQueue.lagRemaining <= 0) {
           Broadcast.sayAt(this);
