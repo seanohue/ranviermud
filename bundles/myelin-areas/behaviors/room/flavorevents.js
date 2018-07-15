@@ -24,7 +24,25 @@ module.exports = (srcPath) => {
           Broadcast.sayAt(this, message);
           this.__lastEventEmitted = Date.now();
         }
-      }
-    }
+      },
+
+      playerSpawned: state => function(config, player) {
+        if (!config.playerSpawnMessages) return;
+
+        const {playerSpawnMessages} = config;
+        if (!playerSpawnMessages.toPlayer || !playerSpawnMessages.toRoom) return;
+        Broadcast.sayAt(player, playerSpawnMessages.toPlayer);
+        Broadcast.sayAtExcept(this, playerSpawnMessages.toRoom.replace('%name%', player.name), player);
+      },
+
+      playerDespawned: state => function(config, player) {
+        if (!config.playerDespawnMessages) return;
+
+        const {playerDespawnMessages} = config;
+        if (!playerDespawnMessages.toPlayer || !playerDespawnMessages.toRoom) return;
+        Broadcast.sayAt(player, playerDespawnMessages.toPlayer);
+        Broadcast.sayAtExcept(this, playerDespawnMessages.toRoom.replace('%name%', player.name), player);
+      },
+    },
   };
 };

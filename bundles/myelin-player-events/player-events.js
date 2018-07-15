@@ -21,7 +21,7 @@ module.exports = (srcPath) => {
         if (this.room) {
           this.room.emit('playerSpawned', this);
         }
-        Broadcast.sayAt(this.room, `${this.name} has appeared.`);
+        Broadcast.sayAtExcept(this.room, `${this.name} has appeared.`, this);
       },
 
       quit: state => function() {
@@ -29,7 +29,7 @@ module.exports = (srcPath) => {
           this.room.emit('playerDespawned', this);
         }
 
-        Broadcast.sayAt(this.room, `${this.name} has vanished.`);
+        Broadcast.sayAtExcept(this.room, `${this.name} has vanished.`, this);
       },
 
       updateTick: state => function () {

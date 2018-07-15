@@ -120,7 +120,7 @@ class CommandParser {
       };
     }
 
-    // finally check channels
+    // finally check skills
     found = state.SkillManager.find(command);
     if (found) {
       return {

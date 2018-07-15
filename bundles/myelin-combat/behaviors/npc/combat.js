@@ -68,7 +68,6 @@ module.exports = (srcPath) => {
       damaged: state => function (config, damage) {
         const health = this.getAttribute('health');
         if (health <= 0 && damage.attacker) {
-          if (config.wimpy) console.log('Dead!');
           this.combatData.killedBy = damage.attacker;
           return;
         }

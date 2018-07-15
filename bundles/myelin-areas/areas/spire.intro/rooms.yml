@@ -14,6 +14,12 @@
         - 'A scurrying noise comes from above your head.'
         - 'A sound like distant thunder echoes from afar.'
         - 'Bubbles form behind the glass of one of the cylinders.'
+      playerSpawnMessages:
+        toPlayer: 'You tumble out of a glassy chamber, shivering, and collect yourself from the floor.'
+        toRoom: '%name% tumbles out of one of the glassy cylinders, shivering. They collect themselves from the floor.'
+      playerDespawnMessages:
+        toPlayer: 'You press your hand against one of the empty cylinders. It opens, and you step inside.'
+        toRoom: '%name% presses their hand against one of the empty cylinders. It opens, and they step inside.'
 - id: tube-chamber-1
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
