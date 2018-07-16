@@ -309,7 +309,7 @@ class Character extends Metadatable(EventEmitter) {
     this.equipment.set(slot, item);
     item.isEquipped = true;
     item.belongsTo = this;
-    console.log('Emitting equip.');
+
     item.emit('equip', this);
     this.emit('equip', slot, item);
   }

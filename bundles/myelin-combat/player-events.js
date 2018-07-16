@@ -383,27 +383,46 @@ module.exports = (srcPath) => {
     const playerName = "You";
     const targetNameLengths = [...promptee.combatants].map(t => t.name.length);
     const nameWidth = Math.max(playerName.length, ...targetNameLengths);
-    const progWidth = 60 - (nameWidth + ':  ').length;
-
-    // Set up helper functions for health-bar-building.
     const getHealthPercentage = entity => Math.floor((entity.getAttribute('health') / entity.getMaxAttribute('health')) * 100);
-    const formatProgressBar = (name, progress, entity) => {
+    
+    const shouldShowBars = typeof promptee.metadata.config.combatbars === 'boolean' ? promptee.metadata.config.combatbars : true;
+    if (shouldShowBars) {
+      const progWidth = 60 - (nameWidth + ':  ').length;
+
+      // Set up helper functions for health-bar-building.
+      const formatProgressBar = (name, progress, entity) => {
+        const pad = B.line(nameWidth - name.length, ' ');
+        return `<b>${name}${pad}</b>: ${progress} <b>${entity.getAttribute('health')}/${entity.getMaxAttribute('health')}</b>`;
+      }
+
+      // Build player health bar.
+      let currentPerc = getHealthPercentage(promptee);
+      let progress = B.progress(progWidth, currentPerc, "green");
+      let buf = formatProgressBar(playerName, progress, promptee);
+
+      // Build and add target health bars.
+      for (const target of promptee.combatants) {
+        let currentPerc = Math.floor((target.getAttribute('health') / target.getMaxAttribute('health')) * 100);
+        let progress = B.progress(progWidth, currentPerc, "red");
+        buf += `\r\n${formatProgressBar(target.name, progress, target)}`;
+      }
+
+      return buf;
+    }
+
+
+    const getHealthColor = percentage => percentage >= 80 ? 'green' : percentage >= 40 ? 'yellow' : 'red';
+    const makeHealthString = (entity, name) => {
       const pad = B.line(nameWidth - name.length, ' ');
-      return `<b>${name}${pad}</b>: ${progress} <b>${entity.getAttribute('health')}/${entity.getMaxAttribute('health')}</b>`;
+      const percentage = getHealthPercentage(entity);
+      const color = getHealthColor(percentage);
+      return `${name}: ${pad}<${color}>${percentage}%</${color}> (<b>${entity.getAttribute('health')}/${entity.getMaxAttribute('health')}</b>)`;
     }
 
-    // Build player health bar.
-    let currentPerc = getHealthPercentage(promptee);
-    let progress = B.progress(progWidth, currentPerc, "green");
-    let buf = formatProgressBar(playerName, progress, promptee);
-
-    // Build and add target health bars.
+    let buf = makeHealthString(promptee, 'You');
     for (const target of promptee.combatants) {
-      let currentPerc = Math.floor((target.getAttribute('health') / target.getMaxAttribute('health')) * 100);
-      let progress = B.progress(progWidth, currentPerc, "red");
-      buf += `\r\n${formatProgressBar(target.name, progress, target)}`;
+      buf += `\r\n${makeHealthString(target, target.name)}`;
     }
-
     return buf;
   }
 };
