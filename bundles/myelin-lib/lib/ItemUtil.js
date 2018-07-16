@@ -38,8 +38,16 @@ exports.qualityColorize = qualityColorize;
 /**
  * Friendly display colorized by quality
  */
-exports.display = function (item) {
+exports.display = display;
+function display(item) {
   return qualityColorize(item, `[${item.name}]`);
+}
+
+exports.renderEquipment = function (player, entity) {
+  if (!entity) entity = player;
+  for (const [slot, item] of entity.equipment) {
+    B.sayAt(player, `  <${slot}> ${display(item)}`);
+  }
 };
 
 /**

@@ -2,6 +2,7 @@
 
 const sprintf = require('sprintf-js').sprintf;
 const LevelUtil = require('../myelin-lib/lib/LevelUtil');
+const ItemUtil = require('../myelin-lib/lib/ItemUtil');
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
@@ -50,6 +51,16 @@ module.exports = (srcPath) => {
             this.socket.emit('close');
           });
         }
+      },
+      
+      /**
+       * Emitted when someone looks at the player.
+       *
+       * @param {Player} observer
+       * @returns
+       */
+      look: state => function(observer) {
+        ItemUtil.renderEquipment(this, observer);
       },
 
       /**

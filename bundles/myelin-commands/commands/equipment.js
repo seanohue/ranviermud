@@ -2,7 +2,7 @@
 
 module.exports = (srcPath, bundlePath) => {
   const Broadcast = require(srcPath + 'Broadcast');
-  const ItemUtil = require(bundlePath + 'ranvier-lib/lib/ItemUtil');
+  const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
   return {
     aliases: ['worn'],
@@ -13,9 +13,7 @@ module.exports = (srcPath, bundlePath) => {
       }
 
       Broadcast.sayAt(player, "Currently Equipped:");
-      for (const [slot, item] of player.equipment) {
-        Broadcast.sayAt(player, `  <${slot}> ${ItemUtil.display(item)}`);
-      }
+      ItemUtil.renderEquipment(player);
     }
   };
 };
