@@ -93,6 +93,7 @@ module.exports = (srcPath) => {
       damage.commit(target);
 
       const otherTargets = [...player.combatants].filter(com => com !== target);
+      if (!player.isNpc) console.log('BOLT:', {otherTargets});
       if (!otherTargets.length) return;
 
       otherTargets.forEach((t, i) => {
@@ -118,15 +119,14 @@ module.exports = (srcPath) => {
             Broadcast.sayAt(t, `<yellow>${player.name}'s <b>Jolt</b> stuns you!</yellow>`);
           }
           t.addEffect(effect);
+        }
 
-          Broadcast.sayAt(player, `<bold>Your <cyan>bolt</cyan></bold> <yellow>of <bold>lightning</bold></yellow> arcs<bold> to ${target.name}!</bold>`);
-          Broadcast.sayAtExcept(player.room, `<bold>${player.name}'s <cyan>bolt</cyan></bold> <yellow>arcs<bold></bold></yellow> to<bold> ${target.name}!</bold>`, [player, target]);
-          if (!target.isNpc) {
-            Broadcast.sayAt(target, `<bold>${player.name}'s <blue>bolt</blue></bold> <yellow>of <bold>lightning</bold> arcs</yellow> <bold> to you!</bold>`);
-          }
-
-          t.commit(newDamage);
-        }   
+        Broadcast.sayAt(player, `<bold>Your <cyan>bolt</cyan></bold> <yellow>of <bold>lightning</bold></yellow> arcs<bold> to ${target.name}!</bold>`);
+        Broadcast.sayAtExcept(player.room, `<bold>${player.name}'s <cyan>bolt</cyan></bold> <yellow>arcs<bold></bold></yellow> to<bold> ${target.name}!</bold>`, [player, target]);
+        if (!target.isNpc) {
+          Broadcast.sayAt(target, `<bold>${player.name}'s <blue>bolt</blue></bold> <yellow>of <bold>lightning</bold> arcs</yellow> <bold> to you!</bold>`);
+        }
+        t.commit(newDamage);
       });
     },
 
