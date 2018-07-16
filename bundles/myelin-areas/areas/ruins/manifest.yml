@@ -2,3 +2,4 @@ title: The Ruinous Depths
 info:
   levelRange: {min: 10, max: 99}
   respawnInterval: 60
+  pvp: 'enforced'

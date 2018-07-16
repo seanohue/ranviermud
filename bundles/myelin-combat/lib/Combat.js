@@ -128,6 +128,28 @@ class Combat {
   }
 
   /**
+   * Decides if it is possible for the entity to be harmed.
+   * @param {Character} attacker
+   * @param {Character} defender 
+   */
+  static canPvP(attacker, defender) {
+    if (defender.isNpc) return true;
+
+    // Cannot attack from enforced/optional into a safe zone.
+    if (defender.room.area.info.pvp === 'safe') {
+      return false;
+    }
+
+    // If both are either opted in and in an optional zone, or in an enforced zone,
+    // then the defender can be harmed.
+    // No attacking into an enforced zone from a safe one.
+    const isEnforced   = entity => entity.room.area.info.pvp === 'enforced';
+    const isOptedIn    = entity => entity.room.area.info.pvp === 'optional' && entity.metadata.pvp === true;
+    const isPvPEnabled = entity => (isEnforced(entity) || isOptedIn(entity));
+    return isPvPEnabled(attacker && isPvPEnabled(defender));
+  }
+
+  /**
    * Actually apply some J from an attacker to a target
    * @param {Character} attacker
    * @param {Character} target
@@ -209,7 +231,7 @@ class Combat {
       throw new CombatErrors.CombatInvalidTargetError("They are immortal.");
     }
 
-    if (!target.isNpc && !target.getMeta('pvp')) {
+    if (!Combat.canPvP(target)) {
       throw new CombatErrors.CombatNonPvpError(`${target.name} has not opted into PvP.`, target);
     }
 

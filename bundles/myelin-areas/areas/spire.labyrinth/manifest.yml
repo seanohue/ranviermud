@@ -1,7 +1,8 @@
 # placeholderish
-title: 'The Spire: Cryochamber'
+title: 'The Spire: Labyrinth'
 info:
   respawnInterval: 30
   levelRange:
     min: 5
     max: 15
+  pvp: 'optional'

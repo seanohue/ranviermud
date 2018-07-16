@@ -28,7 +28,8 @@ class Area extends EventEmitter {
     this.npcs = new Set();
     this.info = Object.assign({
       // respawn interval in seconds
-      respawnInterval: 60
+      respawnInterval: 60,
+      pvp: 'optional'
     }, manifest.info || {});
 
     this.map = new Map();

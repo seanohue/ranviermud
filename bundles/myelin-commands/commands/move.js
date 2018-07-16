@@ -72,6 +72,18 @@ module.exports = (srcPath) => {
 
       player.moveTo(nextRoom, _ => {
         state.CommandManager.get('look').execute('', player);
+
+        if (oldRoom.area !== nextRoom.area) {
+          if (player.room.area.info.pvp === 'safe') {
+            return Broadcast.sayAt(player, '<green><b>Note: You are in a SAFE zone. No PvP allowed in this area.</green>');
+          }
+
+          if (player.room.area.info.pvp === 'enforced') {
+            return Broadcast.sayAt(player, '<red><b>Note: You are in a DANGER zone. All PvP is allowed in this area.</red>');
+          }
+
+          Broadcast.sayAt(player, '<b>Note:</b> You are in a PvP-optional zone. You can opt-in or opt-out of PvP duels here.');
+        }
       });
 
       B.sayAt(oldRoom, `${player.name} leaves.`);

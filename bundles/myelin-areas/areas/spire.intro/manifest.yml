@@ -4,3 +4,4 @@ info:
   levelRange:
     min: 1
     max: 6
+  pvp: 'safe'

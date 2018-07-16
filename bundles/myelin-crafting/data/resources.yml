@@ -19,5 +19,8 @@ aetherplasm:
   quality: rare
 bone: 
   title: Bone
-  quality: uncommon
+  quality: common
+sparkdust:
+  title: Sparkdust
+  quality: rare
 

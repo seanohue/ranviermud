@@ -5,3 +5,4 @@ info:
   levelRange:
     min: 15
     max: 99
+  pvp: 'enforced'
