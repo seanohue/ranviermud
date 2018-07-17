@@ -31,12 +31,7 @@ Shawn Biddle (RanvierMUD Creator/BDFL)
 Special thanks to MUD Coder's Guild 
 www.mudcoders.com (Join this Slack, too!)
 
-CHANGELOG (7/2/2018):
-** Combat overhaul in progress, including tweaks to backgrounds, skills, NPCs and items.
-** 10+ new skills! (mostly Level 4 or higher) 
-** Gain more build points as you reach higher levels.
-** Gain XP from successfully crafting.
-
+CHANGELOG:
 (7/3/2018)
 ** NPCs can use skills during combat! Watch out.
 
@@ -45,4 +40,10 @@ CHANGELOG (7/2/2018):
 ** Fixed major bug that made skills unusable.
 ** Damage resistance is implemented. 
    Try different weapons, armors, and abilities against various foes!
+
+(7/16/2018)
 ** NPCs can flee when close to death. Hunt 'em down.
+** Turn off health bars during combat with the `config` command.
+** Renamed some NPCs for flavor.
+** There are now 'safe' zones (no PvP) and 'danger' zones (enforced PvP).
+

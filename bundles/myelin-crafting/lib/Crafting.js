@@ -10,9 +10,21 @@ const dataPath = __dirname + '/../data/';
 const _loadedResources = Data.parseFile(dataPath + 'resources.yml');
 const _loadedRecipes = Data.parseFile(dataPath + 'recipes.yml');
 
+const qualityMap = {
+  poor: 1,
+  common: 2,
+  uncommon: 3,
+  rare: 4,
+  epic: 5
+};
+
 class Crafting {
   static getResource(resourceKey) {
     return _loadedResources[resourceKey];
+  }
+
+  static getExperience(totalRequired, quality = 'common') {
+    return Math.ceil(totalRequired / 5) * qualityMap[quality];
   }
 
   static getResourceItem(resourceKey) {

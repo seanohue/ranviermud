@@ -126,7 +126,7 @@ module.exports = (srcPath, bundlePath) => {
       player.addItem(item.item);
       player.emit('craft', item.item);
       say(player, `<b><green>You create: ${ItemUtil.display(item.item)}.</green></b>`);
-      player.emit('experience', totalRequired);
+      player.emit('experience', Crafting.getExperience(totalRequired, item.item.quality || 'common'));
 
       player.save();
     }

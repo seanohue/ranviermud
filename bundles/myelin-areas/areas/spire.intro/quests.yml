@@ -45,8 +45,8 @@
   goals:
     - type: KillGoal
       config:
-        title: 'Kill a half-dozen malfunctioning security automatons.'
-        npc: 'spire.intro:malfunctioningauto'
+        title: 'Kill a half-dozen malfunctioning Buzzards.'
+        npc: 'spire.intro:malfunctioningbuzz'
         count: 6
   rewards:
     - type: ExperienceReward

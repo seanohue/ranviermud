@@ -1,6 +1,6 @@
-- id: maintenanceauto
-  keywords: ['maintenance', 'auto', 'automaton', 'robot']
-  name: Maintenance Automaton
+- id: crawler
+  keywords: ['crawler']
+  name: Crawler
   level: 2
   description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
@@ -54,8 +54,8 @@
     maxDamage: 10
 
 - id: vendorauto
-  keywords: ['vendor', 'automaton']
-  name: Vending Automaton
+  keywords: ['vendbot', 'bot', 'vendor', 'automaton']
+  name: Vendbot
   level: 7
   description: "This automaton is a hulking block with a glass front. It has two treads that it uses to get around, one on each side. It is filled with various goods. A funnel is jutting from one side of the machine, presumably for payment. A small tube juts from the lower front center of the automaton, for dispensing goods."
   behaviors:
@@ -134,9 +134,9 @@
     minDamage: 15
     maxDamage: 50
 
-- id: securityauto
-  keywords: ['security', 'auto', 'flying']
-  name: Flying Security Automaton
+- id: buzzard
+  keywords: ['buzzard', 'buzz', 'security', 'auto', 'flying']
+  name: Buzzard
   level: 6
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring in all directions. Its undercarriage features razor-sharp 'legs' and a small cannon."
   behaviors:
@@ -178,9 +178,9 @@
     damageType: ['PIERCING', 'SLASHING']
     bleeds: 'oil'
 
-- id: malfunctioningauto
-  keywords: ['malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
-  name: Flying Malfunctioning Automaton
+- id: malfunctioningbuzz
+  keywords: ['malf', 'buzzard', 'buz', malfunctioning', 'malfunc', 'broken', 'automaton', 'flying']
+  name: Malfunctioning Buzzard
   level: 3
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring <red>erratically</red>. Its undercarriage features razor-sharp 'legs' and a small cannon."
   behaviors:
@@ -221,7 +221,7 @@
       delay: 3
       towards:
         players: true
-        npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
+        npcs: ['spire.intro:vendorauto', 'spire.intro:crawler', 'spire.intro:buzzard']
   attributes:
     health: 35
     energy: 250

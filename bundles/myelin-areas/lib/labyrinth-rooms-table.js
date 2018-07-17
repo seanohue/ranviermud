@@ -22,7 +22,7 @@ module.exports = {
     title: 'A Cold Hall',
     description: 'A short hallway, cold enough to see one\'s breath.',
     level: 7,
-    npcs: ['spire.intro:maintenanceauto']
+    npcs: ['spire.intro:crawler']
   },
 
   hall: {
@@ -36,7 +36,7 @@ module.exports = {
     title: 'Tube Chamber',
     description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.',
     items: ['spire.intro:columntubes'],  
-    npcs: ['spire.labyrinth:berzerkmaintenanceauto'],
+    npcs: ['spire.labyrinth:berzerkcrawler'],
     level: 9
   },
 
@@ -44,7 +44,7 @@ module.exports = {
     weight: UNCOMMON,
     title: 'A Cold Hall',
     description: 'A short hallway, cold enough to see one\'s breath.',   
-    npcs: ['spire.labyrinth:malfunctioningauto'], 
+    npcs: ['spire.labyrinth:berzerkbuzz'], 
     level: 9
   },
 

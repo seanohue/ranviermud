@@ -1,6 +1,6 @@
-- id: berzerkmaintenanceauto
-  keywords: ['berzerk', 'maintenance', 'auto', 'automaton', 'robot']
-  name: Berzerk Maintenance Automaton
+- id: berzerkcrawler
+  keywords: ['crawler', 'berzerk', 'maintenance', 'auto', 'automaton', 'robot']
+  name: Berzerk Crawler
   level: 6
   description: "This is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a cracked dome, with iridescent fluid streaming from it. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
@@ -21,7 +21,7 @@
       delay: 4
       towards:
         players: true
-        npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto']
+        npcs: ['spire.intro:vendorauto', 'spire.intro:buzzard', 'spire.intro:crawler', 'spire.labyrinth:minotaur']
     lootable: 
       resources: 
         scrap_metal:
@@ -52,9 +52,9 @@
     bleeds: 'oil'
     damageType: ['SLASHING']
 
-- id: malfunctioningauto
-  keywords: ['berz', 'malfunc', 'broken', 'automaton', 'flying']
-  name: Berzerk Flying Automaton
+- id: berzerkbuzz
+  keywords: ['buzzard', 'berz', 'malfunc', 'broken', 'automaton', 'flying']
+  name: Berzerk Buzzard
   level: 8
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring <red>erratically</red>. Its undercarriage features razor-sharp 'legs' and a small cannon."
   behaviors:
@@ -83,7 +83,7 @@
       delay: 3
       towards:
         players: true
-        npcs: ['spire.intro:vendorauto', 'spire.intro:securityauto', 'spire.intro:maintenanceauto', 'spire.labyrinth:minotaur']
+        npcs: ['spire.intro:vendorauto', 'spire.intro:crawler', 'spire.intro:buzzard', 'spire.labyrinth:minotaur']
   attributes:
     health: 90
     energy: 150
@@ -162,7 +162,7 @@
   description: 'A hulking mass of flesh and machinery stands before you. Metallic "hooves" at the end of inhumanly muscled legs. An enormous torso with armor grafted to it. Arms the size of a normal human''s entire body. And a series of tubes and horns that ring a head that is no longer recognizable as alive.'
   behaviors:
     skilled:
-      skills: ['bash', 'block', 'enervate', 'empower', 'secondwind']
+      skills: ['bash', 'block', 'enervate', 'empower', 'secondwind', 'rend']
     combat: true
     resistance:
       isPsionic: 10
@@ -218,3 +218,4 @@
     minDamage: 5
     maxDamage: 50
     damageType: CRUSHING
+    attackVerb: horn

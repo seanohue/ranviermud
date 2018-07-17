@@ -26,7 +26,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [1, 5, 0]
   level: 7
-  npcs: &ref_0 ['spire.intro:maintenanceauto']
+  npcs: &ref_0 ['spire.intro:crawler']
 - id: a-cold-hall-5
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
@@ -44,7 +44,7 @@
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [1, 8, 0]
-  npcs: &ref_1 ['spire.labyrinth:malfunctioningauto']
+  npcs: &ref_1 ['spire.labyrinth:berzerkbuzz']
   level: 9
 - id: a-cold-hall-8
   title: A Cold Hall
@@ -99,7 +99,7 @@
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
   coordinates: [1, 17, 0]
   items: &ref_6 ['spire.intro:columntubes']
-  npcs: &ref_7 ['spire.labyrinth:berzerkmaintenanceauto']
+  npcs: &ref_7 ['spire.labyrinth:berzerkcrawler']
   level: 9
 - id: tube-chamber-17
   title: Tube Chamber
