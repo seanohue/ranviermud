@@ -59,7 +59,6 @@ module.exports = (srcPath) => {
       Broadcast.sayAtExcept(player.room, `<bold>${player.name} unleashes a <red>ball</red></bold> <yellow>of <bold>flame</bold></yellow>!</bold>`, [player, ...possibleTargets]);
       possibleTargets.forEach(t => {
         const isMain = target === t;
-        console.log({name: t.name, chance: Combat.getSplashChance(player, t), isMain});
         const hit = isMain || Random.probability(Combat.getSplashChance(player, t));
         if (!hit) {
           Broadcast.sayAt(player, `<b>Your fireball barely misses ${t.name}!`);
@@ -67,7 +66,7 @@ module.exports = (srcPath) => {
         }
 
         if (!t.isNpc) {
-          Broadcast.sayAt(t, `<bold>${player.name}'s <red>fan</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>hits you!</bold>`);
+          Broadcast.sayAt(t, `<bold>${player.name}'s <red>ball</red></bold> <yellow>of <bold>flame</bold></yellow> <bold>hits you!</bold>`);
         }
         const damage = fireDamageFactory.call(this, !isMain);
         damage.commit(t);

@@ -32,6 +32,7 @@ class Skill {
       flags = [],
       info = _ => {},
       initiatesCombat = false,
+      isSplash = false,
       name,
       requiresTarget = true,
       resource = null, /* format [{ attribute: 'someattribute', cost: 10}] */
@@ -56,6 +57,7 @@ class Skill {
     this.id = id;
     this.info = info.bind(this);
     this.initiatesCombat = initiatesCombat;
+    this.isSplash = isSplash;
     this.name = name;
     this.options = options;
     this.requiresTarget = requiresTarget;
@@ -90,11 +92,11 @@ class Skill {
 
     if (target !== player && this.initiatesCombat) {
       player.initiateCombat(target);
-    }
-
-    if (this.isSplash) {
-      for (const character of Combat.getValidSplashTargets(player)) {
-        player.initiateCombat(character);
+      if (this.isSplash) {
+        for (const character of Combat.getValidSplashTargets(player)) {
+          console.log(character.name);
+          player.initiateCombat(character);
+        }
       }
     }
 

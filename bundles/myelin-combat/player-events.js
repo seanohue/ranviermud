@@ -214,7 +214,7 @@ module.exports = (srcPath) => {
         let source = '';
 
         if (heal.attacker && heal.attacker !== this) {
-          attacker = `<b>${heal.attacker.name}</b> `;
+          attacker = `<b>${heal.attacker.name}</b>`;
         }
 
         if (heal.source) {

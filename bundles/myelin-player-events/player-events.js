@@ -60,7 +60,7 @@ module.exports = (srcPath) => {
        * @returns
        */
       look: state => function(observer) {
-        ItemUtil.renderEquipment(this, observer);
+        ItemUtil.renderEquipment(observer, this);
       },
 
       /**

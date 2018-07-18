@@ -45,6 +45,8 @@ function display(item) {
 
 exports.renderEquipment = function (player, entity) {
   if (!entity) entity = player;
+  if (!entity.equipment) return;
+
   for (const [slot, item] of entity.equipment) {
     B.sayAt(player, `  <${slot}> ${display(item)}`);
   }

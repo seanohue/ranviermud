@@ -23,6 +23,7 @@
       config:
         amount: 5
         leveledTo: QUEST
+
 - id: misbehavingautos
   level: 1
   title: 'Misbehaving Automatons'
@@ -45,7 +46,7 @@
   goals:
     - type: KillGoal
       config:
-        title: 'Kill a half-dozen malfunctioning Buzzards.'
+        title: 'Kill a half-dozen malfunctioning Buzzards'
         npc: 'spire.intro:malfunctioningbuzz'
         count: 6
   rewards:
@@ -54,6 +55,7 @@
         amount: 5
         leveledTo: QUEST
     # eventually add ItemReward and/or ResourceReward....
+
 - id: findakey
   level: 1
   title: 'Find A Key'
@@ -84,4 +86,3 @@
       config:
         amount: 10
         leveledTo: QUEST
-

@@ -133,12 +133,13 @@ class Combat {
    * @param {Character} defender 
    */
   static canPvP(attacker, defender) {
-    console.log(attacker.name, defender.name);
-    if (attacker === defender) { return false; }
+    if (attacker === defender) return false;
     if (defender.isNpc) return true;
 
-    if (attacker.party.has(defender) || attacker.party.invited.has(defender)) {
-      return false;
+    if (attacker.party) {
+      if (attacker.party.has(defender) || attacker.party.invited.has(defender)) {
+        return false;
+      }
     }
     // Cannot attack from enforced/optional into a safe zone.
     if (defender.room.area.info.pvp === 'safe') {
@@ -151,7 +152,8 @@ class Combat {
     const isEnforced   = entity => entity.room.area.info.pvp === 'enforced';
     const isOptedIn    = entity => entity.room.area.info.pvp === 'optional' && entity.metadata.pvp === true;
     const isPvPEnabled = entity => (isEnforced(entity) || isOptedIn(entity));
-    return isPvPEnabled(attacker && isPvPEnabled(defender));
+    console.log({attacker: isPvPEnabled(attacker), def: isPvPEnabled(defender)});
+    return isPvPEnabled(attacker) && isPvPEnabled(defender);
   }
 
   static getValidSplashTargets(attacker) {
