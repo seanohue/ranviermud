@@ -13,5 +13,5 @@ equipment:
   - 'spire.intro:alms'
   - 'spire.intro:sandals'
   - 'spire.intro:dusters'
-skills: [ 'combust', 'concentration' ]
+skills: [ 'combust', 'concentration', 'jolt' ]
 tier: 0

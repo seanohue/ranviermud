@@ -20,6 +20,14 @@
     noPickup: true
   keywords: [ "cylinder", "coffin", "frosted", "row" ]
   description: "Upon closer inspection, the cylinders are made of thick glass. Some of them are slightly cracked, and a thin vapor is emerging. Others are too frosted over to see within. In one, you see a dim silhouette."
+- id: silhouette
+  name: 'A Murky Silhouette'
+  roomDesc: 'A Murky Silhouette' #is invis
+  metadata:
+    noPickup: true
+    detail: true
+  keywords: ['silhouette', 'shadow']
+  description: 'The silhouette in the cylinder is vaguely humanoid. It seems to be moving slightly, though it is impossible to tell if it is of its own volition or just floating around.'
 - id: masstubes
   name: "A Snakelike Mass of Tubes"
   roomDesc: "A mass of tubes snaking to each of the cylinders"

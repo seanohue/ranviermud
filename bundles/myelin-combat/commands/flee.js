@@ -77,7 +77,6 @@ module.exports = srcPath => {
       const duration = getDuration(totalEnemyLevels);
       const magnitude = getMagnitude(totalEnemyLevels);
       const cowardice = state.EffectFactory.create('cowardice', player, { duration }, { magnitude });
-      console.log({magnitude, duration, totalEnemyLevels});
       player.addEffect(cowardice);
 
       player.removeFromCombat();

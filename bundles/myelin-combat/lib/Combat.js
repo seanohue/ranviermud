@@ -133,8 +133,13 @@ class Combat {
    * @param {Character} defender 
    */
   static canPvP(attacker, defender) {
+    console.log(attacker.name, defender.name);
+    if (attacker === defender) { return false; }
     if (defender.isNpc) return true;
 
+    if (attacker.party.has(defender) || attacker.party.invited.has(defender)) {
+      return false;
+    }
     // Cannot attack from enforced/optional into a safe zone.
     if (defender.room.area.info.pvp === 'safe') {
       return false;
@@ -147,6 +152,22 @@ class Combat {
     const isOptedIn    = entity => entity.room.area.info.pvp === 'optional' && entity.metadata.pvp === true;
     const isPvPEnabled = entity => (isEnforced(entity) || isOptedIn(entity));
     return isPvPEnabled(attacker && isPvPEnabled(defender));
+  }
+
+  static getValidSplashTargets(attacker) {
+    return [...attacker.room.npcs, ...attacker.room.players].filter((target) => 
+    console.log({[target.name]: Combat.canPvP(attacker, target)}) || 
+    Combat.canPvP(attacker, target));
+  }
+
+  static getSplashChance(attacker, target) {
+    target = target || {getAttribute() { return 0; }};
+
+    return Math.min(
+      Math.max(
+        5,
+        15 + attacker.getAttribute('intellect') - target.getAttribute('quickness')
+    ), 95);
   }
 
   /**
@@ -231,7 +252,7 @@ class Combat {
       throw new CombatErrors.CombatInvalidTargetError("They are immortal.");
     }
 
-    if (!Combat.canPvP(target)) {
+    if (!Combat.canPvP(attacker, target)) {
       throw new CombatErrors.CombatNonPvpError(`${target.name} has not opted into PvP.`, target);
     }
 

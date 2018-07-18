@@ -47,6 +47,8 @@ module.exports = (srcPath, bundlePath) => {
 
         // show all the items in the rom
         room.items.forEach(item => {
+          if (item.metadata.detail) return;
+
           if (item.hasBehavior('resource')) {
             B.sayAt(player, `[${ItemUtil.qualityColorize(item, 'Resource')}] <magenta>${item.roomDesc}</magenta>`);
           } else if (item.metadata.noPickup) {

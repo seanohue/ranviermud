@@ -5,6 +5,7 @@ const SkillType = require('./SkillType');
 const SkillErrors = require('./SkillErrors');
 const Damage = require('./Damage');
 const DamageType = require('../bundles/myelin-combat/lib/DamageType');
+const Combat = require('../bundles/myelin-combat/lib/Combat');
 
 /**
  * @property {function (Effect)} configureEffect modify the skill's effect before adding to player
@@ -89,6 +90,12 @@ class Skill {
 
     if (target !== player && this.initiatesCombat) {
       player.initiateCombat(target);
+    }
+
+    if (this.isSplash) {
+      for (const character of Combat.getValidSplashTargets(player)) {
+        player.initiateCombat(character);
+      }
     }
 
     // allow skills to not incur the cooldown if they return false in run

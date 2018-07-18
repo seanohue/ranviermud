@@ -104,15 +104,15 @@ module.exports = srcPath => {
         },
 
         // Active debuffs
+        stupefy: {
+          level: 1,
+          willpower: 12,
+          intellect: 10
+        },
         weaken: {
           level: 4,
           intellect: 12,
           willpower: 10
-        },
-        stupefy: {
-          level: 4,
-          willpower: 12,
-          intellect: 10
         },
         expose: {
           level: 6,
@@ -135,8 +135,15 @@ module.exports = srcPath => {
           cost: 1,
           skills: ['combust']
         },
+        fireball: {
+          level: 8,
+          intellect: 18,
+          willpower: 10,
+          quickness: 8,
+          skills: ['combust', 'flare']
+        },
 
-        //ELECTRICAL
+        // ELECTRICAL
         jolt: {
           level: 2,
           intellect: 16,

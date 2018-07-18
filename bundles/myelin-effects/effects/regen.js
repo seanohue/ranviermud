@@ -21,9 +21,9 @@ module.exports = srcPath => {
       updateTick: function () {
         // pools that regenerate over time
         const regens = [
-          { pool: 'health', modifier: this.target.isInCombat() ? 0 : 0.5 },
-          { pool: 'energy', modifier: this.target.isInCombat() ? 0.25 : 1.5 },
-          { pool: 'focus', modifier: this.target.isInCombat() ? 0.25 : 1 },
+          { pool: 'health', modifier: this.target.isInCombat() ? 0 : 1.5 },
+          { pool: 'energy', modifier: this.target.isInCombat() ? 0.25 : 2 },
+          { pool: 'focus', modifier: this.target.isInCombat() ? 0.25 : 2 },
         ];
 
         for (const regen of regens) {

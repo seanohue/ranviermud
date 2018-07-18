@@ -11,5 +11,5 @@ equipment:
   - 'spire.intro:toque'
   - 'spire.intro:stick'
   - 'spire.intro:loincloth'
-skills: [ 'mend', 'concentration' ]
+skills: [ 'mend', 'concentration', 'stupefy' ]
 tier: 0

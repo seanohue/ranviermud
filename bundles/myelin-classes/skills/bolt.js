@@ -93,7 +93,6 @@ module.exports = (srcPath) => {
       damage.commit(target);
 
       const otherTargets = [...player.combatants].filter(com => com !== target);
-      if (!player.isNpc) console.log('BOLT:', {otherTargets});
       if (!otherTargets.length) return;
 
       otherTargets.forEach((t, i) => {

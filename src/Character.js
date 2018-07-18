@@ -209,8 +209,9 @@ class Character extends Metadatable(EventEmitter) {
     // adds this to the target's combatants list as well
     this.combatants.add(target);
     if (!target.isInCombat()) {
-      // TODO: This hardcoded 2.5 second lag on the target needs to be refactored
-      target.initiateCombat(this, 2500);
+      const defaultLag = 2500;
+      const lag = this.combatData ? this.combatData.lag : this.metadata.combatLag;
+      target.initiateCombat(this, lag && lag > 0 ? lag : defaultLag);
     }
 
     target.addCombatant(this);
