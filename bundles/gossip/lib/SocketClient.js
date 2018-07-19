@@ -45,9 +45,9 @@ class SocketClient {
       Logger.error(`Gossip - connection error - ${err}`);
     });
 
-    this.gossipEmitter.on("messages/new", (channel, sender, message) => {
+    this.gossipEmitter.on("channels/send", (channel, sender, message) => {
       let event = {
-        "event": "messages/new",
+        "event": "channels/send",
         "payload": {
           "channel": channel,
           "name": sender,
@@ -106,7 +106,7 @@ class SocketClient {
 
           break;
 
-        case "messages/broadcast":
+        case "channels/broadcast":
           let payload = event["payload"];
 
           Logger.verbose(`Gossip - received broadcast on "${payload["channel"]}"`);

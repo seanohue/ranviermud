@@ -15,7 +15,7 @@ class GossipChannel extends BaseChannel {
       return;
     }
 
-    state.GossipEmitter.emit("messages/new", this.remoteChannel, sender.name, message);
+    state.GossipEmitter.emit("channels/send", this.remoteChannel, sender.name, message);
   }
 }
 
