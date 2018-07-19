@@ -14,7 +14,7 @@ module.exports = (srcPath) => {
       socket.once('data', name => {
         name = name.toString().trim();
 
-        const invalid = CommonFunctions.validateName(name);
+        const invalid = CommonFunctions.validateName(name, state);
         if (invalid) {
           socket.write(invalid + '\r\n');
           return socket.emit('login', socket);

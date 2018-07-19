@@ -1,0 +1,17 @@
+{
+  "name": "myelin-input-events",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tiers.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sean O'Donohue",
+  "license": "MIT",
+  "dependencies": {
+    "badwords": "^1.0.0"
+  }
+}

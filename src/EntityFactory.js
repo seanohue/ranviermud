@@ -1,6 +1,5 @@
 'use strict';
 
-const Npc = require('./Npc');
 const BehaviorManager = require('./BehaviorManager');
 
 /**

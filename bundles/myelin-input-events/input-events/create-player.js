@@ -17,7 +17,7 @@ module.exports = (srcPath) => {
         say('');
         name = name.toString().trim();
 
-        const invalid = CommonFunctions.validateName(name);
+        const invalid = CommonFunctions.validateName(name, state);
 
         if (invalid) {
           say(invalid);

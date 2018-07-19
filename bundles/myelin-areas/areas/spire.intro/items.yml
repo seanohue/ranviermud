@@ -4,7 +4,7 @@
   roomDesc: "Thousands of tubes form a central column in this chamber"
   metadata:    
     noPickup: true
-  keywords: [ "tube, tubes", "column", "central" ]
+  keywords: [ "tube", "tubes", "column", "central" ]
   description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the surrounding chambers."
 - id: bench
   name: "A Semicircular Slate Bench"
