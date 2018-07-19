@@ -46,4 +46,5 @@ CHANGELOG:
 ** Turn off health bars during combat with the `config` command.
 ** Renamed some NPCs for flavor.
 ** There are now 'safe' zones (no PvP) and 'danger' zones (enforced PvP).
+** Area of Effect damage is now possible (there is only one skill using it thus far...)
 
