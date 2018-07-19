@@ -53,7 +53,6 @@ class EffectList {
 
   filterByType(type) {
     return [...this.effects].filter(effect => {
-      console.log(effect.config.type);
       return effect.config.type === type;
     });   
   }
