@@ -140,8 +140,6 @@ function init(restartServer) {
 
   // Set up web API
   // TODO: move into a server-events bundle
-  const WebInterface = new (require('./src/Api/WebInterface'))(GameState);
-  WebInterface.init();
 
   if (restartServer) {
     Logger.log("START - Starting server");
