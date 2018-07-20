@@ -51,7 +51,7 @@ module.exports = (srcPath) => {
           'stun',
           target,
           {
-            duration: getDuration(player),
+            duration: getDuration(player) * 1000,
             description: "You've been stunned."
           }
         );

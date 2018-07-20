@@ -109,6 +109,10 @@ module.exports = srcPath => {
           willpower: 12,
           intellect: 10
         },
+        flash: {
+          level: 2,
+          intellect: 16
+        },
         weaken: {
           level: 4,
           intellect: 12,
@@ -172,6 +176,7 @@ module.exports = srcPath => {
           intellect: 13,
           quickness: 10
         },
+
       }
     }
   };
