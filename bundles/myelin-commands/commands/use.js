@@ -29,7 +29,7 @@ module.exports = (srcPath, bundlePath) => {
 
       const usable = item.getBehavior('usable');
       if (!usable) {
-        // Special portal code...
+        //TODO: Make better. Special portal code...
         if (item.entityReference.includes('key')){
           if (player.room.hasBehavior('portal')) {
             say("<b>You use the key...</b>");
@@ -44,8 +44,8 @@ module.exports = (srcPath, bundlePath) => {
         return say(`You've used up ${ItemUtil.display(item)}.`);
       }
 
-      if (usable.spell) {
-        const useSpell = state.SpellManager.get(usable.spell);
+      if (usable.ability) {
+        const useSpell = state.SkillManager.get(usable.ability);
 
         if (!useSpell) {
           Logger.error(`Item: ${item.entityReference} has invalid usable configuration.`);

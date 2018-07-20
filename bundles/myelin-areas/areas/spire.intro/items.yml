@@ -558,7 +558,7 @@
     # usable has two variants: spell, and effect
     usable:
       # this is the spell variant, you specify a skill of type SPELL
-      spell: "potion"
+      ability: "potion"
       # charges/destroyOnDepleted lets you create consumable items
       # without specifying charges the item can be used forever
       charges: 5
@@ -567,7 +567,7 @@
       cooldown: 30
       # spell configuration, spell can access it via this.options
       options:
-        restores: 30
+        restores: 20
         stat: "health"
 
 - id: tea
@@ -581,7 +581,7 @@
     # usable has two variants: spell, and effect
     usable:
       # this is the spell variant, you specify a skill of type SPELL
-      spell: "potion"
+      ability: "potion"
       # charges/destroyOnDepleted lets you create consumable items
       # without specifying charges the item can be used forever
       charges: 5
@@ -604,7 +604,7 @@
     # usable has two variants: spell, and effect
     usable:
       # this is the spell variant, you specify a skill of type SPELL
-      spell: "potion"
+      ability: "potion"
       # charges/destroyOnDepleted lets you create consumable items
       # without specifying charges the item can be used forever
       charges: 5
@@ -613,5 +613,5 @@
       cooldown: 30
       # spell configuration, spell can access it via this.options
       options:
-        restores: 30
+        restores: 50
         stat: "focus"
