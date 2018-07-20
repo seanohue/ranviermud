@@ -94,7 +94,6 @@ class Skill {
       player.initiateCombat(target);
       if (this.isSplash) {
         for (const character of Combat.getValidSplashTargets(player)) {
-          console.log('splash damaging: ', character.name);
           player.initiateCombat(character);
         }
       }

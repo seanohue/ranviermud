@@ -651,7 +651,6 @@ class BundleManager {
   loadServerEvents(bundle, serverEventsDir) {
     Logger.verbose(`\tLOAD: Server Events...`);
     const files = fs.readdirSync(serverEventsDir);
-    console.log({files});
     for (const eventsFile of files) {
       const eventsPath = serverEventsDir + eventsFile;
       if (!Data.isScriptFile(eventsPath, eventsFile)) {
@@ -663,7 +662,6 @@ class BundleManager {
       const eventsListeners = require(eventsPath)(srcPath).listeners;
 
       for (const [eventName, listener] of Object.entries(eventsListeners)) {
-        console.log('eventName', eventName);
         this.state.ServerEventManager.add(eventName, listener(this.state));
       }
     }

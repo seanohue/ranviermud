@@ -22,7 +22,7 @@ module.exports = srcPath => {
     modifiers: {
       outgoingDamage: (damage, current) => current,
       incomingDamage(damage, currentAmount) {
-        if (damage instanceof Heal || damage.attribute !== 'health' || !DamageType[this.state.type](damage.type)) {
+        if (damage instanceof Heal || damage.attribute !== 'health' || !DamageType[this.state.type](damage.type) || damage.amount <= 0) {
           return currentAmount;
         }
 

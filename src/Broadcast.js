@@ -250,13 +250,14 @@ class Broadcast {
     if (isNaN(_width)) {
       console.log('Broadcast.line received width of NaN. Weird, right?');
     }
-    const width = _width || 0;
+    let width = _width || 0;
     let openColor = '';
     let closeColor = '';
     if (color) {
       openColor = `<${color}>`;
       closeColor = `</${color}>`;
     }
+    if (width < 0) width = 0;
     return openColor + (new Array(width + 1)).join(fillChar) + closeColor;
   }
 

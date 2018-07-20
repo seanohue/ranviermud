@@ -245,7 +245,10 @@ class Character extends Metadatable(EventEmitter) {
    */
   removeCombatant(target) {
     if (!this.combatants.has(target)) {
-      return;
+      if (!(target.combatants.has(this))) {
+        return;
+      }
+      return target.removeCombatant(this);
     }
 
     this.combatants.delete(target);

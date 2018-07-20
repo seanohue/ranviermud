@@ -28,6 +28,8 @@ class Combat {
       return false;
     }
 
+
+
     if (!attacker.isInCombat()) {
       if (!attacker.isNpc) {
         attacker.removePrompt('combat');
@@ -106,6 +108,10 @@ class Combat {
       if (target.getAttribute('health') > 0) {
         return target;
       }
+      if (target.getAttribute('health') <= 0 || 
+         attacker.room !== target.room) {
+        attacker.removeCombatant(target);
+      }
     }
 
     return null;
@@ -152,13 +158,11 @@ class Combat {
     const isEnforced   = entity => entity.room.area.info.pvp === 'enforced';
     const isOptedIn    = entity => entity.room.area.info.pvp === 'optional' && entity.metadata.pvp === true;
     const isPvPEnabled = entity => (isEnforced(entity) || isOptedIn(entity));
-    console.log({attacker: isPvPEnabled(attacker), def: isPvPEnabled(defender)});
     return isPvPEnabled(attacker) && isPvPEnabled(defender);
   }
 
   static getValidSplashTargets(attacker) {
     return [...attacker.room.npcs, ...attacker.room.players].filter((target) => 
-    console.log({[target.name]: Combat.canPvP(attacker, target)}) || 
     Combat.canPvP(attacker, target));
   }
 
