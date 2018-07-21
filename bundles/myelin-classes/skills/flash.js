@@ -39,6 +39,7 @@ module.exports = (srcPath) => {
     cooldown: 45,
 
     run: state => function (args, player, target) {
+      console.log({args, target})
       const possibleTargets = Combat.getValidSplashTargets(player);
       
       function stun(t, isSplash) {
@@ -51,7 +52,7 @@ module.exports = (srcPath) => {
           'stun',
           target,
           {
-            duration: getDuration(player) * 1000,
+            duration: (this.options && this.options.duration || getDuration(player)) * 1000,
             description: "You've been stunned."
           }
         );
@@ -66,8 +67,11 @@ module.exports = (srcPath) => {
         }
         t.addEffect(effect);
       }
+      const message = Boolean(this.options) ?
+        `You toss the flashbomb` :
+        `You gesture`;
 
-      Broadcast.sayAt(player, `<bold>You gesture and a <yellow>bright light</yellow> fills the room!</bold>`);
+      Broadcast.sayAt(player, `<bold>${message} and a <yellow>bright light</yellow> fills the room!</bold>`);
       Broadcast.sayAtExcept(player.room, `<bold>${player.name} unleashes a <yellow>flash of <bold>light</bold></yellow>!</bold>`, [player, ...possibleTargets]);
       possibleTargets.forEach(t => {
         const isMain = target === t;
@@ -80,7 +84,7 @@ module.exports = (srcPath) => {
         if (!t.isNpc) {
           Broadcast.sayAt(t, `<bold>${player.name}'s <yellow>flash of <bold>light</bold></yellow> <bold>fills your vision with stars!</bold>`);
         }
-        stun.call(this, t, !isMain);
+        stun.call(this, t, !Boolean(this.options));
       });
     },
 

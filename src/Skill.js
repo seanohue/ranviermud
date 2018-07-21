@@ -91,7 +91,7 @@ class Skill {
     }
 
     if (target !== player && this.initiatesCombat) {
-      player.initiateCombat(target);
+      if (target) player.initiateCombat(target);
       if (this.isSplash) {
         for (const character of Combat.getValidSplashTargets(player)) {
           player.initiateCombat(character);
