@@ -26,7 +26,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Flash',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     initiatesCombat: true,
     isSplash: true,
     resource: [{

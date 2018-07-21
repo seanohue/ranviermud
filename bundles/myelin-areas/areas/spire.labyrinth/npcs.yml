@@ -114,7 +114,7 @@
       isPhysical: 80
       drowning: 80
     skilled:
-      skills: ['dodge', 'jolt', 'stupefy', 'mend', 'concentration']
+      skills: ['dodge', 'jolt', 'stupefy', 'mend', 'concentration', 'flash']
     flavorevents:
       onSpawn: 'A purple light fills the room as a being cloaked in a silk robe <b>pops</b> into existence.'
     combat:

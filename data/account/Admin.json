@@ -40,20 +40,30 @@
     {
       "username": "Rammstein",
       "deleted": false
+    },
+    {
+      "username": "Weeble",
+      "deleted": false
+    },
+    {
+      "username": "Homby",
+      "deleted": false
     }
   ],
   "password": "$2a$10$kE4d5oRcQOCksbKHur7nbezcGD6gUil/cqkwhGagfM1u4WfhDjR8.",
   "banned": false,
   "deleted": false,
   "metadata": {
-    "memories": 117,
+    "memories": 113,
     "deceased": [
       "Borked",
       "Hamman",
       "Ardmore",
       "Nononono",
       "Rammstein",
-      "Yurp"
+      "Yurp",
+      "Weeble",
+      "Homby"
     ]
   }
 }
