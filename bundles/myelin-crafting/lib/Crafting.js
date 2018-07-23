@@ -3,7 +3,7 @@
 const srcPath = '../../../src/';
 
 const Logger = require(srcPath + 'Logger');
-const Data =require(srcPath + 'Data');
+const Data = require(srcPath + 'Data');
 const Item = require(srcPath + 'Item');
 
 const dataPath = __dirname + '/../data/';
