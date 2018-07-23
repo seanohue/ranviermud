@@ -13,9 +13,9 @@
   keywords: ['bone', 'club']
   level: 2
   slot: "wield"
-  quality: uncommon
   script: "boneclub"
   metadata:
+    quality: uncommon
     specialEffects:
       - "Chance on hit: Stun your opponent for a short time."
       - "On critical: Stun your opponent for an extended time."
@@ -39,6 +39,7 @@
   level: 2
   slot: wield
   metadata:
+    quality: uncommon
     specialEffects:
       - "Chance on hit: Bleed your opponent."
       - "On critical: Bleed your opponent for an extended time."
@@ -110,6 +111,7 @@
   level: 4
   slot: head
   metadata:
+    quality: uncommon
     stats:
       armor: 10
       intellect: -1
@@ -133,6 +135,7 @@
   level: 4
   slot: chest
   metadata:
+    quality: uncommon
     stats:
       armor: 15
       quickness: -1
@@ -154,7 +157,6 @@
   description: "A pair of pants seemingly made of leather. Simultaneously skintight and one-size-fits-all, somehow. Thick."
   level: 1
   slot: "legs"
-  quality: common
   metadata:
     stats:
       armor: 9
@@ -175,8 +177,8 @@
   description: "A grey jumpsuit made of a synthetic material. Armored plates are woven into it."
   level: 3
   slot: "body"
-  quality: uncommon
   metadata:
+    quality: uncommon
     stats:
       armor: 15
       quickness: -1
@@ -200,6 +202,7 @@
   type: POTION
   metadata:
     level: 1
+    quality: uncommon
   behaviors:
     # usable has two variants: spell, and effect
     usable:

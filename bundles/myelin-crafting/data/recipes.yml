@@ -53,9 +53,14 @@
     piston: 2 
 - item: 'spire.intro:bonebroth'
   recipe:
-    bone: 20
+    bone: 10
 - item: 'spire.intro:elixir'
   recipe:
     aetherplasm: 3
-    bone: 1
+    bone: 10
+- item: 'spire.labyrinth:flashbomb'
+  recipe:
+    aetherplasm: 1
+    sparkdust: 10
+    leather: 4
 

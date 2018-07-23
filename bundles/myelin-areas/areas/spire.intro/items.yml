@@ -179,8 +179,7 @@
   slot: 'body'
   level: 1
   itemLevel: 1
-  quality: common
-  metadata:    
+  metadata:
     stats:
       armor: 3
       quickness: -1
@@ -201,7 +200,6 @@
   slot: 'head'
   level: 1
   itemLevel: 1
-  quality: common
   metadata:    
     stats:
       armor: 1
@@ -224,7 +222,6 @@
   slot: 'wield'
   level: 1
   itemLevel: 1
-  quality: common
   metadata:
     minDamage: 1
     maxDamage: 11
@@ -254,7 +251,6 @@
   slot: 'legs'
   level: 1
   itemLevel: 1
-  quality: common
   metadata:
     stats:
       armor: 1
@@ -274,7 +270,6 @@
   description: "A simple robe, torn by years of use and little maintenance. The splotches of color may be from fading fabric, caked-in dirt, or something more sinister."
   slot: 'body'
   level: 1
-  quality: common
   metadata:
     stats:
       armor: 2
@@ -317,6 +312,7 @@
   metadata:
     stats:
       armor: 1
+    quality: uncommon
   behaviors:
     sellable:
       value: 1
@@ -381,7 +377,6 @@
   description: "A vest made of sewn-together burlap, barely held together at the seams. The permanently soiled cloth appears to have never been washed, and has a mottled appearance."
   slot: 'chest'
   level: 1
-  quality: common
   metadata:
     stats:
       armor: 1
@@ -397,7 +392,6 @@
   keywords: ["ragged", "trousers"]
   description: "A former pair of trousers that have now become shorts, with strips of town cloth hanging from where the knees used to be. "
   level: 1
-  quality: common
   slot: "legs"
   metadata:
     stats:
@@ -518,10 +512,10 @@
   description: "A no-frills robe made of a smooth material with an uncanny silver sheen."
   slot: "body"
   level: 1
-  quality: rare
   metadata:
     stats:
       willpower: 5
+      quality: rare
     specialEffects:
       - "When worn: Shields the wearer from psionic effects."
   behaviors:
@@ -600,6 +594,7 @@
   type: POTION
   metadata:
     level: 1
+    quality: uncommon
   behaviors:
     # usable has two variants: spell, and effect
     usable:

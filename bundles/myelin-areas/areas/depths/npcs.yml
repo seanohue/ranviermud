@@ -30,7 +30,7 @@
           max: 20
         sparkdust:
           min: 1
-          max: 4
+          max: 10
       currency:
         theans:
           min: 1
