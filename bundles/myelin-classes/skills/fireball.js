@@ -27,7 +27,7 @@ module.exports = (srcPath) => {
 
   return {
     name: 'Fireball',
-    type: SkillType.SKILL,
+    type: SkillType.COMBAT,
     initiatesCombat: true,
     isSplash: true,
     resource: [{
