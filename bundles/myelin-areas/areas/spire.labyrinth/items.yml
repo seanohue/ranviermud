@@ -203,6 +203,8 @@
   metadata:
     level: 1
     quality: uncommon
+    specialEffects:
+      - "Splash effect: Chance to stun everyone else in the room (excluding party members)."
   behaviors:
     # usable has two variants: spell, and effect
     usable:
@@ -218,3 +220,30 @@
     sellable:
       value: 45
       currency: thean
+
+- id: scrapbomb
+  name: "Scrapbomb"
+  roomDesc: "Scrapbomb"
+  keywords: [ "scrap", "bomb", "grenade"]
+  type: POTION
+  metadata:
+    level: 1
+    quality: uncommon
+    specialEffects:
+      - "Splash effect: Chance of Fire and Bleeding damage for everyone else in the room (excluding party members)."
+  behaviors:
+    # usable has two variants: spell, and effect
+    usable:
+      # this is the spell variant, you specify a skill of type SPELL
+      ability: "item.scrapbomb"
+      # charges/destroyOnDepleted lets you create consumable items
+      # without specifying charges the item can be used forever
+      charges: 1
+      destroyOnDepleted: true
+      # spell configuration, spell can access it via this.options
+      options:
+        duration: 10
+    sellable:
+      value: 55
+      currency: thean
+

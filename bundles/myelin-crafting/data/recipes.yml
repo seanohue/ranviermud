@@ -63,4 +63,10 @@
     aetherplasm: 1
     sparkdust: 10
     leather: 4
+- item: 'spire.labyrinth:scrapbomb'
+  recipe:
+    aetherplasm: 1
+    sparkdust: 25
+    scrap_metal: 25
+    leather: 4
 

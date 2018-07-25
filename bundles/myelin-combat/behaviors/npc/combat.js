@@ -71,6 +71,10 @@ module.exports = (srcPath) => {
           this.combatData.killedBy = damage.attacker;
           return;
         }
+
+        // Put any actions below this:
+        if (this.hasEffectType('skill:stun')) return;
+
         const wimpyPercent = config.wimpy;
 
         if (wimpyPercent && damage.constructor.name !== 'Heal' && damage.attribute === 'health') {

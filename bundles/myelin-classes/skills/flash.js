@@ -8,7 +8,6 @@ module.exports = (srcPath) => {
   const Damage     = require(srcPath + 'Damage');
   const Random     = require(srcPath + 'RandomUtil');
   const SkillType  = require(srcPath + 'SkillType');
-  const DamageType = require('../../myelin-combat/lib/DamageType');
   const Combat     = require('../../myelin-combat/lib/Combat');
 
   function getSplashChance(player, target) {
@@ -39,7 +38,6 @@ module.exports = (srcPath) => {
     cooldown: 45,
 
     run: state => function (args, player, target) {
-      console.log({args, target})
       const possibleTargets = Combat.getValidSplashTargets(player);
       
       function stun(t, isSplash) {

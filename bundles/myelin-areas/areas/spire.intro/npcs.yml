@@ -121,6 +121,9 @@
         "spire.labyrinth:flashbomb":
           cost: 100
           currency: theans
+        "spire.labyrinth:scrapbomb":
+          cost: 200
+          currency: theans
       enterMessage: "BEEP BOOP, MAKE A PURCHASE."
       leaveMessage: "BOOP WHIRR, COME BACK SOON."
     ranvier-wander:

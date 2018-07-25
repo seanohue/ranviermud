@@ -104,7 +104,7 @@ module.exports = (srcPath, bundlePath) => {
       usable.charges--;
 
       if (usable.destroyOnDepleted && usable.charges <= 0) {
-        say(`You used up all the magic in ${ItemUtil.display(item)} and it disappears in a puff of smoke.`);
+        say(`You used up ${ItemUtil.display(item)}.`);
         state.ItemManager.remove(item);
       }
     }
