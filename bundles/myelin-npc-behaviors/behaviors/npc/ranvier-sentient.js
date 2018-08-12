@@ -44,6 +44,7 @@ module.exports = srcPath => {
       conversation: state => function (config, player, message) {
 
         const failure = _ => {
+          Logger.error('AI Failure.');
           return B.sayAt(player, "They didn't seem to understand you.");
         };
 
