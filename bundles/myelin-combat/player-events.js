@@ -349,7 +349,7 @@ module.exports = (srcPath) => {
         const strongest = this.getMeta('strongestKilled') || { level: 0 };
         if (target.level > strongest.level) {
           this.setMeta('strongestKilled', {
-            name: target.name,
+            name:  target.name,
             level: target.level
           });
         }

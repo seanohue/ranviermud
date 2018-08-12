@@ -48,6 +48,10 @@
     {
       "username": "Homby",
       "deleted": false
+    },
+    {
+      "username": "Ham",
+      "deleted": false
     }
   ],
   "password": "$2a$10$kE4d5oRcQOCksbKHur7nbezcGD6gUil/cqkwhGagfM1u4WfhDjR8.",

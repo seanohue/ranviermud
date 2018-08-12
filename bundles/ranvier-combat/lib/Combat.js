@@ -114,10 +114,10 @@ class Combat {
     killer = killer || deadEntity.combatData.killedBy;
     Logger.log(`${killer ? killer.name : 'Something'} killed ${deadEntity.name}.`);
 
-
     if (killer) {
       killer.emit('deathblow', deadEntity);
     }
+
     deadEntity.emit('killed', killer);
 
     if (deadEntity.isNpc) {

@@ -15,7 +15,7 @@ module.exports = srcPath => {
       }
 
       state.PartyManager.create(player);
-      say(player, "<b><green>You created a group, invite players with '<white>group invite <name></white>'</green></b>");
+      say(player, "<b><green>You created a group, invite allies with '<white>group invite <name></white>'</green></b>");
     }
   });
 
@@ -55,6 +55,7 @@ module.exports = srcPath => {
       say(player, `<b><green>You invite ${target.name} to join your group.</green></b>`);
       player.party.invite(target);
       if (target.isNpc) {
+        console.log('Emitting joinGroup');
         target.emit('joinGroup', player);
         return;
       }

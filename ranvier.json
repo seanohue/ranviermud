@@ -21,8 +21,8 @@
     "myelin-crafting",
     "myelin-quests",
     "myelin-npc-behaviors",
+    "myelin-groups",
 
-    "ranvier-groups",
     "ranvier-skills",
     "ranvier-telnet",
     "ranvier-websocket",

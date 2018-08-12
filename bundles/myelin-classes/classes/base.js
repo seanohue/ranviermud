@@ -68,6 +68,13 @@ module.exports = srcPath => {
 
         /* Mentalist: */
 
+        // Knowledge-based
+        machinist: {
+          level: 1,
+          intellect: 18,
+          cost: 2
+        },
+
         // Armor
         leatherskin: {
           level: 3,

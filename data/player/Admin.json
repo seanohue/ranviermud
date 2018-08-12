@@ -39,7 +39,7 @@
   },
   "level": 70,
   "name": "Admin",
-  "room": "labyrinth:a-cold-hall-9",
+  "room": "spire.intro:a-cold-hall-23",
   "effects": [
     {
       "config": {
@@ -55,13 +55,13 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 37620037,
+      "elapsed": 46450145,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 700,
-        "ticks": 10731
+        "lastTick": 28,
+        "ticks": 11659
       }
     },
     {
@@ -78,7 +78,7 @@
         "type": "skill.tactics",
         "unique": true
       },
-      "elapsed": 37606197,
+      "elapsed": 46436287,
       "id": "skill.tactics",
       "remaining": null,
       "skill": "tactics",
@@ -100,7 +100,7 @@
         "type": "skill:secondwind",
         "unique": true
       },
-      "elapsed": 37519625,
+      "elapsed": 46349713,
       "id": "skill.secondwind",
       "remaining": null,
       "skill": "secondwind",
@@ -123,7 +123,7 @@
         "type": "skill:concentration",
         "unique": true
       },
-      "elapsed": 37174880,
+      "elapsed": 46004968,
       "id": "skill.concentration",
       "remaining": null,
       "skill": "concentration",
@@ -146,7 +146,7 @@
         "type": "armor",
         "unique": true
       },
-      "elapsed": 27589561,
+      "elapsed": 36419648,
       "id": "armor",
       "remaining": null,
       "state": {
@@ -169,7 +169,7 @@
         "type": "quick_def",
         "unique": true
       },
-      "elapsed": 27589559,
+      "elapsed": 36419645,
       "id": "armor",
       "remaining": null,
       "state": {
@@ -192,7 +192,7 @@
         "type": "psionic_armor",
         "unique": true
       },
-      "elapsed": 27589556,
+      "elapsed": 36419643,
       "id": "armor",
       "remaining": null,
       "state": {
@@ -216,7 +216,7 @@
         "unique": true,
         "source": "41c1e7b8-f901-4ff0-a65c-33b73e3c2c15"
       },
-      "elapsed": 14798486,
+      "elapsed": 23628574,
       "id": "resistance",
       "remaining": null,
       "state": {
@@ -243,7 +243,7 @@
         "type": "equip.head",
         "unique": true
       },
-      "elapsed": 14798484,
+      "elapsed": 23628572,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -268,7 +268,7 @@
         "type": "equip.chest",
         "unique": true
       },
-      "elapsed": 10742782,
+      "elapsed": 19572869,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -280,22 +280,9 @@
       }
     }
   ],
-  "experience": 15463,
+  "experience": 19452,
   "inventory": {
     "items": [
-      [
-        "72fb9322-0204-4f3e-aca2-cf3bf95e8713",
-        {
-          "entityReference": "spire.intro:tea",
-          "inventory": null,
-          "metadata": {
-            "level": 1
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
       [
         "d31302a6-c83f-4529-aef2-59b89e961f3b",
         {
@@ -352,91 +339,6 @@
           "closed": false,
           "locked": false,
           "behaviors": {}
-        }
-      ],
-      [
-        "d7dbc06c-680d-4550-bc23-3614a0695751",
-        {
-          "entityReference": "spire.labyrinth:scraphelm",
-          "inventory": null,
-          "metadata": {
-            "stats": {
-              "armor": 10,
-              "intellect": -1
-            },
-            "slot": "head"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {
-            "sellable": {
-              "value": 35,
-              "currency": "thean"
-            },
-            "resistance": {
-              "isPhysical": 15,
-              "isPsionic": 5,
-              "electrical": -40,
-              "fire": -10,
-              "freezing": -10
-            }
-          }
-        }
-      ],
-      [
-        "1f7746c8-117d-4b28-8a72-542330f34819",
-        {
-          "entityReference": "spire.labyrinth:scrapchestplate",
-          "inventory": null,
-          "metadata": {
-            "stats": {
-              "armor": 15,
-              "quickness": -1
-            },
-            "slot": "chest"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {
-            "sellable": {
-              "value": 65,
-              "currency": "thean"
-            },
-            "resistance": {
-              "isPhysical": 10,
-              "electrical": -60,
-              "fire": -10,
-              "freezing": -10
-            }
-          }
-        }
-      ],
-      [
-        "448b5de3-ef96-40f6-9e05-6a6b66e89a17",
-        {
-          "entityReference": "spire.labyrinth:boneclub",
-          "inventory": null,
-          "metadata": {
-            "specialEffects": [
-              "Chance on hit: Stun your opponent for a short time.",
-              "On critical: Stun your opponent for an extended time."
-            ],
-            "minDamage": 15,
-            "maxDamage": 30,
-            "speed": 2.2,
-            "stats": {
-              "critical": 3
-            },
-            "slot": "wield"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {
-            "sellable": {
-              "value": 80,
-              "currency": "thean"
-            }
-          }
         }
       ],
       [
@@ -617,29 +519,140 @@
             }
           }
         }
+      ],
+      [
+        "4f9262dc-ad78-4b6c-bba8-d604d201e1a2",
+        {
+          "entityReference": "spire.labyrinth:flashbomb",
+          "inventory": null,
+          "metadata": {
+            "level": 1,
+            "quality": "uncommon"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "usable": {
+              "ability": "flash",
+              "charges": 1,
+              "destroyOnDepleted": true,
+              "options": {
+                "duration": 10
+              }
+            },
+            "sellable": {
+              "value": 45,
+              "currency": "thean"
+            }
+          }
+        }
+      ],
+      [
+        "1f7746c8-117d-4b28-8a72-542330f34819",
+        {
+          "entityReference": "spire.labyrinth:scrapchestplate",
+          "inventory": null,
+          "metadata": {
+            "stats": {
+              "armor": 15,
+              "quickness": -1
+            },
+            "slot": "chest"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "sellable": {
+              "value": 65,
+              "currency": "thean"
+            },
+            "resistance": {
+              "isPhysical": 10,
+              "electrical": -60,
+              "fire": -10,
+              "freezing": -10
+            }
+          }
+        }
+      ],
+      [
+        "8c27e698-34fe-4180-88c8-9ce0e3a00483",
+        {
+          "entityReference": "spire.intro:tea",
+          "inventory": null,
+          "metadata": {
+            "level": 1
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "usable": {
+              "ability": "potion",
+              "charges": 5,
+              "destroyOnDepleted": true,
+              "cooldown": 30,
+              "options": {
+                "restores": 30,
+                "stat": "energy"
+              }
+            }
+          }
+        }
+      ],
+      [
+        "9d4ef001-a278-4377-bc4a-b73f3a9d8c22",
+        {
+          "entityReference": "spire.labyrinth:jumpsuit",
+          "inventory": null,
+          "metadata": {
+            "quality": "uncommon",
+            "stats": {
+              "armor": 15,
+              "quickness": -1,
+              "critical": -1
+            },
+            "slot": "body"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "resistance": {
+              "fire": -10,
+              "electrical": -50,
+              "crushing": 10,
+              "piercing": 20,
+              "slashing": 35,
+              "freezing": 5
+            },
+            "sellable": {
+              "value": 75,
+              "currency": "thean"
+            }
+          }
+        }
       ]
     ],
     "max": 16
   },
   "metadata": {
     "class": "base",
-    "kills": 394,
+    "kills": 443,
     "strongestKilled": {
       "name": "Vending Automaton",
       "level": 25
     },
     "currencies": {
-      "theans": 39778
+      "theans": 43123
     },
     "resources": {
-      "scrap_metal": 2675,
-      "gear": 584,
-      "piston": 381,
+      "scrap_metal": 4036,
+      "gear": 892,
+      "piston": 634,
       "bone": 1133,
-      "aethersilk": 1943,
-      "aetherplasm": 671,
-      "leather": 6786,
-      "sparkdust": 18
+      "aethersilk": 1975,
+      "aetherplasm": 673,
+      "leather": 6788,
+      "sparkdust": 13
     },
     "attributePoints": 0,
     "abilityPoints": 1,

@@ -61,7 +61,6 @@ module.exports = srcPath => {
                 remaining -= amount;
 
                 recipient.emit('currency', currency.name, amount);
-                state.CommandManager.get('look').execute(corpse.uuid, recipient);
               }
             });
           }

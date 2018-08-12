@@ -1,3 +1,16 @@
+This is the Myelin fork of the Ranvier default combat engine.
+
+Damage is calculated differently in that it does not 'normalize' damage based on speed.
+In addition it has the following features:
+
+Different damage types.
+'Stun' status prevents combat actions.
+Damage resistance implementation based on damage types.
+Various other tweaks.
+
+TODO: 
+Come up with a way of visualizing damage and systemizing it for balance.
+
 The Ranvier engine itself does prescribe or prefer any certain type of combat, it simply has tools
 in place to allow you to implement which ever type of combat you prefer. This bundle is an example
 implementation of Diku-style autoattack combat. While it is an example implementation it is stable

@@ -16,7 +16,7 @@ module.exports = srcPath => {
   return {
     listeners: {
       updateTick: state => function (config) {
-        if (this.isInCombat() || !this.room || this._aggroWarned) {
+        if (this.isInCombat() || !this.room || this._aggroWarned || this.following) {
           return;
         }
 

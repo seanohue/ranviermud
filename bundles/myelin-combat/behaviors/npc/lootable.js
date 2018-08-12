@@ -46,6 +46,7 @@ module.exports = srcPath => {
         this.room.addItem(corpse);
         state.ItemManager.add(corpse);
 
+        // Does this work if an NPC is in a player's party and kills something?
         if (killer && killer instanceof Player) {
           if (currencies) {
             distribute(currencies, 'currencies');
@@ -54,7 +55,11 @@ module.exports = srcPath => {
             distribute(resources, 'resources');
           }
 
-          state.CommandManager.get('look').execute(corpse.uuid, killer);
+          console.log(killer.name, killer.metadata);
+          if (killer.getMeta('config.autoloot') === true) {
+            console.log('Looting ', this.name);
+            state.CommandManager.get('get').execute(this.keywords[0] || 'corpse', killer, 'loot');
+          }
 
           function distribute(distributables, type) {
             distributables.forEach(distributable => {

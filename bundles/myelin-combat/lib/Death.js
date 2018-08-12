@@ -11,10 +11,11 @@ module.exports = srcPath => ({
     const Random = require(srcPath + './RandomUtil');
 
     return Random.fromArray([
-      "Fleeing is a valid tactic -- most enemies will not regenerate health.",
-      "Use your 'skills' to survive, and learn new ones as you advance.",
-      "Try to 'craft' some better equipment.",
-      "Team up with a friend to take down tougher foes."
+      "<b>Flee</b>ing is a valid tactic -- most enemies will not regenerate health.",
+      "Use your <b>'skills'</b> to survive, and learn new ones as you advance.",
+      "Try to <b>'craft'</b> some better equipment.",
+      "Team up with a friend (or an NPC, or yourself...) using <b>'party'</b> to take down tougher foes.",
+      "You can play as up to three characters at the same time. Try making your own <b>party</b>."
     ]);
   }
 });

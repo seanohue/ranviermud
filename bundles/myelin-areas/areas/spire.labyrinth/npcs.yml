@@ -5,7 +5,7 @@
   description: "This is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a cracked dome, with iridescent fluid streaming from it. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
     skilled:
-      skills: ['combust']
+      skills: ['combust', 'jolt']
     combat: true
     resistance:
       fire: 75
@@ -38,7 +38,7 @@
       interval: 30
   attributes:
     health: 120
-    energy: 100
+    energy: 180
     focus: 150
     might: 8
     quickness: 10

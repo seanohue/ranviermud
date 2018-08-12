@@ -4,8 +4,8 @@ name: 'Furtive Urchin'
 description: "Having to fight and steal to survive will toughen one's body and spirit. For you, slipping unseen through back alleys to find treasure is preferable to begging for scraps."
 attributes:
   quickness: 16
-  intellect: 8
-  might: 7
+  intellect: 10
+  might: 5
   willpower: 9
 equipment:
   - 'spire.intro:shank'
@@ -13,5 +13,5 @@ equipment:
   - 'spire.intro:trousers'
   - 'spire.intro:sandals'
   - 'spire.intro:knapsack'
-skills: [ 'lunge' ]
+skills: [ 'lunge', 'dodge' ]
 tier: 0

@@ -1,9 +1,11 @@
 - id: crawler
-  keywords: ['crawler']
+  keywords: ['crawler', 'automaton']
   name: Crawler
   level: 2
   description: "It is something akin to a six-'legged' spider, with two 'arms' consisting of a blowtorch and some kind of grappling device. On top of the middle of its torso is a dome, filled with an iridescent fluid. Steam billows from the many gaskets lining its underbelly like metallic ribs."
   behaviors:
+    group:
+      skill: 'machinist'
     skilled:
       skills: ['combust']
     combat:
