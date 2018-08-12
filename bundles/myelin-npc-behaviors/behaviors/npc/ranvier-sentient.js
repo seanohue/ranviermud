@@ -25,14 +25,17 @@ const apiai = require('apiai');
 const uuid = require('node-uuid');
 const sessionId = uuid.v4();
 const fs = require('fs');
-let clientKey = null;
+let clientKeys = null;
 try {
-  clientKey = fs.readFileSync(fs.realpathSync(__dirname + '/../../APIAIKEY')).toString('utf8').trim();
+  clientKeys = JSON.parse(fs.readFileSync(fs.realpathSync(__dirname + '/../../APIAIKEY.json')).toString('utf8').trim());
 } catch (e) {}
-var service = null;
+const services = {};
 
-if (clientKey) {
-  service = apiai(clientKey);
+if (clientKeys && Object.keys(clientKeys.length)) {
+  for (const [id, key] of Object.entries(clientKeys)) {
+    if (!key) continue;
+    services[id] = apiai(key);
+  }
 }
 
 module.exports = srcPath => {
@@ -43,13 +46,19 @@ module.exports = srcPath => {
     listeners: {
       conversation: state => function (config, player, message) {
 
-        const failure = _ => {
-          Logger.error('AI Failure.');
+        const failure = why => {
+          Logger.error('AI Failure. ' + why);
           return B.sayAt(player, "They didn't seem to understand you.");
         };
 
+        if (!services) {
+          return failure('No services registered.');
+        }
+
+        const service = services[config.id];
+
         if (!service) {
-          return failure();
+          return failure(`Service ${config.id} not registered.`);
         }
 
         const request = service.textRequest(message, { sessionId });
@@ -61,7 +70,7 @@ module.exports = srcPath => {
 
           const result = response.result;
           if (!result.action) {
-            return failure();
+            return failure(config.id + ': No action found in result: ' + JSON.stringify(result));
           }
 
           switch (result.action) {
@@ -71,7 +80,7 @@ module.exports = srcPath => {
                   return B.sayAt(player, `<b><cyan>${this.name} says, "${result.fulfillment.speech}"</cyan></b>`);
                 }
 
-                return failure();
+                return failure('Invalid shop.list action for ' + config.id);
               }
 
               state.CommandManager.get('shop').execute('list', player, 'shop');
@@ -90,7 +99,7 @@ module.exports = srcPath => {
               ;
 
               if (!reply) {
-                return failure();
+                return failure(`No valid reply for ${config.id}.`);
               }
 
               B.sayAt(player, `<b><cyan>${this.name} says, "${reply}"</cyan></b>`);
