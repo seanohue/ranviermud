@@ -68,7 +68,7 @@ module.exports = srcPath => {
           
               // distribute  among group members in the same room
               const recipients = (killer.party ? [...killer.party] : [killer]).filter(recipient => {
-                return recipient.room === killer.room;
+                return recipient.room === killer.room && !recipient.isNpc;
               });
           
               let remaining = distributable.amount;

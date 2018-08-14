@@ -26,12 +26,15 @@ const uuid = require('node-uuid');
 const sessionId = uuid.v4();
 const fs = require('fs');
 let clientKeys = null;
+let parseError = '';
 try {
   clientKeys = JSON.parse(fs.readFileSync(fs.realpathSync(__dirname + '/../../APIAIKEY.json')).toString('utf8').trim());
-} catch (e) {}
+} catch (e) {
+  parseError = e;
+}
 const services = {};
 
-if (clientKeys && Object.keys(clientKeys.length)) {
+if (clientKeys && Object.keys(clientKeys).length) {
   for (const [id, key] of Object.entries(clientKeys)) {
     if (!key) continue;
     services[id] = apiai(key);
@@ -41,7 +44,10 @@ if (clientKeys && Object.keys(clientKeys.length)) {
 module.exports = srcPath => {
   const B = require(srcPath + 'Broadcast');
   const Logger = require(srcPath + 'Logger');
-
+  if (parseError) {
+    Logger.log('Error when parsing client keys for API.AI: ');
+    Logger.log(parseError);
+  }
   return {
     listeners: {
       conversation: state => function (config, player, message) {

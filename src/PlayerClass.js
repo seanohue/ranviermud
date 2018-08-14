@@ -118,8 +118,8 @@ class PlayerClass {
    * @return {boolean}
    */
   canPurchaseAbility(player, abilityId) {
-    return !this.canUseAbility(player, abilityId) &&
-               this.getAbilitiesForPlayer(player);
+    const alreadyHas = this.canUseAbility(player, abilityId);
+    return !alreadyHas && this.getAbilitiesForPlayer(player);
   }
 
   /**

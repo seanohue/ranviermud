@@ -36,7 +36,7 @@ module.exports = (srcPath) => {
               return found;
             });
           } else {
-            hasSkill = inviter.playerClass.canUseAbility(skill);
+            hasSkill = inviter.playerClass.canUseAbility(inviter, config.skill);
           }
           if (!hasSkill) {
             let declineMessage = config.declineMessage || `You don't know how to convince ${this.name} to join you...`;

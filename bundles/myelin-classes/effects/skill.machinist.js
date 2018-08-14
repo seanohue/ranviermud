@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = srcPath => {
-  const Broadcast = require(srcPath + 'Broadcast');
+  const Heal = require(srcPath + 'Heal');
   const Flag = require(srcPath + 'EffectFlag');
 
   return {

@@ -151,6 +151,9 @@
   level: 6
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring in all directions. Its undercarriage features razor-sharp 'legs' and a small cannon."
   behaviors:
+    group: 
+      quest: 'spire.intro:misbehavingautos'
+      skill: 'machinist'
     combat: true
     resistance:
       fire: 75
