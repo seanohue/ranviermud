@@ -32,19 +32,10 @@ Special thanks to MUD Coder's Guild
 www.mudcoders.com (Join this Slack, too!)
 
 CHANGELOG:
-(7/3/2018)
-** NPCs can use skills during combat! Watch out.
-
-(7/14/2018)
-** Added gossip.haus support!
+(Summer 2018)
+** NPCs can use skills during combat.
+** NPCs can join your party (if you have certain skills).
+** Added gossip.haus support.
 ** Fixed major bug that made skills unusable.
-** Damage resistance is implemented. 
-   Try different weapons, armors, and abilities against various foes!
-
-(7/16/2018)
-** NPCs can flee when close to death. Hunt 'em down.
-** Turn off health bars during combat with the `config` command.
-** Renamed some NPCs for flavor.
-** There are now 'safe' zones (no PvP) and 'danger' zones (enforced PvP).
-** Area of Effect damage is now possible (there is only one skill using it thus far...)
+** PvP and PvE combat improvements.
 
