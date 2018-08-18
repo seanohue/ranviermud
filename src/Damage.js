@@ -78,6 +78,9 @@ class Damage {
    */
   commit(target) {
     this.finalAmount = this.evaluate(target);
+    if (this.finalAmount === Infinity) {
+      this.finalAmount = 1; // HACK PLS FIX
+    }
     target.lowerAttribute(this.attribute, this.finalAmount);
     if (this.attacker) {
       /**
