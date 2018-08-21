@@ -89,8 +89,7 @@ module.exports = (srcPath) => {
       if (!active.length) {
         return say(player, "You have no active quests.");
       }
-      for (let i in active) {
-        const [, quest] = active[i];
+      for (let [, quest] of Object.entries(active)) {
         const progress = quest.getProgress();
 
         B.at(player, '<b><yellow>' + (parseInt(i, 10) + 1) + '</yellow></b>: ');
