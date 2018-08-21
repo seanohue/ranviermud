@@ -22,6 +22,10 @@ module.exports = (srcPath) => {
       const hfile = state.HelpManager.get(args);
 
       if (!hfile) {
+        const foundSkill = tryFindSkill(state, args);
+        if (foundSkill) {
+          return state.CommandManager.get('skill').execute(args, player);
+        }
         Logger.error(`MISSING-HELP: [${args}]`);
         return B.sayAt(player, "Sorry, I couldn't find an entry for that topic.");
       }
@@ -34,6 +38,10 @@ module.exports = (srcPath) => {
       }
     }
   };
+
+  function tryFindSkill(state, args) {
+    return Boolean(state.SkillManager.find(args, true));
+  }
 
   function render(state, hfile) {
     let body = hfile.body;
@@ -64,7 +72,7 @@ module.exports = (srcPath) => {
       footer += bar;
     }
 
-    return header + B.wrap(hfile.body, width) + footer;
+    return header + B.wrap(body, width) + footer;
   }
 
   function searchHelpfiles(args, player, state) {
