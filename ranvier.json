@@ -21,12 +21,12 @@
     "myelin-crafting",
     "myelin-quests",
     "myelin-npc-behaviors",
+    "myelin-vendors",
     "myelin-groups",
 
     "ranvier-skills",
     "ranvier-telnet",
     "ranvier-websocket",
-    "ranvier-vendors",
     "ranvier-bug-report",
 
     "debug-commands"
