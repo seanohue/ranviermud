@@ -112,6 +112,9 @@ class Channel {
    * @return {string}
    */
   formatToSender(sender, target, message, colorify) {
+    if (this.audience instanceof WorldAudience) {
+      Logger.info(`[${this.name}] ${sender.name}: ${message}`);
+    }
     return colorify(`[${this.name}] ${sender.name}: ${message}`);
   }
 

@@ -15,7 +15,7 @@ module.exports = (srcPath) => {
       aliases: ['.'],
       color: ['bold', 'green'],
       description: 'Chat with everyone on the game',
-      audience: new WorldAudience()
+      audience: new WorldAudience(),
     }),
 
     new Channel({
@@ -30,6 +30,7 @@ module.exports = (srcPath) => {
 
     new Channel({
       name: 'say',
+      aliases: [`'`],
       color: ['yellow'],
       description: 'Send a message to all players in your room',
       audience: new RoomAudience(),

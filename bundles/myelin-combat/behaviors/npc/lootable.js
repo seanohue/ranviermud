@@ -55,9 +55,7 @@ module.exports = srcPath => {
             distribute(resources, 'resources');
           }
 
-          console.log(killer.name, killer.metadata);
           if (killer.getMeta('config.autoloot') === true) {
-            console.log('Looting ', this.name);
             state.CommandManager.get('get').execute(this.keywords[0] || 'corpse', killer, 'loot');
           }
 

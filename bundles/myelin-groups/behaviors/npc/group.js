@@ -6,7 +6,6 @@ module.exports = (srcPath) => {
   return  {
     listeners: {
       joinGroup: state => function(config, inviter) {
-        console.log('joinGroup emitted', {config});
         let message = `<green>${this.name} joins your party.</green>`;
 
         if (config.quest) {

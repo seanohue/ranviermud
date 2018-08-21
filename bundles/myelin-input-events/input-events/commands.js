@@ -16,7 +16,7 @@ module.exports = (src) => {
       player.__commandLoop = data => {
         
         if (player._isUsingPortal) {
-          console.log(player.name, ' is using a portal.');
+          Logger.warn(player.name + ' is using a portal.');
           return;
         }
 

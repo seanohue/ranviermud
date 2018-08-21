@@ -15,7 +15,7 @@ module.exports = (srcPath, bundlePath) => {
   return {
     aliases: [ 'quaff', 'recite' ],
     command: state => (args, player) => {
-      console.log('Using!! ', args);
+      Logger.info(`${player.name} is trying to use ${args}`);
       const say = message => Broadcast.sayAt(player, message);
 
       if (!args.length) {
@@ -40,8 +40,6 @@ module.exports = (srcPath, bundlePath) => {
         }
         return say("You can't use that.");
       }
-
-      console.log('Is usable!');
 
       if ('charges' in usable && usable.charges <= 0) {
         return say(`You've used up ${ItemUtil.display(item)}.`);

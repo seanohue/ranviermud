@@ -55,7 +55,6 @@ module.exports = srcPath => {
       say(player, `<b><green>You invite ${target.name} to join your group.</green></b>`);
       player.party.invite(target);
       if (target.isNpc) {
-        console.log('Emitting joinGroup');
         target.emit('joinGroup', player);
         return;
       }
