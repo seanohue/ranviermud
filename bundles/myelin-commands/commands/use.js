@@ -15,7 +15,7 @@ module.exports = (srcPath, bundlePath) => {
   return {
     aliases: [ 'quaff', 'recite', 'drink' ],
     command: state => (args, player) => {
-      Logger.info(`${player.name} is trying to use ${args}`);
+      Logger.log(`${player.name} is trying to use ${args}`);
       const say = message => Broadcast.sayAt(player, message);
 
       if (!args.length) {

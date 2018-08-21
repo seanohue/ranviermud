@@ -8,7 +8,7 @@ module.exports = (srcPath) => {
 
   return {
     usage: 'help [search] [topic keyword]',
-    aliases: ['info', 'information']
+    aliases: ['info', 'information'],
     command: (state) => (args, player) => {
       if (!args.length) {
         // look at `help help` if they haven't specified a file
