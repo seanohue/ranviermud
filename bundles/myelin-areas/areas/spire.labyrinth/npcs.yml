@@ -162,7 +162,7 @@
   description: 'A hulking mass of flesh and machinery stands before you. Metallic "hooves" at the end of inhumanly muscled legs. An enormous torso with armor grafted to it. Arms the size of a normal human''s entire body. And a series of tubes and horns that ring a head that is no longer recognizable as alive.'
   behaviors:
     skilled:
-      skills: ['bash', 'block', 'enervate', 'empower', 'secondwind', 'rend']
+      skills: ['block', 'enervate', 'empower', 'secondwind']
     combat: true
     resistance:
       isPsionic: 10

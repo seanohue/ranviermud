@@ -55,6 +55,8 @@ module.exports = (srcPath) => {
       },
 
       damaged: state => function(config, damage) {
+        if (this.hasEffectType('skill:stun')) return;
+
         if (!canUseAbilities.call(this, config)) {
           return;
         }
