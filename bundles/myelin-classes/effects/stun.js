@@ -16,11 +16,12 @@ module.exports = srcPath => {
     flags: [Flag.DEBUFF],
     listeners: {
       effectActivated() {
-        if (!this.target.isNpc) Broadcast.sayAt(this.target, "<bold><yellow>You've been stunned.</yellow></bold>");
+        if (this.target && !this.target.isNpc) Broadcast.sayAt(this.target, "<bold><yellow>You've been stunned.</yellow></bold>");
         this.target.combatData.speed += this.duration;
       },
 
       effectDeactivated() {
+        if (!this.target) return;
         this.target.combatData.speed -= this.duration;
         if (!this.target.isNpc) Broadcast.sayAt(this.target, "<bold>You regain your senses.</bold>");
         if (this.target.room) Broadcast.sayAtExcept(this.target.room, `${this.target.name} is no longer stunned.`, this.target);
@@ -32,7 +33,7 @@ module.exports = srcPath => {
       },
 
       killed() {
-        if (this.target.isNpc) {
+        if (this.target && this.target.isNpc) {
           this.remove();
         }
       }
