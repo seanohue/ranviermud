@@ -6,7 +6,7 @@ module.exports = (srcPath, bundlePath) => {
   const B = require(srcPath + 'Broadcast');
 
   return {
-    aliases: [ "money", "theans", "purse" ],
+    aliases: [ "money", "theans", "purse", "gold" ],
     command: state => (args, player) => {
       const playerResources = player.getMeta('currencies');
 

@@ -8,6 +8,8 @@ module.exports = (srcPath, bundlePath) => {
   const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
   return {
+    usage: 'gather <resource>',
+    aliases: ['collect', 'scavenge'],
     command: state => (args, player) => {
       if (!args || !args.length) {
         return B.sayAt(player, "Gather what?");
