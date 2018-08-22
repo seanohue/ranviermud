@@ -1,6 +1,7 @@
 'use strict';
 
 const Broadcast = require('./Broadcast');
+const Logger = require('./Logger');
 const WorldAudience = require('./ChannelAudience/WorldAudience');
 const PrivateAudience = require('./ChannelAudience/PrivateAudience');
 const PartyAudience = require('./ChannelAudience/PartyAudience');
