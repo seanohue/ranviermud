@@ -3,7 +3,7 @@ const leftPad = require('left-pad');
 
 const Combat = require('./lib/Combat');
 const CombatErrors = require('./lib/CombatErrors');
-const LevelUtil = require('../ranvier-lib/lib/LevelUtil');
+const LevelUtil = require('../myelin-lib/lib/LevelUtil');
 const WebsocketStream = require('../ranvier-websocket/lib/WebsocketStream');
 
 /**

@@ -70,7 +70,7 @@ const LevelUtil = {
     }
 
     return LevelUtil.mobExp(mobLevel);
-  }
+  },
 
   /**
    * Helper to get the amount of experience a player needs to level
