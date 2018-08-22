@@ -52,17 +52,19 @@ module.exports = (srcPath) => {
   return {
     listeners: {
       bugReport: state => function (report) {
+        console.log('State?', Boolean(state));
         const { description, type } = report;
         const reportMethod = getReportMethod(type);
         const formattedReport = getFormattedReport.call(this, type, description);
 
         reportMethod(formattedReport);
         if (Config.get('reportToAdmins')) {
-          const message = `Report from ${this.name}: ${description}. See the server logs for more details.`;
+          const message = `Report from ${this.name}: '${description}'. See the server logs for more details.`;
           const minRole = type === 'bug'
             ? PlayerRoles.ADMIN
             : PlayerRoles.BUILDER;
-          Broadcast.sayAt(new RoleAudience({ state, minRole }), message);
+          const audience = new RoleAudience({ state, minRole })
+          Broadcast.sayAt(audience, message);
         }
       }
     }

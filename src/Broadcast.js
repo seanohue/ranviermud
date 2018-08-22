@@ -30,7 +30,7 @@ class Broadcast {
 
     message = Broadcast._fixNewlines(message);
 
-    const targets = source.getBroadcastTargets();
+    const targets = source.getBroadcastTargets.call(source);
     targets.forEach(target => {
       if (target.socket && target.socket.writable) {
         if (target.socket._prompted) {

@@ -2,7 +2,8 @@ const ChannelAudience = require('../ChannelAudience');
 
 class RoleAudience extends ChannelAudience {
   constructor(options) {
-    super(options);
+    super();
+    super.configure(options);
     if (!options.hasOwnProperty('minRole')) {
       throw new Error('No role given for role audience');
     }
