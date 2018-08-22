@@ -340,7 +340,7 @@ module.exports = (srcPath) => {
        * @param {Character} target
        */
       deathblow: state => function (target, skipParty) {
-        const xp = LevelUtil.mobExp(target.level) + (target._xp || 0); // _xp is bonus from NPCs killing players or other NPCs.
+        const xp = LevelUtil.weightedMobExp(this.level, target.level) + (target._xp || 0); // _xp is bonus from NPCs killing players or other NPCs.
 
         this.setMeta('kills',
           (this.getMeta('kills') || 0) + 1

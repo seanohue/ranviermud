@@ -61,6 +61,17 @@ const LevelUtil = {
  */
   mobExp: level => 45 + (5 * level),
 
+  weightedMobExp(playerLevel, mobLevel) {
+    if (playerLevel - mobLevel > 5) {
+      return 1;
+    }
+    if (playerLevel - mobLevel > 2) {
+      return Math.ceil(LevelUtil.mobExp(mobLevel) / 2);
+    }
+
+    return LevelUtil.mobExp(mobLevel);
+  }
+
   /**
    * Helper to get the amount of experience a player needs to level
    * @param int level Target level

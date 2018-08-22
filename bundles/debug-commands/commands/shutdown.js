@@ -13,6 +13,7 @@ module.exports = srcPath => {
       if (time === 'now') {
         Broadcast.sayAt(state.PlayerManager, '<b><yellow>Game is shutting down now!</yellow></b>');
         state.PlayerManager.saveAll();
+        state.GameServer.shutdown();
         process.exit();
         return;
       }
@@ -25,6 +26,7 @@ module.exports = srcPath => {
       setTimeout(_ => {
         Broadcast.sayAt(state.PlayerManager, '<b><yellow>Game is shutting down now!</yellow></b>');
         state.PlayerManager.saveAll();
+        state.GameServer.shutdown();
         process.exit();
       }, 30000);
     }

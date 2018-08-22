@@ -1,6 +1,6 @@
 'use strict';
 
-const LevelUtil = require('../../ranvier-lib/lib/LevelUtil');
+const LevelUtil = require('../../myelin-lib/lib/LevelUtil');
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');

@@ -22,7 +22,6 @@ module.exports = (srcPath) => {
           return;
         }
 
-
         const {combatPriorities = ['COMBAT', 'BUFF', 'HEAL']} = config;
 
         for (const typeName of combatPriorities) {
@@ -55,8 +54,6 @@ module.exports = (srcPath) => {
       },
 
       damaged: state => function(config, damage) {
-        if (this.hasEffectType('skill:stun')) return;
-
         if (!canUseAbilities.call(this, config)) {
           return;
         }
@@ -79,6 +76,7 @@ module.exports = (srcPath) => {
 
 function canUseAbilities(config) {
   const {wait = 3000} = config;
+  if (this.hasEffectType('skill:stun')) return;
 
   if (!this.combatData) {
     this.combatData = {};
@@ -89,7 +87,8 @@ function canUseAbilities(config) {
     this.combatData.lastSkillUse = now;
     return true;
   }
-  const canUse = (now - this.combatData.lastSkillUse) >= wait;
+
+  const canUse = (now - this.combatData.lastSkillUse) >= Math.max(wait, 1000);
 
   return canUse;
 }
