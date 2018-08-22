@@ -23,11 +23,11 @@
     "myelin-npc-behaviors",
     "myelin-vendors",
     "myelin-groups",
+    "myelin-bug-report",
 
     "ranvier-skills",
     "ranvier-telnet",
     "ranvier-websocket",
-    "ranvier-bug-report",
 
     "debug-commands"
   ],
