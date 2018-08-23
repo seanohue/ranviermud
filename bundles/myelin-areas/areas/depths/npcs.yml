@@ -148,6 +148,7 @@
       delay: 4
       towards:
         players: true
+        npcs: ['spire.labyrinth:minotaur', 'spire.labyrinth:arbiter', 'depths:gug', 'depths:blupe']
   attributes:
     health: 333
     energy: 666

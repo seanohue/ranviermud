@@ -54,7 +54,7 @@
   coordinates: [2, 1, 0]
   weight: 3
   items: *ref_0
-  npcs: ['spire.intro:crawler']
+  npcs: ['spire.intro:crawler', 'spire.intro:buzzard']
 - id: tube-chamber-7
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
@@ -188,7 +188,7 @@
   coordinates: [6, 7, 0]
   weight: 3
   items: ['spire.intro:portal']
-  npcs: ['spire.intro:malfunctioningbuzz', 'spire.intro:crawler']
+  npcs: ['spire.intro:buzzard', 'spire.intro:crawler']
   behaviors:
     startquest: 
       questId: 'spire.intro:findakey'
@@ -211,7 +211,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [7, 4, 0]
   weight: 5
-  npcs: ['spire.intro:malfunctioningbuzz']
+  npcs: ['spire.intro:malfunctioningbuzz', 'spire.intro:malfunctioningbuzz', 'spire.intro:buzzard']
 - id: a-cold-hall-29
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
