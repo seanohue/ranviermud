@@ -85,6 +85,7 @@
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
   coordinates: [1, 22, 0]
+  npcs: ['depths:pyrodaemon']
 - id: a-rough-hewn-hall-19
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
@@ -1111,6 +1112,7 @@
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
   coordinates: [12, 3, 0]
+  npcs: ['depths:pyrodaemon']
 - id: a-rough-hewn-hall-227
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
@@ -1288,6 +1290,7 @@
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
   coordinates: [13, 28, 0]
+  npcs: ['depths:pyrodaemon']
 - id: a-rough-hewn-hall-263
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
@@ -1361,6 +1364,7 @@
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'
   coordinates: [15, 3, 0]
+  npcs: ['depths:pyrodaemon']
 - id: a-rough-hewn-hall-278
   title: A Rough-Hewn Hall
   description: 'This corridor has been hewn or blasted from rock. It varies slightly in width and height, and bits of rubble lay here and there.'

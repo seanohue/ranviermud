@@ -52,6 +52,16 @@ exports.renderEquipment = function (player, entity) {
   }
 };
 
+exports.renderItemRoomDesc = function (item, player) {
+  if (item.hasBehavior('resource')) {
+    B.sayAt(player, `[${qualityColorize(item, 'Resource')}] <magenta>${item.roomDesc}</magenta>`);
+  } else if (item.metadata.noPickup) {
+    B.sayAt(player, `[${qualityColorize(item, 'Scenery')}] <magenta>${item.roomDesc}</magenta>`);
+  } else {
+    B.sayAt(player, `[${qualityColorize(item, 'Item')}] <magenta>${item.roomDesc}</magenta>`);
+  }
+}
+
 /**
  * Render a pretty display of an item
  * @param {GameState} state
@@ -155,7 +165,6 @@ exports.renderItem = function (state, item, player) {
       buf += B.wrap(`${usable.charges} Charges`, 80) + '\r\n';
     }
   }
-
   // colorize border according to item quality
   buf = buf.replace(/\|/g, qualityColorize(item, '|'));
   return buf;

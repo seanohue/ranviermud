@@ -68,7 +68,7 @@
   description: 'A shaggy humanoid with four limbs and several spider-like eyes. It is covered in bristling tufts of hair and has an enormous maw on the top of its head, splitting its face vertically. Its legs resemble tree roots and its arms end in daggerlike claws.'
   behaviors:
     skilled:
-      skills: ['block', 'dodge', 'riposte', 'rend', 'bash', 'lunge', 'secondwind']
+      skills: ['block', 'dodge', 'riposte', 'lunge', 'secondwind']
     flavorevents:
       onSpawn: 'A hairy beast shambles from a nearby crevice...'
     combat: true
@@ -114,4 +114,54 @@
     maxDamage: 45
     damageType: SLASHING
     attackVerb: 'claw'
+
+- id: pyrodaemon
+  keywords: ['pyro', 'daemon']
+  name: Pyrodaemon
+  level: 29
+  description: 'A floating, charred head wreathed in flame.'
+  behaviors:
+    skilled:
+      skills: ['combust', 'fireball', 'flare', 'flash']
+    flavorevents:
+      onSpawn: 'A wisp of smoke and flame emerges from a crevice nearby, forming into the shape of a humanoid head...'
+    combat: true
+    resistance:
+      fire: 99
+      electrical: 80
+      crushing: 80
+      slashing: 80
+      freezing: -75
+      drowning: -80
+      isPsionic: 80
+      bleeding: 95
+    lootable: 
+      resources: 
+        sparkdust:
+          min: 1
+          max: 20
+    ranvier-wander: 
+      interval: 10
+    ranvier-aggro:
+      warnMessage: '%name% begins to spin furiously.'
+      attackMessage: '%name% rushes you!'
+      delay: 4
+      towards:
+        players: true
+  attributes:
+    health: 333
+    energy: 666
+    focus: 999
+    might: 10
+    quickness: 20
+    intellect: 20
+    willpower: 25
+    critical: 8
+    armor: 2
+  metadata:
+    minDamage: 10
+    maxDamage: 90
+    damageType: FIRE
+    attackVerb: 'flames'
+    bleeds: 'ashes'
 

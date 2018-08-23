@@ -1,17 +1,15 @@
 'use strict';
 
-const leftPad = require('left-pad');
 const humanize = (sec) => { return require('humanize-duration')(sec, { round: true }); };
-const {sprintf} = require('sprintf-js');
 
 module.exports = (srcPath, bundlePath) => {
   const B = require(srcPath + 'Broadcast');
   const CommandParser = require(srcPath + 'CommandParser').CommandParser;
-  const Item = require(srcPath + 'Item');
-  const ItemType = require(srcPath + 'ItemType');
-  const Logger = require(srcPath + 'Logger');
-  const Player = require(srcPath + 'Player');
-  const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
+  const Item          = require(srcPath + 'Item');
+  const ItemType      = require(srcPath + 'ItemType');
+  const Logger        = require(srcPath + 'Logger');
+  const Player        = require(srcPath + 'Player');
+  const ItemUtil      = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
   return {
     usage: "look [thing]",
@@ -26,11 +24,11 @@ module.exports = (srcPath, bundlePath) => {
         return lookEntity(state, player, args);
       }
 
-      lookRoom(state, player);
+      lookRoom(player);
     }
   };
 
-  function lookRoom(state, player) {
+  function lookRoom(player) {
     const room = player.room;
     room.emit('look', player);
   }
@@ -87,7 +85,7 @@ module.exports = (srcPath, bundlePath) => {
         B.sayAt(player, `There are ${usable.charges} charges remaining.`);
       }
     }
-
+    console.log('checking instanceof item');
     if (entity instanceof Item) {
       switch (entity.type) {
         case ItemType.WEAPON:
@@ -117,10 +115,14 @@ module.exports = (srcPath, bundlePath) => {
           break;
         }
       }
+
+      if (entity.hasBehavior('resource') && player.level < 10) {
+        B.sayAt(player, `<b><cyan>HINT:</b> You may <b>gather</b> resources from ${entity.name}, destroying it in the process.</cyan>`);
+      }
+      room.emit('itemLook', player, entity.entityReference);
     }
 
     // For room-specific descriptiony things.
-    room.emit('itemLook', player, entity.entityReference);
     entity.emit('look', player);
   }
 };

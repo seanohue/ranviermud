@@ -4,7 +4,7 @@ const {sprintf} = require('sprintf-js')
 module.exports = (srcPath, bundlePath) => {
   const Logger = require(srcPath + 'Logger');
   const B = require(srcPath + 'Broadcast');
-  const ItemUtil = require(bundlePath + 'ranvier-lib/lib/ItemUtil');
+  const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
   return  {
     listeners: {
@@ -48,14 +48,7 @@ module.exports = (srcPath, bundlePath) => {
         // show all the items in the rom
         room.items.forEach(item => {
           if (item.metadata.detail) return;
-
-          if (item.hasBehavior('resource')) {
-            B.sayAt(player, `[${ItemUtil.qualityColorize(item, 'Resource')}] <magenta>${item.roomDesc}</magenta>`);
-          } else if (item.metadata.noPickup) {
-            B.sayAt(player, `[${ItemUtil.qualityColorize(item, 'Scenery')}] <magenta>${item.roomDesc}</magenta>`);
-          } else {
-            B.sayAt(player, `[${ItemUtil.qualityColorize(item, 'Item')}] <magenta>${item.roomDesc}</magenta>`);
-          }
+          ItemUtil.renderItemRoomDesc(item, player);
         });
 
         // show all npcs

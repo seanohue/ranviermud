@@ -39,10 +39,13 @@ CHANGELOG:
 ** Fixed major bug that made skills unusable.
 ** PvP and PvE combat improvements.
 
-(Patched 8/21)
+(Patched 8/22)
 ** Added aliases for many commands.
 ** You can now use 'help [skillname]' to learn about a skill.
-** New command: 'motd' or 'changelog' will show this text.
+** New commands: 
+  - 'bug' for bug reports
+  - 'rest'
+  - 'motd' or 'changelog' will show this text
 ** More bug fixes.
 
 
