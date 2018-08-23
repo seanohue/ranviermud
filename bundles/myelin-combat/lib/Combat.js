@@ -105,12 +105,12 @@ class Combat {
       if (!target.hasAttribute('health')) {
         throw new CombatErrors.CombatInvalidTargetError();
       }
-      if (target.getAttribute('health') > 0) {
-        return target;
-      }
       if (target.getAttribute('health') <= 0 || 
          attacker.room !== target.room) {
         attacker.removeCombatant(target);
+      }
+      if (target.getAttribute('health') > 0) {
+        return target;
       }
     }
 
