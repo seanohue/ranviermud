@@ -1,0 +1,19 @@
+---
+command: train
+body: |
+  Myelin has three pools (health, energy, focus) and four core attributes (willpower, intellect, quickness, and might).
+  Myelin also has two secondary attributes, critical chance and armor.
+
+  As you advance, you may increase any of these stats through training.
+
+  Use the 'train' command to both see which attributes can be trained, and to spend points to train attributes.
+  You may increase pools by 15 points per point spent, and can increase other attributes by spending one-for-one.
+
+  You may want to do research with the 'skills' command first to see which prerequisites you need to meet for a new skill.
+
+related:
+  - skills
+  - skill
+  - learn
+  - effects
+keywords: ['gain', 'advance', 'leveling', 'research', 'stats', 'attributes', 'intellect', 'willpower', 'might', 'quickness', 'critical', 'armor']

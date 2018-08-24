@@ -1,0 +1,15 @@
+---
+command: skills
+body: |
+  In general, Myelin uses the terms 'skill' and 'ability' interchangeably.
+  Some skills are passive and some are active and can be used by typing the name of the skill.
+  To see which passive skills you have right now, you can use the 'effects' command.
+
+  See a list of your current skills, a list of skills you can learn right now, and a list of skills that are available given your advancement level but that have prerequisites you still need to meet.
+
+related:
+  - learn
+  - skill
+  - train
+  - effects
+keywords: ['learn', 'gain', 'advance', 'leveling', 'research']
