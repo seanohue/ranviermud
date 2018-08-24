@@ -72,6 +72,10 @@
   roomDesc: "Portal key"
   description: "A key the size of an average adult's forearm. The shaft of the key is covered with various sizes of bumps arranged seemingly at random. It is made of a silver, metallic substance."
   keywords: ["key", "portal"]
+  behaviors:
+   sellable:
+    value: 2
+    currency: theans
 
 # Readables
 ## Projects
@@ -189,7 +193,7 @@
       electrical: 10
     sellable:
       value: 2
-      currency: thean
+      currency: theans
 
 - id: toque
   name: "Red Toque"
@@ -207,7 +211,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: thean
+      currency: theans
     resistance:
       fire: 20
       electrical: 10
@@ -239,7 +243,7 @@
       electrical: 5
     sellable:
       value: 4
-      currency: thean
+      currency: theans
 
 # Both the Acrid Mendicant and the Penitent Ascetic have this.
 - id: loincloth
@@ -259,7 +263,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: thean
+      currency: theans
 
 # Acrid Mendicant Starters
 - id: robe
@@ -276,7 +280,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: thean
+      currency: theans
     resistance:
       slashing: 10
       fire: -20
@@ -299,7 +303,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: thean
+      currency: theans
 
 - id: sandals
   name: "Worn Sandals"
@@ -316,7 +320,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: thean
+      currency: theans
     resistance:
       electrical: 5
 
@@ -340,7 +344,7 @@
   behaviors:
     sellable:
       value: 4
-      currency: thean
+      currency: theans
 
 # Furtive Urchin starting gear
 - id: shank
@@ -367,7 +371,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: thean
+      currency: theans
 
 - id: vest
   name: "Ragged Vest"
@@ -383,7 +387,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: thean
+      currency: theans
 
 - id: trousers
   name: "Ragged Trousers"
@@ -399,7 +403,7 @@
   behaviors:
     sellable:
       value: 1
-      currency: thean
+      currency: theans
 
 # Rugged Tough starting equipment
 - id: jerkin
@@ -417,7 +421,7 @@
   behaviors:
     sellable:
       value: 9
-      currency: thean
+      currency: theans
     resistance:
       piercing: 5
       fire: -10
@@ -438,7 +442,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: thean
+      currency: theans
 
 - id: boots
   name: "Low Leather Boots"
@@ -455,7 +459,7 @@
   behaviors:
     sellable:
       value: 3
-      currency: thean
+      currency: theans
     resistance:
       piercing: 5
       electrical: 5
@@ -483,7 +487,7 @@
   behaviors:
     sellable:
       value: 5
-      currency: thean
+      currency: theans
 
 - id: knapsack
   name: "Ragged Canvas Knapsack"
@@ -501,7 +505,7 @@
   behaviors:
     sellable:
       value: 2
-      currency: thean
+      currency: theans
 
 # Test Subject starter
 - id: aetherrobe
@@ -521,7 +525,7 @@
   behaviors:
     sellable:
       value: 100
-      currency: thean
+      currency: theans
 
 - id: leatherpouch
   name: "Leather Pouch"
@@ -539,7 +543,7 @@
   behaviors:
     sellable:
       value: 8
-      currency: thean
+      currency: theans
 
 - id: bonebroth
   name: "Bone Broth"
@@ -572,6 +576,9 @@
   metadata:
     level: 1
   behaviors:
+    sellable:
+      value: 1
+      currency: theans
     # usable has two variants: spell, and effect
     usable:
       # this is the spell variant, you specify a skill of type SPELL
@@ -596,7 +603,9 @@
     level: 1
     quality: uncommon
   behaviors:
-    # usable has two variants: spell, and effect
+    sellable:
+      value: 10
+      currency: theans
     usable:
       # this is the spell variant, you specify a skill of type SPELL
       ability: "potion"
