@@ -51,6 +51,7 @@ module.exports = (srcPath, bundlePath) => {
     entity = entity || CommandParser.parseDot(search, player.inventory);
 
     if (!entity) {
+      Logger.warn('Player tried looking for ' + args);
       return B.sayAt(player, "You don't see anything like that here.");
     }
 
