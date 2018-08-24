@@ -1,0 +1,9 @@
+---
+command: learn
+body: |
+  Learn a new ability. As you advance, you may gain points that allow you to learn and use new abilities. Each ability has certain prerequisites, and a cost. Once learned, you may not unlearn the ability. Choose wisely.
+related:
+  - skills
+  - skill
+  - train
+keywords: ['learn', 'gain', 'advance']
