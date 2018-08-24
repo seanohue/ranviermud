@@ -27,7 +27,7 @@
   behaviors:
     sellable:
       value: 80
-      currency: thean
+      currency: theans
 
 - id: hatchet
   name: Scrap Hatchet
@@ -53,7 +53,33 @@
       electrical: -20
     sellable:
       value: 80
-      currency: thean
+      currency: theans
+      
+- id: crowbar
+  name: Crowbar
+  type: WEAPON
+  roomDesc: 'Crowbar'
+  description: A steel crowbar. Useful for self-defense as well as prying scrap.
+  script: "crowbar"
+  keywords: ['crowbar', 'prybar']
+  level: 3
+  slot: wield
+  metadata:
+    quality: uncommon
+    specialEffects:
+      - "Chance on hit: Stun your opponent."
+      - "On critical: Stun your opponent for an extended time."
+    minDamage: 6
+    maxDamage: 36
+    speed: 3.8
+    stats:
+      critical: 3
+  behaviors:
+    resistance:
+      electrical: -20
+    sellable:
+      value: 60
+      currency: theans
 
 - id: pilebones
   name: "A Pile Of Bones"
@@ -97,7 +123,7 @@
   behaviors:
     sellable:
       value: 20
-      currency: thean
+      currency: theans
     resistance:
       crushing: 10
       slashing: 5
@@ -118,7 +144,7 @@
   behaviors:
     sellable:
       value: 35
-      currency: thean
+      currency: theans
     resistance:
       isPhysical: 15
       isPsionic: 5
@@ -142,7 +168,7 @@
   behaviors:
     sellable:
       value: 65
-      currency: thean
+      currency: theans
     resistance:
       isPhysical: 10
       electrical: -60
@@ -163,7 +189,7 @@
   behaviors:
     sellable:
       value: 9
-      currency: thean
+      currency: theans
     resistance:
       fire: -10
       piercing: 5
@@ -193,7 +219,7 @@
       freezing: 5
     sellable:
       value: 75
-      currency: thean
+      currency: theans
 
 - id: flashbomb
   name: "Flashbomb"
@@ -219,7 +245,7 @@
         duration: 10
     sellable:
       value: 45
-      currency: thean
+      currency: theans
 
 - id: scrapbomb
   name: "Scrapbomb"
@@ -245,5 +271,5 @@
         duration: 10
     sellable:
       value: 55
-      currency: thean
+      currency: theans
 
