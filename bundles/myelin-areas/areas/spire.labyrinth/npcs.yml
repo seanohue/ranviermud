@@ -83,7 +83,7 @@
       delay: 3
       towards:
         players: true
-        npcs: ['spire.intro:vendorauto', 'spire.intro:crawler', 'spire.intro:buzzard', 'spire.labyrinth:minotaur']
+        npcs: ['spire.intro:vendorauto', 'spire.intro:crawler', 'spire.intro:buzzard', 'spire.labyrinth:minotaur', 'spire.intro:lankyrevenant']
   attributes:
     health: 90
     energy: 150
@@ -103,7 +103,7 @@
 - id: arbiter
   keywords: ['arbiter']
   name: Arbiter
-  level: 9
+  level: 10
   description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
   behaviors:
     resistance:
@@ -157,7 +157,7 @@
 
 - id: minotaur
   name: 'Minotaur'
-  level: 16
+  level: 19
   keywords: ['minotaur']
   description: 'A hulking mass of flesh and machinery stands before you. Metallic "hooves" at the end of inhumanly muscled legs. An enormous torso with armor grafted to it. Arms the size of a normal human''s entire body. And a series of tubes and horns that ring a head that is no longer recognizable as alive.'
   behaviors:
@@ -222,3 +222,47 @@
     maxDamage: 50
     damageType: CRUSHING
     attackVerb: horn
+    
+- id: lankyrevenant
+  name: 'Lanky Revenant'
+  level: 10
+  keywords: ['lanky', 'skinny', 'rev', 'revenant']
+  description: 'A person stands here, or something that was once a person. Their glaze eyes stare lifelessly ahead. They are knotted with lean muscle. An array of life support devices have been sutured to their chest and head, but aside from that and some scraps of clothing, they are naked.'
+  behaviors:
+    skilled:
+      skills: ['block', 'dodge', 'lunge', 'secondwind']
+    combat: true
+    resistance:
+      isPsionic: 10
+    lootable:
+      pools:
+        - spire.labyrinth:crowbar: 95
+      currency:
+        theans:
+          min: 1
+          max: 5
+    ranvier-wander: 
+      interval: 40
+    flavorevents:
+      onSpawn: 'A lanky figure emerges from a nearby cryochamber.'
+    ranvier-aggro:
+      warnMessage: '%name% lurches towards you...'
+      attackMessage: '%name% attacks!'
+      delay: 6
+      towards:
+        players: true
+  attributes:
+    health: 130
+    energy: 250
+    focus: 10
+    might: 15
+    quickness: 13
+    intellect: 6
+    willpower: 6
+    critical: 3
+    armor: 2
+  metadata:
+    minDamage: 6
+    maxDamage: 30
+    damageType: CRUSHING
+    attackVerb: crowbar
