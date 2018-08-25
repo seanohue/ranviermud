@@ -118,6 +118,7 @@
   coordinates: [2, 11, 0]
   behaviors: &ref_14 {waypoint: true}
   items: &ref_15 ['spire.labyrinth:neurallink']
+  npcs: &ref_16 ['spire.labyrinth:lankyrevenant']
 - id: a-cold-hall-20
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
@@ -276,10 +277,10 @@
   title: Minotaurs Chamber
   description: Bones and gristle litter this bloodstained chamber. The floors and walls are horrifically gouged.
   coordinates: [5, 8, 0]
-  npcs: *ref_11
   level: 12
   behaviors: *ref_12
   items: ['spire.labyrinth:pilebones']
+  npcs: *ref_16 
 - id: a-cold-hall-46
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
@@ -432,7 +433,7 @@
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [9, 1, 0]
-  npcs: *ref_2
+  npcs: *ref_16 
   level: 9
 - id: a-cold-hall-73
   title: A Cold Hall
@@ -541,7 +542,7 @@
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [11, 2, 0]
-  npcs: *ref_1
+  npcs: *ref_16 
   level: 9
 - id: portal-chamber-92
   title: Portal Chamber
@@ -631,7 +632,7 @@
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [12, 5, 0]
-  npcs: *ref_1
+  npcs: *ref_16 
   level: 9
 - id: portal-chamber-107
   title: Portal Chamber
@@ -720,7 +721,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [13, 17, 0]
   level: 7
-  npcs: *ref_0
+  npcs: *ref_16 
 - id: neural-link-chamber-122
   title: Neural Link Chamber
   description: 'Wires run along the sides and floor of this chamber, connecting to a chair in the center. They pulse with strange lights.'
@@ -832,7 +833,7 @@
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [16, 5, 0]
-  npcs: *ref_2
+  npcs: *ref_16 
   level: 9
 - id: tube-chamber-142
   title: Tube Chamber
@@ -991,13 +992,14 @@
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [19, 9, 0]
-  npcs: *ref_1
+  npcs: *ref_16 
   level: 9
 - id: tube-chamber-169
   title: Tube Chamber
   description: 'A monolithic, circular chamber. Most of the center of this hollow area is obstructed by a mass of opaque tubes emerging from the floor, and traveling along the ceiling in snakelike patterns, only to disappear into the walls.'
   coordinates: [19, 11, 0]
   items: *ref_5
+  npcs: *ref_16 
 - id: a-cold-hall-170
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
