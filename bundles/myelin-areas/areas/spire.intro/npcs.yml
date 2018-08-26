@@ -103,25 +103,25 @@
           cost: 100
           currency: theans
         "spire.intro:knapsack":
-          cost: 35
+          cost: 135
           currency: theans
         "spire.intro:aetherrobe":
-          cost: 300
+          cost: 600
           currency: theans
         "spire.labyrinth:leatherpants":
-          cost: 100
+          cost: 200
           currency: theans
         "spire.labyrinth:jumpsuit":
-          cost: 250
+          cost: 1500
           currency: theans
         "spire.intro:tea":
-          cost: 10
+          cost: 30
           currency: theans
         "spire.intro:elixir":
           cost: 100
           currency: theans
         "spire.labyrinth:flashbomb":
-          cost: 100
+          cost: 150
           currency: theans
         "spire.labyrinth:scrapbomb":
           cost: 200

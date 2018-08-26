@@ -4,6 +4,7 @@ module.exports = (srcPath, bundlePath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Parser = require(srcPath + 'CommandParser').CommandParser;
   const ItemUtil = require(bundlePath + 'ranvier-lib/lib/ItemUtil');
+  const { InventoryFullError } = require(srcPath + '/Inventory');
 
   return {
     aliases: [ 'unwield', 'unequip' ],
@@ -20,7 +21,7 @@ module.exports = (srcPath, bundlePath) => {
         return;
       }
 
-      const result =  Parser.parseDot(arg, player.equipment, true);
+      const result = Parser.parseDot(arg, player.equipment, true);
       if (!result) {
         return Broadcast.sayAt(player, "You aren't wearing anything like that.");
       }
@@ -31,7 +32,14 @@ module.exports = (srcPath, bundlePath) => {
   };
 
   function remove(player, slot, item) {
+    try {
+      player.unequip(slot);
+    } catch(e) {
+      Broadcast.sayAt(player, `<yellow>You cannot un-equip: </yellow>${ItemUtil.display(item)}<yellow>. Your inventory is full.</yellow>`);
+      if (e instanceof InventoryFullError) {
+        Broadcast.sayAt(player, 'Your inventory is full.');
+      }
+    }
     Broadcast.sayAt(player, `<green>You un-equip: </green>${ItemUtil.display(item)}<green>.</green>`);
-    player.unequip(slot);
   }
 };
