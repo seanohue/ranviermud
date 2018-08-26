@@ -13,6 +13,7 @@ module.exports = srcPath => {
     },
     flags: [Flag.BUFF],
     state: {
+      attributes: [],
       magnitude: 5
     },
     modifiers: {
