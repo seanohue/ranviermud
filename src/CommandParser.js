@@ -2,6 +2,22 @@
 
 const CommandType = require('./CommandType');
 
+const directions = {
+  'n':  'north',
+  'e':  'east',
+  's':  'south',
+  'w':  'west',
+  'u':  'up',
+  'd':  'down',
+
+  'ne': 'northeast',
+  'se': 'southeast',
+  'nw': 'northwest',
+  'sw': 'southwest',
+};
+
+[...Object.values(directions)].forEach(dir => directions[dir] = dir);
+
 /**
  * Interpreter.. you guessed it, interprets command input
  */
@@ -51,21 +67,6 @@ class CommandParser {
         args: args
       };
     }
-
-    // check for direction shortcuts
-    const directions = {
-      'n':  'north',
-      'e':  'east',
-      's':  'south',
-      'w':  'west',
-      'u':  'up',
-      'd':  'down',
-
-      'ne': 'northeast',
-      'se': 'southeast',
-      'nw': 'northwest',
-      'sw': 'southwest',
-    };
 
     const moveCommand = state.Config.get("moveCommand");
     if (command in directions) {
