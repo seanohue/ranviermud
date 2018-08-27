@@ -1,0 +1,13 @@
+---
+command: gather
+body: |
+  Gather resources from your environment. 
+  
+  Items that contain resources will be marked with the Resource tag when you look at them. 
+  
+  Resource items are depleted temporarily when they are gathered but will usually accumulate again over time.
+ 
+related:
+  - craft
+  - score
+  - look
