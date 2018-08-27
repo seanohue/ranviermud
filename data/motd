@@ -42,11 +42,13 @@ CHANGELOG:
 (Patched 8/22)
 ** Added aliases for many commands.
 ** You can now use 'help [skillname]' to learn about a skill.
-** New commands: 
-  - 'bug' for bug reports
-  - 'rest'
-  - 'motd' or 'changelog' will show this text
+** New commands: 'bug', 'rest', 'motd'
 ** More bug fixes.
+
+(Patched 8/29)
+** Fixed issue with inventory full message not displaying when trying to unequip.
+** Fixed some issues with NPCs and bleed.
+** Added new mobs.
 
 
 Thanks for playing!
