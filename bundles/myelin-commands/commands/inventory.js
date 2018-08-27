@@ -6,6 +6,7 @@ module.exports = (srcPath, bundlePath) => {
 
   return {
     usage: 'inventory',
+    aliases: ['items'],
     command : (state) => (args, player) => {
       if (!player.inventory || !player.inventory.size) {
         return Broadcast.sayAt(player, "You aren't carrying anything.");
