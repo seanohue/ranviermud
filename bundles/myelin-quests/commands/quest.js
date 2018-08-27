@@ -2,6 +2,7 @@
 
 module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
+  const Logger = require(srcPath + 'Logger');
   const say = B.sayAt;
   const Parser = require(srcPath + 'CommandParser').CommandParser;
   const CommandManager = require(srcPath + 'CommandManager');
@@ -90,6 +91,11 @@ module.exports = (srcPath) => {
         return say(player, "You have no active quests.");
       }
       for (let [, quest] of Object.entries(active)) {
+        if (typeof quest.getProgress !== 'function') {
+          Logger.warn('Invalid quest found in quest log.');
+          Logger.warn(quest);
+          continue;
+        }
         const progress = quest.getProgress();
 
         B.at(player, '<b><yellow>' + (parseInt(i, 10) + 1) + '</yellow></b>: ');
