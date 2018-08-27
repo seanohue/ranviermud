@@ -161,6 +161,7 @@ module.exports = (srcPath) => {
   });
 
   return {
+    aliases: ['quests'],
     usage: 'quest <log/list/complete/start> [npc] [number]',
     command : (state) => (args, player) => {
       if (!args.length) {
