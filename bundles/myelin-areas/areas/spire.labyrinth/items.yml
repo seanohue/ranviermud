@@ -273,3 +273,23 @@
       value: 55
       currency: theans
 
+- id: crackedlifesupport
+  type: ARMOR 
+  name: 'Cracked Life Support Unit'
+  roomDesc: 'Cracked Life Support Unit'
+  description: 'An external life support unit that has been slightly damaged. It is unlikely that it works at full capacity, but this Anzeige device is meant to help one breath easier, recover more quickly, and in general live longer.'
+  keywords: ['cracked', 'life', 'support']
+  level: 5
+  slot: "neck"
+  quality: uncommon
+  metadata:
+    stats:
+      health: 30
+      energy: 15
+  behaviors:
+    sellable:
+      value: 20
+      currency: theans
+    resistance:
+      bleeding: 20
+      drowning: 20
