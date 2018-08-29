@@ -93,7 +93,7 @@ module.exports = (srcPath) => {
       for (let [, quest] of Object.entries(active)) {
         if (typeof quest.getProgress !== 'function') {
           Logger.warn('Invalid quest found in quest log.');
-          Logger.warn(quest);
+          Logger.warn(JSON.stringify({active, quest}));
           continue;
         }
         const progress = quest.getProgress();
