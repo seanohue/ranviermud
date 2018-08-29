@@ -237,6 +237,7 @@
     lootable:
       pools:
         - spire.labyrinth:crowbar: 95
+        - spire.labyrinth:crackedlifesupport: 25
       currency:
         theans:
           min: 1
