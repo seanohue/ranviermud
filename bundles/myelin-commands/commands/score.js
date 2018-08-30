@@ -7,7 +7,7 @@ module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
 
   return {
-    aliases: [ 'stats', 'character' ],
+    aliases: [ 'stats', 'character', 'status' ],
     command : (state) => (args, p) => {
       const say = message => B.sayAt(p, message);
       const div = (header = '', color) => B.pipe(B.boxH(width, header, color));
