@@ -262,15 +262,16 @@ class Broadcast {
   }
 
   static corner(which, color) {
-    const corners = {
-      'top-left': '╔',
-      'top-right': '╗',
-      'bottom-left': '╚',
-      'bottom-right': '╝'
-    };
+    return 'o';
+//     const corners = {
+//       'top-left': '╔',
+//       'top-right': '╗',
+//       'bottom-left': '╚',
+//       'bottom-right': '╝'
+//     };
 
-    const corner = corners[which] || 'o';
-    return Broadcast.colorize(corner, color);
+//     const corner = corners[which] || 'o';
+//     return Broadcast.colorize(corner, color);
   }
 
   /**
