@@ -90,10 +90,10 @@ module.exports = (srcPath) => {
       if (!active.length) {
         return say(player, "You have no active quests.");
       }
-      for (let [, quest] of Object.entries(active)) {
+      for (let [key, quest] of Object.entries(active)) {
         if (typeof quest.getProgress !== 'function') {
           Logger.warn('Invalid quest found in quest log.');
-          Logger.warn(quest);
+          Logger.warn({key, active, quest});
           continue;
         }
         const progress = quest.getProgress();

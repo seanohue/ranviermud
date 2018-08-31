@@ -9,7 +9,7 @@ module.exports = (srcPath, bundlePath) => {
 
   return {
     usage: 'gather <resource>',
-    aliases: ['collect', 'scavenge'],
+    aliases: ['salvage', 'collect', 'scavenge'],
     command: state => (args, player) => {
       if (!args || !args.length) {
         return B.sayAt(player, "Gather what?");

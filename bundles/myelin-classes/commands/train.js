@@ -10,7 +10,7 @@ module.exports = srcPath => {
 
   return {
     usage: 'train [attribute]',
-    aliases: ['boost', 'practice'],
+    aliases: ['levelup', 'advance', 'boost', 'practice'],
 
     command: state => (args, player) => {
       const say = message => B.sayAt(player, message);
