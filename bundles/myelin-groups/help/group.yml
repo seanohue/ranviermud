@@ -1,0 +1,11 @@
+---
+command: group
+body: |
+  You may 'group' with other players and even some non-player characters.
+  To begin, use 'group create'. After that you may 'group invite' others.
+  
+  'group accept' will accept an invitation.
+
+  Grouping will allow you to overwhelm foes in combat, and to stick together while exploring Myelin.
+
+  Rewards will be distributed to the whole group when victory is had.

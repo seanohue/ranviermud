@@ -7,6 +7,7 @@ module.exports = (srcPath) => {
   const Logger = require(srcPath + 'Logger');
 
   return {
+    alias: ['ask'],
     usage: 'talk <npc> <message>',
     command : (state) => (args, player) => {
       if (!args.length) {
