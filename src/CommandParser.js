@@ -122,7 +122,8 @@ class CommandParser {
     }
 
     // finally check skills
-    found = state.SkillManager.find(command);
+    const findPassive = true;
+    found = state.SkillManager.find(command, findPassive);
     if (found) {
       return {
         type: CommandType.SKILL,

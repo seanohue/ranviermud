@@ -57,7 +57,7 @@ module.exports = srcPath => {
           }
 
           if (e instanceof SkillErrors.PassiveError) {
-            return B.sayAt(this, `That skill is passive.`);
+            return B.sayAt(this, `That skill is passive. Check your <b>effects</b> or use the command <b>skill ${ability.id}</b> for more info.`);
           }
 
           if (e instanceof SkillErrors.NotEnoughResourcesError) {

@@ -34,7 +34,7 @@ class Skill {
       initiatesCombat = false,
       isSplash = false,
       name,
-      requiresTarget = true,
+      requiresTarget = false,
       resource = null, /* format [{ attribute: 'someattribute', cost: 10}] */
       run = _ => {},
       targetSelf = false,
