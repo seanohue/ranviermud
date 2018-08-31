@@ -49,5 +49,7 @@ CHANGELOG:
 ** Fixed issue with inventory full message not displaying when trying to unequip.
 ** Fixed some issues with NPCs and bleed.
 ** Added new mobs, including a 'sentient' NPC in the intro area.
+** Enhanced 'talk' command for NPCs.
+** Add better messaging when trying to use passive skill
 
 Thanks for playing!
