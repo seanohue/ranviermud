@@ -253,3 +253,55 @@
     bleeds: 'oil'
     attackVerb: 'razor'
 
+- id: anzeigeconcierge
+  keywords: ['anzeige', 'concierge']
+  name: The Concierge
+  level: 60
+  description: "A lumbering machine is here. Its legs are made up of gears and pistons the height of a person. It forms a humanoid shape, though it has no head. In the center of its torso is a flickering panel."
+  behaviors:
+    ranvier-sentient:
+      id: 'anzeige:tutorial'
+    skilled:
+      skills: ['riposte', 'block']
+    combat:
+      wimpy: 50
+    resistance:
+      fire: 75
+      electrical: -25
+      isPhysical: 80
+      isPsionic: 95
+    lootable: 
+      resources: 
+        scrap_metal:
+          min: 10
+          max: 500
+        gear:
+          min: 10
+          max: 20
+        piston:
+          min: 8
+          max: 20
+        sparkdust:
+          min: 1
+          max: 100
+      pools:
+        - spire.intro:portalkey: 50
+      currency:
+        theans:
+          min: 1
+          max: 150
+  attributes:
+    health: 9000
+    energy: 900
+    focus: 250
+    might: 200
+    quickness: 50
+    intellect: 900
+    willpower: 100
+    critical: 20
+    armor: 40
+  metadata:
+    damageType: ['CRUSHING', 'PIERCING']
+    bleeds: 'oil'
+    minDamage: 10
+    maxDamage: 1000

@@ -199,7 +199,7 @@
   coordinates: [7, 1, 0]
   weight: 3
   items: *ref_0
-  npcs: ['spire.intro:malfunctioningbuzz']
+  npcs: ['spire.intro:anzeigeconcierge']
 - id: a-cold-hall-27
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'

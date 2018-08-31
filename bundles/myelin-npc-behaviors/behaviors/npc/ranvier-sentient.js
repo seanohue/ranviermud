@@ -47,12 +47,20 @@ module.exports = srcPath => {
   if (parseError) {
     Logger.log('Error when parsing client keys for API.AI: ');
     Logger.log(parseError);
+  } else {
+    Object.keys(services).forEach(id => {
+      Logger.log(`Loaded API.AI Service ${id}`);
+    });
   }
+
   return {
     listeners: {
       conversation: state => function (config, player, message) {
 
+        const {id = 'NOT CONFIGURED'} = config;
+        console.log(services);
         const failure = why => {
+          Logger.error('Player tried talking about: ', message);
           Logger.error('AI Failure. ' + why);
           return B.sayAt(player, "They didn't seem to understand you.");
         };
@@ -61,10 +69,10 @@ module.exports = srcPath => {
           return failure('No services registered.');
         }
 
-        const service = services[config.id];
+        const service = services[id];
 
         if (!service) {
-          return failure(`Service ${config.id} not registered.`);
+          return failure(`Service ${id} not registered.`);
         }
 
         const request = service.textRequest(message, { sessionId });
@@ -75,43 +83,54 @@ module.exports = srcPath => {
           }
 
           const result = response.result;
-          if (!result.action) {
-            return failure(config.id + ': No action found in result: ' + JSON.stringify(result));
+          if (!result.action && !result.fulfillment) {
+            return failure(id + ': No action found in result: ' + JSON.stringify(result));
           }
 
-          switch (result.action) {
-            case 'shop.list':
-              if (!this.hasBehavior('vendor')) {
-                if (result.fulfillment && result.fulfillment.speech) {
-                  return B.sayAt(player, `<b><cyan>${this.name} says, "${result.fulfillment.speech}"</cyan></b>`);
+          if (result.action) {
+            switch (result.action) {
+              case 'shop.list':
+                if (!this.hasBehavior('vendor')) {
+                  if (result.fulfillment && result.fulfillment.speech) {
+                    return B.sayAt(player, `<b><cyan>${this.name} says, "${result.fulfillment.speech}"</cyan></b>`);
+                  }
+  
+                  return failure('Invalid shop.list action for ' + config.id);
                 }
+  
+                state.CommandManager.get('shop').execute('list', player, 'shop');
+                break;
+  
+              default:
+                const defaultResponses = {
+                  'query.about': `I'm ${this.name}.`,
+                  'query.area': `You're in ${this.room.area.title}.`,
+                };
+  
+                const reply =
+                  (config.responses && config.responses[result.action]) ||
+                  defaultResponses[result.action] ||
+                  (result.fulfillment && result.fulfillment.speech)
+                ;
+  
+                if (!reply) {
+                  return failure(`No valid reply for ${id}.`);
+                }
+  
+                B.sayAt(player, `<b><cyan>${this.name} says, "${reply}"</cyan></b>`);
+                break;
+            }
 
-                return failure('Invalid shop.list action for ' + config.id);
-              }
-
-              state.CommandManager.get('shop').execute('list', player, 'shop');
-              break;
-
-            default:
-              const defaultResponses = {
-                'query.about': `I'm ${this.name}.`,
-                'query.area': `You're in ${this.room.area.title}.`,
-              };
-
-              const reply =
-                (config.responses && config.responses[result.action]) ||
-                defaultResponses[result.action] ||
-                (result.fulfillment && result.fulfillment.speech)
-              ;
-
-              if (!reply) {
-                return failure(`No valid reply for ${config.id}.`);
-              }
-
-              B.sayAt(player, `<b><cyan>${this.name} says, "${reply}"</cyan></b>`);
-              break;
+            return B.prompt(player);
           }
 
+          const reply = result.fulfillment.speech;
+
+          if (!reply) {
+            return failure(`No valid reply for ${id}`)
+          }
+
+          B.sayAt(player, `<b><cyan>${this.name} says, "${reply}"</cyan></b>`);
           B.prompt(player);
         });
 
