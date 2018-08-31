@@ -1,4 +1,4 @@
 title: 'The Spire: Labyrinth'
 info:
-  levelRange: {min: 1, max: 15}
+  levelRange: {min: 5, max: 15}
   pvp: 'optional'

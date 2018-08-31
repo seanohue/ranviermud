@@ -83,7 +83,7 @@
       delay: 3
       towards:
         players: true
-        npcs: ['spire.intro:vendorauto', 'spire.intro:crawler', 'spire.intro:buzzard', 'spire.labyrinth:minotaur', 'spire.intro:lankyrevenant']
+        npcs: ['spire.labyrinth:lankyrevenant', 'spire.intro:vendorauto', 'spire.intro:crawler', 'spire.intro:buzzard', 'spire.labyrinth:minotaur']
   attributes:
     health: 90
     energy: 150
