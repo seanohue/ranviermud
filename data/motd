@@ -43,5 +43,6 @@ CHANGELOG:
 ** Added new mobs, including a 'sentient' NPC in the intro area.
 ** Enhanced 'talk' command for NPCs.
 ** Add better messaging when trying to use passive skill
+** Fixed 'quest log' command.
 
 Thanks for playing!

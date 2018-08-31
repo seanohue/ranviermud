@@ -90,15 +90,17 @@ module.exports = (srcPath) => {
       if (!active.length) {
         return say(player, "You have no active quests.");
       }
-      for (let [key, quest] of Object.entries(active)) {
+      let i = 0;
+      for (let [, quest] of active) {
+        i++;
         if (typeof quest.getProgress !== 'function') {
           Logger.warn('Invalid quest found in quest log.');
-          Logger.warn({key, active, quest});
+          Logger.warn({active: active.constructor.name, quest: quest.constructor.name});
           continue;
         }
         const progress = quest.getProgress();
 
-        B.at(player, '<b><yellow>' + (parseInt(i, 10) + 1) + '</yellow></b>: ');
+        B.at(player, '<b><yellow>' + (parseInt(i, 10) || 'Q') + '</yellow></b>: ');
         say(player, B.progress(60, progress.percent, 'yellow') + ` ${progress.percent}%`);
         say(player, B.indent('<b><yellow>' + quest.getProgress().display + '</yellow></b>', 2));
 
