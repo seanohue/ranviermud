@@ -8,6 +8,16 @@
  *     example if you want them to wander along a set path
  *   interval: number, delay in seconds between room movements. Default: 20
  */
+
+ const directionOpposites = {
+   north: 'the south',
+   east: 'the west',
+   south: 'the north',
+   west: 'the east',
+   up: 'downwards',
+   down: 'upwards'
+ };
+
 module.exports = srcPath => {
   const RandomUtil = require(srcPath + 'RandomUtil');
   const Broadcast = require(srcPath + 'Broadcast');
@@ -85,9 +95,13 @@ module.exports = srcPath => {
         }
 
         Logger.verbose(`NPC [${this.uuid}] wandering from ${this.room.entityReference} to ${randomRoom.entityReference}.`);
-        Broadcast.sayAt(this.room, `${this.name} wanders ${direction}.`);
+        const verb = config.verb || 'wander'
+        Broadcast.sayAt(this.room, `${this.name} ${verb}s ${direction}.`);
         this.moveTo(randomRoom);
-        Broadcast.sayAt(randomRoom, `${this.name} wanders in.`);
+        const opposite = directionOpposites[direction];
+        const from = opposite ? ` from ${opposite}` : '';
+        
+        Broadcast.sayAt(randomRoom, `${this.name} ${verb}s in${from}.`);
       }
     }
   };

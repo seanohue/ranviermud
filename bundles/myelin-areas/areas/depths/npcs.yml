@@ -37,6 +37,7 @@
           max: 2
     ranvier-wander: 
       interval: 45
+      verb: 'float'
     ranvier-aggro:
       warnMessage: '%name% raises its fins, twirling them about.'
       attackMessage: '%name% lets loose a psionic attack!'
@@ -93,6 +94,7 @@
           max: 20
     ranvier-wander: 
       interval: 30
+      verb: shamble
     ranvier-aggro:
       warnMessage: '%name% looks at you and lets out a low growl.'
       attackMessage: '%name% rushes you!'
@@ -142,6 +144,7 @@
           max: 20
     ranvier-wander: 
       interval: 10
+      verb: 'float'
     ranvier-aggro:
       warnMessage: '%name% begins to spin furiously.'
       attackMessage: '%name% rushes you!'

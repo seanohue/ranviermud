@@ -36,6 +36,7 @@
           max: 10
     ranvier-wander:
       interval: 30
+      verb: 'scuttle'
   attributes:
     health: 120
     energy: 180
@@ -77,6 +78,7 @@
           max: 15
     ranvier-wander: 
       interval: 20
+      verb: 'buzze'
     ranvier-aggro:
       warnMessage: '%name%''s metal wings whir as it turns to face you, its sensors flashing <red>red</red>.'
       attackMessage: '%name% hurtles towards you!'
@@ -133,6 +135,7 @@
           max: 150
     ranvier-wander: 
       interval: 100
+      verb: 'hover'
     ranvier-aggro:
       warnMessage: 'You sense %name% turning in your direction... judging you.'
       attackMessage: '%name% raises its arms and attacks!'
@@ -197,6 +200,7 @@
           max: 500
     ranvier-wander: 
       interval: 40
+      verb: 'stomp'
     flavorevents:
       onSpawn: 'The Minotaur comes crashing out of a pile of bones.'
     ranvier-aggro:
@@ -244,6 +248,7 @@
           max: 5
     ranvier-wander: 
       interval: 40
+      verb: 'shamble'
     flavorevents:
       onSpawn: 'A lanky figure emerges from a nearby cryochamber.'
     ranvier-aggro:
