@@ -45,10 +45,9 @@ CHANGELOG:
 ** New commands: 'bug', 'rest', 'motd'
 ** More bug fixes.
 
-(Patched 8/29)
+(Patched 8/30)
 ** Fixed issue with inventory full message not displaying when trying to unequip.
 ** Fixed some issues with NPCs and bleed.
-** Added new mobs.
-
+** Added new mobs, including a 'sentient' NPC in the intro area.
 
 Thanks for playing!
