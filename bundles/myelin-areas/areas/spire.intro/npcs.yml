@@ -261,7 +261,7 @@
   keywords: ['anzeige', 'concierge']
   name: The Concierge
   level: 60
-  description: "A lumbering machine is here. Its legs are made up of gears and pistons the height of a person. It forms a humanoid shape, though it has no head. In the center of its torso is a flickering panel."
+  description: "A lumbering machine is here. Its legs are made up of gears and pistons the height of a person. It forms a humanoid shape, though it has no head. In the center of its torso is a flickering panel. Glyphs occasionally appear on the panel, translating to 'HELPER', 'CONCIERGE', and finally the symbol for the Anzeige Empire."
   behaviors:
     ranvier-sentient:
       id: 'anzeige:tutorial'

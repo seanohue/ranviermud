@@ -56,14 +56,14 @@ module.exports = srcPath => {
   return {
     listeners: {
       conversation: state => function (config, player, message) {
-
         const {id = 'NOT CONFIGURED'} = config;
-        console.log(services);
         const failure = why => {
           Logger.error('Player tried talking about: ', message);
           Logger.error('AI Failure. ' + why);
           return B.sayAt(player, "They didn't seem to understand you.");
         };
+
+        Logger.log(`Player is trying to talk about ${message} with ${id}.`);
 
         if (!services) {
           return failure('No services registered.');
