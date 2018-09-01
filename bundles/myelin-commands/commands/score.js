@@ -2,6 +2,7 @@
 
 const sprintf = require('sprintf-js').sprintf;
 const Combat = require('../../myelin-combat/lib/Combat');
+const ItemUtil = require('../../myelin-lib/lib/ItemUtil');
 
 module.exports = (srcPath) => {
   const B = require(srcPath + 'Broadcast');
@@ -10,18 +11,15 @@ module.exports = (srcPath) => {
     aliases: [ 'stats', 'character', 'status' ],
     command : (state) => (args, p) => {
       const say = message => B.sayAt(p, message);
-      const div = (header = '', color) => B.pipe(B.boxH(width, header, color));
-      const centerBox = (width = 60, message = '', color) => B.pipe(B.center(width, message, color));
-      const pipe = B.pipe();
-      const width = 62;
-
+      const width = 20;
       // top border
       say(`<b>${B.box('top', "[About You]", width)}</b>`);
 
       // "about you"
-      const generalStats = `${p.name}, level ${p.level} ${p.getMeta('background') || 'person'}`;
-      say(`<b>${centerBox(width, generalStats)}</b>`);
-      say(B.pipe(' '.repeat(width)));
+      const generalStats = `level ${p.level} ${p.getMeta('background') || 'person'}`;
+      say(`<b>${B.center(width, p.name)}`);
+      say(`<b>${B.center(width, generalStats)}</b>`);
+      say(`<b>${B.box('bottom', '[Pools]', width)}`)
 
       // stat pools
       let stats = {
@@ -40,30 +38,63 @@ module.exports = (srcPath) => {
 
       Object.keys(stats).forEach(stat => {
         stats[stat] = {
-          current: p.getAttribute(stat) || 0,
+          current: p.getAttribute(stat)  || 0,
           base: p.getBaseAttribute(stat) || 0,
-          max: p.getMaxAttribute(stat) || 0,
+          max: p.getMaxAttribute(stat)   || 0,
         };
       });
 
-      // Print attributes with color-coded progress bar and labels.
-      say(div('[Attributes]'));
+      const pools = {
+        'health': {label: ' Health', color: 'red'},
+        'focus':  {label: '  Focus', color: 'blue'},
+        'energy': {label: ' Energy', color: 'yellow'},
+      };
 
-      function compileStatString(isStart = false) {
-        return (output, [label, _color], index, arr) => {
-          const stat         = stats[label.trim().toLowerCase()];
-          const percent      = Math.floor((stat.current / stat.max) * 100);
-          const numericStat  = `${parseNumericStat(stat.current)}/${parseNumericStat(stat.max)}`;
-          const numericLabel = `(${B.center(7, numericStat, _color)})`;
-          const bar = stat.max === 0
-            ? B.colorize('[        ]', _color)
-            : B.progress(10, percent, _color, 'o', '-', '[]');
-          let _width = width;
-          if (!isStart) _width = (width / 2);
-          const borderFn = isStart ? centerBox : (w, msg) => `${B.center(w, msg) + ' ' + pipe}`;
-          const ending = index === arr.length - 1 ? '' : '\n';
-          return output.concat(borderFn(_width, `${label}: ${bar} ${numericLabel}`) + ending);
+      // Print attributes with color-coded progress bar and labels.
+
+      for (const [key, meta] of Object.entries(pools)) {
+        const {label, color} = meta;
+        const stat = stats[key];
+        const percent  = (Math.floor(stat.current / stat.max) * 100) || 0;
+        const progress = stat.max === 0 ? `[      ]` : B.progress(8, percent, color, 'o', '', '[]');
+        const statLine = `${label}: ${progress} ${parseNumericStat(stat.current)}/${parseNumericStat(stat.max)}`;
+        say(statLine);
+      }
+
+
+      say(`<b>${B.box('bottom', '[Attributes]', width)}`)
+
+      const attributes = {
+        'might': {label: '    Might', color: 'red'},
+        'quickness': {label: 'Quickness', color: 'yellow'},
+        'intellect': {label: 'Intellect', color: 'cyan'},
+        'willpower': {label: 'Willpower', color: 'magenta'},
+        'critical': {label: ' Critical', color: 'bold'},
+        'armor': {label: '    Armor', color: 'bold'},
+      };
+
+      // Parse and find longest length of stat for spacing reasons.
+      let longest = 1;
+      for (const [key, stat] of Object.entries(stats)) {
+        if (key in attributes) {
+          stat.max = parseNumericStat(stat.max);
+          if (stat.max.length > longest) longest = stat.max.length;
         }
+      }
+
+      for (const [key, meta] of Object.entries(attributes)) {
+        const {label, color} = meta;
+        const stat = stats[key];
+        const difference = stat.max - stat.base;
+        let diffLabel = `[${difference >= 0 ? '+' + difference : difference}]`;
+        const lengthDiff = longest - stat.max.length;
+        if (lengthDiff > 0) {
+          diffLabel = ' '.repeat(lengthDiff) + diffLabel;
+        }
+
+        const attrValue = `${stat.max} ${B.colorize(diffLabel, 'bold')}`;
+        const statLine = `${label}: ${B.colorize(attrValue, color)}`;
+        say(statLine);
       }
 
       function parseNumericStat(statValue) {
@@ -78,36 +109,6 @@ module.exports = (srcPath) => {
         return parsed;
       }
 
-      const attributes = {
-        '    Might': 'red',
-        'Quickness': 'yellow',
-        'Intellect': 'cyan',
-        'Willpower': 'magenta'
-      };
-      const attributesBox = Object
-        .entries(attributes)
-        .reduce(compileStatString(true), '');
-
-      const pools = {
-        ' Health': 'red',
-        '  Focus': 'blue',
-        ' Energy': 'yellow',
-        '  Armor': 'bold'
-      };
-      const poolsBox = Object
-        .entries(pools)
-        .reduce(compileStatString(), '');
-
-      const poolLines = poolsBox.split('\n');
-      const statsBoxes = attributesBox
-        .split('\n')
-        .reduce((output, line, index) => {
-          const pool = poolLines[index];
-          const ending = index === poolLines.length - 1 ? '' : '\n';
-          return output + line + pool + ending;
-        }, '');
-
-      say(statsBoxes);
 
       // Primary & secondary wielded.
       const primaryWeapon = p.equipment.get('wield') || {};
@@ -115,23 +116,19 @@ module.exports = (srcPath) => {
       const {min = 1, max = 1} = weaponDamage;
 
       const speed = Combat.getWeaponSpeed(p);
-      say(div('[Armaments]'));
-      say(centerBox(width, `Primary: ${primaryWeapon.name || 'Unarmed'}`));
+      const weaponName = primaryWeapon.name ? 
+        ItemUtil.qualityColorize(primaryWeapon, B.center(width, primaryWeapon.name)) : 
+        B.center(width, 'Unarmed');
+
+      say(B.box('bottom', '[Armaments]', width, 'bold'));
+      say(weaponName);
       
       const [whole, decimals] = String(speed).split('.');
       const speedLabel = whole + (decimals && decimals[0] !== '0' ? '.' + decimals[0] : '');
-      say(centerBox(width, `Damage: ${min + ' - ' + max}  Speed: ${speedLabel} sec. per attack`));
+      say(B.center(width, `Damage: ${min + ' - ' + max}`)); 
+      say(B.center(width, `Speed: ${speedLabel} sec.`));
 
-      //TODO: Secondary arms, if it exists, once implemented.
-      //TODO: Wounds/disease state?
-      //TODO: Crit chance, modified by weapon.
-      //TODO: Currencies/resources.
-
-      say(B.box('bottom', p.name || '', width));
-
-      state.CommandManager.get('currency').execute('', p);
-      say('');
-      state.CommandManager.get('resources').execute('', p);
+      say(B.colorize(B.box('bottom', p.name || '', width), 'bold'));
     }
   };
 };

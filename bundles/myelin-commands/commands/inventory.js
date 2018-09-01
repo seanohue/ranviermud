@@ -22,6 +22,8 @@ module.exports = (srcPath, bundlePath) => {
       for (const [, item ] of player.inventory) {
         Broadcast.sayAt(player, ItemUtil.display(item));
       }
+
+      state.CommandManager.get('resources').execute('', p);
     }
   };
 };

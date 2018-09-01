@@ -9,16 +9,24 @@ module.exports = srcPath => {
   const Logger = require(srcPath + 'Logger');
 
   return {
-    usage: 'train [attribute]',
+    usage: 'train [attribute] [amount]',
     aliases: ['levelup', 'advance', 'boost', 'practice'],
 
     command: state => (args, player) => {
       const say = message => B.sayAt(player, message);
       const attributePoints = player.getMeta('attributePoints');
-      const targetAttr = args.split(' ')[0].trim();
+      const splitArgs  = args.split(' ')
+      const targetAttr = (splitArgs[0] || '').trim();
+      const amount = splitArgs.length > 1 ? 
+        Math.floor(Math.max(Number(splitArgs[1].trim()) || 1, 1)) :
+        1;
 
       if (!attributePoints) {
         return say(`You are not able to boost your attributes.`);
+      }
+
+      if (amount > attributePoints) {
+        return say(`You only have ${attributePoints} points for boosting your attributes.`);
       }
 
       if (!targetAttr || !targetAttr.length) {
@@ -27,9 +35,12 @@ module.exports = srcPath => {
         return displayAttrs();
       }
 
-      if (player.attributes.has(targetAttr)) {
-        const attr = player.attributes.get(targetAttr);
-        const increment = pools.includes(targetAttr) ? 15 : 1;
+      const findAttrKey = (str) => [...player.attributes.keys()].find(key => key.startsWith(str));
+      const attrKey = player.attributes.has(targetAttr) ? targetAttr : findAttrKey(targetAttr);
+      const attr = player.attributes.get(attrKey);
+
+      if (attr) {
+        const increment = pools.includes(attrKey) ? (15 * amount) : amount;
         player.setMeta('attributePoints', attributePoints - 1);
         attr.setBase(attr.base + increment);
         say(`<b>Training has boosted ${attr.name} to ${attr.base}!`);
@@ -42,7 +53,7 @@ module.exports = srcPath => {
       function displayAttrs() {
         say("<green>Attributes you can boost:</green>");
         for (const [name, attr] of player.attributes) {
-          say(`<white>${name}</white> <b>${pools.includes(name) ? '(+15)' : '(+1)'}</b>`);
+          say(`<white>${name}</white> <b>${pools.includes(name) ? '(+15 per point)' : '(+1 per point)'}</b>`);
         }
       }
     }
