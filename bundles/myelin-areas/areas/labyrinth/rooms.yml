@@ -20,7 +20,7 @@
   title: A Frosted Tomb
   description: 'An alcove lined with grey, frost-crusted cylinders, jutting from a slate wall. Your surroundings seem to be made of the same dark material, though the ceiling is covered with pipes leading to the cylinders.'
   coordinates: [1, 4, 0]
-  items: &ref_13 ['spire.intro:cylinders', 'spire.intro:masstubes']
+  items: &ref_13 ['spire.intro:cylinders', 'spire.intro:masstubes', 'spire.intro:silhouette']
 - id: a-cold-hall-4
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'

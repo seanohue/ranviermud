@@ -37,30 +37,6 @@ module.exports = srcPath => {
         }
       }
 
-
-      const otherAbilities = player.playerClass.abilityList
-        .filter(ability => !(learnableAbilities.includes(ability) || ownAbilities.includes(ability)));
-
-        if (otherAbilities.length > 0) {
-          say(""); // Divide with newline
-          say("<b>" + B.center(width, 'Other Abilities', 'cyan'));
-          say("<b>" + B.line(width, '=', 'cyan'));
-          for (const ability of otherAbilities) {
-            const abilityDef = player.playerClass.abilityTable.skills[ability] || {};
-            if (abilityDef.level > player.level) {
-              continue;
-            }
-            const prereqs = Object.entries(abilityDef);
-            say(B.center(width, `${B.capitalize(ability.trim())}`, 'white'));
-    
-            if (prereqs.length || prereqs.size) say(B.center(width, 'Prerequisites:', 'cyan'));
-            for (const [prereq, value] of prereqs) {
-              say(B.center(width, `${prereq}: ${value}`, 'cyan'));
-            }
-            say("");
-          }
-        }
-
       const abilityPoints = player.getMeta('abilityPoints') || 0;
 
       say("<b>" + B.line(width, '=', 'green') + "</b>");

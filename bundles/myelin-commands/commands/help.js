@@ -28,7 +28,7 @@ module.exports = (srcPath) => {
           return state.CommandManager.get('skill').execute(args, player);
         }
         Logger.error(`MISSING-HELP: [${args}]`);
-        return B.sayAt(player, "Sorry, I couldn't find an entry for that topic.");
+        return B.sayAt(player, `Sorry, I couldn't find an entry for that topic. Try 'help search ${args}'`);
       }
       try {
         B.sayAt(player, render(state, hfile));
