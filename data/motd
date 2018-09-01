@@ -27,22 +27,14 @@ CHANGELOG:
 (Summer 2018)
 ** NPCs can use skills during combat.
 ** NPCs can join your party (if you have certain skills).
-** Added gossip.haus support.
-** Fixed major bug that made skills unusable.
-** PvP and PvE combat improvements.
-
-(Patched 8/22)
-** Added aliases for many commands.
-** You can now use 'help [skillname]' to learn about a skill.
-** New commands: 'bug', 'rest', 'motd'
-** More bug fixes.
-
-(Patched 8/30)
-** Fixed issue with inventory full message not displaying when trying to unequip.
-** Fixed some issues with NPCs and bleed.
 ** Added new mobs, including a 'sentient' NPC in the intro area.
-** Enhanced 'talk' command for NPCs.
-** Add better messaging when trying to use passive skill
+** Enhanced 'talk' command for talking to NPCs.
+
+(Patch 9/1)
+** Add better messaging when trying to use passive skill.
 ** Fixed 'quest log' command.
+** New 'score' layout
+** 'train' command can take shorthand and an amount
+   Example: 'train crit 3' or 'train wil 2'
 
 Thanks for playing!
