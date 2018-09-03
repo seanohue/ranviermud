@@ -27,6 +27,11 @@ module.exports = (srcPath) => {
         if (foundSkill) {
           return state.CommandManager.get('skill').execute(args, player);
         }
+        const foundAliased = findAliasCommand(state, args);
+        console.log({foundAliased});
+        if (foundAliased) {
+          return state.CommandManager.get('help').execute(foundAliased, player);
+        }
         Logger.error(`MISSING-HELP: [${args}]`);
         return B.sayAt(player, `Sorry, I couldn't find an entry for that topic. Try 'help search ${args}'`);
       }
@@ -42,6 +47,14 @@ module.exports = (srcPath) => {
 
   function tryFindSkill(state, args) {
     return Boolean(state.SkillManager.find(args, true));
+  }
+
+  function findAliasCommand(state, args) {
+    const command = state.CommandManager.get(args);
+    if (command) {
+      return command.name;
+    }
+    return '';
   }
 
   function render(state, hfile) {
