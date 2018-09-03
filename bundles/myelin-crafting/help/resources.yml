@@ -1,0 +1,14 @@
+---
+command: resources
+body: |
+  Use this command to see what resources you have gathered.
+
+  Resources are raw materials that are only good for crafting new items.
+
+  They do not take up slots in your inventory and as of yet cannot be traded.
+ 
+related:
+  - craft
+  - gather
+  - item
+  - inventory

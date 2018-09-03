@@ -1,0 +1,20 @@
+---
+body: |
+  An item is anything in Myelin that can be found or crafted, and that will take up space in your inventory.
+  
+  Some items can be worn or wielded, and others can be used or otherwise consumed.
+
+  Some items can be used as containers, to hold other items and expand your inventory space.
+
+  Some items are useful only for trade, while others can be used to craft other items, either as tools or ingredients.
+
+  Items that are crafting ingredients but do not take up an inventory slot are called 'resources'. They are a currency of sorts.
+
+related: 
+  - inventory
+  - craft
+  - resources
+  - currency
+  - vendor
+  - wear
+  - use
