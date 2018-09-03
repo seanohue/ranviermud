@@ -6,7 +6,7 @@ module.exports = (srcPath) => {
 
   return {
     usage: 'skill [skill name], skill <list>, skill <learn/buy> [skill name]',
-    aliases: [ "ability", "feat", "spell" ],
+    aliases: [ "ability", "feat", "spell", "power" ],
     command : state => (args, player) => {
       const say = (message, wrapWidth) => B.sayAt(player, message, wrapWidth);
 
