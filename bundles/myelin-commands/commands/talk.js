@@ -7,10 +7,12 @@ module.exports = (srcPath) => {
   const Logger = require(srcPath + 'Logger');
 
   return {
-    alias: ['ask'],
+    aliases: ['ask', 'greet'],
     usage: 'talk <npc> <message>',
-    command : (state) => (args, player) => {
-      if (!args.length) {
+    command : (state) => (args, player, arg0) => {
+      const isGreeting = arg0 === 'greet';
+
+      if (!isGreeting && !args.length) {
         return B.sayAt(player, 'Who are you trying to talk to?');
       }
 
@@ -31,8 +33,16 @@ module.exports = (srcPath) => {
         return B.sayAt(player, 'Who are you trying to talk to?');
       }
 
+      if (isGreeting && !message.length) {
+        message = 'Greetings.';
+      }
+
       if (!message.length) {
         return B.sayAt(player, 'What did you want to say?');
+      }
+
+      if (arg0 === 'ask' && !message.endsWith('?')) {
+        message += '?';
       }
 
       const npc = Parser.parseDot(npcSearch, player.room.npcs);
