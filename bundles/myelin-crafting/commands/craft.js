@@ -182,8 +182,13 @@ module.exports = (srcPath, bundlePath) => {
   }
 
   return {
+    aliases: ['create'],
     usage: 'craft <list/create> [category #] [item #]',
-    command: state => (args, player) => {
+    command: state => (args, player, arg0) => {
+      if (arg0 === 'create') {
+        args = 'create ' + args;
+      }
+
       if (!args.length) {
         return say(player, "Missing craft command. See 'help craft'");
       }

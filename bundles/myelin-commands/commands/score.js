@@ -85,8 +85,8 @@ module.exports = (srcPath) => {
       for (const [key, meta] of Object.entries(attributes)) {
         const {label, color} = meta;
         const stat = stats[key];
-        const difference = stat.max - stat.base;
-        let diffLabel = `[${difference >= 0 ? '+' + difference : difference}]`;
+        const difference = stat.max - stat.base || 0;
+        let diffLabel = `[${difference >= 0 ? '+' + String(difference) : difference}]`;
         const lengthDiff = longest - stat.max.length;
         if (lengthDiff > 0) {
           diffLabel = ' '.repeat(lengthDiff) + diffLabel;

@@ -35,9 +35,9 @@ module.exports = (srcPath, bundlePath) => {
     try {
       player.unequip(slot);
     } catch(e) {
-      Broadcast.sayAt(player, `<yellow>You cannot un-equip: </yellow>${ItemUtil.display(item)}<yellow>. Your inventory is full.</yellow>`);
+      Broadcast.sayAt(player, `<yellow>You cannot un-equip: </yellow>${ItemUtil.display(item)}<yellow>.</yellow>`);
       if (e instanceof InventoryFullError) {
-        Broadcast.sayAt(player, 'Your inventory is full.');
+        return Broadcast.sayAt(player, '<yellow><b>Your inventory is full.</b></yellow>');
       }
     }
     Broadcast.sayAt(player, `<green>You un-equip: </green>${ItemUtil.display(item)}<green>.</green>`);
