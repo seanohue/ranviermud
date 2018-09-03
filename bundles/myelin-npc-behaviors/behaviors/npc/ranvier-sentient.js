@@ -25,8 +25,10 @@ const apiai = require('apiai');
 const uuid = require('node-uuid');
 const sessionId = uuid.v4();
 const fs = require('fs');
+
 let clientKeys = null;
 let parseError = '';
+
 try {
   clientKeys = JSON.parse(fs.readFileSync(fs.realpathSync(__dirname + '/../../APIAIKEY.json')).toString('utf8').trim());
 } catch (e) {
@@ -148,6 +150,19 @@ module.exports = srcPath => {
         });
 
         request.end();
+      },
+
+      playerEnter: state => function (config, player) {
+        if (!player.getMeta('hints.sentient')) {
+          B.sayAt(player, `<cyan><b>HINT:</b> You can interact with sentient NPCs by using the <b>'talk', 'ask', or 'greet'</b> commands.</cyan>`);
+          B.sayAt(player);
+          B.sayAt(player, `<cyan><b>Examples:</b></cyan> `);
+          B.sayAt(player, '<cyan>- greet concierge</cyan>'); 
+          B.sayAt(player, '<cyan>- talk concierge i need your help</cyan>');
+          B.sayAt(player, '<cyan>- ask concierge what do you do</cyan>');
+          player.setMeta('hints', player.getMeta('hints') || {});
+          player.setMeta('hints.sentient', true);
+        }
       }
     }
   };
