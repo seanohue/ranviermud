@@ -74,7 +74,7 @@
   keywords: ["node", "key", "portal"]
   behaviors:
    sellable:
-    value: 2
+    value: 25
     currency: theans
 
 # Readables

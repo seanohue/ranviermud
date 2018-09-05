@@ -29,13 +29,12 @@ CHANGELOG:
 ** NPCs can join your party (if you have certain skills).
 ** Added new mobs, including a 'sentient' NPC in the intro area.
 ** Enhanced 'talk' command for talking to NPCs.
-
-(Patch 9/3)
-** 'help' now searches for command aliases correctly.
-** Add better messaging when trying to use passive skill.
-** Fixed 'quest log' command.
-** New 'score' layout.
+** 'help' command improvements and new helpfiles.
 ** 'train' command can take shorthand and an amount
    Example: 'train crit 3' or 'train wil 2'
+
+(Update 9/5)
+** Portals are now Nodes and portal keys are now Axons.
+** Nodes use a menu-based fast-travel system via the 'node' command.
 
 Thanks for playing!
