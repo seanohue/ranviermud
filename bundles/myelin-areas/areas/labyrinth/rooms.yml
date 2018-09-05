@@ -5,13 +5,13 @@
   npcs: &ref_2 ['spire.intro:vendorauto']
   level: 9
 - id: portal-chamber-1
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [1, 2, 0]
   npcs: &ref_8 ['spire.labyrinth:arbiter']
   items: &ref_9 ['spire.intro:portal']
   level: 12
-  behaviors: &ref_10 {portal: {keyId: 'spire.labyrinth:minotaurkey'}}
+  behaviors: &ref_10 {portal: {destinations: ['ruins:a-pool-of-murky-water-3']}}
 - id: a-cold-hall-2
   title: A Cold Hall
   description: 'A short hallway, cold enough to see one''s breath.'
@@ -81,14 +81,14 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [1, 14, 0]
 - id: portal-chamber-14
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [1, 15, 0]
   npcs: &ref_3 ['spire.labyrinth:arbiter']
   items: &ref_4 ['spire.intro:brokenportal']
   level: 12
 - id: portal-chamber-15
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [1, 16, 0]
   npcs: *ref_3
@@ -159,14 +159,14 @@
   npcs: *ref_2
   level: 9
 - id: portal-chamber-27
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [3, 11, 0]
   npcs: *ref_3
   items: *ref_4
   level: 12
 - id: portal-chamber-28
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [3, 12, 0]
   npcs: *ref_8
@@ -182,7 +182,7 @@
   items: ['spire.labyrinth:pilebones']
   behaviors: *ref_12
 - id: portal-chamber-30
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [3, 15, 0]
   npcs: *ref_8
@@ -230,7 +230,7 @@
   coordinates: [4, 15, 0]
   items: *ref_13
 - id: portal-chamber-38
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [4, 17, 0]
   npcs: *ref_3
@@ -242,7 +242,7 @@
   coordinates: [5, 1, 0]
   items: *ref_5
 - id: portal-chamber-40
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [5, 3, 0]
   npcs: *ref_8
@@ -267,7 +267,7 @@
   level: 7
   npcs: *ref_0
 - id: portal-chamber-44
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [5, 7, 0]
   npcs: *ref_3
@@ -287,7 +287,7 @@
   coordinates: [5, 9, 0]
   items: ['spire.labyrinth:pilebones']
 - id: portal-chamber-47
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [5, 11, 0]
   npcs: *ref_3
@@ -343,7 +343,7 @@
   npcs: *ref_1
   level: 9
 - id: portal-chamber-57
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [7, 3, 0]
   npcs: *ref_3
@@ -367,7 +367,7 @@
   npcs: *ref_1
   level: 9
 - id: portal-chamber-61
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [7, 7, 0]
   npcs: *ref_8
@@ -467,7 +467,7 @@
   npcs: *ref_1
   level: 9
 - id: portal-chamber-79
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [9, 8, 0]
   npcs: *ref_8
@@ -490,14 +490,14 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [9, 13, 0]
 - id: portal-chamber-83
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [9, 15, 0]
   npcs: *ref_3
   items: *ref_4
   level: 12
 - id: portal-chamber-84
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [9, 16, 0]
   npcs: *ref_3
@@ -520,7 +520,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [10, 11, 0]
 - id: portal-chamber-88
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [10, 13, 0]
   npcs: *ref_3
@@ -545,7 +545,7 @@
   npcs: *ref_16 
   level: 9
 - id: portal-chamber-92
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [11, 3, 0]
   npcs: *ref_3
@@ -579,7 +579,7 @@
   level: 7
   npcs: *ref_0
 - id: portal-chamber-98
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [11, 11, 0]
   npcs: *ref_3
@@ -610,7 +610,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [11, 15, 0]
 - id: portal-chamber-103
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [11, 17, 0]
   npcs: *ref_3
@@ -635,7 +635,7 @@
   npcs: *ref_16 
   level: 9
 - id: portal-chamber-107
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [12, 7, 0]
   npcs: *ref_3
@@ -654,7 +654,7 @@
   level: 7
   npcs: *ref_0
 - id: portal-chamber-110
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [13, 1, 0]
   npcs: *ref_3
@@ -758,7 +758,7 @@
   level: 7
   npcs: *ref_0
 - id: portal-chamber-128
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [15, 3, 0]
   npcs: *ref_3
@@ -853,7 +853,7 @@
   level: 7
   npcs: *ref_0
 - id: portal-chamber-145
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [16, 17, 0]
   npcs: *ref_3
@@ -895,7 +895,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [17, 11, 0]
 - id: portal-chamber-153
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [17, 12, 0]
   npcs: *ref_8
@@ -903,7 +903,7 @@
   level: 12
   behaviors: *ref_10
 - id: portal-chamber-154
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [17, 13, 0]
   npcs: *ref_3
@@ -927,7 +927,7 @@
   coordinates: [17, 17, 0]
   items: *ref_5
 - id: portal-chamber-158
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [18, 3, 0]
   npcs: *ref_8
@@ -971,7 +971,7 @@
   npcs: *ref_7
   level: 9
 - id: portal-chamber-165
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [19, 5, 0]
   npcs: *ref_8
@@ -1039,14 +1039,14 @@
   coordinates: [20, 3, 0]
   items: *ref_13
 - id: portal-chamber-177
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [20, 7, 0]
   npcs: *ref_3
   items: *ref_4
   level: 12
 - id: portal-chamber-178
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [20, 9, 0]
   npcs: *ref_3
@@ -1100,14 +1100,14 @@
   npcs: *ref_1
   level: 9
 - id: portal-chamber-188
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [21, 11, 0]
   npcs: *ref_3
   items: *ref_4
   level: 12
 - id: portal-chamber-189
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [21, 13, 0]
   npcs: *ref_3
@@ -1118,7 +1118,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [21, 14, 0]
 - id: portal-chamber-191
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [21, 15, 0]
   npcs: *ref_8
@@ -1163,7 +1163,7 @@
   npcs: *ref_1
   level: 9
 - id: portal-chamber-199
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [23, 1, 0]
   npcs: *ref_3
@@ -1190,14 +1190,14 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [23, 6, 0]
 - id: portal-chamber-204
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [23, 7, 0]
   npcs: *ref_3
   items: *ref_4
   level: 12
 - id: portal-chamber-205
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [23, 9, 0]
   npcs: *ref_3
@@ -1271,7 +1271,7 @@
   description: 'A short hallway, cold enough to see one''s breath.'
   coordinates: [25, 1, 0]
 - id: portal-chamber-219
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [25, 2, 0]
   npcs: *ref_3
@@ -1369,7 +1369,7 @@
   coordinates: [26, 15, 0]
   items: *ref_13
 - id: portal-chamber-237
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [26, 17, 0]
   npcs: *ref_3
@@ -1403,7 +1403,7 @@
   npcs: *ref_2
   level: 9
 - id: portal-chamber-243
-  title: Portal Chamber
+  title: Node Chamber
   description: A small room with metal vault doors here and there.
   coordinates: [27, 8, 0]
   npcs: *ref_3

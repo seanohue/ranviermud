@@ -306,8 +306,8 @@ class Combat {
       if (attacker.isNpc) {
         const {damageType} = attacker;
         const bonus = Combat.getAttrBonus(attacker, damageType);
-        min = (attacker.metadata.minDamage || 1) + bonus;
-        max = (attacker.metadata.maxDamage || 1) + bonus;
+        min = (attacker.metadata.minDamage || 1) + bonus || 1;
+        max = (attacker.metadata.maxDamage || 1) + bonus || 1;
       } else {
         min = min + 1;
         max = max + 1 + (Math.ceil(might / 4));

@@ -200,7 +200,7 @@ class Broadcast {
     if (width && message) {
       return Broadcast.center(width, message, color, Broadcast.boxH());
     }
-    return Broadcast.colorize('═', color);
+    return Broadcast.colorize('=', color);
    }
 
   static box(where, message = '', _width = 80, color) {

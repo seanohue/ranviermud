@@ -1,9 +1,10 @@
 ---
-- item: "spire.intro:portalkey"
+- item: "spire.intro:axon"
   recipe:
-    scrap_metal: 10
+    scrap_metal: 70
     gear: 2
     piston: 1
+    sparkdust: 2
 - item: 'spire.intro:shank'
   recipe:
     scrap_metal: 35

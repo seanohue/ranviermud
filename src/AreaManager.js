@@ -60,6 +60,7 @@ class AreaManager {
     for (const [ name, area ] of this.areas) {
       for (const [ roomId, room ] of area.rooms) {
         room.hydrate(state);
+        room.emit('spawn');
       }
     }
   }

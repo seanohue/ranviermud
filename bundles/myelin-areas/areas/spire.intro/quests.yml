@@ -79,7 +79,7 @@
       config:
         title: Find Or Create A Portal Key
         count: 1
-        item: 'spire.intro:portalkey'
+        item: 'spire.intro:axon'
         canCraft: true
   rewards:
     - type: ExperienceReward

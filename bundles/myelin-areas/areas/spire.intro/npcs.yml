@@ -33,7 +33,7 @@
           min: 1
           max: 1
       pools:
-        - spire.intro:portalkey: 5
+        - spire.intro:axon: 5
       currency:
         theans:
           min: 1
@@ -86,7 +86,7 @@
           min: 1
           max: 500
       pools:
-        - spire.intro:portalkey: 50
+        - spire.intro:axon: 50
         - spire.labyrinth:jumpsuit: 20
         # Later add behavior for it to drop some/all of its goods.
         - spire.intro:tea: 100
@@ -100,8 +100,8 @@
       freezing: 25
     vendor:
       items:
-        "spire.intro:portalkey":
-          cost: 100
+        "spire.intro:axon":
+          cost: 200
           currency: theans
         "spire.intro:knapsack":
           cost: 135
@@ -289,7 +289,7 @@
           min: 1
           max: 100
       pools:
-        - spire.intro:portalkey: 50
+        - spire.intro:axon: 50
       currency:
         theans:
           min: 1

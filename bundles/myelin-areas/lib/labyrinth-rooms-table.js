@@ -58,7 +58,7 @@ module.exports = {
 
   broken_portal_arbit: {
     weight: UNCOMMON,
-    title: 'Portal Chamber',
+    title: 'Node Chamber',
     description: 'A small room with metal vault doors here and there.',
     npcs: ['spire.labyrinth:arbiter'],
     items: ['spire.intro:brokenportal'],
@@ -87,7 +87,7 @@ module.exports = {
 
   working_portal_arbit: {
     weight: RARE - 1,
-    title: 'Portal Chamber',
+    title: 'Node Chamber',
     description: 'A small room with metal vault doors here and there.',
     npcs: ['spire.labyrinth:arbiter'],
     items: ['spire.intro:portal'],

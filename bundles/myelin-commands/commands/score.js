@@ -128,7 +128,7 @@ module.exports = (srcPath) => {
       say(B.center(width, `Damage: ${min + ' - ' + max}`)); 
       say(B.center(width, `Speed: ${speedLabel} sec.`));
 
-      say(B.colorize(B.box('bottom', p.name || '', width), 'bold'));
+      say(B.colorize(B.box('bottom', `[${p.name || ''}]`, width), 'bold'));
     }
   };
 };

@@ -154,6 +154,11 @@ class Area extends EventEmitter {
     this.npcs.delete(npc);
   }
 
+  getLevelRange() {
+    const {min = '?', max = '?'} = this.info.levelRange;
+    return `${min} to ${max}`;
+  }
+
   /**
    * This method is automatically called every N milliseconds where N is defined in the
    * `setInterval` call to `GameState.AreaManager.tickAll` in the `ranvier` executable. It, in turn,

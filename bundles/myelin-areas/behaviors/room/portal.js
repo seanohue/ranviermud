@@ -1,29 +1,76 @@
 'use strict';
 
-let PortalDestinations = new Map();
-const {generate, addToWorld} = require('../../lib/generator');
+/*
+  PortalID => PortalDestinations
+*/
+
+/*
+  Command ideation:
+  `node list` shows destinations && metadata
+  `node travel <#>` travels to that destination and consumes an Axon
+  `travel #` alias for node travel
+*/
+const PortalDestinations = new Map();
 
 module.exports = srcPath => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Logger = require(srcPath + 'Logger');
-  const Player = require(srcPath + 'Player');
-  const Random = require(srcPath + 'RandomUtil');
-
 
   return {
     listeners: {
+      spawn: state => function (config) {
+        console.log(config);
+        if (!config.destinations) {
+          return Logger.error(`No destinations registered for ${this.entityReference} Node.`);
+        }
+
+        const destinations = {};
+
+        let number = 1;
+        for (const ref of config.destinations) {
+          const room = state.RoomManager.getRoom(ref);
+          if (!room) {
+            Logger.error(`No room found at ${ref} for Node being registered as ${this.entityReference}.`);
+            continue;
+          }
+          
+          destinations[number] = room;
+          number++;
+        }
+
+        PortalDestinations.set(this.entityReference, destinations);
+        Logger.log(`Node at ${this.entityReference} registered ${number - 1} destinations.`);  
+      },
+
+      listDestinations: state => function(config, player) {
+        const destinations = PortalDestinations.get(this.entityReference);
+        if (!destinations || !Object.keys(destinations).length) {
+          Logger.warn(`Player tried using destinationless Node at ${this.entityReference}.`);
+          return Broadcast.sayAt(player, `<b>This Node appears to be broken.</b>`);
+        }
+
+        Broadcast.sayAt(player, `<b>Destinations:</b>`);
+        for (const [number, destination] of Object.entries(destinations)) {
+          Broadcast.sayAt(player, `${number}) <b><green>[${destination.area.title}]</b> ${destination.title}</green> -- levels ${destination.area.getLevelRange()}`);
+        }
+
+        Broadcast.sayAt(player);
+        Broadcast.sayAt(player, `Use <b>node travel</b> to travel to your destination.`);
+        
+      },
+
       playerEnter: state => function (_config, player, args) {
         if (!player.inventory || !player.inventory.size) return;
 
         const inv = Array.from(player.inventory.values());
-        if (inv.find(item => item.entityReference.includes('portalkey'))) {
-          Broadcast.sayAt(player, `<cyan>The portal in this room begins to <b>thrum</b> with light as you approach.</cyan>`);
-          if (!player._hadPortalKeyHint) {
-            Broadcast.sayAt(player, `<cyan><b>HINT:</b> Try <b>'use portal key'</b> to activate the portal.</cyan>`);
-            player._hadPortalKeyHint = true;
+        if (inv.find(item => item.entityReference.includes('axon'))) {
+          Broadcast.sayAt(player, `<cyan>The Node in this room begins to <b>thrum</b> with light as you approach.</cyan>`);
+          if (!player._hadAxonHint) {
+            Broadcast.sayAt(player, `<cyan><b>HINT:</b> Try <b>'node list'</b>.</cyan>`);
+            player._hadAxonHint = true;
           }
           if (this.players.size > 1) {
-            Broadcast.sayAtExcept(this, `<cyan>The portal in this room begins to <b>thrum</b> with light as ${player.name} approaches.`, player)
+            Broadcast.sayAtExcept(this, `<cyan>The Node in this room begins to <b>thrum</b> with light as ${player.name} approaches.`, player)
           }       
         };
       },
@@ -34,83 +81,47 @@ module.exports = srcPath => {
           if (!player.inventory || !player.inventory.size) continue;
 
           const inv = Array.from(player.inventory.values());
-          if (inv.find(item => item.entityReference.includes('portalkey'))) {
+          if (inv.find(item => item.entityReference.includes('axon'))) {
             Broadcast.sayAt(this, `<cyan>The portal in this room <b>pulses</b> with light.</cyan>`);
             break;
           };     
         }
       },
 
-      usePortal: state => function(_config, player, key) {
+      usePortal: state => function(config, player, key, number) {
         const self = this;
         try {
-          if (_config === true) _config = {};
-
-          const config = Object.assign({
-            keyId: 'spire.intro:portalkey',
-            flags: []
-          }, _config || {});
-
-          let goToArea = 'labyrinth';
-          if (config.keyId.includes('minotaur')) {
-            goToArea = 'ruins';
-          }
-
-          if (!key || key.entityReference !== config.keyId) {
-            return Broadcast.sayAt(player, '<yellow><b>This portal wants a different key...</b></yellow>');
-          }
-
           if (player.isInCombat()) {
-            return Broadcast.sayAt(player, '<yellow><b>You cannot use the portal while fighting.</b></yellow>');
+            return Broadcast.sayAt(player, '<yellow><b>You cannot use Nodes while fighting.</b></yellow>');
           }
 
-          Broadcast.sayAt(player, `<b>The portal emits a low hum...</b>`);
-          Broadcast.sayAtExcept(this, `<b>The portal emits a low hum as ${player.name} uses their key...</b>`, player);
+          const destinations = PortalDestinations.get(this.entityReference);
+          if (!destinations) {
+            Broadcast.sayAt(player, '<b>This Node goes nowhere.</b>');
+            return Logger.error('Player tried using Node with no destinations at ' + this.entityReference);
+          }
 
-          Broadcast.sayAt(player, `<b>There is a <yellow>flash</yellow> of light, and your surroundings vanish...</b>`);
+          const destinationRoom = destinations[number];
+
+          if (!destinationRoom) {
+            Broadcast.sayAt(player, '<b>That is not a valid destination.</b>');
+            return Logger.error(`Player tried using Node with wrong destination ${number} at ` + this.entityReference);
+          }
+
+          Broadcast.sayAt(player, `<b>The Node emits a low hum...</b>`);
+          Broadcast.sayAtExcept(this, `<b>The Node emits a low hum as ${player.name} places an Axon into it.</b>`, player);
+
+          Broadcast.sayAt(player, `<b>You place an Axon into the Node and and your surroundings vanish...</b>`);
           Broadcast.sayAtExcept(this, `<b>${player.name} disappears in a <yellow>flash</yellow> of light...</b>`, player);
 
           // Have it remove the player from the room, broadcasting such to them and anyone else there.
           //TODO: Do this to entire party... Have them in a limbo of sorts? Have them vote? Idk.
           player._isUsingPortal = true;
-          // PortalDestinations = new Map();
-          // for (const [areaName, area] of state.AreaManager.areas) {
-          //   const nope = ['intro', 'limbo', 'map'];
-          //   if (nope.find(bad => area.name.includes(bad))) continue;
-          //   PortalDestinations.set(areaName, area);
-          // }
 
-          // if (!PortalDestinations.size) {
-          //   return generateDestination();
-          // }
-          
-          const destinationRoom = Array.from(state.AreaManager.getArea(goToArea).rooms.values())[0];
-          return movePlayerToPortalDestination(destinationRoom.entityReference);
+          movePlayerToPortalDestination(destinationRoom);
 
-          function generateDestination() {
+          function movePlayerToPortalDestination(targetRoom) {
             self.removePlayer(player);
-
-            return generate(srcPath, state, player.level)
-              .then(({generated, name}) => {
-                const {firstRoom} = addToWorld(srcPath, state, name, generated);
-
-                movePlayerToPortalDestination(firstRoom);
-              })
-              .catch(err => {
-                console.error('Error', err);
-                player._isUsingPortal = false;
-                Broadcast.sayAt(player, 'An error has occurred. Please contact an admin.');
-              });
-          }
-
-          function movePlayerToPortalDestination(firstRoom) {
-            self.removePlayer(player);
-            const targetRoom = state.RoomManager.getRoom(firstRoom);
-            if (!targetRoom) {
-              return Broadcast.sayAt(player, 'Teleportation failed. No such room entity reference exists. Contact an admin.');
-            } else if (targetRoom === player.room) {
-              return Broadcast.sayAt(player, 'Teleportation failed. Teleported to same room. Contact an admin.');
-            }
 
             player.followers.forEach(follower => {
               // TODO: Change to send followers as well.
@@ -125,7 +136,7 @@ module.exports = srcPath => {
             }
       
             player.moveTo(targetRoom, () => {
-              Broadcast.sayAt(player, '<b><green>You find yourself in a strange new world...</green></b>\r\n');
+              Broadcast.sayAt(player, '<b><green>You find yourself somewhere new.</green></b>\r\n');
               Broadcast.sayAtExcept(targetRoom, `<b>${player.name} appears in a <yellow>flash</yellow> of light.</b>`, player);
               state.CommandManager.get('look').execute('', player);
               player._isUsingPortal = false;
@@ -133,8 +144,8 @@ module.exports = srcPath => {
             });
           }
         } catch (e) {
-          Broadcast.sayAt(player, 'Error: ' + e);
-          Broadcast.sayAt(player, 'Error: ' + e.stack);
+          Logger.error(`Failure when using Node at ${this.entityReference}:`);
+          Logger.error(e);
           
           Broadcast.sayAt(player, 'Please contact an Admin!');
           player._isUsingPortal = false;
