@@ -23,7 +23,7 @@ module.exports = (srcPath, bundlePath) => {
         Broadcast.sayAt(player, ItemUtil.display(item));
       }
 
-      state.CommandManager.get('resources').execute('', p);
+      state.CommandManager.get('resources').execute('', player);
     }
   };
 };
