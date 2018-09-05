@@ -12,11 +12,11 @@
    <b><cyan>Hint: If you are using a telnet client, type 'config set minimap on' to use the minimap.</cyan></b>
 
   completionMessage: |-
-    An working portal... if you only had a key.
+    A Node... if you only had a key.
   goals:
     - type: LocationGoal
       config:
-        title: 'Find a functional portal'
+        title: 'Find a functional Node'
         rooms: ['spire.intro:airlock-chamber-25']
   rewards:
     - type: ExperienceReward
@@ -42,7 +42,7 @@
 
   autoComplete: true
   completionMessage: |-
-    You've killed quite a few of the hostile drones, enough to make the area safer for now...
+    You've killed quite a few of the hostile Buzzard drones, enough to make the area safer for now...
   goals:
     - type: KillGoal
       config:
@@ -58,26 +58,26 @@
 
 - id: findakey
   level: 1
-  title: 'Find A Key'
-  desc: 'You need to find a key to activate the portal...'
+  title: 'Activate the Node'
+  desc: 'You need to find a way to activate the Node...'
   description: |-
-    You have found a way out, but to use it, you will need a key.
+    You have found a way out, but to use it, you will need something called an Axon.
     Perhaps an automaton will have one.
     
     Perhaps you could make your own.
     <b><cyan>
     Hint: type 'craft list' to see the crafting options.
     Hint: try 'gather [item]' to try gathering crafting resources.
-    Hint: try 'loot [name]' to retrieve all items from an NPC's corpse.
+    Hint: try 'loot [name]' to retrieve all items from an NPC's remains.
     Hint: try 'list' when at a vending NPC to see what they are selling.
     </cyan></b>
   autoComplete: true
   completionMessage: |-
-    You've found a key! Now to use it on the portal.
+    You've found an Axon! Now to return to the Node.
   goals: 
     - type: FetchGoal
       config:
-        title: Find Or Create A Portal Key
+        title: Find Or Create An Axon
         count: 1
         item: 'spire.intro:axon'
         canCraft: true
