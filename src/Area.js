@@ -159,6 +159,15 @@ class Area extends EventEmitter {
     return `${min} to ${max}`;
   }
 
+  getPvpTag() {
+    const {pvp = 'optional'} = this.info;
+    return {
+      optional: `<yellow>[PVP Optional]</yellow>`,
+      safe: `<green>[Safe]</green>`,
+      enforced: `<red>[PVP Enforced]</yellow>`
+    }[pvp] || `<b>[????]</b>`;
+  }
+
   /**
    * This method is automatically called every N milliseconds where N is defined in the
    * `setInterval` call to `GameState.AreaManager.tickAll` in the `ranvier` executable. It, in turn,

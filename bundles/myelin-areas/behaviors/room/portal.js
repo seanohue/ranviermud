@@ -51,7 +51,7 @@ module.exports = srcPath => {
 
         Broadcast.sayAt(player, `<b>Destinations:</b>`);
         for (const [number, destination] of Object.entries(destinations)) {
-          Broadcast.sayAt(player, `${number}) <b><green>[${destination.area.title}]</b> ${destination.title}</green> -- levels ${destination.area.getLevelRange()}`);
+          Broadcast.sayAt(player, `${number}) <b><green>[${destination.area.title}]</b> ${destination.title}</green> -- levels ${destination.area.getLevelRange()} ${destination.area.getPvpTag()}`);
         }
 
         Broadcast.sayAt(player);

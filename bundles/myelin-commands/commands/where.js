@@ -10,8 +10,11 @@ module.exports = (srcPath) => {
       const room     = player.room;
       const area     = (room && room.area && room.area.title) || 'The Void';
       const roomName = (room && room.title) || 'Unknown';
+      const levelRange = room.area.getLevelRange();
+      const pvpTag     = room.area.getPvpTag();
       
       Broadcast.sayAt(player, `${area} - ${roomName}`);
+      Broadcast.sayAt(player, `Levels ${levelRange} ${pvpTag}`);
       if (player.role > PlayerRoles.PLAYER) {
         Broadcast.sayAt(player, `Ref: ${room.entityReference}`);
       }
