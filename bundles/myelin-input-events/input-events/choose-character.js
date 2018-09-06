@@ -64,6 +64,12 @@ module.exports = (srcPath) => {
                 .then(() => {
                   const player = state.PlayerManager.loadPlayer(state, account, char.username);
                   player.socket = socket;
+                  player.inventory.items = player.inventory.items.filter(removeOldItems);
+                
+                  function removeOldItems([uuid, item]) {
+                    const toRemove = ['spire.intro:portalkey', 'spire.labyrinth:minotaurkey'];
+                    return !toRemove.includes(item.entityReference);
+                  }
                   socket.emit('done', socket, { player });
                 })
                 .catch(err => {
