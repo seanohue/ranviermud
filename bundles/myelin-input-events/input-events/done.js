@@ -11,11 +11,15 @@ module.exports = (srcPath) => {
   return {
     event: state => (socket, args) => {
       let player = args.player;
-      player.inventory.items = player.inventory.items ? player.inventory.items.filter(removeOldItems) : player.inventory.items;
-      console.log(player.inventory);
-      function removeOldItems([uuid, item]) {
+      
+      for (const [uuid, item] of player.inventory) {
+        if (shouldRemove(item)) {
+          player.inventory.removeItem({uuid});
+        }
+      }
+      function shouldRemove(item) {
         const toRemove = ['spire.intro:portalkey', 'spire.labyrinth:minotaurkey'];
-        return !toRemove.includes(item.entityReference);
+        return toRemove.includes(item.entityReference);
       }
       player.hydrate(state);
 
