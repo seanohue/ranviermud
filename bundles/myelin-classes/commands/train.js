@@ -41,7 +41,7 @@ module.exports = srcPath => {
 
       if (attr) {
         const increment = pools.includes(attrKey) ? (15 * amount) : amount;
-        player.setMeta('attributePoints', attributePoints - 1);
+        player.setMeta('attributePoints', attributePoints - amount);
         attr.setBase(attr.base + increment);
         say(`<b>Training has boosted ${attr.name} to ${attr.base}!`);
         say(`<b>You have ${player.getMeta('attributePoints')} attribute points remaining.</b>`);
