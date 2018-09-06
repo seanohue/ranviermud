@@ -30,7 +30,7 @@ module.exports = (srcPath) => {
         const foundAliased = findAliasCommand(state, args);
         console.log({foundAliased});
         if (foundAliased) {
-          return state.CommandManager.get('help').execute(foundAliased, player);
+          return state.CommandManager.get('help').execute(player);
         }
         Logger.error(`MISSING-HELP: [${args}]`);
         return B.sayAt(player, `Sorry, I couldn't find an entry for that topic. Try 'help search ${args}'`);
@@ -51,7 +51,7 @@ module.exports = (srcPath) => {
 
   function findAliasCommand(state, args) {
     const command = state.CommandManager.get(args);
-    if (command) {
+    if (command && command.name !== args) {
       return command.name;
     }
     return '';
