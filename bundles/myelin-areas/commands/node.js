@@ -16,7 +16,7 @@ module.exports = (srcPath) => {
         return say('<b>There is no Node here.</b>');
       }
 
-      if (arg0 === 'travel') {
+      if (arg0 === 'travel' || (arg0 === 'dial' && !args.includes('list'))) {
         args = 'travel ' + args;
       }
 

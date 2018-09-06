@@ -39,7 +39,7 @@
           min: 1
           max: 15
     ranvier-wander:
-      interval: 30
+      interval: 57
       verb: 'scuttle'
     # TODO: add breeding behavior where if there are more than one
     # of an NPC in a room, there is a small chance they produce a clone?
@@ -130,7 +130,7 @@
       enterMessage: "BEEP BOOP, MAKE A PURCHASE."
       leaveMessage: "BOOP WHIRR, COME BACK SOON."
     ranvier-wander:
-      interval: 120
+      interval: 121
       verb: 'wheel'
   attributes:
     health: 420
@@ -178,7 +178,7 @@
           max: 30
     ranvier-wander:
       verb: 'buzze' 
-      interval: 30
+      interval: 41
   attributes:
     health: 65
     energy: 100
@@ -221,7 +221,7 @@
           min: 3
           max: 35
     ranvier-wander: 
-      interval: 20
+      interval: 23
       verb: 'buzze'
       restrictTo: 
         - 'spire.intro:tube-chamber-22'

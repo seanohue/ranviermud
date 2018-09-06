@@ -91,6 +91,7 @@ module.exports = srcPath => {
       usePortal: state => function(config, player, key, number) {
         const self = this;
         try {
+          Logger.log(`Player used ${this.entityReference} to travel to ${number}.`);
           if (player.isInCombat()) {
             return Broadcast.sayAt(player, '<yellow><b>You cannot use Nodes while fighting.</b></yellow>');
           }
