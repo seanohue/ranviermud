@@ -61,7 +61,7 @@
 - id: portal
   name: "A Node"
   roomDesc: "A Node"
-  description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center, however, this cylinder has been snapped in half. Scorch marks and jagged spurs scar the metal cylinder where it was damaged."
+  description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center. On the top of the contraption is an enormous dial with numbers on it."
   keywords: ["portal", "port", "node"]
   metadata:    
     noPickup: true
@@ -341,6 +341,7 @@
     speed: 5.5
     stats:
       critical: 1
+      quickness: 1
   behaviors:
     sellable:
       value: 4
@@ -464,6 +465,27 @@
       piercing: 5
       electrical: 5
 
+- id: highboots
+  name: "High Leather Boots"
+  type: ARMOR
+  roomDesc: "High Leather Boots"
+  slot: "feet"
+  keywords: ["high", "leather", "boots"]
+  description: "A pair of boots made from thick leather. These are a bit stiff and reach almost to the knee."
+  level: 4
+  quality: common
+  metadata:
+    stats:
+      armor: 4
+      quickness: -2
+  behaviors:
+    sellable:
+      value: 18
+      currency: theans
+    resistance:
+      piercing: 6
+      electrical: 9
+
 
 - id: blackjack
   name: "Worn Leather Blackjack"
@@ -519,6 +541,7 @@
   metadata:
     stats:
       willpower: 5
+      quickness: -1
       quality: rare
     specialEffects:
       - "When worn: Shields the wearer from psionic effects."

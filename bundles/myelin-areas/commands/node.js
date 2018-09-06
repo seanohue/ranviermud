@@ -6,7 +6,7 @@ module.exports = (srcPath) => {
   const { sayAt, center, line } = Broadcast;
   return {
     usage: 'node list | node travel [destination]',
-    aliases: ['travel'],
+    aliases: ['travel', 'dial'],
 
     command : state => (args, player, arg0) => {
       console.log ({args, arg0});

@@ -108,8 +108,8 @@ module.exports = srcPath => {
             return Logger.error(`Player tried using Node with wrong destination ${number} at ` + this.entityReference);
           }
 
-          Broadcast.sayAt(player, `<b>The Node emits a low hum...</b>`);
-          Broadcast.sayAtExcept(this, `<b>The Node emits a low hum as ${player.name} places an Axon into it.</b>`, player);
+          Broadcast.sayAt(player, `<b>You turn the dial to ${number}. The Node emits a low hum...</b>`);
+          Broadcast.sayAtExcept(this, `<b>The Node emits a low hum as ${player.name} turns the dial and places an Axon into it.</b>`, player);
 
           Broadcast.sayAt(player, `<b>You place an Axon into the Node and and your surroundings vanish...</b>`);
           Broadcast.sayAtExcept(this, `<b>${player.name} disappears in a <yellow>flash</yellow> of light...</b>`, player);
