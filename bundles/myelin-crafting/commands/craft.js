@@ -4,6 +4,8 @@ const sprintf = require('sprintf-js').sprintf;
 
 module.exports = (srcPath, bundlePath) => {
   const B = require(srcPath + 'Broadcast');
+  const Logger = require(srcPath + 'Logger');
+
   const say = B.sayAt;
   const CommandManager = require(srcPath + 'CommandManager');
   const ItemType = require(srcPath + 'ItemType');
@@ -97,7 +99,11 @@ module.exports = (srcPath, bundlePath) => {
 
       const item = category.items[itemNumber];
       // check to see if player has resources available
-
+      
+      if (!item) {
+        Logger.error(`Trying to craft ${itemNumber} in ${category.items} via ${args}`);
+      }
+      
       const recipeEntries = Object.entries(item.recipe);
 
       for (const [resource, recipeRequirement] of recipeEntries) {
