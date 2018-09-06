@@ -28,6 +28,9 @@
 - item: 'spire.intro:boots'
   recipe:
     leather: 45
+- item: 'spire.intro:highboots'
+  recipe:
+    leather: 65
 - item: 'spire.intro:leatherpouch'
   recipe:
     leather: 35
