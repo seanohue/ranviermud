@@ -11,6 +11,12 @@ module.exports = (srcPath) => {
   return {
     event: state => (socket, args) => {
       let player = args.player;
+      player.inventory.items = player.inventory.items ? player.inventory.items.filter(removeOldItems) : player.inventory.items;
+      console.log(player.inventory);
+      function removeOldItems([uuid, item]) {
+        const toRemove = ['spire.intro:portalkey', 'spire.labyrinth:minotaurkey'];
+        return !toRemove.includes(item.entityReference);
+      }
       player.hydrate(state);
 
       // Allow the player class to modify the player (adding attributes, changing default prompt, etc)
