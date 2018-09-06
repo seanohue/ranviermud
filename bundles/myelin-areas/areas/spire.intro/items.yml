@@ -418,7 +418,8 @@
   quality: common
   metadata:
     stats:
-      armor: 9
+      armor: 5
+      quickness: -1
   behaviors:
     sellable:
       value: 9
