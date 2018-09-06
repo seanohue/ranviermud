@@ -167,7 +167,7 @@
       piercing: 40
     lootable: 
       pools:
-        - spire.labyrinth:axon: 10
+        - spire.intro:axon: 10
         - spire.labyrinth:boneclub: 50
         - spire.labyrinth:bonehelm: 50
       resources:
