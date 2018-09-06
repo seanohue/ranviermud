@@ -234,6 +234,12 @@
       pools:
         - spire.labyrinth:crowbar: 95
         - spire.labyrinth:crackedlifesupport: 25
+        - spire.intro:boots: 25
+        - spire.intro:highboots: 2
+        - spire.intro:axon: 2
+        - spire.intro:loincloth: 10
+        - spire.intro:robe: 10
+        - spire.intro:jerkin: 10
       currency:
         theans:
           min: 1
