@@ -36,5 +36,6 @@ CHANGELOG:
 (Update 9/5)
 ** Portals are now Nodes and portal keys are now Axons.
 ** Nodes use a menu-based fast-travel system via the 'node' command.
+** Fixed issue with old characters being unable to log in.
 
 Thanks for playing!
