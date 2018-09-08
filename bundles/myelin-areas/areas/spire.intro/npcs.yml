@@ -129,6 +129,15 @@
           currency: theans
       enterMessage: "BEEP BOOP, MAKE A PURCHASE."
       leaveMessage: "BOOP WHIRR, COME BACK SOON."
+      failedSell: "BLIP BLIP, INVALID ITEM NAME."
+      failedBuy: "ITEM NOT VALID, WHIRR BLOOP."
+      itemNotFound: "WHIRR CLICK, ITEM NOT FOUND."
+      cannotAfford: "BLIP, INSUFFICIENT FUNDS, WHIRR."
+      inventoryFull: "BLOOP, PLEASE DISPOSE OF EXCESS INVENTORY, BLOMP."
+      
+      failedAppraise: "BLOP BLOOP, INVALID ITEM NAME."
+      onAppraise: '%ITEM% IS WORTH %VALUE%.'
+
     ranvier-wander:
       interval: 121
       verb: 'wheel'

@@ -23,7 +23,7 @@ module.exports = (srcPath, bundlePath) => {
       if (args) {
         const item = Parser.parseDot(args, items);
         if (!item) {
-          return tell("I don't carry that item and no, I won't check in back.");
+          return tell(vendorConfig.itemNotFound || "I don't carry that item and no, I won't check in back.");
         }
 
         item.hydrate(state);
@@ -92,14 +92,14 @@ module.exports = (srcPath, bundlePath) => {
       const vendorConfig = vendor.getBehavior('vendor');
       const tell = genTell(state, vendor, player);
       if (!args || !args.length) {
-        return tell("Well, what do you want to buy?");
+        return tell(vendorConfig.failedBuy || "Well, what do you want to buy?");
       }
 
       const items = getVendorItems(state, vendorConfig.items);
       const item = Parser.parseDot(args, items);
 
       if (!item) {
-        return tell("I don't carry that item and no, I won't check in back.");
+        return tell(vendorConfig.itemNotFound || "I don't carry that item and no, I won't check in back.");
       }
 
       const vendorItem = vendorConfig.items[item.entityReference];
@@ -107,11 +107,12 @@ module.exports = (srcPath, bundlePath) => {
       const currencyKey = 'currencies.' + vendorItem.currency;
       const playerCurrency = player.getMeta(currencyKey);
       if (!playerCurrency || playerCurrency < vendorItem.cost) {
-        return tell(`You can't afford that, it costs ${vendorItem.cost} ${friendlyCurrencyName(vendorItem.currency)}.`);
+
+        return tell(vendorConfig.cannotAfford ? vendorConfig.cannotAfford.replace('%COST%', `${vendorItem.cost} ${friendlyCurrencyName(vendorItem.currency)}`) : `You can't afford that, it costs ${vendorItem.cost} ${friendlyCurrencyName(vendorItem.currency)}.`);
       }
 
       if (player.isInventoryFull()) {
-        return tell("I don't think you can carry any more.");
+        return tell(vendorConfig.inventoryFull || "I don't think you can carry any more.");
       }
 
       player.setMeta(currencyKey, playerCurrency - vendorItem.cost);
@@ -128,9 +129,9 @@ module.exports = (srcPath, bundlePath) => {
     command: state => (vendor, args, player) => {
       const tell = genTell(state, vendor, player);
       const [ itemArg, confirm ] = args.split(' ');
-
+      const vendorConfig = vendor.getBehavior('vendor');
       if (!args || !args.length) {
-        tell("What did you want to sell?");
+        tell(vendorConfig.failedSell || "What did you want to sell?");
       }
 
       const item = Parser.parseDot(itemArg, player.inventory);
@@ -164,9 +165,10 @@ module.exports = (srcPath, bundlePath) => {
     aliases: [ 'appraise', 'offer' ],
     command: state => (vendor, args, player) => {
       const tell = genTell(state, vendor, player);
+      const vendorConfig = vendor.getBehavior('vendor');
 
       if (!args || !args.length) {
-        return tell("What did you want me to appraise?");
+        return tell(vendorConfig.failedAppraise || "What did you want me to appraise?");
       }
 
       const [ itemArg, confirm ] = args.split(' ');
@@ -182,12 +184,17 @@ module.exports = (srcPath, bundlePath) => {
         return say(player, "You can't sell that item.");
       }
 
-      tell(`I could give you <b><white>${sellable.value} ${friendlyCurrencyName(sellable.currency)}</white></b> for ${ItemUtil.display(targetItem)}.</green>`);
+      const value = `${sellable.value} ${friendlyCurrencyName(sellable.currency)}`;
+      const itemName = ItemUtil.display(targetItem);
+      const appraiseMessage = vendorConfig.onAppraise ? 
+        vendorConfig.onAppraise.replace('%VALUE%', value).replace('%ITEM%', itemName) :
+        `I could give you <b><white>${value}</white></b> for ${itemName}.</green>`;
+      tell(appraiseMessage);
     }
   });
 
   return {
-    aliases: [ 'vendor', 'list', 'buy', 'sell', 'value', 'appraise', 'offer', 'store' ],
+    aliases: [ 'vendor', 'list', 'buy', 'sell', 'value', 'offer', 'store' ],
     usage: 'list [search], buy <item>, sell <item>, appraise <item>',
     command: state => (args, player, arg0) => {
       // if list/buy aliases were used then prepend that to the args

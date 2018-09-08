@@ -165,6 +165,12 @@ exports.renderItem = function (state, item, player) {
       buf += B.wrap(`${usable.charges} Charges`, 80) + '\r\n';
     }
   }
+
+  const sellable = item.getBehavior('sellable');
+  if (sellable) {
+    buf += `Worth ${sellable.value} ${sellable.currency}.` + '\r\n';
+  }
+  
   // colorize border according to item quality
   buf = buf.replace(/\|/g, qualityColorize(item, '|'));
   return buf;
