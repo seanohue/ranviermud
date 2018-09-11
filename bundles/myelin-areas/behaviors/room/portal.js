@@ -105,7 +105,7 @@ module.exports = srcPath => {
           const destinationRoom = destinations[number];
 
           if (!destinationRoom) {
-            Broadcast.sayAt(player, '<b>That is not a valid destination.</b>');
+            Broadcast.sayAt(player, `<b>That is not a valid destination.</b> Try 'node list' then 'dial <#>'.`);
             return Logger.error(`Player tried using Node with wrong destination ${number} at ` + this.entityReference);
           }
 
