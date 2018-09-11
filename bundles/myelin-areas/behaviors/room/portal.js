@@ -82,7 +82,7 @@ module.exports = srcPath => {
 
           const inv = Array.from(player.inventory.values());
           if (inv.find(item => item.entityReference.includes('axon'))) {
-            Broadcast.sayAt(this, `<cyan>The portal in this room <b>pulses</b> with light.</cyan>`);
+            Broadcast.sayAt(this, `<cyan>The Node in this room <b>pulses</b> with light.</cyan>`);
             break;
           };     
         }
