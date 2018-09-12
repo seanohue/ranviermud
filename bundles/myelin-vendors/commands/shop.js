@@ -194,7 +194,7 @@ module.exports = (srcPath, bundlePath) => {
   });
 
   return {
-    aliases: [ 'vendor', 'list', 'buy', 'sell', 'value', 'offer', 'store' ],
+    aliases: [ 'vendor', 'list', 'buy', 'sell', 'value', 'offer', 'store', 'appraise' ],
     usage: 'list [search], buy <item>, sell <item>, appraise <item>',
     command: state => (args, player, arg0) => {
       // if list/buy aliases were used then prepend that to the args
