@@ -38,4 +38,8 @@ CHANGELOG:
 ** Nodes use a menu-based fast-travel system via the 'node' command.
 ** Fixed issue with old characters being unable to log in.
 
+(Update 9/12)
+** Tweaked skill costs.
+** "Skills" command now only shows skills you're eligible for...
+
 Thanks for playing!
