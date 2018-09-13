@@ -20,18 +20,19 @@ module.exports = srcPath => {
         // Defensive
         block: {
           level: 4,
-          might: 15,
-          willpower: 10,
+          might: 10,
+          willpower: 8,
         },
         dodge: {
           level: 4,
-          quickness: 15,
-          intellect: 10
+          quickness: 10,
+          intellect: 8
         },
         riposte: {
+          cost: 2,
           level: 8,
-          quickness: 15,
-          intellect: 12,
+          quickness: 12,
+          intellect: 10,
           might: 12,
           skills: ['block', 'dodge']
         },
@@ -39,22 +40,22 @@ module.exports = srcPath => {
         // Offensive
         lunge: {
           level: 1,
-          quickness: 15,
+          quickness: 12,
         },
         bash: {
           level: 1,
-          might: 15
+          might: 12
         },
         nervestrike: {
-          level: 3,
+          level: 4,
           quickness: 15,
           might: 8,
-          willpower: 9
+          willpower: 8
         },
         rend: {
-          level: 3,
-          quickness: 13,
-          might: 13
+          level: 4,
+          quickness: 12,
+          might: 12
         },
 
         // Phys. Regen
@@ -77,10 +78,11 @@ module.exports = srcPath => {
 
         // Armor
         leatherskin: {
-          level: 3,
+          level: 4,
           willpower: 16
         },
         ironskin: {
+          cost: 2,
           level: 8,
           willpower: 16,
           might: 10,
@@ -102,11 +104,11 @@ module.exports = srcPath => {
 
         // Active buffs
         empower: {
-          level: 5,
+          level: 4,
           willpower: 18
         },
         enlighten: {
-          level: 5,
+          level: 4,
           intellect: 18
         },
 
@@ -117,7 +119,7 @@ module.exports = srcPath => {
           intellect: 10
         },
         flash: {
-          level: 2,
+          level: 4,
           intellect: 16
         },
         weaken: {
@@ -126,7 +128,7 @@ module.exports = srcPath => {
           willpower: 10
         },
         expose: {
-          level: 6,
+          level: 4,
           intellect: 12,
           quickness: 10,
         },
@@ -147,6 +149,7 @@ module.exports = srcPath => {
           skills: ['combust']
         },
         fireball: {
+          cost: 2,
           level: 8,
           intellect: 18,
           willpower: 10,
@@ -162,6 +165,7 @@ module.exports = srcPath => {
           cost: 1
         },
         bolt: {
+          cost: 2,
           level: 6,
           intellect: 16,
           willpower: 10,
@@ -179,6 +183,7 @@ module.exports = srcPath => {
 
         // Passive buff
         tactics: {
+          cost: 2,
           level: 5,
           intellect: 13,
           quickness: 10
