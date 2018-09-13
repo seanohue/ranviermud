@@ -55,7 +55,7 @@ module.exports = (srcPath) => {
       for (const [key, meta] of Object.entries(pools)) {
         const {label, color} = meta;
         const stat = stats[key];
-        const percent  = (Math.floor(stat.current / stat.max) * 100) || 0;
+        const percent  = (Math.floor(stat.current / stat.max * 100)) || 0;
         const progress = stat.max === 0 ? `[      ]` : B.progress(8, percent, color, 'o', '', '[]');
         const statLine = `${label}: ${progress} ${parseNumericStat(stat.current)}/${parseNumericStat(stat.max)}`;
         say(statLine);
