@@ -9,7 +9,7 @@
     skilled:
       skills: ['combust']
     combat:
-      wimpy: 50
+      wimpy: 20
     resistance:
       fire: 75
       electrical: -75
@@ -62,7 +62,7 @@
 - id: vendorauto
   keywords: ['vendbot', 'bot', 'vendor', 'automaton']
   name: Vendbot
-  level: 6
+  level: 12
   description: "This automaton is a hulking block with a glass front. It has two treads that it uses to get around, one on each side. It is filled with various goods. A funnel is jutting from one side of the machine, presumably for payment. A small tube juts from the lower front center of the automaton, for dispensing goods."
   behaviors:
     combat: true
@@ -134,7 +134,6 @@
       itemNotFound: "WHIRR CLICK, ITEM NOT FOUND."
       cannotAfford: "BLIP, INSUFFICIENT FUNDS, WHIRR."
       inventoryFull: "BLOOP, PLEASE DISPOSE OF EXCESS INVENTORY, BLOMP."
-      
       failedAppraise: "BLOP BLOOP, INVALID ITEM NAME."
       onAppraise: '%ITEM% IS WORTH %VALUE%.'
 
