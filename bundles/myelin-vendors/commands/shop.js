@@ -13,6 +13,7 @@ module.exports = (srcPath, bundlePath) => {
 
   const subcommands = new CommandManager();
   subcommands.add({
+    aliases: ['inventory', 'browse'],
     name: 'list',
     command: state => (vendor, args, player) => {
       const vendorConfig = vendor.getBehavior('vendor');
@@ -194,7 +195,7 @@ module.exports = (srcPath, bundlePath) => {
   });
 
   return {
-    aliases: [ 'vendor', 'list', 'buy', 'sell', 'value', 'offer', 'store', 'appraise' ],
+    aliases: [ 'vendor', 'list', 'buy', 'sell', 'value', 'offer', 'store', 'appraise', 'browse' ],
     usage: 'list [search], buy <item>, sell <item>, appraise <item>',
     command: state => (args, player, arg0) => {
       // if list/buy aliases were used then prepend that to the args
