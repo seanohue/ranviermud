@@ -65,8 +65,8 @@ class WebsocketStream extends TransportStream
     }
 
     this.socket.send(JSON.stringify({
-      type: 'mask',
-      data
+      type: 'ui',
+      data: {mask: true}
     }));     
    }
 }
