@@ -296,8 +296,25 @@ module.exports = (srcPath) => {
           behaviors: {
             decay: {
               // To prevent killing yourself to harvest own items.
-              duration: this.level < 9 ? 30 : 600
-            }
+              duration: this.level < 5 ? 30 : 60 * this.level
+            },
+            resource: {
+              depletedMessage: "has been reduced to useless rubble.",
+              materials: {
+                leather: {
+                  min: 1,
+                  max: 2
+                },
+                bone: {
+                  min: 1,
+                  max: this.getMaxAttribute('might') + 2
+                },
+                aetherplasm: {
+                  min: 1,
+                  max: this.level + 1
+                },
+              },
+            },
           },
         });
         corpse.hydrate(state);
@@ -342,6 +359,7 @@ module.exports = (srcPath) => {
       deathblow: state => function (target, skipParty) {
         const xp = LevelUtil.weightedMobExp(this.level, target.level) + (target._xp || 0); // _xp is bonus from NPCs killing players or other NPCs.
 
+        if (!target.isNpc) xp *= 2;
         this.setMeta('kills',
           (this.getMeta('kills') || 0) + 1
         );

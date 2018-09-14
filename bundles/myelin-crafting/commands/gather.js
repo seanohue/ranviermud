@@ -42,6 +42,9 @@ module.exports = (srcPath, bundlePath) => {
         }
       }
 
+      if (resource.keepItem) {
+        return node.behaviors.delete('resources');
+      } 
       // destroy node, will be respawned
       state.ItemManager.remove(node);
       B.sayAt(player, `${ItemUtil.display(node)} ${resource.depletedMessage}`);
