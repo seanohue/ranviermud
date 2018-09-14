@@ -57,7 +57,7 @@ class WebsocketStream extends TransportStream
       group,
       data
     }));
-  },
+  }
     
    executeToggleEcho() {
     if (!this.writable) {
