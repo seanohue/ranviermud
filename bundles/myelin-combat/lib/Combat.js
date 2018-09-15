@@ -28,9 +28,14 @@ class Combat {
       return false;
     }
 
-
-
     if (!attacker.isInCombat()) {
+      if (attacker.party) {
+        const partyMemberHasOpponent = [...atttacker.party].find(partyMember => partyMember.room === attacker.room && partyMember.isInCombat());
+        if (partyMemberHasOpponent) {
+          attacker.initiateCombat(RandomUtil.fromArray([...partyMemberHasOpponent.combatants]));
+          return true;
+        }
+      }
       if (!attacker.isNpc) {
         attacker.removePrompt('combat');
       }
