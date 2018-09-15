@@ -58,6 +58,17 @@ class WebsocketStream extends TransportStream
       data
     }));
   }
+    
+   executeToggleEcho() {
+    if (!this.writable) {
+      return;
+    }
+
+    this.socket.send(JSON.stringify({
+      type: 'ui',
+      data: {mask: true}
+    }));     
+   }
 }
 
 module.exports = WebsocketStream;

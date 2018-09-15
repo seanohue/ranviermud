@@ -11,8 +11,8 @@ class EventUtil {
    * @param {net.Socket} socket
    * @return {function (string)}
    */
-  static genWrite(socket) {
-    return string => socket.write(sty.parse(string));
+  static genWrite(socket, opts) {
+    return string => socket.write(sty.parse(string), opts);
   }
 
   /**
@@ -20,8 +20,8 @@ class EventUtil {
    * @param {net.Socket} socket
    * @return {function (string)}
    */
-  static genSay(socket) {
-    return string => socket.write(sty.parse(string + '\r\n'));
+  static genSay(socket, opts) {
+    return string => socket.write(sty.parse(string + '\r\n'), opts);
   }
 }
 
