@@ -184,7 +184,7 @@ module.exports = (srcPath) => {
           buf += "Something";
         }
 
-        buf += ` ${damage.verb || 'hit'} <b>You</b> for <b><red>${damage.finalAmount}.</red></b> damage.`;
+        buf += ` ${damage.verb || 'hit'} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage.`;
 
         if (damage.critical) {
           buf += ' <red><b>(Critical)</b></red>';
