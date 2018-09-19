@@ -14,7 +14,7 @@
        ▇▇m▇y▇e▇l▇i▇n▇▇▇
 
 MYELIN is a classless permadeath MUD based on RANVIERMUD
-www.ranviermud.com (Join the Slack!)
+www.ranviermud.com
 
 Credits:
 Sean O'Donohue (Myelin Creator, RanvierMUD Contributor)
@@ -22,24 +22,5 @@ Shawn Biddle (RanvierMUD Creator/BDFL)
 
 Special thanks to MUD Coder's Guild 
 www.mudcoders.com (Join this Slack, too!)
-
-CHANGELOG:
-(Summer 2018)
-** NPCs can use skills during combat.
-** NPCs can join your party (if you have certain skills).
-** Added new mobs, including a 'sentient' NPC in the intro area.
-** Enhanced 'talk' command for talking to NPCs.
-** 'help' command improvements and new helpfiles.
-** 'train' command can take shorthand and an amount
-   Example: 'train crit 3' or 'train wil 2'
-
-(Update 9/5)
-** Portals are now Nodes and portal keys are now Axons.
-** Nodes use a menu-based fast-travel system via the 'node' command.
-** Fixed issue with old characters being unable to log in.
-
-(Update 9/12)
-** Tweaked skill costs.
-** "Skills" command now only shows skills you're eligible for...
 
 Thanks for playing!
