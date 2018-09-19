@@ -23,7 +23,7 @@ module.exports = srcPath => {
       },
 
       effectActivated() {
-        Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely</red></bold>");
+        Broadcast.sayAt(this.target, "<bold><red>You've suffered a deep wound, it's bleeding profusely.</red></bold>");
       },
 
       effectDeactivated() {
