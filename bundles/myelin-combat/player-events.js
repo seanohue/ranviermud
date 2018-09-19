@@ -1,10 +1,9 @@
 'use strict';
-const leftPad = require('left-pad');
-
 const Combat = require('./lib/Combat');
 const CombatErrors = require('./lib/CombatErrors');
 const LevelUtil = require('../myelin-lib/lib/LevelUtil');
 const WebsocketStream = require('../ranvier-websocket/lib/WebsocketStream');
+const DamageType = require('./lib/DamageType');
 
 /**
  * Auto combat module
@@ -148,7 +147,22 @@ module.exports = (srcPath) => {
           this.combatData.killedBy = damage.attacker;
         }
 
+        // Handle bleeding in a special way...
+        if (damage.type.includes(DamageType.BLEEDING)) {
+          B.sayAt(this, `<red><b>Your wounds bleed for ${damage.finalAmount}.</red></b>`);
+          if (!this.party) {
+            return;
+          }
+          for (const member of this.party) {
+            if (member === this || member.room !== this.room) return;
+
+            B.sayAt(member, `${this.name}'s wounds bleed for ${damage.finalAmount}.`);
+          }
+          return;
+        }
+
         let buf = '';
+
         if (damage.attacker) {
           buf = `<b>${damage.attacker.name}</b>`;
         }
@@ -170,13 +184,13 @@ module.exports = (srcPath) => {
           buf += "Something";
         }
 
-        buf += ` ${damage.verb || 'hit'} <b>You</b> for <b><red>${damage.finalAmount}</red></b> damage.`;
+        buf += ` ${damage.verb || 'hit'} <b>You</b> for <b><red>${damage.finalAmount}.</red></b> damage.`;
 
         if (damage.critical) {
           buf += ' <red><b>(Critical)</b></red>';
         }
 
-        B.sayAt(this, buf);
+        B.sayAt(this, buf + '.');
 
         // show damage to party members
         if (!this.party) {
