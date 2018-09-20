@@ -149,14 +149,14 @@ module.exports = (srcPath) => {
 
         // Handle bleeding in a special way...
         if (damage.type.includes(DamageType.BLEEDING)) {
-          B.sayAt(this, `<red><b>Your wounds bleed for ${damage.finalAmount}.</red></b>`);
+          B.sayAt(this, `<red><b>Your wounds <red><b>bleed</red></b> for <b>${damage.finalAmount}</b>.`);
           if (!this.party) {
             return;
           }
           for (const member of this.party) {
             if (member === this || member.room !== this.room) return;
 
-            B.sayAt(member, `${this.name}'s wounds bleed for ${damage.finalAmount}.`);
+            B.sayAt(member, `${this.name}'s wounds <red><b>bleed</red></b> for ${damage.finalAmount}.`);
           }
           return;
         }
@@ -190,7 +190,7 @@ module.exports = (srcPath) => {
           buf += ' <red><b>(Critical)</b></red>';
         }
 
-        B.sayAt(this, buf + '.');
+        B.sayAt(this, buf);
 
         // show damage to party members
         if (!this.party) {
