@@ -9,7 +9,7 @@ class WebsocketStream extends TransportStream
 {
   attach(socket) {
     super.attach(socket);
-
+    this.mask = false;
     // websocket uses 'message' instead of the 'data' event net.Socket uses
     socket.on('message', message => {
       this.emit('data', message);
@@ -64,9 +64,10 @@ class WebsocketStream extends TransportStream
       return;
     }
 
+    this.mask = !this.mask;
     this.socket.send(JSON.stringify({
       type: 'ui',
-      data: {mask: true}
+      data: {mask: this.mask}
     }));     
    }
 }
