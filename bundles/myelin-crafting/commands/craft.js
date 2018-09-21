@@ -102,6 +102,7 @@ module.exports = (srcPath, bundlePath) => {
       
       if (!item) {
         Logger.error(`Trying to craft ${itemNumber} in ${category.items} via ${args}`);
+        return say(player, "Invalid item.");
       }
       
       const recipeEntries = Object.entries(item.recipe);
