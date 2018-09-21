@@ -24,3 +24,7 @@ Special thanks to MUD Coder's Guild
 www.mudcoders.com (Join this Slack, too!)
 
 Thanks for playing!
+
+Patch 9/21:
+Fixed minor issues with bleed.
+Buff-based skills (empower, leatherskin) should now stack.

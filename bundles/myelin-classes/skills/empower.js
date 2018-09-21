@@ -36,6 +36,7 @@ module.exports = (srcPath) => {
         'buff',
         target,
         {
+          type: 'buff.empower',
           duration: getDuration(player),
           description: this.info(player),
           persists: true,

@@ -40,6 +40,7 @@ module.exports = (srcPath) => {
         target,
         {
           name: 'Leatherskin',
+          type: 'buff.skin',
           duration: getDuration(player),
           description: this.info(player),
         },

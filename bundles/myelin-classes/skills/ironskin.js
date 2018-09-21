@@ -48,6 +48,7 @@ module.exports = (srcPath) => {
         target,
         {
           name: 'Ironskin Armor',
+          type: 'buff.skin',
           duration: getDuration(player),
           description: this.info(player),
         },
