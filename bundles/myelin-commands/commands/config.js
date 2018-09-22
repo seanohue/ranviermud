@@ -30,7 +30,7 @@ module.exports = (srcPath) => {
         for (const key in player.metadata.config) {
           let val = '???';
           if (key === 'termwidth') {
-            val = Number(key) || 'default';
+            val = Number(player.metadata.config[key]) || 'default';
           } else {
             val = player.metadata.config[key] ? 'on' : 'off';
           }
