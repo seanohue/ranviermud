@@ -12,7 +12,7 @@
    <b><cyan>Hint: If you are using a telnet client, type 'config set minimap on' to use the minimap.</cyan></b>
 
   completionMessage: |-
-    A Node... if you only had a key.
+    A Node... if you only knew how it worked.
   goals:
     - type: LocationGoal
       config:

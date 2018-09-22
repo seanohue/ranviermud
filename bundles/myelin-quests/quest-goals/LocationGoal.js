@@ -50,7 +50,7 @@ module.exports = srcPath => {
       }
 
       if (!player.questTracker.canStart(this.quest) || player.questTracker.isComplete(this.quest)) return;
-
+      console.log('Able to quest!');
       const roomRef = room.entityReference;
 
       if (this.config.inOrder === true) {
@@ -64,7 +64,9 @@ module.exports = srcPath => {
       } else {
         if (this.config.rooms.includes(roomRef) && !this.state.visited.includes(roomRef)) {
           this.state.visited.push(roomRef);
+          console.log('Emitting progress...');
           this.emit('progress', this.getProgress());
+          console.log(this.getProgress());
         }
       }
 
