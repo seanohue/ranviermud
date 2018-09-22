@@ -76,7 +76,7 @@ module.exports = srcPath => {
                 const amount = Math.floor(remaining / recipients.length) + (remaining % recipients.length);
                 remaining -= amount;
           
-                B.sayAt(recipient, `<green>You receive ${type}: <b><white>[${friendlyName}]</white></b> x${amount}.`);
+                B.sayAt(recipient, `<green>You receive ${type}: <b><white>[${friendlyName}]</white></b> x${amount}.</green>`);
           
                 if (!recipient.getMeta(type)) {
                   recipient.setMeta(type, {});
