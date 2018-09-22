@@ -26,17 +26,7 @@ module.exports = (srcPath) => {
       }
 
       if (command === 'list') {
-        Broadcast.sayAt(player, 'Current Settings:');
-        for (const key in player.metadata.config) {
-          let val = '???';
-          if (key === 'termwidth') {
-            val = Number(player.metadata.config[key]) || 'default';
-          } else {
-            val = player.metadata.config[key] ? 'on' : 'off';
-          }
-          Broadcast.sayAt(player, `  ${key}: ${val}`);
-        }
-        return;
+        return listCurrentConfiguration();
       }
 
       if (!configToSet) {
@@ -81,6 +71,16 @@ module.exports = (srcPath) => {
       Broadcast.sayAt(player, 'Configuration value saved');
 
       function listCurrentConfiguration() {
+        Broadcast.sayAt(player, 'Current Settings:');
+        for (const key in player.metadata.config) {
+          let val = '???';
+          if (key === 'termwidth') {
+            val = Number(player.metadata.config[key]) || 'default';
+          } else {
+            val = player.metadata.config[key] ? 'on' : 'off';
+          }
+          Broadcast.sayAt(player, `  ${key}: ${val}`);
+        }
       }
     }
   };
