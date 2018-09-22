@@ -26,5 +26,6 @@ www.mudcoders.com (Join this Slack, too!)
 Thanks for playing!
 
 Patch 9/21:
-Fixed minor issues with bleed.
-Buff-based skills (empower, leatherskin) should now stack.
+- Fixed minor issues with bleed.
+- Buff-based skills (empower, leatherskin) should now stack.
+- 'config set termwidth #' should work to set your terminal width (WIP).
