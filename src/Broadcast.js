@@ -5,12 +5,18 @@ ansi.enable(); // force ansi on even when there isn't a tty for the server
 const wrap = require('wrap-ansi');
 const TypeUtil = require('./TypeUtil');
 const Broadcastable = require('./Broadcastable');
+const Config = require('./Config');
 
 /**
  * Class used for sending text to the player. All output to the player should happen through this
  * class.
  */
 class Broadcast {
+  static termWidth(source) {
+    return source.getMeta 
+      ? source.getMeta('config.termwidth') || Config.get('termWidth') || 40
+      : false;
+  }
   /**
    * @param {Broadcastable} source Target to send the broadcast to
    * @param {string} message
@@ -19,7 +25,7 @@ class Broadcast {
    * @param {?function(target, message): string} formatter=null Function to call to format the
    *   message to each target
    */
-  static at(source, message = '', wrapWidth = false, useColor = true, formatter = null) {
+  static at(source, message = '', wrapWidth = this.termWidth(source), useColor = true, formatter = null) {
     useColor = typeof useColor === 'boolean' ? useColor : true;
     formatter = formatter || ((target, message) => message);
 

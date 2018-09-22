@@ -9,6 +9,10 @@ module.exports = (srcPath) => {
     usage: 'config <set/list> [setting] [value]',
     aliases: ['toggle', 'options', 'set'],
     command: (state) => (args, player) => {
+      if (!player.getMeta('config')) {
+        player.setMeta('config', {});
+      }
+
       if (!args.length) {
         Broadcast.sayAt(player, 'Configure what?');
         return state.CommandManager.get('help').execute('config', player);
@@ -37,11 +41,22 @@ module.exports = (srcPath) => {
         return state.CommandManager.get('help').execute('config', player);
       }
 
-      const possibleSettings = ['brief', 'autoloot', 'minimap', 'combatbars'];
+      const possibleSettings = ['brief', 'autoloot', 'minimap', 'combatbars', 'termwidth'];
 
       if (!possibleSettings.includes(configToSet)) {
         Broadcast.sayAt(player, `<red>Invalid setting: ${configToSet}. Possible settings: ${possibleSettings.join(', ')}`);
         return state.CommandManager.get('help').execute('config', player);
+      }
+
+      if (configToSet === 'termwidth') {
+        const termwidth = Number(valueToSet);
+        if (isNaN(termwidth) || termwidth < 20 || termwidth > 80) {
+          Broadcast.sayAt(player, '<b><red>Invalid termwidth.</red> Must be a number between 20 and 80</b>');
+          return state.CommandManager.get('help').execute('config', player);
+        }
+        const old = player.getMeta('config.termwidth');
+        player.setMeta('config.termwidth', termwidth);
+        return Broadcast.sayAt(player, `Termwidth changed from ${old || 'default'} to ${termwidth} characters.`);
       }
 
       if (!valueToSet) {
@@ -56,10 +71,6 @@ module.exports = (srcPath) => {
 
       if (possibleValues[valueToSet] === undefined) {
         return Broadcast.sayAt(player, `<red>Value must be either: on / off</red>`);
-      }
-
-      if (!player.getMeta('config')) {
-        player.setMeta('config', {});
       }
 
       player.setMeta(`config.${configToSet}`, possibleValues[valueToSet]);
