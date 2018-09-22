@@ -11,6 +11,8 @@ body: |
   autoloot    - (on / off)
   brief       - (on / off)
   minimap     - (on / off)
+  combatbars  - (on / off)
+  termwidth   - Number (20 to 80)
 
   Example
   config set autoloot on  - Turn on autoloot

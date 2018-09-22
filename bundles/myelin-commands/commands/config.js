@@ -2,8 +2,6 @@
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
-  const Parser = require(srcPath + 'CommandParser').CommandParser;
-  const Data = require(srcPath + 'Data');
 
   return {
     usage: 'config <set/list> [setting] [value]',
@@ -30,7 +28,12 @@ module.exports = (srcPath) => {
       if (command === 'list') {
         Broadcast.sayAt(player, 'Current Settings:');
         for (const key in player.metadata.config) {
-          const val = player.metadata.config[key] ? 'on' : 'off';
+          let val = '???';
+          if (key === 'termwidth') {
+            val = Number(key) || 'default';
+          } else {
+            val = player.metadata.config[key] ? 'on' : 'off';
+          }
           Broadcast.sayAt(player, `  ${key}: ${val}`);
         }
         return;
