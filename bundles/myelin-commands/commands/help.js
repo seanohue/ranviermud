@@ -28,7 +28,6 @@ module.exports = (srcPath) => {
           return state.CommandManager.get('skill').execute(args, player);
         }
         const foundAliased = findAliasCommand(state, args);
-        console.log({foundAliased});
         if (foundAliased) {
           return state.CommandManager.get('help').execute(foundAliased, player);
         }

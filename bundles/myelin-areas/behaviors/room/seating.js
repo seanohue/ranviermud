@@ -2,7 +2,6 @@
 
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
-  const Random = require(srcPath + 'RandomUtil');
 
   /*
   example config:
@@ -14,7 +13,6 @@ module.exports = (srcPath) => {
       standObserverMessage: 'stands up from the slate bench.'
       observerMessage: 'is sitting on the bench.'
   */
-
   return {
     listeners: {
       command: state => function(config, player, commandName, args) {
@@ -23,7 +21,7 @@ module.exports = (srcPath) => {
           case 'sit':
             return sit.call(this, player, args, config);
           case 'stand':
-            return stand.call(this, player, args, config);
+            return stand.call(this, player, config);
           default:
             Broadcast.sayAt(player, 'Huh?');
             throw new ReferenceError(`Invalid room command: ${commandName}`);
@@ -62,10 +60,10 @@ module.exports = (srcPath) => {
     if (!this.__seating) {
       this.__seating = new Map();
     }
-    return stand.call(this, player, args, config, true);
+    return stand.call(this, player, config, true);
   }
 
-  function stand(player, args, config, isAutomatic) {
+  function stand(player, config, isAutomatic) {
     if (!this.__seating.has(player)) {
       if (isAutomatic) { return; } // Avoid confusing broadcast.
       return Broadcast.sayAt(player, 'You are already standing.');

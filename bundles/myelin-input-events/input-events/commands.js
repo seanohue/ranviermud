@@ -74,6 +74,7 @@ module.exports = (src) => {
               const roomCommands = player.room.getBehavior('commands');
               const [commandName, ...args] = data.split(' ');
               if (roomCommands && roomCommands.includes(commandName)) {
+                Logger.log('Invalid command but there is a room command', commandName);
                 player.room.emit('command', player, commandName, args.join(' '));
               } else {
                 Broadcast.sayAt(player, "Huh?");

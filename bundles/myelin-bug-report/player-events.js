@@ -52,7 +52,6 @@ module.exports = (srcPath) => {
   return {
     listeners: {
       bugReport: state => function (report) {
-        console.log('State?', Boolean(state));
         const { description, type } = report;
         const reportMethod = getReportMethod(type);
         const formattedReport = getFormattedReport.call(this, type, description);

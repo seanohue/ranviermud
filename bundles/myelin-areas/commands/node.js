@@ -9,7 +9,6 @@ module.exports = (srcPath) => {
     aliases: ['travel', 'dial'],
 
     command : state => (args, player, arg0) => {
-      console.log ({args, arg0});
       const say = (message) => sayAt(player, message);
       if (!player.room.getBehavior('portal')) {
         Logger.warn(`Player trying node command in ${player.room.entityReference}.`);

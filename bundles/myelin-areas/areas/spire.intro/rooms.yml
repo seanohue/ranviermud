@@ -70,6 +70,11 @@
     commands: ['sit', 'stand']
     seating:
       seatingRef: 'spire.intro:bench'
+      sitMessage: 'You sit on the slate bench.'
+      sitObserverMessage: 'sits on the slate bench.'
+      standMessage: 'You stand up from the slate bench.'
+      standObserverMessage: 'stands up from the slate bench.'
+      observerMessage: 'is sitting on the bench.'
   weight: 1
 - id: a-cold-hall-9
   title: A Cold Hall
@@ -110,14 +115,14 @@
   behaviors:
     startquest:
       questId: 'spire.intro:misbehavingautos'
-    commands: ['sit', 'stand']
     seating:
-      seatingRef: 'spire.intro:bench'
       sitMessage: 'You sit on the slate bench.'
       sitObserverMessage: 'sits on the slate bench.'
       standMessage: 'You stand up from the slate bench.'
       standObserverMessage: 'stands up from the slate bench.'
       observerMessage: 'is sitting on the bench.'
+      seatingRef: 'spire.intro:bench'
+    commands: ['sit', 'stand']
 - id: airlock-chamber-15
   title: Node Chamber
   description: 'A small room with metal vault doors here and there. Aside from that, this nearly-perfect cube is featureless.'

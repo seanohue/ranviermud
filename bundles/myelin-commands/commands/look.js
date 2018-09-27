@@ -86,7 +86,6 @@ module.exports = (srcPath, bundlePath) => {
         B.sayAt(player, `There are ${usable.charges} charges remaining.`);
       }
     }
-    console.log('checking instanceof item');
     if (entity instanceof Item) {
       switch (entity.type) {
         case ItemType.WEAPON:
