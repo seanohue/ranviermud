@@ -1,0 +1,47 @@
+---
+body: |
+  There are four core attributes in Myelin, as well as three pools and two secondary attributes.
+  Let's start with the core attributes, which can be subdivided as follows:
+    
+    Physical
+    ---------
+    Quickness
+    Might
+    
+    Mental
+    ---------
+    Willpower
+    Intellect
+
+    Quickness determines how fast you can move and how dextrous you are. Combat speed and dodge chance are some things affected by quickness.
+
+    Might is a measurement of strength and endurance. It affects how hard you hit in melee combat, for one.
+
+    Willpower describes your mental and emotional fortitude. You use this attribute to resist psionic attacks, and to power your own.
+
+    Intellect measures your reasoning ability. It is used for a variety of abilities and skills.
+
+    Next up are our two derived attributes, Critical and Armor:
+    
+    Critical determines your chance of a critical hit during combat or a critical success when using a skill. It is akin to luck.
+
+    Armor is determined by your equipment and some abilities, and determines your ability to resist physical damage from a direct hit.
+
+    Finally, the three pools:
+
+    Health
+    Energy
+    Focus
+
+    Health describes how much more damage you can take before your physical body, your vessel, dies.
+    Energy is depleted by physical abilities (those linked to Quickness or Might). 
+    Focus is depleted by mental abilities (those linked to Willpower or Intellect).
+
+    While depleting your energy or focus can have negative effects, it will not result in death.
+
+related:
+  - score
+  - skills
+  - skill
+  - train
+keywords: ['willpower', 'strength', 'intellect', 'might', 'quickness', 'speed', 'critical', 'armor', 'health', 'energy', 'focus']
