@@ -29,13 +29,14 @@ module.exports = (srcPath, bundlePath) => {
           say(player, sprintf('%2d) %s', parseInt(index, 10) + 1, craftingCategories[index].title));
         });
 
-        return say(player, 'Type `craft list [number]` to see the recipes for each category.');
+        return say(player, 'Type `craft list [number/title]` to see the recipes for each category.');
       }
 
-      let [itemCategory, itemNumber] = args.split(' ');
+      let [search, itemNumber] = args.split(' ');
 
-      itemCategory = parseInt(itemCategory, 10) - 1;
-      const category = craftingCategories[itemCategory];
+      let index = parseInt(search, 10) - 1;
+      const category = craftingCategories[index] 
+        || craftingCategories.find(category => search === category.title.toLowerCase());
       if (!category) {
         return say(player, "Invalid category.");
       }
