@@ -139,8 +139,15 @@ class Broadcast {
    * @param {object} extra     extra data to avail to the prompt string interpolator
    * @param {number} wrapWidth
    * @param {boolean} useColor
+   * @param {boolean} force   Force prompt to show even if player has it set to off.
    */
-  static prompt(player, extra, wrapWidth, useColor) {
+  static prompt(player, force = false) {
+    if (!force && player.getMeta('config.autoprompt') === false) {
+      return;
+    }
+    const useColor = true;
+    const wrapWidth = player.getMeta('config.termwidth') || Config.get('termwidth') || 40;
+    const extra = '';
     player.socket._prompted = false;
     Broadcast.at(player, '\r\n' + player.interpolatePrompt(player.prompt, extra) + ' ', wrapWidth, useColor);
     let needsNewline = player.extraPrompts.size > 0;

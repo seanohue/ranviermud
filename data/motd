@@ -25,7 +25,8 @@ www.mudcoders.com (Join this Slack, too!)
 
 Thanks for playing!
 
-Patch 9/21:
-- Fixed minor issues with bleed.
-- Buff-based skills (empower, leatherskin) should now stack.
-- 'config set termwidth #' should work to set your terminal width (WIP).
+Patch 10/01:
+Some accessibility updates!
+- 'config set autoprompt off' will now turn off the prompt.
+- New 'prompt' command will show the prompt on demand.
+- 'pools' is an alias for 'prompt'.
