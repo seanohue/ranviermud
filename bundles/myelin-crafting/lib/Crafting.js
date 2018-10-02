@@ -23,6 +23,21 @@ class Crafting {
     return _loadedResources[resourceKey];
   }
 
+  static getRecipeEntries(item) {
+    return Object.entries(item.recipe);
+  }
+
+  static canCraft(player, recipeEntries) {
+    for (const [resource, recipeRequirement] of recipeEntries) {
+      const playerResource = player.getMeta(`resources.${resource}`) || 0;
+      if (playerResource < recipeRequirement) {
+        const resItem = Crafting.getResourceItem(resource);
+        return {success: false, name: resItem.name, difference: recipeRequirement - playerResource };
+      }
+    }
+    return {success: true}
+  }
+
   static getExperience(totalRequired, quality = 'common') {
     return Math.ceil(totalRequired / 5) * qualityMap[quality];
   }

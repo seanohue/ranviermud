@@ -105,17 +105,14 @@ module.exports = (srcPath, bundlePath) => {
         Logger.error(`Trying to craft ${itemNumber} in ${category.items} via ${args}`);
         return say(player, "Invalid item.");
       }
-      
+
       const recipeEntries = Object.entries(item.recipe);
+      const results = Crafting.canCraft(player, recipeEntries);
 
-      for (const [resource, recipeRequirement] of recipeEntries) {
-        const playerResource = player.getMeta(`resources.${resource}`) || 0;
-        if (playerResource < recipeRequirement) {
-          const resItem = Crafting.getResourceItem(resource);
-          return say(player, `You don't have enough resources. 'craft list ${args}' to see recipe. You need ${recipeRequirement - playerResource} more ${resItem.name}.`);
-        }
+      if (!results.success) {
+        return say(player, `You don't have enough resources. 'craft list ${args}' to see recipe. You need ${results.differnce} more ${results.name}.`);
       }
-
+      
       if (player.isInventoryFull()) {
         return say(player, "You can't hold any more items.");
       }
