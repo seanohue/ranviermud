@@ -8,7 +8,6 @@ module.exports = (srcPath, bundlePath) => {
 
   const say = B.sayAt;
   const CommandManager = require(srcPath + 'CommandManager');
-  const ItemType = require(srcPath + 'ItemType');
   const Crafting = require(bundlePath + 'myelin-crafting/lib/Crafting');
   const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
@@ -18,7 +17,7 @@ module.exports = (srcPath, bundlePath) => {
   subcommands.add({
     name: 'list',
     command: state => (args, player) => {
-      const craftingCategories = getCraftingCategories(state);
+      const craftingCategories = Crafting.getCraftingCategories(state);
 
       // list categories
       if (!args || !args.length) {
@@ -137,54 +136,7 @@ module.exports = (srcPath, bundlePath) => {
     }
   });
 
-  function getCraftingCategories(state) {
-    let craftingCategories = [
-      {
-        type: ItemType.POTION,
-        title: "Consumable",
-        items: []
-      },
-      {
-        type: ItemType.WEAPON,
-        title: "Weapon",
-        items: []
-      },
-      {
-        type: ItemType.ARMOR,
-        title: "Armor",
-        items: []
-      },
-      {
-        type: ItemType.CONTAINER,
-        title: "Containers",
-        items: []
-      },
-    ];
 
-    const recipes = Crafting.getRecipes();
-    for (const recipe of recipes) {
-      const recipeItem = state.ItemFactory.create(
-        state.AreaManager.getAreaByReference(recipe.item),
-        recipe.item
-      );
-
-      const catIndex = craftingCategories.findIndex(cat => {
-        return cat.type === recipeItem.type;
-      });
-
-      if (catIndex === -1) {
-        continue;
-      }
-
-    recipeItem.hydrate(state);
-      craftingCategories[catIndex].items.push({
-        item: recipeItem,
-        recipe: recipe.recipe
-      });
-    }
-
-    return craftingCategories;
-  }
 
   return {
     aliases: ['create'],

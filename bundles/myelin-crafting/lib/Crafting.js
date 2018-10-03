@@ -5,6 +5,7 @@ const srcPath = '../../../src/';
 const Logger = require(srcPath + 'Logger');
 const Data = require(srcPath + 'Data');
 const Item = require(srcPath + 'Item');
+const ItemType = require(srcPath + 'ItemType');
 
 const dataPath = __dirname + '/../data/';
 const _loadedResources = Data.parseFile(dataPath + 'resources.yml');
@@ -18,9 +19,65 @@ const qualityMap = {
   epic: 10
 };
 
+let _cachedCraftingCategories = null;
+
 class Crafting {
   static getResource(resourceKey) {
     return _loadedResources[resourceKey];
+  }
+
+  static getCraftingCategories(state) {
+    if (_cachedCraftingCategories) {
+      return _cachedCraftingCategories;
+    }
+
+    let craftingCategories = [
+      {
+        type: ItemType.POTION,
+        title: "Consumable",
+        items: []
+      },
+      {
+        type: ItemType.WEAPON,
+        title: "Weapon",
+        items: []
+      },
+      {
+        type: ItemType.ARMOR,
+        title: "Armor",
+        items: []
+      },
+      {
+        type: ItemType.CONTAINER,
+        title: "Containers",
+        items: []
+      },
+    ];
+
+    const recipes = Crafting.getRecipes();
+    for (const recipe of recipes) {
+      const recipeItem = state.ItemFactory.create(
+        state.AreaManager.getAreaByReference(recipe.item),
+        recipe.item
+      );
+
+      const catIndex = craftingCategories.findIndex(cat => {
+        return cat.type === recipeItem.type;
+      });
+
+      if (catIndex === -1) {
+        continue;
+      }
+
+    recipeItem.hydrate(state);
+      craftingCategories[catIndex].items.push({
+        item: recipeItem,
+        recipe: recipe.recipe
+      });
+    }
+
+    _cachedCraftingCategories = craftingCategories;
+    return craftingCategories;
   }
 
   static getRecipeEntries(item) {
