@@ -49,8 +49,11 @@ module.exports = (srcPath, bundlePath) => {
           return say(player, B.center(40, "No recipes."));
         }
 
-        return category.items.forEach((categoryEntry, index) => {
-          say(player, sprintf('%2d) ', index + 1) + ItemUtil.display(categoryEntry.item));
+        const craftableItems = category.items.filter(categoryEntry => Crafting.canCraft(player, Object.entries(categoryEntry.recipe)).success);
+        if (!craftableItems.length) return say(player, 'Gather more resources to craft these items.');
+        return craftableItems.forEach((craftable) => {
+          const item = craftable.item;
+          say(player, sprintf('%2d) ', craftable.index + 1) + ItemUtil.display(item));
         });
       }
 

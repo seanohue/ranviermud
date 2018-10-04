@@ -69,12 +69,14 @@ class Crafting {
         continue;
       }
 
-    recipeItem.hydrate(state);
-      craftingCategories[catIndex].items.push({
+      recipeItem.hydrate(state);
+      const items = craftingCategories[catIndex].items;
+      items.push({
+        index: items.length,
         item: recipeItem,
         recipe: recipe.recipe
       });
-    }
+  }
 
     _cachedCraftingCategories = craftingCategories;
     return craftingCategories;
