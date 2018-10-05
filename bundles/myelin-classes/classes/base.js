@@ -92,7 +92,7 @@ module.exports = srcPath => {
         // Healing
         mend: {
           level: 1,
-          intellect: 13,
+          intellect: 10,
           willpower: 12,
           cost: 1
         },
@@ -100,6 +100,13 @@ module.exports = srcPath => {
           level: 1,
           intellect: 14,
           willpower: 11
+        },
+        
+        cloudheal: {
+          level: 4,
+          intellect: 12,
+          willpower: 13,
+          cost: 2
         },
 
         // Active buffs
