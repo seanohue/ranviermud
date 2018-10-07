@@ -25,8 +25,12 @@ www.mudcoders.com (Join this Slack, too!)
 
 Thanks for playing!
 
-Patch 10/01:
+Patch Oct. 7:
 Some accessibility updates!
 - 'config set autoprompt off' will now turn off the prompt.
 - New 'prompt' command will show the prompt on demand.
 - 'pools' is an alias for 'prompt'.
+Bugfixes!
+- Fixed bug with healing skill display.
+- Fixed bug with creating a group
+- Grouping now allows your group members to automatically help you in combat.
