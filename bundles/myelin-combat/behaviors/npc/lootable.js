@@ -75,7 +75,7 @@ module.exports = srcPath => {
                 // of the party will get any remainder if the distributable isn't divisible evenly
                 const amount = Math.floor(remaining / recipients.length) + (remaining % recipients.length);
                 remaining -= amount;
-          
+                if (amount < 1) continue;
                 B.sayAt(recipient, `<green>You receive ${type}: <b><white>[${friendlyName}]</white></b> x${amount}.</green>`);
           
                 if (!recipient.getMeta(type)) {

@@ -2,11 +2,11 @@
   "attributes": {
     "might": {
       "delta": 0,
-      "base": 231
+      "base": 1231
     },
     "quickness": {
       "delta": 0,
-      "base": 330
+      "base": 430
     },
     "intellect": {
       "delta": 0,
@@ -14,32 +14,32 @@
     },
     "willpower": {
       "delta": 0,
-      "base": 250
+      "base": 350
     },
     "health": {
       "delta": 0,
-      "base": 4850
+      "base": 6350
     },
     "energy": {
       "delta": 0,
-      "base": 2150
+      "base": 17150
     },
     "focus": {
       "delta": 0,
-      "base": 2150
+      "base": 3650
     },
     "armor": {
       "delta": 0,
-      "base": 11
+      "base": 111
     },
     "critical": {
       "delta": 0,
-      "base": 42
+      "base": 158
     }
   },
-  "level": 70,
+  "level": 955,
   "name": "Admin",
-  "room": "spire.intro:a-cold-hall-23",
+  "room": "spire.intro:a-cold-hall-28",
   "effects": [
     {
       "config": {
@@ -55,13 +55,13 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 46450145,
+      "elapsed": 80762450,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 28,
-        "ticks": 11659
+        "lastTick": 550,
+        "ticks": 19497
       }
     },
     {
@@ -78,7 +78,7 @@
         "type": "skill.tactics",
         "unique": true
       },
-      "elapsed": 46436287,
+      "elapsed": 80748486,
       "id": "skill.tactics",
       "remaining": null,
       "skill": "tactics",
@@ -100,7 +100,7 @@
         "type": "skill:secondwind",
         "unique": true
       },
-      "elapsed": 46349713,
+      "elapsed": 80661871,
       "id": "skill.secondwind",
       "remaining": null,
       "skill": "secondwind",
@@ -123,7 +123,7 @@
         "type": "skill:concentration",
         "unique": true
       },
-      "elapsed": 46004968,
+      "elapsed": 80317121,
       "id": "skill.concentration",
       "remaining": null,
       "skill": "concentration",
@@ -146,7 +146,7 @@
         "type": "armor",
         "unique": true
       },
-      "elapsed": 36419648,
+      "elapsed": 70731795,
       "id": "armor",
       "remaining": null,
       "state": {
@@ -169,7 +169,7 @@
         "type": "quick_def",
         "unique": true
       },
-      "elapsed": 36419645,
+      "elapsed": 70731789,
       "id": "armor",
       "remaining": null,
       "state": {
@@ -192,7 +192,7 @@
         "type": "psionic_armor",
         "unique": true
       },
-      "elapsed": 36419643,
+      "elapsed": 70731786,
       "id": "armor",
       "remaining": null,
       "state": {
@@ -216,7 +216,7 @@
         "unique": true,
         "source": "41c1e7b8-f901-4ff0-a65c-33b73e3c2c15"
       },
-      "elapsed": 23628574,
+      "elapsed": 57940715,
       "id": "resistance",
       "remaining": null,
       "state": {
@@ -243,7 +243,7 @@
         "type": "equip.head",
         "unique": true
       },
-      "elapsed": 23628572,
+      "elapsed": 57940711,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -268,7 +268,7 @@
         "type": "equip.chest",
         "unique": true
       },
-      "elapsed": 19572869,
+      "elapsed": 53885006,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -278,169 +278,79 @@
           "quickness": -1
         }
       }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Due to your affinity with machines, you can turn neutral automatons into allies. You also take less damage from hostile automatons.",
+        "duration": "inf",
+        "hidden": false,
+        "maxStacks": 0,
+        "name": "Machinist",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "skill.machinist",
+        "unique": true
+      },
+      "elapsed": 32614802,
+      "id": "skill.machinist",
+      "remaining": null,
+      "skill": "machinist",
+      "state": {
+        "magnitude": 2
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "",
+        "duration": "inf",
+        "hidden": true,
+        "maxStacks": 0,
+        "name": "Equip: wield",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "equip.wield",
+        "unique": true
+      },
+      "elapsed": 30413180,
+      "id": "equip",
+      "remaining": null,
+      "state": {
+        "slot": "wield",
+        "stats": {
+          "critical": 3
+        }
+      }
+    },
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "Cannot use ability while on cooldown.",
+        "duration": 20000,
+        "hidden": false,
+        "maxStacks": 0,
+        "name": "Cooldown: Cloudmend",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": false,
+        "type": "cooldown",
+        "unique": false
+      },
+      "elapsed": 16832,
+      "id": "cooldown",
+      "remaining": 3168,
+      "skill": "cloudheal",
+      "state": {
+        "cooldownId": "skill:cloudheal"
+      }
     }
   ],
-  "experience": 19452,
+  "experience": 30243183,
   "inventory": {
     "items": [
-      [
-        "d31302a6-c83f-4529-aef2-59b89e961f3b",
-        {
-          "entityReference": "spire.intro:tea",
-          "inventory": null,
-          "metadata": {
-            "level": 1
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
-      [
-        "d8251a00-4d03-4539-9013-a4beb447b031",
-        {
-          "entityReference": "spire.labyrinth:minotaurkey",
-          "inventory": null,
-          "metadata": {},
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
-      [
-        "ee089f05-6bbb-448a-a08c-41b34dc7d9a0",
-        {
-          "entityReference": "spire.labyrinth:minotaurkey",
-          "inventory": null,
-          "metadata": {},
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
-      [
-        "033e6cf3-3312-451b-8209-47d745737bb4",
-        {
-          "entityReference": "spire.intro:shank",
-          "inventory": null,
-          "metadata": {
-            "minDamage": 2,
-            "maxDamage": 12,
-            "speed": 5.4,
-            "stats": {
-              "critical": 4
-            },
-            "specialEffects": [
-              "Chance on hit: Bleed your opponent.",
-              "On critical: Bleed your opponent for an extended duration."
-            ],
-            "slot": "wield"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
-      [
-        "b3f78b51-2249-4189-ad5c-b47b68fd544f",
-        {
-          "entityReference": "spire.labyrinth:bonehelm",
-          "inventory": null,
-          "metadata": {
-            "stats": {
-              "armor": 6
-            },
-            "slot": "head"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {
-            "sellable": {
-              "value": 20,
-              "currency": "thean"
-            },
-            "resistance": {
-              "crushing": 10,
-              "slashing": 5
-            }
-          }
-        }
-      ],
-      [
-        "b8048018-04a6-4971-9ba0-7b6681daef5c",
-        {
-          "entityReference": "spire.labyrinth:minotaurkey",
-          "inventory": null,
-          "metadata": {},
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
-      [
-        "8c3c3558-94b8-4c80-9081-3986c70cda65",
-        {
-          "entityReference": "spire.labyrinth:boneclub",
-          "inventory": null,
-          "metadata": {
-            "specialEffects": [
-              "Chance on hit: Stun your opponent for a short time.",
-              "On critical: Stun your opponent for an extended time."
-            ],
-            "minDamage": 15,
-            "maxDamage": 30,
-            "speed": 2.2,
-            "stats": {
-              "critical": 3
-            },
-            "slot": "wield"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {
-            "sellable": {
-              "value": 80,
-              "currency": "thean"
-            }
-          }
-        }
-      ],
-      [
-        "b07d3a77-e180-4a5e-9dc7-741a73eb8fe5",
-        {
-          "entityReference": "spire.labyrinth:bonehelm",
-          "inventory": null,
-          "metadata": {
-            "stats": {
-              "armor": 6
-            },
-            "slot": "head"
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {
-            "sellable": {
-              "value": 20,
-              "currency": "thean"
-            },
-            "resistance": {
-              "crushing": 10,
-              "slashing": 5
-            }
-          }
-        }
-      ],
-      [
-        "6efb6699-6038-4927-b03d-3436a120d771",
-        {
-          "entityReference": "spire.labyrinth:minotaurkey",
-          "inventory": null,
-          "metadata": {},
-          "closed": false,
-          "locked": false,
-          "behaviors": {}
-        }
-      ],
       [
         "87e99af9-48e6-475c-8880-dfbaf00cbc0a",
         {
@@ -490,32 +400,6 @@
             "resistance": {
               "crushing": 10,
               "slashing": 5
-            }
-          }
-        }
-      ],
-      [
-        "09514cd8-4514-4615-b5f4-4a0b6e07e647",
-        {
-          "entityReference": "spire.labyrinth:flashbomb",
-          "inventory": null,
-          "metadata": {
-            "level": 1
-          },
-          "closed": false,
-          "locked": false,
-          "behaviors": {
-            "usable": {
-              "ability": "flash",
-              "charges": 1,
-              "destroyOnDepleted": true,
-              "options": {
-                "duration": 10
-              }
-            },
-            "sellable": {
-              "value": 45,
-              "currency": "thean"
             }
           }
         }
@@ -630,32 +514,276 @@
             }
           }
         }
+      ],
+      [
+        "bb75132d-8727-4aa5-9047-6385fa4e7e85",
+        {
+          "entityReference": "spire.intro:shank",
+          "inventory": null,
+          "metadata": {
+            "minDamage": 2,
+            "maxDamage": 12,
+            "speed": 5.4,
+            "stats": {
+              "critical": 4
+            },
+            "specialEffects": [
+              "Chance on hit: Bleed your opponent.",
+              "On critical: Bleed your opponent for an extended duration."
+            ],
+            "slot": "wield"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {}
+        }
+      ],
+      [
+        "e2b8f9de-99d2-4660-8aaa-5b8257f26657",
+        {
+          "entityReference": "spire.labyrinth:crowbar",
+          "inventory": null,
+          "metadata": {
+            "quality": "uncommon",
+            "specialEffects": [
+              "Chance on hit: Stun your opponent.",
+              "On critical: Stun your opponent for an extended time."
+            ],
+            "minDamage": 6,
+            "maxDamage": 36,
+            "speed": 3.8,
+            "stats": {
+              "critical": 3
+            },
+            "slot": "wield"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "resistance": {
+              "electrical": -20
+            },
+            "sellable": {
+              "value": 60,
+              "currency": "theans"
+            }
+          }
+        }
+      ],
+      [
+        "9310e6b0-f71e-482c-ba16-de35d867d670",
+        {
+          "entityReference": "spire.labyrinth:crackedlifesupport",
+          "inventory": null,
+          "metadata": {
+            "stats": {
+              "health": 30,
+              "energy": 15
+            },
+            "slot": "neck"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "sellable": {
+              "value": 20,
+              "currency": "theans"
+            },
+            "resistance": {
+              "bleeding": 20,
+              "drowning": 20
+            }
+          }
+        }
+      ],
+      [
+        "0bba1447-d1c9-42bb-a6c0-a647d89aa138",
+        {
+          "entityReference": "spire.labyrinth:crowbar",
+          "inventory": null,
+          "metadata": {
+            "quality": "uncommon",
+            "specialEffects": [
+              "Chance on hit: Stun your opponent.",
+              "On critical: Stun your opponent for an extended time."
+            ],
+            "minDamage": 6,
+            "maxDamage": 36,
+            "speed": 3.8,
+            "stats": {
+              "critical": 3
+            },
+            "slot": "wield"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "resistance": {
+              "electrical": -20
+            },
+            "sellable": {
+              "value": 60,
+              "currency": "theans"
+            }
+          }
+        }
+      ],
+      [
+        "bf83e482-2290-482d-bf1c-6a2b6a56b741",
+        {
+          "entityReference": "spire.labyrinth:crowbar",
+          "inventory": null,
+          "metadata": {
+            "quality": "uncommon",
+            "specialEffects": [
+              "Chance on hit: Stun your opponent.",
+              "On critical: Stun your opponent for an extended time."
+            ],
+            "minDamage": 6,
+            "maxDamage": 36,
+            "speed": 3.8,
+            "stats": {
+              "critical": 3
+            },
+            "slot": "wield"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "resistance": {
+              "electrical": -20
+            },
+            "sellable": {
+              "value": 60,
+              "currency": "theans"
+            }
+          }
+        }
+      ],
+      [
+        "00134188-62a3-4f5a-8d7d-70ebabcd6fd2",
+        {
+          "entityReference": "spire.labyrinth:boneclub",
+          "inventory": null,
+          "metadata": {
+            "quality": "uncommon",
+            "specialEffects": [
+              "Chance on hit: Stun your opponent for a short time.",
+              "On critical: Stun your opponent for an extended time."
+            ],
+            "minDamage": 15,
+            "maxDamage": 30,
+            "speed": 2.2,
+            "stats": {
+              "critical": 3
+            },
+            "slot": "wield"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "sellable": {
+              "value": 80,
+              "currency": "theans"
+            }
+          }
+        }
+      ],
+      [
+        "c83102fa-4652-4bc4-b21a-c562d40ac5e8",
+        {
+          "entityReference": "spire.labyrinth:crackedlifesupport",
+          "inventory": null,
+          "metadata": {
+            "stats": {
+              "health": 30,
+              "energy": 15
+            },
+            "slot": "neck"
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "sellable": {
+              "value": 20,
+              "currency": "theans"
+            },
+            "resistance": {
+              "bleeding": 20,
+              "drowning": 20
+            }
+          }
+        }
+      ],
+      [
+        "8f17a16a-3967-4ea1-b498-ea2d33246c21",
+        {
+          "entityReference": "spire.intro:tea",
+          "inventory": null,
+          "metadata": {
+            "level": 1
+          },
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "sellable": {
+              "value": 1,
+              "currency": "theans"
+            },
+            "usable": {
+              "ability": "potion",
+              "charges": 5,
+              "destroyOnDepleted": true,
+              "cooldown": 30,
+              "options": {
+                "restores": 30,
+                "stat": "energy"
+              }
+            }
+          }
+        }
+      ],
+      [
+        "a7308dcc-67af-496f-a018-d8083e20ecd7",
+        {
+          "entityReference": "spire.intro:axon",
+          "inventory": null,
+          "metadata": {},
+          "closed": false,
+          "locked": false,
+          "behaviors": {
+            "sellable": {
+              "value": 25,
+              "currency": "theans"
+            }
+          }
+        }
       ]
     ],
     "max": 16
   },
   "metadata": {
     "class": "base",
-    "kills": 443,
+    "kills": 742,
     "strongestKilled": {
       "name": "Vending Automaton",
       "level": 25
     },
     "currencies": {
-      "theans": 43123
+      "theans": 51260
     },
     "resources": {
-      "scrap_metal": 4036,
-      "gear": 892,
-      "piston": 634,
+      "scrap_metal": 4564,
+      "gear": 975,
+      "piston": 707,
       "bone": 1133,
-      "aethersilk": 1975,
-      "aetherplasm": 673,
-      "leather": 6788,
-      "sparkdust": 13
+      "aethersilk": 3773,
+      "aetherplasm": 850,
+      "leather": 7231,
+      "sparkdust": 55
     },
-    "attributePoints": 0,
-    "abilityPoints": 1,
+    "attributePoints": 3516,
+    "abilityPoints": 881,
     "abilities": [
       "block",
       "dodge",
@@ -681,12 +809,16 @@
       "riposte",
       "expose",
       "fireball",
-      "flash"
+      "flash",
+      "machinist",
+      "cloudheal"
     ],
     "config": {
       "minimap": true,
       "combatbars": false,
-      "autoloot": true
+      "autoloot": true,
+      "termwidth": 60,
+      "autoprompt": false
     },
     "waypoints": {
       "saved": [
@@ -694,7 +826,10 @@
       ],
       "home": "labyrinth:neural-link-chamber-125"
     },
-    "pvp": false
+    "pvp": false,
+    "hints": {
+      "sentient": true
+    }
   },
   "playerClass": "base",
   "prompt": "[ %health.current%/%health.max% <b>health</b> %focus.current%/%focus.max% <b>focus</b> %energy.current%/%energy.max% <b>energy</b> ]",
@@ -732,10 +867,10 @@
               },
               "progress": {
                 "percent": 0,
-                "display": "Find a functional portal: [0/1]"
+                "display": "Find a functional Node: [0/1]"
               },
               "config": {
-                "title": "Find a functional portal",
+                "title": "Find a functional Node",
                 "rooms": [
                   "spire.intro:airlock-chamber-25"
                 ],
@@ -745,7 +880,7 @@
           ],
           "progress": {
             "percent": 0,
-            "display": "Find a functional portal: [0/1]"
+            "display": "Find a functional Node: [0/1]"
           },
           "config": {
             "desc": "You must find your way out of this strange place.",
@@ -806,6 +941,35 @@
           "electrical": -60,
           "fire": -10,
           "freezing": -10
+        }
+      }
+    },
+    "wield": {
+      "entityReference": "spire.labyrinth:crowbar",
+      "inventory": null,
+      "metadata": {
+        "quality": "uncommon",
+        "specialEffects": [
+          "Chance on hit: Stun your opponent.",
+          "On critical: Stun your opponent for an extended time."
+        ],
+        "minDamage": 6,
+        "maxDamage": 36,
+        "speed": 3.8,
+        "stats": {
+          "critical": 3
+        },
+        "slot": "wield"
+      },
+      "closed": false,
+      "locked": false,
+      "behaviors": {
+        "resistance": {
+          "electrical": -20
+        },
+        "sellable": {
+          "value": 60,
+          "currency": "theans"
         }
       }
     }

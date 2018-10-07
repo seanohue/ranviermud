@@ -7,13 +7,13 @@ module.exports = (srcPath) => {
   const SkillType = require(srcPath + 'SkillType');
   const Random    = require(srcPath + 'RandomUtil');
 
-  const healPercent = 100;
-  const focusCost   = 40;
+  // const healPercent = 100;
+  const focusCost   = 45;
 
   function getHeal(player) {
     return {
-      min: Math.min(player.getAttribute('willpower') + (player.level || 0), 20),
-      max: Math.min(player.getAttribute('willpower') * (healPercent / 100) 
+      min: Math.min(Math.ceil(player.getAttribute('willpower') * 0.5 + (player.level || 0)), 20),
+      max: Math.min(player.getAttribute('willpower') // * (healPercent / 100) 
            + (player.getAttribute('intellect') * 0.5) 
            + (player.level * 2 || 1), 100)
     };  
@@ -33,19 +33,16 @@ module.exports = (srcPath) => {
 
     run: state => function (args, player) {
       const healRange = getHeal(player);
-      heal(player, healRange);
-      if (!player.party) return;
-      console.log('healing party...');
+
+      heal.call(this, player, healRange);
       [...player.party]
         .filter(ally => ally !== player && ally.room === player.room)
-        .forEach(ally => heal(ally, healRange));
+        .forEach(ally => heal.call(this, ally, healRange));
       
       function heal(target, range) {
-        console.log('healing ', target.name);
         let amount = Random.inRange(range.min, range.max);
-        console.log(amount);   
         let attribute = 'health';
-        
+        console.log(`Healing ${target.name} for ${amount}`);
         const healing = new Heal({
           attribute,
           amount,

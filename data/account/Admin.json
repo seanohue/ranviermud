@@ -51,6 +51,14 @@
     },
     {
       "username": "Ham",
+      "deleted": true
+    },
+    {
+      "username": "Nutid",
+      "deleted": false
+    },
+    {
+      "username": "Hork",
       "deleted": false
     }
   ],
@@ -58,7 +66,7 @@
   "banned": false,
   "deleted": false,
   "metadata": {
-    "memories": 113,
+    "memories": 85,
     "deceased": [
       "Borked",
       "Hamman",
