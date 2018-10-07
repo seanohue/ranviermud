@@ -30,7 +30,7 @@ class Combat {
 
     if (!attacker.isInCombat()) {
       if (attacker.party) {
-        const partyMemberHasOpponent = [...atttacker.party].find(partyMember => partyMember.room === attacker.room && partyMember.isInCombat());
+        const partyMemberHasOpponent = [...attacker.party].find(partyMember => partyMember.room === attacker.room && partyMember.isInCombat());
         if (partyMemberHasOpponent) {
           attacker.initiateCombat(RandomUtil.fromArray([...partyMemberHasOpponent.combatants]));
           return true;
