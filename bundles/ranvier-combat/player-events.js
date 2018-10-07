@@ -239,11 +239,11 @@ module.exports = (srcPath) => {
         }
 
         for (const member of this.party) {
-          if (member === this || member.room !== this.room) {
+          if (member === this || member.room !== this.room || member === heal.attacker) {
             continue;
           }
 
-          let buf = `${attacker}${source} heals ${this.name} for <b><red>${heal.finalamount}</red></b>.`;
+          let buf = `${attacker}${source} heals ${this.name} for <b><red>${heal.finalAmount}</red></b>.`;
           B.sayAt(member, buf);
         }
       },

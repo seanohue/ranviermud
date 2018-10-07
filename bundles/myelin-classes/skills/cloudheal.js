@@ -55,7 +55,7 @@ module.exports = (srcPath) => {
         } else {
           Broadcast.sayAt(player, "<bold>The healing cloud soothes your own wounds.</bold>");
         }
-
+        console.log('Committing heal...');
         healing.commit(target);
       }
     },

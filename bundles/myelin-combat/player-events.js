@@ -238,6 +238,9 @@ module.exports = (srcPath) => {
           source = "Something";
         }
 
+        console.log({attacker, source});
+        console.log(!heal.finalAmount ? heal : 'normal finalamount' + heal.finalAmount);
+
         if (heal.attribute === 'health') {
           buf = `${attacker}${source} heals you for <b><red>${heal.finalAmount}</red></b>.`;
         } else {
@@ -251,11 +254,11 @@ module.exports = (srcPath) => {
         }
 
         for (const member of this.party) {
-          if (member === this || member.room !== this.room) {
+          if (member === this || member.room !== this.room || member === heal.attacker) {
             continue;
           }
 
-          let buf = `${attacker}${source} heals ${this.name} for <b><red>${heal.finalamount}</red></b>.`;
+          let buf = `${attacker}${source} heals ${this.name} for <b><red>${heal.finalAmount}</red></b>.`;
           B.sayAt(member, buf);
         }
       },
