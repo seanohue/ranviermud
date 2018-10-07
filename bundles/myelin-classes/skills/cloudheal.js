@@ -33,26 +33,18 @@ module.exports = (srcPath) => {
 
     run: state => function (args, player) {
       const healRange = getHeal(player);
-      heal(player, range);
+      heal(player, healRange);
       if (!player.party) return;
-      
+      console.log('healing party...');
       [...player.party]
         .filter(ally => ally !== player && ally.room === player.room)
-        .forEach(ally => heal(ally, range));
+        .forEach(ally => heal(ally, healRange));
       
       function heal(target, range) {
-        const maxHealth = target.getMaxAttribute('health');
-        const currentHealth = target.getAttribute('health');
+        console.log('healing ', target.name);
         let amount = Random.inRange(range.min, range.max);
-        
+        console.log(amount);   
         let attribute = 'health';
-
-        // Handle full health
-        const atFullHealth = currentHealth >= maxHealth;
-        if (atFullHealth) {
-          attribute = 'focus';
-          amount = focusCost;
-        }
         
         const healing = new Heal({
           attribute,
@@ -61,19 +53,10 @@ module.exports = (srcPath) => {
           source:    this
         });
 
-        if (atFullHealth) {
-          healing.hidden = true;
-          healing.commit(player); // restore focus cost.
-          return Broadcast.sayAt(player, `<bold>${target.name} is already fully healed.`);
-        }
-
         if (target !== player) {
-          Broadcast.sayAt(player, `<bold>You concentrate on mending ${target.name}'s wounds.</bold>`);
-          Broadcast.sayAtExcept(player.room, `bold>${player.name} closes their eyes, concentrating on ${target.name}'s wounds.</bold>`, [target, player]);
-          if (!target.isNpc) Broadcast.sayAt(target, `<bold>${player.name} closes their eyes,and you can feel your wounds mending themselves.</bold>`);
+          if (!target.isNpc) Broadcast.sayAt(target, `<bold>${player.name} emits a cloud of nanites, and you can feel your wounds mending themselves.</bold>`);
         } else {
-          Broadcast.sayAt(player, "<bold>You concentrate on soothing your own wounds.</bold>");
-          Broadcast.sayAtExcept(player.room, `<bold>${player.name} concentrates, and their wounds mend themselves before your eyes.</bold>`, [player, target]);
+          Broadcast.sayAt(player, "<bold>The healing cloud soothes your own wounds.</bold>");
         }
 
         healing.commit(target);
@@ -82,7 +65,7 @@ module.exports = (srcPath) => {
 
     info: (player) => {
       const healRange = getHeal(player);
-      return `Emit a cloud of healing nanites to mend yourself and any allies in the vicinity.`;
+      return `Emit a cloud of healing nanites to mend yourself and any allies in the vicinity for ${healRange.min} to ${healRange.max} points.`;
     }
   };
 };
