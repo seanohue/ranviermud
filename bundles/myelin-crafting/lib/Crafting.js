@@ -10,7 +10,7 @@ const ItemType = require(srcPath + 'ItemType');
 const dataPath = __dirname + '/../data/';
 const _loadedResources = Data.parseFile(dataPath + 'resources.yml');
 const _loadedRecipes = Data.parseFile(dataPath + 'recipes.yml');
-
+console.log(_loadedRecipes);
 const qualityMap = {
   poor: 1,
   common: 3,
