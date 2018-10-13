@@ -25,10 +25,9 @@ module.exports = (srcPath) => {
       },
 
       updateTick: state => function () {
-        const effectsMap = Array.from(this.effects.values())
+        const effectsMap = Array.from(this.effects.entries())
           .filter(effect => !effect.config.hidden);
-
-        if (effectsMap.size) {
+        if (effectsMap.length) {
           const effects = effectsMap
             .map(effect => ({
               name: effect.name,
