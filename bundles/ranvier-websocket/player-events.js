@@ -11,9 +11,7 @@ module.exports = (srcPath) => {
         this._updated = 0;
         this.socket.command('sendData', 'quests', this.questTracker.serialize().active);
 
-        const effects = this.effects.entries().filter(effect => !effect.config.hidden).map(effect => effect.serialize());
-        this.socket.command('sendData', 'effects', effects);
-
+        updateEffects.call(this);
         updateAttributes.call(this);
       },
 
@@ -28,20 +26,7 @@ module.exports = (srcPath) => {
       updateTick: state => function () {
         this._updated++;
         if (this._updated % 20 === 0) {
-          const effectsMap = Array.from(this.effects.entries())
-            .filter(effect => !effect.config.hidden);
-          if (effectsMap.length) {
-            const effects = effectsMap
-              .map(effect => ({
-                name: effect.name,
-                elapsed: effect.elapsed,
-                remaining: effect.remaining,
-                config: {
-                  duration: effect.config.duration
-                }
-            }));
-            this.socket.command('sendData', 'effects', effects);
-          }
+          updateEffects.call(this);
           this._updated = 0;
         }
 
@@ -52,10 +37,16 @@ module.exports = (srcPath) => {
         updateTargets.call(this);
       },
 
+      effectAdded: state => function (eff) {
+        if (eff.config.hidden) return;
+        updateEffects.call(this);
+      },
+
       effectRemoved: state => function () {
         if (!this.effects.size) {
           this.socket.command('sendData', 'effects', []);
         }
+        updateEffects.call(this);
       },
 
       questProgress: state => function () {
@@ -64,6 +55,23 @@ module.exports = (srcPath) => {
     }
   };
 };
+
+function updateEffects() {
+  const effectsMap = Array.from(this.effects.entries())
+  .filter(effect => !effect.config.hidden);
+  if (effectsMap.length) {
+    const effects = effectsMap
+      .map(effect => ({
+        name: effect.name,
+        elapsed: effect.elapsed,
+        remaining: effect.remaining,
+        config: {
+          duration: effect.config.duration
+        }
+    }));
+    this.socket.command('sendData', 'effects', effects);
+  }
+}
 
 function updateAttributes() {
   const attributes = {};
