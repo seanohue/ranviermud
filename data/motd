@@ -20,17 +20,10 @@ Credits:
 Sean O'Donohue (Myelin Creator, RanvierMUD Contributor)
 Shawn Biddle (RanvierMUD Creator/BDFL)
 
-Special thanks to MUD Coder's Guild 
-www.mudcoders.com (Join this Slack, too!)
+Special thanks to MUD Coder's Guild [www.mudcoders.com]
 
 Thanks for playing!
 
-Patch Oct. 7:
-Some accessibility updates!
-- 'config set autoprompt off' will now turn off the prompt.
-- New 'prompt' command will show the prompt on demand.
-- 'pools' is an alias for 'prompt'.
-Bugfixes!
-- Fixed bug with healing skill display.
-- Fixed bug with creating a group
-- Grouping now allows your group members to automatically help you in combat.
+Patch Oct. 16:
+- Fixed a bug with 'craft create'
+- Websockets enhancements
