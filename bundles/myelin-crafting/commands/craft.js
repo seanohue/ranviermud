@@ -83,7 +83,7 @@ module.exports = (srcPath, bundlePath) => {
       const isInvalidSelection = categoryList => category =>
         isNaN(category) || category < 0 || category > categoryList.length;
 
-      const craftingCategories = getCraftingCategories(state);
+      const craftingCategories = Crafting.getCraftingCategories(state);
       const isInvalidCraftingCategory = isInvalidSelection(craftingCategories);
 
       let [itemCategory, itemNumber] = args.split(' ');
