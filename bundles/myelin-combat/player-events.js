@@ -149,7 +149,7 @@ module.exports = (srcPath) => {
 
         // Handle bleeding in a special way...
         if (damage.type.includes(DamageType.BLEEDING)) {
-          B.sayAt(this, `<red><b>Your wounds <red><b>bleed</red></b> for <b>${damage.finalAmount}</b>.`);
+          B.sayAt(this, `Your wounds <red><b>bleed</red></b> for <b>${damage.finalAmount}</b>.`);
           if (!this.party) {
             return;
           }
