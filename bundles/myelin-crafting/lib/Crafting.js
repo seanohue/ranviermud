@@ -21,9 +21,30 @@ const qualityMap = {
 
 let _cachedCraftingCategories = null;
 
+let searchResults = {}
+
 class Crafting {
   static getResource(resourceKey) {
     return _loadedResources[resourceKey];
+  }
+
+  static getCraftByKeyword(state, query) {
+    if (searchResults[query]) return searchResults[query];
+    const categories = Crafting.getCraftingCategories(state);
+
+    const results = [];
+    for (const category of categories) {
+      const findings = category.items.filter(recipe => 
+        recipe.item.name.includes(query) || 
+        recipe.item.keywords.includes(query) ||
+        recipe.item.keywords.some(keyword => keyword.includes(query))
+      );
+      console.log('Found ', findings, 'in ', category.title);
+      results.push(...findings);
+    }
+    console.log('Overall found', results);
+    searchResults[query] = results;
+    return results;
   }
 
   static getCraftingCategories(state) {
@@ -66,6 +87,7 @@ class Crafting {
       });
 
       if (catIndex === -1) {
+        Logger.warn(`Category not found for ${recipeItem.name}`);
         continue;
       }
 
@@ -74,7 +96,8 @@ class Crafting {
       items.push({
         index: items.length,
         item: recipeItem,
-        recipe: recipe.recipe
+        recipe: recipe.recipe,
+        category: catIndex,
       });
   }
 

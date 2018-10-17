@@ -72,6 +72,47 @@ module.exports = (srcPath, bundlePath) => {
     }
   });
 
+  /* SEARCH */
+  subcommands.add({
+    name: 'search',
+    aliases: ['find'],
+    command: state => (args, player) => {
+      if (!args || !args.length) {
+        return say(player, `Search for what? For example, 'craft search sword'.`)
+      }
+
+      const results = Crafting.getCraftByKeyword(state, args);
+      const noResults = () => say(player, `No results found for '${args}'. You may need more resources. Try searching again, or use 'craft list'.`);
+      if (!results.length) {
+        return noResults();
+      }
+
+      const possibleResults = results.filter(recipe => {
+        const recipeEntries = Object.entries(recipe.recipe);
+        return Crafting.canCraft(player, recipeEntries);
+      });
+
+      if (!possibleResults.length) {
+        return noResults();
+      }
+
+      const amount = possibleResults.length === 1 ? '1 result' : `${possibleResults.length} results`;
+      say(player, `Found ${amount} when searching for '${args}'.`);
+      for (const recipe of possibleResults) {
+        say(player, `<b>[${recipe.category} ${recipe.index}]</b> ${ItemUtil.display(recipe.item)}`);
+      }
+
+      const example = `${possibleResults[0].category} ${possibleResults[0].index}`;
+
+      say(player);
+      say(player, `Use the numbers in brackets as a reference for other commands.`);
+      say(player, `For example: <b>[${example}]</b>`);
+      say(player, `-- 'craft list ${example}' will show you the recipe for this item.`);
+      say(player, `-- 'craft create ${example}' will create the item.`);
+      say(player);
+    }
+  });
+
   /** CREATE **/
   subcommands.add({
     name: 'create',
@@ -157,7 +198,7 @@ module.exports = (srcPath, bundlePath) => {
 
       const subcommand = subcommands.find(command);
       if (!subcommand) {
-        return say(player, "Invalid command. Use craft list or craft create.");
+        return say(player, "Invalid command. Use craft list, craft create, craft search.");
       }
 
       subcommand.command(state)(subArgs.join(' '), player);
