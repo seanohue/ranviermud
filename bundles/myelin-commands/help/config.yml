@@ -10,6 +10,7 @@ body: |
   Possible Settings / Values 
   autoloot    - (on / off)
   autoprompt  - (on / off)
+  autoscan    - (on / off)
   brief       - (on / off)
   minimap     - (on / off)
   combatbars  - (on / off)

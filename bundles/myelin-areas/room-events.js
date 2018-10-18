@@ -142,6 +142,10 @@ module.exports = (srcPath, bundlePath) => {
             B.at(player, 'none');
           }
           B.sayAt(player, ']');
+
+          if (player.getMeta('config.autoscan')) {
+            state.CommandManager.get('scan').execute('', player);
+          }
       }
     }
   }

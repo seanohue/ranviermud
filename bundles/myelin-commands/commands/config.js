@@ -18,7 +18,7 @@ module.exports = (srcPath) => {
 
       const possibleCommands = ['set', 'list'];
 
-      const [command, configToSet, valueToSet ] = args.split(' ');
+      const [ command, configToSet, valueToSet ] = args.split(' ');
 
       if (!possibleCommands.includes(command)) {
         Broadcast.sayAt(player, `<red>Invalid config command: ${command}</red>`);
@@ -34,7 +34,15 @@ module.exports = (srcPath) => {
         return state.CommandManager.get('help').execute('config', player);
       }
 
-      const possibleSettings = ['autoprompt', 'brief', 'autoloot', 'minimap', 'combatbars', 'termwidth'];
+      const possibleSettings = [
+        'autoprompt',
+        'brief',
+        'autoloot',
+        'autoscan',
+        'minimap',
+        'combatbars',
+        'termwidth'
+      ];
 
       if (!possibleSettings.includes(configToSet)) {
         Broadcast.sayAt(player, `<red>Invalid setting: ${configToSet}. Possible settings: ${possibleSettings.join(', ')}`);
