@@ -25,5 +25,6 @@ Special thanks to MUD Coder's Guild [www.mudcoders.com]
 Thanks for playing!
 
 Patch Oct. 16:
+- Use 'craft search' to find items you can create
 - Fixed a bug with 'craft create'
 - Websockets enhancements
