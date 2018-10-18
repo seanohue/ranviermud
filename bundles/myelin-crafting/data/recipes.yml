@@ -18,6 +18,7 @@
 - item: 'spire.intro:dusters'
   recipe: 
     scrap_metal: 35
+    tools: 'spire.intro:blowtorch'
 - item: 'spire.intro:blackjack'
   recipe:
     leather: 30
@@ -39,6 +40,7 @@
     scrap_metal: 120
     piston: 2
     gear: 2
+    tools: 'spire.intro:blowtorch'
 - item: 'spire.labyrinth:boneclub'
   recipe:
     bone: 25
@@ -50,11 +52,14 @@
     scrap_metal: 80
     leather: 2
     gear: 2 
+    tools: 'spire.intro:blowtorch'
 - item: 'spire.labyrinth:scrapchestplate'
   recipe:
     scrap_metal: 140
     leather: 2
     piston: 2 
+    tools: 'spire.intro:blowtorch'
+
 - item: 'spire.intro:bonebroth'
   recipe:
     bone: 10

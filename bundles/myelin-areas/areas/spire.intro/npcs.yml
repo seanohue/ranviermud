@@ -121,6 +121,9 @@
         "spire.intro:elixir":
           cost: 100
           currency: theans
+        "spire.intro:blowtorch":
+          cost: 600
+          currency: theans
         "spire.labyrinth:flashbomb":
           cost: 150
           currency: theans

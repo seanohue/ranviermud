@@ -374,6 +374,29 @@
       value: 2
       currency: theans
 
+# Crafting tool doubling as weapon
+- id: blowtorch
+  name: "Blowtorch"
+  type: WEAPON
+  roomDesc: "Blowtorch"
+  keywords: [ "blow", "torch" ]
+  description: "This is a small, pistol-shaped implement with a small canister attached to the butt of its grip. It has a probiscus-like extrustion at the end of its barrel. The canister has glyphs reading: DANGER FLAMMABLE"
+  slot: 'wield'
+  level: 1
+  itemLevel: 1
+  quality: uncommon
+  metadata:
+    minDamage: 3
+    maxDamage: 29
+    damageType: FIRE
+    speed: 4.4
+    stats:
+      critical: 1
+  behaviors:
+    sellable:
+      value: 20
+      currency: theans
+
 - id: vest
   name: "Ragged Vest"
   type: ARMOR

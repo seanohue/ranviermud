@@ -10,7 +10,7 @@ const ItemType = require(srcPath + 'ItemType');
 const dataPath = __dirname + '/../data/';
 const _loadedResources = Data.parseFile(dataPath + 'resources.yml');
 const _loadedRecipes = Data.parseFile(dataPath + 'recipes.yml');
-console.log(_loadedRecipes);
+
 const qualityMap = {
   poor: 1,
   common: 3,
@@ -34,15 +34,13 @@ class Crafting {
 
     const results = [];
     for (const category of categories) {
-      const findings = category.items.filter(recipe => 
-        recipe.item.name.includes(query) || 
+      const findings = category.items.filter(recipe =>
+        recipe.item.name.includes(query) ||
         recipe.item.keywords.includes(query) ||
         recipe.item.keywords.some(keyword => keyword.includes(query))
       );
-      console.log('Found ', findings, 'in ', category.title);
       results.push(...findings);
     }
-    console.log('Overall found', results);
     searchResults[query] = results;
     return results;
   }
@@ -93,6 +91,7 @@ class Crafting {
 
       recipeItem.hydrate(state);
       const items = craftingCategories[catIndex].items;
+
       items.push({
         index: items.length,
         item: recipeItem,
@@ -109,8 +108,26 @@ class Crafting {
     return Object.entries(item.recipe);
   }
 
-  static canCraft(player, recipeEntries) {
+  static canCraft(state, player, recipeEntries) {
     for (const [resource, recipeRequirement] of recipeEntries) {
+      if (resource === 'tools') {
+        const hasTool = []
+          .concat(recipeRequirement)
+          .every(tool =>
+            player.hasItem(tool) ||
+            Array.from(player.equipment.values())
+                 .find(item => item.entityReference === tool));
+        if (hasTool) continue;
+
+        const toolItem = state.ItemFactory.create(
+          state.AreaManager.getAreaByReference(tool),
+          tool
+        );
+
+        return {
+          success: false, name: toolItem.name, difference: 1
+        };
+      }
       const playerResource = player.getMeta(`resources.${resource}`) || 0;
       if (playerResource < recipeRequirement) {
         const resItem = Crafting.getResourceItem(resource);

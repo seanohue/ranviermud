@@ -49,7 +49,7 @@ module.exports = (srcPath, bundlePath) => {
           return say(player, B.center(40, "No recipes."));
         }
 
-        const craftableItems = category.items.filter(categoryEntry => Crafting.canCraft(player, Object.entries(categoryEntry.recipe)).success);
+        const craftableItems = category.items.filter(categoryEntry => Crafting.canCraft(state, player, Object.entries(categoryEntry.recipe)).success);
         if (!craftableItems.length) return say(player, 'Gather more resources to craft these items.');
         return craftableItems.forEach((craftable) => {
           const item = craftable.item;
@@ -66,6 +66,19 @@ module.exports = (srcPath, bundlePath) => {
       say(player, ItemUtil.renderItem(state, item.item, player));
       say(player, '<b>Recipe:</b>');
       for (const [resource, amount] of Object.entries(item.recipe)) {
+        if (resource === 'tools') {
+          say(player);
+          say(player, `<b>Tools:<b>`)
+          for (const tool of [].concat(amount)) {
+            console.log('loooking for ', tool);
+            const toolItem = state.ItemFactory.create(
+              state.AreaManager.getAreaByReference(tool),
+              tool
+            );
+            say(player, `  ${ItemUtil.display(toolItem)}`);
+          }
+          continue;
+        }
         const ingredient = Crafting.getResourceItem(resource);
         say(player, `  ${ItemUtil.display(ingredient)} x ${amount}`);
       }
@@ -89,7 +102,7 @@ module.exports = (srcPath, bundlePath) => {
 
       const possibleResults = results.filter(recipe => {
         const recipeEntries = Object.entries(recipe.recipe);
-        return Crafting.canCraft(player, recipeEntries);
+        return Crafting.canCraft(state, player, recipeEntries);
       });
 
       if (!possibleResults.length) {
@@ -99,10 +112,10 @@ module.exports = (srcPath, bundlePath) => {
       const amount = possibleResults.length === 1 ? '1 result' : `${possibleResults.length} results`;
       say(player, `Found ${amount} when searching for '${args}'.`);
       for (const recipe of possibleResults) {
-        say(player, `<b>[${recipe.category} ${recipe.index}]</b> ${ItemUtil.display(recipe.item)}`);
+        say(player, `<b>[${recipe.category + 1} ${recipe.index + 1}]</b> ${ItemUtil.display(recipe.item)}`);
       }
 
-      const example = `${possibleResults[0].category} ${possibleResults[0].index}`;
+      const example = `${possibleResults[0].category + 1} ${possibleResults[0].index + 1}`;
 
       say(player);
       say(player, `Use the numbers in brackets as a reference for other commands.`);
@@ -150,10 +163,10 @@ module.exports = (srcPath, bundlePath) => {
       }
 
       const recipeEntries = Object.entries(item.recipe);
-      const results = Crafting.canCraft(player, recipeEntries);
+      const results = Crafting.canCraft(state, player, recipeEntries);
 
       if (!results.success) {
-        return say(player, `You don't have enough resources. 'craft list ${args}' to see recipe. You need ${results.differnce} more ${results.name}.`);
+        return say(player, `You don't have enough resources. 'craft list ${args}' to see recipe. You need ${results.difference} more ${results.name}.`);
       }
       
       if (player.isInventoryFull()) {
@@ -163,6 +176,11 @@ module.exports = (srcPath, bundlePath) => {
       // deduct resources
       let totalRequired = 0;
       for (const [resource, amount] of recipeEntries) {
+        if (resource === 'tools') {
+          const howManyTools = [].concat(amount).length
+          totalRequired += (howManyTools * 5);
+          continue;
+        }
         player.setMeta(`resources.${resource}`, player.getMeta(`resources.${resource}`) - amount);
         const resItem = Crafting.getResourceItem(resource);
         say(player, `<green>You spend ${amount} x ${ItemUtil.display(resItem)}.</green>`);
@@ -184,7 +202,7 @@ module.exports = (srcPath, bundlePath) => {
 
   return {
     aliases: ['create'],
-    usage: 'craft <list/create> [category #] [item #]',
+    usage: 'craft <list/create> [category #] [item #] | craft search [item keyword]',
     command: state => (args, player, arg0) => {
       if (arg0 === 'create') {
         args = 'create ' + args;
