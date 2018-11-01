@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
+const pkg = require('../package.json')
 
 const dataPath = __dirname + '/../data/';
 
@@ -136,7 +137,7 @@ class Data {
    */
   static loadMotd() {
     const motd = fs.readFileSync(dataPath + 'motd').toString('utf8');
-    return motd;
+    return motd.replace('%version%', pkg.version || '0.0.0');
   }
 }
 
