@@ -13,14 +13,14 @@ module.exports = (srcPath) => {
       const say = EventUtil.genSay(socket);
 
       let newAccount = null;
-      write(`<bold>Do you want your account's username to be ${name}?</bold> <cyan>[y/n]</cyan> `);
+      write(`<bold>CREATE NEW ACCOUNT WITH USERNAME: '${name}'?</bold> <cyan>[y/n]</cyan> `);
 
       socket.once('data', data => {
         data = data.toString('utf8').trim();
 
         data = data.toLowerCase();
         if (data === 'y' || data === 'yes') {
-          say('Creating account...');
+          say('CREATING ACCOUNT . . .');
           newAccount = new Account({
             username: name
           });
@@ -30,7 +30,7 @@ module.exports = (srcPath) => {
             nextStage: 'create-player'
           });
         } else if (data && data === 'n' || data === 'no') {
-          say("Let's try again!");
+          say("TRY AGAIN . . .");
 
           return socket.emit('login', socket);
         }

@@ -12,7 +12,7 @@ module.exports = (srcPath) => {
       const say    = EventUtil.genSay(socket);
       const write  = EventUtil.genWrite(socket);
 
-      write("<bold>What would you like to name your character?</bold> ");
+      write("<bold>CHOOSE A NAME FOR YOUR VESSEL:</bold> ");
       socket.once('data', name => {
         say('');
         name = name.toString().trim();
@@ -29,6 +29,7 @@ module.exports = (srcPath) => {
         const exists = state.PlayerManager.exists(name);
 
         if (exists) {
+          console.log({args}); // Check to see if it is the same player or not.
           say(`That name is already taken.`);
           return socket.emit('create-player', socket, args);
         }
