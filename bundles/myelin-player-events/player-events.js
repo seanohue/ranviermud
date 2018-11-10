@@ -23,6 +23,7 @@ module.exports = (srcPath) => {
           this.room.emit('playerSpawned', this);
         }
         Broadcast.sayAtExcept(this.room, `${this.name} has appeared.`, this);
+        this.socket.command('sendAudio', 'vesselspawned');
       },
 
       quit: state => function() {
