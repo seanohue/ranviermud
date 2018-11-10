@@ -50,7 +50,7 @@
   "logLevel": "info",
 
   "playerTickFrequency": 32,
-  "termWidth": 40,
+  "termWidth": 80,
 
   "gossip": {
     "url": "wss://gossip.haus/socket",
