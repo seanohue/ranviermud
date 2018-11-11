@@ -59,18 +59,22 @@ class WebsocketStream extends TransportStream
     }));
   }
 
-  executeSendAudio(audioCue, options = {}) {
-    if (!this.writeable) {
+  executeSendAudio(cue, options = {}) {
+    console.log('wheee');
+    if (!this.writable) {
       return;
     }
 
-    this.socket.send(JSON.stringify({
-      type: 'audio',
-      audioCue,
+    console.log('SENDING AUDIO:', {cue, options});
+    const data = {
+      cue,
       options
-    }));
+    }
+    this.socket.send(JSON.stringify(
+      {type: 'audio', data}
+    ));
   }
-    
+
    executeToggleEcho() {
     if (!this.writable) {
       return;
@@ -80,7 +84,7 @@ class WebsocketStream extends TransportStream
     this.socket.send(JSON.stringify({
       type: 'ui',
       data: {mask: this.mask}
-    }));     
+    }));
    }
 }
 
