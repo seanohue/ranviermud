@@ -238,9 +238,6 @@ module.exports = (srcPath) => {
           source = "Something";
         }
 
-        console.log({attacker, source});
-        console.log(!heal.finalAmount ? heal : 'normal finalamount' + heal.finalAmount);
-
         if (heal.attribute === 'health') {
           buf = `${attacker}${source} heals you for <b><red>${heal.finalAmount}</red></b>.`;
         } else {
@@ -356,12 +353,14 @@ module.exports = (srcPath) => {
         this.setMeta('killedBy', killer && killer.name || null);
         this.setMeta('killedOn', Date.now());
 
+
         const deceased = (this.account.getMeta('deceased') || []).concat(this.name);
 
         this.account.setMeta('deceased', deceased);
 
         // Disconnect player
         this.save(() => {
+          this.socket.command('sendAudio', 'vesseldeath');
           if (this.level <= 5) B.sayAt(this, `<red><b>HINT:</b> ${Death.hint()}</red>`)
           B.sayAt(this, `~* <red>* <b>* YOU DIED *</b> *</red> *~`); // rethink this, or at least make it less corny.
           B.sayAtExcept(this.room, `<red><b>${this.name}'s soul leaves the body.</red></b>`, this);
