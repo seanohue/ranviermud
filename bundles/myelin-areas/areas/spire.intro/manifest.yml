@@ -5,3 +5,4 @@ info:
     min: 1
     max: 6
   pvp: 'safe'
+  soundtrack: 'cryochamber'

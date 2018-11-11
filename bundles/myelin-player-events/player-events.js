@@ -20,11 +20,17 @@ module.exports = (srcPath) => {
 
       spawn: state => function() {
         if (this.room) {
+          const st = this.room.area.info.soundtrack;
+          if (st) {
+            console.log('Beginning new soundtrack', st);
+            this.socket.command('sendAudio', st);
+          }
           this.room.emit('playerSpawned', this);
         }
         Broadcast.sayAtExcept(this.room, `${this.name} has appeared.`, this);
         console.log('About to emit audio!!!');
         this.socket.command('sendAudio', 'vesselspawned');
+
       },
 
       quit: state => function() {

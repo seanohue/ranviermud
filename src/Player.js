@@ -130,6 +130,13 @@ class Player extends Character {
     if (this.room && this.room !== nextRoom) {
       this.room.emit('playerLeave', this, nextRoom);
       this.room.removePlayer(this);
+      if (this.room.area !== nextRoom.area) {
+        const st = nextRoom.area.info.soundtrack;
+        if (st) {
+          console.log('Beginning new soundtrack', st);
+          this.socket.command('sendAudio', st);
+        }
+      }
     }
 
     this.room = nextRoom;
