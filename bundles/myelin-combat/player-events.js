@@ -353,7 +353,6 @@ module.exports = (srcPath) => {
         this.setMeta('killedBy', killer && killer.name || null);
         this.setMeta('killedOn', Date.now());
 
-
         const deceased = (this.account.getMeta('deceased') || []).concat(this.name);
 
         this.account.setMeta('deceased', deceased);

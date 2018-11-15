@@ -38,9 +38,8 @@ module.exports = (srcPath) => {
 
           commandsToSend.push({name});
         }
+        
         this.socket.command('sendData', 'commands', commandsToSend);
-      }
-
       },
 
       quit: state => function() {
