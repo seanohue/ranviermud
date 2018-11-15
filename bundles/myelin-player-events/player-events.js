@@ -32,7 +32,7 @@ module.exports = (srcPath) => {
         this.socket.command('sendAudio', 'vesselspawned');
         const commandsToSend = [];
         for (let [ name, command ] of state.CommandManager.commands) {
-          if (player.role < command.requiredRole) {
+          if (this.role < command.requiredRole) {
             continue;
           }
 
