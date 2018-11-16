@@ -58,7 +58,8 @@ module.exports = (srcPath) => {
 
 function updateEffects() {
   const effectsMap = Array.from(this.effects.entries())
-  .filter(effect => !effect.config.hidden);
+    .filter(effect => !effect.config.hidden);
+
   if (effectsMap.length) {
     const effects = effectsMap
       .map(effect => ({
@@ -69,6 +70,7 @@ function updateEffects() {
           duration: effect.config.duration
         }
     }));
+    console.log('Updating effects', effects);
     this.socket.command('sendData', 'effects', effects);
   }
 }
@@ -88,7 +90,6 @@ function updateAttributes() {
     }
     attributes[name] = attrData;
   }
-
   this.socket.command('sendData', 'attributes', attributes);
 }
 
