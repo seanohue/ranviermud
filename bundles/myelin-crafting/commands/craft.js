@@ -34,9 +34,10 @@ module.exports = (srcPath, bundlePath) => {
       let [search, itemNumber] = args.split(' ');
 
       let index = parseInt(search, 10) - 1;
-      const category = craftingCategories[index] 
+      const category = craftingCategories[index]
         || craftingCategories.find(category => search === category.title.toLowerCase());
-      if (!category) {
+
+        if (!category) {
         return say(player, "Invalid category.");
       }
 
@@ -50,7 +51,10 @@ module.exports = (srcPath, bundlePath) => {
         }
 
         const craftableItems = category.items.filter(categoryEntry => Crafting.canCraft(state, player, Object.entries(categoryEntry.recipe)).success);
-        if (!craftableItems.length) return say(player, 'Gather more resources to craft these items.');
+        if (!craftableItems.length) {
+          return say(player, 'Gather more resources to craft these items.');
+        }
+
         return craftableItems.forEach((craftable) => {
           const item = craftable.item;
           say(player, sprintf('%2d) ', craftable.index + 1) + ItemUtil.display(item));
@@ -68,9 +72,8 @@ module.exports = (srcPath, bundlePath) => {
       for (const [resource, amount] of Object.entries(item.recipe)) {
         if (resource === 'tools') {
           say(player);
-          say(player, `<b>Tools:<b>`)
+          say(player, `<b>Tools:</b>`)
           for (const tool of [].concat(amount)) {
-            console.log('loooking for ', tool);
             const toolItem = state.ItemFactory.create(
               state.AreaManager.getAreaByReference(tool),
               tool
@@ -78,6 +81,17 @@ module.exports = (srcPath, bundlePath) => {
             say(player, `  ${ItemUtil.display(toolItem)}`);
           }
           continue;
+        }
+        if (resource === 'items') {
+          say(player);
+          say(player, `<b>Items:</b>    (will be consumed)`);
+          for (const itemRef of [].concat(amount)) {
+            const item = state.ItemFactory.create(
+              state.AreaManager.getAreaByReference(itemRef),
+              itemRef
+            );
+            say(player, `  ${ItemUtil.display(item)}`);
+          }
         }
         const ingredient = Crafting.getResourceItem(resource);
         say(player, `  ${ItemUtil.display(ingredient)} x ${amount}`);
@@ -156,7 +170,7 @@ module.exports = (srcPath, bundlePath) => {
 
       const item = category.items[itemNumber];
       // check to see if player has resources available
-      
+
       if (!item) {
         Logger.error(`Trying to craft ${itemNumber} in ${category.items} via ${args}`);
         return say(player, "Invalid item.");
@@ -168,7 +182,7 @@ module.exports = (srcPath, bundlePath) => {
       if (!results.success) {
         return say(player, `You don't have enough resources. 'craft list ${args}' to see recipe. You need ${results.difference} more ${results.name}.`);
       }
-      
+
       if (player.isInventoryFull()) {
         return say(player, "You can't hold any more items.");
       }
@@ -181,6 +195,17 @@ module.exports = (srcPath, bundlePath) => {
           totalRequired += (howManyTools * 5);
           continue;
         }
+
+        if (resource === 'items') {
+          const howManyItems = [].concat(amount).length
+          totalRequired += (howManyItems * 8);
+          [].concat(amount).forEach(itemRef => {
+            const item = ItemUtil.getItemByReference(itemRef);
+            state.ItemManager.remove(item);
+          });
+          continue;
+        }
+
         player.setMeta(`resources.${resource}`, player.getMeta(`resources.${resource}`) - amount);
         const resItem = Crafting.getResourceItem(resource);
         say(player, `<green>You spend ${amount} x ${ItemUtil.display(resItem)}.</green>`);
@@ -197,8 +222,6 @@ module.exports = (srcPath, bundlePath) => {
       player.save();
     }
   });
-
-
 
   return {
     aliases: ['create'],

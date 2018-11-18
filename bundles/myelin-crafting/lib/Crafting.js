@@ -21,7 +21,7 @@ const qualityMap = {
 
 let _cachedCraftingCategories = null;
 
-let searchResults = {}
+let searchResults = {};
 
 class Crafting {
   static getResource(resourceKey) {
@@ -110,30 +110,34 @@ class Crafting {
 
   static canCraft(state, player, recipeEntries) {
     for (const [resource, recipeRequirement] of recipeEntries) {
-      if (resource === 'tools') {
-        const hasTool = []
+      if (resource === 'tools' || resource === 'items') {
+        const hasItem = []
           .concat(recipeRequirement)
           .every(tool =>
             player.hasItem(tool) ||
             Array.from(player.equipment.values())
                  .find(item => item.entityReference === tool));
-        if (hasTool) continue;
 
-        const toolItem = state.ItemFactory.create(
-          state.AreaManager.getAreaByReference(tool),
-          tool
+        if (hasItem) continue;
+
+        const itemRef = [].concat(recipeRequirement)[0];
+        const resourceItem = state.ItemFactory.create(
+          state.AreaManager.getAreaByReference(itemRef),
+          itemRef
         );
 
         return {
-          success: false, name: toolItem.name, difference: 1
+          success: false, name: resourceItem.name, difference: 1
         };
       }
+
       const playerResource = player.getMeta(`resources.${resource}`) || 0;
       if (playerResource < recipeRequirement) {
         const resItem = Crafting.getResourceItem(resource);
         return {success: false, name: resItem.name, difference: recipeRequirement - playerResource };
       }
     }
+
     return {success: true}
   }
 

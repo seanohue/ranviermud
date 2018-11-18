@@ -70,7 +70,6 @@ function updateEffects() {
           duration: effect.config.duration
         }
     }));
-    console.log('Updating effects', effects);
     this.socket.command('sendData', 'effects', effects);
   }
 }

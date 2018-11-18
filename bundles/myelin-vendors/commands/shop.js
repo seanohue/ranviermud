@@ -108,7 +108,6 @@ module.exports = (srcPath, bundlePath) => {
       const currencyKey = 'currencies.' + vendorItem.currency;
       const playerCurrency = player.getMeta(currencyKey);
       if (!playerCurrency || playerCurrency < vendorItem.cost) {
-
         return tell(vendorConfig.cannotAfford ? vendorConfig.cannotAfford.replace('%COST%', `${vendorItem.cost} ${friendlyCurrencyName(vendorItem.currency)}`) : `You can't afford that, it costs ${vendorItem.cost} ${friendlyCurrencyName(vendorItem.currency)}.`);
       }
 

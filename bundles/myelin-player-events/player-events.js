@@ -22,13 +22,11 @@ module.exports = (srcPath) => {
         if (this.room) {
           const st = this.room.area.info.soundtrack;
           if (st) {
-            console.log('Beginning new soundtrack', st);
             this.socket.command('sendAudio', st);
           }
           this.room.emit('playerSpawned', this);
         }
         Broadcast.sayAtExcept(this.room, `${this.name} has appeared.`, this);
-        console.log('About to emit audio!!!');
         this.socket.command('sendAudio', 'vesselspawned');
         const commandsToSend = [];
         for (let [ name, command ] of state.CommandManager.commands) {

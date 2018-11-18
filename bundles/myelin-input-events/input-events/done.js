@@ -70,7 +70,6 @@ module.exports = (srcPath) => {
       }
 
       // All that shit done, let them play!
-      console.log('Emitting spawn events on ', player.nane);
       player.socket.emit('commands', player);
       player.emit('spawn');
 

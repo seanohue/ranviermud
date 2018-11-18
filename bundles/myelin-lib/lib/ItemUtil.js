@@ -184,3 +184,14 @@ function parseItemType(type) {
     default:              return 'Item';
   }
 }
+
+function getItemByReference(inventory, reference) {
+  const found =  Array.from(inventory)
+    .find(([id, item]) => it === reference);
+
+  if (!found) return null;
+  const [_, item] = found;
+  return item;
+}
+
+exports.getItemByReference = getItemByReference;

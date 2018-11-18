@@ -286,3 +286,25 @@
     resistance:
       bleeding: 20
       drowning: 20
+
+- id: lifesupport
+  type: ARMOR 
+  name: 'Life Support Unit'
+  roomDesc: 'Life Support Unit'
+  description: 'An external life support unit. This Anzeige device is meant to help one breath easier, recover more quickly, and in general live longer.'
+  keywords: ['life', 'support']
+  level: 5
+  slot: "neck"
+  quality: rare
+  metadata:
+    stats:
+      health: 50
+      energy: 30
+      might: 1
+  behaviors:
+    sellable:
+      value: 60
+      currency: theans
+    resistance:
+      bleeding: 30
+      drowning: 30

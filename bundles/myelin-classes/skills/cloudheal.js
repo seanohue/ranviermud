@@ -42,7 +42,6 @@ module.exports = (srcPath) => {
       function heal(target, range) {
         let amount = Random.inRange(range.min, range.max);
         let attribute = 'health';
-        console.log(`Healing ${target.name} for ${amount}`);
         const healing = new Heal({
           attribute,
           amount,
@@ -55,7 +54,6 @@ module.exports = (srcPath) => {
         } else {
           Broadcast.sayAt(player, "<bold>The healing cloud soothes your own wounds.</bold>");
         }
-        console.log('Committing heal...');
         healing.commit(target);
       }
     },

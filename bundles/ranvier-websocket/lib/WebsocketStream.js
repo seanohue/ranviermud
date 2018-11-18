@@ -60,16 +60,15 @@ class WebsocketStream extends TransportStream
   }
 
   executeSendAudio(cue, options = {}) {
-    console.log('wheee');
     if (!this.writable) {
       return;
     }
 
-    console.log('SENDING AUDIO:', {cue, options});
     const data = {
       cue,
       options
-    }
+    };
+
     this.socket.send(JSON.stringify(
       {type: 'audio', data}
     ));

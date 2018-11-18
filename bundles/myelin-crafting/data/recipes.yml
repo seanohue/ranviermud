@@ -78,4 +78,10 @@
     sparkdust: 25
     scrap_metal: 25
     leather: 4
+- item: 'spire.labyrinth:lifesupport'
+  recipe: 
+    scrap_metal: 25
+    sparkdust: 5
+    items: 'spire.labyrinth:crackedlifesupport'
+    tools: 'spire.intro:blowtorch'
 
