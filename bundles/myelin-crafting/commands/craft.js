@@ -200,7 +200,9 @@ module.exports = (srcPath, bundlePath) => {
           const howManyItems = [].concat(amount).length
           totalRequired += (howManyItems * 8);
           [].concat(amount).forEach(itemRef => {
-            const item = ItemUtil.getItemByReference(itemRef);
+            const item = ItemUtil.getItemByReference(player.inventory, itemRef);
+            console.log({itemRef, item});
+            if (!item) return Logger.error(`[CRAFTING] No item found for ${itemRef}`);
             state.ItemManager.remove(item);
           });
           continue;
