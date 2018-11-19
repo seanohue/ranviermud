@@ -187,7 +187,7 @@ function parseItemType(type) {
 
 function getItemByReference(inventory, reference) {
   const found =  Array.from(inventory)
-    .find(([id, item]) => it === reference);
+    .find(([id, item]) => id === reference);
 
   if (!found) return null;
   const [_, item] = found;
