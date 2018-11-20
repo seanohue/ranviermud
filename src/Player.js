@@ -133,8 +133,21 @@ class Player extends Character {
       if (this.room.area !== nextRoom.area) {
         const st = nextRoom.area.info.soundtrack;
         if (st) {
-          console.log('Beginning new soundtrack', st);
           this.socket.command('sendAudio', st);
+        }
+        const ambience = nextRoom.area.info.ambience;
+        if (ambience) {
+          this.socket.command('sendAudio', ambience);
+        }
+
+        const visitedAreas = this.getMeta('visitedAreas') || [];
+        if (!visitedAreas.includes(nextRoom.area.title)) {
+          const range = nextRoom.area.info.levelRange || {};
+          const min = range.min || 5;
+          const xp = min * 100;
+          this.emit('experience', xp, `finding ${nextRoom.area.title}`);
+          visitedAreas.push(nextRoom.area.title);
+          this.setMeta('visitedAreas', visitedAreas);
         }
       }
     }

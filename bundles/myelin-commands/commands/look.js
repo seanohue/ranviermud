@@ -15,13 +15,13 @@ module.exports = (srcPath, bundlePath) => {
     usage: "look [thing]",
     aliases: ['inspect', 'examine', 'ls', 'search', 'x'],
     command: state => (args, player) => {
+      if (args) {
+        return lookEntity(state, player, args);
+      }
+
       if (!player.room) {
         Logger.error(player.getName() + ' is in limbo.');
         return B.sayAt(player, 'You are in a deep, dark void.');
-      }
-
-      if (args) {
-        return lookEntity(state, player, args);
       }
 
       lookRoom(player);
@@ -40,15 +40,15 @@ module.exports = (srcPath, bundlePath) => {
     let search = null;
 
     if (args.length > 1) {
-      search = args[0] === 'in' ? args[1] : args[0];
+      search = args[0] === 'in' || args[0] === 'at' ? args[1] : args[0];
     } else {
       search = args[0];
     }
 
-    let entity = CommandParser.parseDot(search, room.items);
-    entity = entity || CommandParser.parseDot(search, room.players);
-    entity = entity || CommandParser.parseDot(search, room.npcs);
-    entity = entity || CommandParser.parseDot(search, player.inventory);
+    let entity = CommandParser.parseDot(search, room.items)
+      || CommandParser.parseDot(search, room.players)
+      || CommandParser.parseDot(search, room.npcs)
+      || CommandParser.parseDot(search, player.inventory);
 
     if (!entity) {
       Logger.warn('Player tried looking for ' + args);
