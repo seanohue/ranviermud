@@ -2,3 +2,4 @@ title: 'The Spire: Labyrinth'
 info:
   levelRange: {min: 5, max: 15}
   pvp: 'optional'
+  soundtrack: 'labyrinth'
