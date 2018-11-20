@@ -10,11 +10,14 @@ body: |
   craft list <cat #> <item #> 
   View stats and ingredients for a given item
 
+  craft search <keyword>
+  Search for an item in your crafting recipes
+
   craft create <cat #> <item #> 
   Create item viewed with list <#> <#>
 
   create <cat #> <item #> 
-  Alias for craft create
+  Alias for 'craft create'
 related:
   - gather
   - item
