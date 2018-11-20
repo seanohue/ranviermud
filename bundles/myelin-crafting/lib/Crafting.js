@@ -114,7 +114,7 @@ class Crafting {
         const hasItem = []
           .concat(recipeRequirement)
           .every(tool =>
-            player.hasItem(tool) ||
+            player.inventory && player.hasItem(tool) ||
             Array.from(player.equipment.values())
                  .find(item => item.entityReference === tool));
 

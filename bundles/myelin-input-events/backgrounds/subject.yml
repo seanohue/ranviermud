@@ -7,6 +7,6 @@ attributes:
   intellect: 6
   willpower: 6
 equipment: ['spire.intro:aetherrobe']
-attributePoints: 16
-abilityPoints: 10
+attributePoints: 20
+abilityPoints: 4
 tier: 1

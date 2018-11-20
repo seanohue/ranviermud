@@ -73,6 +73,7 @@
     Hint: try 'list' when at a vending NPC to see what they are selling.
     </cyan></b>
   autoComplete: true
+  learnCraft: 'spire.intro:axon'
   completionMessage: |-
     You've found an Axon! Now to return to the Node.
   goals: 

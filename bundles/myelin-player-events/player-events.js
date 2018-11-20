@@ -78,13 +78,20 @@ module.exports = (srcPath) => {
         ItemUtil.renderEquipment(observer, this);
       },
 
+      learnCraft: state => function(craftname) {
+        const learnedCrafts = this.getMeta('learnedCrafts') || [];
+        if (learnedCrafts.includes(craftname)) return;
+        learnedCrafts.push(craftname);
+        this.setMeta('learnedCrafts', craftname); 
+      },
+
       /**
        * Handle player gaining experience
        * @param {number} amount Exp gained
        */
       experience: state => function (amount, reason) {
-        const reasonMessage = reason ? `for ${reason}` : ''
-        Broadcast.sayAt(this, `<blue>You gained <bold>${amount}</bold> <experience$>reasonMessage</experience$>!</blue>`);
+        const reasonMessage = reason ? ` for ${reason}` : ''
+        Broadcast.sayAt(this, `<blue>You gained <bold>${amount}</bold> experience${reasonMessage}!</blue>`);
 
         const totalTnl = LevelUtil.expToLevel(this.level + 1);
 

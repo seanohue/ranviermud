@@ -30,7 +30,7 @@ module.exports = (srcPath) => {
 
         if (exists) {
           console.log({args}); // Check to see if it is the same player or not.
-          say(`That name is already taken.`);
+          say(`A VESSEL WITH THAT NAME EXISTS.`);
           return socket.emit('create-player', socket, args);
         }
 

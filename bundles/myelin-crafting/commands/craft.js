@@ -50,7 +50,11 @@ module.exports = (srcPath, bundlePath) => {
           return say(player, B.center(40, "No recipes."));
         }
 
-        const craftableItems = category.items.filter(categoryEntry => Crafting.canCraft(state, player, Object.entries(categoryEntry.recipe)).success);
+        const knownRecipes = player.getMeta('learnedCrafts') || [];
+        const craftableItems = category.items.filter(categoryEntry => 
+          knownRecipes.includes(categoryEntry.item) || 
+          Crafting.canCraft(state, player, Object.entries(categoryEntry.recipe)).success
+        );
         if (!craftableItems.length) {
           return say(player, 'Gather more resources to craft these items.');
         }
@@ -219,7 +223,7 @@ module.exports = (srcPath, bundlePath) => {
       player.addItem(item.item);
       player.emit('craft', item.item);
       say(player, `<b><green>You create: ${ItemUtil.display(item.item)}.</green></b>`);
-      player.emit('experience', Crafting.getExperience(totalRequired, item.item.metadata.quality || 'common'));
+      player.emit('experience', Crafting.getExperience(totalRequired, item.item.metadata.quality || 'common'), 'crafting');
 
       player.save();
     }

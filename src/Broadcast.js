@@ -14,7 +14,7 @@ const Config = require('./Config');
 class Broadcast {
   static termWidth(source) {
     return source.getMeta 
-      ? source.getMeta('config.termwidth') || Config.get('termWidth') || 40
+      ? source.getMeta('config.termwidth') || Config.get('termWidth') || 80
       : false;
   }
   /**

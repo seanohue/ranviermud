@@ -31,7 +31,7 @@ module.exports = (srcPath) => {
         B.at(player, ':');
 
         if (effect.duration === Infinity) {
-          B.sayAt(player, "Permanent");
+          B.sayAt(player, " Permanent");
         } else {
           B.sayAt(player, ` ${humanize(effect.remaining)} remaining`);
         }

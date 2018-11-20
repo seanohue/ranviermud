@@ -23,7 +23,7 @@ module.exports = srcPath => {
   return class ExperienceReward extends QuestReward {
     static reward(GameState, quest, config, player) {
       const amount = this._getAmount(quest, config, player);
-      player.emit('experience', amount);
+      player.emit('experience', amount, 'reaching a goal');
     }
 
     static display(GameState, quest, config, player) {

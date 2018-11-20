@@ -25,16 +25,16 @@ module.exports = (srcPath) => {
       // List tiers they can afford.
       const memoryPoints = account.getMeta('memories');
 
-      say("Choose A Lineage:");
+      say("VESSEL TIERS AVAILABLE:");
       say(`${Broadcast.line(40)}/`);
       tiers.filter(tier => tier.cost <= memoryPoints)
         .forEach((tier, index) => {
           at(`[${index + 1}] `);
-          at(`<bold>${tier.label}</bold> `);
-          at(`<blue>(${tier.cost ? tier.cost + " memories" : "Free"})</blue>`);
+          at(`<bold>${tier.label.toUpperCase()}</bold> `);
+          at(`<blue>(${tier.cost ? tier.cost + " MEMORIES" : "FREE"})</blue>`);
           say(""); // Newline to separate.
       });
-      say(`Your Memories: ${memoryPoints}`);
+      say(`MEMORIES CAPTURED: ${memoryPoints}`);
 
       socket.once('data', choice => {
         choice = parseInt(choice.toString().trim().toLowerCase(), 10) - 1;

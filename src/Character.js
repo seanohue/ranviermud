@@ -372,12 +372,13 @@ class Character extends Metadatable(EventEmitter) {
    * @return {Item|boolean}
    */
   hasItem(itemReference) {
-    for (const [ uuid, item ] of this.inventory) {
-      if (item.entityReference === itemReference) {
-        return item;
+    if (this.inventory) {
+      for (const [ uuid, item ] of this.inventory) {
+        if (item.entityReference === itemReference) {
+          return item;
+        }
       }
     }
-
     return false;
   }
 

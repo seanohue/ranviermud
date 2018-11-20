@@ -20,7 +20,7 @@ module.exports = (srcPath) => {
         Deceased selection menu:
       */
       say("\r\n----------------------------------------");
-      say("|      Whomst would you Pay Respect to?");
+      say("|      DESTROYED VESSELS");
       say("----------------------------------------");
 
 

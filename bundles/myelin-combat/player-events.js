@@ -402,7 +402,7 @@ module.exports = (srcPath) => {
           B.sayAt(this, `<b><red>You killed ${target.name}!</red></b>`);
         }
 
-        this.emit('experience', xp);
+        this.emit('experience', xp, 'surviving');
       }
     }
   };

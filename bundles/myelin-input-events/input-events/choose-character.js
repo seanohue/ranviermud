@@ -22,7 +22,7 @@ module.exports = (srcPath) => {
       * Can create new (if less than 3 living chars)
       */
       say("\r\n------------------------------");
-      say("|      Choose your fate");
+      say("|      VESSEL ACCESS MENU");
       say("------------------------------");
 
       // This just gets their names.
@@ -38,7 +38,7 @@ module.exports = (srcPath) => {
 
       // Configure account options menu
       options.push({
-        display: 'Change Password',
+        display: 'CHANGE PASSWORD',
         onSelect: () => {
           socket.emit('change-password', socket, { account, nextStage: 'choose-character' });
         },
@@ -46,7 +46,7 @@ module.exports = (srcPath) => {
 
       if (canAddCharacter) {
         options.push({
-          display: 'Create New Character',
+          display: 'FIND NEW VESSEL',
           onSelect: () => {
             handleMultiplaying();
             socket.emit('create-player', socket, { account });
@@ -55,10 +55,11 @@ module.exports = (srcPath) => {
       }
 
       if (characters.length) {
-        options.push({ display: "Login As:" });
+        options.push({display: ''});
+        options.push({ display: "LINK TO:" });
         characters.forEach(char => {
           options.push({
-            display: char.username,
+            display: char.username.toUpperCase(),
             onSelect: () => {
               handleMultiplaying(char)
                 .then(() => {
@@ -69,7 +70,7 @@ module.exports = (srcPath) => {
                 })
                 .catch(err => {
                   Logger.warn(err);
-                  say('Failed to log in to your character. Please contact an administrator.');
+                  say('FAILED TO ACCESS VESSEL. CONTACT ADMIN.');
                   socket.emit('close');
                 });
             },
@@ -123,7 +124,7 @@ module.exports = (srcPath) => {
 
       if (deceased.length) {
         options.push({
-          display: "Pay Respects to The Dead",
+          display: "SEE DESTROYED VESSELS",
           onSelect: () => {
             socket.emit('choose-deceased', socket, { account, deceased });
           }
@@ -132,7 +133,7 @@ module.exports = (srcPath) => {
 
       if (characters.length) {
         options.push({
-          display: 'Delete a Character',
+          display: 'ELIMINATE VESSEL',
           onSelect: () => {
             socket.emit('delete-character', socket, args);
           },
@@ -140,34 +141,34 @@ module.exports = (srcPath) => {
       }
 
       options.push({
-        display: 'Delete This Account',
+        display: 'DELETE ACCOUNT',
         onSelect: () => {
-          say('<bold>By deleting this account, all the characters will be also deleted.</bold>')
+          say('<bold>BY DELETING THIS ACCOUNT, ALL VESSELS WILL BE DELETED.</bold>')
           write(`<bold>Are you sure you want to delete this account? </bold> <cyan>[Y/n]</cyan> `);
             socket.once('data', confirmation => {
               say('');
               confirmation = confirmation.toString().trim().toLowerCase();
 
               if (!/[yn]/.test(confirmation)) {
-                say('<b>Invalid Option</b>')
+                say('<b>INVALID OPTION</b>')
                 return socket.emit('choose-character', socket, args);
               }
 
               if (confirmation === 'n') {
-                say('No one was deleted...');
+                say('RETURNING...');
                 return socket.emit('choose-character', socket, args);
               }
 
-              say(`Deleting account <b>${account.username}</b>`);
+              say(`DELETING ACCOUNT <b>${account.username}</b>`);
               account.deleteAccount();
-              say('Account deleted, it was a pleasure doing business with you.');
+              say('ACCOUNT DELETED.');
               socket.end();
             });
         },
       });
 
       options.push({
-        display: 'Quit',
+        display: 'EXIT TERMINAL',
         onSelect: () => socket.end(),
       });
 

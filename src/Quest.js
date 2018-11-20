@@ -30,6 +30,16 @@ class Quest extends EventEmitter {
     this.goals = [];
     this.state = [];
     this.GameState = GameState;
+
+    this.emitInitial();
+  }
+
+  emitInitial() {
+    if (this.config.learnCraft) {
+      [].concat(this.config.learnCraft).forEach(craftname => {
+        this.player.emit('learnCraft', this.learnCraft);
+      });
+    }
   }
 
   /**
