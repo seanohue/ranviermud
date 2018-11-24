@@ -61,6 +61,7 @@ module.exports = srcPath => {
           }
 
           if (e instanceof SkillErrors.NotEnoughResourcesError) {
+            //TODO: Tell them which resource and how much
             return B.sayAt(this, `You do not have enough resources.`);
           }
 

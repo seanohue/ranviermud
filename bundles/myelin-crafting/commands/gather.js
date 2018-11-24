@@ -30,15 +30,12 @@ module.exports = (srcPath, bundlePath) => {
         player.setMeta('resources', {});
       }
 
-      let result = [];
       for (const material in resource.materials) {
         const entry = resource.materials[material];
         const amount = Random.inRange(entry.min, entry.max);
         if (amount) {
-          const resItem = Crafting.getResourceItem(material);
-          const metaKey = `resources.${material}`;
-          player.setMeta(metaKey, (player.getMeta(metaKey) || 0) + amount);
-          B.sayAt(player, `<green>You gather: ${ItemUtil.display(resItem)} x${amount}.`);
+          player.emit('resources', material, amount);
+
         }
       }
 

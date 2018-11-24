@@ -51,6 +51,7 @@
 
   "playerTickFrequency": 32,
   "termWidth": 80,
+  "maxResources": 100,
 
   "gossip": {
     "url": "wss://gossip.haus/socket",
