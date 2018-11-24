@@ -1,7 +1,7 @@
 
 id: mendicant
 name: 'Acrid Mendicant'
-description: "You're a wiley sort, surviving on the streets through your own wits, charming alms from strangers."
+description: "You're a wiley sort, surviving on the streets of the Outlanders Quarter through your own wits, charming alms from strangers."
 attributes:
   quickness: 6
   intellect: 15

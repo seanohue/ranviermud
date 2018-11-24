@@ -1,12 +1,12 @@
 id: subject
 name: 'Research Subject'
-description: 'Most of your life was spent in captivity, subject of countless eldritch experiments. They have left you withered, but full of ill potential.'
+description: 'Most of your life was spent in captivity deep inside the Spire, subject of countless eldritch experiments. They have left you withered, but full of ill potential.'
 attributes:
   quickness: 6
   might: 6
-  intellect: 6
-  willpower: 6
+  intellect: 16
+  willpower: 21
 equipment: ['spire.intro:aetherrobe']
-attributePoints: 20
+attributePoints: 0
 abilityPoints: 4
 tier: 1

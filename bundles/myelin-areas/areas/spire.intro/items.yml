@@ -2,7 +2,7 @@
 - id: columntubes
   name: "A Central Column of Tubes"
   roomDesc: "Thousands of tubes form a central column in this chamber"
-  metadata:    
+  metadata:
     noPickup: true
   keywords: [ "tube", "tubes", "column", "central" ]
   description: "Thousands of tubes of varying girth and color emerge from perfectly-sized holes in the floor, rising through the center of this chamber en masse to either disappear into the ceiling, or snake their way into the surrounding chambers."
@@ -10,13 +10,13 @@
   name: "A Semicircular Slate Bench"
   roomDesc: "A semicircular slate bench is built into the ground in the center of this room"
   description: "This bench is the same color and material as the floor, walls, and ceiling. It arcs in a semicircle around the crystals hovering in the center of the room. It looks uncomfortable to <b>sit</b> on for any considerable span."
-  metadata:    
+  metadata:
     noPickup: true
   keywords: ["bench", "slate", "circular", "seat", "semi"]
 - id: cylinders
   name: "A Row of Frosted Cylinders"
   roomDesc: "A row of frosted cylinders embedded in the wall"
-  metadata:    
+  metadata:
     noPickup: true
   keywords: [ "cylinder", "coffin", "frosted", "row" ]
   description: "Upon closer inspection, the cylinders are made of thick glass. Some of them are slightly cracked, and a thin vapor is emerging. Others are too frosted over to see within. In one, you see a dim silhouette."
@@ -31,7 +31,7 @@
 - id: masstubes
   name: "A Snakelike Mass of Tubes"
   roomDesc: "A mass of tubes snaking to each of the cylinders"
-  metadata:    
+  metadata:
     noPickup: true
   keywords: [ "tube", "tubes", "snakelike", "mass"  ]
   description: "The tubes are running from the surrounding spaces, across the ceiling, and into the wall above each of the cylinders. They are opaque, and you cannot tell what they may be filled with."
@@ -39,7 +39,7 @@
   name: "A Broken Node"
   roomDesc: "A broken Node"
   description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center, however, this cylinder has been snapped in half. Scorch marks and jagged spurs scar the metal cylinder where it was damaged."
-  metadata:    
+  metadata:
     noPickup: true
   keywords: [ "node", "portal", "broken" ]
   type: RESOURCE
@@ -63,7 +63,7 @@
   roomDesc: "A Node"
   description: "This is a silvery dais with an octagonal base. A cylinder juts up from its center. On the top of the contraption is an enormous dial with numbers on it."
   keywords: ["portal", "port", "node"]
-  metadata:    
+  metadata:
     noPickup: true
 
 - id: axon
@@ -82,7 +82,7 @@
 - id: datacrystals_blue
   name: "Datacrystal Cluster"
   description: "Five blue crystals hover a dozen hands above the ground, rotating slowly and <blue>emanating a blue light</blue>.\nIn the light you can see various shapes and figures."
-  metadata:    
+  metadata:
     noPickup: true
   behaviors:
     readable:
@@ -96,29 +96,29 @@
           'Declaring themselves the bastion of civilization, the peoples conspired to transcend the rest of humanity by taking on projects previously thought to be impossible...' A series of glyphs appear above the crystal, and the voice echoes in your head in a monotone chant:
 
           'Ex Nihilo'
-          ... An image of a tall, thin woman standing before a dais. An indigo light shimmers as they slide a device into a hole on the top of the structure.
-          The image cuts to a flat plain, and the same shimmering light fills the air. Before your eyes, a mountain erupts into the sky...
 
           'Ungenocide'
-          ... A scene of a dead body, being hauled from the gutter by an automaton. Their piercing green eyes stare lifelessly.
-          An image of the person's face, in one of the cylinders surrounding you, flashes before you.
-          The green eyes open, a look of shock on their face...
 
           'Sacredname'
-          ...A man and a woman are in an otherwise empty room, sitting cross-legged, deep in thought. 
-          They both mouth a word at the same time, shimmer, and vanish...
 
           'Extropy'
-          ...A person is in the center of a dark, cylindrical chamber. They stand before a glass vat filled with a glittering liquid. 
-          They thrust their arm into the liquid, and their skin cracks, becoming hard and scaled...
 
           The voice intones,
 
           'WOULD YOU LIKE TO KNOW MORE?'
-        On Project Ex Nihilo: "A monotone voice begins reciting data, punctuated by bursts of static to remove confidential information:\nPROJECT EX NIHILO:\nStart date: ██████\nCompletion date: ██████ Principal scientists: Mahabharata ███████, Elegans ██████, J. Icahn ████████████\n\nPRELIMINARY RESULTS:\nWhile experiments in physical immortality have been abject failures, resulting in loss of █████ subjects and the discovery of ██ new cancers, research in the direction of consciousness transfer as a vehicle for immortality has seen a promising ██% success rate.\n\nThus far, all subjects have survived, however many suffer from various forms of amnesia, loss of motor function, ████████ of the ████, and post-transfer depression. The principal scientists request the acquisition of █████ subjects from the Hinterlands to continue this research."
-        On Project Ungenocide: "A single burst of static, and a voice utters: 'This data has been removed.'"
-        On Project Sacredname: "A single burst of static, and a voice utters: 'This data has been removed.'"
-        On Project Extropy: "A single burst of static, and a voice utters: 'This data has been removed.'"
+        On Project Ex Nihilo: |
+        ... An image of a tall, thin woman standing before a dais. An indigo light shimmers as they slide a device into a hole on the top of the structure.
+        The image cuts to a flat plain, and the same shimmering light fills the air. Before your eyes, a mountain erupts into the sky...
+        On Project Ungenocide: |
+        ... A scene of a dead body, being hauled from the gutter by an automaton. Their piercing green eyes stare lifelessly.
+        An image of the person's face, in one of the cryo-cylinders, flashes before you.
+        The green eyes open, a look of shock on their face...
+        On Project Sacredname: |
+        ...A man and a woman are in an otherwise empty room, sitting cross-legged, deep in thought.
+        They both mouth a word at the same time, shimmer, and vanish...
+        On Project Extropy: |
+        ...A person is in the center of a dark, cylindrical chamber. They stand before a glass vat filled with a glittering liquid.
+        They thrust their arm into the liquid, and their skin cracks, becoming hard and scaled...
   keywords: [ "crystals", "data", "datacrystals", "cluster"]
   roomDesc: "Five crystals hover above the ground here, <blue>glowing blue</blue>"
 
@@ -127,7 +127,7 @@
 - id: datacrystals_green
   name: "Datacrystal Cluster"
   description: "A green crystal hovers a dozen hands above the ground, rotating slowly and <green>emanating a green light</green>.\nIn the light you can see various shapes and figures."
-  metadata:    
+  metadata:
     noPickup: true
   behaviors:
     readable:
@@ -137,8 +137,8 @@
       content:
         On The Automaton Uprising: |
           A man's voice begins, in a hurried and breathless tone:
-          'I hope this can save someone's life. It's too late for me. 
-          
+          'I hope this can save someone's life. It's too late for me.
+
           Something has happened to the automatons here in the spire. It started this morning when a
           few experiments were ruined by what seemed to be a routine malfunction.
 
@@ -159,8 +159,8 @@
 - id: skeleton
   name: "A Skeleton"
   description: "A skeletal corpse lays here. On further examination you can tell that its right femur was smashed to bits."
-  metadata:    
-    noPickup: true 
+  metadata:
+    noPickup: true
   keywords: [ "skeleton"]
   roomDesc: "A skeletal corpse lays here, covered in dried blood."
   type: RESOURCE
@@ -204,7 +204,7 @@
   slot: 'head'
   level: 1
   itemLevel: 1
-  metadata:    
+  metadata:
     stats:
       armor: 1
       intellect: 1

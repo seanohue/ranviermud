@@ -1,7 +1,7 @@
 
 id: urchin
 name: 'Furtive Urchin'
-description: "Having to fight and steal to survive will toughen one's body and spirit. For you, slipping unseen through back alleys to find treasure is preferable to begging for scraps."
+description: "Having to fight and steal to survive will toughen one's body and spirit. For you, slipping unseen through the back alleys of the Outlanders Quarter to find treasure is preferable to begging for scraps."
 attributes:
   quickness: 16
   intellect: 10
