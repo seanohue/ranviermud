@@ -4,7 +4,6 @@ module.exports = (srcPath, bundlePath) => {
   const B = require(srcPath + 'Broadcast');
   const { CommandParser } = require(srcPath + 'CommandParser');
   const Random = require(srcPath + 'RandomUtil');
-  const Crafting = require(bundlePath + 'myelin-crafting/lib/Crafting');
   const ItemUtil = require(bundlePath + 'myelin-lib/lib/ItemUtil');
 
   return {

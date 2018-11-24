@@ -7,7 +7,7 @@
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const Logger = require(srcPath + 'Logger');
-
+  const Config = require(srcPath + 'Config');
   return {
     event: state => (socket, args) => {
       let player = args.player;
@@ -25,6 +25,14 @@ module.exports = (srcPath) => {
 
       // Allow the player class to modify the player (adding attributes, changing default prompt, etc)
       player.playerClass.setupPlayer(player);
+
+      // Set resources to max.
+      const maxResources = Config.get('maxResources');
+      const resources = player.getMeta('resources') || {};
+      Object.keys(resources).forEach(material => {
+        const amount = Math.min(resources[material], maxResources);
+        resources[material] = amount;
+      });
 
       player.save();
 
