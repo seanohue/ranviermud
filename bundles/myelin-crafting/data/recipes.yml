@@ -1,19 +1,18 @@
 ---
 - item: "spire.intro:axon"
   recipe:
-    scrap_metal: 70
-    gear: 2
-    piston: 1
+    scrap_metal: 20
     sparkdust: 2
 - item: 'spire.intro:shank'
   recipe:
-    scrap_metal: 35
+    scrap_metal: 20
+    leather: 10
 - item: 'spire.intro:aetherrobe'
   recipe:
     aethersilk: 50
 - item: 'spire.intro:alms'
   recipe:
-    aetherplasm: 1
+    aetherplasm: 10
     leather: 10
 - item: 'spire.intro:dusters'
   recipe: 
@@ -46,18 +45,18 @@
     bone: 25
 - item: 'spire.labyrinth:bonehelm'
   recipe:
-    bone: 25
+    bone: 35
 - item: 'spire.labyrinth:scraphelm'
   recipe:
     scrap_metal: 80
-    leather: 2
+    leather: 10
     gear: 2 
     tools: 'spire.intro:blowtorch'
 - item: 'spire.labyrinth:scrapchestplate'
   recipe:
-    scrap_metal: 140
-    leather: 2
-    piston: 2 
+    scrap_metal: 100
+    leather: 20
+    piston: 10 
     tools: 'spire.intro:blowtorch'
 
 - item: 'spire.intro:bonebroth'
@@ -65,16 +64,14 @@
     bone: 10
 - item: 'spire.intro:elixir'
   recipe:
-    aetherplasm: 3
+    aetherplasm: 10
     bone: 10
 - item: 'spire.labyrinth:flashbomb'
   recipe:
-    aetherplasm: 1
-    sparkdust: 10
+    sparkdust: 20
     leather: 4
 - item: 'spire.labyrinth:scrapbomb'
   recipe:
-    aetherplasm: 1
     sparkdust: 25
     scrap_metal: 25
     leather: 4
