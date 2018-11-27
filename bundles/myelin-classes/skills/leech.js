@@ -18,8 +18,11 @@ module.exports = (srcPath) => {
 
   function getDamage(player) {
     return {
-      min: player.getMaxAttribute('intellect'),
-      max: player.getMaxAttribute('intellect') + player.getMaxAttribute('willpower') + player.level
+      min: Math.min(player.getMaxAttribute('intellect'), 10),
+      max: Math.min(
+        player.getMaxAttribute('intellect') + player.getMaxAttribute('willpower') + player.level,
+        100
+      )
     };
   }
 
@@ -59,6 +62,7 @@ module.exports = (srcPath) => {
       if (!target.isNpc) {
         Broadcast.sayAt(target, `<red>${player.name} reaches deep into your soul!</red>`);
       }
+
       damage.commit(target);
 
       const heal = new Heal({
