@@ -40,7 +40,10 @@ module.exports = (srcPath) => {
       const defense = target.getAttribute('willpower') || 0;
       const amount = Math.max(
         0,
-        attack - defense
+        Math.min(
+          attack - defense,
+          target.getMaxAttribute('health')
+        )
       );
 
       const damage = new Damage({
