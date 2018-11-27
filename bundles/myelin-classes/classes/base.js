@@ -196,6 +196,13 @@ module.exports = srcPath => {
           quickness: 10
         },
 
+        // Psionic attack+heal
+        leech: {
+          cost: 2,
+          level: 5,
+          intellect: 12,
+          willpower: 10
+        }
       }
     }
   };
