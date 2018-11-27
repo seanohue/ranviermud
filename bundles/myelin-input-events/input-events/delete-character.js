@@ -1,12 +1,11 @@
 'use strict';
 
 /**
- * MOTD event
+ * Delete character
  */
 module.exports = (srcPath) => {
   const EventUtil = require(srcPath + 'EventUtil');
   const Logger    = require(srcPath + 'Logger');
-  const sprintf = require('sprintf-js').sprintf;
 
   return {
     event: state => (socket, args) => {
@@ -15,7 +14,7 @@ module.exports = (srcPath) => {
       const write = EventUtil.genWrite(socket);
 
       say("\r\n------------------------------");
-      say("|      Delete a Character");
+      say("|      ELIMINATE VESSEL");
       say("------------------------------");
 
       const characters = account.characters.filter(currChar => currChar.deleted === false);
@@ -23,9 +22,9 @@ module.exports = (srcPath) => {
       let options = [];
       characters.forEach(char => {
         options.push({
-          display: `Delete <b>${char.username}</b>`,
+          display: `DELETE <b>${char.username}</b>`,
           onSelect: () => {
-            write(`<bold>Are you sure you want to delete <b>${char.username}</b>?</bold> <cyan>[Y/n]</cyan> `);
+            write(`<bold>ELIMINATE <blue>'${char.username}'</blue>?</bold> <cyan>[Y/n]</cyan> `);
             socket.once('data', confirmation => {
               say('');
               confirmation = confirmation.toString().trim().toLowerCase();
@@ -36,13 +35,13 @@ module.exports = (srcPath) => {
               }
 
               if (confirmation === 'n') {
-                say('No one was deleted...');
+                say('RETURNING...');
                 return socket.emit('choose-character', socket, args);
               }
 
-              say(`Deleting ${char.username}`);
+              say(`DELETING ${char.username}`);
               account.deleteCharacter(char.username);
-              say('Character deleted.');
+              say('ELIMINATED.');
               return socket.emit('choose-character', socket, args);
             });
           },
@@ -52,7 +51,7 @@ module.exports = (srcPath) => {
       options.push({ display: "" });
       
       options.push({
-        display: 'Go back to main menu',
+        display: 'RETURN',
         onSelect: () => {
           socket.emit('choose-character', socket, args);
         },

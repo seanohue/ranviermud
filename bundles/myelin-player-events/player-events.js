@@ -24,8 +24,13 @@ module.exports = (srcPath) => {
           if (st) {
             this.socket.command('sendAudio', st);
           }
+          const ambience = this.room.area.info.ambience;
+          if (ambience) {
+            this.socket.command('sendAudio', ambience);
+          }
           this.room.emit('playerSpawned', this);
         }
+
         Broadcast.sayAtExcept(this.room, `${this.name} has appeared.`, this);
         this.socket.command('sendAudio', 'vesselspawned');
         const commandsToSend = [];
