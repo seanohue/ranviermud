@@ -63,16 +63,20 @@ module.exports = (srcPath) => {
 
     new Channel({
       name: 'yell',
+      aliases: ['shout', 'holler', 'scream'],
       color: ['bold', 'red'],
       description: 'Send a message to everyone in your area',
       audience: new AreaAudience(),
       formatter: {
         sender: function (sender, target, message, colorify) {
-          return colorify(`You yell, '${message}'`);
+          return colorify(`You yell, '${message.toUppercase()}!'`);
         },
 
         target: function (sender, target, message, colorify) {
-          return colorify(`Someone yells from nearby, '${message}'`);
+          if (target.room === sender.room) {
+            return colorify(`${sender.name} yells, '${message.toUppercase()}!'`)
+          }
+          return colorify(`Someone yells from nearby, '${message.toUppercase()}!'`);
         }
       }
     }),
