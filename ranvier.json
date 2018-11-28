@@ -47,7 +47,7 @@
   "maxIdleTime": 20,
 
   "logfile": "alpha",
-  "logLevel": "info",
+  "logLevel": "warn",
 
   "playerTickFrequency": 32,
   "termWidth": 80,
