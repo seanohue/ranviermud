@@ -7,10 +7,12 @@ module.exports = (srcPath) => {
 
   return {
     aliases: [ "affects" ],
-    command : (state) => (args, player) => {
+    command: (state) => (args, player) => {
       B.sayAt(player, "Current Effects:");
 
-      const effects = player.effects.entries().filter(effect => !effect.config.hidden);
+      const effects = player.effects
+        .entries()
+        .filter(effect => !effect.config.hidden);
 
       if (!effects.length) {
         return B.sayAt(player, "  None.");
@@ -28,14 +30,10 @@ module.exports = (srcPath) => {
           B.at(player, ` (${effect.state.stacks || 1})`);
         }
 
-        B.at(player, ':');
+        const duration = effect.duration === Infinity ? 'Permanent' : `${humanize(effect.remaining)} remaining`;
+        B.at(player, `: ${duration}`);
 
-        if (effect.duration === Infinity) {
-          B.sayAt(player, " Permanent");
-        } else {
-          B.sayAt(player, ` ${humanize(effect.remaining)} remaining`);
-        }
-        B.sayAt(player, "\t" + effect.description);
+        B.sayAt(player, "\n\t" + effect.description);
       }
     }
   };

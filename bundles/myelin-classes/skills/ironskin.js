@@ -1,7 +1,5 @@
 'use strict';
 
-const Combat = require('../../ranvier-combat/lib/Combat');
-
 /**
  * Buff armor
  */
@@ -23,7 +21,7 @@ module.exports = (srcPath) => {
   }
 
   const getDuration = player => {
-    return Math.max(player.getAttribute('willpower'), 25) * 2000;
+    return Math.min(player.getAttribute('willpower') + 5, 45) * 2000;
   }
 
   const cooldown = 60;
@@ -48,9 +46,20 @@ module.exports = (srcPath) => {
         target,
         {
           name: 'Ironskin Armor',
-          type: 'buff.skin',
+          type: 'buff.ironskin',
           duration: getDuration(player),
           description: this.info(player),
+          persists: true,
+          refreshes: true,
+          listeners: {
+            effectAdded: state => function(effect) {
+              if (effect !== this) {
+                if (effect.type === 'buff.leatherskin') {
+                  this.deactivate();
+                }
+              }
+            }
+          }
         },
         {
           magnitude: getMagnitude(player),
@@ -72,6 +81,13 @@ module.exports = (srcPath) => {
           listeners: {
             look: state => function(observer) {
               return Broadcast.sayAt(observer, 'Their skin has a metallic appearance.');
+            },
+            effectAdded: state => function(effect) {
+              if (effect !== this) {
+                if (effect.type === 'buff.leatherskin') {
+                  this.deactivate();
+                }
+              }
             }
           }
         },

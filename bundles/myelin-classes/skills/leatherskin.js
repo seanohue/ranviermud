@@ -15,7 +15,7 @@ module.exports = (srcPath) => {
   };
 
   const getDuration = player => {
-    return Math.max(player.getAttribute('willpower'), 25) * 2000;
+    return Math.min(player.getAttribute('willpower'), 30) * 2000;
   }
 
   const cooldown = 60;
@@ -40,9 +40,23 @@ module.exports = (srcPath) => {
         target,
         {
           name: 'Leatherskin',
-          type: 'buff.skin',
+          type: 'buff.leatherskin',
           duration: getDuration(player),
           description: this.info(player),
+          persists: true,
+          refreshes: true,
+          listeners: {
+            look: state => function(observer) {
+              return Broadcast.sayAt(observer, 'Their skin has a leathery appearance.');
+            },
+            effectAdded: state => function(effect) {
+              if (effect !== this) {
+                if (effect.type === 'buff.leatherskin') {
+                  this.deactivate();
+                }
+              }
+            }
+          }
         },
         {
           magnitude: getMagnitude(player),
