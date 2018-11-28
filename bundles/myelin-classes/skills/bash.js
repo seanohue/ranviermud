@@ -44,7 +44,6 @@ module.exports = (srcPath) => {
       });
       damage.verb = 'crushes';
 
-      const duration = Math.ceil(player.getMaxAttribute('might') / 5);
       const isStunned = Random.probability(stunPercent + player.getMaxAttribute('might'));
 
       Broadcast.sayAt(player, `<red>You bash ${target.name} viciously, knocking them back!</red>`);
@@ -73,6 +72,11 @@ module.exports = (srcPath) => {
         target.addEffect(effect);
       }
 
+      player.socket.command('sendAudio', 'bash');
+      
+      if (target.socket) {
+        target.socket.command('sendAudio', 'bashed');
+      }
       damage.commit(target);
     },
 
