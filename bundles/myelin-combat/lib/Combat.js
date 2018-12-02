@@ -1,8 +1,8 @@
 
 'use strict';
 
-const Random       = require('../../../src/RandomUtil');
 const Damage       = require('../../../src/Damage');
+const Random       = require('../../../src/RandomUtil');
 const Logger       = require('../../../src/Logger');
 const Broadcast    = require('../../../src/Broadcast');
 const RandomUtil   = require('../../../src/RandomUtil');
@@ -10,6 +10,25 @@ const Parser       = require('../../../src/CommandParser').CommandParser;
 
 const CombatErrors = require('./CombatErrors');
 const DamageType   = require('./DamageType');
+const Speed        = require('./Speed');
+
+/**
+ * CONSTANTS
+ */
+const DEFAULTS = {
+  ROUND_DURATION:        10 * 1000,
+
+  ATTACKS_PER_ROUND:     3,
+  MIN_ATTACKS_PER_ROUND: 1,
+  MAX_ATTACKS_PER_ROUND: 5,
+
+  WEAPON_SPEED:          Speed.average,
+  WEAPON_STAT:           'quickness',
+  WEAPON_LEVEL:          10,
+
+  MIN_SPEED_MOD:         0.1,
+  MAX_SPEED_MOD:         2
+};
 
 /**
  * This class is an example implementation of a Diku-style real time combat system. Combatants
@@ -110,7 +129,7 @@ class Combat {
       if (!target.hasAttribute('health')) {
         throw new CombatErrors.CombatInvalidTargetError();
       }
-      if (target.getAttribute('health') <= 0 || 
+      if (target.getAttribute('health') <= 0 ||
          attacker.room !== target.room) {
         attacker.removeCombatant(target);
       }
@@ -141,7 +160,7 @@ class Combat {
   /**
    * Decides if it is possible for the entity to be harmed.
    * @param {Character} attacker
-   * @param {Character} defender 
+   * @param {Character} defender
    */
   static canPvP(attacker, defender) {
     if (attacker === defender) return false;
@@ -167,7 +186,7 @@ class Combat {
   }
 
   static getValidSplashTargets(attacker) {
-    return [...attacker.room.npcs, ...attacker.room.players].filter((target) => 
+    return [...attacker.room.npcs, ...attacker.room.players].filter((target) =>
     Combat.canPvP(attacker, target));
   }
 
@@ -198,7 +217,9 @@ class Combat {
     }
 
     // currently lag is really simple, the character's weapon speed = lag
-    attacker.combatData.lag = this.getWeaponSpeed(attacker) * 1000;
+    const attacks = this.getWeaponSpeed(attacker);
+    const initiative = this.getInitiative(attacker, target);
+    attacker.combatData.lag = initiative + (ROUND_DURATION / attacks);
   }
 
   /**
@@ -360,44 +381,84 @@ class Combat {
     return attacker.damageType || [DamageType.CRUSHING];
   }
 
+  static getInitiative(attacker, target) {
+    const diff = Math.max(
+      -5,
+      Math.min(
+        target.getAttribute(WEAPON_STAT) - attacker.getAttribute(WEAPON_STAT),
+        5
+      )
+    );
+    return Math.max((diff * 100) + Random.inRange(-500, 500), 100);
+  }
+
   /**
    * Get the speed of the currently equipped weapon
    * @param {Character} attacker
-   * @return {number}
+   * @return {number} attacksPerRound -- higher is better
    */
   static getWeaponSpeed(attacker) {
-    let intBonus = (attacker.getAttribute('intellect') || 0) * 0.15;
-    let quickBonus = (attacker.getAttribute('quickness') || 1) * 0.25;
-
-    const statBonus = Math.min((intBonus + quickBonus), 8);
     const weapon = attacker.equipment.get('wield');
-    let weaponBonus = 0;
+    let weaponModifier = 1;
+    let statModifier   = 1;
+
+    // Set weapon-specific speed modifier and weapon-stat-level-scaled modifier.
     if (!attacker.isNpc && weapon) {
-      weaponBonus = (weapon.metadata.speed || 1) * 0.25;
-      weaponBonus = Math.min(8, weaponBonus);
+      const weaponSpeedKey  = weapon.metadata.speed;
+      const weaponSpeed     = Speed[weaponSpeedKey] || DEFAULTS.WEAPON_SPEED;
+      weaponModifier        = weaponSpeed.rate;
+
+      const weaponStatName  = weapon.metadata.stat  || DEFAULTS.WEAPON_STAT;
+      const weaponStatReq   = weapon.metadata.level || DEFAULTS.WEAPON_LEVEL;
+      const weaponStatValue = attacker.getAttribute(weaponStatName) || 0;
+      if (weaponStatValue > 0) {
+        statModifier = Combat.getStatSpeedModifier(weaponStatValue, weaponStatReq);
+      } else {
+        Logger.warn(`[COMBAT] Potentially invalid weapon stat: ${weaponStat}, got ${playerStat}.`);
+      }
     }
 
+    // If melee, just use default stat modifier again.
     if (!attacker.isNpc && !weapon) {
-      weaponBonus = this.getMartialSkillBonus(attacker);
+      weaponSpeedModifier = statSpeedModifier
     }
 
-    const speed = Math.max(
-      10 - statBonus - weaponBonus,
-      1
-    );
+    const speed = Combat.calculateSpeed(weaponModifier, statModifier);
+    console.log('Calculated speed...');
     return speed;
   }
 
-  static getMartialSkillBonus(attacker) {
-    if (!attacker || !attacker.skills) {
-      Logger.warn('No attacker or no skills.', attacker && attacker.skill);
-      return 1;
-    }
-    return attacker.skills.has('martial_arts_2')
-    ? 5
-    : attacker.skills.has('martial_arts_1')
-      ? 3
-      : 1;
+  /**
+   * Takes a value and prerequisite for a weapon and returns the speed modifier within pre-determined bounds.
+   * @param {number} value
+   * @param {number} required
+   */
+  static getStatSpeedModifier(value, required) {
+    return Math.max(
+      DEFAULTS.MIN_SPEED_MOD,
+      Math.min(
+        DEFAULTS.MAX_SPEED_MOD,
+        value / required
+      )
+    ) || 1;
+  }
+
+  /**
+   * Takes a couple of modifiers and figures out how many attacks per round the character gets.
+   * @param {number} weaponModifier
+   * @param {number} statModifier
+   * @returns {number} attacksPerRound
+   */
+  static calculateSpeed(weaponModifier, statModifier) {
+    const meanModifier = (weaponModifier + statModifier) / 2;
+    const modifiedAttacksPerRound = DEFAULTS.ATTACKS_PER_ROUND * meanModifier;
+    return Math.max(
+      DEFAULTS.MIN_ATTACKS_PER_ROUND,
+      Math.min(
+        DEFAULTS.MAX_ATTACKS_PER_ROUND,
+        modifiedAttacksPerRound
+      )
+    );
   }
 }
 
