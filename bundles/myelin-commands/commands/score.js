@@ -126,7 +126,7 @@ module.exports = (srcPath) => {
       const [whole, decimals] = String(speed).split('.');
       const speedLabel = whole + (decimals && decimals[0] !== '0' ? '.' + decimals[0] : '');
       say(B.center(width, `Damage: ${min + ' - ' + max}`)); 
-      say(B.center(width, `Speed: ${speedLabel} sec.`));
+      say(B.center(width, `Attacks: ${speedLabel}`));
 
       say(B.colorize(B.box('bottom', `[${p.name || ''}]`, width), 'bold'));
     }

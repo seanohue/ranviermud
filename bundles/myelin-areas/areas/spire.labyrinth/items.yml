@@ -17,7 +17,6 @@
       - "On critical: Stun your opponent for an extended time."
     minDamage: 15
     maxDamage: 30
-    speed: 2.2
     stats:
       critical: 3
   behaviors:
@@ -47,7 +46,6 @@
       - "On critical: Bleed your opponent for an extended time."
     minDamage: 5
     maxDamage: 35
-    speed: 4.8
     stats:
       critical: 5
   behaviors:

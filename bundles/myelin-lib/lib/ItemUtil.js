@@ -78,9 +78,8 @@ exports.renderItem = function (state, item, player) {
 
   switch (item.type) {
     case ItemType.WEAPON:
-      buf += sprintf('| %-18s%18s |\r\n', `${props.minDamage} - ${props.maxDamage} ${B.capitalize((props.damageType || 'crushing').toLowerCase())} Damage`, `Speed ${props.speed}`);
-      const dps = ((props.minDamage + props.maxDamage) / 2) / props.speed;
-      buf += sprintf('| %-36s |\r\n', `(${dps.toPrecision(2)} damage per second)`);
+      buf += sprintf('| %-36s |\r\n', `${props.minDamage} - ${props.maxDamage} ${B.capitalize((props.damageType || 'crushing').toLowerCase())} Damage`);
+      buf += sprintf('| %-36s |\r\n', `Speed: ${B.capitalize(props.speed) || 'Average'}`);
       break;
     case ItemType.ARMOR:
       buf += sprintf('| %-36s |\r\n', item.metadata.slot[0].toUpperCase() + item.metadata.slot.slice(1));
