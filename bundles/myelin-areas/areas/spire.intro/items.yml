@@ -224,13 +224,13 @@
   description: "This walking stick appears to have been crafted from the bough of a sturdy tree. Baroque designs have been carved along its length."
   script: "walking-stick"
   slot: 'wield'
-  level: 1
-  itemLevel: 1
   metadata:
     minDamage: 1
     maxDamage: 11
     damageType: CRUSHING
-    speed: 2.7
+    speed: slow
+    prerequisites:
+      might: 8
     stats:
       willpower: 1
       critical: 1
@@ -331,14 +331,18 @@
   keywords: [ "knuckle", "duster", "knuck", "dust" ]
   description: "These dusters are composed of wrings wrought from cheap, dense metal and welded together. Studs protrude from where the user's knuckles would be. Ideal for those who don't mind getting their hands dirty."
   slot: 'wield'
-  level: 1
-  itemLevel: 1
   quality: common
+  speed: fast
   metadata:
     minDamage: 3
     maxDamage: 8
     damageType: CRUSHING
-    speed: 5.5
+    speed: fast
+    prerequisites:
+      speed:
+        quickness: 8
+      damage:
+        might: 8
     stats:
       critical: 1
       quickness: 1
@@ -356,14 +360,15 @@
   description: "This jagged, rusted piece of metal has some cloth wrapped around it as an improvised handle. Seems as likely to hurt the attacker as the victim, but a nasty piece nonetheless."
   slot: 'wield'
   script: 'shank'
-  level: 1
-  itemLevel: 1
   quality: common
+  speed: fast
   metadata:
     minDamage: 2
     maxDamage: 19
     damageType: PIERCING
-    speed: 5.4
+    prerequisites:
+      quickness: 8
+    speed: fast
     stats:
       critical: 4
     specialEffects:
@@ -388,8 +393,10 @@
   metadata:
     minDamage: 3
     maxDamage: 29
+    speed: fast
+    prerequisites:
+      intellect: 10
     damageType: FIRE
-    speed: 4.4
     stats:
       critical: 1
   behaviors:
@@ -517,17 +524,21 @@
   roomDesc: "Worn Leather Blackjack"
   keywords: ['worn', 'leather', 'blackjack']
   description: "A stitched leather blackjack in the shape of a paddle, filled with lead balls. A good whack upside the head with this will do anyone good. The leather is marked by heavy use and some of the stitches are coming undone."
-  level: 1
   slot: "wield"
   quality: common
   script: "blackjack"
   metadata:
+    prerequisites:
+      speed:
+        quickness: 8
+      damage:
+        might: 10
     specialEffects:
       - "Chance on hit: Stun your opponent for a short time."
       - "On critical: Stun your opponent for an extended time."
     minDamage: 5
     maxDamage: 11
-    speed: 3.5
+    speed: 
     stats:
       critical: 3
   behaviors:

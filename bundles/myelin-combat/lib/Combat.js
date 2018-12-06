@@ -18,7 +18,7 @@ const Speed        = require('./Speed');
 const DEFAULTS = {
   ROUND_DURATION:        10 * 1000,
 
-  ATTACKS_PER_ROUND:     3,
+  ATTACKS_PER_ROUND:     2,
   MIN_ATTACKS_PER_ROUND: 1,
   MAX_ATTACKS_PER_ROUND: 5,
 
@@ -31,8 +31,8 @@ const DEFAULTS = {
 };
 
 /**
- * This class is an example implementation of a Diku-style real time combat system. Combatants
- * attack and then have some amount of lag applied to them based on their weapon speed and repeat.
+ * This class is a combat system designed around an attacks-per-round semi-realtime system.
+ * It is fairly similar to base Ranvier but the attack lag is based on initiative + (round_duration / attacks_per_round)
  */
 class Combat {
   /**
@@ -219,7 +219,7 @@ class Combat {
     // currently lag is really simple, the character's weapon speed = lag
     const attacks = this.getWeaponSpeed(attacker);
     const initiative = this.getInitiative(attacker, target);
-    attacker.combatData.lag = initiative + (ROUND_DURATION / attacks);
+    attacker.combatData.lag = initiative + (DEFAULTS.ROUND_DURATION / attacks);
   }
 
   /**
@@ -385,7 +385,7 @@ class Combat {
     const diff = Math.max(
       -5,
       Math.min(
-        target.getAttribute(WEAPON_STAT) - attacker.getAttribute(WEAPON_STAT),
+        target.getAttribute(DEFAULTS.WEAPON_STAT) - attacker.getAttribute(DEFAULTS.WEAPON_STAT),
         5
       )
     );
@@ -424,7 +424,7 @@ class Combat {
     }
 
     const speed = Combat.calculateSpeed(weaponModifier, statModifier);
-    console.log('Calculated speed...');
+    console.log('Calculated speed...', speed);
     return speed;
   }
 
@@ -452,13 +452,14 @@ class Combat {
   static calculateSpeed(weaponModifier, statModifier) {
     const meanModifier = (weaponModifier + statModifier) / 2;
     const modifiedAttacksPerRound = DEFAULTS.ATTACKS_PER_ROUND * meanModifier;
-    return Math.max(
+    return Math.ceil(
+      Math.max(
       DEFAULTS.MIN_ATTACKS_PER_ROUND,
       Math.min(
         DEFAULTS.MAX_ATTACKS_PER_ROUND,
         modifiedAttacksPerRound
       )
-    );
+    ));
   }
 }
 
