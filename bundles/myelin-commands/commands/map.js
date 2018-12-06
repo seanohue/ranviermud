@@ -9,7 +9,13 @@ module.exports = srcPath => {
         return B.sayAt(player, "You can't see your surroundings in this room.");
       }
 
-      let size = Math.max(3, Math.ceil(player.getMaxAttribute('intellect')));
+      let size = Math.min(
+        Math.max(
+          3, 
+          Math.ceil(player.getMaxAttribute('intellect') / 5)
+        ),
+        8
+      );
       // always make size an even number so the player is centered
       size = isNaN(size) ? 4 : size - (size % 2);
       // monospace fonts, eh?
@@ -50,17 +56,17 @@ module.exports = srcPath => {
             roomData.glyph = thisRoom.metadata.glyph || thisRoom.area.info.glyph
             roomData.x = x;
             roomData.y = y;
+            mapData.push(roomData);
           } else {
             map += ' ';
           }
-          mapData.push(roomData);
         }
 
         map += '|\r\n';
       }
 
       map += "'" + ('-'.repeat(xSize * 2 + 1)) + "'";
-      console.log({mapData});
+      player.socket.command('sendData', 'map', mapData);
       B.sayAt(player, map);
     }
   };
