@@ -48,6 +48,7 @@
     critical: 3
     armor: 2
   metadata:
+    speed: average
     minDamage: 8
     maxDamage: 25
     bleeds: 'oil'
@@ -93,6 +94,7 @@
     critical: 5
     armor: 2
   metadata:
+    speed: swift
     minDamage: 5
     maxDamage: 25
     bleeds: 'oil'
@@ -214,6 +216,7 @@
     critical: 10
     armor: 20
   metadata:
+    speed: slow
     minDamage: 5
     maxDamage: 50
     damageType: CRUSHING
@@ -266,6 +269,7 @@
     critical: 3
     armor: 2
   metadata:
+    speed: slow
     minDamage: 6
     maxDamage: 30
     damageType: CRUSHING

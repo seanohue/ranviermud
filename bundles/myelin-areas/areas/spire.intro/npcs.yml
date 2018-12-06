@@ -18,8 +18,8 @@
     flavorevents:
       onSpawn: 'A spiderlike automaton crawls from an aperture in the ceiling and down one of the walls. The aperture whirrs shut behind it.'
       onItemDrop: 'The spiderlike automaton scuttles over to the %itemName% and prods it with a spiny leg.'  # TODO: eventually add scavenger behavior
-    lootable: 
-      resources: 
+    lootable:
+      resources:
         scrap_metal:
           min: 1
           max: 5
@@ -55,6 +55,7 @@
     armor: 4
   metadata:
     damageType: ['SLASHING']
+    speed: sluggish
     bleeds: 'oil'
     minDamage: 1
     maxDamage: 10
@@ -70,8 +71,8 @@
       skills: ['bash', 'block']
     # combat:
     #   vengeful: true # hunts down past attackers
-    lootable: 
-      resources: 
+    lootable:
+      resources:
         scrap_metal:
           min: 5
           max: 150
@@ -154,6 +155,7 @@
     critical: 3
     armor: 10
   metadata:
+    speed: glacial
     bleeds: 'oil'
     minDamage: 15
     maxDamage: 50
@@ -164,7 +166,7 @@
   level: 4
   description: "Shaped like a large bee, this drone flitters just overhead, its artificial eyes whirring in all directions. Its undercarriage features razor-sharp 'legs' and a small cannon. On its back is a small dome filled with iridescent fluid."
   behaviors:
-    group: 
+    group:
       quest: 'spire.intro:misbehavingautos'
       skill: 'machinist'
     combat: true
@@ -175,8 +177,8 @@
       drowning: 95
     skilled:
       skills: ['dodge']
-    lootable: 
-      resources: 
+    lootable:
+      resources:
         scrap_metal:
           min: 1
           max: 3
@@ -184,7 +186,7 @@
           min: 1
           max: 1
     ranvier-wander:
-      verb: 'buzze' 
+      verb: 'buzze'
       interval: 41
   attributes:
     health: 65
@@ -197,6 +199,7 @@
     critical: 5
     armor: 1
   metadata:
+    speed: swift
     minDamage: 2
     maxDamage: 18
     damageType: ['PIERCING', 'SLASHING']
@@ -215,18 +218,18 @@
       drowning: 80
     skilled:
       skills: ['dodge', 'rend']
-    startquest: 
+    startquest:
       questId: 'spire.intro:misbehavingautos'
     combat: true
-    lootable: 
-      resources: 
+    lootable:
+      resources:
         scrap_metal:
           min: 1
           max: 2
-    ranvier-wander: 
+    ranvier-wander:
       interval: 23
       verb: 'buzze'
-      restrictTo: 
+      restrictTo:
         - 'spire.intro:tube-chamber-22'
         - 'spire.intro:a-cold-hall-23'
         - 'spire.intro:a-cold-hall-24'
@@ -254,11 +257,62 @@
     critical: 4
     armor: 1
   metadata:
+    speed: fast
     minDamage: 1
     maxDamage: 16
     damageType: ['PIERCING', 'SLASHING']
     bleeds: 'oil'
     attackVerb: 'razor'
+
+- id: tinylemur
+  keywords: ['tiny', 'lemur']
+  name: Tiny Lemur
+  level: 10
+  description: This small biomechanical creature is hominid in shape, but roughly up to the height of a person's knees. It has lengthy claws and pincing metallic mandibles. Bits of mangy fur and sparking circuits jut out from a steely facade.
+  attributes:
+    health: 78
+    energy: 250
+    focus: 50
+    might: 6
+    quickness: 18
+    intellect: 5
+    willpower: 3
+    critical: 5
+    armor: 3
+  metadata: 
+    speed: breakneck
+    minDamage: 1
+    maxDamage: 20
+    damageType: ['PIERCING', 'SLASHING']
+    attackVerb: 'claw'
+  behaviors:
+    resistance:
+      fire: -20
+      electrical: -20
+    skilled:
+      skills: ['rend', 'dodge']
+    combat: true
+    lootable:
+      resources:
+        scrap_metal:
+          min: 1
+          max: 2
+        bone:
+          min: 1
+          max: 3
+        leather:
+          min: 1
+          max: 3
+    ranvier-wander:
+      interval: 23
+      verb: 'lope'
+    ranvier-aggro:
+      warnMessage: '%name%''s claws flash as it turns in your direction.'
+      attackMessage: '%name% lunges towards you!'
+      delay: 3
+      towards:
+        # make it so that it is only hostile to certain players
+        players: true
 
 - id: anzeigeconcierge
   keywords: ['anzeige', 'concierge']
@@ -277,8 +331,8 @@
       electrical: -25
       isPhysical: 80
       isPsionic: 95
-    lootable: 
-      resources: 
+    lootable:
+      resources:
         scrap_metal:
           min: 10
           max: 500
@@ -308,6 +362,7 @@
     critical: 20
     armor: 40
   metadata:
+    speed: fast
     damageType: ['CRUSHING', 'PIERCING']
     bleeds: 'oil'
     minDamage: 10

@@ -57,6 +57,7 @@
     critical: 15
     armor: 2
   metadata:
+    speed: swift
     minDamage: 6
     maxDamage: 60
     damageType: 'PSIONIC'
@@ -112,6 +113,7 @@
     critical: 10
     armor: 5
   metadata:
+    speed: swift
     minDamage: 15
     maxDamage: 45
     damageType: SLASHING
@@ -163,6 +165,7 @@
     critical: 8
     armor: 2
   metadata:
+    speed: swift
     minDamage: 10
     maxDamage: 90
     damageType: FIRE

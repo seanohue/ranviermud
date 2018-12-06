@@ -403,6 +403,11 @@ class Combat {
     let weaponModifier = 1;
     let statModifier   = 1;
 
+    if (attacker.isNpc) {
+      const speed = Speed[attacker.metadata.speed] || DEFAULTS.WEAPON_SPEED;
+      return speed.attacks || 2;
+    }
+
     // Set weapon-specific speed modifier and weapon-stat-level-scaled modifier.
     if (!attacker.isNpc && weapon) {
       const weaponSpeedKey  = weapon.metadata.speed;
