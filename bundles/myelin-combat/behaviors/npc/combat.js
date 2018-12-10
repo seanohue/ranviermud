@@ -150,7 +150,7 @@ module.exports = (srcPath) => {
           Combat.startRegeneration(state, this);
         }
         const targetLevel = target ? target.level || (target.metadata ? target.metadata.level : 1) : 1;
-        this._xp = (this._xp || 0) + targetLevel; // maybe use later to determine xp bonus from kill?
+        this._xp = (this._xp || 0) + targetLevel;
       }
 
       // refer to bundles/ranvier-combat/player-events.js for a further list of combat events

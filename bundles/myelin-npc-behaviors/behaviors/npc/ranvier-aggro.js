@@ -100,13 +100,20 @@ module.exports = srcPath => {
         // try to find a player to be aggressive towards first
         if (config.towards.players && this.room.players.size) {
           if (Array.isArray(config.towards.players)) {
-            this._aggroTarget = [...this.room.players].find(player => config.towards.players.includes(player.name));
-            if (!this._aggroTarget) return;
+            this._aggroTarget = [...this.room.players]
+              .find(player => config.towards.players.includes(player.name));
+          } else if (config.towards.players.withItem) {
+            const contraband = config.towards.players.withItem;
+            this._aggroTarget = [...this.room.players]
+              .find(player => player.hasItem(contraband));
           } else {
             this._aggroTarget = [...this.room.players][0];
           }
-          this._aggroTimer = Date.now();
-          return;
+
+          if (this._aggroTarget) {
+            this._aggroTimer = Date.now();
+            return;
+          }
         }
 
         if (config.towards.npcs && this.room.npcs.size) {

@@ -2,7 +2,6 @@
 
 module.exports = (srcPath) => {
   const Logger = require(srcPath + 'Logger');
-  const Random = require(srcPath + 'RandomUtil');
   const Broadcast = require(srcPath + 'Broadcast');
 
   return  {
@@ -15,7 +14,9 @@ module.exports = (srcPath) => {
         if (!this.__spawnedOn) this.__spawnedOn = Date.now();
 
         const span = Date.now() - this.__spawnedOn;
-        if (span > (config.time * 1000)) {
+        const lifetime = config.time * 1000;
+
+        if (span > lifetime) {
           if (config.message) {
             Broadcast.sayAt(this.room, message);
           }

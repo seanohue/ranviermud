@@ -106,6 +106,9 @@
   level: 10
   description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
   behaviors:
+    receives:
+      - item: 'spire.intro:axon'
+        killOnGive: true
     resistance:
       isPsionic: -25
       electrical: -25
@@ -135,7 +138,8 @@
       attackMessage: '%name% raises its arms and attacks!'
       delay: 6
       towards:
-        players: true  
+        players: 
+          withItem: 'spire.intro:axon' 
   attributes:
     health: 150
     energy: 125
