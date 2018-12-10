@@ -219,7 +219,6 @@ class Combat {
     // currently lag is really simple, the character's weapon speed = lag
     const attacks = this.getWeaponSpeed(attacker);
     const initiative = this.getInitiative(attacker, target);
-    console.log({attacks, initiative});
     attacker.combatData.lag = initiative + (DEFAULTS.ROUND_DURATION / attacks);
   }
 

@@ -264,9 +264,9 @@
     bleeds: 'oil'
     attackVerb: 'razor'
 
-- id: tinylemur
-  keywords: ['tiny', 'lemur']
-  name: Tiny Lemur
+- id: lemur
+  keywords: ['lemur']
+  name: Lemur
   level: 10
   description: This small biomechanical creature is hominid in shape, but roughly up to the height of a person's knees. It has lengthy claws and pincing metallic mandibles. Bits of mangy fur and sparking circuits jut out from a steely facade.
   attributes:
@@ -286,6 +286,11 @@
     damageType: ['PIERCING', 'SLASHING']
     attackVerb: 'claw'
   behaviors:
+    flavorevents:
+      onSpawn: 'A grate whirrs open in the ceiling and a small, primal figure drops from it, landing in a crouch!'
+    lifespan: 
+      time: 120
+      message: 'The lemur explodes into a mist of circuitry and meat!'
     resistance:
       fire: -20
       electrical: -20

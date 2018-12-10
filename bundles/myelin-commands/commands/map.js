@@ -16,6 +16,7 @@ module.exports = srcPath => {
         ),
         8
       );
+
       // always make size an even number so the player is centered
       size = isNaN(size) ? 4 : size - (size % 2);
       // monospace fonts, eh?
@@ -35,10 +36,13 @@ module.exports = srcPath => {
           // To send via socket:
           // {player: boolean, hasUp: boolean, hasDown: boolean}
           const roomData = {}; 
+          roomData.x = x;
+          roomData.y = y;
           const thisRoom = room.area.getRoomAtCoordinates(x, y, coords.z);
           if (x === coords.x && y === coords.y) {
             roomData.player = true;
             map += '<b><yellow>@</yellow></b>';
+            mapData.push(roomData);
           } else if (thisRoom) {
             const hasUp = room.area.getRoomAtCoordinates(x, y, coords.z + 1);
             const hasDown = room.area.getRoomAtCoordinates(x, y, coords.z - 1);
@@ -54,8 +58,6 @@ module.exports = srcPath => {
               map += '.';
             }
             roomData.glyph = thisRoom.metadata.glyph || thisRoom.area.info.glyph
-            roomData.x = x;
-            roomData.y = y;
             mapData.push(roomData);
           } else {
             map += ' ';
@@ -66,7 +68,7 @@ module.exports = srcPath => {
       }
 
       map += "'" + ('-'.repeat(xSize * 2 + 1)) + "'";
-      player.socket.command('sendData', 'map', mapData);
+      player.socket.command('sendData', 'map', {mapData, size, areaName: player.room.area.title});
       B.sayAt(player, map);
     }
   };

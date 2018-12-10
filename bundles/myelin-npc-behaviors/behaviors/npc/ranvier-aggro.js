@@ -99,7 +99,12 @@ module.exports = srcPath => {
 
         // try to find a player to be aggressive towards first
         if (config.towards.players && this.room.players.size) {
-          this._aggroTarget = [...this.room.players][0];
+          if (Array.isArray(config.towards.players)) {
+            this._aggroTarget = [...this.room.players].find(player => config.towards.players.includes(player.name));
+            if (!this._aggroTarget) return;
+          } else {
+            this._aggroTarget = [...this.room.players][0];
+          }
           this._aggroTimer = Date.now();
           return;
         }

@@ -51,7 +51,7 @@ class WebsocketStream extends TransportStream
     if (!this.writable) {
       return;
     }
-
+    console.log('Sending', group);
     this.socket.send(JSON.stringify({
       type: 'data',
       group,
