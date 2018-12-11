@@ -18,11 +18,9 @@ module.exports = srcPath => {
           }
           if (this.level > maxLevel) {
             // Spawn lemur assassins
-            const lemurs = [
-              this.room.spawnNpc(state, 'spire.intro:lemur'),
-              this.room.spawnNpc(state, 'spire.intro:lemur'),
-              this.room.spawnNpc(state, 'spire.intro:lemur')
-            ];
+            const difference = this.level - maxLevel;
+            const lemurs = Array.from({length: difference * 3}, () => this.room.spawnNpc(state, 'spire.intro:lemur'));
+
             lemurs.forEach(lemur => {
               const aggro = lemur.getBehavior('ranvier-aggro');
               aggro.towards = {players: [this.name]};
