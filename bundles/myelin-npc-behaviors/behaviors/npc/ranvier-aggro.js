@@ -104,7 +104,6 @@ module.exports = srcPath => {
               .find(player => config.towards.players.includes(player.name));
           } else if (config.towards.players.withItem) {
             const contraband = config.towards.players.withItem;
-            console.log('Aggroing players with ', contraband);
             this._aggroTarget = [...this.room.players]
               .find(player => player.hasItem(contraband));
           } else {
