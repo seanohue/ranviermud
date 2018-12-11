@@ -35,7 +35,10 @@ module.exports = (srcPath, bundlePath) => {
       if (!target) {
         target = dot(targetRecip, player.room.npcs);
         if (target) {
-          const accepts = target.getBehavior('accepts');
+          let accepts = target.getBehavior('accepts');
+          if (Array.isArray(accepts) && typeof accepts[0] !== 'string') {
+            accepts = accepts.map(obj => obj.item);
+          }
           if (!accepts || !accepts.includes(targetItem.entityReference)) {
             return B.sayAt(player, 'They don\'t want that.');
           }
@@ -56,6 +59,9 @@ module.exports = (srcPath, bundlePath) => {
 
       player.removeItem(targetItem);
       target.addItem(targetItem);
+
+      console.log('Emitting gifted');
+      target.emit('gifted', targetItem, player);
 
       B.sayAt(player, `<green>You give <white>${target.name}</white>: ${ItemUtil.display(targetItem)}.</green>`);
       if (!target.isNpc) {

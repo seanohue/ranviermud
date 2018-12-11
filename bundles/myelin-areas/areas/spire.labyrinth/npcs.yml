@@ -104,11 +104,14 @@
   keywords: ['arbiter']
   name: Arbiter
   level: 10
-  description: 'This being hovers a short distance from the ground. Covered in white robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
+  description: 'This being hovers a short distance from the ground. Covered in <white>white</white> robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
   behaviors:
-    receives:
+    accepts:
       - item: 'spire.intro:axon'
-        killOnGive: true
+        message: 'The Arbiter disappears with a <b>pop</b> and a <cyan>flash</cyan> of light.'
+        leave:
+          xp: 200
+          reason: appeasing an Arbiter
     resistance:
       isPsionic: -25
       electrical: -25
@@ -119,7 +122,7 @@
     skilled:
       skills: ['dodge', 'jolt', 'stupefy', 'mend', 'concentration', 'flash']
     flavorevents:
-      onSpawn: 'A purple light fills the room as a being cloaked in a silk robe <b>pops</b> into existence.'
+      onSpawn: 'A <blue>purple<blue> light fills the room as a being cloaked in a silk robe <b>pops</b> into existence.'
     combat:
       wimpy: 35
     lootable: 
@@ -139,7 +142,7 @@
       delay: 6
       towards:
         players: 
-          withItem: 'spire.intro:axon' 
+          withItem: 'spire.intro:axon'
   attributes:
     health: 150
     energy: 125
