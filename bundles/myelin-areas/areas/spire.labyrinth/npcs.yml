@@ -106,6 +106,9 @@
   level: 10
   description: 'This being hovers a short distance from the ground. Covered in <white>white</white> robes, it is hard to discern what lies beneath. The folds of its hood cover what may be a face, though you swear a <cyan>piercing light</cyan> emanates from beneath.'
   behaviors:
+    lifespan:
+      time: 240
+      message: 'The Arbiter crumples into a pile of robes. A thin wisp spirals upward from its remains.'
     accepts:
       - item: 'spire.intro:axon'
         message: 'The Arbiter disappears with a <b>pop</b> and a <cyan>flash</cyan> of light.'
@@ -125,7 +128,11 @@
       onSpawn: 'A <blue>purple<blue> light fills the room as a being cloaked in a silk robe <b>pops</b> into existence.'
     combat:
       wimpy: 35
-    lootable: 
+    lootable:
+      pools:
+        - spire.intro:axon: 50
+        - spire.intro:axon: 20
+        - spire.intro:aetherrobe: 10 
       resources: 
         aethersilk:
           min: 1

@@ -159,15 +159,20 @@ class Combat {
 
   /**
    * Decides if it is possible for the entity to be harmed.
+   * Rename this since NPCs can use it now.
    * @param {Character} attacker
    * @param {Character} defender
    */
   static canPvP(attacker, defender) {
     if (attacker === defender) return false;
-    if (defender.isNpc) return true;
+
+    if (attacker.isNpc) {
+      return Combat.npcShouldAggro(attacker, defender)
+    }
 
     if (attacker.party) {
       if (attacker.party.has(defender) || attacker.party.invited.has(defender)) {
+        console.log('Safe due to party');
         return false;
       }
     }
@@ -182,12 +187,29 @@ class Combat {
     const isEnforced   = entity => entity.room.area.info.pvp === 'enforced';
     const isOptedIn    = entity => entity.room.area.info.pvp === 'optional' && entity.metadata.pvp === true;
     const isPvPEnabled = entity => (isEnforced(entity) || isOptedIn(entity));
+    console.log('Deciding if PVP is enabled :/');
     return isPvPEnabled(attacker) && isPvPEnabled(defender);
   }
 
+  static npcShouldAggro(attacker, defender) {
+    const aggro = attacker.getBehavior('ranvier-aggro');
+    if (aggro && aggro.towards) {
+      if (aggro.towards.npcs && defender.isNpc) {
+        return aggro.towards.npcs.includes(defender.name);
+      }
+      if (aggro.towards.players && Array.isArray(aggro.towards.players)) {
+        return aggro.towards.players.includes(defender.name);
+      }
+      if (aggro.towards.players === true) {
+        return !defender.isNpc;
+      }
+    }
+    return false;
+  }
+
   static getValidSplashTargets(attacker) {
-    return [...attacker.room.npcs, ...attacker.room.players].filter((target) =>
-    Combat.canPvP(attacker, target));
+    return [...attacker.room.npcs, ...attacker.room.players]
+      .filter((target) => Combat.canPvP(attacker, target));
   }
 
   static getSplashChance(attacker, target) {

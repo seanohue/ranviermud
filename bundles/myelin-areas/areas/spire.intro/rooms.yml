@@ -227,7 +227,9 @@
   npcs: ['spire.intro:malfunctioningbuzz', 'spire.intro:malfunctioningbuzz']
 - id: a-cold-hall-30
   title: A Cold Hall
-  description: 'A short hallway, cold enough to see one''s breath.'
+  description: 'A short hallway, cold enough to see one''s breath. There are scorch marks on the floor.'
   coordinates: [7, 7, 0]
   weight: 5
   npcs: ['spire.intro:crawler']
+  behaviors:
+    spawnarbiter: true

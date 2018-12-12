@@ -18,7 +18,7 @@ module.exports = (srcPath) => {
 
         if (span > lifetime) {
           if (config.message) {
-            Broadcast.sayAt(this.room, message);
+            Broadcast.sayAt(this.room, config.message);
           }
           this.emit('killed');
           Logger.warn(`${this.id} has died of old age.`);

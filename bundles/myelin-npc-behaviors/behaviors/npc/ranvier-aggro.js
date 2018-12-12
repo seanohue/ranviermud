@@ -14,7 +14,9 @@
  *     Message supports `%name%` token to place NPC name in message.
  *     Default '%name% attacks you!'
  *   towards:
- *     players: boolean, whether the NPC is aggressive towards players. Default: true
+ *     players: can be boolean, whether the NPC is aggressive towards players, or an array of player names
+ *       withItem: EntityReference of item, NPCs will attack players with this item.
+ *  
  *     npcs: Array<EntityReference>, list of NPC entityReferences which this NPC will attack on sight
  *
  * Example:
