@@ -66,7 +66,7 @@
   description: 'A semi-circular bench juts from the floor in the center of this small room. An eery light fills this otherwise plain room, emanating from four glowing crystals floating in its center, above the bench.'
   coordinates: [2, 5, 0]
   items: &ref_1 ['spire.intro:datacrystals_blue', 'spire.intro:bench']
-  behaviors: 
+  behaviors:
     commands: ['sit', 'stand']
     seating:
       seatingRef: 'spire.intro:bench'
@@ -195,7 +195,7 @@
   items: ['spire.intro:portal']
   npcs: ['spire.intro:buzzard', 'spire.intro:crawler']
   behaviors:
-    startquest: 
+    startquest:
       questId: 'spire.intro:findakey'
     portal:
       destinations:
@@ -232,4 +232,19 @@
   weight: 5
   npcs: ['spire.intro:crawler']
   behaviors:
-    spawnarbiter: true
+    ambush:
+      item: 'spire.intro:axon'
+      spawn:
+        - level: 4
+          maxLevel: 10
+          enemies:
+            - 'spire.labyrinth:arbiter'
+        - level: 8
+          maxLevel: 19
+          enemies:
+            - 'spire.labyrinth:arbiter'
+            - 'spire.labyrinth:arbiter'
+        - level: 11
+          enemies:
+            - 'spire.labyrinth:arbiter'
+

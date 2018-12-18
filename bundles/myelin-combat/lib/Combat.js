@@ -176,6 +176,11 @@ class Combat {
         return false;
       }
     }
+
+    if (defender.isNpc) {
+      return true;
+    }
+
     // Cannot attack from enforced/optional into a safe zone.
     if (defender.room.area.info.pvp === 'safe') {
       return false;
