@@ -1,62 +1,173 @@
 /*
+  A more flexible character generation libary for Ranvier
   Ideally, a chaining API of sorts:
   ```javascript
-  return (new Choices(definition))
-    .scenario('moral conundrum')
-    .where('smart_idea', 'you solve with brain!',
-      (chooser, definition) => {
-        definition.attributes.intellect += 5;
-        chooser.respond('brain get gooder');
-      })
-    .where('brute_idea', 'you punch thing! rawr',
-      (chooser, definition) => {
-        definition.attributes.might += 3;
-        chooser.respond('you do punch good');
-      })
-    // Player is made before this hook.
-    // Some of this maybe should be done internally and be common.
-    .finalize((chooser, definition) => {
-      chooser.player.setAttributes(definition.attributes);
-      definition.equipment.forEach(id => chooser.player.equip(id));
-      chooser.socket.emit('done');
+  let startingAttributes = { ... };
+  let startingClass = 'warrior';
+  const scenario = Choices
+    .createScenario('toughChoice', {
+      title: 'Make a tough decision',
+      description: 'This will have an effect on your character\'s starting equipment or whatever.'
+    })
+    .addOptions({
+      beGood: {
+        description: 'Do the right thing',
+        effect() {
+          startingAttributes.willpower++;
+        }
+      },
+      beBad: {
+        description: 'Do the wrong thing via brute force.',
+        effect() {
+          startingAttributes.might++;
+        }
+      }
     });
-    // Calling .run on this will walk the player through the choices.
+
+  const secondScenario = Choices
+    .createScenario('job', {
+      title: 'Choose a career path'.
+      description: 'This will have an effect on your character\'s starting skills or whatever.'
+    })
+    .addOptions({
+      bePaladin: {
+        description: 'Become a paladin',
+        effect() {
+          startingClass = 'paladin';
+        },
+        prerequisite(choices) {
+          return choices.toughChoice !== 'beBad'
+        }
+      }
+    },
+    {
+      beThief: {
+        description: 'Become a thief',
+        effect() {
+          startingClass = 'thief';
+        }
+        prerequisite(choices) {
+          return choices.toughChoice === 'beBad'
+        }
+      }
+    });
+
+  Choices.run({
+    scenarios: [           // a list of scenarios, ran in the order they are defined
+      scenario,
+      secondScenario
+    ],
+    socket                 // socket to emit input-events to
+    say                   // function to broadcast to socket or player
+  })
+  .then(() => socket.emit('done'));
+
   ```
 
 */
 
-let Broadcast;
+class Scenario {
+  constructor(name, config) {
+    if (!name || !config) throw new Error('Your scenario must have a name and a configuration.');
+    if (!config.title && !config.description) throw new Error('Your scenario must have either a title or a description.');
 
-module.exports = (srcPath) => class Choices {
-  /**
-   * @class Choices
-   * @param {Object} background - Configuration object
-   * @param {string} background.id
-   * @param {string} background.name
-   * @param {string} background.description
-   * @param {Object} background.attributes - Starting attributes
-   * @param {Array} background.equipment
-   * @param {Array} background.skills
-   * @param {Number} background.attributePoints
-   * @param {Number} background.abilityPoints
-   * @param {Number} background.tier
-   */
-  constructor(background) {
-    this.background = background;
+    this.name = name;
+    this.title = config.title || 'Choose wisely';
+    this.description = config.description || '';
+    this.config = config;
 
-    // A list of scenarios including id and description
-    this.scenarios = [];
-    // The active scenario (used when building and also when running choices)
-    this.activeScenario;
-    // Map of scenario IDS to a list of choices made in that scenario.
-    this.choiceMap = new Map();
+    this.options = [];
   }
 
-  scenario(id, description) {
-    this.scenarios.push({id, description});
-    this.activeScenario = id;
-    this.choices[id] = [];
-    return this;
+  addOptions(options) {
+    if (!(options && typeof options === 'object')) throw new Error('You must provide an object or array for your options.')
+    for (const [id, option] in Object.entries(options)) {
+      this.options.push(new Option(id, option));
+    }
+  }
+}
+
+class Option {
+  constructor(id, config) {
+    if (!config.description) throw new Error('Your option should have a description.')
+    this.id = id;
+    this.description = config.description;
+    this.effect = typeof config.effect === 'function' ? config.effect : () => {};
+    this.prerequisite = typeof config.prerequisite === 'function' ? config.prerequisite : () => true;
+  }
+}
+
+module.exports = class Choices {
+  constructor({scenarios, socket, say}) {
+    if (!scenarios || !scenarios.length) {
+      throw new Error('Your choices must include an Array of at least one scenario.');
+    }
+    if (!socket || !socket.emit) {
+      throw new Error('You must specify a socket that is EventEmitter-like.');
+    }
+    if (!say || typeof say !== 'function') {
+      throw new Error('You must specify a valid say function.');
+    }
+
+    this.scenarios = scenarios;
+    this.socket = socket;
+    this.say = say;
+    this.decisions = {};
+  }
+
+  decideAll() {
+    return this.scenarios.reduce(
+      (previous, scenario) => previous.then(this.decide.bind(this, scenario)),
+      Promise.resolve()
+    );
+  }
+
+  decide(scenario) {
+    //TODO: Add prerequisite for scenarios and choices.
+    return new Promise((resolve) => {
+      const redo = () => this.decide(scenario).then(resolve);
+      this.say(scenario.title);
+
+      if (scenario.description) {
+        this.say(scenario.description);
+      }
+
+      this.say();
+      this.scenario.choices
+        .filter((choice) => choice.prerequisite.call(this, this.decisions))
+        .forEach((choice, i) => {
+          say(`| <cyan>[${i + 1}]</cyan> ${choice.description}`);
+          say('|\r\n`-> ');
+        });
+
+      this.socket.on('data', (data) => {
+        const selection = parseInt(data, 10);
+        if (isNaN(selection)) {
+          this.say('Invalid selection...');
+          return redo();
+        }
+
+        scenario.
+      });
+
+    });
+  }
+
+  static createScenario(name, config) {
+    return new Scenario(name, config);
+  }
+
+  static run(config) {
+    let choices;
+
+    try {
+      choices = new Choices(config);
+    } catch(e) {
+      console.log(e);
+      return Promise.resolve('Failed, please contact an Admin.');
+    }
+
+    return choices.decideAll();
   }
 
   // Action is a callback that gets this and this.background as params
@@ -87,24 +198,24 @@ module.exports = (srcPath) => class Choices {
     callback(this, this.background);
   }
 
-  async run({ socket, say, write }) {
-    Broadcast = require(srcPath + 'Broadcast');
+  // async run({ socket, say, write }) {
+  //   Broadcast = Broadcast || require(srcPath + 'Broadcast');
 
-    say(`\r\n|${Broadcast.line(40)}`);
-    say(`|${Broadcast.center(40, `${this.background.name}'s Story'`)}`);
-    say(`|${Broadcast.line(40)}`);
+  //   say(`\r\n|${Broadcast.line(40)}`);
+  //   say(`|${Broadcast.center(40, `${this.background.name}'s Story'`)}`);
+  //   say(`|${Broadcast.line(40)}`);
 
-    for (const scenario of this.scenarios) {
-      const choice = await this.runSingleScenario({
-        socket, say, write, scenario
-      });
-      if (this.choices[scenario.id]) {
-        this.choices[scenario.id].push(choice);
-      } else {
-        this.choices[scenario.id] = [choice];
-      }
-    }
-  }
+  //   for (const scenario of this.scenarios) {
+  //     const choice = await this.runSingleScenario({
+  //       socket, say, write, scenario
+  //     });
+  //     if (this.choices[scenario.id]) {
+  //       this.choices[scenario.id].push(choice);
+  //     } else {
+  //       this.choices[scenario.id] = [choice];
+  //     }
+  //   }
+  // }
 
   async runSingleScenario({socket, say, write, scenario}) {
 
