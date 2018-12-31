@@ -58,6 +58,7 @@ module.exports = (srcPath) => {
         const foundBackground = tierBackgrounds[choice];
 
         if (foundBackground) {
+          // TODO: Use ID to decide which bg- event to fire.
           const { id } = foundBackground;
 
           //TODO: Have a CYOA-esque "flashback" determining some of starting eq., etc.
@@ -65,7 +66,8 @@ module.exports = (srcPath) => {
           account.setMeta('memories', (memoryPoints - cost) || 0);
 
           // Temporarily skip the background choices thing.
-          socket.emit('finish-player', socket, { name: playerName, account, background: foundBackground, backgrounds: choices });
+          const args = { name: playerName, account, background: foundBackground, backgrounds: choices };
+          socket.emit('bg-ascetic', socket, args); // FOR TESTING
           // socket.emit(`bg-${id}`, socket, { playerName, foundBackground });
         } else {
           return socket.emit('choose-background', socket, { playerName, account });

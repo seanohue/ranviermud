@@ -9,10 +9,11 @@ module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
   const Logger    = require(srcPath + 'Logger');
+  const Choices   = require('../lib/Choices');
 
   return {
     event: state => (socket, args) => {
-      const { foundBackground, choices = {} } = args;
+      const { background } = args;
       const {
         id,
         name: bgName,
@@ -22,9 +23,9 @@ module.exports = (srcPath) => {
         skills,
         attributePoints,
         abilityPoints
-      } = foundBackground;
+      } = background;
 
-      console.log('In ascetic story, found ', foundBackground);
+      console.log('In ascetic story, found ', background);
 
       const say = EventUtil.genSay(socket);
       const write = EventUtil.genWrite(socket);
@@ -32,187 +33,119 @@ module.exports = (srcPath) => {
       /*
         Choose your own adventure ~~~~
       */
-      say(`\r\n|${Broadcast.line(40)}/`);
-      say("|      An Ascetic's Story");
-      say(`|${Broadcast.line(40)}/`);
 
-      let options = [];
-      const choicesMade = Object.keys(choices).length;
-
-      switch (choicesMade) {
-        case 0: {
-          say("|\r\n|You were not always an Ascetic of your Order.");
-          say("| How did you find yourself in the ragged robes of an Ascetic?");
-
-          options.push({
-            display: 'As punishment, after being caught stealing from the orphanage I was living in.',
-            onSelect: () => {
-              choices.origin = 'orphan';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            },
-          });
-
-          options.push({
-            display: 'I was unable to repay my debts after failing out of Clerical school.',
-            onSelect: () => {
-              choices.origin = 'cleric';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-
-          options.push({
-            display: 'Out of desire to escape the rat race of everyday society',
-            onSelect: () => {
-              choices.origin = 'escapist';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-
-          break;
-        }
-
-        case 1: {
-          say(`|\r\n|As a former ${choices.origin}, The Elders of the Order treated you differently.`);
-          const scenarios = {
-            orphan: ['They took you under their wings as though you were their child.', ' The Elders made for strict but caring parents in absentia.'],
-            cleric: ['They treated you as a student,','enacting harsh discipline and filling your days with','rigorous scholarship.'],
-            escapist: ['They treated you as an outcast,','forcing you into solitude for days at a time,','and filling your free time with hard labor.']
-          };
-
-          for (const line of scenarios[choices.origin]) {
-            say(`| ${line}`);
-          }
-
-          say("| How do you respond to this treatment?");
-
-          const rebel = {
-            orphan: 'They are not your parents.',
-            cleric: 'You need exercise and freedom.',
-            escapist: 'You do not deserve such abuse.'
-          };
-
-          options.push({
-            display: 'Push back against it. ' + rebel[choices.origin],
-            onSelect: () => {
-              choices.treatment = 'rebellious';
-              const effects = {
-                orphan() {
-                  foreground
-                }
-              }
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-
-
-          const question = {
-            orphan: 'Why are they so kind?',
-            cleric: 'Why do they push you?',
-            escapist: 'Why are they so harsh?'
-          };
-
-          options.push({
-            display: 'Question them. ' + question[choices.origin],
-            onSelect: () => {
-              choices.treatment = 'questioning';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-
-          const accept = {
-            orphan: 'You want to make them proud.',
-            cleric: 'You secretly hope for an academic future.',
-            escapist: 'You enjoy the solitude.'
-          };
-
-          options.push({
-            display: 'Abide by their rules.' + accept[choices.origin],
-            onSelect: () => {
-              choices.treatment = 'accepting';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-          break;
-        }
-
-        case 2: {
-          say("|\r\n|How did you come to leave your Cloister?");
-
-          options.push({
-            display: "A daring midnight escape.",
-            onSelect: () => {
-              choices.left = 'escape';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-
-          options.push({
-            display: "Excommunication.",
-            onSelect: () => {
-              choices.left = 'excommunication';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-
-          options.push({
-            display: "Sent to find a rare herb and kidnapped.",
-            onSelect: () => {
-              choices.left = 'kidnapped';
-              socket.emit(`bg-${id}`, socket, { foundBackground, choices });
-            }
-          });
-
-          break;
-        }
-
-        default: {
-          switch (choices.origin) {
-            case 'orphan': {
-              if (choices.treatment === 'rebellious') {
-
-              }
-              break;
-            }
-            case 'cleric': {
-              break;
-            }
-            case 'escapist': {
-              break;
-            }
-          }
-        }
-      }
-
-      say("|");
-
-      // Display and let choose.
-      let optionI = 0;
-      options.forEach((opt) => {
-        if (opt.onSelect) {
-          optionI++;
-          say(`| <cyan>[${optionI}]</cyan> ${opt.display}`);
-        } else {
-          say(`| <bold>${opt.display}</bold>`);
+      const before = Choices.createScenario('before', {
+        title: 'Life Before Penitence',
+        description: 'Memories flash before you, memories of the vessel you now inhabit. This vessel joined a group of penitent ascetics, who gave up material wealth and lifestyle for simplicity and study. But, why?'
+      })
+      .addChoices({
+        druid: { 
+          description: 'They were born into a druidic order.', 
+          effect() { attributes.willpower ++ }
+        },
+        thief: { 
+          description: 'They had to atone for their crimes as a petty thief.',
+          effect() { attributes.quickness ++ }
+        },
+        scholar: {
+          description: 'They converted later in life, to pursue their scholarship in peace.',
+          effect() { attributes.intellect ++ }
         }
       });
 
-      socket.write('|\r\n`-> ');
-
-      socket.once('data', choice => {
-        choice = choice.toString().trim();
-        choice = parseInt(choice, 10) - 1;
-        if (isNaN(choice)) {
-          return socket.emit(`bg-${id}`, socket, args);
+      const ifThief = Choices.createScenario('thief', {
+        title: 'Stolen Goods',
+        description: 'You recall your vessel being caught and dragged to prison. What goods were they caught with?',
+        prerequisite(choices) { return choices.before === 'thief'; }
+      })
+      .addChoices({
+        weapons: {
+          description: 'They were caught smuggling weapons.'
+        },
+        food: {
+          description: 'They were found stealing food to feed their family.'
+        },
+        rareminerals: {
+          description: 'They illegally mined rare minerals used to create black market drugs and other exotic wares.'
+        },
+        kidnapping: {
+          description: 'They were captured running a kidnapping ring.'
         }
+      });
 
-        const selection = options.filter(o => !!o.onSelect)[choice];
-
-        if (selection) {
-          Logger.log('Selected ' + selection.display);
-          return selection.onSelect();
+      const ifScholar = Choices.createScenario('scholar', {
+        title: 'Field of Study',
+        description: 'You recall the subject matter your vessel was obsessed with studying.',
+      })
+      .setPrerequisite((choices) => choices.before === 'scholar')
+      .addChoices({
+        weapons: {
+          description: 'They studied the blade.',
+          effect() { attributes.might ++ }
+        },
+        beasts: {
+          description: 'They dealt with rare flora and fauna.'
+        },
+        tech: {
+          description: 'They built exotic machinery.'
+        },
+        medicine: {
+          description: 'They were trained in the arts of physiology and medicine.'
         }
+      });
 
-        return socket.emit(`bg-${id}`, socket, args);
+      const during = Choices.createScenario('during', {
+        title: 'Life in the Cloister',
+        description: 'You recall a difficult moment in the vessel\'s life after they became an ascetic. What was it?'
+      })
+      .addChoices({
+        ostracized: { // brb afk
+          description: 'They were ostracized by their peers, since they were not born into the order.', 
+          prerequisite(choices) {
+            return choices.before !== 'druid';
+          }
+        },
+        struggled: {
+          description: 'They struggled to master the scholarly studies of the order.', 
+          prerequisite(choices) {
+            return choices.before !== 'scholar';
+          },
+          effect() { attributes.intellect --; }
+        },
+        kleptomania: {
+          description: 'They were often punished for stealing from the other ascetics, and could not control their compulsion.', 
+          prerequisite(choices) {
+            return choices.before === 'thief';
+          },
+          effect() { attributes.willpower --; }
+        },
+        awkward: {
+          description: 'They struggled to socially adapt to those not born into a life of asceticism.', 
+          prerequisite(choices) {
+            return choices.before === 'druid';
+          },
+          effect() {
+            //TODO: Add effect or metadata to indicate being socially stunted :P
+          }
+        },
+        weak: {
+          description: 'They were not tough enough for the manual labor of the order, and were silently judged by their peers for such.',
+          prerequisite(choices) {
+            return choices.before !== 'thief';
+          },
+          effect() {
+            attributes.might --;
+          }
+        }
+      });
+
+      Choices.run({
+        scenarios: [before, ifThief, ifScholar, during],
+        socket,
+        say,
+      }).then(() => {
+        console.log('Emitting Done!');
+        socket.emit('finish-player', socket, args);
       });
     }
   }

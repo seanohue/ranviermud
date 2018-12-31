@@ -8,7 +8,7 @@ module.exports = (srcPath) => {
   return {
     event: state => (socket, args) => {
       args.playerClass = 'base';
-      socket.emit('finish-player', socket, args);
+      socket.emit('bg-ascetic', socket, { socket, args }); // FOR TESTING
     }
   };
 };
