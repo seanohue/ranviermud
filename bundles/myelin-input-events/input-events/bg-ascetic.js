@@ -2,14 +2,11 @@
   Background story event for ascetic.
 */
 
-// Deprecated/rough draft. Looking to create some kind of reusable/configurable interface for this instead.
-// @see lib/Choices.js in this bundle.
-
 module.exports = (srcPath) => {
   const Broadcast = require(srcPath + 'Broadcast');
   const EventUtil = require(srcPath + 'EventUtil');
   const Logger    = require(srcPath + 'Logger');
-  const Choices   = require('../lib/Choices');
+  const Choices   = require('lobus').Choices;
 
   return {
     event: state => (socket, args) => {
@@ -23,24 +20,21 @@ module.exports = (srcPath) => {
         skills,
         attributePoints,
         abilityPoints
-      } = background;
-
-      console.log('In ascetic story, found ', background);
+      } = background; 
 
       const say = EventUtil.genSay(socket);
       const write = EventUtil.genWrite(socket);
-
       /*
         Choose your own adventure ~~~~
       */
 
       const before = Choices.createScenario('before', {
-        title: 'Life Before Penitence',
+        title: '<b>Life Before Penitence</b>',
         description: 'Memories flash before you, memories of the vessel you now inhabit. This vessel joined a group of penitent ascetics, who gave up material wealth and lifestyle for simplicity and study. But, why?'
       })
       .addChoices({
-        druid: { 
-          description: 'They were born into a druidic order.', 
+        born: { 
+          description: 'They were born into the cloistered order.', 
           effect() { attributes.willpower ++ }
         },
         thief: { 
@@ -54,7 +48,7 @@ module.exports = (srcPath) => {
       });
 
       const ifThief = Choices.createScenario('thief', {
-        title: 'Stolen Goods',
+        title: '<b>Stolen Goods</b>',
         description: 'You recall your vessel being caught and dragged to prison. What goods were they caught with?',
         prerequisite(choices) { return choices.before === 'thief'; }
       })
@@ -74,7 +68,7 @@ module.exports = (srcPath) => {
       });
 
       const ifScholar = Choices.createScenario('scholar', {
-        title: 'Field of Study',
+        title: '<b>Field of Study</b>',
         description: 'You recall the subject matter your vessel was obsessed with studying.',
       })
       .setPrerequisite((choices) => choices.before === 'scholar')
@@ -95,14 +89,14 @@ module.exports = (srcPath) => {
       });
 
       const during = Choices.createScenario('during', {
-        title: 'Life in the Cloister',
+        title: '<b>Life in the Cloister</b>',
         description: 'You recall a difficult moment in the vessel\'s life after they became an ascetic. What was it?'
       })
       .addChoices({
-        ostracized: { // brb afk
+        ostracized: {
           description: 'They were ostracized by their peers, since they were not born into the order.', 
           prerequisite(choices) {
-            return choices.before !== 'druid';
+            return choices.before !== 'born';
           }
         },
         struggled: {
@@ -122,7 +116,7 @@ module.exports = (srcPath) => {
         awkward: {
           description: 'They struggled to socially adapt to those not born into a life of asceticism.', 
           prerequisite(choices) {
-            return choices.before === 'druid';
+            return choices.before === 'born';
           },
           effect() {
             //TODO: Add effect or metadata to indicate being socially stunted :P
