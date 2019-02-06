@@ -67,8 +67,7 @@ module.exports = (srcPath) => {
 
           // Temporarily skip the background choices thing.
           const args = { name: playerName, account, background: foundBackground, backgrounds: choices };
-          socket.emit('bg-ascetic', socket, args); // FOR TESTING
-          // socket.emit(`bg-${id}`, socket, { playerName, foundBackground });
+          socket.emit(`bg-${id}`, socket, args);
         } else {
           return socket.emit('choose-background', socket, { playerName, account });
         }

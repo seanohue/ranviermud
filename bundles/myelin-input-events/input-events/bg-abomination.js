@@ -35,38 +35,63 @@ module.exports = (srcPath) => {
       })
       .addChoices({
         poor: {
-          description: 'They were born into the lower case, and had to sleep rough and work odd jobs.', 
+          description: 'They were born into the lower caste, and had to sleep rough and work odd jobs. One night, they were abducted.', 
           effect() { attributes.willpower ++; attributes.intellect --; }
         },
         risky: { 
-          description: 'They were in debt, and had to take a gamble with their own life.',
+          description: 'They were in debt, and had to take a gamble with their own life in exchange for forgiveness.',
           effect() { attributes.intellect ++; attributes.willpower --; }
         },
         science: {
-          description: 'They volunteered themselves for a scientific study they believed in.',
+          description: 'They volunteered themselves for a scientific study they believed in. It turned out to be more than they bargained for.',
           effect() { attributes.intellect ++; attributes.might --; }
         }
       });
 
       const mutation = Choices.createScenario('mutation', {
-        title: '<b>Volunteer Mutant</b>',
-        description: 'You recall your vessel volunteering for a specific trial. What was it?',
+        title: '<b>A Clinical Trial</b>',
+        description: 'You recall your vessel being "volunteered" for a specific trial. What was it?',
       })
       .addChoices({
         claws: {
-          description: 'They volunteered to have chitin claws implanted.',
+          description: 'They "volunteered" to have chitin claws implanted.',
           effect() {
             skills = (skills || []).concat('rend');
           }
         },
         fire: {
-          description: 'They volunteered to have fingers of fire.',
+          description: 'They were forced to have fingers of fire.',
           effect() {
             skills = (skills || []).concat('combust');
           }
         },
-        jolt: { // defibrillations.
-          description: 'They elected to have their nerves electrified.',
+        jolt: {
+          description: 'They "elected" to have their nerves electrified.',
+          effect() {
+            skills = (skills || []).concat('jolt');
+          }
+        },
+      });
+
+      const escape = Choices.createScenario('mutation', {
+        title: '<b>A Clinical Trial</b>',
+        description: 'You recall your vessel being "volunteered" for a specific trial. What was it?',
+      })
+      .addChoices({
+        claws: {
+          description: 'They "volunteered" to have chitin claws implanted.',
+          effect() {
+            skills = (skills || []).concat('rend');
+          }
+        },
+        fire: {
+          description: 'They were forced to have fingers of fire.',
+          effect() {
+            skills = (skills || []).concat('combust');
+          }
+        },
+        jolt: {
+          description: 'They "elected" to have their nerves electrified.',
           effect() {
             skills = (skills || []).concat('jolt');
           }
@@ -74,7 +99,7 @@ module.exports = (srcPath) => {
       });
 
       Choices.run({
-        scenarios: [before, mutation],
+        scenarios: [before, mutation, escape],
         socket,
         say,
       }).then(() => {

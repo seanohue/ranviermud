@@ -11,7 +11,7 @@
     },
     {
       "username": "Yurp",
-      "deleted": false
+      "deleted": true
     },
     {
       "username": "Borked",
@@ -55,10 +55,90 @@
     },
     {
       "username": "Nutid",
-      "deleted": false
+      "deleted": true
     },
     {
       "username": "Hork",
+      "deleted": false
+    },
+    {
+      "username": "Hamdude",
+      "deleted": true
+    },
+    {
+      "username": "Whoh",
+      "deleted": true
+    },
+    {
+      "username": "PotatoCapn",
+      "deleted": false
+    },
+    {
+      "username": "Whomst",
+      "deleted": false
+    },
+    {
+      "username": "HAtman",
+      "deleted": false
+    },
+    {
+      "username": "Hatpotato",
+      "deleted": true
+    },
+    {
+      "username": "Toast",
+      "deleted": true
+    },
+    {
+      "username": "Poopp",
+      "deleted": true
+    },
+    {
+      "username": "Poopppp",
+      "deleted": true
+    },
+    {
+      "username": "Testing",
+      "deleted": true
+    },
+    {
+      "username": "Testingg",
+      "deleted": true
+    },
+    {
+      "username": "Taost",
+      "deleted": true
+    },
+    {
+      "username": "Strategy",
+      "deleted": true
+    },
+    {
+      "username": "MoreTesting",
+      "deleted": true
+    },
+    {
+      "username": "Chaos",
+      "deleted": false
+    },
+    {
+      "username": "Ttttt",
+      "deleted": true
+    },
+    {
+      "username": "Tyyyyyy",
+      "deleted": true
+    },
+    {
+      "username": "Rrrrrrr",
+      "deleted": true
+    },
+    {
+      "username": "Wooooo",
+      "deleted": true
+    },
+    {
+      "username": "Four",
       "deleted": false
     }
   ],
@@ -66,7 +146,7 @@
   "banned": false,
   "deleted": false,
   "metadata": {
-    "memories": 85,
+    "memories": 446,
     "deceased": [
       "Borked",
       "Hamman",
@@ -75,7 +155,11 @@
       "Rammstein",
       "Yurp",
       "Weeble",
-      "Homby"
+      "Homby",
+      "Hork",
+      "PotatoCapn",
+      "Whomst",
+      "HAtman"
     ]
   }
 }
